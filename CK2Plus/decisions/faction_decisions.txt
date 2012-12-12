@@ -1,0 +1,143 @@
+plot_decisions = {
+
+	faction_separatist_war = {
+		is_high_prio = yes
+	
+		potential = {
+			leads_faction = faction_separatist
+		}
+		allow = {
+			war = no
+			prisoner = no
+			faction_power = 
+			{
+				faction = faction_separatist
+				power = 0.75
+			}			
+			liege = {
+				NOT = { war_with = ROOT }
+				NOT = { reverse_has_truce = ROOT }
+			}
+		}
+		effect = {
+			liege = {
+				set_character_flag = faction_separatist_war
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_independence
+					faction = faction_separatist
+				}
+				#any faction might join
+				hidden_tooltip = {
+					any_vassal = {
+						limit = {
+							OR = {
+								leads_faction = faction_feudal_emperor
+								leads_faction = faction_feudal_king
+								leads_faction = faction_feudal_duke					
+							}
+						}
+						character_event = { id = 2000000 }
+					}					
+					any_vassal = {
+						limit = {
+							OR = {
+								leads_faction = faction_court_emperor
+								leads_faction = faction_court_king
+								leads_faction = faction_court_duke					
+							}
+						}
+						character_event = { id = 2000010 }
+					}			
+					any_vassal = {
+						limit = { 
+							OR = {
+								leads_faction = faction_religious_emperor
+								leads_faction = faction_religious_king
+								leads_faction = faction_religious_duke					
+							}
+						}
+						character_event = { id = 2000020 }
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								leads_faction = faction_republican_emperor
+								leads_faction = faction_republican_king
+								leads_faction = faction_republican_duke					
+							}
+						}
+						character_event = { id = 2000030 }
+					}
+					any_vassal = { character_event = { id = 2000040 } }		
+				}					
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	faction_pretender_war = {
+		is_high_prio = yes
+	
+		potential = {
+			leads_faction = faction_pretender
+		}
+		allow = {
+			war = no
+			prisoner = no
+			faction_power =
+			{
+				faction = faction_pretender
+				power = 0.75
+			}			
+			liege = {
+				NOT = { war_with = ROOT }
+				NOT = { reverse_has_truce = ROOT }
+			}
+		}
+		effect = {
+			liege = { set_character_flag = faction_pretender_war }
+			if = {
+				limit = {
+					supported_claimant = {
+						character = ROOT
+					}
+				}
+				faction_pretender = { # The target (title) of the faction
+					reverse_war = {
+						target = ROOT
+						casus_belli = claim_on_liege_plot
+						faction = faction_pretender
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					NOT = { 
+						supported_claimant = {
+							character = ROOT
+						}
+					}
+				}
+				faction_pretender = { # The target (title) of the faction
+					reverse_war = {
+						target = ROOT
+						casus_belli = other_claim_on_liege_plot
+						faction = faction_pretender
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

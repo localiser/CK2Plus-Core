@@ -1,0 +1,2619 @@
+# Faction tags need to start with 'faction_'
+
+# Supported types:
+# liege_titles, liege_titles_w_claimant, character
+
+###############
+# FACTIONS
+###############
+
+# Feudal faction: Desires low CA, low feudal taxes and obligations
+faction_feudal_emperor = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes	
+		prisoner = no
+		is_ruler = yes
+		is_feudal = yes 
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = emperor }
+		NOT = { liege = { has_character_flag = faction_feudal_war } }
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_feudal_emperor
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_feudal_emperor } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = king
+		}
+		modifier = {
+			factor = 0.1
+			tier = count
+		}			
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_feudal_supporter } }
+		}
+		modifier = {
+			factor = 0
+			ROOT = { 
+				liege = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_feudal_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}	
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_feudal_king = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		is_feudal = yes 
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = king }
+		NOT = { liege = { has_character_flag = faction_feudal_war } }
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_feudal_king
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_feudal_king } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = duke
+		}			
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_feudal_supporter }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}	
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_feudal_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_feudal_duke = { #just here for the sake of consistency
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		always = no
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 0		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 0	
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+# Republican faction: Desires low CA and city duties
+faction_republican_emperor = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes	
+		prisoner = no
+		is_ruler = yes
+		is_republic = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = emperor }
+		NOT = { liege = { has_character_flag = faction_republican_war } }	
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_republican_emperor
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_republican_emperor } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = king
+		}
+		modifier = {
+			factor = 0.1
+			tier = count
+		}				
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_republican_supporter }
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}			
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_republican_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}			
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_republican_king = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes	
+		prisoner = no
+		is_ruler = yes
+		is_republic = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = king }
+		NOT = { liege = { has_character_flag = faction_republican_war } }	
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_republican_king
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_republican_king } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = duke
+		}			
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_republican_supporter }
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}			
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_republican_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_republican_duke = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes	
+		prisoner = no
+		is_ruler = yes
+		is_republic = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = duke }
+		NOT = { liege = { has_character_flag = faction_republican_war } }	
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_republican_duke
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_republican_duke } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_republican_supporter }
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_republican_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}			
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+# Religious faction: Desires pious ruler, holy wars
+faction_religious_emperor = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = emperor }
+		liege = { religion = ROOT }
+		NOT = { liege = { has_character_flag = faction_religious_war } }
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_religious_emperor
+					NOT = { character = ROOT }
+				}
+			}
+		}	
+		NOT = { liege = { in_faction = faction_religious_emperor } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = king
+		}
+		modifier = {
+			factor = 0.1
+			tier = count
+		}			
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}	
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_religious_king = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = king }
+		liege = { religion = ROOT }
+		NOT = { liege = { has_character_flag = faction_religious_war } }
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_religious_king
+					NOT = { character = ROOT }
+				}
+			}
+		}	
+		NOT = { liege = { in_faction = faction_religious_king } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = duke
+		}			
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}	
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_religious_duke = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = duke }
+		liege = { religion = ROOT }
+		NOT = { liege = { has_character_flag = faction_religious_war } }
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_religious_duke
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_religious_duke } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}	
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+
+# Court faction: Desires positions at court and honors from the monarch
+faction_court_emperor = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = emperor }
+		NOT = { liege = { has_character_flag = faction_court_war } }	
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_court_emperor
+					NOT = { character = ROOT }
+				}
+			}
+		}	
+		NOT = { liege = { in_faction = faction_court_emperor } }
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = king
+		}
+		modifier = {
+			factor = 0.1
+			tier = count
+		}			
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_court_supporter }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_court_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_court_king = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = king }
+		NOT = { liege = { has_character_flag = faction_court_war } }	
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_court_king
+					NOT = { character = ROOT }
+				}
+			}
+		}	
+		NOT = { liege = { in_faction = faction_court_king } }	
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 10
+			tier = duke
+		}			
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_court_supporter }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_court_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+faction_court_duke = {
+	type = character
+	
+	# Plotter scope
+	potential = {	
+		ai = yes
+		prisoner = no
+		is_ruler = yes
+		independent = no
+		liege = { NOT = { character = ROOT } }
+		liege = { tier = duke }
+		NOT = { liege = { has_character_flag = faction_court_war } }	
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_court_duke
+					NOT = { character = ROOT }
+				}
+			}
+		}
+		NOT = { liege = { in_faction = faction_court_duke } }	
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_court_supporter }
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}		
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_character_flag = faction_court_supporter }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			liege = {
+				current_heir = {
+					character = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}
+	}
+	
+	success = {	
+		always = no
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+# Separatist faction, forms purely for the purpose of waging an independence war
+faction_separatist = {
+	type = character
+	
+	# Plotter scope
+	potential = {
+		prisoner = no
+		is_ruler = yes
+		NOT = { liege = { character = ROOT } }
+		NOT = { liege = { has_character_flag = faction_separatist_war } }	
+		independent = no
+		liege = { independent = yes }
+		age = 16
+		NOT = { trait = incapable }
+		NOT = {
+			liege = {
+				any_vassal = {
+					leads_faction = faction_separatist
+					NOT = { character = ROOT }
+				}
+			}
+		}		
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 1
+		#not unless we have a province
+		modifier = {
+			factor = 0
+			NOT = { num_of_count_titles = 1 }
+		}
+		#0 separatism: never
+		modifier = {
+			factor = 0
+			NOT = { check_variable = { which = "separatist_sentiment" value = 0.05 } }
+		}
+		#1 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 0.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 1.05 } }
+			liege = {
+				OR = {	
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+					}
+					culture = ROOT
+					religion = ROOT
+					AND = {
+						culture_group = ROOT
+						religion_group = ROOT
+					}
+					reverse_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+		}
+		#2 separatism
+		modifier = {
+			factor = 0 
+			check_variable = { which = "separatist_sentiment" value = 1.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 2.05 } }
+			liege = {
+				OR = {
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+					}
+					AND = { 
+						culture = ROOT
+						religion = ROOT	
+					}		
+					AND = {
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = -50
+						}
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 0
+					}					
+				}
+			}
+		}
+		#3 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 2.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 3.05 } }
+			liege = {
+				OR = {	
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = -25
+						}						
+					}
+					AND = {
+						culture = ROOT
+						religion = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = -25
+						}			
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 0
+					}					
+				}
+			}
+		}
+		#4 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 3.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 4.05 } }
+			liege = {
+				OR = {	
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 0
+						}							
+					}
+					AND = {
+						culture = ROOT
+						religion = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 0
+						}			
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 25
+					}					
+				}
+			}
+		}
+		#5 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 4.05 }
+			liege = {
+				OR = {
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 25
+						}							
+					}
+					AND = {
+						culture = ROOT
+						religion = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 25
+						}			
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 50
+					}					
+				}
+			}
+		}
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 100
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		#not unless we have a province
+		modifier = {
+			factor = 0
+			NOT = { num_of_count_titles = 1 }
+		}
+		#0 separatism: never
+		modifier = {
+			factor = 0
+			NOT = { check_variable = { which = "separatist_sentiment" value = 0.05 } }
+		}
+		#1 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 0.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 1.05 } }
+			liege = {
+				OR = {
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+					}
+					culture = ROOT
+					religion = ROOT
+					AND = {
+						culture_group = ROOT
+						religion_group = ROOT
+					}
+					reverse_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+		}
+		#2 separatism
+		modifier = {
+			factor = 0 
+			check_variable = { which = "separatist_sentiment" value = 1.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 2.05 } }
+			liege = {
+				OR = {
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+					}
+					AND = { 
+						culture = ROOT
+						religion = ROOT	
+					}		
+					AND = {
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = -50
+						}
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 0
+					}					
+				}
+			}
+		}
+		#3 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 2.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 3.05 } }
+			liege = {
+				OR = {	
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = -25
+						}						
+					}
+					AND = {
+						culture = ROOT
+						religion = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = -25
+						}			
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 0
+					}					
+				}
+			}
+		}
+		#4 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 3.05 }
+			NOT = { check_variable = { which = "separatist_sentiment" value = 4.05 } }
+			liege = {
+				OR = {	
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 0
+						}							
+					}
+					AND = {
+						culture = ROOT
+						religion = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 0
+						}			
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 25
+					}					
+				}
+			}
+		}
+		#5 separatism
+		modifier = {
+			factor = 0
+			check_variable = { which = "separatist_sentiment" value = 4.05 }
+			liege = {
+				OR = {
+					AND = {
+						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+						culture_group = ROOT
+						religion_group = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 25
+						}							
+					}
+					AND = {
+						culture = ROOT
+						religion = ROOT
+						reverse_opinion = {
+							who = ROOT
+							value = 25
+						}			
+					}	
+					reverse_opinion = {
+						who = ROOT
+						value = 50
+					}					
+				}
+			}
+		}		
+	}
+	
+	success = {	
+		independent = yes
+	}
+	
+	abort = {
+		always = no
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}
+}
+
+# Faction supports claimant to the throne
+faction_pretender = {
+	type = liege_titles_w_claimant # 'new_character' is a Claimant, or, if the title is Elective, anyone eligible for election
+	exclusive = yes # Can only lead or be in one faction of this type
+	
+	# Plotter scope
+	potential = {
+		is_ruler = yes
+		independent = no
+		is_landed = yes
+		age = 16
+		NOT = { trait = incapable }
+		liege = {
+			is_feudal = yes 
+		}
+	}
+	
+	# Target scope
+	allow = {
+		is_primary_holder_title = yes
+		NOT = {
+			new_character = {
+				ROOT = {
+					holder_scope = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+		NOT = {		
+			AND = {
+				NOT = { has_law = succ_feudal_elective }
+				current_heir = {
+					new_character = {
+						character = PREV
+					}
+				}
+			}
+		}
+		new_character = {
+			OR = {
+				is_ruler = no
+				is_feudal = yes
+			}
+		}
+		OR = {
+			new_character = { is_female = no }
+			AND = {
+				NOT = { new_character = { religion_group = muslim } }
+				NOT = { has_law = agnatic_succession }
+			}
+		}
+	}
+	
+	# AI creation weight
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			always = yes
+		}
+		modifier = {
+			factor = 0
+			NOT = { new_character = { character = FROM } }
+			FROM = { 
+				NOT = {
+					OR = {
+						leads_faction = faction_feudal_emperor
+						leads_faction = faction_feudal_king
+						leads_faction = faction_feudal_duke
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						leads_faction = faction_court_emperor
+						leads_faction = faction_court_king
+						leads_faction = faction_court_duke	
+						leads_faction = faction_religious_emperor
+						leads_faction = faction_religious_king
+						leads_faction = faction_religious_duke						
+						AND = {
+							OR = {
+								in_faction = faction_feudal_emperor
+								in_faction = faction_feudal_king
+								in_faction = faction_feudal_duke							
+							}
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_feudal_emperor
+									leads_faction = faction_feudal_king
+									leads_faction = faction_feudal_duke							
+								}
+							}
+						}
+						AND = {
+							OR = {
+								in_faction = faction_republican_emperor
+								in_faction = faction_republican_king
+								in_faction = faction_republican_duke							
+							}
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_republican_emperor
+									leads_faction = faction_republican_king
+									leads_faction = faction_republican_duke							
+								}
+							}
+						}
+						AND = {
+							OR = {
+								in_faction = faction_religious_emperor
+								in_faction = faction_religious_king
+								in_faction = faction_religious_duke							
+							}
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_religious_emperor
+									leads_faction = faction_religious_king
+									leads_faction = faction_religious_duke							
+								}
+							}
+						}
+						AND = {
+							OR = {
+								in_faction = faction_court_emperor
+								in_faction = faction_court_king
+								in_faction = faction_court_duke							
+							}
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_court_emperor
+									leads_faction = faction_court_king
+									leads_faction = faction_court_duke							
+								}
+							}
+						}						
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { new_character = { character = FROM } }
+			FROM = { 
+				OR = {
+					AND = {
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke							
+						}
+						liege = {
+							NOT = {
+								has_character_flag = faction_feudal_unhappy
+								has_character_flag = faction_feudal_angry
+							}
+						}
+					}
+					AND = {
+						OR = {
+							leads_faction = faction_republican_emperor
+							leads_faction = faction_republican_king
+							leads_faction = faction_republican_duke							
+						}
+						liege = {
+							NOT = {
+								has_character_flag = faction_republican_unhappy
+								has_character_flag = faction_republican_angry
+							}
+						}
+					}
+					AND = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke							
+						}
+						liege = {
+							NOT = {
+								has_character_flag = faction_religious_unhappy
+								has_character_flag = faction_religious_angry
+							}
+						}
+					}					
+					AND = {
+						OR = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke							
+						}
+						liege = {
+							NOT = {
+								has_character_flag = faction_court_unhappy
+								has_character_flag = faction_court_angry
+							}
+						}
+					}					
+				}
+			}
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { new_character = { character = FROM } }
+			FROM = { 
+				OR = {
+					AND = {
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke							
+						}
+						liege = {
+							has_character_flag = faction_feudal_unhappy
+						}
+					}
+					AND = {
+						OR = {
+							leads_faction = faction_republican_emperor
+							leads_faction = faction_republican_king
+							leads_faction = faction_republican_duke							
+						}
+						liege = {
+							has_character_flag = faction_feudal_unhappy
+						}
+					}
+					AND = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke							
+						}
+						liege = {
+							has_character_flag = faction_feudal_unhappy
+						}
+					}					
+					AND = {
+						OR = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke							
+						}
+						liege = {
+							has_character_flag = faction_feudal_unhappy
+						}
+					}					
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			holder_scope = { regent = { is_alive = yes } }
+		}
+		modifier = {
+			factor = 10
+			new_character = { character = FROM }
+		}		
+		modifier = {
+			factor = 3
+			FROM = {
+				OR = {
+					leads_faction = faction_court_emperor
+					leads_faction = faction_court_king
+					leads_faction = faction_court_duke						
+				}			
+			}
+		}
+		modifier = {
+			factor = 2
+			FROM = { 
+				OR = {
+					leads_faction = faction_religious_emperor
+					leads_faction = faction_religious_king
+					leads_faction = faction_religious_duke							
+				}
+				liege = { trait = excommunicated }
+			}
+		}	
+		modifier = {
+			factor = 0.5
+			FROM = { 
+				OR = {
+					leads_faction = faction_religious_emperor
+					leads_faction = faction_religious_king
+					leads_faction = faction_religious_duke							
+				}
+				liege = { NOT = { trait = excommunicated } }
+			}
+		}		
+		modifier = {
+			factor = 0.25
+			FROM = {
+				OR = {
+					leads_faction = faction_republican_emperor
+					leads_faction = faction_republican_king
+					leads_faction = faction_republican_duke							
+				}			
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				NOT = { culture_group = FROM }
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				NOT = { culture = FROM }
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				NOT = { religion = FROM }
+			}
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { new_character = { character = FROM } }
+			NOT = {
+				new_character = {
+					FROM = {
+						opinion_diff = {
+							first = LIEGE
+							second = PREV
+							value = -10 # I don't like the pretender enough
+							as_if_liege = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				FROM = {
+					opinion_diff = {
+						first = LIEGE
+						second = PREV
+						value = 10
+						as_if_liege = yes
+					}
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				FROM = {
+					opinion_diff = {
+						first = LIEGE
+						second = PREV
+						value = 25
+						as_if_liege = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				FROM = {
+					opinion_diff = {
+						first = LIEGE
+						second = PREV
+						value = 50
+						as_if_liege = yes
+					}
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				FROM = {
+					opinion_diff = {
+						first = LIEGE
+						second = PREV
+						value = 75
+						as_if_liege = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			new_character = {
+				FROM = {
+					opinion_diff = {
+						first = LIEGE
+						second = PREV
+						value = 100
+						as_if_liege = yes
+					}
+				}
+			}
+		}		
+		modifier = {
+			factor = 0
+			NOT = { new_character = { character = FROM } }
+			FROM = {
+				liege = {
+					new_character = {
+						opinion = {
+							who = PREV
+							value = 50
+						}
+					}	
+				}
+			}
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { new_character = { character = FROM } }
+			FROM = {
+				liege = {
+					new_character = {
+						opinion = {
+							who = PREV
+							value = 25
+						}
+					}	
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			FROM = {
+				liege = {
+					new_character = {
+						NOT = {
+							opinion = {
+								who = PREV
+								value = 0
+							}
+						}
+					}	
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			FROM = {
+				liege = {
+					new_character = {
+						NOT = {
+							opinion = {
+								who = PREV
+								value = -25
+							}
+						}
+					}	
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			FROM = {
+				liege = {
+					new_character = {
+						NOT = {
+							opinion = {
+								who = PREV
+								value = -50
+							}
+						}
+					}	
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { new_character = { character = FROM } }
+			FROM = {
+				liege = {
+					new_character = {
+						NOT = {
+							opinion = {
+								who = PREV
+								value = -75
+							}
+						}
+					}	
+				}
+			}
+		}	
+		modifier = {
+			factor = 0.5
+			new_character = { is_female = yes }
+			NOT = { has_law = true_cognatic_succession }
+		}
+		modifier = {
+			factor = 3.0
+			new_character = { character = FROM }
+			FROM = { trait = ambitious }
+		}		
+		modifier = {
+			factor = 0
+			new_character = { character = FROM }
+			FROM = { trait = content }
+		}
+		modifier = {
+			factor = 0
+			new_character = { character = FROM }
+			FROM = {
+				opinion = {
+					who = liege
+					value = -50
+				}
+				NOT = {
+					OR = {
+						AND = {
+							OR = {
+								leads_faction = faction_feudal_emperor
+								leads_faction = faction_feudal_king
+								leads_faction = faction_feudal_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_feudal_unhappy
+									has_character_flag = faction_feudal_angry
+								}
+							}
+						}
+						AND = {
+							OR = {
+								leads_faction = faction_republican_emperor
+								leads_faction = faction_republican_king
+								leads_faction = faction_republican_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_republican_unhappy
+									has_character_flag = faction_republican_angry
+								}
+							}
+						}
+						AND = {
+							OR = {
+								leads_faction = faction_religious_emperor
+								leads_faction = faction_religious_king
+								leads_faction = faction_religious_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_religious_unhappy
+									has_character_flag = faction_religious_angry
+								}
+							}
+						}					
+						AND = {
+							OR = {
+								leads_faction = faction_court_emperor
+								leads_faction = faction_court_king
+								leads_faction = faction_court_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_court_unhappy
+									has_character_flag = faction_court_angry
+								}
+							}
+						}					
+					}
+				}
+			}				
+		}
+		modifier = {
+			factor = 0
+			new_character = { character = FROM }
+			FROM = {
+				opinion = {
+					who = liege
+					value = -25
+				}
+				NOT = {
+					OR = {
+						AND = {
+							OR = {
+								leads_faction = faction_feudal_emperor
+								leads_faction = faction_feudal_king
+								leads_faction = faction_feudal_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_feudal_angry
+								}
+							}
+						}
+						AND = {
+							OR = {
+								leads_faction = faction_republican_emperor
+								leads_faction = faction_republican_king
+								leads_faction = faction_republican_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_republican_angry
+								}
+							}
+						}
+						AND = {
+							OR = {
+								leads_faction = faction_religious_emperor
+								leads_faction = faction_religious_king
+								leads_faction = faction_religious_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_religious_angry
+								}
+							}
+						}					
+						AND = {
+							OR = {
+								leads_faction = faction_court_emperor
+								leads_faction = faction_court_king
+								leads_faction = faction_court_duke							
+							}
+							liege = {
+								NOT = {
+									has_character_flag = faction_court_angry
+								}
+							}
+						}					
+					}
+				}
+			}				
+		}	
+	}
+	
+	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
+	membership = {
+		factor = 1
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		modifier = {
+			factor = 0
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			ROOT = { 
+				NOT = {
+					OR = {
+						leads_faction = faction_feudal_emperor
+						leads_faction = faction_feudal_king
+						leads_faction = faction_feudal_duke
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						leads_faction = faction_court_emperor
+						leads_faction = faction_court_king
+						leads_faction = faction_court_duke	
+						leads_faction = faction_religious_emperor
+						leads_faction = faction_religious_king
+						leads_faction = faction_religious_duke						
+						AND = {
+							OR = {
+								in_faction = faction_feudal_emperor
+								in_faction = faction_feudal_king
+								in_faction = faction_feudal_duke							
+							}
+							FROM = {
+								OR = {
+									leads_faction = faction_feudal_emperor
+									leads_faction = faction_feudal_king
+									leads_faction = faction_feudal_duke
+									any_faction_backer = {
+										faction = faction_pretender
+										OR = {
+											leads_faction = faction_feudal_emperor
+											leads_faction = faction_feudal_king
+											leads_faction = faction_feudal_duke								
+										}
+									}
+								}
+							}
+						}
+						AND = {
+							OR = {
+								in_faction = faction_republican_emperor
+								in_faction = faction_republican_king
+								in_faction = faction_republican_duke							
+							}
+							FROM = {
+								OR = {
+									leads_faction = faction_republican_emperor
+									leads_faction = faction_republican_king
+									leads_faction = faction_republican_duke
+									any_faction_backer = {
+										faction = faction_pretender
+										OR = {
+											leads_faction = faction_republican_emperor
+											leads_faction = faction_republican_king
+											leads_faction = faction_republican_duke								
+										}
+									}
+								}
+							}
+						}
+						AND = {
+							OR = {
+								in_faction = faction_religious_emperor
+								in_faction = faction_religious_king
+								in_faction = faction_religious_duke							
+							}
+							FROM = {
+								OR = {
+									leads_faction = faction_religious_emperor
+									leads_faction = faction_religious_king
+									leads_faction = faction_religious_duke
+									any_faction_backer = {
+										faction = faction_pretender
+										OR = {
+											leads_faction = faction_religious_emperor
+											leads_faction = faction_religious_king
+											leads_faction = faction_religious_duke								
+										}
+									}
+								}
+							}
+						}
+						AND = {
+							OR = {
+								in_faction = faction_court_emperor
+								in_faction = faction_court_king
+								in_faction = faction_court_duke							
+							}
+							FROM = {
+								OR = {
+									leads_faction = faction_court_emperor
+									leads_faction = faction_court_king
+									leads_faction = faction_court_duke
+									any_faction_backer = {
+										faction = faction_pretender
+										OR = {
+											leads_faction = faction_court_emperor
+											leads_faction = faction_court_king
+											leads_faction = faction_court_duke								
+										}
+									}
+								}
+							}
+						}							
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 100
+			OR = {
+				FROM = { supported_claimant = { character = ROOT } }
+				AND = {
+					OR = {
+						in_faction = faction_feudal_emperor
+						in_faction = faction_feudal_king
+						in_faction = faction_feudal_duke							
+					}
+					FROM = {
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_feudal_emperor
+									leads_faction = faction_feudal_king
+									leads_faction = faction_feudal_duke								
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke							
+					}
+					FROM = {
+						OR = {
+							leads_faction = faction_republican_emperor
+							leads_faction = faction_republican_king
+							leads_faction = faction_republican_duke
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_republican_emperor
+									leads_faction = faction_republican_king
+									leads_faction = faction_republican_duke								
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						in_faction = faction_religious_emperor
+						in_faction = faction_religious_king
+						in_faction = faction_religious_duke							
+					}
+					FROM = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_religious_emperor
+									leads_faction = faction_religious_king
+									leads_faction = faction_religious_duke								
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						in_faction = faction_court_emperor
+						in_faction = faction_court_king
+						in_faction = faction_court_duke							
+					}
+					FROM = {
+						OR = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke
+							any_faction_backer = {
+								faction = faction_pretender
+								OR = {
+									leads_faction = faction_court_emperor
+									leads_faction = faction_court_king
+									leads_faction = faction_court_duke								
+								}
+							}
+						}
+					}
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			OR = {
+				AND = {
+					OR = {
+						leads_faction = faction_feudal_emperor
+						leads_faction = faction_feudal_king
+						leads_faction = faction_feudal_duke							
+					}
+					liege = {
+						NOT = {
+							has_character_flag = faction_feudal_unhappy
+							has_character_flag = faction_feudal_angry
+						}
+					}
+				}
+				AND = {
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke							
+					}
+					liege = {
+						NOT = {
+							has_character_flag = faction_republican_unhappy
+							has_character_flag = faction_republican_angry
+						}
+					}
+				}
+				AND = {
+					OR = {
+						leads_faction = faction_religious_emperor
+						leads_faction = faction_religious_king
+						leads_faction = faction_religious_duke							
+					}
+					liege = {
+						NOT = {
+							has_character_flag = faction_religious_unhappy
+							has_character_flag = faction_religious_angry
+						}
+					}
+				}					
+				AND = {
+					OR = {
+						leads_faction = faction_court_emperor
+						leads_faction = faction_court_king
+						leads_faction = faction_court_duke							
+					}
+					liege = {
+						NOT = {
+							has_character_flag = faction_court_unhappy
+							has_character_flag = faction_court_angry
+						}
+					}
+				}					
+			}
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			OR = {
+				AND = {
+					OR = {
+						leads_faction = faction_feudal_emperor
+						leads_faction = faction_feudal_king
+						leads_faction = faction_feudal_duke							
+					}
+					liege = {
+						has_character_flag = faction_feudal_unhappy
+					}
+				}
+				AND = {
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke							
+					}
+					liege = {
+						has_character_flag = faction_feudal_unhappy
+					}
+				}
+				AND = {
+					OR = {
+						leads_faction = faction_religious_emperor
+						leads_faction = faction_religious_king
+						leads_faction = faction_religious_duke							
+					}
+					liege = {
+						has_character_flag = faction_feudal_unhappy
+					}
+				}					
+				AND = {
+					OR = {
+						leads_faction = faction_court_emperor
+						leads_faction = faction_court_king
+						leads_faction = faction_court_duke							
+					}
+					liege = {
+						has_character_flag = faction_feudal_unhappy
+					}
+				}					
+			}
+		}
+		modifier = {
+			factor = 3
+			FROMFROM = { holder_scope = { regent = { is_alive = yes } } }
+		}		
+		modifier = {
+			factor = 3
+			FROM = {
+				OR = {
+					leads_faction = faction_court_emperor
+					leads_faction = faction_court_king
+					leads_faction = faction_court_duke						
+				}			
+			}
+		}
+		modifier = {
+			factor = 2
+			FROM = { 
+				OR = {
+					leads_faction = faction_religious_emperor
+					leads_faction = faction_religious_king
+					leads_faction = faction_religious_duke							
+				}
+				liege = { trait = excommunicated }
+			}
+		}	
+		modifier = {
+			factor = 0.5
+			FROM = { 
+				OR = {
+					leads_faction = faction_religious_emperor
+					leads_faction = faction_religious_king
+					leads_faction = faction_religious_duke							
+				}
+				liege = { NOT = { trait = excommunicated } }
+			}
+		}		
+		modifier = {
+			factor = 0.25
+			FROM = {
+				OR = {
+					leads_faction = faction_republican_emperor
+					leads_faction = faction_republican_king
+					leads_faction = faction_republican_duke							
+				}			
+			}
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					NOT = { culture_group = ROOT }
+				}
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					NOT = { culture = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					NOT = { religion = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			NOT = {
+				FROM = { 
+					supported_claimant = {
+						ROOT = {
+							opinion_diff = {
+								first = LIEGE
+								second = PREV
+								value = -10 # I don't like the pretender enough
+								as_if_liege = yes
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					ROOT = {
+						opinion_diff = {
+							first = LIEGE
+							second = PREV
+							value = 10
+							as_if_liege = yes
+						}
+					}
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					ROOT = {
+						opinion_diff = {
+							first = LIEGE
+							second = PREV
+							value = 25
+							as_if_liege = yes
+						}
+					}
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					ROOT = {
+						opinion_diff = {
+							first = LIEGE
+							second = PREV
+							value = 50
+							as_if_liege = yes
+						}
+					}
+				}
+			}
+		}		
+		modifier = {
+			factor = 1.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					ROOT = {
+						opinion_diff = {
+							first = LIEGE
+							second = PREV
+							value = 75
+							as_if_liege = yes
+						}
+					}
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.5
+			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			FROM = { 
+				supported_claimant = {
+					ROOT = {
+						opinion_diff = {
+							first = LIEGE
+							second = PREV
+							value = 100
+							as_if_liege = yes
+						}
+					}
+				}
+			}
+		}	
+		modifier = {
+			factor = 0.5
+			FROM = { supported_claimant = { is_female = yes } }
+			NOT = { FROMFROM = { has_law = true_cognatic_succession } }
+		}	
+	}
+	
+	success = {
+		always = no
+	}
+	
+	abort = {
+		always = no	
+	}
+	
+	abort_effect = {
+	}
+	
+	effect = {
+	}		
+}

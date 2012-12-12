@@ -1,0 +1,2100 @@
+#feudal faction leader declares for one side or the other...
+character_event = {
+	id = 2000000
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000000"
+	
+	option = {
+		name = "EVTOPTA2000000"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_character_flag = do_not_join_civil_war
+			}
+			modifier = {
+				factor = 0
+				liege = {
+					NOT = { has_character_flag = faction_feudal_angry } 
+					NOT = { has_character_flag = faction_feudal_unhappy } 
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_feudal_angry }
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = 0
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -50
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -75
+					}
+				}
+			}				
+		}
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000001 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_feudal_emperor
+							in_faction = faction_feudal_king
+							in_faction = faction_feudal_duke
+						}
+					}
+					character_event = { id = 2000003 }
+				}
+			}
+		}
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }		
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROM		
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTB2000000"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				liege = {
+					OR = {
+						has_character_flag = faction_feudal_angry
+						has_character_flag = faction_feudal_unhappy
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_feudal_happy }
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 25
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 75
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 100
+				}
+			}				
+		}
+		add_trait = loyalist
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000002 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_feudal_emperor
+							in_faction = faction_feudal_king
+							in_faction = faction_feudal_duke
+						}
+					}
+					character_event = { id = 2000004 }
+				}
+			}
+		}
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTC2000000"
+		ai_chance = {
+			factor = 100
+		}
+		prestige = -100
+		hidden_tooltip = {
+			liege = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_feudal_emperor
+							in_faction = faction_feudal_king
+							in_faction = faction_feudal_duke
+						}
+					}
+					character_event = { id = 2000005 }
+				}
+			}
+		}	
+		clr_character_flag = do_not_join_civil_war	
+	}
+}
+
+# Notify liege of faction joining rebellion
+character_event = {
+	id = 2000001
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000001"
+	
+	option = {
+		name = "EVTOPTA2000001"
+	}
+}
+
+# Notify liege of faction joining loyalists
+character_event = {
+	id = 2000002
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000002"
+	
+	option = {
+		name = "EVTOPTA2000002"
+	}
+}
+
+# Faction member is called into the rebellion
+character_event = {
+	id = 2000003
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000001"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+}
+
+# Faction member becomes a loyalist
+character_event = {
+	id = 2000004
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000002"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = loyalist
+	}
+}
+
+# If faction is neutral, player can pick sides
+character_event = {
+	id = 2000005
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	trigger = {
+		ai = no
+	}
+	
+	desc = "EVTDESC2000005"
+	
+	option = {
+		name = "EVTOPTA2000005"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+	option = {
+		name = "EVTOPTB2000005"
+		add_trait = loyalist
+	}
+	option = {
+		name = "EVTOPTC2000005"
+	}
+}
+
+#court faction leader declares for one side or the other...
+character_event = {
+	id = 2000010
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000010"
+	
+	option = {
+		name = "EVTOPTA2000010"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_character_flag = do_not_join_civil_war
+			}
+			modifier = {
+				factor = 0
+				liege = {
+					NOT = { has_character_flag = faction_court_angry } 
+					NOT = { has_character_flag = faction_court_unhappy } 
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_court_angry }
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = 0
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -50
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -75
+					}
+				}
+			}				
+		}
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000011 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_court_emperor
+							in_faction = faction_court_king
+							in_faction = faction_court_duke
+						}
+					}
+					character_event = { id = 2000013 }
+				}
+			}
+		}
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROM		
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTB2000010"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				liege = {
+					OR = {
+						has_character_flag = faction_court_angry
+						has_character_flag = faction_court_unhappy
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_court_happy }
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 25
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 75
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 100
+				}
+			}				
+		}
+		add_trait = loyalist
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000012 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_court_emperor
+							in_faction = faction_court_king
+							in_faction = faction_court_duke
+						}
+					}
+					character_event = { id = 2000014 }
+				}
+			}
+		}
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTC2000010"
+		ai_chance = {
+			factor = 100
+		}
+		prestige = -100
+		hidden_tooltip = {
+			liege = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_court_emperor
+							in_faction = faction_court_king
+							in_faction = faction_court_duke
+						}
+					}
+					character_event = { id = 2000015 }
+				}
+			}
+		}
+		clr_character_flag = do_not_join_civil_war	
+	}
+}
+
+# Notify liege of faction joining rebellion
+character_event = {
+	id = 2000011
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000011"
+	
+	option = {
+		name = "EVTOPTA2000011"
+	}
+}
+
+# Notify liege of faction joining loyalists
+character_event = {
+	id = 2000012
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000012"
+	
+	option = {
+		name = "EVTOPTA2000012"
+	}
+}
+
+# Faction member is called into the rebellion
+character_event = {
+	id = 2000013
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000011"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+}
+
+# Faction member becomes a loyalist
+character_event = {
+	id = 2000014
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000012"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = loyalist
+	}
+}
+
+# If faction is neutral, player can pick sides
+character_event = {
+	id = 2000015
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	trigger = {
+		ai = no
+	}
+	
+	desc = "EVTDESC2000015"
+	
+	option = {
+		name = "EVTOPTA2000015"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+	option = {
+		name = "EVTOPTB2000015"
+		add_trait = loyalist
+	}
+	option = {
+		name = "EVTOPTC2000015"
+		prestige = -50
+	}
+}
+
+#religious faction leader declares for one side or the other...
+character_event = {
+	id = 2000020
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000020"
+	
+	option = {
+		name = "EVTOPTA2000020"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_character_flag = do_not_join_civil_war
+			}
+			modifier = {
+				factor = 0
+				liege = {
+					NOT = { has_character_flag = faction_religious_angry } 
+					NOT = { has_character_flag = faction_religious_unhappy } 
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_religious_angry }
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = 0
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -50
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -75
+					}
+				}
+			}				
+		}
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000021 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_religious_emperor
+							in_faction = faction_religious_king
+							in_faction = faction_religious_duke
+						}
+					}
+					character_event = { id = 2000023 }
+				}
+			}
+		}
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROM		
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTB2000020"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				liege = {
+					OR = {
+						has_character_flag = faction_religious_angry
+						has_character_flag = faction_religious_unhappy
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_religious_happy }
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 25
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 75
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 100
+				}
+			}				
+		}
+		add_trait = loyalist
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000022 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_religious_emperor
+							in_faction = faction_religious_king
+							in_faction = faction_religious_duke
+						}
+					}
+					character_event = { id = 2000024 }
+				}
+			}
+		}
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTC2000020"
+		ai_chance = {
+			factor = 100
+		}
+		prestige = -100
+		hidden_tooltip = {
+			liege = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_religious_emperor
+							in_faction = faction_religious_king
+							in_faction = faction_religious_duke
+						}
+					}
+					character_event = { id = 2000025 }
+				}
+			}
+		}
+		clr_character_flag = do_not_join_civil_war	
+	}
+}
+
+# Notify liege of faction joining rebellion
+character_event = {
+	id = 2000021
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000021"
+	
+	option = {
+		name = "EVTOPTA2000021"
+	}
+}
+
+# Notify liege of faction joining loyalists
+character_event = {
+	id = 2000022
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000022"
+	
+	option = {
+		name = "EVTOPTA2000022"
+	}
+}
+
+# Faction member is called into the rebellion
+character_event = {
+	id = 2000023
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000021"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+}
+
+# Faction member becomes a loyalist
+character_event = {
+	id = 2000024
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000022"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = loyalist
+	}
+}
+
+# If faction is neutral, player can pick sides
+character_event = {
+	id = 2000025
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	trigger = {
+		ai = no
+	}
+	
+	desc = "EVTDESC2000025"
+	
+	option = {
+		name = "EVTOPTA2000025"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+	option = {
+		name = "EVTOPTB2000025"
+		add_trait = loyalist
+	}
+	option = {
+		name = "EVTOPTC2000025"
+		prestige = -50
+	}
+}
+
+#republican faction leader declares for one side or the other...
+character_event = {
+	id = 2000030
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000030"
+	
+	option = {
+		name = "EVTOPTA2000030"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_character_flag = do_not_join_civil_war
+			}
+			modifier = {
+				factor = 0
+				liege = {
+					NOT = { has_character_flag = faction_republican_angry } 
+					NOT = { has_character_flag = faction_republican_unhappy } 
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_republican_angry }
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = 0
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -50
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				NOT = {
+					opinion = {
+						who = liege
+						value = -75
+					}
+				}
+			}				
+		}
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000031 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_republican_emperor
+							in_faction = faction_republican_king
+							in_faction = faction_republican_duke
+						}
+					}
+					character_event = { id = 2000033 }
+				}
+			}
+		}
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROM		
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTB2000030"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				liege = {
+					OR = {
+						has_character_flag = faction_republican_angry
+						has_character_flag = faction_republican_unhappy
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				liege = { has_character_flag = faction_republican_happy }
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 25
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 75
+				}
+			}	
+			modifier = {
+				factor = 1.25
+				opinion = {
+					who = liege
+					value = 100
+				}
+			}				
+		}
+		add_trait = loyalist
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = 2000032 }
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_republican_emperor
+							in_faction = faction_republican_king
+							in_faction = faction_republican_duke
+						}
+					}
+					character_event = { id = 2000034 }
+				}
+			}
+		}
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTC2000030"
+		ai_chance = {
+			factor = 100
+		}
+		prestige = -100
+		hidden_tooltip = {
+			liege = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_republican_emperor
+							in_faction = faction_republican_king
+							in_faction = faction_republican_duke
+						}
+					}
+					character_event = { id = 2000035 }
+				}
+			}
+		}	
+		clr_character_flag = do_not_join_civil_war	
+	}
+}
+
+# Notify liege of faction joining rebellion
+character_event = {
+	id = 2000031
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000031"
+	
+	option = {
+		name = "EVTOPTA2000031"
+	}
+}
+
+# Notify liege of faction joining loyalists
+character_event = {
+	id = 2000032
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000032"
+	
+	option = {
+		name = "EVTOPTA2000032"
+	}
+}
+
+# Faction member is called into the rebellion
+character_event = {
+	id = 2000033
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000031"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+}
+
+# Faction member becomes a loyalist
+character_event = {
+	id = 2000034
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	desc = "EVTDESC2000032"
+	
+	option = {
+		name = "TOARMS"
+		add_trait = loyalist
+	}
+}
+
+# If faction is neutral, player can pick sides
+character_event = {
+	id = 2000035
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"	
+	
+	trigger = {
+		ai = no
+	}
+	
+	desc = "EVTDESC2000035"
+	
+	option = {
+		name = "EVTOPTA2000035"
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROMFROM
+	}
+	option = {
+		name = "EVTOPTB2000035"
+		add_trait = loyalist
+	}
+	option = {
+		name = "EVTOPTC2000035"
+		prestige = -50
+	}
+}
+
+#non-faction aligned characters pick a side
+character_event = {
+	id = 2000040
+	is_triggered_only = yes
+	picture = "GFX_evt_battle"
+	border = "GFX_event_normal_frame_war"
+	
+	trigger = {
+		prisoner = no
+		higher_tier_than = baron
+		OR = {
+			AND = {
+				NOT = { trait = incapable }
+				age = 16
+			}
+			ai = no
+		}
+		NOT = {
+			leads_faction = faction_feudal_emperor
+			leads_faction = faction_feudal_king
+			leads_faction = faction_feudal_duke
+			leads_faction = faction_court_emperor
+			leads_faction = faction_court_king
+			leads_faction = faction_court_duke								
+			leads_faction = faction_religious_emperor
+			leads_faction = faction_religious_king
+			leads_faction = faction_religious_duke	
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke	
+			in_faction = faction_feudal_emperor
+			in_faction = faction_feudal_king
+			in_faction = faction_feudal_duke
+			in_faction = faction_court_emperor
+			in_faction = faction_court_king
+			in_faction = faction_court_duke								
+			in_faction = faction_religious_emperor
+			in_faction = faction_religious_king
+			in_faction = faction_religious_duke	
+			in_faction = faction_republican_emperor
+			in_faction = faction_republican_king
+			in_faction = faction_republican_duke							
+		}	
+	}
+	
+	desc = "EVTDESC2000040"
+	
+	option = {
+		name = "EVTOPTA2000000"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_character_flag = do_not_join_civil_war
+			}			
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0
+				opinion = {
+					who = liege
+					value = 0
+				}
+			}			
+			modifier = {
+				factor = 3
+				NOT = {
+					opinion = {
+						who = liege
+						value = 0
+					}
+				}
+			}	
+			modifier = {
+				factor = 3
+				NOT = {
+					opinion = {
+						who = liege
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 3
+				NOT = {
+					opinion = {
+						who = liege
+						value = -50
+					}
+				}
+			}	
+			modifier = {
+				factor = 3
+				NOT = {
+					opinion = {
+						who = liege
+						value = -75
+					}
+				}
+			}				
+		}
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
+			if = {
+				limit = {
+					liege = { 
+						OR = {
+							independent = yes
+							liege = { character = PREV }
+						}
+					}
+				}
+				set_defacto_liege = ROOT 
+			}
+			if = {
+				limit = {
+					liege = { 
+						independent = no
+						liege = { NOT = { character = PREV } }
+					}
+				}
+				liege = {
+					liege = {
+						ROOT = {
+							set_defacto_liege = PREV
+						}
+					}
+				}
+			}			
+		}
+		join_attacker_wars = FROM	
+		clr_character_flag = do_not_join_civil_war		
+	}
+	option = {
+		name = "EVTOPTB2000040"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = {
+					opinion = {
+						who = liege
+						value = 0
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+			modifier = {
+				factor = 3
+				opinion = {
+					who = liege
+					value = 25
+				}
+			}	
+			modifier = {
+				factor = 3
+				opinion = {
+					who = liege
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 3
+				opinion = {
+					who = liege
+					value = 75
+				}
+			}	
+			modifier = {
+				factor = 3
+				opinion = {
+					who = liege
+					value = 100
+				}
+			}				
+		}
+		add_trait = loyalist
+		clr_character_flag = do_not_join_civil_war
+	}
+	option = {
+		name = "EVTOPTC2000040"
+		ai_chance = {
+			factor = 100
+		}
+		prestige = -100	
+		clr_character_flag = do_not_join_civil_war
+	}
+}
+
+#End of civil war
+character_event = {
+	id = 2010030
+	picture = GFX_evt_council		
+	is_triggered_only = yes
+	hide_from = yes
+		
+	desc = "EVTDESC2010030" #How do I reward my supporters?
+	
+	trigger = {
+		any_vassal = {
+			higher_tier_than = baron
+			OR = {
+				trait = loyalist
+				trait = rebel
+			}			
+		}
+	}
+	
+	immediate = {
+		any_vassal = {
+			limit = {
+				OR = {
+					trait = loyalist
+					trait = rebel
+				}
+				prisoner = yes
+			}
+			prisoner = no
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA2010030" #Tax Privileges
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 2.0
+				trait = charitable
+			}
+		}
+		custom_tooltip = CUSTOMTOOLTIP26
+		any_demesne_title = {
+			limit = {
+				tier = count
+			}
+			hidden_tooltip = {
+				remove_province_modifier = tax_privileges
+				remove_province_modifier = tax_reduction			
+			}
+			location = {
+				add_province_modifier = {
+					name = "tax_reduction"
+					duration = 3650
+				}	
+			}
+		}
+		hidden_tooltip = {
+			any_vassal = {
+				limit = {	
+					higher_tier_than = baron
+					NOT = {
+						OR = {
+							trait = loyalist
+							trait = rebel
+						}
+					}
+				}
+				character_event = { id = 2010031 days = 7 } #notify
+				any_vassal = {
+					character_event = { id = 2010031 days = 7 } #notify
+					any_vassal = {
+						character_event = { id = 2010031 days = 7 } #notify				
+					}					
+				}
+			}		
+			any_vassal = {
+				limit = {	
+					higher_tier_than = baron
+					OR = {
+						trait = loyalist
+						trait = rebel
+					}
+				}
+				remove_trait = loyalist
+				remove_trait = rebel
+				any_playable_ruler = {
+					reverse_remove_opinion = {
+						who = PREV
+						modifier = revolting_against
+					}	
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_pleased
+					months = 120
+				}	
+				character_event = { id = 2010032 days = 7 } #notify
+				any_vassal = {
+					character_event = { id = 2010032 days = 7 } #notify
+					any_vassal = {
+						character_event = { id = 2010032 days = 7 } #notify				
+					}					
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB2010030" #Glory and Honor
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 2.0
+				trait = ambitious
+			}				
+			modifier = {
+				factor = 0.5
+				trait = proud
+			}
+			modifier = {
+				factor = 2.0
+				trait = humble
+			}			
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						tier = duke
+						NOT = { prestige = 500 }
+					}
+					AND = {
+						tier = king
+						NOT = { prestige = 750 }
+					}
+					AND = {
+						tier = emperor
+						NOT = { prestige = 1000 }
+					}					
+				}
+			}	
+		}
+		custom_tooltip = CUSTOMTOOLTIP26
+		if = {
+			limit = {
+				tier = duke
+			}
+			prestige = -500
+		}
+		if = {
+			limit = {
+				tier = king
+			}
+			prestige = -750
+		}	
+		if = {
+			limit = {
+				tier = emperor
+			}
+			prestige = -1000
+		}		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = {	
+					higher_tier_than = baron
+					NOT = {
+						OR = {
+							trait = loyalist
+							trait = rebel
+						}
+					}
+				}
+				character_event = { id = 2010033 days = 7 } #notify
+			}		
+			any_vassal = {
+				limit = {	
+					higher_tier_than = baron
+					OR = {
+						trait = loyalist
+						trait = rebel
+					}
+				}
+				remove_trait = loyalist
+				remove_trait = rebel
+				any_playable_ruler = {
+					reverse_remove_opinion = {
+						who = PREV
+						modifier = revolting_against
+					}	
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_pleased
+					months = 120
+				}	
+				character_event = { id = 2010034 days = 7 } #notify
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC2010030" #Nothing
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				factor = 0.1
+				OR = {
+					trait = humble
+					trait = content
+					trait = charitable
+					trait = just
+				}	
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}			
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}			
+			modifier = {
+				factor = 2.0
+				trait = cruel
+			}	
+			modifier = {
+				factor = 5.0
+				trait = lunatic
+			}
+			modifier = {
+				factor = 5.0
+				trait = possessed
+			}			
+		}
+		custom_tooltip = CUSTOMTOOLTIP27		
+		hidden_tooltip = {		
+			any_vassal = {
+				limit = {	
+					higher_tier_than = baron
+					OR = {
+						trait = loyalist
+						trait = rebel
+					}
+				}
+				remove_trait = loyalist
+				remove_trait = rebel
+				any_playable_ruler = {
+					reverse_remove_opinion = {
+						who = PREV
+						modifier = revolting_against
+					}	
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_upset
+					months = 120
+				}	
+				character_event = { id = 2010035 days = 7 } #notify
+			}
+		}
+	}	
+}
+
+#Notify player of tax reduction
+character_event = {
+	id = 2010031
+	picture = GFX_evt_council		
+	is_triggered_only = yes
+		
+	desc = "EVTDESC2010031"
+	
+	trigger = {
+		independent = no
+	}
+	
+	immediate = {
+		any_demesne_title = {
+			limit = {
+				tier = count
+			}
+			remove_province_modifier = tax_privileges
+			remove_province_modifier = tax_reduction
+		}	
+	}	
+	
+	option = {
+		name = "EVTOPTA2010031"
+		any_demesne_title = {
+			limit = {
+				tier = count
+			}
+			location = {
+				add_province_modifier = {
+					name = "tax_reduction"
+					duration = 3650
+				}	
+			}
+		}
+	}
+}
+
+#Notify of tax increase
+character_event = {
+	id = 2010032
+	picture = GFX_evt_council		
+	is_triggered_only = yes
+		
+	desc = "EVTDESC2010032"
+	
+	trigger = {
+		independent = no
+	}	
+	
+	immediate = {
+		any_demesne_title = {
+			limit = {
+				tier = count
+			}
+			remove_province_modifier = tax_privileges
+			remove_province_modifier = tax_reduction
+		}	
+	}
+	
+	option = {
+		name = "EVTOPTA2010032"
+		any_demesne_title = {
+			limit = {
+				tier = count
+			}
+			location = {
+				add_province_modifier = {
+					name = "tax_privileges"
+					duration = 3650
+				}	
+			}
+		}		
+	}
+}
+
+#Notify of prestige reduction
+character_event = {
+	id = 2010033
+	picture = GFX_evt_council		
+	is_triggered_only = yes
+		
+	desc = "EVTDESC2010033"
+	
+	trigger = {
+		independent = no
+	}	
+	
+	option = {
+		name = "EVTOPTA2010033"
+		if = {
+			limit = {
+				tier = count
+			}
+			prestige = -250
+		}
+		if = {
+			limit = {
+				tier = duke
+			}
+			prestige = -500
+		}	
+		if = {
+			limit = {
+				tier = king
+			}
+			prestige = -750
+		}		
+	}
+}
+
+#Notify of prestige increase
+character_event = {
+	id = 2010034
+	picture = GFX_evt_council		
+	is_triggered_only = yes
+		
+	desc = "EVTDESC2010034"
+	
+	trigger = {
+		independent = no
+	}	
+	
+	option = {
+		name = "EVTOPTA2010034"
+		if = {
+			limit = {
+				tier = count
+			}
+			prestige = 250
+		}
+		if = {
+			limit = {
+				tier = duke
+			}
+			prestige = 500
+		}	
+		if = {
+			limit = {
+				tier = king
+			}
+			prestige = 750
+		}	
+	}
+}
+
+#Notify of no reward
+character_event = {
+	id = 2010035
+	picture = GFX_evt_council		
+	is_triggered_only = yes
+		
+	desc = "EVTDESC2010035"
+
+	trigger = {
+		independent = no
+	}
+	
+	option = {
+		name = "EVTOPTA2010035"
+		tooltip = {
+			opinion = {
+				who = FROM
+				modifier = opinion_upset
+				months = 120
+			}		
+		}	
+		if = {
+			limit = {
+				OR = {
+					leads_faction = faction_feudal_emperor
+					leads_faction = faction_feudal_king
+					leads_faction = faction_feudal_duke
+				}
+			}
+			liege = {
+				change_variable = { which = "faction_mood_feudal" value = -4 }
+				custom_tooltip = FEUDALFACTIONMOODMINUS
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					leads_faction = faction_republican_emperor
+					leads_faction = faction_republican_king
+					leads_faction = faction_republican_duke
+				}
+			}
+			liege = {
+				change_variable = { which = "faction_mood_republican" value = -4 }
+				custom_tooltip = REPUBLICANFACTIONMOODMINUS
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					leads_faction = faction_religious_emperor
+					leads_faction = faction_religious_king
+					leads_faction = faction_religious_duke
+				}
+			}
+			liege = {
+				change_variable = { which = "faction_mood_religious" value = -4 }
+				custom_tooltip = RELIGIOUSFACTIONMOODMINUS
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					leads_faction = faction_court_emperor
+					leads_faction = faction_court_king
+					leads_faction = faction_court_duke
+				}
+			}
+			liege = {
+				change_variable = { which = "faction_mood_court" value = -4 }
+				custom_tooltip = COURTFACTIONMOODMINUS
+			}
+		}		
+	}
+}

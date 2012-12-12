@@ -1,0 +1,27 @@
+character_event = {
+	id = 7110010
+	
+	trigger = {
+		OR = {
+			has_landed_title = e_papal_state
+			has_character_flag = startup_character
+		}
+		has_global_flag = shattered_world
+	}
+		
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.01
+			always = yes
+		}
+	}
+	
+	option = {
+		name = "OK"
+		clr_global_flag = shattered_world
+		clr_global_flag = shattered_world_no_dukes
+	}
+}

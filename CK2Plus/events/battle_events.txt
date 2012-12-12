@@ -1,0 +1,4565 @@
+#On-action combat event: Killed in action
+character_event = {
+	id = 242
+	desc = "EVTDESC242"	
+	picture = "GFX_evt_death"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.1
+			trait = immortal
+		}		
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = clubfooted
+			factor = 1.25
+		}
+		modifier = {
+			trait = hunchback
+			factor = 1.25
+		}
+		modifier = {
+			trait = lisp
+			factor = 1.1
+		}
+		modifier = {
+			trait = stutter
+			factor = 1.1
+		}
+		modifier = {
+			trait = dwarf
+			factor = 1.25
+		}		
+		modifier = {
+			trait = genius
+			factor = 0.9
+		}
+		modifier = {
+			trait = quick
+			factor = 0.9
+		}	
+		modifier = {
+			trait = slow
+			factor = 2.0
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 3.0
+		}
+		modifier = {
+			trait = inbred
+			factor = 3.0
+		}
+		modifier = {
+			trait = strong
+			factor = 0.7
+		}
+		modifier = {
+			trait = weak
+			factor = 2.5
+		}		
+		modifier = {
+			factor = 1.25
+			trait = stressed
+		}
+		modifier = {
+			factor = 1.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 3.0
+			trait = lunatic
+		}
+		modifier = {
+			factor = 2.0
+			trait = possessed
+		}
+		modifier = {
+			factor = 1.1
+			trait = ill
+		}
+		modifier = {
+			factor = 1.25
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 1.25
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 2.0
+			trait = leper
+		}
+		modifier = {
+			factor = 1.15
+			trait = wounded
+		}
+		modifier = {
+			factor = 1.25
+			trait = maimed
+		}
+		modifier = {
+			factor = 2.0
+			trait = infirm
+		}
+		modifier = {
+			factor = 3.0
+			trait = incapable
+		}
+		modifier = {
+			factor = 1.1
+			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}		
+	}
+	
+	immediate = {
+		death = {
+			death_reason = death_battle
+			killer = FROMFROM
+		}
+		FROMFROM = {
+			character_event = { id = 249 }
+			set_character_flag = temp_battle_kill_242
+		}
+		FROM = {
+			if = {
+				limit = { NOT = { has_character_flag = temp_battle_kill_242 } }
+				character_event = { id = 249 }
+			}
+		}
+		FROMFROM = {
+			clr_character_flag = temp_battle_kill_242
+		}
+	}
+	
+	option = {
+		name = "ALAS"
+	}	
+}
+
+#On-action combat event: Wounded in action
+character_event = {
+	id = 243
+	desc = "EVTDESC243"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { trait = wounded }
+		NOT = { trait = maimed }
+		is_alive = yes
+		NOT = { trait = immortal }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 5
+			has_character_modifier = proving_bravery
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = clubfooted
+			factor = 1.25
+		}
+		modifier = {
+			trait = hunchback
+			factor = 1.25
+		}
+		modifier = {
+			trait = lisp
+			factor = 1.1
+		}
+		modifier = {
+			trait = stutter
+			factor = 1.1
+		}
+		modifier = {
+			trait = dwarf
+			factor = 1.25
+		}		
+		modifier = {
+			trait = genius
+			factor = 0.9
+		}
+		modifier = {
+			trait = quick
+			factor = 0.9
+		}	
+		modifier = {
+			trait = slow
+			factor = 2.0
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 3.0
+		}
+		modifier = {
+			trait = inbred
+			factor = 3.0
+		}
+		modifier = {
+			trait = strong
+			factor = 0.7
+		}
+		modifier = {
+			trait = weak
+			factor = 2.5
+		}		
+		
+		modifier = {
+			factor = 1.25
+			trait = stressed
+		}
+		modifier = {
+			factor = 1.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 3.0
+			trait = lunatic
+		}
+		modifier = {
+			factor = 2.0
+			trait = possessed
+		}
+		modifier = {
+			factor = 1.1
+			trait = ill
+		}
+		modifier = {
+			factor = 1.25
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 1.25
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 2.0
+			trait = leper
+		}
+		modifier = {
+			factor = 1.25
+			trait = maimed
+		}
+		modifier = {
+			factor = 2.0
+			trait = infirm
+		}
+		modifier = {
+			factor = 3.0
+			trait = incapable
+		}
+		modifier = {
+			factor = 1.1
+			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}		
+		
+	}
+	
+	option = {
+		name = "CURSES"
+		add_trait = wounded
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}	
+	}
+}
+
+#On-action combat event: Maimed in action
+character_event = {
+	id = 244
+	desc = "EVTDESC244"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		NOT = { trait = maimed }
+		is_alive = yes
+		NOT = { trait = immortal }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 5
+			has_character_modifier = proving_bravery
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = clubfooted
+			factor = 1.25
+		}
+		modifier = {
+			trait = hunchback
+			factor = 1.25
+		}
+		modifier = {
+			trait = lisp
+			factor = 1.1
+		}
+		modifier = {
+			trait = stutter
+			factor = 1.1
+		}
+		modifier = {
+			trait = dwarf
+			factor = 1.25
+		}		
+		modifier = {
+			trait = genius
+			factor = 0.9
+		}
+		modifier = {
+			trait = quick
+			factor = 0.9
+		}	
+		modifier = {
+			trait = slow
+			factor = 2.0
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 3.0
+		}
+		modifier = {
+			trait = inbred
+			factor = 3.0
+		}
+		modifier = {
+			trait = strong
+			factor = 0.7
+		}
+		modifier = {
+			trait = weak
+			factor = 2.5
+		}		
+
+		modifier = {
+			factor = 1.25
+			trait = stressed
+		}
+		modifier = {
+			factor = 1.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 3.0
+			trait = lunatic
+		}
+		modifier = {
+			factor = 2.0
+			trait = possessed
+		}
+		modifier = {
+			factor = 1.1
+			trait = ill
+		}
+		modifier = {
+			factor = 1.25
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 1.25
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 2.0
+			trait = leper
+		}
+		modifier = {
+			factor = 1.15
+			trait = wounded
+		}
+		modifier = {
+			factor = 2.0
+			trait = infirm
+		}
+		modifier = {
+			factor = 3.0
+			trait = incapable
+		}
+		modifier = {
+			factor = 1.1
+			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}		
+
+	}
+	
+	option = {
+		name = "CURSES"
+		add_trait = maimed
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}		
+	}
+}
+
+#On-action combat event: Serious head injury in action
+character_event = {
+	id = 245
+	desc = "EVTDESC245"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		NOT = { trait = incapable }
+		is_alive = yes
+		NOT = { trait = immortal }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 5
+			has_character_modifier = proving_bravery
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+		
+			trait = craven
+		}
+		modifier = {
+			trait = clubfooted
+			factor = 1.25
+		}
+		modifier = {
+			trait = hunchback
+			factor = 1.25
+		}
+		modifier = {
+			trait = lisp
+			factor = 1.1
+		}
+		modifier = {
+			trait = stutter
+			factor = 1.1
+		}
+		modifier = {
+			trait = dwarf
+			factor = 1.25
+		}		
+		modifier = {
+			trait = genius
+			factor = 0.9
+		}
+		modifier = {
+			trait = quick
+			factor = 0.9
+		}	
+		modifier = {
+			trait = slow
+			factor = 2.0
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 3.0
+		}
+		modifier = {
+			trait = inbred
+			factor = 3.0
+		}
+		modifier = {
+			trait = strong
+			factor = 0.7
+		}
+		modifier = {
+			trait = weak
+			factor = 2.5
+		}		
+				modifier = {
+			factor = 1.25
+			trait = stressed
+		}
+		modifier = {
+			factor = 1.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 3.0
+			trait = lunatic
+		}
+		modifier = {
+			factor = 2.0
+			trait = possessed
+		}
+		modifier = {
+			factor = 1.1
+			trait = ill
+		}
+		modifier = {
+			factor = 1.25
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 1.25
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 2.0
+			trait = leper
+		}
+		modifier = {
+			factor = 1.15
+			trait = wounded
+		}
+		modifier = {
+			factor = 1.25
+			trait = maimed
+		}
+		modifier = {
+			factor = 2.0
+			trait = infirm
+		}
+		modifier = {
+			factor = 1.1
+			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}		
+
+	}
+
+	option = {
+		name = "CURSES"
+		add_trait = incapable
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}		
+	}
+}
+
+#On-action combat event: Character skill improves
+character_event = {
+	id = 246
+	desc = "EVTDESC246"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+		OR = {
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}	
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+		
+	}
+
+	option = {
+		name = "EXCELLENT"
+		if = {
+			limit = {
+				trait = skilled_tactician
+			}
+			remove_trait = skilled_tactician
+			add_trait = brilliant_strategist
+		}
+		if = {
+			limit = {
+				trait = tough_soldier
+			}
+			remove_trait = tough_soldier
+			add_trait = skilled_tactician
+		}
+		if = {
+			limit = {
+				trait = misguided_warrior
+			}
+			remove_trait = misguided_warrior
+			add_trait = tough_soldier
+		}
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}		
+	}
+}
+
+#On-action combat event: Flat improvement to martial skill
+character_event = {
+	id = 247
+	desc = "EVTDESC247"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { martial = 20 }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		change_martial = 1
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}		
+	}
+}
+
+#On-action combat event: Tech Increase in Capital
+character_event = {
+	id = 248
+	desc = "EVTDESC248"
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		OR = {
+			trait = brilliant_strategist
+			trait = skilled_tactician
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 3.0
+		}
+		modifier = {
+			trait = quick
+			factor = 2.0
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.1
+		}
+
+		modifier = {
+			trait = imbecile
+			factor = 0
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	option = {
+		name = "EXCELLENT"
+		capital_scope = {
+			add_province_modifier = {
+				name = war_knowledge
+				duration = 365
+			}
+		}		
+	}
+}
+
+#Opponent is informed that enemy commander has been killed
+character_event = {
+	id = 249
+	desc = "EVTDESC249"
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+	}
+
+	option = {
+		name = "EVTOPTA249"
+	}
+}
+
+#On-action combat event: Becoming Brave
+character_event = {
+	id = 270
+	desc = "EVTDESC270"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = brave }
+		NOT = { trait = craven }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 5
+			has_character_modifier = proving_bravery
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}		
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+
+	}
+
+	option = {
+		name = "EXCELLENT"
+		add_trait = brave
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}		
+	}
+}
+
+#On-action combat event: Becoming Craven
+character_event = {
+	id = 271
+	desc = "EVTDESC271"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = brave }
+		NOT = { trait = craven }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			trait = clubfooted
+			factor = 1.25
+		}
+		modifier = {
+			trait = hunchback
+			factor = 1.25
+		}
+		modifier = {
+			trait = lisp
+			factor = 1.1
+		}
+		modifier = {
+			trait = stutter
+			factor = 1.1
+		}
+		modifier = {
+			trait = dwarf
+			factor = 1.25
+		}		
+		modifier = {
+			trait = genius
+			factor = 0.9
+		}
+		modifier = {
+			trait = quick
+			factor = 0.9
+		}	
+		modifier = {
+			trait = slow
+			factor = 2.0
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 3.0
+		}
+		modifier = {
+			trait = inbred
+			factor = 3.0
+		}
+		modifier = {
+			trait = strong
+			factor = 0.7
+		}
+		modifier = {
+			trait = weak
+			factor = 2.5
+		}		
+		modifier = {
+			factor = 1.25
+			trait = stressed
+		}
+		modifier = {
+			factor = 1.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 3.0
+			trait = lunatic
+		}
+		modifier = {
+			factor = 2.0
+			trait = possessed
+		}
+		modifier = {
+			factor = 1.1
+			trait = ill
+		}
+		modifier = {
+			factor = 1.25
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 1.25
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 2.0
+			trait = leper
+		}
+		modifier = {
+			factor = 1.15
+			trait = wounded
+		}
+		modifier = {
+			factor = 1.25
+			trait = maimed
+		}
+		modifier = {
+			factor = 2.0
+			trait = infirm
+		}
+		modifier = {
+			factor = 3.0
+			trait = incapable
+		}
+		modifier = {
+			factor = 1.1
+			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}		
+	}
+
+	option = {
+		name = "CURSES"
+		add_trait = craven
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = 2
+		}		
+	}
+}
+
+#On-action combat event: Becoming Wroth
+character_event = {
+	id = 272
+	desc = "EVTDESC272"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = wroth }
+		NOT = { trait = patient }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "CURSES"
+		add_trait = wroth
+	}
+}
+
+#On-action combat event: Becoming Patient
+character_event = {
+	id = 273
+	desc = "EVTDESC273"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = wroth }
+		NOT = { trait = patient }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "EXCELLENT"
+		add_trait = patient
+	}
+}
+
+#On-action battle_won: Heroism shown.
+character_event = {
+	id = 260
+	desc = "EVTDESC260"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = craven }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 2.0
+			trait = brave
+		}		
+		modifier = {
+			factor = 1.5
+			martial = 10
+		}		
+
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}	
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+
+	}
+
+	option = {
+		name = "EXCELLENT"
+		prestige = 25
+		if = {
+			limit = {	
+				is_ruler = yes
+				religion_group = muslim
+				NOT = { 
+					any_liege = {
+						dynasty = ROOT
+					}
+				}
+			}
+			decadence = -1
+		}		
+	}
+}
+
+
+#On-action battle_won: Soldier Distinguishes himself.
+character_event = {
+	id = 261
+	desc = "EVTDESC261"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			trait = patient
+		}		
+		modifier = {
+			factor = 1.5
+			trait = just
+		}		
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}		
+		modifier = {
+			factor = 0.2
+			trait = deceitful
+		}		
+		modifier = {
+			factor = 0.2
+			trait = arbitrary
+		}		
+	}
+
+	option = {
+		name = "EXCELLENT"
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = random
+			female = no
+			religion = ROOT
+			culture = ROOT
+		}		
+	}
+}
+
+
+#On-action battle_lost: Imprisoned by the enemy
+character_event = {
+	id = 250
+	desc = "EVTDESC250"
+	picture = "GFX_evt_into_the_dungeon"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		prisoner = no
+		NOT = {
+			character = FROM
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 1.5
+			tier = baron
+		}	
+		modifier = {
+			factor = 2.0
+			tier = count
+		}
+		modifier = {
+			factor = 2.5
+			tier = duke
+		}
+		modifier = {
+			factor = 3.0
+			higher_tier_than = duke
+		}			
+		modifier = {
+			factor = 1.25
+			trait = brave
+		}
+		modifier = {
+			factor = 0.25
+			trait = craven
+		}
+		modifier = {
+			factor = 0.25
+			trait = paranoid
+		}
+
+		modifier = {
+			factor = 1.25
+			trait = stressed
+		}
+		modifier = {
+			factor = 1.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 3.0
+			trait = lunatic
+		}
+		modifier = {
+			factor = 2.0
+			trait = possessed
+		}
+		modifier = {
+			factor = 1.1
+			trait = ill
+		}
+		modifier = {
+			factor = 1.25
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 1.25
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 2.0
+			trait = leper
+		}
+		modifier = {
+			factor = 1.15
+			trait = wounded
+		}
+		modifier = {
+			factor = 1.25
+			trait = maimed
+		}
+		modifier = {
+			factor = 2.0
+			trait = infirm
+		}
+		modifier = {
+			factor = 3.0
+			trait = incapable
+		}
+		modifier = {
+			factor = 1.1
+			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}
+		
+	}
+
+	option = {
+		name = "CURSES"
+		imprison = FROM
+		hidden_tooltip = {
+			FROM = {
+				character_event = { 
+					id = 50020 # "imprisoned_events.txt"
+				}
+			}
+		}
+	}
+}
+
+# Leading attacker dies, will never trigger from code
+letter_event = {
+	id = 251
+	is_triggered_only = yes
+	border = GFX_event_letter_frame_war
+	
+	trigger = {
+		ai = no
+	}
+
+	desc = "EVTDESC251"
+
+	option = {
+		name = "OK"
+	}
+}
+
+# Leading defender dies, will never trigger from code
+letter_event = {
+	id = 252
+	desc = "EVTDESC251"
+	border = GFX_event_letter_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+
+#Marshal: Unnecessary violence
+character_event = {
+	id = 255
+	desc = "EVTDESC255"
+	picture = GFX_evt_torture
+	border = GFX_event_normal_frame_war
+	
+	capable_only = yes
+	only_men = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		war = yes
+		in_command = yes
+		has_job_title = job_marshal
+		trait = cruel
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA255"
+		prestige = -20
+		piety = -20
+		hidden_tooltip = {
+			liege = {
+				character_event = {
+					id = 256
+				}
+			}
+		}
+	}
+}
+
+#Liege: Marshal used unnecessary violence
+character_event = {
+	id = 256
+	desc = "EVTDESC256"
+	picture = GFX_evt_torture
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA256" #That's the cruelty of war
+		piety = -10
+	}
+	option = {
+		name = "EVTOPTB256" #Disapprove of his conduct
+		opinion = {
+			modifier = opinion_disapprove
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTC256" #He's right, we should terrorise our enemy
+		opinion = {
+			modifier = opinion_approves
+			who = FROM
+			years = 10
+		}
+		piety = -25
+		random = {
+			chance = 33
+			
+			add_trait = cruel
+			hidden_tooltip = {
+				character_event ={
+					id = 38259 #Notify Cruel
+				}
+			}
+		}
+	}
+}
+
+#On-action combat event: Gains light_foot_leader
+character_event = {
+	id = 600000
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = light_foot_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = light_foot_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = light_foot_leader }
+	}	
+}
+
+#On-action combat event: Gains heavy_infantry_leader
+character_event = {
+	id = 600001
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = heavy_infantry_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = heavy_infantry_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = heavy_infantry_leader }
+	}	
+}
+
+#On-action combat event: Gains cavalry_leader
+character_event = {
+	id = 600002
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = cavalry_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = cavalry_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = cavalry_leader }
+	}
+}
+
+#On-action combat event: Gains inspiring_leader
+character_event = {
+	id = 600003
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = inspiring_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			diplomacy = 10
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { diplomacy = 5 }
+		}				
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	immediate = {
+		add_trait = inspiring_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = inspiring_leader }
+	}	
+}
+
+#On-action combat event: Gains trickster
+character_event = {
+	id = 600004
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = trickster }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			intrigue = 10
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { intrigue = 5 }
+		}			
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	immediate = {
+		add_trait = trickster
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = trickster }
+	}
+}
+
+#On-action combat event: Gains organizer
+character_event = {
+	id = 600005
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = organizer }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			stewardship = 10
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { stewardship = 5 }
+		}			
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	immediate = {
+		add_trait = organizer
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = organizer }
+	}	
+}
+
+#On-action combat event: Gains defensive_leader
+character_event = {
+	id = 600006
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = defensive_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			trait = patient
+		}	
+		modifier = {
+			factor = 0.5
+			trait = wroth
+		}			
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	immediate = {
+		add_trait = defensive_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = defensive_leader }
+	}
+}
+
+#On-action combat event: Gains experimenter
+character_event = {
+	id = 600007
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = experimenter }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			trait = arbitrary
+		}	
+		modifier = {
+			factor = 0.5
+			trait = just
+		}		
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	immediate = {
+		add_trait = experimenter
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = experimenter }
+	}
+}
+
+#On-action combat event: Gains flanker
+character_event = {
+	id = 600008
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = flanker }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			trait = patient
+		}	
+		modifier = {
+			factor = 0.5
+			trait = wroth
+		}	
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+
+	immediate = {
+		add_trait = flanker
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = flanker }
+	}	
+}
+
+#On-action combat event: Gains aggressive_leader
+character_event = {
+	id = 600009
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = aggressive_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 2
+			trait = wroth
+		}	
+		modifier = {
+			factor = 0.5
+			trait = patient
+		}			
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = aggressive_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = aggressive_leader }
+	}
+}
+
+#On-action combat event: Gains flat_terrain_leader
+character_event = {
+	id = 600010
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = flat_terrain_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = flat_terrain_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = flat_terrain_leader }
+	}
+}
+
+#On-action combat event: Gains rough_terrain_leader
+character_event = {
+	id = 600011
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = rough_terrain_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = rough_terrain_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = rough_terrain_leader }
+	}
+}
+
+#On-action combat event: Gains mountain_terrain_leader
+character_event = {
+	id = 600012
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = mountain_terrain_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = mountain_terrain_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = mountain_terrain_leader }
+	}
+}
+
+#On-action combat event: Gains desert_terrain_leader
+character_event = {
+	id = 600013
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = desert_terrain_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = desert_terrain_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = desert_terrain_leader }
+	}
+}
+#On-action combat event: Gains holy_warrior
+character_event = {
+	id = 600014
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = holy_warrior }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}		
+		modifier = {
+			factor = 5
+			trait = zealous
+		}	
+		modifier = {
+			factor = 0.1
+			trait = cynical
+		}			
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = holy_warrior
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = holy_warrior }
+	}
+}
+#On-action combat event: Gains unyielding_leader
+character_event = {
+	id = 600015
+	desc = "EVTDESC600000"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = unyielding_leader }
+		can_have_more_leadership_traits = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1		
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}	
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 10 }
+		}			
+		modifier = {
+			factor = 2
+			martial = 15
+		}			
+		modifier = {
+			factor = 2
+			martial = 20
+		}
+		modifier = {
+			factor = 5
+			trait = brave
+		}
+		modifier = {
+			factor = 0.1
+			trait = craven
+		}
+		modifier = {
+			trait = genius
+			factor = 1.2
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}	
+		modifier = {
+			trait = slow
+			factor = 0.9
+		}
+		
+		modifier = {
+			trait = imbecile
+			factor = 0.2
+		}
+		modifier = {
+			trait = inbred
+			factor = 0.2
+		}
+		modifier = {
+			trait = strong
+			factor = 1.5
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}			
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.8
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}
+		modifier = {
+			factor = 0.75
+			trait = possessed
+		}
+		modifier = {
+			factor = 0.9
+			trait = ill
+		}
+		modifier = {
+			factor = 0.8
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.8
+			trait = syphilitic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}
+		modifier = {
+			factor = 0.8
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.5
+			trait = infirm
+		}
+		modifier = {
+			factor = 0.4
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		add_trait = unyielding_leader
+	}
+	option = {
+		name = "EXCELLENT"
+		tooltip = { add_trait = unyielding_leader }
+	}
+}

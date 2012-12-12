@@ -1,0 +1,274 @@
+decisions = {
+	pogrom = {
+		potential = {	
+			is_ruler = yes
+			higher_tier_than = BARON
+			NOT = { religion_group = judaism_group }
+			OR = {
+				any_demesne_title = {
+					has_building = ct_jewish_community_1
+				}			
+				any_realm_lord = {
+					lower_tier_than = king
+					any_liege = { character = ROOT }
+					OR = {
+						AND = {
+							tier = baron
+							liege = { character = ROOT }
+						}
+						primary_title = {
+							crownlaw_title = { 
+								OR = {
+									has_law = centralization_3
+									has_law = centralization_4
+								}
+							}
+						}
+					}
+					any_demesne_title = {
+						has_building = ct_jewish_community_1
+					}
+				}
+			}
+		}
+		allow = { 
+			age = 16
+			OR = {
+				tier = king
+				independent = yes
+				primary_title = {	
+					OR = {
+						has_crown_law_title = no
+						crownlaw_title = { 
+							NOT = { 
+								has_law = centralization_3
+								has_law = centralization_4
+							}
+						}
+					}
+				}
+			}		
+		}
+		effect = {
+			set_character_flag = pogrom		
+			if = {
+				limit = { trait = just }
+				remove_trait = just
+			}		
+			if = {
+				limit = { trait = charitable }
+				remove_trait = charitable
+			}
+			random_list = {
+			 	25 = {
+					if = {
+						limit = { NOT = { trait = arbitrary } }
+						add_trait = arbitrary
+						hidden_tooltip = {
+							character_event = {
+								id = 38266 #Notify Arbitrary
+							}
+						}
+					}			 	
+			 	}
+			 	25 = {
+					if = {
+						limit = { NOT = { trait = greedy } }
+						add_trait = greedy
+						hidden_tooltip = {
+							character_event = {
+								id = 38252 #Notify Greedy
+							}
+						}
+					}			 	
+			 	}
+			 	50 = { }
+			}
+			custom_tooltip = REPUBLICANFACTIONMOODMINUS
+			change_variable = { which = "faction_mood_republican" value = -2 }			
+			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 2 }			
+			any_demesne_title = {
+				limit = {
+					has_building = ct_jewish_community_3
+				}
+				remove_building = ct_jewish_community_3
+				ROOT = { piety = -30 wealth = 150 }
+				hidden_tooltip = {
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+					}
+				}				
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { has_building = ct_jewish_community_3 }
+					has_building = ct_jewish_community_2
+				}
+				remove_building = ct_jewish_community_2
+				ROOT = { piety = -20 wealth = 100 }
+				hidden_tooltip = {
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+					}
+				}				
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { has_building = ct_jewish_community_3 }
+					NOT = { has_building = ct_jewish_community_2 }
+					has_building = ct_jewish_community_1
+				}
+				remove_building = ct_jewish_community_1
+				ROOT = { piety = -10 wealth = 50 }
+				hidden_tooltip = {
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+					}
+				}				
+			}
+			any_courtier = {
+				limit = { religion_group = judaism_group }
+				banish = yes
+			}
+			any_realm_lord = {
+				limit = {
+					lower_tier_than = king
+					ai = yes
+					NOT = { any_liege = { NOT = { character = ROOT } ai = no } }
+					any_liege = { character = ROOT }
+					OR = {
+						AND = {
+							tier = baron
+							liege = { character = ROOT }
+						}
+						primary_title = {
+							crownlaw_title = { 
+								OR = {
+									has_law = centralization_3
+									has_law = centralization_4
+								}
+							}
+						}
+					}
+					any_demesne_title = {
+						has_building = ct_jewish_community_1
+					}
+				}				
+				any_demesne_title = {
+					limit = {
+						has_building = ct_jewish_community_3
+					}
+					remove_building = ct_jewish_community_3
+					ROOT = { piety = -30 wealth = 150 }
+					hidden_tooltip = {
+						e_papal_state = {
+							holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+						}
+					}				
+				}
+				any_demesne_title = {
+					limit = {
+						NOT = { has_building = ct_jewish_community_3 }
+						has_building = ct_jewish_community_2
+					}
+					remove_building = ct_jewish_community_2
+					ROOT = { piety = -20 wealth = 100 }
+					hidden_tooltip = {
+						e_papal_state = {
+							holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+						}
+					}								
+				}
+				any_demesne_title = {
+					limit = {
+						NOT = { has_building = ct_jewish_community_3 }
+						NOT = { has_building = ct_jewish_community_2 }
+						has_building = ct_jewish_community_1
+					}
+					remove_building = ct_jewish_community_1
+					ROOT = { piety = -10 wealth = 50 }
+					hidden_tooltip = {
+						e_papal_state = {
+							holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+						}
+					}								
+				}
+				any_courtier = {
+					limit = { religion_group = judaism_group }
+					banish = yes
+				}
+			}
+			any_realm_lord = {
+				limit = {
+					lower_tier_than = king
+					ai = no
+					NOT = { any_liege = { NOT = { character = ROOT } ai = no } }
+					OR = {
+						AND = {
+							tier = baron
+							liege = { character = ROOT }
+						}
+						primary_title = {
+							crownlaw_title = { 
+								OR = {
+									has_law = centralization_3
+									has_law = centralization_4
+								}
+							}
+						}
+					}					
+					OR = {
+						any_demesne_title = {
+							has_building = ct_jewish_community_1
+						}			
+						any_realm_lord = {
+							any_liege = { character = PREVPREV }
+							any_demesne_title = {
+								has_building = ct_jewish_community_1
+							}
+						}
+					}
+				}
+				character_event = { id = 710005 tooltip = EVTTOOLTIP710005 }
+			}			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						trait = lunatic
+						trait = possessed
+						AND = {
+							trait = arbitrary
+							trait = greedy
+						}
+						AND = {
+							trait = arbitrary
+							trait = cruel
+						}
+						AND = {
+							trait = cruel
+							trait = greedy
+						}							
+					}
+				}				
+			}
+			modifier = {
+				factor = 0
+				wealth = 0
+				war = no
+			}					
+			modifier = {
+				factor = 0
+				OR = {
+					trait = just
+					trait = charitable
+					trait = kind
+				}
+			}
+		}
+	}
+}

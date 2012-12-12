@@ -1,0 +1,405 @@
+gender_laws = {
+	cognatic_succession = {
+		potential = {		
+			OR = {
+				AND = {
+					tier = baron
+					is_feudal = yes
+				}
+				holder_scope = { is_feudal = yes }
+			}
+			
+			is_landless_type_title = no
+			NOT = { holder_scope = { religion_group = muslim }  }
+			OR = {
+				NOT = {
+					has_law = agnatic_succession
+					has_law = cognatic_succession
+					has_law = true_cognatic_succession
+				}
+				has_global_flag = startup
+			}			
+		}
+		allow = {
+			OR = {
+				NOT = { has_global_flag = startup }
+				AND = {
+					tier = BARON
+					holder_scope = { prestige = 125 }
+				}			
+				AND = {
+					tier = COUNT
+					holder_scope = { prestige = 250 }
+				}
+				AND = {
+					tier = DUKE
+					holder_scope = { prestige = 500 }
+				}
+				AND = {
+					tier = KING
+					holder_scope = { prestige = 750 }
+				}
+				AND = {
+					tier = EMPEROR
+					holder_scope = { prestige = 1000 }
+				}				
+			}
+		}		
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = BARON
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -125 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = COUNT
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -250 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = DUKE
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -500 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = KING
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -750 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = EMPEROR
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -1000 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}		
+			ROOT = { custom_tooltip = CUSTOMTOOLTIP12 }
+			hidden_tooltip = { gender_succ = cognatic }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}		
+	}
+	agnatic_succession = {
+		female_dynasty_opinion = -10
+		male_dynasty_opinion = 10
+	
+		potential = {
+			OR = {
+				NOT = {
+					has_law = agnatic_succession
+					has_law = cognatic_succession
+					has_law = true_cognatic_succession
+				}
+				has_global_flag = startup
+			}
+		}
+		allow = {
+			has_law = cognatic_succession
+			OR = {
+				NOT = { has_global_flag = startup }
+				AND = {
+					tier = BARON
+					holder_scope = { prestige = 125 }
+				}			
+				AND = {
+					tier = COUNT
+					holder_scope = { prestige = 250 }
+				}
+				AND = {
+					tier = DUKE
+					holder_scope = { prestige = 500 }
+				}
+				AND = {
+					tier = KING
+					holder_scope = { prestige = 750 }
+				}
+				AND = {
+					tier = EMPEROR
+					holder_scope = { prestige = 1000 }
+				}				
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = BARON
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -125 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = COUNT
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -250 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = DUKE
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -500 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = KING
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -750 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = EMPEROR
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -1000 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}		
+			ROOT = { custom_tooltip = CUSTOMTOOLTIP11 }
+			hidden_tooltip = { gender_succ = agnatic }
+		}
+		revoke_allowed = {
+			always = no
+		}	
+		ai_will_do = {
+			factor = 1			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}		
+	}
+	true_cognatic_succession = {
+		male_dynasty_opinion = -10
+		female_dynasty_opinion = 10
+		
+		potential = {
+			OR = {
+				AND = {
+					tier = baron
+					is_feudal = yes
+				}
+				holder_scope = { is_feudal = yes }
+			}
+			
+			is_landless_type_title = no
+			NOT = { holder_scope = { religion_group = muslim }  }
+			OR = {
+				NOT = {
+					has_law = agnatic_succession
+					has_law = cognatic_succession
+					has_law = true_cognatic_succession
+				}
+				has_global_flag = startup
+			}			
+		}
+		allow = {
+			has_law = cognatic_succession
+			OR = {
+				NOT = { has_global_flag = startup }
+				AND = {
+					tier = BARON
+					holder_scope = { prestige = 125 }
+				}			
+				AND = {
+					tier = COUNT
+					holder_scope = { prestige = 250 }
+				}
+				AND = {
+					tier = DUKE
+					holder_scope = { prestige = 500 }
+				}
+				AND = {
+					tier = KING
+					holder_scope = { prestige = 750 }
+				}
+				AND = {
+					tier = EMPEROR
+					holder_scope = { prestige = 1000 }
+				}				
+			}
+		}		
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = BARON
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -125 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = COUNT
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -250 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = DUKE
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -500 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = KING
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -750 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = startup 
+					NOT = { holder_scope = { has_character_flag = no_prestige_loss_on_succ_law } }
+					tier = EMPEROR
+					OR = {
+						has_law = succ_gavelkind
+						has_law = succ_primogeniture
+						has_law = succ_seniority
+						has_law = succ_feudal_elective
+						has_law = succ_turkish_succession
+					}
+				}
+				holder_scope = { prestige = -1000 custom_tooltip = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } }
+			}
+			ROOT = { custom_tooltip = CUSTOMTOOLTIP13 }
+			hidden_tooltip = { gender_succ = true_cognatic }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}		
+	}
+}

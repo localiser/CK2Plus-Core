@@ -1,0 +1,669 @@
+#################################################
+#
+# PROVINCE EVENTS AND EVENTS AFFECTING PROVINCES
+#
+#################################################
+
+# Province culture changes
+province_event = {
+	id = 55000
+	desc = "EVTDESC55000"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		owner = {
+			NOT = {
+				AND = {
+					independent = no
+					any_liege = {
+						NOT = { culture = PREV }
+					}
+				}
+			}
+			NOT = { culture = ROOT }
+			religion = ROOT
+			higher_tier_than = BARON
+			NOT = {
+				AND = {
+					ROOT = {
+						culture = saxon
+						kingdom = {
+							title = k_england
+						}						
+					}
+					OR = {
+						culture_group = north_germanic
+						culture = norman
+						culture = frankish
+						culture = occitan
+					}					
+				}
+			}			
+			NOT = {	
+				AND = {
+					ROOT = {
+						kingdom = {
+							title = k_sicily
+						}
+					}
+					OR = {
+						culture = greek
+						culture = maghreb_arabic
+						culture = norman
+					}	
+				}
+			}			
+		}
+		OR = {
+			owner = {
+				capital_scope = {
+					province_id = ROOT
+				}
+			}
+			any_neighbor_province = {
+				ROOT = {
+					owner = {
+						culture = PREVPREV
+					}
+				}
+				owner = {
+					ROOT = {
+						owner = {
+							culture = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+
+		modifier = {
+			factor = 10
+			NOT = {
+				any_neighbor_province = {
+					ROOT = {
+						owner = {
+							culture = PREVPREV
+						}
+					}
+					owner = {
+						ROOT = {
+							owner = {
+								culture = PREVPREV
+							}
+						}
+					}
+				}			
+			}
+			owner = { independent = no }
+		}
+		modifier = {
+			factor = 5
+			NOT = {
+				any_neighbor_province = {
+					ROOT = {
+						owner = {
+							culture = PREVPREV
+						}
+					}
+					owner = {
+						ROOT = {
+							owner = {
+								culture = PREVPREV
+							}
+						}
+					}
+				}			
+			}
+			owner = { independent = yes }
+		}		
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 1 } }
+		}		
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 2 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 3 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 4 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 5 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 6 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 7 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 8 } }
+		}
+		modifier = {
+			factor = 1.05
+			owner = { NOT = { learning = 9 } }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 11 }
+		}		
+		modifier = {
+			factor = 0.95
+			owner = { learning = 12 }
+		}	
+		modifier = {
+			factor = 0.95
+			owner = { learning = 13 }
+		}	
+		modifier = {
+			factor = 0.95
+			owner = { learning = 14 }
+		}	
+		modifier = {
+			factor = 0.95
+			owner = { learning = 15 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 17 }
+		}	
+		modifier = {
+			factor = 0.95
+			owner = { learning = 18 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 19 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 21 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 22 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 23 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { learning = 25 }
+		}	
+		modifier = {
+			factor = 0.9
+			owner = { trait = gregarious }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { trait = shy }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { trait = poet }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { trait = diligent }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { trait = humble }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { trait = content }
+		}
+		modifier = {
+			factor = 0.25
+			owner = { culture = turkish }
+			kingdom = {
+				OR = {
+					title = k_nikaea
+					title = k_rum
+					title = k_armenia
+				}
+			}			
+			NOT = { year = 1150 }
+		}		
+		modifier = {
+			factor = 0.5
+			owner = { culture = mongol }
+			culture_group = altaic					
+			NOT = { year = 1300 }
+		}
+		modifier = {
+			factor = 2.0
+			owner = { culture = mongol }
+			NOT = { culture_group = altaic }				
+		}		
+		modifier = {
+			factor = 0.75
+			owner = { religion_group = muslim }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA55000"
+		owner = {
+			reverse_culture = ROOT
+		}
+	}
+}
+
+# Ruler goes native
+character_event = {
+	id = 55001
+	desc = "EVTDESC55001"
+	picture = GFX_evt_throne_room
+	only_rulers = yes
+	
+	trigger = {	
+		age = 16
+		capital_scope = {
+			religion = ROOT
+			NOT = { culture = ROOT }
+			any_neighbor_province = { culture = ROOT }			
+			NOT = {
+				AND = {
+					culture = saxon
+					ROOT = {
+						OR = {
+							culture_group = north_germanic
+							culture = norman
+							culture = frankish
+							culture = occitan
+						}					
+					}
+				}
+			}			
+			NOT = {	
+				AND = {
+					kingdom = {
+						title = k_sicily
+					}
+					ROOT = {
+						OR = {
+							culture = greek
+							culture = maghreb_arabic
+							culture = norman
+						}	
+					}
+				}
+			}			
+		}
+		NOT = { trait = incapable }
+		prisoner = no
+		NOT = { has_character_flag = gone_native }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			factor = 0.5
+			capital_scope = {
+				culture_group = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { age = 20 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { age = 30 }
+		}
+		modifier = {
+			factor = 2.0
+			age = 40
+		}
+		modifier = {
+			factor = 2.0
+			age = 50
+		}	
+		modifier = {
+			factor = 2.0
+			age = 60
+		}
+		modifier = {
+			factor = 2.0
+			age = 70
+		}	
+		modifier = {
+			factor = 2.0
+			age = 80
+		}				
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_demesne_province = {
+					culture = ROOT
+				}
+			}
+		}		
+		modifier = {
+			factor = 2.0
+			independent = no
+			top_liege = { NOT = { culture = ROOT } }
+		}
+		modifier = {
+			factor = 1.1
+			demesne_size = 2
+		}
+		modifier = {
+			factor = 1.1
+			demesne_size = 4
+		}	
+		modifier = {
+			factor = 1.1
+			demesne_size = 6
+		}		
+		modifier = {
+			factor = 1.1
+			demesne_size = 8
+		}	
+		modifier = {
+			factor = 1.1
+			demesne_size = 10
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 1.05
+			learning = 11
+		}		
+		modifier = {
+			factor = 1.05
+			learning = 12
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 13
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 14
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 15
+		}
+		modifier = {
+			factor = 1.05
+			learning = 16
+		}
+		modifier = {
+			factor = 1.05
+			learning = 17
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 18
+		}
+		modifier = {
+			factor = 1.05
+			learning = 19
+		}
+		modifier = {
+			factor = 1.05
+			learning = 20
+		}
+		modifier = {
+			factor = 1.05
+			learning = 21
+		}
+		modifier = {
+			factor = 1.05
+			learning = 22
+		}
+		modifier = {
+			factor = 1.05
+			learning = 23
+		}
+		modifier = {
+			factor = 1.05
+			learning = 24
+		}
+		modifier = {
+			factor = 1.05
+			learning = 25
+		}	
+		modifier = {
+			factor = 0.9
+			trait = gregarious
+		}
+		modifier = {
+			factor = 1.25
+			trait = shy
+		}
+		modifier = {
+			factor =0.9
+			trait = poet
+		}
+		modifier = {
+			factor = 0.9
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.9
+			trait = humble
+		}
+		modifier = {
+			factor = 0.9
+			trait = content
+		}
+		modifier = {
+			factor = 5.0
+			culture = turkish
+			NOT = { year = 1150 }
+		}		
+		modifier = {
+			factor = 5.0
+			culture = mongol
+			NOT = { year = 1300 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA55001"
+		ai_chance = { factor = 75 }
+		capital_scope = {
+			ROOT = {
+				culture = PREV
+				any_child = {
+					limit = {
+						NOT = { age = 16 }
+					}
+					culture = PREVPREV
+				}				
+			}
+		}
+		set_character_flag = gone_native
+		prestige = -10
+	}
+	option = {
+		name = "EVTOPTB190041"
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 10
+				tier = emperor
+			}
+			modifier = {
+				factor = 5
+				tier = king
+			}
+			modifier = {
+				factor = 2
+				tier = duke
+			}
+			#catholics
+			modifier = {
+				factor = 100
+				OR = {
+					culture_group = north_germanic
+					culture_group = central_germanic
+					culture_group = west_germanic
+					culture_group = latin
+					culture_group = iberian
+					culture_group = celtic
+					culture_group = west_slavic
+					culture_group = magyar
+				}
+				capital_scope = {
+					NOT = {
+						culture_group = north_germanic
+						culture_group = central_germanic
+						culture_group = west_germanic
+						culture_group = latin
+						culture_group = iberian
+						culture_group = celtic
+						culture_group = west_slavic
+						culture_group = magyar
+					}
+				}
+			}	
+			#orthodox
+			modifier = {
+				factor = 100
+				OR = {
+					culture_group = byzantine
+					culture_group = east_slavic
+					culture_group = south_slavic
+				}
+				capital_scope = {
+					NOT = {
+						culture_group = byzantine
+						culture_group = east_slavic
+						culture_group = south_slavic
+					}
+				}
+			}
+			#baltic pagans
+			modifier = {
+				factor = 100
+				OR = {
+					culture_group = finno_ugric
+					culture_group = baltic
+				}
+				capital_scope = {
+					NOT = {
+						culture_group = finno_ugric
+						culture_group = baltic
+					}
+				}
+			}
+			#turks
+			modifier = {
+				factor = 100
+				culture_group = altaic
+				capital_scope = {
+					NOT = {
+						culture_group = altaic
+					}
+				}
+			}
+			#arabs
+			modifier = {
+				factor = 100
+				culture_group = arabic
+				capital_scope = {
+					NOT = {
+						culture_group = arabic
+					}
+				}
+			}
+			#persians
+			modifier = {
+				factor = 100
+				culture_group = iranian
+				capital_scope = {
+					NOT = {
+						culture_group = iranian
+					}
+				}
+			}
+			#africa
+			modifier = {
+				factor = 100
+				culture_group = west_african
+				capital_scope = {
+					NOT = {
+						culture_group = west_african
+					}
+				}
+			}
+			modifier = {
+				factor = 100
+				culture_group = east_african
+				capital_scope = {
+					NOT = {
+						culture_group = east_african
+					}
+				}
+			}			
+		}
+		set_character_flag = gone_native
+		prestige = 10
+	}	
+}

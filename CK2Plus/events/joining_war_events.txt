@@ -1,0 +1,484 @@
+letter_event = {
+	id = 1100000
+	border = "GFX_event_letter_frame_war"
+	
+	trigger = {
+		OR = {
+			NOT = { has_landed_title = e_golden_horde }
+			NOT = { religion_group = eastern_pagan }
+		}
+		OR = {
+			NOT = { has_landed_title = e_il-khanate }
+			NOT = { religion_group = eastern_pagan }
+		}	
+		NOT = { has_landed_title = e_timurids }	
+	}
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESC1100000"
+	
+	option = {
+		name = "EVTOPTA1100000"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 100.0
+				religion = catholic
+				FROM = { has_landed_title = e_papal_state }
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { ai = no }
+				NOT = { difficulty = 1 }
+			}
+			modifier = {
+				factor = 1.25
+				FROM = { ai = no }
+				NOT = { difficulty = 2 }
+			}	
+			modifier = {
+				factor = 0.75
+				FROM = { ai = no }
+				difficulty = 3
+			}
+			modifier = {
+				factor = 0.75
+				FROM = { ai = no }
+				difficulty = 4
+			}
+			modifier = {
+				factor = 0.75
+				NOT = { difficulty = 1 }
+				FROM = {
+					any_war = {
+						OR = {
+							using_cb = holy_war
+							using_cb = restore_papacy
+							using_cb = claim
+							using_cb = other_claim
+							using_cb = claim_all
+							using_cb = invasion
+							using_cb = tribal_invasion
+							using_cb = dejure_county_claim
+							using_cb = other_dejure_county_claim
+							using_cb = coastal_republic
+						}
+						attacker = {
+							ai = no
+							NOT = { religion = ROOT }
+							NOT = { war_with = PREVPREVPREV }
+							NOT = { same_realm = PREVPREVPREV }
+						}
+						defender = {
+							character = ROOT
+						}				
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				NOT = { difficulty = 2 }
+				FROM = {
+					any_war = {
+						OR = {	
+							using_cb = holy_war
+							using_cb = restore_papacy
+							using_cb = claim
+							using_cb = other_claim
+							using_cb = claim_all
+							using_cb = invasion
+							using_cb = tribal_invasion
+							using_cb = dejure_county_claim
+							using_cb = other_dejure_county_claim
+							using_cb = coastal_republic
+						}
+						attacker = {
+							ai = no
+							NOT = { religion = ROOT }
+							NOT = { war_with = PREVPREVPREV }
+							NOT = { same_realm = PREVPREVPREV }
+						}
+						defender = {
+							character = ROOT
+						}				
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+			 	difficulty = 3
+				FROM = {
+					any_war = {
+						OR = {
+							using_cb = holy_war
+							using_cb = restore_papacy
+							using_cb = claim
+							using_cb = other_claim
+							using_cb = claim_all
+							using_cb = invasion
+							using_cb = tribal_invasion
+							using_cb = dejure_county_claim
+							using_cb = other_dejure_county_claim
+							using_cb = coastal_republic
+						}
+						attacker = {
+							ai = no
+							NOT = { religion = ROOT }
+							NOT = { war_with = PREVPREVPREV }
+							NOT = { same_realm = PREVPREVPREV }
+						}
+						defender = {
+							character = ROOT
+						}				
+					}
+				}
+			}	
+			modifier = {
+				factor = 1.25
+			 	difficulty = 4
+				FROM = {
+					any_war = {
+						OR = {
+							using_cb = holy_war
+							using_cb = restore_papacy
+							using_cb = claim
+							using_cb = other_claim
+							using_cb = claim_all
+							using_cb = invasion
+							using_cb = tribal_invasion
+							using_cb = dejure_county_claim
+							using_cb = other_dejure_county_claim
+							using_cb = coastal_republic
+						}
+						attacker = {
+							ai = no
+							NOT = { religion = ROOT }
+							NOT = { war_with = PREVPREVPREV }
+							NOT = { same_realm = PREVPREVPREV }
+						}
+						defender = {
+							character = ROOT
+						}				
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = {
+					opinion = {
+						who = FROM
+						value = -75
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = {
+					opinion = {
+						who = FROM
+						value = -50
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = {
+					opinion = {
+						who = FROM
+						value = -25
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = {
+					opinion = {
+						who = FROM
+						value = 0
+					}
+				}
+			}			
+			modifier = {
+				factor = 2
+				opinion = {
+					who = FROM
+					value = 25
+				}
+			}
+			modifier = {
+				factor = 2
+				opinion = {
+					who = FROM
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 2
+				opinion = {
+					who = FROM
+					value = 75
+				}
+			}
+			modifier = {
+				factor = 2
+				opinion = {
+					who = FROM
+					value = 100
+				}
+			}
+			modifier = {
+				factor = 0.75
+				NOT = { culture = FROM }
+			}
+			modifier = {
+				factor = 0.75
+				NOT = { culture_group = FROM }
+			}			
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2.0
+				trait = zealous
+			}
+			modifier = {
+				factor = 3.0
+				trait = crusader
+			}
+			modifier = {
+				factor = 3.0
+				trait = mujahid
+			}
+			modifier = {
+				factor = 5.0
+				dynasty = FROM
+			}			
+			modifier = {
+				factor = 10.0
+				FROM = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_defending_me
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_not_defending_me
+					}
+				}
+			}			
+		}
+		hidden_tooltip = {
+			FROM = {
+				remove_opinion = {
+					who = ROOT
+					modifier = opinion_defending_me
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_defending_me
+				years = 10
+			}	
+		}
+		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+		change_variable = { which = "faction_mood_religious" value = 2 }				
+		join_defender_wars = FROM
+		hidden_tooltip = { FROM = { letter_event = { id = 1100002 days = 1 } } }
+	}
+	option = {
+		name = "EVTOPTB1100000"	
+		ai_chance = {
+			factor = 25			
+		}
+		hidden_tooltip = {
+			FROM = {
+				remove_opinion = {
+					who = ROOT
+					modifier = opinion_not_defending_me
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_not_defending_me
+				years = 10
+			}	
+		}
+		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
+		change_variable = { which = "faction_mood_religious" value = -2 }				
+	}	
+}
+
+character_event = {
+	id = 1100001
+	picture = "GFX_evt_crusaders"
+	border = "GFX_event_normal_frame_war"
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1100001"	
+	
+	trigger = {	
+		any_independent_ruler = {
+			OR = {
+				any_realm_province = {
+					any_neighbor_province = {
+						owner = {
+							OR = {
+								same_realm = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}		
+				AND = {
+					OR = {
+						year = 1150
+						NOT = { has_global_flag = shattered_world }
+					}
+					any_realm_province = {
+						kingdom = {
+							ROOT = { 
+								any_realm_province = {
+									kingdom = { title = PREVPREVPREV }
+								}
+							}
+						}
+					}	
+				}
+			}
+			religion = ROOT
+			NOT = { war_with = ROOT }
+			NOT = { same_realm = ROOT }
+			NOT = {
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_not_defending_me
+				}
+			}
+			ROOT = {
+				any_war = {
+					OR = {
+						using_cb = crusade
+						using_cb = holy_war
+						using_cb = restore_papacy
+						using_cb = claim
+						using_cb = other_claim
+						using_cb = claim_all
+						using_cb = invasion
+						using_cb = tribal_invasion
+						using_cb = dejure_county_claim
+						using_cb = dejure_barony_claim
+						using_cb = other_dejure_barony_claim
+						using_cb = other_dejure_county_claim
+						using_cb = coastal_republic
+					}
+					attacker = {
+						NOT = { religion = ROOT }
+						NOT = { war_with = PREVPREVPREV }
+						NOT = { same_realm = PREVPREVPREV }
+					}
+					defender = {
+						character = ROOT
+					}				
+				}
+			}
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTA1100001"
+		ai_chance = { factor = 100 }
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					any_realm_province = {
+						any_neighbor_province = {
+							owner = {
+								OR = {
+									same_realm = ROOT
+									character = ROOT
+								}
+							}
+						}
+					}		
+					AND = {
+						OR = {
+							year = 1150
+							NOT = { has_global_flag = shattered_world }
+						}
+						any_realm_province = {
+							kingdom = {
+								ROOT = { 
+									any_realm_province = {
+										kingdom = { title = PREVPREVPREV }
+									}
+								}
+							}
+						}	
+					}	
+				}
+				religion = ROOT
+				NOT = { war_with = ROOT }
+				NOT = { same_realm = ROOT }
+				NOT = {
+					reverse_has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_not_defending_me
+					}
+				}
+				ROOT = {
+					any_war = {
+						OR = {
+							using_cb = holy_war
+							using_cb = restore_papacy
+							using_cb = claim
+							using_cb = other_claim
+							using_cb = claim_all
+							using_cb = invasion
+							using_cb = tribal_invasion
+							using_cb = dejure_county_claim
+							using_cb = other_dejure_county_claim
+							using_cb = coastal_republic
+						}
+						attacker = {
+							NOT = { religion = ROOT }
+							NOT = { war_with = PREVPREVPREV }
+							NOT = { same_realm = PREVPREVPREV }
+						}
+						defender = {
+							character = ROOT
+						}				
+					}
+				}
+			}
+			letter_event = { id = 1100000 days = 1 tooltip = "EVTTOOLTIP1100000" }
+		}
+	}
+	option = {
+		name = "EVTOPTB1100001"	
+		ai_chance = { factor = 0 }
+	}	
+}
+
+letter_event = {
+	id = 1100002
+	border = "GFX_event_letter_frame_war"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESC1100002"
+	
+	option = {
+		name = "OK"
+	}	
+}

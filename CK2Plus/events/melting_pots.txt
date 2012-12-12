@@ -1,0 +1,1888 @@
+# The English Melting Pot
+character_event = {
+	id = 55002
+	desc = "EVTDESC55002"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1100
+		OR = {
+			independent = yes
+			top_liege = { culture = english }
+		}
+		OR = {
+			culture = norman
+			culture = frankish
+			culture = occitan
+		}
+		capital_scope = {
+			kingdom = { title = k_england }
+		}
+		any_demesne_province = {
+			kingdom = {
+				title = k_england
+			}
+			culture = saxon
+		}		
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.1
+			independent = no
+		}		
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+	}
+
+	option = {
+		name = "EVTOPTA55002"
+		culture = english
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_england
+				}
+				culture = saxon
+			}
+			culture = english
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = 55003
+	desc = "EVTDESC55003"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1100	
+		any_demesne_province = {
+			kingdom = {
+				title = k_england
+			}
+			OR = {
+				culture = saxon
+				culture = norman
+				culture = frankish
+				culture = occitan
+			}
+			OR = {
+				any_neighbor_province = { culture = english }
+				ROOT = {
+					culture = english
+					OR = {
+						independent = yes
+						top_liege = { culture = english }
+					}		
+					capital_scope = {
+						kingdom = { title = k_england }
+					}					
+				}
+			}
+			NOT = { has_province_flag = melting_pot }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+	}
+
+	option = {
+		name = "EVTOPTA55003"
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_england
+				}
+				OR = {
+					culture = saxon
+					culture = norman
+					culture = frankish
+					culture = occitan
+				}
+				OR = {
+					any_neighbor_province = { culture = english }
+					ROOT = {
+						culture = english
+						OR = {
+							independent = yes
+							top_liege = { culture = english }
+						}		
+						capital_scope = {
+							kingdom = { title = k_england }
+						}					
+					}
+				}
+				NOT = { has_province_flag = melting_pot }
+			}
+			culture = english
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+#Make my court speak English
+character_event = {
+	id = 55004
+	desc = "EVTDESC55004"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1100
+		culture = english
+		OR = {
+			independent = yes
+			top_liege = { culture = english }
+		}		
+		capital_scope = {
+			kingdom = { title = k_england }
+		}	
+		any_courtier = {
+			is_ruler = no
+			prisoner = no
+			OR = {
+				culture = saxon
+				culture = norman
+				culture = frankish
+				culture = occitan
+			}
+		}		
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+	}
+
+	option = {
+		name = "EVTOPTA55004"
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				prisoner = no
+				OR = {	
+					culture = saxon
+					culture = norman
+					culture = frankish
+					culture = occitan
+				}
+			}
+			culture = english
+			hidden_tooltip = {
+				character_event = { id = 55006 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak English
+character_event = {
+	id = 55005
+	desc = "EVTDESC55005"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1100
+		culture = english
+		OR = {
+			independent = yes
+			top_liege = { culture = english }
+		}		
+		capital_scope = {
+			kingdom = { title = k_england }
+		}
+		any_vassal = {
+			OR = {
+				culture = saxon
+				culture = norman
+				culture = frankish
+				culture = occitan
+			}
+			any_demesne_province = {
+				kingdom = {
+					title = k_england
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+	}
+
+	option = {
+		name = "EVTOPTA55005"
+		random_vassal = {
+			limit = {
+				OR = {	
+					culture = saxon
+					culture = norman
+					culture = frankish
+					culture = occitan
+				}
+				any_demesne_province = {
+					kingdom = {
+						title = k_england
+					}
+				}
+			}	
+			culture = english
+			hidden_tooltip = {
+				character_event = { id = 55006 days = 3 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 55006
+	desc = "EVTDESC55006"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA55006"
+		culture = english
+	}
+}
+
+# The Sicilian Melting Pot -- Norman Version (Default)
+character_event = {
+	id = 100009000
+	desc = "EVTDESC100009000"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1100
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian }
+		}
+		culture = norman		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		any_demesne_province = {
+			kingdom = {
+				title = k_sicily
+			}
+			OR = {
+				culture = greek
+				culture = italian
+				culture = maghreb_arabic
+				culture = norman
+			}
+		}
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.1
+			independent = no
+		}
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009000"
+		culture = sicilian
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_sicily
+				}
+				OR = {
+					culture = maghreb_arabic
+					culture = greek
+					culture = italian
+					culture = norman
+			     }
+			}
+			culture = sicilian
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = 100009001
+	desc = "EVTDESC100009001"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1150		
+		any_demesne_province = {
+			kingdom = {
+				title = k_sicily
+			}
+			OR = {
+				culture = greek
+				culture = italian
+				culture = maghreb_arabic
+				culture = norman
+			}
+			OR = {
+				any_neighbor_province = { culture = sicilian }
+				ROOT = {
+					culture = sicilian
+					OR = {
+						independent = yes
+						top_liege = { culture = sicilian }
+					}		
+					capital_scope = {
+						kingdom = { title = k_sicily }
+					}						
+				}
+			}
+			NOT = { has_province_flag = melting_pot }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009001"
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_sicily
+				}
+				OR = {	
+					culture = greek
+					culture = norman
+					culture = maghreb_arabic
+					culture = italian
+				}
+				OR = {
+					any_neighbor_province = { culture = sicilian }
+					ROOT = {
+						culture = sicilian
+						OR = {
+							independent = yes
+							top_liege = { culture = sicilian }
+						}		
+						capital_scope = {
+							kingdom = { title = k_sicily }
+						}						
+					}
+				}
+				NOT = { has_province_flag = melting_pot }				
+			}
+			culture = sicilian
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+#Make my court speak Sicilian
+character_event = {
+	id = 100009002
+	desc = "EVTDESC100009002"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1150
+		culture = sicilian
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian }
+		}		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}			
+		any_demesne_province = {
+			kingdom = { title = k_sicily }
+		}
+		any_courtier = {
+			is_ruler = no
+			prisoner = no
+			OR = {
+				culture = maghreb_arabic
+				culture = norman
+				culture = greek
+				culture = italian
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009002"
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				prisoner = no
+				OR = {	
+					culture = maghreb_arabic
+					culture = norman
+					culture = greek
+					culture = italian
+				}
+			}
+			culture = sicilian
+			hidden_tooltip = {
+				character_event = { id = 100009004 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Sicilian
+character_event = {
+	id = 100009003
+	desc = "EVTDESC100009003"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1150
+		culture = sicilian
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian }
+		}		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		any_vassal = {
+			OR = {
+				culture = italian
+				culture = norman
+				culture = greek
+				culture = maghreb_arabic
+			}
+			any_demesne_province = {
+				kingdom = {
+					title = k_sicily
+				}
+			}			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+	option = {
+		name = "EVTOPTA100009003"
+		random_vassal = {
+			limit = {
+				OR = {	
+					culture = italian
+					culture = norman
+					culture = maghreb_arabic
+					culture = greek
+				}
+				any_demesne_province = {
+					kingdom = {
+						title = k_sicily
+					}
+				}				
+			}
+			culture = sicilian
+			hidden_tooltip = {
+				character_event = { id = 100009004 days = 3 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 100009004
+	desc = "EVTDESC100009004"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA100009004"
+		culture = sicilian
+	}
+}
+# The Sicilian Melting Pot -- Greek Version
+character_event = {
+	id = 100009005
+	desc = "EVTDESC100009005"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1100
+
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian_greek }
+		}
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		culture = greek
+		any_demesne_province = {
+			kingdom = {
+				title = k_sicily
+			}
+			OR = {
+				culture = greek
+				culture = italian
+				culture = maghreb_arabic
+				culture = norman
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.1
+			independent = no
+		}
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009005"
+		culture = sicilian_greek
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_sicily
+					}
+				OR = {
+				culture = maghreb_arabic
+				culture = greek
+				culture = italian
+				culture = norman
+			     	}
+			}
+			culture = sicilian_greek
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = 100009006
+	desc = "EVTDESC100009006"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1150
+		any_demesne_province = {
+			kingdom = {
+				title = k_sicily
+			}
+			OR = {
+				culture = greek
+				culture = italian
+				culture = maghreb_arabic
+				culture = norman
+			}
+			OR = {
+				any_neighbor_province = { culture = sicilian_greek }
+				ROOT = {
+					OR = {
+						independent = yes
+						top_liege = { culture = sicilian_greek }
+					}		
+					capital_scope = {
+						kingdom = { title = k_sicily }
+					}		
+					culture = sicilian_greek					
+				}
+			}	
+			NOT = { has_province_flag = melting_pot }	
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009006"
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_sicily
+				}
+				OR = {
+					culture = greek
+					culture = italian
+					culture = maghreb_arabic
+					culture = norman
+				}
+				OR = {
+					any_neighbor_province = { culture = sicilian_greek }
+					ROOT = {
+						OR = {
+							independent = yes
+							top_liege = { culture = sicilian_greek }
+						}		
+						capital_scope = {
+							kingdom = { title = k_sicily }
+						}		
+						culture = sicilian_greek					
+					}
+				}	
+				NOT = { has_province_flag = melting_pot }	
+			}
+			culture = sicilian_greek
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+#Make my court speak Sicilian
+character_event = {
+	id = 100009007
+	desc = "EVTDESC100009007"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1150
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian_greek }
+		}		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		culture = sicilian_greek
+		any_courtier = {
+			is_ruler = no
+			prisoner = no
+			OR = {
+				culture = maghreb_arabic
+				culture = norman
+				culture = greek
+				culture = italian
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009007"
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				prisoner = no
+				OR = {	
+					culture = maghreb_arabic
+					culture = norman
+					culture = greek
+					culture = italian
+				}
+			}
+			culture = sicilian_greek
+			hidden_tooltip = {
+				character_event = { id = 100009009 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Sicilian
+character_event = {
+	id = 100009008
+	desc = "EVTDESC100009008"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1150
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian_greek }
+		}		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		culture = sicilian_greek
+		any_vassal = {
+			OR = {
+				culture = italian
+				culture = norman
+				culture = greek
+				culture = maghreb_arabic
+			}
+			any_demesne_province = {
+				kingdom = {
+					title = k_sicily
+				}
+			}			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009008"
+		random_vassal = {
+			limit = {
+				OR = {	
+					culture = italian
+					culture = norman
+					culture = maghreb_arabic
+					culture = greek
+				}
+				any_demesne_province = {
+					kingdom = {
+						title = k_sicily
+					}
+				}				
+			}
+			culture = sicilian_greek
+			hidden_tooltip = {
+				character_event = { id = 100009009 days = 3 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 100009009
+	desc = "EVTDESC100009009"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA100009009"
+		culture = sicilian_greek
+	}
+}
+
+# The Sicilian Melting Pot -- Arabic Version
+character_event = {
+	id = 100009010
+	desc = "EVTDESC100009010"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1100
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian_arabic }
+		}
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		culture = maghreb_arabic
+		any_demesne_province = {
+			kingdom = {
+				title = k_sicily
+			}
+			OR = {
+				culture = greek
+				culture = italian
+				culture = maghreb_arabic
+				culture = norman
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.1
+			independent = no
+		}
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009010"
+		culture = sicilian_arabic
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_sicily
+					}
+				OR = {
+				culture = maghreb_arabic
+				culture = greek
+				culture = italian
+				culture = norman
+			     	}
+			}
+			culture = sicilian_arabic
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = 100009011
+	desc = "EVTDESC100009011"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1150
+		any_demesne_province = {
+			kingdom = {
+				title = k_sicily
+			}
+			OR = {
+				culture = greek
+				culture = italian
+				culture = maghreb_arabic
+				culture = norman
+			}
+			OR = {
+				any_neighbor_province = { culture = sicilian_arabic }
+				ROOT = {
+					OR = {
+						independent = yes
+						top_liege = { culture = sicilian_arabic }
+					}		
+					capital_scope = {
+						kingdom = { title = k_sicily }
+					}		
+					culture = sicilian_arabic				
+				}
+			}	
+			NOT = { has_province_flag = melting_pot }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009011"
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_sicily
+				}
+				OR = {
+					culture = greek
+					culture = italian
+					culture = maghreb_arabic
+					culture = norman
+				}
+				OR = {
+					any_neighbor_province = { culture = sicilian_arabic }
+					ROOT = {
+						OR = {
+							independent = yes
+							top_liege = { culture = sicilian_arabic }
+						}		
+						capital_scope = {
+							kingdom = { title = k_sicily }
+						}		
+						culture = sicilian_arabic				
+					}
+				}	
+				NOT = { has_province_flag = melting_pot }
+			}
+			culture = sicilian_arabic
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+#Make my court speak Sicilian
+character_event = {
+	id = 100009012
+	desc = "EVTDESC100009012"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1150
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian_arabic }
+		}		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		culture = sicilian_arabic
+		any_courtier = {
+			is_ruler = no
+			prisoner = no
+			OR = {
+				culture = maghreb_arabic
+				culture = norman
+				culture = greek
+				culture = italian
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009012"
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				prisoner = no
+				OR = {	
+					culture = maghreb_arabic
+					culture = norman
+					culture = greek
+					culture = italian
+				}
+			}
+			culture = sicilian_arabic
+			hidden_tooltip = {
+				character_event = { id = 100009014 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Sicilian
+character_event = {
+	id = 100009013
+	desc = "EVTDESC100009013"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1150
+		OR = {
+			independent = yes
+			top_liege = { culture = sicilian_arabic }
+		}		
+		capital_scope = {
+			kingdom = { title = k_sicily }
+		}		
+		culture = sicilian_arabic
+		any_vassal = {
+			OR = {
+				culture = italian
+				culture = norman
+				culture = greek
+				culture = maghreb_arabic
+			}
+			any_demesne_province = {
+				kingdom = {
+					title = k_sicily
+				}
+			}			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1200
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009013"
+		random_vassal = {
+			limit = {
+				OR = {	
+					culture = italian
+					culture = norman
+					culture = maghreb_arabic
+					culture = greek
+				}
+				any_demesne_province = {
+					kingdom = {
+						title = k_sicily
+					}
+				}				
+			}
+			culture = sicilian_arabic
+			hidden_tooltip = {
+				character_event = { id = 100009014 days = 3 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 100009014
+	desc = "EVTDESC100009014"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA100009014"
+		culture = sicilian_arabic
+	}
+}
+
+# The Anglo-Norse Melting Pot
+character_event = {
+	id = 100009030
+	desc = "EVTDESC100009030"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1100
+		OR = {
+			independent = yes
+			top_liege = { culture = english_norse }
+		}
+		capital_scope = {
+			kingdom = { title = k_england }
+		}		
+		culture_group = north_germanic
+		any_demesne_province = {
+			kingdom = {
+				title = k_england
+			}
+			culture = saxon
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.1
+			independent = no
+		}
+		modifier = {
+			factor = 0.5
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			year = 1300
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009030"
+		culture = english_norse
+		random_demesne_province = {
+			limit = {
+				kingdom = {
+					title = k_england
+				}			
+				culture = saxon
+			}
+			culture = english_norse
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = 100009031
+	desc = "EVTDESC100009031"
+	picture = GFX_evt_throne_room
+	
+	trigger = {
+		year = 1200
+		any_demesne_province = {
+			kingdom = { title = k_england }
+			culture = saxon
+			OR = {
+				any_neighbor_province = { culture = english_norse }
+				ROOT = {
+					OR = {
+						independent = yes
+						top_liege = { culture = english_norse }
+					}
+					capital_scope = {
+						kingdom = { title = k_england }
+					}		
+					culture = english_norse			
+				}
+			}
+			NOT = { has_province_flag = melting_pot }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			year = 1250
+		}
+		modifier = {
+			factor = 0.5
+			year = 1300
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009031"
+		random_demesne_province = {
+			limit = {
+				kingdom = { title = k_england }
+				culture = saxon
+				OR = {
+					any_neighbor_province = { culture = english_norse }
+					ROOT = {
+						OR = {
+							independent = yes
+							top_liege = { culture = english_norse }
+						}
+						capital_scope = {
+							kingdom = { title = k_england }
+						}		
+						culture = english_norse			
+					}
+				}
+				NOT = { has_province_flag = melting_pot }
+			}
+			culture = english_norse
+			set_province_flag = melting_pot
+		}
+	}
+}
+
+#Make my court english_norse
+character_event = {
+	id = 100009032
+	desc = "EVTDESC100009032"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1200
+		OR = {
+			independent = yes
+			top_liege = { culture = english_norse }
+		}
+		capital_scope = {
+			kingdom = { title = k_england }
+		}		
+		culture = english_norse
+		any_courtier = {
+			is_ruler = no
+			prisoner = no
+			OR = {
+				culture_group = north_germanic			
+				culture = saxon
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			year = 1250
+		}
+		modifier = {
+			factor = 0.5
+			year = 1300
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009032"
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				prisoner = no
+				OR = {
+					culture_group = north_germanic			
+					culture = saxon
+				}
+			}
+			culture = english_norse
+			hidden_tooltip = {
+				character_event = { id = 100009034 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal english_norse
+character_event = {
+	id = 100009033
+	desc = "EVTDESC100009033"
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		year = 1200
+		OR = {
+			independent = yes
+			top_liege = { culture = english_norse }
+		}
+		capital_scope = {
+			kingdom = { title = k_england }
+		}		
+		culture = english_norse
+		any_vassal = {
+			OR = {
+				culture_group = north_germanic			
+				culture = saxon
+			}
+			any_demesne_province = {
+				kingdom = {
+					title = k_england
+				}
+				culture = saxon
+			}			
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			year = 1250
+		}
+		modifier = {
+			factor = 0.5
+			year = 1300
+		}
+	}
+
+	option = {
+		name = "EVTOPTA100009033"
+		random_vassal = {
+			limit = {
+				OR = {
+					culture_group = north_germanic			
+					culture = saxon
+				}
+				any_demesne_province = {
+					kingdom = {
+						title = k_england
+					}
+					culture = saxon
+				}				
+			}
+			culture = english_norse
+			hidden_tooltip = {
+				character_event = { id = 100009034 days = 3 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 100009034
+	desc = "EVTDESC100009034"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+		culture = english_norse
+	}
+}

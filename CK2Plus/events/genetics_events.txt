@@ -1,0 +1,1020 @@
+#newborn characters
+character_event = {
+	id = 300002
+	desc = "EVTDESC300001"
+
+	trigger = {
+		NOT = { age = 1 }
+		NOT = { has_character_flag = genetics_check }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA300001"
+		set_character_flag = genetics_check
+		hidden_tooltip = {	
+			add_trait = young1
+			if = {
+				limit = {
+					NOT = { trait = divine_blood }
+					father_even_if_dead = { 
+						dynasty = ROOT 
+						trait = divine_blood 
+					}
+				}
+				add_trait = divine_blood				
+			}
+			if = {
+				limit = {
+					NOT = { trait = divine_blood }
+					mother = { 
+						dynasty = ROOT 
+						trait = divine_blood 
+					}
+				}
+				add_trait = divine_blood				
+			}	
+			if = {
+				limit = {
+					OR = {
+						father = { trait = immortal }
+						mother = { trait = immortal }
+					}
+				}
+				random = {
+					chance = 10
+					add_trait = immortal
+				}
+			}
+			
+			#check for stillbirth
+			character_event = { id = 190000 }			
+
+			any_child = {
+				if = {
+					limit = { ROOT = { is_female = no } }
+					remove_opinion = {
+						modifier = opinion_father
+						who = ROOT
+					}
+					opinion = {
+						modifier = opinion_father
+						who = ROOT
+						years = 100
+					}					
+				}	
+				any_child = {
+					if = {
+						limit = { ROOT = { is_female = no } }
+						remove_opinion = {
+							modifier = opinion_grandfather
+							who = ROOT
+						}
+						opinion = {
+							modifier = opinion_grandfather
+							who = ROOT
+							years = 100
+						}					
+					}	
+					if = {
+						limit = { ROOT = { is_female = yes } }
+						remove_opinion = {
+							modifier = opinion_grandmother
+							who = ROOT
+						}
+						opinion = {
+							modifier = opinion_grandmother
+							who = ROOT
+							years = 100
+						}					
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+					}
+					reverse_opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+						years = 100
+					}					
+				}
+			}
+			any_sibling = {		#siblings
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								ROOT = { NOT = { religion_group = muslim } }
+								NOT = { religion_group = muslim }
+							}
+							is_female = yes
+							ROOT = { is_female = yes }
+						}
+					}
+					remove_opinion = {
+						modifier = opinion_sibling
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_sibling
+						who = ROOT
+					}
+					opinion = {
+						modifier = opinion_sibling
+						who = ROOT
+						years = 100
+					}
+					reverse_opinion = {
+						modifier = opinion_sibling
+						who = ROOT
+						years = 100
+					}
+				}
+				any_child = {		#nephews/nieces
+					remove_opinion = {
+						modifier = opinion_uncle
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_aunt
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_nephew
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_niece
+						who = ROOT
+					}
+					if = {
+						limit = {
+							ROOT = {
+								is_female = no
+							}
+						}
+						opinion = {
+							modifier = opinion_uncle
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								is_female = yes
+							}
+						}
+						opinion = {
+							modifier = opinion_aunt
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							is_female = no
+						}
+						reverse_opinion = {
+							modifier = opinion_nephew
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						reverse_opinion = {
+							modifier = opinion_niece
+							who = ROOT
+							years = 100
+						}
+					}
+				}		#END nephews/nieces
+			}		#END siblings
+			father_even_if_dead = {		#father
+				reverse_remove_opinion = {
+					modifier = opinion_father
+					who = ROOT
+				}			
+				reverse_opinion = {
+					modifier = opinion_father
+					who = ROOT
+					years = 100
+				}
+				father = {		#grandfather
+					remove_opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+					}				
+					opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+						years = 100
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_grandfather
+						who = ROOT
+					}					
+					reverse_opinion = {
+						modifier = opinion_grandfather
+						who = ROOT
+						years = 100
+					}
+				}		#END grandfather
+				mother = {		#grandmother
+					remove_opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+					}				
+					opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+						years = 100
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_grandmother
+						who = ROOT
+					}					
+					reverse_opinion = {
+						modifier = opinion_grandmother
+						who = ROOT
+						years = 100
+					}
+				}		#END grandmother
+				any_sibling = {		#uncles/aunts
+					remove_opinion = {
+						modifier = opinion_nephew
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_niece
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_uncle
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_aunt
+						who = ROOT
+					}
+					if = {
+						limit = {
+							ROOT = {
+								is_female = no
+							}
+						}
+						opinion = {
+							modifier = opinion_nephew
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								is_female = yes
+							}
+						}
+						opinion = {
+							modifier = opinion_niece
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							is_female = no
+						}
+						reverse_opinion = {
+							modifier = opinion_uncle
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						reverse_opinion = {
+							modifier = opinion_aunt
+							who = ROOT
+							years = 100
+						}
+					}
+					any_child = {		#cousins
+						remove_opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+						}
+						reverse_remove_opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+						}
+						opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+							years = 100
+						}
+						reverse_opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+							years = 100
+						}
+					}		#END cousins
+				}		#END uncles/aunts
+			}		#END father
+			mother = {		#mother
+				father = {		#grandfather
+					remove_opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+					}				
+					opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+						years = 100
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_grandfather
+						who = ROOT
+					}					
+					reverse_opinion = {
+						modifier = opinion_grandfather
+						who = ROOT
+						years = 100
+					}
+				}		#END grandfather
+				mother = {		#grandmother
+					remove_opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+					}				
+					opinion = {
+						modifier = opinion_grandchild
+						who = ROOT
+						years = 100
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_grandmother
+						who = ROOT
+					}					
+					reverse_opinion = {
+						modifier = opinion_grandmother
+						who = ROOT
+						years = 100
+					}
+				}		#END grandmother
+				any_sibling = {		#uncles/aunts
+					remove_opinion = {
+						modifier = opinion_nephew
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_niece
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_uncle
+						who = ROOT
+					}
+					reverse_remove_opinion = {
+						modifier = opinion_aunt
+						who = ROOT
+					}
+					if = {
+						limit = {
+							ROOT = {
+								is_female = no
+							}
+						}
+						opinion = {
+							modifier = opinion_nephew
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								is_female = yes
+							}
+						}
+						opinion = {
+							modifier = opinion_niece
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							is_female = no
+						}
+						reverse_opinion = {
+							modifier = opinion_uncle
+							who = ROOT
+							years = 100
+						}
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						reverse_opinion = {
+							modifier = opinion_aunt
+							who = ROOT
+							years = 100
+						}
+					}
+					any_child = {		#cousins
+						remove_opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+						}
+						reverse_remove_opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+						}
+						opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+							years = 100
+						}
+						reverse_opinion = {
+							modifier = opinion_cousin
+							who = ROOT
+							years = 100
+						}
+					}		#END cousins
+				}		#END uncles/aunts
+			}		#END mother
+		}
+	}
+}
+
+#Reduce fertility / change stats for older characters
+character_event = {
+	id = 300003
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 50 
+			NOT = { age = 60 }
+			ai = no
+			NOT = { trait = old50 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = old50
+			remove_trait = young1
+			remove_trait = young6
+			remove_trait = young16			
+		}
+	}	
+}
+
+character_event = {
+	id = 300004
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 60
+			NOT = { age = 70 }
+			ai = no
+			NOT = { trait = old60 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = old60
+			remove_trait = old50
+			remove_trait = young1
+			remove_trait = young6
+			remove_trait = young16			
+		}
+	}	
+}
+
+character_event = {
+	id = 300005
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 70 
+			NOT = { age = 80 }
+			ai = no
+			NOT = { trait = old70 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = old70
+			remove_trait = old60
+			remove_trait = old50
+			remove_trait = young1
+			remove_trait = young6
+			remove_trait = young16			
+		}
+	}	
+}
+
+character_event = {
+	id = 300006
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 80
+			NOT = { age = 90 }
+			ai = no
+			NOT = { trait = old80 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = old80
+			remove_trait = old70
+			remove_trait = old60
+			remove_trait = old50
+			remove_trait = young1
+			remove_trait = young6
+			remove_trait = young16				
+		}
+	}	
+}
+
+character_event = {
+	id = 300007
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 90
+			ai = no
+			NOT = { trait = old90 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = old90
+			remove_trait = old80
+			remove_trait = old70
+			remove_trait = old60
+			remove_trait = old50
+			remove_trait = young1
+			remove_trait = young6
+			remove_trait = young16			
+		}
+	}	
+}
+
+character_event = {
+	id = 300008
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	min_age = 50
+	max_age = 60
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = old50 }
+	}
+
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = old50
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16		
+	}	
+}
+
+character_event = {
+	id = 300009
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	min_age = 60
+	max_age = 70
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = old60 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = old60
+		remove_trait = old50
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16		
+	}	
+}
+
+
+character_event = {
+	id = 300010
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	min_age = 70
+	max_age = 80
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = old70 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = old70
+		remove_trait = old60
+		remove_trait = old50
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16		
+	}	
+}
+
+character_event = {
+	id = 300011
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	min_age = 80
+	max_age = 90
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = old80 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = old80
+		remove_trait = old70
+		remove_trait = old60
+		remove_trait = old50
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16		
+	}	
+}
+
+character_event = {
+	id = 300012
+	picture = "GFX_evt_illness"
+	
+	is_triggered_only = yes
+	hide_from = yes
+	min_age = 90
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = old90 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = old90
+		remove_trait = old80
+		remove_trait = old70
+		remove_trait = old60
+		remove_trait = old50
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16
+	}	
+}
+
+#young characters
+
+character_event = {
+	id = 300013
+	picture = "GFX_evt_illness"
+
+	hide_from = yes
+	min_age = 15
+	max_age = 25
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = young16 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = young16
+		remove_trait = young1
+		remove_trait = young6
+	}	
+}
+
+
+character_event = {
+	id = 300014
+	picture = "GFX_evt_illness"
+	
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 15
+			NOT = { age = 25 }
+			ai = no
+			NOT = { trait = young16 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = young16
+			remove_trait = young1
+			remove_trait = young6
+		}
+	}	
+}
+character_event = {
+	id = 300015
+	picture = "GFX_evt_illness"
+	
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 25
+			ai = no
+			OR = {
+				trait = young1
+				trait = young6
+				trait = young16
+			}
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+	
+
+	option = {
+		name = "OK"
+		liege = {
+			remove_trait = young16
+			remove_trait = young6
+			remove_trait = young1
+		}
+	}	
+}
+character_event = {
+	id = 300016
+	picture = "GFX_evt_illness"
+
+	hide_from = yes
+	
+	min_age = 25
+	max_age = 50
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		OR = {
+			trait = young1
+			trait = young6
+			trait = young16
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		remove_trait = young16
+		remove_trait = young6
+		remove_trait = young1
+	}	
+}
+character_event = {
+	id = 300017
+	picture = "GFX_evt_illness"
+
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = young1 }
+		NOT = { age = 6 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = young1
+	}	
+}
+character_event = {
+	id = 300018
+	picture = "GFX_evt_illness"
+
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			NOT = { age = 6 }
+			ai = no
+			NOT = { trait = young1 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = young1
+		}
+	}	
+}
+character_event = {
+	id = 300019
+	picture = "GFX_evt_illness"
+
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { trait = immortal }
+		NOT = { trait = young6 }
+		NOT = { trait = young16 }
+		age = 6
+		NOT = { age = 16 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		add_trait = young6
+		remove_trait = young1
+	}	
+}
+character_event = {
+	id = 300020
+	picture = "GFX_evt_illness"
+
+	hide_from = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = no
+		liege = { 
+			NOT = { trait = immortal }
+			age = 6
+			NOT = { age = 16 }
+			ai = no
+			NOT = { trait = young6 }
+			NOT = { trait = young16 }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+		
+	desc = "AI_EVENT"
+
+	option = {
+		name = "OK"
+		liege = {
+			add_trait = young6
+			remove_trait = young1
+		}
+	}	
+}

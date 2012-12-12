@@ -1,0 +1,622 @@
+decisions = {
+
+	hold_a_epic_tournament  = {
+		potential = {
+			NOT = {
+				religion_group = muslim
+				has_character_flag = epic_tournament
+			}
+			independent = yes
+			NOT = { is_female = yes	}
+			OR = {
+				tier = king
+				tier = emperor 
+			}
+		}
+		allow = {
+			war = no
+			age = 16
+			prestige = 500
+			wealth = 200
+			NOT = { has_character_modifier = holding_large_feast }
+			NOT = { has_character_modifier = holding_summer_fair }
+			NOT = { has_character_modifier = holding_grand_hunt }	
+			NOT = { has_character_modifier = holding_epic_tournament }
+		}
+		effect = {
+			set_character_flag = epic_tournament
+			set_character_flag = holding_epic_tournament
+			wealth = -200
+			prestige = 100
+			add_character_modifier = {
+				name = "holding_epic_tournament"
+				duration = -1
+			}
+			character_event = { id = 70033 tooltip = "tournament_invite" }
+			hidden_tooltip = {
+				character_event = { id = 70001 days = 60 } # Tournament start
+				any_realm_character = {
+					limit = {
+						is_feudal = yes
+						NOT = { has_job_title = job_spiritual }
+						age = 16
+						NOT = { health_traits = 1 }
+						prisoner = no	
+						NOT = { is_female = yes	}
+					}
+					character_event = { id = 70000 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						wealth = 1000
+						scaled_wealth = 3.0
+					}
+				}
+			}
+		}
+	}
+	
+	buy_indulgence_for_sins = {
+		potential = {
+			religion = catholic
+			age = 16
+			demesne_size = 1
+			NOT = { trait = excommunicated }
+			rightful_religious_head_scope = {
+				is_alive = yes
+				NOT = {
+					character = ROOT
+				}
+			}			
+		}
+		allow = {
+			NOT = { has_character_modifier = indulgence_timer }
+			treasury = 50
+		}
+		effect = {	
+			treasury = -50
+			piety = 25
+			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 1 }				
+			rightful_religious_head_scope = {
+				opinion = {
+					who = ROOT
+					modifier = bought_indulgences
+					years = 3
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_character_modifier = {
+					name = indulgence_timer
+					duration = 1095
+					hidden = yes
+				}	
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_character_modifier = {
+					name = indulgence_timer
+					duration = 3650
+					hidden = yes
+				}	
+			}			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}			
+			modifier = {
+				factor = 0
+				trait = cynical
+			}
+			modifier = {
+				factor = 0
+				trait = cruel
+			}
+			modifier = {
+				factor = 0
+				trait = greedy
+			}			
+		}
+	}
+	
+	sadaqah_saddka  = {
+		potential = {
+			OR = {
+				religion = shiite
+				religion = sunni
+			}
+			age = 16
+			demesne_size = 1
+			rightful_religious_head_scope = {
+				is_alive = yes
+				NOT = {
+					character = ROOT
+				}
+			}
+		}
+		allow = {
+			NOT = { has_character_modifier = charity_timer }
+			treasury = 50
+		}
+		effect = {
+			treasury = -50
+			piety = 25
+			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 1 }			
+			rightful_religious_head_scope = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_sadaqah
+					years = 3
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_character_modifier = {
+					name = charity_timer
+					duration = 1095
+					hidden = yes
+				}	
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_character_modifier = {
+					name = charity_timer
+					duration = 3650
+					hidden = yes
+				}	
+			}			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}			
+			modifier = {
+				factor = 0
+				trait = cynical
+			}
+			modifier = {
+				factor = 0
+				trait = cruel
+			}
+			modifier = {
+				factor = 0
+				trait = greedy
+			}			
+		}
+	}	
+	
+	give_to_charity = {
+		potential = {
+			OR = {
+				AND = {
+					NOT = { religion = catholic }
+					NOT = { religion = sunni }
+					NOT = { religion = shiite }
+				}
+				NOT = {
+					rightful_religious_head_scope = {
+						is_alive = yes
+						NOT = {
+							character = ROOT
+						}
+					}				
+				}
+			}
+			age = 16
+			demesne_size = 1
+		}
+		allow = {
+			NOT = { has_character_modifier = charity_timer }
+			treasury = 50
+		}
+		effect = {
+			treasury = -50
+			piety = 25
+			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 1 }			
+			if = {
+				limit = {
+					ai = no
+				}
+				add_character_modifier = {
+					name = charity_timer
+					duration = 1095
+					hidden = yes
+				}	
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_character_modifier = {
+					name = charity_timer
+					duration = 3650
+					hidden = yes
+				}	
+			}			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}	
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}
+			modifier = {
+				factor = 0
+				trait = cynical
+			}
+			modifier = {
+				factor = 0
+				trait = cruel
+			}
+			modifier = {
+				factor = 0
+				trait = greedy
+			}			
+		}
+	}		
+
+	issue_declaration_of_repentance = {
+		potential = {
+			religion = catholic
+			age = 16
+			demesne_size = 1
+			NOT = { has_character_flag = ask_for_repentance }
+			rightful_religious_head_scope = {
+				ROOT = {
+					excommunicated_for = PREV
+				}
+			}
+		}
+		allow = {
+			scaled_wealth = 2.0
+			is_heretic = no
+		}
+		effect = {
+			set_character_flag = ask_for_repentance
+			rightful_religious_head_scope = {
+				character_event = { id = 39252 days = 5 random = 12 tooltip = "repentance_ask" }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 10.0
+				}
+			}
+		}
+	}
+	
+	demand_liege_title = {
+		is_high_prio = yes
+		potential = {
+			NOT = { has_character_flag = requested_de_jure_title }
+			liege = {
+				NOT = { character = ROOT }
+				primary_title = {
+					OR = {
+						tier = KING
+						tier = EMPEROR
+					}
+				}
+				any_demesne_title = {
+					tier = duke
+					has_de_jure_pretension = ROOT
+					can_be_given_away = yes
+					NOT = {
+						holder_scope = {
+							capital_scope = {
+								county = {
+									title = PREVPREVPREV
+								}
+							}
+						}
+						holder_scope = {
+							capital_scope = {
+								duchy = {
+									title = PREVPREVPREV
+								}
+							}
+						}
+						holder_scope = {
+							capital_scope = {
+								kingdom = {
+									title = PREVPREVPREV
+								}
+							}
+						}					
+					}					
+				}				
+			}
+			age = 16
+			prisoner = no
+			is_playable = yes
+			tier = count
+			NOT = { trait = incapable }
+		}
+		allow = {
+			liege = {
+				opinion = {
+					who = ROOT
+					value = 25
+				}
+			}
+		}
+		effect = {
+			set_character_flag = requested_de_jure_title
+			liege = { set_character_flag = wants_duchy_title letter_event = { id = 63041 days = 4 tooltip = "EVTTOOLTIP63041" } } # "vassal_request_events.txt"
+		}
+		ai_will_do = {
+			factor = 0 # The AI is limited to the similar event 63040
+		}
+	}
+
+	hold_a_furusiyya  = {
+		potential = {
+			NOT = {
+				has_character_flag = epic_tournament_furusiyya
+			}
+			religion_group = muslim
+			independent = yes
+			NOT = { is_female = yes	}
+			OR = {
+				tier = king
+				tier = emperor 
+			}
+			NOT = { has_character_modifier = holding_large_feast }
+			NOT = { has_character_modifier = holding_summer_fair }
+			NOT = { has_character_modifier = holding_grand_hunt }	
+			NOT = { has_character_modifier = holding_epic_tournament }			
+		}
+		allow = {
+			war = no
+			age = 16
+			prestige = 500
+			wealth = 200
+		}
+		effect = {
+			set_character_flag = epic_tournament_furusiyya
+			clr_character_flag = tournament_has_ended_furusiyya
+			add_character_modifier = {
+				name = "holding_epic_tournament"
+				duration = -1
+			}			
+			wealth = -200
+			prestige = 100
+			decadence = -2
+			character_event = { id = 88283 tooltip = "furusiyya_invite" }
+			hidden_tooltip = {
+				character_event = { id = 88251 days = 60 } # Tournament start
+				clr_character_flag = tournament_has_ended_furusiyya
+				any_realm_character = {
+					limit = {
+						is_feudal = yes
+						NOT = { has_job_title = job_spiritual }
+						age = 16
+						NOT = { trait = incapable }
+						prisoner = no	
+						is_female = no
+					}
+					clr_character_flag = tournament_has_ended_furusiyya
+					character_event = { id = 88250 }
+				}
+				any_dynasty_member = {
+					limit = { 
+						ai = no
+						NOT = { character = ROOT }
+					}
+					character_event = { id = 88300 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						wealth = 1000
+						scaled_wealth = 3.0
+					}
+				}
+			}
+		}
+	}
+	
+	restore_roman_empire = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			has_landed_title = e_byzantium
+			religion_group = christian
+		}
+		allow = {
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_venice
+			completely_controls = d_ferrara
+			completely_controls = d_sicily
+			completely_controls = d_genoa
+			completely_controls = d_capua
+			completely_controls = d_apulia
+			completely_controls = d_thrace
+			completely_controls = d_antioch
+			completely_controls = d_jerusalem
+			completely_controls = d_alexandria
+			completely_controls = d_athens
+			completely_controls = d_tunis
+			completely_controls = d_croatia
+		}
+		effect = {
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	mend_great_schism = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			OR = {
+				has_landed_title = e_byzantium
+				has_landed_title = e_roman_empire
+			}
+			religion = orthodox
+			NOT = { has_global_flag = schism_mended }
+		}
+		allow = {
+			piety = 2000
+			religion_authority = 0.9
+			completely_controls = c_byzantion
+			b_hagiasophia = { holder_scope = { religion = orthodox } }
+			completely_controls = c_antiocheia
+			b_antiocheia = { holder_scope = { religion = orthodox } }
+			completely_controls = c_jerusalem
+			b_jerusalem = { holder_scope = { religion = orthodox } }
+			completely_controls = c_alexandria
+			b_alexandria = { holder_scope = { religion = orthodox } }
+			completely_controls = c_roma
+			b_roma = { holder_scope = { religion = orthodox } }
+		}
+		effect = {
+			narrative_event = { id = LoR.210 tooltip = EVTTOOLTIPLoR.210}
+			set_global_flag = schism_mended
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_constantinople = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			NOT = { has_landed_title = c_byzantion }
+			has_landed_title = e_byzantium
+			any_realm_lord = { 
+				AND = {
+					ai = yes
+					has_landed_title = c_byzantion 
+				}
+			}
+		}
+		allow = {
+			NOT = { has_landed_title = c_byzantion }
+			any_realm_lord = { 
+				has_landed_title = c_byzantion 
+			}
+		}
+		effect = {
+			ROOT = {
+				c_byzantion = {
+					usurp_title_plus_barony_if_unlanded_and_vassals = PREV
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	make_rome_capital = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			has_landed_title = e_roman_empire
+			capital_scope = {
+				NOT = { province_id = 333 }
+			}
+			any_realm_lord = { 
+				AND = {
+					ai = yes
+					has_landed_title = c_roma 
+				}
+			}
+			any_realm_lord = { 
+				AND = {
+					ai = yes
+					has_landed_title = b_tivoli
+				}
+			}
+		}
+		allow = {
+			has_landed_title = e_roman_empire
+			any_realm_lord = { has_landed_title = c_roma }
+		}
+		effect = {
+			custom_tooltip = rome_capital
+			hidden_tooltip = {
+				b_tivoli = { province_capital = yes }
+				ROOT = {
+					b_tivoli = {
+						usurp_title = PREV
+					}
+				}
+				b_roma = { set_name = Lateran }
+				b_tivoli = { 
+					set_name = Rome 
+					ROOT = { capital = PREV }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

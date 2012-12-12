@@ -1,0 +1,432 @@
+# SPECIAL TITLES
+
+e_rebels = {
+	rebel = yes
+	landless = yes
+	primary = yes
+
+	culture = swedish
+	tribe = yes
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+e_pirates = {
+	pirate = yes
+	landless = yes
+	primary = yes
+
+	culture = swedish
+	tribe = yes
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+e_papal_state = {
+	color={ 255 249 198 }
+	color2={ 220 220 0 }
+	
+	capital = 333 # Rome
+	
+	title = "POPE"
+	foa = "POPE_FOA"
+	title_female = "POPE"
+	short_name = yes
+	location_ruler_title = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = catholic
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Regnal names
+	male_names = {
+		John Gregory Benedict Clement Innocent Leo Pius Stephen Boniface Urban Alexander Adrian Paul
+		Celestine Martin Nicholas Sixtus Felix Sergius Anastasius Honorius Eugene Sylvester Victor
+		Lucius Callixtus Julius Pelagius Adeodatus Theodore Marinus Agapetus Damasus Paschal
+		Gelasius Marcellus Anacletus
+    	}
+}
+
+k_israel = {
+	color={ 120 120 220 }
+	color2={ 255 255 255 }
+		
+	capital = 774 # Jerusalem
+	
+	title = "Mashiah"
+	foa = "MASHIAH_FOA"
+	
+	dignity = 100 # Counted as having this many more counties than it does	
+	
+	gain_effect = { 
+		activate_title = { title = d_sons_of_judea status = yes }
+		d_sons_of_judea = {
+			holder_scope = {
+				set_defacto_liege = PREVPREV
+			}
+		}
+	}
+	
+	religion=judaism
+	
+	controls_religion = judaism	
+}
+
+d_sunni = {
+	color={ 40 160 40 }
+	color2={ 220 220 0 }
+	
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	title = "SUNNI_CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=sunni
+	
+	# Controls a religion
+	controls_religion = sunni
+	
+	allow = {
+		war = no
+		OR = {
+			trait = mirza
+			trait = sayyid
+			piety = 1000
+		}
+		OR = {
+			AND = {
+				719 = { # Mecca
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+				718 = { # Medina
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+			}
+			AND = {
+				774 = { # Jerusalem
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+				728 = { # Damascus
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+				693 = { # Baghdad
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+			}
+		}
+	}
+	
+	caliphate = yes
+}
+
+d_shiite = {
+	color={ 60 190 60 }
+	color2={ 220 220 0 }
+	
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	title = "SHIA_CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=shiite
+	
+	# Controls a religion
+	controls_religion = shiite
+	
+	allow = {
+		war = no
+		OR = {
+			trait = mirza
+			trait = sayyid
+			piety = 1000
+		}
+		OR = {
+			AND = {
+				719 = { # Mecca
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+				718 = { # Medina
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+			}
+			AND = {
+				774 = { # Jerusalem
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+				728 = { # Damascus
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+				693 = { # Baghdad
+					OR = {
+						is_liege_or_above = ROOT
+						owner = { character = ROOT } 
+					}
+				}
+			}
+		}
+	}
+
+	caliphate = yes
+}
+k_orthodox = {
+	color={ 183 60 155 }
+	color2={ 220 220 0 }
+	
+	capital = 496 # Constantinople
+	
+	title = "ECUMENICAL_PATRIARCH"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = orthodox
+	
+	religion = orthodox
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Alexios Antonios Athanasios Basileios Chariton Dionysios Dositheos Eustathios Eustratios Euthymios
+		Gennadios Georgios Gerasimos Germanos Gregoras Ioannes Iosephos Isidoros Kallistos Konstantinos
+		Kosmas Leon Leontios Loukas Makarios Manuel Maximos Metrophanes Michael Neophytos Nephon Niketas
+		Nikolaos Nilos Matthaios Paulos Sergios Sisinnios Symeon Theodoros Theodosios Theodotos
+	}
+}
+d_miaphysite = {
+	color={ 217 155 177 }
+	color2={ 220 220 0 }
+	
+	capital = 802 # Alexandria
+	
+	title = "COPTIC_POPE"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = miaphysite
+	
+	religion = miaphysite
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Abraham Alexandros Alexios Agatho Anastasios Andronikos Athanasios Benjamin Christodolos Cosmas Kyril Damian 
+		Demetrius Dioscorus Gabriel Yohannes Iosephos Isaakios Iakobos Makarios Markianos Markos Matheos Khail Mina 
+		Petros Philotheos Shenouda Simeon Theodoros Theophilus Timotheos Zacharias
+	}
+}
+
+d_monophysite = {
+	color={ 200 115 167 }
+	color2={ 220 220 0 }
+	
+	capital = 802 # Alexandria
+	
+	title = "MONOPHYSITE_POPE"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = monophysite
+	
+	religion = monophysite
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Abraham Alexandros Alexios Agatho Anastasius Andronicus Athanasios Benjamin Christodolos Cosmas Cyril Damian 
+		Demetrius Dioscorus Gabriel Ioannes Iosephos Isaakios Iakobos Makarios Markianos Matheos Michail Mina 
+		Petros Philotheos Shenouda Simeon Theodoros Theophilus Timotheos Zacharias
+	}
+}
+
+d_nestorian = {
+	color={ 180 137 97 }
+	color2={ 220 220 0 }
+	
+	capital = 764 # Antioch
+	
+	title = "PATRIARCH_IN_THE_EAST"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = nestorian
+	
+	religion = nestorian
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Aba Abraham Eliya Denha Emmanuel Giwargis Hnanisho Ishoyahb Makkikha 
+		Maremmeh Pethion Sabrisho Shemon Sargis Surin Theodosios Timotheos Yahballaha Yohannan
+	}
+}
+
+d_monothelite = {
+	color={ 180 170 65 }
+	color2={ 220 220 0 }
+	
+	capital = 764 # Antioch
+	
+	title = "MONOTHELITE_PATRIARCH"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = monothelite
+	
+	religion = monothelite
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Alexios Antonios Athanasios Basileios Chariton Dionysios Dositheos Eustathios Eustratios Euthymios
+		Gennadios Georgios Gerasimos Germanos Gregoras Ioannes Iosephos Isidoros Kallistos Konstantinos
+		Kosmas Leon Leontios Loukas Makarios Manuel Maximos Metrophanes Michael Neophytos Nephon Niketas
+		Nikolaos Nilos Matthaios Paulos Sergios Sisinnios Symeon Theodoros Theodosios Theodotos
+	}
+}
+
+e_golden_horde = {
+	color = { 243 180 17 }
+
+	primary = yes
+	
+	tribe = yes
+	short_name = yes
+	
+	culture = mongol
+	religion = tengri_pagan
+}
+
+e_il-khanate = {
+	color = { 120 180 20 }	
+	
+	primary = yes
+	
+	tribe = yes
+	short_name = yes
+	
+	culture = mongol
+	religion = tengri_pagan
+}
+
+e_timurids = {
+	color = { 120 20 20 }
+	
+	primary = yes
+	
+	tribe = yes
+	short_name = yes
+	
+	culture = mongol
+	religion = shiite
+}
+
+e_roman_empire = {
+	color={ 167 10 100 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = "Emperor"
+	title_female = "Empress"
+	
+	duchy_revokation = yes
+	purple_born_heirs = yes
+	
+	culture = italian
+	religion = orthodox
+	
+	allow = {
+		always = no # Only created through special event
+	}
+}

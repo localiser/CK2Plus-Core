@@ -1,0 +1,832 @@
+# court faction - give prestige to liege
+character_event = {
+	id = 1904010
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_court_emperor
+			leads_faction = faction_court_king
+			leads_faction = faction_court_duke
+		}
+		liege = { has_character_flag = faction_court_happy }
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_court_event }
+				had_character_flag = {
+					flag = faction_court_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 2
+			trait = proud
+		}
+		modifier = {
+			factor = 0.5
+			trait = humble
+		}				
+		modifier = {
+			factor = 0.25
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1904010"
+	
+	option = {
+		name = "EVTOPTA1904010"
+		liege = {
+			set_character_flag = faction_court_event
+			letter_event = { id = 1904011 tooltip = EVTTOOLTIPGIFT days = 3 }
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_court_emperor
+							in_faction = faction_court_king
+							in_faction = faction_court_duke
+						}
+					}
+					character_event = { id = 1904012 }
+				}
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = 1904011
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904011"
+	
+	option = {
+		name = "EVTOPTA1904011"
+		if = {
+			limit = {
+				FROM = {	
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 0.5
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			prestige = 50		
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 0.5
+							}	
+						}			
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 1.0
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			prestige = 100			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 1.0
+							}	
+						}			
+					}				
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 2.0
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			prestige = 150			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 2.0
+							}	
+						}			
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 3.0
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			prestige = 200			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 3.0
+							}	
+						}			
+					}			
+				}			
+			}
+			prestige = 250				
+		}		
+	}
+}
+
+character_event = {
+	id = 1904012
+	picture = "GFX_evt_council"		
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904010"
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# court faction - financial contribution to liege
+character_event = {
+	id = 1904020
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_court_emperor
+			leads_faction = faction_court_king
+			leads_faction = faction_court_duke
+		}
+		liege = { has_character_flag = faction_court_happy }
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_court_event }
+				had_character_flag = {
+					flag = faction_court_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 280
+		modifier = {
+			factor = 2
+			trait = greedy
+		}
+		modifier = {
+			factor = 0.5
+			trait = charitable
+		}
+		modifier = {
+			factor = 0.25
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}			
+	}
+	
+	desc = "EVTDESC1904020"
+	
+	option = {
+		name = "EVTOPTA1904020"
+		scaled_wealth = -0.1
+		liege = {
+			set_character_flag = faction_court_event
+			letter_event = { id = 1904021 tooltip = EVTTOOLTIPGIFT days = 3 }
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_court_emperor
+							in_faction = faction_court_king
+							in_faction = faction_court_duke
+						}
+					}
+					character_event = { id = 1904022 }
+				}
+			}			
+		}
+	}
+}
+
+letter_event = {
+	id = 1904021
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904021"
+	
+	option = {
+		name = "EVTOPTA1904021"
+		if = {
+			limit = {
+				FROM = {	
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 0.5
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.2
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 0.5
+							}	
+						}			
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 1.0
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.4				
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 1.0
+							}	
+						}			
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 2.0
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.6			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 2.0
+							}	
+						}			
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 3.0
+								}	
+							}			
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.8			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 3.0
+							}	
+						}			
+					}			
+				}			
+			}
+			scaled_wealth = 1.0				
+		}		
+	}
+}
+
+character_event = {
+	id = 1904022
+	picture = "GFX_evt_council"		
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904020"
+	
+	option = {
+		name = "OK"
+		scaled_wealth = -0.1
+	}
+}
+
+# Court faction - declare war to depose liege
+character_event = {
+	id = 1902023
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_court_emperor
+			leads_faction = faction_court_king
+			leads_faction = faction_court_duke						
+		}
+		OR = {
+			AND = {
+				leads_faction = faction_court_emperor
+				faction_power = 
+				{
+					faction = faction_court_emperor
+					power = 0.75
+				}	
+			}
+			AND = {
+				leads_faction = faction_court_king
+				faction_power = 
+				{
+					faction = faction_court_king
+					power = 0.75
+				}	
+			}
+			AND = {
+				leads_faction = faction_court_duke
+				faction_power = 
+				{
+					faction = faction_court_duke
+					power = 0.75
+				}	
+			}			
+		}
+		liege = { 
+			NOT = {
+				has_character_flag = faction_feudal_war
+				has_character_flag = faction_court_war
+				has_character_flag = faction_religious_war
+				has_character_flag = faction_republican_war
+				has_character_flag = faction_separatist_war
+				has_character_flag = faction_pretender_war				
+			}
+		}
+		liege = { has_character_flag = faction_court_angry }
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_court_event }
+				had_character_flag = {
+					flag = faction_court_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902023"
+	
+	option = {
+		name = "EVTOPTA1902023"
+		liege = {
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_court_emperor }
+				}
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_overthrow_ruler
+					faction = faction_court_emperor
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_court_king }
+				}
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_overthrow_ruler
+					faction = faction_court_king
+				}
+			}	
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_court_duke }
+				}
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_overthrow_ruler
+					faction = faction_court_duke
+				}
+			}	
+			set_character_flag = faction_court_war			
+			#anyone else can join
+			hidden_tooltip = {
+				any_vassal = {
+					limit = { 
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke					
+						}
+					}
+					character_event = { id = 2000000 }
+				}							
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke					
+						}
+					}
+					character_event = { id = 2000020 }
+				}
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_republican_emperor
+							leads_faction = faction_republican_king
+							leads_faction = faction_republican_duke					
+						}
+					}
+					character_event = { id = 2000030 }
+				}		
+				any_vassal = { character_event = { id = 2000040 } }	
+			}
+		}	
+	}
+}

@@ -1,0 +1,124 @@
+castle = {
+	#Extra troops for holy orders
+	ca_order_house = {
+		potential = {
+			FROM = {
+				OR = {
+					has_landed_title = d_teutonic_order
+					has_landed_title = d_knights_templar
+					has_landed_title = d_knights_hospitaler
+					has_landed_title = d_ghazi_sunni
+					has_landed_title = d_ghazi_shiite
+					has_landed_title = d_hashshashin
+					has_landed_title = d_ulfheonar
+					has_landed_title = d_devotees_of_the_true_prophet
+					has_landed_title = d_great_host
+					has_landed_title = d_guardians_of_the_sacred_flame
+					has_landed_title = d_disciples_of_the_old_gods
+				}
+			}
+		}
+		build_cost = 200
+		build_time = 730
+		light_infantry = 75
+		heavy_infantry = 50
+		archers = 75
+		ai_creation_factor = 101
+
+		start = {
+			year = 1066
+		}
+	}	
+	#Special baltic tribes building
+	ca_culture_group_baltic_0 = {
+		potential = {
+			NOT = { has_global_flag = shattered_world }
+			FROM = {
+				religion_group = pagan_group
+				OR = {
+					culture_group = baltic
+					culture_group = finno_ugric
+					culture = pommeranian
+				}
+			}
+			religion_group = pagan_group
+			OR = {
+				culture_group = baltic
+				culture_group = finno_ugric
+				culture = pommeranian
+			}			
+		}
+		build_cost = 500
+		build_time = 730
+		light_infantry = 200
+		heavy_infantry = 100
+		archers = 200
+		ai_creation_factor = 101
+
+		start = {
+			year = 1066
+		}
+	}			
+}
+# City
+city = {
+	ct_jewish_community_1 = {	
+		potential = {
+			FROM = {
+				NOT = { religion_group = judaism_group }
+			}
+			NOT = { religion_group = judaism_group }
+		}
+		trigger = {
+			always = no
+		}
+		build_cost = 0
+		build_time = 0
+		tax_income = 2
+		ai_creation_factor = 1
+
+		start = {
+			year = 1500
+		}
+	}
+	ct_jewish_community_2 = {
+		upgrades_from = ct_jewish_community_1
+		potential = {
+			FROM = {
+				NOT = { religion_group = judaism_group }
+			}
+			NOT = { religion_group = judaism_group }
+		}		
+		trigger = {
+			always = no
+		}
+		build_cost = 0
+		build_time = 0
+		tax_income = 2
+		ai_creation_factor = 1
+
+		start = {
+			year = 1500
+		}
+	}
+	ct_jewish_community_3 = {
+		upgrades_from = ct_jewish_community_2
+		potential = {
+			FROM = {
+				NOT = { religion_group = judaism_group }
+			}
+			NOT = { religion_group = judaism_group }
+		}		
+		trigger = {
+			always = no
+		}
+		build_cost = 0
+		build_time = 0
+		tax_income = 2
+		ai_creation_factor = 1
+
+		start = {
+			year = 1500
+		}
+	}
+}

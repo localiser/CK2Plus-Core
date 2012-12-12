@@ -1,0 +1,2433 @@
+# Republican faction - demand reduction in CA
+character_event = {
+	id = 1902000
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke					
+		}
+		OR = {
+			AND = {
+				leads_faction = faction_republican_emperor
+				faction_power = 
+				{
+					faction = faction_republican_emperor
+					power = 0.5
+				}	
+			}
+			AND = {
+				leads_faction = faction_republican_king
+				faction_power = 
+				{
+					faction = faction_republican_king
+					power = 0.5
+				}	
+			}
+			AND = {
+				leads_faction = faction_republican_duke
+				faction_power = 
+				{
+					faction = faction_republican_duke
+					power = 0.5
+				}	
+			}
+		}
+		NOT = {
+			has_opinion_modifier = {
+				who = LIEGE
+				modifier = opinion_lowered_crown_authority
+			}		
+		}		
+		liege = { 
+			NOT = {
+				has_character_flag = faction_feudal_war
+				has_character_flag = faction_republican_war
+				has_character_flag = faction_religious_war
+				has_character_flag = faction_court_war
+				has_character_flag = faction_separatist_war
+				has_character_flag = faction_pretender_war				
+			}
+		}
+		OR = {
+			liege = { has_character_flag = faction_republican_unhappy }
+			liege = { has_character_flag = faction_republican_angry }
+		}
+		liege = {
+			any_demesne_title = {
+				higher_tier_than = duke
+				OR = {
+					is_titular = no
+					is_primary_holder_title = yes
+				}				
+				OR = {
+					has_law = centralization_1
+					has_law = centralization_2
+					has_law = centralization_3
+					has_law = centralization_4
+				}
+			}
+			any_vassal = {
+				OR = {
+					leads_faction = faction_republican_emperor
+					leads_faction = faction_republican_king
+					leads_faction = faction_republican_duke
+					in_faction = faction_republican_emperor
+					in_faction = faction_republican_king
+					in_faction = faction_republican_duke						
+				}
+				primary_title = {
+					crownlaw_title = {
+						higher_tier_than = duke
+						OR = {
+							is_titular = no
+							is_primary_holder_title = yes
+						}
+						OR = {
+							has_law = centralization_1
+							has_law = centralization_2
+							has_law = centralization_3
+							has_law = centralization_4
+						}
+					}
+				}
+			}			
+		}
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 1.5
+			trait = content
+		}		
+		modifier = {
+			factor = 0.75
+			trait = ambitious
+		}		
+		modifier = {
+			factor = 2.0
+			NOT = {
+				OR = {
+					AND = {
+						leads_faction = faction_republican_emperor
+						faction_power = 
+						{
+							faction = faction_republican_emperor
+							power = 1.0
+						}	
+					}
+					AND = {
+						leads_faction = faction_republican_king
+						faction_power = 
+						{
+							faction = faction_republican_king
+							power = 1.0
+						}	
+					}
+					AND = {
+						leads_faction = faction_republican_duke
+						faction_power = 
+						{
+							faction = faction_republican_duke
+							power = 1.0
+						}	
+					}			
+				}			
+			}
+		}				
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					leads_faction = faction_republican_emperor
+					faction_power = 
+					{
+						faction = faction_republican_emperor
+						power = 2.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_king
+					faction_power = 
+					{
+						faction = faction_republican_king
+						power = 2.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_duke
+					faction_power = 
+					{
+						faction = faction_republican_duke
+						power = 2.0
+					}	
+				}			
+			}			
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					leads_faction = faction_republican_emperor
+					faction_power = 
+					{
+						faction = faction_republican_emperor
+						power = 3.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_king
+					faction_power = 
+					{
+						faction = faction_republican_king
+						power = 3.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_duke
+					faction_power = 
+					{
+						faction = faction_republican_duke
+						power = 3.0
+					}	
+				}			
+			}			
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				AND = {
+					leads_faction = faction_republican_emperor
+					faction_power = 
+					{
+						faction = faction_republican_emperor
+						power = 4.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_king
+					faction_power = 
+					{
+						faction = faction_republican_king
+						power = 4.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_duke
+					faction_power = 
+					{
+						faction = faction_republican_duke
+						power = 4.0
+					}	
+				}			
+			}			
+		}		
+		modifier = {
+			factor = 2.0
+			primary_title = { crownlaw_title = { has_law = centralization_0 } }
+		}		
+		modifier = {
+			factor = 1.5
+			primary_title = { crownlaw_title = { has_law = centralization_1 } }
+		}
+		modifier = {
+			factor = 0.75
+			primary_title = { crownlaw_title = { has_law = centralization_3 } }
+		}
+		modifier = {
+			factor = 0.5
+			primary_title = { crownlaw_title = { has_law = centralization_4 } }
+		}		
+		modifier = {
+			factor = 0.5
+			liege = { has_character_flag = faction_republican_angry }
+		}
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902000"
+	
+	option = {
+		name = "EVTOPTA1902000"
+		liege = { set_character_flag = faction_republican_event }
+		hidden_tooltip = {
+			liege = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_republican_emperor
+							in_faction = faction_republican_king
+							in_faction = faction_republican_duke						
+						}
+					}
+					character_event = { id = 1902001 }
+				}
+			}
+		}
+		liege = { letter_event = { id = 1902002 tooltip = EVTTOOLTIPULTIMATUM days = 3 } }
+	}
+}
+
+character_event = {
+	id = 1902001
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902000"
+	
+	option = {
+		name = "EVTOPTA1902001"
+	}
+}
+
+letter_event = {
+	id = 1902002
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902002"
+	
+	option = {
+		name = "EVTULTIMATUMNO"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 10.0
+				FROM = {
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 1.0
+								}	
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 2.0
+							}	
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 3.0
+							}	
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 4.0
+							}	
+						}
+					}
+				}
+			}			
+		}		
+		FROM = { letter_event = { id = 1902003 tooltip = EVTTOOLTIPLETTER } }
+	}
+	option = {
+		name = "EVTULTIMATUMYES"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.25
+				trait = weak
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+		}
+		any_demesne_title = {
+			limit = {
+				OR = {
+					tier = king
+					tier = emperor
+				}
+				NOT = { has_law = centralization_0 }
+			}
+			if = {
+				limit = { has_law = centralization_1 }
+				add_law = centralization_0
+			}
+			if = {
+				limit = { has_law = centralization_2 }
+				add_law = centralization_1
+			}
+			if = {
+				limit = { has_law = centralization_3 }
+				add_law = centralization_2
+			}
+			if = {
+				limit = { has_law = centralization_4 }
+				add_law = centralization_3
+			}
+		}
+		custom_tooltip = REPUBLICANFACTIONMOODPLUS
+		change_variable = { which = "faction_mood_republican" value = 5 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902004 }
+			}		
+		}
+	}
+}
+
+letter_event = {
+	id = 1902003
+	is_triggered_only = yes
+	
+	desc = "EVTULTIMATUMREJECTED"
+	
+	option = {
+		name = "EVTULTIMATUMREJECTEDOPTA"
+		FROM = {
+			set_character_flag = faction_republican_war
+			if = {
+				limit = {
+					ROOT = {
+						leads_faction = faction_republican_emperor
+					}
+				}
+				primary_title = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = lower_crown_authority_law
+						faction = faction_republican_emperor
+					}
+				}				
+			}
+			if = {
+				limit = {
+					ROOT = {
+						leads_faction = faction_republican_king
+					}
+				}
+				primary_title = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = lower_crown_authority_law
+						faction = faction_republican_king
+					}
+				}				
+			}
+			if = {
+				limit = {
+					ROOT = {
+						leads_faction = faction_republican_duke
+					}
+				}
+				primary_title = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = lower_crown_authority_law
+						faction = faction_republican_duke
+					}
+				}				
+			}
+			#religious and feudal factions might join
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke					
+						}
+					}
+					character_event = { id = 2000000 }
+				}				
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke					
+						}					
+					}
+					set_character_flag = do_not_join_civil_war
+					character_event = { id = 2000010 }
+				}			
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke					
+						}					
+					}
+					character_event = { id = 2000020 }
+				}	
+				any_vassal = { character_event = { id = 2000040 } }		
+			}
+		}		
+	}
+}
+
+character_event = {
+	id = 1902004
+	picture = "GFX_evt_council"		
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902004"
+	
+	option = {
+		name = "EVTOPTA1902004"
+	}
+}
+
+# Republican faction - grant liege extra city taxes for 5 years
+character_event = {
+	id = 1902010
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke						
+		}
+		liege = { has_character_flag = faction_republican_happy }
+		liege = {
+			NOT = { has_character_modifier = faction_republican_bonus_1 }
+			NOT = { has_character_modifier = faction_republican_bonus_2 }
+			NOT = { has_character_modifier = faction_republican_bonus_3 }
+			NOT = { has_character_modifier = faction_republican_bonus_4 }
+			NOT = { has_character_modifier = faction_republican_bonus_5 }
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 2
+			trait = greedy
+		}
+		modifier = {
+			factor = 0.5
+			trait = charitable
+		}				
+		modifier = {
+			factor = 0.25
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902010"
+	
+	option = {
+		name = "EVTOPTA1902010"
+		liege = {
+			set_character_flag = faction_republican_event
+			letter_event = { id = 1902011 tooltip = EVTTOOLTIPGIFT days = 3 }
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_republican_emperor
+							in_faction = faction_republican_king
+							in_faction = faction_republican_duke						
+						}
+					}
+					character_event = { id = 1902012 }
+				}
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = 1902011
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902011"
+	
+	option = {
+		name = "EVTOPTA1902011"
+		if = {
+			limit = {
+				FROM = {	
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 0.5
+								}	
+							}
+						}
+					}
+				}			
+			}
+			add_character_modifier = {
+				name = faction_republican_bonus_1
+				duration = 1825
+			}				
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 0.5
+							}	
+						}
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 1.0
+								}	
+							}
+						}
+					}
+				}			
+			}
+			add_character_modifier = {
+				name = faction_republican_bonus_2
+				duration = 1825
+			}				
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 1.0
+							}	
+						}
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 2.0
+								}	
+							}
+						}
+					}
+				}			
+			}
+			add_character_modifier = {
+				name = faction_republican_bonus_3
+				duration = 1825
+			}				
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 2.0
+							}	
+						}
+					}				
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 3.0
+								}	
+							}
+						}
+					}
+				}			
+			}
+			add_character_modifier = {
+				name = faction_republican_bonus_4
+				duration = 1825
+			}				
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 3.0
+							}	
+						}
+					}			
+				}			
+			}
+			add_character_modifier = {
+				name = faction_republican_bonus_5
+				duration = 1825
+			}				
+		}		
+	}
+}
+
+character_event = {
+	id = 1902012
+	picture = "GFX_evt_council"		
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902010"
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Republican faction - financial contribution to liege
+character_event = {
+	id = 1902020
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke					
+		}
+		liege = { has_character_flag = faction_republican_happy }
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240	
+		modifier = {
+			factor = 2
+			trait = greedy
+		}
+		modifier = {
+			factor = 0.5
+			trait = charitable
+		}
+		modifier = {
+			factor = 0.25
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}			
+	}
+	
+	desc = "EVTDESC1902020"
+	
+	option = {
+		name = "EVTOPTA1902020"
+		scaled_wealth = -0.1
+		liege = {
+			set_character_flag = faction_republican_event
+			letter_event = { id = 1902021 tooltip = EVTTOOLTIPGIFT days = 3 }
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						OR = {
+							in_faction = faction_republican_emperor
+							in_faction = faction_republican_king
+							in_faction = faction_republican_duke						
+						}
+					}
+					character_event = { id = 1902022 }
+				}
+			}			
+		}
+	}
+}
+
+letter_event = {
+	id = 1902021
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902021"
+	
+	option = {
+		name = "EVTOPTA1902021"
+		if = {
+			limit = {
+				FROM = {	
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 0.5
+								}	
+							}
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.2
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 0.5
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 0.5
+							}	
+						}
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 1.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 1.0
+								}	
+							}
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.4				
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 1.0
+							}	
+						}
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 2.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 2.0
+								}	
+							}
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.6			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 2.0
+							}	
+						}
+					}			
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 3.0
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 3.0
+								}	
+							}
+						}
+					}
+				}			
+			}
+			scaled_wealth = 0.8			
+		}
+		if = {
+			limit = {
+				FROM = {	
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 3.0
+							}	
+						}
+					}			
+				}			
+			}
+			scaled_wealth = 1.0				
+		}		
+	}
+}
+
+character_event = {
+	id = 1902022
+	picture = "GFX_evt_council"		
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902020"
+	
+	option = {
+		name = "OK"
+		scaled_wealth = -0.1
+	}
+}
+
+# Republican faction - demand reduction in city taxes
+character_event = {
+	id = 1902030
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke						
+		}
+		NOT = {	
+			liege = { has_character_flag = faction_republican_happy }
+		}
+		liege = {
+			primary_title = {
+				OR = {
+					has_law = city_tax_1
+					has_law = city_tax_2
+					has_law = city_tax_3
+					has_law = city_tax_4
+				}
+			}
+		}
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 2.0
+			liege = { NOT = { has_character_flag = faction_republican_unhappy } } #content less likely to complain, angry will prefer harsher demands
+		}		
+		modifier = {
+			factor = 1.5
+			trait = charitable
+		}		
+		modifier = {
+			factor = 0.75
+			trait = greedy
+		}	
+		modifier = {
+			factor = 1.5
+			liege = { primary_title = { has_law = city_tax_1 } }
+		}		
+		modifier = {
+			factor = 1.25
+			liege = { primary_title = { has_law = city_tax_2 } }
+		}
+		modifier = {
+			factor = 0.75
+			liege = { primary_title = { has_law = city_tax_3 } }
+		}
+		modifier = {
+			factor = 0.75
+			liege = { primary_title = { has_law = city_tax_4 } }
+		}	
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902030"
+	
+	option = {
+		name = "EVTOPTA1902030"
+		liege = { set_character_flag = faction_republican_event }
+		liege = { letter_event = { id = 1902031 tooltip = EVTTOOLTIPDEMAND days = 3 } }
+	}
+}
+
+letter_event = {
+	id = 1902031
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902031"
+
+	option = {
+		name = "EVTDEMANDYES"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = weak
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+		}
+		primary_title = {
+			if = {
+				limit = { has_law = city_tax_1 }
+				add_law = city_tax_0
+			}
+			if = {
+				limit = { has_law = city_tax_2 }
+				add_law = city_tax_0
+			}
+			if = {
+				limit = { has_law = city_tax_3 }
+				add_law = city_tax_1
+			}
+			if = {
+				limit = { has_law = city_tax_3 }
+				add_law = city_tax_2
+			}			
+		}
+		custom_tooltip = REPUBLICANFACTIONMOODPLUS
+		change_variable = { which = "faction_mood_republican" value = 3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902032 }
+			}		
+		}
+	}	
+	option = {
+		name = "EVTDEMANDNO"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 0.5
+								}	
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 1.0
+							}	
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 2.0
+							}	
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 3.0
+							}	
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 4.0
+							}	
+						}
+					}
+				}
+			}			
+		}		
+		custom_tooltip = REPUBLICANFACTIONMOODMINUS
+		change_variable = { which = "faction_mood_republican" value = -3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902033 }
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = 1902032
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902032"
+	
+	option = {
+		name = "EVTOPTA1902032"
+	}
+}
+
+character_event = {
+	id = 1902033
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902033"
+	
+	option = {
+		name = "EVTOPTA1902033"
+	}
+}
+
+# Republican faction - demand reduction in city levies
+character_event = {
+	id = 1902040
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke					
+		}
+		NOT = {	
+			liege = { has_character_flag = faction_republican_happy }
+		}
+		liege = {
+			primary_title = {
+				OR = {
+					has_law = city_contract_1
+					has_law = city_contract_2
+					has_law = city_contract_3
+					has_law = city_contract_4
+				}
+			}
+		}
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 2.0
+			liege = { NOT = { has_character_flag = faction_republican_unhappy } } #content less likely to complain, angry will prefer harsher demands
+		}		
+		modifier = {
+			factor = 1.5
+			trait = content
+		}		
+		modifier = {
+			factor = 0.75
+			trait = ambitious
+		}		
+		modifier = {
+			factor = 1.5
+			liege = { primary_title = { has_law = city_contract_1 } }
+		}		
+		modifier = {
+			factor = 1.25
+			liege = { primary_title = { has_law = city_contract_2 } }
+		}
+		modifier = {
+			factor = 0.75
+			liege = { primary_title = { has_law = city_contract_3 } }
+		}
+		modifier = {
+			factor = 0.75
+			liege = { primary_title = { has_law = city_contract_4 } }
+		}	
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902040"
+	
+	option = {
+		name = "EVTOPTA1902040"
+		liege = { set_character_flag = faction_republican_event }
+		liege = { letter_event = { id = 1902041 tooltip = EVTTOOLTIPDEMAND days = 3 } }
+	}
+}
+
+letter_event = {
+	id = 1902041
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902041"
+
+	option = {
+		name = "EVTDEMANDYES"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = weak
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+		}
+		primary_title = {
+			if = {
+				limit = { has_law = city_contract_1 }
+				add_law = city_contract_0
+			}
+			if = {
+				limit = { has_law = city_contract_2 }
+				add_law = city_contract_0
+			}
+			if = {
+				limit = { has_law = city_contract_3 }
+				add_law = city_contract_1
+			}
+			if = {
+				limit = { has_law = city_contract_3 }
+				add_law = city_contract_2
+			}		
+		}
+		custom_tooltip = REPUBLICANFACTIONMOODPLUS
+		change_variable = { which = "faction_mood_republican" value = 3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902042 }
+			}		
+		}
+	}	
+	option = {
+		name = "EVTDEMANDNO"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 0.5
+								}	
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 1.0
+							}	
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 2.0
+							}	
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 3.0
+							}	
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 4.0
+							}	
+						}
+					}
+				}
+			}			
+		}		
+		custom_tooltip = REPUBLICANFACTIONMOODMINUS
+		change_variable = { which = "faction_mood_republican" value = -3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902043 }
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = 1902042
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902042"
+	
+	option = {
+		name = "EVTOPTA1902042"
+	}
+}
+
+character_event = {
+	id = 1902043
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902043"
+	
+	option = {
+		name = "EVTOPTA1902043"
+	}
+}
+
+# Republican faction - declare war to topple the feudal regime
+character_event = {
+	id = 1902044
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke						
+		}
+		OR = {
+			AND = {
+				leads_faction = faction_republican_emperor
+				faction_power = 
+				{
+					faction = faction_republican_emperor
+					power = 0.75
+				}	
+			}
+			AND = {
+				leads_faction = faction_republican_king
+				faction_power = 
+				{
+					faction = faction_republican_king
+					power = 0.75
+				}	
+			}
+			AND = {
+				leads_faction = faction_republican_duke
+				faction_power = 
+				{
+					faction = faction_republican_duke
+					power = 0.75
+				}	
+			}
+		}	
+		liege = { 
+			NOT = {
+				has_character_flag = faction_feudal_war
+				has_character_flag = faction_republican_war
+				has_character_flag = faction_religious_war
+				has_character_flag = faction_court_war
+				has_character_flag = faction_separatist_war
+				has_character_flag = faction_pretender_war				
+			}
+		}
+		liege = { has_character_flag = faction_republican_angry }
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 2.0
+			trait = content
+		}		
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 3.0
+			NOT = {
+				OR = {
+					AND = {
+						leads_faction = faction_republican_emperor
+						faction_power = 
+						{
+							faction = faction_republican_emperor
+							power = 1.0
+						}	
+					}
+					AND = {
+						leads_faction = faction_republican_king
+						faction_power = 
+						{
+							faction = faction_republican_king
+							power = 1.0
+						}	
+					}
+					AND = {
+						leads_faction = faction_republican_duke
+						faction_power = 
+						{
+							faction = faction_republican_duke
+							power = 1.0
+						}	
+					}			
+				}			
+			}
+		}				
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					leads_faction = faction_republican_emperor
+					faction_power = 
+					{
+						faction = faction_republican_emperor
+						power = 2.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_king
+					faction_power = 
+					{
+						faction = faction_republican_king
+						power = 2.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_duke
+					faction_power = 
+					{
+						faction = faction_republican_duke
+						power = 2.0
+					}	
+				}			
+			}			
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					leads_faction = faction_republican_emperor
+					faction_power = 
+					{
+						faction = faction_republican_emperor
+						power = 3.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_king
+					faction_power = 
+					{
+						faction = faction_republican_king
+						power = 3.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_duke
+					faction_power = 
+					{
+						faction = faction_republican_duke
+						power = 3.0
+					}	
+				}			
+			}			
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					leads_faction = faction_republican_emperor
+					faction_power = 
+					{
+						faction = faction_republican_emperor
+						power = 4.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_king
+					faction_power = 
+					{
+						faction = faction_republican_king
+						power = 4.0
+					}	
+				}
+				AND = {
+					leads_faction = faction_republican_duke
+					faction_power = 
+					{
+						faction = faction_republican_duke
+						power = 4.0
+					}	
+				}			
+			}			
+		}		
+		modifier = {
+			factor = 0.5
+			liege = { has_character_flag = faction_republican_angry }
+		}
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902044"
+	
+	option = {
+		name = "EVTOPTA1902044"
+		liege = {
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_republican_emperor }
+				}
+				primary_title = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = claim_on_liege_plot
+						faction = faction_republican_emperor
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_republican_king }
+				}
+				primary_title = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = claim_on_liege_plot
+						faction = faction_republican_king
+					}
+				}
+			}	
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_republican_duke }
+				}
+				primary_title = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = claim_on_liege_plot
+						faction = faction_republican_emperor
+					}
+				}
+			}
+			set_character_flag = faction_republican_war
+			#nobody else will join
+			hidden_tooltip = {
+				any_vassal = {
+					limit = { 
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke					
+						}
+					}
+					set_character_flag = do_not_join_civil_war
+					character_event = { id = 2000000 }
+				}				
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke					
+						}
+					}
+					set_character_flag = do_not_join_civil_war
+					character_event = { id = 2000010 }
+				}			
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke					
+						}
+					}
+					set_character_flag = do_not_join_civil_war
+					character_event = { id = 2000020 }
+				}
+				any_vassal = { set_character_flag = do_not_join_civil_war character_event = { id = 2000040 } }	
+			}
+		}	
+	}
+}
+

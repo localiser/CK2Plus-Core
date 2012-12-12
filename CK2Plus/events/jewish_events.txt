@@ -1,0 +1,873 @@
+#Jewish community grows
+character_event = {
+	id = 710000
+	picture = GFX_evt_market
+	only_rulers = yes
+	
+	trigger = {
+		war = no
+		NOT = { has_character_flag = pogrom }
+		OR = {
+			NOT = { tier = baron }
+			NOT = { liege = { has_character_flag = pogrom } }
+		}
+		any_demesne_title = {
+			tier = baron
+			has_building = ct_jewish_community_1
+			OR = {
+				ROOT = { ai = yes }
+				NOT = { has_building = ct_jewish_community_3 }
+			}
+			location = {
+				NOT = { has_province_modifier = brm_revolt }
+				OR = {
+					has_province_modifier = province_prosperity_1
+					has_province_modifier = province_prosperity_2
+				}
+			}
+		}
+	}
+		
+	desc = "EVTDESC710000"
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 2
+			higher_tier_than = baron
+			trait = zealous		
+		}
+		modifier = {
+			factor = 1.5
+			higher_tier_than = baron
+			trait = cruel	
+		}	
+		modifier = {
+			factor = 1.5
+			higher_tier_than = baron
+			trait = arbitrary		
+		}
+		modifier = {
+			factor = 0.75
+			higher_tier_than = baron
+			trait = just		
+		}
+		modifier = {
+			factor = 0.75
+			higher_tier_than = baron
+			trait = charitable		
+		}
+		modifier = {
+			factor = 2
+			tier = baron
+			liege = { trait = zealous }		
+		}
+		modifier = {
+			factor = 1.5
+			tier = baron
+			liege = { trait = cruel }
+		}	
+		modifier = {
+			factor = 1.5
+			tier = baron
+			liege = { trait = arbitrary }		
+		}
+		modifier = {
+			factor = 0.75
+			tier = baron
+			liege = { trait = just }		
+		}
+		modifier = {
+			factor = 0.75
+			tier = baron
+			liege = { trait = charitable }	
+		}		
+		modifier = {
+			factor = 1.5
+			any_demesne_title = {
+				tier = baron
+				has_building = ct_jewish_community_2
+			}			
+		}
+		modifier = {
+			factor = 1.5
+			any_demesne_title = {
+				tier = baron
+				has_building = ct_jewish_community_3
+			}			
+		}
+		modifier = {
+			factor = 0.66
+			any_demesne_title = {
+				tier = baron
+				has_building = ct_jewish_community_1
+				location = {
+					has_province_modifier = province_prosperity_2
+				}
+			}			
+		}	
+	}
+
+	option = {
+		name = "EVTOPTA710000"
+		random_demesne_title = {
+			limit = {
+				tier = baron
+				has_building = ct_jewish_community_1
+				OR = {
+					ROOT = { ai = yes }
+					NOT = { has_building = ct_jewish_community_3 }
+				}				
+				location = {
+					NOT = { has_province_modifier = brm_revolt }
+					OR = {
+						has_province_modifier = province_prosperity_1
+						has_province_modifier = province_prosperity_2
+					}
+				}				
+			}
+			hidden_tooltip = {
+				if = {
+					limit = {
+						has_building = ct_jewish_community_3
+					}
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 1 } }
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_building = ct_jewish_community_3 }
+					has_building = ct_jewish_community_2
+				}
+				add_building = ct_jewish_community_3
+				ROOT = {
+					if = {
+						limit = {
+							tier = baron
+							NOT = { demesne_size = 2 }
+						}
+						liege = {
+							letter_event = { id = 710002 days = 3 }
+						}
+					}
+				}
+			}			
+			if = {
+				limit = {
+					NOT = { has_building = ct_jewish_community_3 }
+					NOT = { has_building = ct_jewish_community_2 }
+					has_building = ct_jewish_community_1
+				}
+				add_building = ct_jewish_community_2
+				ROOT = { 
+					if = {
+						limit = {
+							tier = baron
+							NOT = { demesne_size = 2 }
+						}
+						liege = {
+							letter_event = { id = 710001 days = 3 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = 710001
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+	}	
+		
+	desc = "EVTDESC710001"
+	
+	option = {
+		name = "EVTOPTA710001"
+		FROM = {
+			primary_title = {
+				tooltip = { add_building = ct_jewish_community_2 }
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = 710002
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+	}
+		
+	desc = "EVTDESC710001"
+	
+	option = {
+		name = "EVTOPTA710001"
+		FROM = {
+			primary_title = {
+				tooltip = { add_building = ct_jewish_community_3 }
+			}
+		}
+	}
+}
+
+#Jewish courtier
+character_event = {
+	id = 710003
+	picture = GFX_evt_emissary
+	only_rulers = yes
+	
+	trigger = {
+		war = no
+		NOT = { has_character_flag = pogrom }
+		OR = {
+			NOT = { tier = baron }
+			NOT = { liege = { has_character_flag = pogrom } }
+		}
+		any_demesne_title = {
+			tier = baron
+			has_building = ct_jewish_community_1
+		}
+	}
+		
+	desc = "EVTDESC710003"
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 2
+			higher_tier_than = baron
+			trait = zealous		
+		}
+		modifier = {
+			factor = 1.5
+			higher_tier_than = baron
+			trait = cruel	
+		}	
+		modifier = {
+			factor = 1.5
+			higher_tier_than = baron
+			trait = arbitrary		
+		}
+		modifier = {
+			factor = 0.75
+			higher_tier_than = baron
+			trait = just		
+		}
+		modifier = {
+			factor = 0.75
+			higher_tier_than = baron
+			trait = charitable		
+		}
+		modifier = {
+			factor = 2
+			tier = baron
+			liege = { trait = zealous }		
+		}
+		modifier = {
+			factor = 1.5
+			tier = baron
+			liege = { trait = cruel }
+		}	
+		modifier = {
+			factor = 1.5
+			tier = baron
+			liege = { trait = arbitrary }		
+		}
+		modifier = {
+			factor = 0.75
+			tier = baron
+			liege = { trait = just }		
+		}
+		modifier = {
+			factor = 0.75
+			tier = baron
+			liege = { trait = charitable }	
+		}		
+		modifier = {
+			factor = 0.66
+			any_demesne_title = {
+				tier = baron
+				has_building = ct_jewish_community_2
+			}			
+		}
+		modifier = {
+			factor = 0.66
+			any_demesne_title = {
+				tier = baron
+				has_building = ct_jewish_community_3
+			}			
+		}	
+	}
+
+	option = {
+		name = "OK"
+		if = {
+			limit = {
+				OR = {
+					culture = levantine_arabic
+					culture = bedouin_arabic
+					culture = egyptian_arabic
+					culture_group = altaic
+					culture_group = iranian
+					culture_group = east_african
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = judaism
+				culture = mizrahim
+				female = no
+			}
+			new_character = {
+				set_character_flag = jewish_advisor
+				random = {
+					chance = 50
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = judaism
+						culture = mizrahim
+						female = yes
+					}	
+					new_character = {
+						set_character_flag = jewish_advisor
+						add_spouse = PREV
+					}
+				}				
+			}			
+		}		
+		if = {
+			limit = {
+				OR = {
+					culture = andalusian_arabic
+					culture = maghreb_arabic
+					culture = sicilian_arabic
+					culture_group = west_african
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = judaism
+				culture = sephardic
+				female = no
+			}
+			new_character = {
+				set_character_flag = jewish_advisor
+				random = {
+					chance = 50
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = judaism
+						culture = sephardic
+						female = yes
+					}	
+					new_character = {
+						set_character_flag = jewish_advisor
+						add_spouse = PREV
+					}
+				}				
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					culture_group = arabic
+					culture_group = altaic
+					culture_group = iranian
+					culture_group = east_african
+					culture_group = west_african
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = judaism
+				culture = ashkenazi
+				female = no
+			}
+			new_character = {
+				set_character_flag = jewish_advisor
+				random = {
+					chance = 50
+					create_character = {
+						random_traits = yes
+						dynasty = random
+						religion = judaism
+						culture = ashkenazi
+						female = yes
+					}	
+					new_character = {
+						set_character_flag = jewish_advisor
+						add_spouse = PREV
+					}
+				}				
+			}	
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					tier = baron
+				}
+				liege = {
+					ROOT = {
+						any_courtier = {
+							limit = {
+								has_character_flag = jewish_advisor
+							}
+							clr_character_flag = jewish_advisor
+							banish = PREVPREV
+						}
+					}
+				}
+			}
+			any_courtier = {
+				limit = {
+					has_character_flag = jewish_advisor
+				}
+				clr_character_flag = jewish_advisor		
+			}
+		}
+	}
+}
+
+#Jewish refugees wish to settle in your holding
+character_event = {
+	id = 710004
+	picture = GFX_evt_emissary
+	only_rulers = yes
+	
+	trigger = {
+		war = no
+		higher_tier_than = BARON
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = pagan_group
+			religion_group = eastern_pagan
+		}
+		e_papal_state = {
+			holder_scope = { check_variable = { which = "jewish_refugees" value = 0.5 } }
+		}		
+		NOT = { has_character_flag = pogrom }
+		NOT = { has_character_flag = jews_not_welcome }
+		NOT = {
+			any_liege = {
+				has_character_flag = pogrom
+			}
+		}
+		OR = {
+			any_demesne_title = {
+				tier = baron
+				has_building = ct_wall_1
+				NOT = { has_building = ct_jewish_community_3 }
+			}
+			any_vassal = {
+				tier = baron
+				any_demesne_title = {
+					tier = baron
+					has_building = ct_wall_1
+					NOT = { has_building = ct_jewish_community_3 }
+				}			
+			}
+		}
+	}
+		
+	desc = "EVTDESC710004"
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 2
+			liege = { trait = zealous }		
+		}
+		modifier = {
+			factor = 1.5
+			liege = { trait = cruel }
+		}	
+		modifier = {
+			factor = 1.5
+			liege = { trait = arbitrary }		
+		}
+		modifier = {
+			factor = 0.75
+			liege = { trait = just }		
+		}
+		modifier = {
+			factor = 0.75
+			liege = { trait = charitable }	
+		}
+		modifier = {
+			factor = 0.75
+			religion_group = muslim
+		}
+		modifier = {
+			factor = 1.5
+			religion_group = eastern_pagan
+		}		
+		modifier = {
+			factor = 1.5
+			religion_group = pagan_group
+		}		
+		modifier = {
+			factor = 2.0
+			religion = orthodox
+		}		
+		modifier = {
+			factor = 10.0
+			OR = {
+				culture_group = north_germanic
+				culture_group = celtic
+				culture_group = finno_ugric
+				culture_group = west_african
+			}	
+		}
+		modifier = {
+			factor = 5.0
+			OR = {
+				culture_group = byzantine
+				culture_group = baltic
+				culture_group = south_slavic
+				culture_group = east_african
+			}	
+		}
+		modifier = {
+			factor = 2.0
+			OR = {
+				culture_group = west_germanic
+				culture_group = altaic
+				culture_group = east_slavic
+				culture_group = magyar
+			}	
+		}		
+		modifier = {
+			factor = 3.0
+			tier = count
+		}
+		modifier = {
+			factor = 2.0
+			tier = duke
+		}
+		modifier = {
+			factor = 0.75
+			tier = emperor
+		}		
+		modifier = {
+			factor = 0.66
+			OR = {
+				any_demesne_title = {
+					tier = baron
+					has_building = ct_jewish_community_1
+				}	
+				any_vassal = {
+					tier = baron
+					any_demesne_title = {
+						tier = baron
+						has_building = ct_jewish_community_1
+					}			
+				}
+			}
+		}	
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			e_papal_state = {
+				holder_scope = { change_variable = { which = "jewish_refugees" value = -1 } }
+			}			
+		}	
+	}
+
+	option = {
+		name = "EVTOPTA710004"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.66
+				religion_group = christian
+			}
+			modifier = {
+				factor = 0.1
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 2.0
+				trait = charitable
+			}				
+		}
+		if = {
+			limit = { trait = zealous }
+			remove_trait = zealous
+		}		
+		if = {
+			limit = {
+				any_demesne_title = {
+					tier = baron
+					has_building = ct_wall_1
+					NOT = { has_building = ct_jewish_community_3 }
+				}			
+			}
+			random_demesne_title = {
+				limit = {
+					tier = baron
+					has_building = ct_wall_1
+					NOT = { has_building = ct_jewish_community_3 }				
+				}
+				if = {
+					limit = {
+						NOT = { has_building = ct_jewish_community_3 }
+						has_building = ct_jewish_community_2
+					}
+					add_building = ct_jewish_community_3
+				}			
+				if = {
+					limit = {
+						NOT = { has_building = ct_jewish_community_3 }
+						NOT = { has_building = ct_jewish_community_2 }
+						has_building = ct_jewish_community_1
+					}
+					add_building = ct_jewish_community_2
+				}
+				if = {
+					limit = {
+						NOT = { has_building = ct_jewish_community_3 }
+						NOT = { has_building = ct_jewish_community_2 }
+						NOT = { has_building = ct_jewish_community_1 }
+					}
+					add_building = ct_jewish_community_1
+				}			
+			}			
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_demesne_title = {
+						tier = baron
+						has_building = ct_wall_1
+						NOT = { has_building = ct_jewish_community_3 }
+					}
+				}
+			}
+			random_vassal = {
+				limit = {
+					tier = baron
+					any_demesne_title = {
+						tier = baron
+						has_building = ct_wall_1
+						NOT = { has_building = ct_jewish_community_3 }
+					}
+				}
+				random_demesne_title = {
+					limit = {
+						tier = baron
+						has_building = ct_wall_1
+						NOT = { has_building = ct_jewish_community_3 }				
+					}
+					if = {
+						limit = {
+							NOT = { has_building = ct_jewish_community_3 }
+							has_building = ct_jewish_community_2
+						}
+						add_building = ct_jewish_community_3
+					}			
+					if = {
+						limit = {
+							NOT = { has_building = ct_jewish_community_3 }
+							NOT = { has_building = ct_jewish_community_2 }
+							has_building = ct_jewish_community_1
+						}
+						add_building = ct_jewish_community_2
+					}
+					if = {
+						limit = {
+							NOT = { has_building = ct_jewish_community_3 }
+							NOT = { has_building = ct_jewish_community_2 }
+							NOT = { has_building = ct_jewish_community_1 }
+						}
+						add_building = ct_jewish_community_1
+					}			
+				}	
+			}
+		}
+		any_vassal = {
+			limit = { 
+				NOT = { trait = charitable }
+				NOT = { trait = just }
+				NOT = { trait = zealous }
+				is_republic = no
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_settled_jews
+				years = 10
+			}
+		}
+		any_vassal = {
+			limit = { 
+				NOT = { trait = charitable }
+				NOT = { trait = just }			
+				trait = zealous
+				is_republic = no
+			}
+			opinion = {
+				who = ROOT
+				modifier = opinion_settled_jews
+				years = 10
+				multiplier = 2
+			}
+		}
+		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
+		change_variable = { which = "faction_mood_religious" value = -2 }
+		custom_tooltip = REPUBLICANFACTIONMOODPLUS
+		change_variable = { which = "faction_mood_republican" value = 2 }			
+	}
+	option = {
+		name = "EVTOPTB710004"
+		ai_chance = {
+			factor = 25
+		}		
+		prestige = 10
+		set_character_flag = jews_not_welcome
+		hidden_tooltip = {
+			random = {
+				chance = 75
+				e_papal_state = {
+					holder_scope = { change_variable = { which = "jewish_refugees" value = 1 } }
+				}	
+			}
+		}
+		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+		change_variable = { which = "faction_mood_religious" value = 2 }		
+	}	
+}
+
+character_event = {
+	id = 710005
+	picture = "GFX_evt_burning_house"
+	
+	is_triggered_only = yes
+		
+	desc = "EVTDESC710005"
+	
+	option = {
+		name = "EVTOPTA710005"	
+		any_demesne_title = {
+			limit = {
+				has_building = ct_jewish_community_3
+			}
+			remove_building = ct_jewish_community_3
+			FROM = { piety = -30 wealth = 150 }
+			hidden_tooltip = {
+				e_papal_state = {
+					holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+				}
+			}				
+		}
+		any_demesne_title = {
+			limit = {
+				NOT = { has_building = ct_jewish_community_3 }
+				has_building = ct_jewish_community_2
+			}
+			remove_building = ct_jewish_community_2
+			FROM = { piety = -20 wealth = 100 }
+			hidden_tooltip = {
+				e_papal_state = {
+					holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+				}
+			}				
+		}
+		any_demesne_title = {
+			limit = {
+				NOT = { has_building = ct_jewish_community_3 }
+				NOT = { has_building = ct_jewish_community_2 }
+				has_building = ct_jewish_community_1
+			}
+			remove_building = ct_jewish_community_1
+			FROM = { piety = -10 wealth = 50 }
+			hidden_tooltip = {
+				e_papal_state = {
+					holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+				}
+			}				
+		}
+		any_courtier = {
+			limit = { religion_group = judaism_group }
+			banish = yes
+		}
+		any_realm_lord = {
+			limit = {
+				any_liege = { character = ROOT }
+				any_demesne_title = {
+					has_building = ct_jewish_community_1
+				}
+			}				
+			any_demesne_title = {
+				limit = {
+					has_building = ct_jewish_community_3
+				}
+				remove_building = ct_jewish_community_3
+				FROM = { piety = -30 wealth = 150 }
+				hidden_tooltip = {
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+					}
+				}				
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { has_building = ct_jewish_community_3 }
+					has_building = ct_jewish_community_2
+				}
+				remove_building = ct_jewish_community_2
+				FROM = { piety = -20 wealth = 100 }
+				hidden_tooltip = {
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+					}
+				}
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { has_building = ct_jewish_community_3 }
+					NOT = { has_building = ct_jewish_community_2 }
+					has_building = ct_jewish_community_1
+				}
+				remove_building = ct_jewish_community_1
+				FROM = { piety = -10 wealth = 50 }
+				hidden_tooltip = {
+					e_papal_state = {
+						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
+					}
+				}				
+			}
+			any_courtier = {
+				limit = { religion_group = judaism_group }
+				banish = yes
+			}
+		}	
+	}
+	option = {
+		name = "EVTOPTB710005"	
+		FROM = {
+			reverse_war = {
+				target = ROOT
+				casus_belli = overthrow_ruler			
+			}
+		}
+	}	
+}

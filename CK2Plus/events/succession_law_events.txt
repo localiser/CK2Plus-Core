@@ -1,0 +1,820 @@
+# Liege calls vassals to succession law vote
+character_event = {
+	id = 400000
+	desc = "EVTDESC400000"
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_realm_character = {
+			remove_opinion = {
+				who = ROOT
+				modifier = good_succ_law_change
+			}
+			remove_opinion = {
+				who = ROOT
+				modifier = bad_succ_law_change
+			}
+			remove_opinion = {
+				who = ROOT
+				modifier = succ_law_change
+			}			
+		}	
+	}
+	
+	option = {
+		name = "OK"
+		any_playable_ruler = {
+			limit = {
+				has_character_flag = succession_vote
+			}
+			clr_character_flag = succession_vote
+			custom_tooltip = CUSTOMTOOLTIP10
+		}
+		hidden_tooltip = {
+			character_event = {
+				id = 400004
+				days = 14
+			}
+		}
+	}
+}
+
+
+# Approve or disapprove Gavelkind
+letter_event = {
+	id = 400001
+	desc = "EVTDESC400001"
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA400001"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.01
+				FROM = {
+					holder_scope = {
+						current_heir = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					holder_scope = {
+						NOT = { same_realm = ROOT }
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = {
+					holder_scope = {
+						NOT = { dynasty = ROOT }
+					}
+				}
+			}			
+			modifier = {
+				factor = 10.0
+				FROM = {
+					holder_scope = {
+						any_child = {
+							character = ROOT
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.25
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_0
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_1
+						}
+					}
+				}
+			}		
+			modifier = {
+				factor = 2.0
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_3
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 4.0
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_4
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 10.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 5.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 75
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 2.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 50
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = { 
+					FROM = {
+						holder_scope = {
+							reverse_opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				NOT = { 
+					FROM = {
+						holder_scope = {
+							reverse_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+					}
+				}
+			}			
+		}
+		FROM = {
+			holder_scope = {
+				change_variable = { which = "succession_law_vote" value = 1 }
+				hidden_tooltip = {
+					remove_opinion = {
+						modifier = opinion_approved_succession_law
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_ignored_succession_law
+						who = ROOT
+					}			
+				}
+				opinion = {
+					modifier = opinion_approved_succession_law
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB400001"
+		ai_chance = { factor = 100 }		
+		FROM = {
+			holder_scope = {
+				change_variable = { which = "succession_law_vote" value = -1 }
+				hidden_tooltip = {
+					remove_opinion = {
+						modifier = opinion_approved_succession_law
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_ignored_succession_law
+						who = ROOT
+					}
+				}
+				opinion = {
+					modifier = opinion_ignored_succession_law
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+	}
+}
+
+# Approve or disapprove Primogeniture
+letter_event = {
+	id = 400002
+	desc = "EVTDESC400002"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA400002"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.01
+				FROM = {
+					holder_scope = {
+						current_heir = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					holder_scope = {
+						NOT = { same_realm = ROOT }
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = {
+					holder_scope = {
+						NOT = { dynasty = ROOT }
+					}
+				}
+			}			
+			modifier = {
+				factor = 10.0
+				FROM = {
+					holder_scope = {
+						any_child = {
+							character = ROOT
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_0
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_1
+						}
+					}
+				}
+			}		
+			modifier = {
+				factor = 2.0
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_3
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_4
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 10.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 5.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 75
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 2.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 50
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = { 
+					FROM = {
+						holder_scope = {
+							reverse_opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				NOT = { 
+					FROM = {
+						holder_scope = {
+							reverse_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+					}
+				}
+			}			
+		}		
+		FROM = {
+			holder_scope = {
+				change_variable = { which = "succession_law_vote" value = 1 }
+				hidden_tooltip = {
+					remove_opinion = {
+						modifier = opinion_approved_succession_law
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_ignored_succession_law
+						who = ROOT
+					}			
+				}
+				opinion = {
+					modifier = opinion_approved_succession_law
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB400002"
+		ai_chance = { factor = 100 }	
+		FROM = {
+			holder_scope = {
+				change_variable = { which = "succession_law_vote" value = -1 }
+				hidden_tooltip = {
+					remove_opinion = {
+						modifier = opinion_approved_succession_law
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_ignored_succession_law
+						who = ROOT
+					}
+				}
+				opinion = {
+					modifier = opinion_ignored_succession_law
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+	}
+}
+
+# Approve or disapprove Seniority
+letter_event = {
+	id = 400003
+	desc = "EVTDESC400003"
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA400003"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.01
+				FROM = {
+					holder_scope = {
+						current_heir = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					holder_scope = {
+						NOT = { same_realm = ROOT }
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = {
+					holder_scope = {
+						NOT = { dynasty = ROOT }
+					}
+				}
+			}			
+			modifier = {
+				factor = 10.0
+				FROM = {
+					holder_scope = {
+						dynasty = ROOT 
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_0
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_1
+						}
+					}
+				}
+			}		
+			modifier = {
+				factor = 2.0
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_3
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					primary_title = {
+						crownlaw_title = {
+							has_law = centralization_4
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 10.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 5.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 75
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 2.0
+				FROM = {
+					holder_scope = {
+						reverse_opinion = {
+							who = ROOT
+							value = 50
+						}
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				NOT = { 
+					FROM = {
+						holder_scope = {
+							reverse_opinion = {
+								who = ROOT
+								value = 25
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				NOT = { 
+					FROM = {
+						holder_scope = {
+							reverse_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+					}
+				}
+			}			
+		}		
+		FROM = {
+			holder_scope = {
+				change_variable = { which = "succession_law_vote" value = 1 }
+				hidden_tooltip = {
+					remove_opinion = {
+						modifier = opinion_approved_succession_law
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_ignored_succession_law
+						who = ROOT
+					}			
+				}
+				opinion = {
+					modifier = opinion_approved_succession_law
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB400003"
+		ai_chance = { factor = 100 }
+		FROM = {
+			holder_scope = {
+				change_variable = { which = "succession_law_vote" value = -1 }
+				hidden_tooltip = {
+					remove_opinion = {
+						modifier = opinion_approved_succession_law
+						who = ROOT
+					}
+					remove_opinion = {
+						modifier = opinion_ignored_succession_law
+						who = ROOT
+					}
+				}
+				opinion = {
+					modifier = opinion_ignored_succession_law
+					who = ROOT
+					months = 120
+				}
+			}
+		}
+	}
+}
+
+# The law passes or is defeated
+character_event = {
+	id = 400004
+	desc = "EVTDESC400004"
+	
+	is_triggered_only = yes
+	
+	immediate = {	
+		set_character_flag = no_prestige_loss_on_succ_law
+		if = {
+			limit = { check_variable = { which = "succession_law_vote" value = -0.5 } }
+			any_demesne_title = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { has_character_flag = voted_on_gavelkind }
+					}
+					if = {
+						limit = {
+							PREV = { has_law = succ_feudal_elective }
+						}
+						PREV = { add_law_w_cooldown = succ_gavelkind }
+					}
+					holder_scope = { clr_character_flag = voted_on_gavelkind clr_character_flag = succession_vote character_event = { id = 400005 } }
+				}			
+			}
+			any_demesne_title = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { has_character_flag = voted_on_primogeniture }
+					}
+					if = {
+						limit = {
+							PREV = { has_law = succ_feudal_elective }
+						}
+						PREV = { add_law_w_cooldown = succ_primogeniture }
+					}
+					holder_scope = { clr_character_flag = voted_on_primogeniture clr_character_flag = succession_vote character_event = { id = 400005 } }
+				}			
+			}
+			any_demesne_title = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { has_character_flag = voted_on_seniority }
+					}
+					if = {
+						limit = {
+							PREV = { has_law = succ_feudal_elective }
+						}
+						PREV = { add_law_w_cooldown = succ_seniority }
+					}
+					holder_scope = { clr_character_flag = voted_on_seniority clr_character_flag = succession_vote character_event = { id = 400005 } }
+				}			
+			}
+		}
+		if = {
+			limit = { check_variable = { which = "succession_law_vote" value = -0.5 } }
+			any_demesne_title = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { has_character_flag = voted_on_gavelkind }
+					}
+					holder_scope = { clr_character_flag = voted_on_gavelkind clr_character_flag = succession_vote character_event = { id = 400006 } }
+				}			
+			}
+			any_demesne_title = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { has_character_flag = voted_on_primogeniture }
+					}
+					holder_scope = { clr_character_flag = voted_on_primogeniture clr_character_flag = succession_vote character_event = { id = 400006 } }
+				}			
+			}
+			any_demesne_title = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				any_de_jure_vassal_title = {
+					limit = {
+						holder_scope = { has_character_flag = voted_on_seniority }
+					}
+					holder_scope = { clr_character_flag = voted_on_seniority clr_character_flag = succession_vote character_event = { id = 400006 } }
+				}			
+			}			
+		}
+		clr_character_flag = no_prestige_loss_on_succ_law
+	}
+
+	option = {
+		name = "EVTOPTA400004"
+		trigger = {
+			check_variable = { which = "succession_law_vote" value = -0.5 }
+		}		
+		set_variable = { which = "succession_law_vote" value = 0 }
+		ROOT = {
+			custom_tooltip = CUSTOMTOOLTIP8
+		}
+		any_playable_ruler = {
+			limit = { 
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_approved_succession_law
+				}
+			}
+			custom_tooltip = CUSTOMTOOLTIP8		
+		}
+		any_playable_ruler = {
+			limit = { 
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_ignored_succession_law
+				}
+			}
+			custom_tooltip = CUSTOMTOOLTIP9			
+		}
+		clr_character_flag = voting_on_succession_law
+	}
+	
+	option = {
+		name = "EVTOPTB400004"
+		trigger = {
+			NOT = { check_variable = { which = "succession_law_vote" value = -0.5 } }
+		}
+		set_variable = { which = "succession_law_vote" value = 0 }
+		ROOT = {
+			custom_tooltip = CUSTOMTOOLTIP8
+		}
+		any_playable_ruler = {
+			limit = { 
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_approved_succession_law
+				}
+			}
+			custom_tooltip = CUSTOMTOOLTIP8		
+		}
+		any_playable_ruler = {
+			limit = { 
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_ignored_succession_law
+				}
+			}
+			custom_tooltip = CUSTOMTOOLTIP9			
+		}
+		clr_character_flag = voting_on_succession_law		
+	}
+}
+
+# Notification - success
+character_event = {
+	id = 400005
+	desc = "EVTDESC400005"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+	}
+	
+	option = {
+		name = "OK"		
+	}
+}
+
+# Notification - failure
+character_event = {
+	id = 400006
+	desc = "EVTDESC400006"
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+	}
+	
+	option = {
+		name = "OK"		
+	}
+}
