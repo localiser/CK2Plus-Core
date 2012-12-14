@@ -1,10 +1,7 @@
-CKIIplus
-========
-
 CK2Plus for Crusader Kings 2
 Author: Martin "Wiz" Anward
 Contact: m(dot)anward(at)live(dot)se
-Credits: Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Duc Toto du Haricot (French Translation), Arko (ARKO Pack), zeek40 (Scripting and event writing), idib816 (Jewish Cultures), Sleight of Hand (Breton Names), Slim Jim Pickens (Culture Buildings), Maestro Ugo (Lupus Agnum), Elryck and Arko (Mercator Mod), zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario), Viscardus (Cornish Characters, Anglo-Norse Culture), Cetan (Expanded Character Tooltips), Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies), Spartan_One (Mod File Hosting), Peuri (Little Portait Mod), Trovador and thrashing mad (Enhanced Portraits Mod), EmperorTojo (Icelandic Culture Mod), Ijtzoi (All the Way to Timbuktu), Syren (Syren's Nicknames Mod), mate0815 (Better Looking Characters integration), Shaytana (Better Looking Characters), EOOQE (German Localisation), Keanon (Patrum Scuta), Wappenwiki and Solo_Adhï¿½mar (Patrum Scuta Graphics), Zaldax (An Offer You Can't Refuse), Velho e Bom Joe (Culturally Different Cities), Icecream Jones (flags, new countries), Strudel Man (many tweaks and additions), NoNotTheMindProbe (russian kingdoms), pothkan (CK2 heraldy mod), The_Chancellor (Council Reshuffling mod), avee (Family Relations Mod, Better Rebels mod, Death Causes mod), Sniper4625 (misc graphics), Van Diemen (HRE Revised Mod, Youth traits), riso (Treaty of Nymphaeum scenario), Six Gun South (PMM)
+Credits: Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Duc Toto du Haricot (French Translation), Arko (ARKO Pack), zeek40 (Scripting and event writing), idib816 (Jewish Cultures), Sleight of Hand (Breton Names), Slim Jim Pickens (Culture Buildings), Maestro Ugo (Lupus Agnum), Elryck and Arko (Mercator Mod), zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario), Viscardus (Cornish Characters, Anglo-Norse Culture), Cetan (Expanded Character Tooltips), Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies), Spartan_One (Mod File Hosting), Peuri (Little Portait Mod), Trovador and thrashing mad (Enhanced Portraits Mod), EmperorTojo (Icelandic Culture Mod), Ijtzoi (All the Way to Timbuktu), Syren (Syren's Nicknames Mod), mate0815 (Better Looking Characters integration), Shaytana (Better Looking Characters), EOOQE (German Localisation), Keanon (Patrum Scuta), Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics), Zaldax (An Offer You Can't Refuse), Velho e Bom Joe (Culturally Different Cities), Icecream Jones (flags, new countries), Strudel Man (many tweaks and additions), NoNotTheMindProbe (russian kingdoms), pothkan (CK2 heraldy mod), The_Chancellor (Council Reshuffling mod), avee (Family Relations Mod, Better Rebels mod, Death Causes mod), Sniper4625 (misc graphics), Van Diemen (HRE Revised Mod, Youth traits), riso (Treaty of Nymphaeum scenario), Six Gun South (PMM)
 
 ****************
 * Installation *
@@ -480,7 +477,7 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 - Tweaked Finni-Ugric ruler cultures to better match the culture of their provinces.
 - AI rulers should now be more willing to join military plots of other AI rulers.
 - Tweaked Duchy borders in the HRE.
-- Added the province of Lolland in Sjaelland to give Denmark a boost and make it so you can't usurp Denmark with just Skï¿½ne.
+- Added the province of Lolland in Sjaelland to give Denmark a boost and make it so you can't usurp Denmark with just Skåne.
 - Reduced frequency of epidemics, to balance for their increased lethality.
 - Epidemics will now reduce the size of levies you can raise in a province afflicted by one.
 - Further reduced the chance of assassination plots being leaked by backers.
@@ -859,7 +856,7 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 - Added the titular kingdoms of Sardinia, Dublin, Mann and the Isles, Mercia and Cornwall.
 - Newborn characters now start with negative stats, in an effort to reduce the extreme stat inflation from education over time. An adjustment event fires later in childhood to ensure that base stats do not remain in the negative.
 - Removed the vassal opinion bonus from Elective. While it makes sense, it feel it makes an already extremely good succession law even better.
-- Primogeniture no longer lowers the opï¿½nion of your dynasty.
+- Primogeniture no longer lowers the opínion of your dynasty.
 - Elective now lowers the opinion of your dynasty (due to opening up the succession outside of the bloodline).
 - Tweaked mercenaries to have more 500 and 1000-size companies.
 - Added mercenaries to West Africa.
@@ -1004,7 +1001,7 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 - Added new CoA patterns from 1.05 to Heraldry mod.
 - Fixed a bug that was causing the game to crash if you tried to start after 1204.
 - Characters can now plot to assassinate rivals.
-- Rï¿½gen is now a de jure part of Pomerania.
+- Rügen is now a de jure part of Pomerania.
 - Now uses vanilla death reasons instead of death causes mod.
 
 1.02:
