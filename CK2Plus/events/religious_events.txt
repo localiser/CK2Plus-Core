@@ -148,24 +148,6 @@ province_event = {
 			}
 			ruler = { piety = -10 }
 		}
-		if = {
-			limit = {
-				owner = {
-					top_liege = {
-						NOT = {
-							any_realm_province = {
-								religion = ROOT
-								has_province_modifier = heretic_stronghold
-							}
-						}
-					}
-				}
-			}
-			add_province_modifier = {
-				name = heretic_stronghold
-				duration = -1
-			}
-		}
 		# News spread
 		hidden_tooltip = {
 			owner = {
@@ -592,6 +574,13 @@ province_event = {
 				}
 			}
 		}
+		modifier = {
+			factor = 0.5
+			any_neighbor_province = {
+				is_heresy_of = ROOT
+				owner = { is_heresy_of = ROOT }
+			}
+		}		
 		modifier = {
 			factor = 0.5
 			any_neighbor_province = {

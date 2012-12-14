@@ -353,12 +353,14 @@ obj_become_treasurer = {
 			AND = {
 				is_female = yes
 				NOT = { liege = { has_law = true_cognatic_succession } }
+				NOT = { has_global_flag = gender_equality }
 			}
 			AND = {
 				is_female = yes
 				is_ruler = yes
 				NOT = { liege = { dynasty = FROM } }
 				NOT = { liege = { mother = { character = FROM } } }
+				NOT = { has_global_flag = gender_equality }
 			}			
 		}
 	}
@@ -491,12 +493,14 @@ obj_become_spymaster = {
 			AND = {
 				is_female = yes
 				liege = { has_law = agnatic_succession }
+				NOT = { has_global_flag = gender_equality }
 			}
 			AND = {
 				is_female = yes
 				is_ruler = yes
 				NOT = { liege = { dynasty = FROM } }	
 				NOT = { liege = { mother = { character = FROM } } }
+				NOT = { has_global_flag = gender_equality }
 			}			
 		}
 	}

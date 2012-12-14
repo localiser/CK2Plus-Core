@@ -1640,40 +1640,41 @@ character_event = {
 	trigger = {
 		war = no
 		has_character_flag = guest_feast_started
-		any_liege = {
-			NOT = {
-				had_character_flag = {
-					flag = host_feast_started
-					days = 20
-				}	
-			}
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			any_vassal = {
-				age = 16
-				has_character_flag = guest_feast_started
+		any_realm_character = {
+			same_liege = ROOT
+			liege = {
 				NOT = {
-					character = ROOT
-					any_claim = {
-						holder_scope = {
-							character = ROOT
-						}
+					had_character_flag = {
+						flag = host_feast_started
+						days = 20
+					}	
+				}
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			age = 16
+			has_character_flag = guest_feast_started
+			NOT = {
+				character = ROOT
+				any_claim = {
+					holder_scope = {
+						character = ROOT
 					}
-					ROOT = {
-						any_claim = {
-							holder_scope = { 
-								character = PREVPREV
-							}
+				}
+				ROOT = {
+					any_claim = {
+						holder_scope = { 
+							character = PREVPREV
 						}
 					}
 				}
-				NOT = {
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = opinion_friend
-					}
-				}				
 			}
+			NOT = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_friend
+				}
+			}				
 		}
 	}
 	
@@ -1700,46 +1701,45 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA72025"
-		any_liege = {
+		random_realm_character = {
 			limit = {
-				has_character_flag = host_feast_started
-				has_character_modifier = holding_large_feast
-			}
-			random_vassal = {
-				limit = {
-					age = 16
-					has_character_flag = guest_feast_started
-					NOT = {
-						character = ROOT
-						any_claim = {
-							holder_scope = {
-								character = ROOT
-							}
+				same_liege = ROOT
+				liege = {
+					has_character_flag = host_feast_started
+					has_character_modifier = holding_large_feast					
+				}
+				age = 16
+				has_character_flag = guest_feast_started
+				NOT = {
+					character = ROOT
+					any_claim = {
+						holder_scope = {
+							character = ROOT
 						}
-						ROOT = {
-							any_claim = {
-								holder_scope = { 
-									character = PREVPREV
-								}
+					}
+					ROOT = {
+						any_claim = {
+							holder_scope = { 
+								character = PREVPREV
 							}
 						}
 					}
-					NOT = {
-						has_opinion_modifier = {
-							who = ROOT
-							modifier = opinion_friend
-						}
-					}					
 				}
-				opinion = {
-					modifier = opinion_friend
-					who = ROOT
-					years = 100
-				}
-				character_event = {
-					id = 72026
-					tooltip = "EVTTOOLTIP72026"
-				}
+				NOT = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_friend
+					}
+				}					
+			}
+			opinion = {
+				modifier = opinion_friend
+				who = ROOT
+				years = 100
+			}
+			character_event = {
+				id = 72026
+				tooltip = "EVTTOOLTIP72026"
 			}
 		}
 	}
@@ -2472,49 +2472,50 @@ character_event = {
 		has_character_flag = guest_feast_started
 		is_married = yes
 		fertility = 0.4
-		any_liege = {
-			NOT = {
-				had_character_flag = {
-					flag = host_feast_started
-					days = 20
-				}	
+		any_realm_character = {
+			same_liege = ROOT
+			liege = {
+				NOT = {
+					had_character_flag = {
+						flag = host_feast_started
+						days = 20
+					}	
+				}
+				war = no
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
 			}
-			war = no
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			any_vassal = {
-				NOT = { character = ROOT }
-				has_character_flag = guest_feast_started
-				spouse = {
-					prisoner = no
-					age = 16
-					is_pregnant = no
-					is_alive = yes
-					is_abroad = no
-					NOT = {
-						trait = celibate
+			NOT = { character = ROOT }
+			has_character_flag = guest_feast_started
+			spouse = {
+				prisoner = no
+				age = 16
+				is_pregnant = no
+				is_alive = yes
+				is_abroad = no
+				NOT = {
+					trait = celibate
+				}
+				NOT = { trait = eunuch }
+				NOT = {
+					age = 30
+				}
+				opinion = { who = ROOT value = 20 }
+				NOT = { is_close_relative = root }
+				
+				OR = {
+					AND = {
+						is_female = yes
+						is_pregnant = no
+						ROOT = {
+							is_female = no
+						}
 					}
-					NOT = { trait = eunuch }
-					NOT = {
-						age = 30
-					}
-					opinion = { who = ROOT value = 20 }
-					NOT = { is_close_relative = root }
-					
-					OR = {
-						AND = {
+					AND = {
+						is_female = no
+						ROOT = {
 							is_female = yes
 							is_pregnant = no
-							ROOT = {
-								is_female = no
-							}
-						}
-						AND = {
-							is_female = no
-							ROOT = {
-								is_female = yes
-								is_pregnant = no
-							}
 						}
 					}
 				}
@@ -2587,53 +2588,52 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTB72040"
-		any_liege = {
+		random_realm_character = {
 			limit = {
-				has_character_flag = host_feast_started
-				has_character_modifier = holding_large_feast
-			}
-			random_vassal = {
-				limit = {
-					NOT = { character = ROOT }
-					has_character_flag = guest_feast_started
-					spouse = {
-						prisoner = no
-						age = 16
-						is_pregnant = no
-						is_alive = yes
-						is_abroad = no
-						NOT = {
-							trait = celibate
+				same_liege = ROOT
+				liege = {
+					has_character_flag = host_feast_started
+					has_character_modifier = holding_large_feast					
+				}
+				NOT = { character = ROOT }
+				has_character_flag = guest_feast_started
+				spouse = {
+					prisoner = no
+					age = 16
+					is_pregnant = no
+					is_alive = yes
+					is_abroad = no
+					NOT = {
+						trait = celibate
+					}
+					NOT = { trait = eunuch }
+					NOT = {
+						age = 30
+					}
+					opinion = { who = ROOT value = 20 }
+					NOT = { is_close_relative = root }
+					OR = {
+						AND = {
+							is_female = yes
+							is_pregnant = no
+							ROOT = {
+								is_female = no
+							}
 						}
-						NOT = { trait = eunuch }
-						NOT = {
-							age = 30
-						}
-						opinion = { who = ROOT value = 20 }
-						NOT = { is_close_relative = root }
-						OR = {
-							AND = {
+						AND = {
+							is_female = no
+							ROOT = {
 								is_female = yes
 								is_pregnant = no
-								ROOT = {
-									is_female = no
-								}
-							}
-							AND = {
-								is_female = no
-								ROOT = {
-									is_female = yes
-									is_pregnant = no
-								}
 							}
 						}
 					}
 				}
-				spouse = {
-					character_event = {
-						id = 72041
-						tooltip = "EVTTOOLTIP72041"
-					}
+			}
+			spouse = {
+				character_event = {
+					id = 72041
+					tooltip = "EVTTOOLTIP72041"
 				}
 			}
 		}
@@ -2684,7 +2684,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTC72041"
-		piety = 2
+		piety = 5
 	}
 }
 
@@ -3668,7 +3668,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 45
+		days = 30
 	}
 	
 	option = {
@@ -3762,7 +3762,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 45
+		days = 30
 	}
 	
 	option = {
@@ -3856,7 +3856,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 45
+		days = 30
 	}
 	
 	option = {
@@ -3950,7 +3950,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 45
+		days = 30
 	}
 	
 	option = {
@@ -4044,7 +4044,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 45
+		days = 30
 	}
 	
 	option = {
@@ -4161,7 +4161,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 240
+		days = 120
 		
 		modifier = {
 			factor = 0.25

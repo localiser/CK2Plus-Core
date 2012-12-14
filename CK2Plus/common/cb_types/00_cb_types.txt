@@ -30,6 +30,7 @@ claim = {
 		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }		
 		OR = {
+			has_global_flag = gender_equality
 			ROOT = { is_female = no }
 			ROOT = { is_ruler = yes }
 			AND = {
@@ -54,7 +55,8 @@ claim = {
 					holder_scope = { has_regent = yes }
 					AND = {
 						ROOT = { is_female = no }
-						holder_scope ={ is_female = yes }
+						holder_scope = { is_female = yes }
+						NOT = { has_global_flag = gender_equality }
 					}
 					is_contested = yes # Is already being contested in some form of Claim or Succession War
 				}
@@ -209,6 +211,7 @@ other_claim = {
 			}
 		}
 		OR = {
+			has_global_flag = gender_equality
 			ROOT = { is_female = no }
 			ROOT = { is_ruler = yes }
 			AND = {
@@ -314,6 +317,7 @@ other_claim = {
 					AND = {
 						ROOT = { is_female = no }
 						holder_scope ={ is_female = yes }
+						NOT = { has_global_flag = gender_equality }
 					}
 					is_contested = yes # Is already being contested in some form of Claim or Succession War
 				}
@@ -721,7 +725,8 @@ claim_on_liege = {
 					holder_scope = { has_regent = yes }
 					AND = {
 						ROOT = { is_female = no }
-						holder_scope ={ is_female = yes }
+						holder_scope = { is_female = yes }
+						NOT = { has_global_flag = gender_equality }
 					}
 					is_contested = yes # Is already being contested in some form of Claim or Succession War
 				}
@@ -909,6 +914,7 @@ other_claim_on_liege = {
 
 	can_use_title = {	
 		OR = {
+			has_global_flag = gender_equality
 			ROOT = { is_female = no }
 			ROOT = { is_ruler = yes }
 			AND = {
@@ -934,7 +940,8 @@ other_claim_on_liege = {
 					holder_scope = { has_regent = yes }
 					AND = {
 						ROOT = { is_female = no }
-						holder_scope ={ is_female = yes }
+						holder_scope = { is_female = yes }
+						NOT = { has_global_flag = gender_equality }
 					}
 					is_contested = yes # Is already being contested in some form of Claim or Succession War
 				}
@@ -2182,13 +2189,13 @@ crusade = {
 			limit = {
 				ROOT = { is_heretic = no }
 			}
-			ROOT = { religion_authority = 0.05 }
+			ROOT = { religion_authority = 0.1 }
 		}
 		if = {
 			limit = {
 				FROM = { is_heretic = no }
 			}
-			FROM = { religion_authority = -0.05 }
+			FROM = { religion_authority = -0.1 }
 		}		
 	}
 
@@ -2257,13 +2264,13 @@ crusade = {
 			limit = {
 				ROOT = { is_heretic = no }
 			}
-			ROOT = { religion_authority = -0.05 }
+			ROOT = { religion_authority = -0.1 }
 		}
 		if = {
 			limit = {
 				FROM = { is_heretic = no }
 			}
-			FROM = { religion_authority = 0.05 }
+			FROM = { religion_authority = 0.1 }
 		}		
 	}
 
@@ -2720,13 +2727,13 @@ holy_war = {
 			limit = {
 				ROOT = { is_heretic = no }
 			}
-			ROOT = { religion_authority = 0.01 }
+			ROOT = { religion_authority = 0.02 }
 		}
 		if = {
 			limit = {
 				FROM = { is_heretic = no }
 			}
-			FROM = { religion_authority = -0.01 }
+			FROM = { religion_authority = -0.02 }
 		}			
 	}
 
@@ -2807,13 +2814,13 @@ holy_war = {
 			limit = {
 				ROOT = { is_heretic = no }
 			}
-			ROOT = { religion_authority = -0.01 }
+			ROOT = { religion_authority = -0.02 }
 		}
 		if = {
 			limit = {
 				FROM = { is_heretic = no }
 			}
-			FROM = { religion_authority = 0.01 }
+			FROM = { religion_authority = 0.02 }
 		}
 	}
 
@@ -3288,13 +3295,20 @@ depose_liege = {
 							OR = {
 								using_cb = bid_for_independence
 								using_cb = depose_liege
+								using_cb = overthrow_ruler
+								using_cb = overthrow_ruler_no_calls
 							}
 						}
 						AND = { # Cannot depose liege if someone else is already deposing liege
 							defender = {
 								character = FROM
 							}
-							using_cb = depose_liege
+							OR = {
+								using_cb = bid_for_independence
+								using_cb = depose_liege
+								using_cb = overthrow_ruler
+								using_cb = overthrow_ruler_no_calls
+							}
 						}
 					}
 				}
@@ -3466,6 +3480,12 @@ depose_liege = {
 					}	
 				}
 			}
+			FROM = {
+				any_vassal = {
+					limit = { trait = loyalist }
+					remove_trait = loyalist
+				}
+			}			
 		}	
 		ROOT = {
 			prestige = -200
@@ -3479,7 +3499,6 @@ depose_liege = {
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 50 }
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }
 	}
 
 	attacker_ai_victory_worth = {
@@ -3507,6 +3526,7 @@ overthrow_ruler = {
 	
 	is_revolt_cb = yes
 	can_call_vassals = yes
+	can_call_allies = no
 
 	can_use = {
 		ROOT = {
@@ -3693,6 +3713,12 @@ overthrow_ruler = {
 					}	
 				}
 			}
+			FROM = {
+				any_vassal = {
+					limit = { trait = loyalist }
+					remove_trait = loyalist
+				}
+			}
 		}	
 		ROOT = {
 			prestige = -200
@@ -3706,7 +3732,6 @@ overthrow_ruler = {
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 50 }
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }
 	}
 
 	attacker_ai_victory_worth = {
@@ -3735,6 +3760,7 @@ overthrow_ruler_no_calls = {
 	is_revolt_cb = yes
 	can_call_vassals = no
 	can_ask_to_join_war = no
+	can_call_allies = no
 
 	can_use = {
 		ROOT = {
@@ -3920,6 +3946,12 @@ overthrow_ruler_no_calls = {
 					}	
 				}
 			}
+			FROM = {
+				any_vassal = {
+					limit = { trait = loyalist }
+					remove_trait = loyalist
+				}
+			}			
 		}	
 		ROOT = {
 			prestige = -200
@@ -3928,7 +3960,6 @@ overthrow_ruler_no_calls = {
 		FROM = {
 			prestige = 50
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }
 	}
 
 	attacker_ai_victory_worth = {
@@ -4089,6 +4120,7 @@ other_succession = {
 
 	can_use_title = {
 		OR = {
+			has_global_flag = gender_equality
 			ROOT = { is_female = no }
 			ROOT = { is_ruler = yes }
 			AND = {
@@ -4280,6 +4312,7 @@ other_succession_on_liege = {
 
 	can_use_title = {
 		OR = {
+			has_global_flag = gender_equality
 			ROOT = { is_female = no }
 			ROOT = { is_ruler = yes }
 			AND = {

@@ -1,7 +1,7 @@
 CK2Plus for Crusader Kings 2
 Author: Martin "Wiz" Anward
 Contact: m(dot)anward(at)live(dot)se
-Credits: Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Duc Toto du Haricot (French Translation), Arko (ARKO Pack), zeek40 (Scripting and event writing), idib816 (Jewish Cultures), Sleight of Hand (Breton Names), Slim Jim Pickens (Culture Buildings), Maestro Ugo (Lupus Agnum), Elryck and Arko (Mercator Mod), zeress (Flavorful Titular Titles, German Localisation), Viscardus (Cornish Characters, Anglo-Norse Culture), Cetan (Expanded Character Tooltips), Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies), Spartan_One (Mod File Hosting), Peuri (Little Portait Mod), Trovador and thrashing mad (Enhanced Portraits Mod), EmperorTojo (Icelandic Culture Mod), Ijtzoi (All the Way to Timbuktu), Syren (Syren's Nicknames Mod), mate0815 (Better Looking Characters integration), Shaytana (Better Looking Characters), EOOQE (German Localisation), Keanon (Patrum Scuta), Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics), Zaldax (An Offer You Can't Refuse), Velho e Bom Joe (Culturally Different Cities), Icecream Jones (flags, new countries), Strudel Man (many tweaks and additions), NoNotTheMindProbe (russian kingdoms), pothkan (CK2 heraldy mod), The_Chancellor (Council Reshuffling mod), avee (Family Relations Mod, Better Rebels mod, Death Causes mod), Sniper4625 (misc graphics), Van Diemen (HRE Revised Mod, Youth traits), riso (Treaty of Nymphaeum scenario), Six Gun South (PMM)
+Credits: Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Duc Toto du Haricot (French Translation), Arko (ARKO Pack), zeek40 (Scripting and event writing), idib816 (Jewish Cultures), Sleight of Hand (Breton Names), Slim Jim Pickens (Culture Buildings), Maestro Ugo (Lupus Agnum), Elryck and Arko (Mercator Mod), zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario), Viscardus (Cornish Characters, Anglo-Norse Culture), Cetan (Expanded Character Tooltips), Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies), Spartan_One (Mod File Hosting), Peuri (Little Portait Mod), Trovador and thrashing mad (Enhanced Portraits Mod), EmperorTojo (Icelandic Culture Mod), Ijtzoi (All the Way to Timbuktu), Syren (Syren's Nicknames Mod), mate0815 (Better Looking Characters integration), Shaytana (Better Looking Characters), EOOQE (German Localisation), Keanon (Patrum Scuta), Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics), Zaldax (An Offer You Can't Refuse), Velho e Bom Joe (Culturally Different Cities), Icecream Jones (flags, new countries), Strudel Man (many tweaks and additions), NoNotTheMindProbe (russian kingdoms), pothkan (CK2 heraldy mod), The_Chancellor (Council Reshuffling mod), avee (Family Relations Mod, Better Rebels mod, Death Causes mod), Sniper4625 (misc graphics), Van Diemen (HRE Revised Mod, Youth traits), riso (Treaty of Nymphaeum scenario), Six Gun South (PMM)
 
 ****************
 * Installation *
@@ -57,8 +57,13 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 ********************
 - 'Vanilla Aztecs' will make the Aztecs from Sunset Invasion appear in virtually every game as in vanilla, instead of only appearing in 10% of games (CK2+ default).
 - 'Gender Equality' makes women eligible for any position on the council and allows them to inherit on the same grounds as men.
-- 'Alternative Scenarios' opens up some alternative scenarios such as independent counts start (currently unfinished but playable).
 - 'No Assaults' disables all assault, for players who prefer a non-suicidal AI.
+
+*************************
+* Alternative Scenarios *
+*************************
+- 'Shattered World' divides the world into either independent counts or small independent states, depending on the start you choose.
+- 'Divided Muslims' makes the Muslim world far less blobby, for players who would like to have more options for small Muslim states to play.
 
 ******************
 * Known Problems *
@@ -68,6 +73,16 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 *************
 * Changelog *
 *************
+1.32.25:
+- If a child ruler is deposed in a faction revolt, the faction leader will now assume the throne.
+- Vassal rulers can now only get random claims inside their realm.
+- You will now be notified when another ruler receives a random claim to one of your titles.
+- Fixed a bug that was preventing Separatist factions from forming.
+- Added a new alternative scenario with its own module, 'Divided Muslims', courtesy of zeress. Scenario modules now have their own special tag, and a maximum of one scenario module should be used at any given time.
+- More fixes and tweaks to the faction system.
+- Female characters are now treated equally for the purposes of pressing claims and succession wars under the Gender Equality module.
+- You will no longer be expected to reward supporters in minor civil wars (such as a single vassal revolting).
+
 1.32.24:
 - Fixed a very bad bug where a successful excommunication war would result in the attacking ruler abdicating.
 - Separatist sentiment now spreads faster in areas distant from the capital, so that large blobs are more prone to collapse.

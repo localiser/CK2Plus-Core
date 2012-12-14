@@ -833,6 +833,10 @@ faction_court_emperor = {
 			}
 		}	
 		NOT = { liege = { in_faction = faction_court_emperor } }
+		OR = {
+			is_feudal = yes
+			liege = { is_feudal = no }
+		}
 	}
 	
 	# AI creation weight
@@ -931,6 +935,10 @@ faction_court_king = {
 			}
 		}	
 		NOT = { liege = { in_faction = faction_court_king } }	
+		OR = {
+			is_feudal = yes
+			liege = { is_feudal = no }
+		}		
 	}
 	
 	# AI creation weight
@@ -1024,7 +1032,11 @@ faction_court_duke = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_court_duke } }	
+		NOT = { liege = { in_faction = faction_court_duke } }
+		OR = {
+			is_feudal = yes
+			liege = { is_feudal = no }
+		}		
 	}
 	
 	# AI creation weight
@@ -1511,6 +1523,7 @@ faction_pretender = {
 			}
 		}
 		OR = {
+			has_global_flag = gender_equality
 			new_character = { is_female = no }
 			AND = {
 				NOT = { new_character = { religion_group = muslim } }
@@ -1523,7 +1536,7 @@ faction_pretender = {
 	chance = {
 		factor = 1
 		modifier = {
-			factor = 0.5
+			factor = 0.2
 			always = yes
 		}
 		modifier = {
@@ -1969,6 +1982,7 @@ faction_pretender = {
 			factor = 0.5
 			new_character = { is_female = yes }
 			NOT = { has_law = true_cognatic_succession }
+			NOT = { has_global_flag = gender_equality }
 		}
 		modifier = {
 			factor = 3.0
@@ -2113,6 +2127,10 @@ faction_pretender = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 1
+		modifier = {
+			factor = 0.5
+			always = yes
+		}		
 		modifier = {
 			factor = 0
 			prisoner = yes
@@ -2600,6 +2618,7 @@ faction_pretender = {
 			factor = 0.5
 			FROM = { supported_claimant = { is_female = yes } }
 			NOT = { FROMFROM = { has_law = true_cognatic_succession } }
+			NOT = { has_global_flag = gender_equality }
 		}	
 	}
 	

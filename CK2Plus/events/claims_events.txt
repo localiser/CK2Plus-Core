@@ -9,7 +9,13 @@ character_event = {
 		any_playable_ruler = {
 			any_demesne_title = {
 				location = {
-					owner = { religion_group = ROOT }
+					owner = {
+						religion_group = ROOT
+						OR = {
+							ROOT = { independent = yes }
+							same_realm = ROOT
+						}
+					}
 					duchy = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }
 					county = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }				
 					any_neighbor_province = {
@@ -115,7 +121,13 @@ character_event = {
 			limit = {
 				any_demesne_title = {
 					location = {
-						owner = { religion_group = ROOT }
+						owner = { 
+							religion_group = ROOT 
+							OR = {
+								ROOT = { independent = yes }
+								same_realm = ROOT
+							}
+						}
 						duchy = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }
 						county = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
@@ -127,7 +139,13 @@ character_event = {
 			random_demesne_title = {
 				limit = {
 					location = {
-						owner = { religion_group = ROOT }
+						owner = { 
+							religion_group = ROOT 
+							OR = {
+								ROOT = { independent = yes }
+								same_realm = ROOT
+							}
+						}
 						duchy = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }
 						county = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
@@ -143,18 +161,32 @@ character_event = {
 								duchy = { has_holder = no }
 							}						
 						}
-						county = { add_claim = ROOT }	
+						county = { add_claim = ROOT hidden_tooltip = { holder_scope = { character_event = { id = 1500051 } } }
 					}
 					if = {
 						limit = {
 							ROOT = { has_character_flag = duchy_claim }
 							duchy = { has_holder = yes }						
 						}
-						duchy = { add_claim = ROOT }
+						duchy = { add_claim = ROOT hidden_tooltip = { holder_scope = { character_event = { id = 1500051 } } }
 					}			
 				}
 			}			
 		}		
 		clr_character_flag = duchy_claim
+	}
+}
+
+character_event = {
+	id = 1500051
+	picture = GFX_evt_emissary
+	only_rulers = yes
+	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1500051"
+	
+	option = {
+		name = "EVTOPTA1500051"
 	}
 }

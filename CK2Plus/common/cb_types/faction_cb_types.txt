@@ -476,7 +476,9 @@ lower_crown_authority_law = {
 				}				
 			}	
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }	
+		hidden_tooltip = {
+			FROM = { character_event = { id = 2010030 } }				
+		}
 	}
 
 	attacker_ai_victory_worth = {
@@ -1240,7 +1242,19 @@ claim_on_liege_plot = {
 			any_attacker = {
 				set_defacto_liege = FROM
 			}
-		}	
+			FROM = {
+				any_vassal = {
+					limit = { trait = loyalist }
+					remove_trait = loyalist
+					prisoner = ROOT
+					reverse_opinion = {
+						who = ROOT
+						modifier = opinion_civil_war_loser
+						months = 60
+					}
+				}
+			}			
+		}			
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		FROM = { imprison = ROOT }
 		any_attacker = {
@@ -1256,6 +1270,7 @@ claim_on_liege_plot = {
 			any_demesne_title = {
 				limit =	{
 					is_primary_holder_title_tier = yes
+					is_primary_holder_title = no
 				}
 				if = {
 					limit = { has_law = centralization_1 }
@@ -1275,13 +1290,34 @@ claim_on_liege_plot = {
 				}				
 				usurp_title_plus_barony_if_unlanded = ROOT
 			}
+			primary_title = {
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
+				}
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
+				}
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
+				usurp_title_plus_barony_if_unlanded = ROOT				
+			}
 		}
 		hidden_tooltip = {
 			if = {
 				limit = {
 					FROM = {
-						primary_title = {
-							higher_tier_than = count
+						primary_title = { NOT = { has_law = succ_feudal_elective } }
+						OR = {
+							num_of_count_titles = 2
+							primary_title = { higher_tier_than = count }
 						}
 					}
 				}
@@ -1442,20 +1478,14 @@ claim_on_liege_plot = {
 				}				
 			}	
 		}
-		hidden_tooltip = {
-			FROM = {
-				any_vassal = {
-					limit = { trait = loyalist }
-					remove_trait = loyalist
-					prisoner = ROOT
-					reverse_opinion = {
-						who = ROOT
-						modifier = opinion_civil_war_loser
-						months = 60
-					}
-				}
-			}			
-			ROOT = { character_event = { id = 2010030 } } 
+		hidden_tooltip = {		
+			ROOT = {
+				set_variable = { which = "faction_mood_feudal" value = 0 }
+				set_variable = { which = "faction_mood_court" value = 0 }
+				set_variable = { which = "faction_mood_religious" value = 0 }
+				set_variable = { which = "faction_mood_republican" value = 0 }
+			}
+			ROOT = { character_event = { id = 2010030 } }	
 		}	
 	}
 
@@ -1682,7 +1712,9 @@ claim_on_liege_plot = {
 				}				
 			}	
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }	
+		hidden_tooltip = {
+			FROM = { character_event = { id = 2010030 } } 			
+		}
 	}
 	
 	on_reverse_demand_title = {
@@ -1747,8 +1779,26 @@ other_claim_on_liege_plot = {
 			any_attacker = {
 				set_defacto_liege = FROM
 			}
+			FROM = {
+				any_vassal = {
+					limit = { trait = loyalist }
+					remove_trait = loyalist
+					prisoner = ROOT
+					reverse_opinion = {
+						who = ROOT
+						modifier = opinion_civil_war_loser
+						months = 60
+					}					
+				}
+			}			
 		}	
 		FROMFROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		ROOT = {
+			opinion = {
+				modifier = pressed_my_claim 
+				who = PREV
+			}
+		}
 		FROM = { imprison = ROOT }
 		any_attacker = {
 			limit = { character = FROMFROM }
@@ -1763,6 +1813,7 @@ other_claim_on_liege_plot = {
 			any_demesne_title = {
 				limit =	{
 					is_primary_holder_title_tier = yes
+					is_primary_holder_title = no
 				}
 				if = {
 					limit = { has_law = centralization_1 }
@@ -1782,13 +1833,34 @@ other_claim_on_liege_plot = {
 				}				
 				usurp_title_plus_barony_if_unlanded = ROOT
 			}
+			primary_title = {
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
+				}
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
+				}
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
+				usurp_title_plus_barony_if_unlanded = ROOT				
+			}
 		}
 		hidden_tooltip = {
 			if = {
 				limit = {
 					FROM = {
-						primary_title = {
-							higher_tier_than = count
+						primary_title = { NOT = { has_law = succ_feudal_elective } }
+						OR = {
+							num_of_count_titles = 2
+							primary_title = { higher_tier_than = count }
 						}
 					}
 				}
@@ -1949,20 +2021,14 @@ other_claim_on_liege_plot = {
 				}				
 			}			
 		}
-		hidden_tooltip = {
-			FROM = {
-				any_vassal = {
-					limit = { trait = loyalist }
-					remove_trait = loyalist
-					prisoner = ROOT
-					reverse_opinion = {
-						who = ROOT
-						modifier = opinion_civil_war_loser
-						months = 60
-					}					
-				}
-			}			
-			ROOT = { character_event = { id = 2010030 } } 
+		hidden_tooltip = {	
+			ROOT = {
+				set_variable = { which = "faction_mood_feudal" value = 0 }
+				set_variable = { which = "faction_mood_court" value = 0 }
+				set_variable = { which = "faction_mood_religious" value = 0 }
+				set_variable = { which = "faction_mood_republican" value = 0 }
+			}
+			ROOT = { character_event = { id = 2010030 } }	
 		}
 	}
 
@@ -2216,7 +2282,9 @@ other_claim_on_liege_plot = {
 				}				
 			}	
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }	
+		hidden_tooltip = {
+			FROM = { character_event = { id = 2010030 } }				
+		}
 	}
 	
 	on_reverse_demand_title = {
@@ -2291,18 +2359,11 @@ cb_faction_overthrow_ruler = {
 		hidden_tooltip = {
 			any_attacker = {
 				set_defacto_liege = FROM
-				remove_trait = rebel
 				any_playable_ruler = {
 					reverse_remove_opinion = {
 						who = PREV
 						modifier = revolting_against
 					}	
-				}
-			}
-			FROM = {
-				any_vassal = {
-					limit = { trait = loyalist }
-					remove_trait = loyalist
 				}
 			}
 		}	
@@ -2312,33 +2373,149 @@ cb_faction_overthrow_ruler = {
 				who = ROOT
 				modifier = declared_war
 			}
-			any_demesne_title = { # All titles
-				limit = {
+			if = {
+				limit = { 
 					OR = {
-						tier = king
-						tier = emperor
+						age = 16 
+						AND = {
+							ROOT = { is_feudal = no }
+							FROM = { is_feudal = yes }
+						}
+						AND = {
+							ROOT = { is_feudal = yes }
+							FROM = { is_feudal = no }
+						}						
 					}
-#					is_titular = no
-					NOT = { has_law = centralization_0 }
 				}
-				if = {
-					limit = { has_law = centralization_1 }
-					add_law = centralization_0
+				hidden_tooltip = {
+					any_attacker = {
+						limit = { trait = rebel }
+						remove_trait = rebel
+					}
+					any_vassal = {
+						limit = { trait = loyalist }
+						remove_trait = loyalist
+					}					
 				}
-				if = {
-					limit = { has_law = centralization_2 }
-					add_law = centralization_0
+				any_demesne_title = { # All titles
+					limit = {
+						OR = {
+							tier = king
+							tier = emperor
+						}
+						NOT = { has_law = centralization_0 }
+					}
+					if = {
+						limit = { has_law = centralization_1 }
+						add_law = centralization_0
+					}
+					if = {
+						limit = { has_law = centralization_2 }
+						add_law = centralization_0
+					}
+					if = {
+						limit = { has_law = centralization_3 }
+						add_law = centralization_1
+					}
+					if = {
+						limit = { has_law = centralization_4 }
+						add_law = centralization_2
+					}
 				}
-				if = {
-					limit = { has_law = centralization_3 }
-					add_law = centralization_1
+				abdicate_to_most_liked_by = ROOT
+			}
+			if = {
+				limit = { 	
+					NOT = { age = 16 } 
+					OR = {
+						AND = {
+							ROOT = { is_feudal = yes }
+							FROM = { is_feudal = yes }
+						}
+						AND = {
+							ROOT = { is_feudal = no }
+							FROM = { is_feudal = no }
+						}						
+					}					
 				}
-				if = {
-					limit = { has_law = centralization_4 }
-					add_law = centralization_2
+				FROM = {
+					any_vassal = {
+						limit = { trait = loyalist }
+						remove_trait = loyalist
+						prisoner = ROOT
+						reverse_opinion = {
+							who = ROOT
+							modifier = opinion_civil_war_loser
+							months = 60
+						}
+					}
+				}					
+				any_demesne_title = {
+					limit =	{
+						is_primary_holder_title_tier = yes
+						is_primary_holder_title = no
+					}
+					if = {
+						limit = { has_law = centralization_1 }
+						add_law_w_cooldown = centralization_0
+					}
+					if = {
+						limit = { has_law = centralization_2 }
+						add_law_w_cooldown = centralization_1
+					}
+					if = {
+						limit = { has_law = centralization_3 }
+						add_law_w_cooldown = centralization_2
+					}
+					if = {
+						limit = { has_law = centralization_4 }
+						add_law_w_cooldown = centralization_3
+					}				
+					usurp_title_plus_barony_if_unlanded = ROOT
+				}
+				primary_title = {
+					if = {
+						limit = { has_law = centralization_1 }
+						add_law_w_cooldown = centralization_0
+					}
+					if = {
+						limit = { has_law = centralization_2 }
+						add_law_w_cooldown = centralization_1
+					}
+					if = {
+						limit = { has_law = centralization_3 }
+						add_law_w_cooldown = centralization_2
+					}
+					if = {
+						limit = { has_law = centralization_4 }
+						add_law_w_cooldown = centralization_3
+					}				
+					usurp_title_plus_barony_if_unlanded = ROOT				
 				}
 			}
-			abdicate_to_most_liked_by = ROOT
+			hidden_tooltip = {
+				if = {
+					limit = {
+						FROM = {
+							primary_title = { NOT = { has_law = succ_feudal_elective } }
+							OR = {
+								num_of_count_titles = 2
+								primary_title = { higher_tier_than = count }
+							}
+						}
+					}
+					FROM = {
+						capital_scope = {
+							county = {
+								usurp_title_plus_barony_if_unlanded = ROOT
+							}
+						}
+					}			
+				}	
+			}
+			hidden_tooltip = {
+				ROOT = { character_event = { id = 2010030 } }			
+			}			
 		}
 		any_attacker = {
 			limit = { character = ROOT }
@@ -2720,7 +2897,9 @@ cb_faction_overthrow_ruler = {
 				}				
 			}	
 		}
-		hidden_tooltip = { FROM = { character_event = { id = 2010030 } } }	
+		hidden_tooltip = {
+			FROM = { character_event = { id = 2010030 } }			
+		}
 	}
 
 	attacker_ai_victory_worth = {

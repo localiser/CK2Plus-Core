@@ -7872,7 +7872,7 @@ character_event = {
 			}			
 		}
 		OR = {
-			#fighting the player, fighting in a critical war or fighting a superior opponent: hire up to 10k
+			#fighting the player or fighting a superior opponent: hire up to 10k
 			AND = {
 				any_war = {
 					OR = {
@@ -7895,20 +7895,7 @@ character_event = {
 						AND = {
 							defender = { character = ROOT tier = emperor }
 							attacker = { higher_tier_than = emperor }
-						}	
-						using_cb = crusade
-						using_cb = claim_on_liege
-						using_cb = claim_on_liege_plot
-						using_cb = other_claim_on_liege
-						using_cb = bid_for_independence
-						using_cb = change_seniority_succession_law
-						using_cb = change_primogeniture_succession_law
-						using_cb = change_feudal_elective_succession_law
-						using_cb = change_gavelkind_succession_law
-						using_cb = lower_crown_authority_law
-						using_cb = overthrow_ruler
-						using_cb = overthrow_ruler_no_calls
-						using_cb = depose_liege	
+						}
 					}						
 				}
 				NOT = { check_variable = { which = "mercenaries_raised" value = 9.5 } }

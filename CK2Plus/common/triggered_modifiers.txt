@@ -727,6 +727,7 @@ base_levies = {
 	trigger = {
 		is_ruler = yes
 		check_variable = { which = "realm_size" value = 199.5 }
+		NOT = { check_variable = { which = "realm_size" value = 249.5 } }
 	}
 	
 	icon = 13
@@ -734,6 +735,41 @@ base_levies = {
 	castle_vassal_max_levy = 0.2
 	city_vassal_max_levy = 0.2
 	temple_vassal_max_levy = 0.2
+}
+
+base_levies = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		is_ruler = yes
+		check_variable = { which = "realm_size" value = 249.5 }
+		NOT = { check_variable = { which = "realm_size" value = 299.5 } }
+	}
+	
+	icon = 13
+	
+	castle_vassal_max_levy = 0.175
+	city_vassal_max_levy = 0.175
+	temple_vassal_max_levy = 0.175
+}
+
+base_levies = {
+	potential = {
+		is_ruler = yes
+	}
+	
+	trigger = {
+		is_ruler = yes
+		check_variable = { which = "realm_size" value = 299.5 }
+	}
+	
+	icon = 13
+	
+	castle_vassal_max_levy = 0.15
+	city_vassal_max_levy = 0.15
+	temple_vassal_max_levy = 0.15
 }
 
 #Faction moods
