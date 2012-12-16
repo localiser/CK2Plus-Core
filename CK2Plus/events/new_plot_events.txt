@@ -111,6 +111,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -148,6 +152,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -187,6 +195,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -225,6 +237,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -245,6 +261,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -526,6 +546,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = charitable }
+			remove_trait = charitable
+		}		
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -564,6 +588,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = charitable }
+			remove_trait = charitable
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -604,6 +632,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = charitable }
+			remove_trait = charitable
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -643,6 +675,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = charitable }
+			remove_trait = charitable
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -664,6 +700,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = charitable }
+			remove_trait = charitable
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -1403,8 +1443,8 @@ character_event = {
 			}
 			plot_target_char = {			
 				random_list = {
-					99 = { character_event = { id = 1007021 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
-					1 = { character_event = { id = 1007027 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
+					95 = { character_event = { id = 1007021 tooltip = "CUSTOMTOOLTIP33" days = 3 } } #succeeds
+					5 = { character_event = { id = 1007027 tooltip = "CUSTOMTOOLTIP35" days = 3 } } #fails, discovered
 				}
 			}			
 		}
@@ -1800,6 +1840,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -1838,6 +1882,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -1878,6 +1926,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -1917,6 +1969,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -1938,6 +1994,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -1982,6 +2042,7 @@ character_event = {
 			#notify plotter
 			FROM = { character_event = { id = 1007032 } }	
 		}
+		set_character_flag = kidnapped_by_plot
 	}
 }
 
@@ -2014,6 +2075,7 @@ character_event = {
 			#notify plotter
 			FROM = { character_event = { id = 1007035 } }	
 		}
+		set_character_flag = kidnapped_by_plot
 	}
 }
 
@@ -2043,6 +2105,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA1007037"
+		set_character_flag = kidnapped_by_plot
 		opinion = {
 			who = FROM
 			modifier = attempted_kidnapping
@@ -2407,6 +2470,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -2444,6 +2511,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -2483,6 +2554,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -2521,6 +2596,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -2541,6 +2620,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -3008,6 +3091,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -3087,6 +3174,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -3168,6 +3259,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -3248,6 +3343,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -3310,6 +3409,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -3849,6 +3952,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}		
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -3928,6 +4035,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -4009,6 +4120,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -4089,6 +4204,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -4151,6 +4270,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -4453,6 +4576,10 @@ character_event = {
 			NOT = { plot_power = 0.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -4532,6 +4659,10 @@ character_event = {
 			plot_power = 0.5
 			NOT = { plot_power = 1.0 }
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest
@@ -4613,6 +4744,10 @@ character_event = {
 			NOT = { plot_power = 1.5 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -4693,6 +4828,10 @@ character_event = {
 			NOT = { plot_power = 2.0 }
 		}
 		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
+		if = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
@@ -4755,6 +4894,10 @@ character_event = {
 		trigger = {
 			plot_power = 2.0
 		}
+		if = {
+			limit = { trait = just }
+			remove_trait = just
+		}			
 		if = {
 			limit = { trait = honest }
 			remove_trait = honest

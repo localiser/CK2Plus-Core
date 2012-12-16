@@ -1,2 +1,2 @@
-name = "(Scenario) CK2+ Alt Scenarios"
-path = "mod/CK2Plus Alt Scenarios"
+name = "(Scenario) CK2+ Shattered World"
+path = "mod/CK2Plus Shattered World"

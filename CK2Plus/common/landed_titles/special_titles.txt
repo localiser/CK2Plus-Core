@@ -430,3 +430,19 @@ e_roman_empire = {
 		always = no # Only created through special event
 	}
 }
+
+#special
+e_latin_empire = {
+	color = { 200 190 195 }
+	color2={ 255 255 20 }
+	allow = {
+		war = no
+		not = { tier = emperor }
+		OR = {
+			religion = catholic
+			e_latin_empire = { has_holder = yes }
+		}
+	}	
+	capital = 496 # Byzantion
+	short_name = yes
+}

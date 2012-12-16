@@ -867,6 +867,18 @@ k_holland = {
 		has_global_flag = shattered_world
 	}	
 }
+k_italia = {
+	color={ 245 132 25 }
+	capital = 333
+	allow = {
+		lower_tier_than = king
+		OR = {
+			culture = italian
+			k_italia = { OR = { is_titular = no has_holder = yes } }
+		}
+		has_global_flag = shattered_world
+	}		
+}
 k_jkhaz = {
 	color={ 12 132 245 }
 	capital = 620 #	Itil
@@ -891,6 +903,23 @@ k_kafsid = {
 k_karaman = {
 	color = { 120 41 92 }
 	culture = turkish
+}
+k_livonia = {
+	color={ 209 121 116 }
+	capital = 377 #livs
+	culture = german
+	allow = {
+		war = no
+		OR = {
+			religion = catholic
+			k_livonia = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	gain_effect = {
+		hidden_tooltip = {
+			character_event = { id = 110029 }
+		}
+	}
 }
 k_marinid = {
 	color = { 46 255 5 }
@@ -2481,17 +2510,4 @@ e_scandinavia = {
 		}
 	}	
 	short_name = yes	
-}
-d_dummy = {
-	color = { 200 200 200 }
-}
-e_mexikha = {
-	color = { 255 127 0 }
-	
-	short_name = yes
-	
-	tribe = yes
-	
-	culture = nahuatl
-	religion = aztec
 }

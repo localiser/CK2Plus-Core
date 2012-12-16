@@ -1144,7 +1144,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 120
 		modifier = {
 			factor = 0.5
 			OR = {
@@ -1213,153 +1213,126 @@ character_event = {
 	option = {
 		name = "EVTOPTB1900510"
 		random_list = {
-			#distance-based
 			10 = {
 				liege = {
 					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } NOT = { distance = { who = PREV distance = 200 } } }
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } }
 						change_variable = { which = "separatist_sentiment" value = 1 }
-					}					
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } NOT = { distance = { who = PREV distance = 300 } } }
-						change_variable = { which = "separatist_sentiment" value = 1.5 }				
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } NOT = { distance = { who = PREV distance = 400 } } }
-						change_variable = { which = "separatist_sentiment" value = 2 }	
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 400 } NOT = { distance = { who = PREV distance = 500 } } }
-						change_variable = { which = "separatist_sentiment" value = 2.5 }		
-					}	
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 500 } }
-						change_variable = { which = "separatist_sentiment" value = 3 }		
-					}				
+					}								
 				}				
 			}
-			10 = {	
+			10 = {
 				liege = {
 					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } NOT = { distance = { who = PREV distance = 200 } } }
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } }
 						change_variable = { which = "separatist_sentiment" value = 2 }
-					}					
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } NOT = { distance = { who = PREV distance = 300 } } }
-						change_variable = { which = "separatist_sentiment" value = 2.5 }				
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } NOT = { distance = { who = PREV distance = 400 } } }
-						change_variable = { which = "separatist_sentiment" value = 3 }	
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 400 } NOT = { distance = { who = PREV distance = 500 } } }
-						change_variable = { which = "separatist_sentiment" value = 3.5 }		
-					}	
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 500 } }
-						change_variable = { which = "separatist_sentiment" value = 4 }		
-					}				
-				}				
-			}
-			10 = {	
-				liege = {
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } NOT = { distance = { who = PREV distance = 200 } } }
-						change_variable = { which = "separatist_sentiment" value = 3 }
-					}					
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } NOT = { distance = { who = PREV distance = 300 } } }
-						change_variable = { which = "separatist_sentiment" value = 3.5 }				
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } NOT = { distance = { who = PREV distance = 400 } } }
-						change_variable = { which = "separatist_sentiment" value = 4 }	
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 400 } NOT = { distance = { who = PREV distance = 500 } } }
-						change_variable = { which = "separatist_sentiment" value = 4.5 }		
-					}	
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 500 } }
-						change_variable = { which = "separatist_sentiment" value = 5 }		
-					}				
-				}				
-			}			
-			10 = {	
-				liege = {
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } NOT = { distance = { who = PREV distance = 200 } } }
-						change_variable = { which = "separatist_sentiment" value = 1 }
-					}					
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } NOT = { distance = { who = PREV distance = 300 } } }
-						change_variable = { which = "separatist_sentiment" value = 2 }				
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } NOT = { distance = { who = PREV distance = 400 } } }
-						change_variable = { which = "separatist_sentiment" value = 3 }	
-					}
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 400 } NOT = { distance = { who = PREV distance = 500 } } }
-						change_variable = { which = "separatist_sentiment" value = 4 }		
-					}	
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 500 } }
-						change_variable = { which = "separatist_sentiment" value = 5 }		
-					}				
-				}				
-			}
-			#all distant
-			10 = {
-				liege = {				
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
-						change_variable = { which = "separatist_sentiment" value = 1 }				
-					}			
-				}				
-			}
-			10 = {
-				liege = {				
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
-						change_variable = { which = "separatist_sentiment" value = 3 }				
-					}			
-				}				
-			}
-			10 = {
-				liege = {				
-					any_vassal = {
-						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
-						change_variable = { which = "separatist_sentiment" value = 5 }				
-					}			
+					}								
 				}				
 			}	
-			#all
 			10 = {
-				liege = {				
+				liege = {
 					any_vassal = {
-						limit = { higher_tier_than = baron }
-						change_variable = { which = "separatist_sentiment" value = 1 }				
-					}			
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } }
+						change_variable = { which = "separatist_sentiment" value = 3 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } }
+						change_variable = { which = "separatist_sentiment" value = 4 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 100 } }
+						change_variable = { which = "separatist_sentiment" value = 5 }
+					}								
 				}				
 			}
 			10 = {
-				liege = {				
+				liege = {
 					any_vassal = {
-						limit = { higher_tier_than = baron }
-						change_variable = { which = "separatist_sentiment" value = 2 }				
-					}			
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
+						change_variable = { which = "separatist_sentiment" value = 1 }
+					}								
 				}				
 			}
 			10 = {
-				liege = {				
+				liege = {
 					any_vassal = {
-						limit = { higher_tier_than = baron }
-						change_variable = { which = "separatist_sentiment" value = 3 }				
-					}			
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
+						change_variable = { which = "separatist_sentiment" value = 2 }
+					}								
 				}				
-			}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
+						change_variable = { which = "separatist_sentiment" value = 3 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
+						change_variable = { which = "separatist_sentiment" value = 4 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 200 } }
+						change_variable = { which = "separatist_sentiment" value = 5 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } }
+						change_variable = { which = "separatist_sentiment" value = 1 }
+					}								
+				}				
+			}
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } }
+						change_variable = { which = "separatist_sentiment" value = 2 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } }
+						change_variable = { which = "separatist_sentiment" value = 3 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } }
+						change_variable = { which = "separatist_sentiment" value = 4 }
+					}								
+				}				
+			}	
+			10 = {
+				liege = {
+					any_vassal = {
+						limit = { higher_tier_than = baron distance = { who = PREV distance = 300 } }
+						change_variable = { which = "separatist_sentiment" value = 5 }
+					}								
+				}				
+			}			
 		}
 	}
 }

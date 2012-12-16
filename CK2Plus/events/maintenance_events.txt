@@ -7779,13 +7779,9 @@ character_event = {
 		is_ruler = yes
 		tier = emperor
 		check_variable = { which = "realm_size" value = 0.5 }
-		NOT = { check_variable = { which = "realm_size" value = 99.5 } }
+		NOT = { check_variable = { which = "realm_size" value = 100.5 } }
 		any_demesne_title = {
 			tier = emperor
-			OR = {
-				is_titular = yes
-				ROOT = { NOT = { check_variable = { which = "realm_size" value = 49.5 } } }
-			}
 			NOT = {
 				title = e_rebels
 				title = e_pirates
@@ -7793,8 +7789,11 @@ character_event = {
 				title = e_golden_horde
 				title = e_il-khanate
 				title = e_timurids
-				title = e_latin_empire
 				title = e_mexikha
+				AND = {
+					title = e_latin_empire
+					c_byzantion = { holder_scope = { same_realm = ROOT } }
+				}					
 				AND = {
 					title = e_byzantium
 					c_byzantion = { holder_scope = { same_realm = ROOT } }
@@ -7814,10 +7813,6 @@ character_event = {
 		any_demesne_title = {
 			limit = {
 				tier = emperor
-				OR = {
-					is_titular = yes
-					ROOT = { NOT = { check_variable = { which = "realm_size" value = 49.5 } } }
-				}
 				NOT = {
 					title = e_rebels
 					title = e_pirates
@@ -7825,14 +7820,17 @@ character_event = {
 					title = e_golden_horde
 					title = e_il-khanate
 					title = e_timurids
-					title = e_latin_empire
 					title = e_mexikha
-				AND = {
-					title = e_byzantium
-					c_byzantion = { holder_scope = { same_realm = ROOT } }
-				}						
-				}			
-			}
+					AND = {
+						title = e_latin_empire
+						c_byzantion = { holder_scope = { same_realm = ROOT } }
+					}						
+					AND = {
+						title = e_byzantium
+						c_byzantion = { holder_scope = { same_realm = ROOT } }
+					}	
+				}					
+			}			
 			destroy_landed_title = yes
 			prestige = -1000
 		}
@@ -8342,6 +8340,12 @@ character_event = {
 			if = {
 				limit = {
 					is_ruler = yes
+				}
+				if = {
+					limit = { has_character_flag = khan_threatens_player }
+					current_heir = {
+						set_character_flag = khan_threatens_player
+					}
 				}				
 				if = {
 					limit = { has_character_flag = faction_feudal_war }
@@ -11394,7 +11398,9 @@ character_event = {
 	
 	trigger = {
 		ai = yes
-		liege = {
+		liege = {	
+			NOT = { dynasty = ROOT }
+			NOT = { is_close_relative = ROOT }
 			NOT = {
 				reverse_has_opinion_modifier = {
 					modifier = opinion_in_law
@@ -11445,15 +11451,19 @@ character_event = {
 				modifier = opinion_in_law
 				who = ROOT
 			}
-			NOT = {
-				any_sibling = { spouse = { character = ROOT } }
-				any_child = { spouse = { character = ROOT } }
-				father = { spouse = { character = ROOT } }
-				mother = { spouse = { character = ROOT } }
-				ROOT = { any_sibling = { spouse = { character = PREVPREVPREV } } }
-				ROOT = { any_child = { spouse = { character = PREVPREVPREV } } }
-				ROOT = { father = { spouse = { character = PREVPREVPREV } } }
-				ROOT = { mother = { spouse = { character = PREVPREVPREV } } }
+			OR = {
+				dynasty = ROOT
+				is_close_relative = ROOT			
+				NOT = {
+					any_sibling = { spouse = { character = ROOT } }
+					any_child = { spouse = { character = ROOT } }
+					father = { spouse = { character = ROOT } }
+					mother = { spouse = { character = ROOT } }
+					ROOT = { any_sibling = { spouse = { character = PREVPREVPREV } } }
+					ROOT = { any_child = { spouse = { character = PREVPREVPREV } } }
+					ROOT = { father = { spouse = { character = PREVPREVPREV } } }
+					ROOT = { mother = { spouse = { character = PREVPREVPREV } } }
+				}
 			}
 		}
 	}

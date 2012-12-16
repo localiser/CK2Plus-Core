@@ -9,15 +9,8 @@ character_event = {
 		any_playable_ruler = {
 			any_demesne_title = {
 				location = {
-					owner = {
-						religion_group = ROOT
-						OR = {
-							ROOT = { independent = yes }
-							same_realm = ROOT
-						}
-					}
-					duchy = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }
-					county = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }				
+					duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
+					county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 					any_neighbor_province = {
 						owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
 					}
@@ -72,24 +65,24 @@ character_event = {
 			NOT = { has_character_flag = claim_by_event }
 		}			
 		modifier = {
-			factor = 1.25
+			factor = 1.5
 			ai = yes
 			NOT = { difficulty = 1 }
 		}		
 		modifier = {
-			factor = 1.1
+			factor = 1.25
 			ai = yes
 			difficulty = 1
 			NOT = { difficulty = 2 }
 		}
 		modifier = {
-			factor = 0.9
+			factor = 0.75
 			ai = yes
 			difficulty = 3
 			NOT = { difficulty = 4 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 0.66
 			ai = yes
 			difficulty = 4
 		}		
@@ -121,15 +114,8 @@ character_event = {
 			limit = {
 				any_demesne_title = {
 					location = {
-						owner = { 
-							religion_group = ROOT 
-							OR = {
-								ROOT = { independent = yes }
-								same_realm = ROOT
-							}
-						}
-						duchy = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }
-						county = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }				
+						duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
+						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
 							owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
 						}
@@ -139,15 +125,8 @@ character_event = {
 			random_demesne_title = {
 				limit = {
 					location = {
-						owner = { 
-							religion_group = ROOT 
-							OR = {
-								ROOT = { independent = yes }
-								same_realm = ROOT
-							}
-						}
-						duchy = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }
-						county = { NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT } } ROOT = { has_claim = PREV } } }				
+						duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
+						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
 							owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
 						}
@@ -180,7 +159,10 @@ character_event = {
 character_event = {
 	id = 1500051
 	picture = GFX_evt_emissary
-	only_rulers = yes
+	
+	trigger = {
+		ai = no
+	}
 	
 	is_triggered_only = yes
 	

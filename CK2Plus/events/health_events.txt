@@ -3237,3 +3237,66 @@ character_event = {
 		set_character_flag = limb_removed
 	}
 }
+
+#Blinded
+character_event = {
+	id = 6601
+	desc = "EVTDESC6601"
+	picture = "GFX_evt_illness"
+	
+	trigger = {
+		NOT = { trait = immortal }
+		OR = {
+			trait = ill
+			trait = pneumonic
+		}
+		NOT = { trait = pneumonic }
+	}
+	
+	immediate = {
+		remove_trait = ill
+		remove_trait = pneumonic	
+	}
+	
+	mean_time_to_happen = {
+		months = 10000
+			
+		modifier = {
+			factor = 0.5
+			NOT = { base_health = 5 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { base_health = 4 }
+		}
+		modifier = {
+			factor = 0.5
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.1
+			has_character_modifier = the_oubliette
+		}
+		modifier = {
+			factor = 0.25
+			has_character_modifier = the_dungeon
+		}		
+		modifier = {
+			factor = 2.0
+			base_health = 6
+		}
+		modifier = {
+			factor = 2.0
+			base_health = 7
+		}
+		modifier = {
+			factor = 2.0
+			base_health = 8
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA6601"
+		add_trait = blinded
+	}
+}

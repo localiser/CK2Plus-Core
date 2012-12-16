@@ -638,10 +638,14 @@ character_event = {
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
+					OR = {
+						is_primary_holder_title = yes
+						higher_tier_than = duke
+					}
 				}
 				any_de_jure_vassal_title = {
 					limit = {
-						holder_scope = { has_character_flag = voted_on_gavelkind }
+						holder_scope = { has_character_flag = vote_is_for_gavelkind }
 					}
 					if = {
 						limit = {
@@ -649,16 +653,30 @@ character_event = {
 						}
 						PREV = { add_law_w_cooldown = succ_gavelkind }
 					}
-					holder_scope = { clr_character_flag = voted_on_gavelkind clr_character_flag = succession_vote character_event = { id = 400005 } }
+					holder_scope = {
+						if = {
+							limit = {
+								has_character_flag = voted_on_gavelkind
+							}
+							character_event = { id = 400005 }
+						}						
+						clr_character_flag = succession_vote 
+						clr_character_flag = voted_on_gavelkind
+						clr_character_flag = vote_is_for_gavelkind
+					}
 				}			
 			}
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
+					OR = {
+						is_primary_holder_title = yes
+						higher_tier_than = duke
+					}					
 				}
 				any_de_jure_vassal_title = {
 					limit = {
-						holder_scope = { has_character_flag = voted_on_primogeniture }
+						holder_scope = { has_character_flag = vote_is_for_primogeniture }
 					}
 					if = {
 						limit = {
@@ -666,16 +684,30 @@ character_event = {
 						}
 						PREV = { add_law_w_cooldown = succ_primogeniture }
 					}
-					holder_scope = { clr_character_flag = voted_on_primogeniture clr_character_flag = succession_vote character_event = { id = 400005 } }
+					holder_scope = {
+						if = {
+							limit = {
+								has_character_flag = voted_on_primogeniture
+							}
+							character_event = { id = 400005 }
+						}						
+						clr_character_flag = succession_vote 
+						clr_character_flag = voted_on_primogeniture
+						clr_character_flag = vote_is_for_primogeniture
+					}
 				}			
 			}
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
+					OR = {
+						is_primary_holder_title = yes
+						higher_tier_than = duke
+					}					
 				}
 				any_de_jure_vassal_title = {
 					limit = {
-						holder_scope = { has_character_flag = voted_on_seniority }
+						holder_scope = { has_character_flag = vote_is_for_seniority }
 					}
 					if = {
 						limit = {
@@ -683,7 +715,17 @@ character_event = {
 						}
 						PREV = { add_law_w_cooldown = succ_seniority }
 					}
-					holder_scope = { clr_character_flag = voted_on_seniority clr_character_flag = succession_vote character_event = { id = 400005 } }
+					holder_scope = {
+						if = {
+							limit = {
+								has_character_flag = voted_on_seniority
+							}
+							character_event = { id = 400005 }
+						}					
+						clr_character_flag = succession_vote 
+						clr_character_flag = voted_on_seniority
+						clr_character_flag = vote_is_for_seniority
+					}
 				}			
 			}
 		}
@@ -692,34 +734,76 @@ character_event = {
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
+					OR = {
+						is_primary_holder_title = yes
+						higher_tier_than = duke
+					}					
 				}
 				any_de_jure_vassal_title = {
 					limit = {
-						holder_scope = { has_character_flag = voted_on_gavelkind }
+						holder_scope = { has_character_flag = vote_is_for_gavelkind }
 					}
-					holder_scope = { clr_character_flag = voted_on_gavelkind clr_character_flag = succession_vote character_event = { id = 400006 } }
+					holder_scope = {
+						if = {
+							limit = {
+								has_character_flag = voted_on_gavelkind
+							}
+							character_event = { id = 400006 }
+						}					
+						clr_character_flag = succession_vote 
+						clr_character_flag = voted_on_gavelkind
+						clr_character_flag = vote_is_for_gavelkind
+					}
 				}			
 			}
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
+					OR = {
+						is_primary_holder_title = yes
+						higher_tier_than = duke
+					}					
 				}
 				any_de_jure_vassal_title = {
 					limit = {
-						holder_scope = { has_character_flag = voted_on_primogeniture }
+						holder_scope = { has_character_flag = vote_is_for_primogeniture }
 					}
-					holder_scope = { clr_character_flag = voted_on_primogeniture clr_character_flag = succession_vote character_event = { id = 400006 } }
+					holder_scope = {
+						if = {
+							limit = {
+								has_character_flag = voted_on_primogeniture
+							}
+							character_event = { id = 400006 }
+						}					
+						clr_character_flag = succession_vote 
+						clr_character_flag = voted_on_primogeniture
+						clr_character_flag = vote_is_for_primogeniture
+					}
 				}			
 			}
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
+					OR = {
+						is_primary_holder_title = yes
+						higher_tier_than = duke
+					}					
 				}
 				any_de_jure_vassal_title = {
 					limit = {
-						holder_scope = { has_character_flag = voted_on_seniority }
+						holder_scope = { has_character_flag = vote_is_for_seniority }
 					}
-					holder_scope = { clr_character_flag = voted_on_seniority clr_character_flag = succession_vote character_event = { id = 400006 } }
+					holder_scope = {
+						if = {
+							limit = {
+								has_character_flag = voted_on_seniority
+							}
+							character_event = { id = 400006 }
+						}					
+						clr_character_flag = succession_vote 
+						clr_character_flag = voted_on_seniority
+						clr_character_flag = vote_is_for_seniority
+					}
 				}			
 			}			
 		}

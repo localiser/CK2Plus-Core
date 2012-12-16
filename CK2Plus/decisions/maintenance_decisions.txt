@@ -88,6 +88,14 @@ decisions = {
 			}	
 			#contingent territory
 			character_event = { id = 110070 }
+			#misc fixes
+			any_playable_ruler = {
+				if = {
+					limit = { trait = immortal2 }
+					remove_trait = immortal2
+					add_trait = immortal
+				}				
+			}
 			#realm size
 			any_playable_ruler = {
 				set_variable = { which = "realm_size" value = 0 }

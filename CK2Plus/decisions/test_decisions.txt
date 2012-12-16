@@ -4,10 +4,20 @@ decisions = {
 		potential = {
 			ai = no
 			always = no
+			NOT = { has_global_flag = test_once }
 		}
 		allow = {
 		}
-		effect = {		 			
+		effect = {	
+			set_global_flag = test_once
+			hidden_tooltip = {
+				any_independent_ruler = {
+					any_realm_character = {
+						limit = { trait = divine_blood }
+						remove_trait = divine_blood
+					}
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0

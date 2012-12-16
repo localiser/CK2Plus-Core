@@ -1487,6 +1487,7 @@ faction_pretender = {
 		is_ruler = yes
 		independent = no
 		is_landed = yes
+		prisoner = no
 		age = 16
 		NOT = { trait = incapable }
 		liege = {
@@ -1497,6 +1498,7 @@ faction_pretender = {
 	# Target scope
 	allow = {
 		is_primary_holder_title = yes
+		new_character = { prisoner = no }
 		NOT = {
 			new_character = {
 				ROOT = {
@@ -1807,25 +1809,11 @@ faction_pretender = {
 				new_character = {
 					FROM = {
 						opinion_diff = {
-							first = LIEGE
-							second = PREV
-							value = -10 # I don't like the pretender enough
+							first = PREV
+							second = LIEGE
+							value = 10 # I don't like the pretender enough
 							as_if_liege = yes
 						}
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 1.5
-			NOT = { new_character = { character = FROM } }
-			new_character = {
-				FROM = {
-					opinion_diff = {
-						first = LIEGE
-						second = PREV
-						value = 10
-						as_if_liege = yes
 					}
 				}
 			}
@@ -1836,8 +1824,8 @@ faction_pretender = {
 			new_character = {
 				FROM = {
 					opinion_diff = {
-						first = LIEGE
-						second = PREV
+						first = PREV
+						second = LIEGE
 						value = 25
 						as_if_liege = yes
 					}
@@ -1850,8 +1838,8 @@ faction_pretender = {
 			new_character = {
 				FROM = {
 					opinion_diff = {
-						first = LIEGE
-						second = PREV
+						first = PREV
+						second = LIEGE
 						value = 50
 						as_if_liege = yes
 					}
@@ -1864,8 +1852,8 @@ faction_pretender = {
 			new_character = {
 				FROM = {
 					opinion_diff = {
-						first = LIEGE
-						second = PREV
+						first = PREV
+						second = LIEGE
 						value = 75
 						as_if_liege = yes
 					}
@@ -1878,8 +1866,8 @@ faction_pretender = {
 			new_character = {
 				FROM = {
 					opinion_diff = {
-						first = LIEGE
-						second = PREV
+						first = PREV
+						second = LIEGE
 						value = 100
 						as_if_liege = yes
 					}
@@ -2524,9 +2512,9 @@ faction_pretender = {
 					supported_claimant = {
 						ROOT = {
 							opinion_diff = {
-								first = LIEGE
-								second = PREV
-								value = -10 # I don't like the pretender enough
+								first = PREV
+								second = LIEGE
+								value = 10
 								as_if_liege = yes
 							}
 						}
@@ -2541,24 +2529,8 @@ faction_pretender = {
 				supported_claimant = {
 					ROOT = {
 						opinion_diff = {
-							first = LIEGE
-							second = PREV
-							value = 10
-							as_if_liege = yes
-						}
-					}
-				}
-			}
-		}	
-		modifier = {
-			factor = 1.5
-			NOT = { FROM = { supported_claimant = { character = ROOT } } }
-			FROM = { 
-				supported_claimant = {
-					ROOT = {
-						opinion_diff = {
-							first = LIEGE
-							second = PREV
+							first = PREV
+							second = LIEGE
 							value = 25
 							as_if_liege = yes
 						}
@@ -2573,8 +2545,8 @@ faction_pretender = {
 				supported_claimant = {
 					ROOT = {
 						opinion_diff = {
-							first = LIEGE
-							second = PREV
+							first = PREV
+							second = LIEGE
 							value = 50
 							as_if_liege = yes
 						}
@@ -2589,8 +2561,8 @@ faction_pretender = {
 				supported_claimant = {
 					ROOT = {
 						opinion_diff = {
-							first = LIEGE
-							second = PREV
+							first = PREV
+							second = LIEGE
 							value = 75
 							as_if_liege = yes
 						}
@@ -2605,8 +2577,8 @@ faction_pretender = {
 				supported_claimant = {
 					ROOT = {
 						opinion_diff = {
-							first = LIEGE
-							second = PREV
+							first = PREV
+							second = LIEGE
 							value = 100
 							as_if_liege = yes
 						}

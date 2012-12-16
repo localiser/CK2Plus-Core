@@ -24,7 +24,7 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 ************
 - 'Shattered World' scenario with the world divided into independent counts, featuring over 500 new playable characters.
 - AI Mercenary system that makes the AI actually spend its money on winning wars rather than horde it as they are being wiped out.
-- New faction system where vassals are members of permanent factions with multiple goals and moods, making factions into an exciting aspect of internal that can be both good and bad, instead of just being glorified plots.
+- New faction system where vassals are members of permanent factions with multiple goals and moods, making factions into an exciting aspect of internal politics that can be both good and bad, instead of just being glorified plots.
 - Rebalanced levies and laws that reduce the military capabilities of large kingdoms with weak authority (like France or the HRE).
 - Reworked difficulty system: Instead of giving flat economy bonuses to the AI, higher difficulties means slower expansion, slower and costlier warfare and more dangerous plots and revolts for the player.
 - Martial and Learning are no longer useless stats for rulers, as the former will affect the size of your levies and the latter determines your chance of spreading your culture and religion to your provinces.
@@ -55,24 +55,77 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 ********************
 * Optional Modules *
 ********************
+Use any combination of the following:
 - 'Vanilla Aztecs' will make the Aztecs from Sunset Invasion appear in virtually every game as in vanilla, instead of only appearing in 10% of games (CK2+ default).
 - 'Gender Equality' makes women eligible for any position on the council and allows them to inherit on the same grounds as men.
+
+Use only ONE of the following:
 - 'No Assaults' disables all assault, for players who prefer a non-suicidal AI.
+- 'No De Jure Drift' disables de jure drifting.
+- 'No Drift & No Assaults' disables both assaults and de jure drifting.
 
-*************************
-* Alternative Scenarios *
-*************************
+Use only ONE of the following:
 - 'Shattered World' divides the world into either independent counts or small independent states, depending on the start you choose.
-- 'Divided Muslims' makes the Muslim world far less blobby, for players who would like to have more options for small Muslim states to play.
+- 'Divided Muslims' divides the Fatimids and Seljuks into mid-sized states, for players who would like to have more options on Muslim states to play.
 
-******************
-* Known Problems *
-******************
-- None!
+*******
+* FAQ *
+*******
+Q: Are there supposed to only be two de jure empires?
+A: Yes, Empires are mostly titular in CK2+. See Help and Tutorials for details.
+
+Q: I can't change succession laws, there are no options at all!
+A: The mod needs to start up before succession laws are available as a workaround to some issues with their prestige cost. Unpause the game and let it run a few weeks, then succession laws should show up as normal.
+
+Q: Why are there no plots to kill people in the ambitions list?
+A: To plot to kill someone, go to that character's character page and click the plot button (a circle with a hand holding a dagger below their portrait). You will not be able to do this if you have already picked an ambition.
+
+Q: I installed the mod and checked the right files in launcher, but the mod does not load. What am I doing wrong?
+A: Check the readme and follow the installation instructions closely. Pay particular attention to step 3.
+
+Q: I am experiencing issues with lag/slow load times/graphical glitches. How can I fix this?
+A: This problem means you are running out of memory. If you have more than 2gb of RAM, use the fix in this link: http://forum.paradoxplaza.com/forum/showthread.php?535848-FAQ-MEIOU-TD-Important-info-2Gb-Fix-Tutorial]this (only do it for ck2.exe instead of eu3game.exe), or use this alternate method: http://www.techpowerup.com/forums/showthread.php?t=112556
+
+Q: Is the Catholic world supposed to start at 0 tech?
+A: Yes, starting tech was lowered across the board to give Pagans, Armenians, Ethiopians etc more of a fighting chance against Catholics/Muslims.
+
+Q: Why isn't the option to fabricate claims available?
+A: You need to have at least 0 prestige to fabricate claims.
+
+Q: Why don't get I get Kingdom de jure claims?
+A: You need Medium or higher CA to press Kingdom de jure claims.
+
+Q: Why can't I declare Holy Wars?
+A: You need to have at least 100 piety to declare war on neighbours, and at least 250 to declare war on distant enemies. You can bypass this requirement by getting sanction from your head of religion via the decisions menu.
+
+Q: Why am I losing piety when I declare a Holy War?
+A: Holy Wars cost piety to fight unless you get sanction for them from your head of religion. If your piety is below 0 you won't be able to declare them.
+
+Q: How can I get rid of rebels in a province?
+A: Send your marshal to suppress revolts. They will also go away on their own after five years.
+
+Q: Can I play CK2+ multiplayer?
+A: Yes, but you must ensure that all players are using the same set of optional modules. You can't have one player playing with BLC and another without, or someone playing with No Time Limit and someone else playing without, and so on.
 
 *************
 * Changelog *
 *************
+1.32.28:
+- Fixed a bug that was breaking random claims in Shattered World under some circumstances.
+
+1.32.27:
+- Removed a test decision that was accidentally left in 1.32.26.
+- Fixed some bugs with the Shattered World scenario.
+
+1.32.26:
+- Forming the Latin Empire now only requires Constantinople, but the title will be lost if the holder loses Constantinople.
+- Characters who are released from prison due to being blinded or castrated should now automatically be pardoned of any righteous imprisonment causes.
+- Illness and Pneumonia can now develop into blindness.
+- Raised the base health of characters but increased the health penalties of illnesses, to try and cut down on early natural deaths.
+- Added two new optional modules, 'No De Jure Drift' which turns off de jure drift and 'No Drift & No Assaults' which turns off both de jure drift and assaults. You should only use one of the 'No X' modules at any given time.
+- A failed murder or kidnapping attempt that aborts the plot will now make that character immune to the same kind of plot for five years.
+- Ruler designer Immortal trait should now work correctly.
+
 1.32.25:
 - If a child ruler is deposed in a faction revolt, the faction leader will now assume the throne.
 - Vassal rulers can now only get random claims inside their realm.

@@ -79,7 +79,7 @@ narrative_event = {
 			religion = tengri_pagan
 			culture = mongol
 			female = no
-			age = 30
+			age = 20
 			attributes = {
 				martial = 12
 			}
@@ -444,7 +444,7 @@ narrative_event = {
 			religion = tengri_pagan
 			culture = mongol
 			female = no
-			age = 35
+			age = 25
 			attributes = {
 				martial = 12
 			}
@@ -2736,6 +2736,8 @@ character_event = {
 		war = no
 		OR = {
 			has_landed_title = e_il-khanate
+			has_landed_title = e_mexikha
+			has_landed_title = e_timurids
 			has_landed_title = e_golden_horde
 		}
 		any_independent_ruler = {
@@ -2751,7 +2753,7 @@ character_event = {
 					}
 				}
 			}
-			NOT = { has_global_flag = khan_threatens_player }
+			NOT = { has_character_flag = khan_threatens_player }
 		}
 	}
 	
@@ -2775,8 +2777,8 @@ character_event = {
 				}			
 			}
 			letter_event = { id = 1061001 }
+			set_character_flag = khan_threatens_player
 		}
-		set_global_flag = khan_threatens_player
 	}
 }
 
