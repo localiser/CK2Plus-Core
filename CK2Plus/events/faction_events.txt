@@ -1397,6 +1397,13 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA1900520"
+		hidden_tooltip = {
+			add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }	
+			any_faction_backer = {
+				faction = faction_separatist
+				add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }					
+			}
+		}			
 		liege = {
 			set_character_flag = faction_separatist_war
 			reverse_war = {
@@ -1478,15 +1485,22 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA1900540"
+		hidden_tooltip = {
+			add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }	
+			any_faction_backer = {
+				faction = faction_pretender
+				add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }					
+			}
+		}			
 		liege = {
-			set_character_flag = faction_pretender_war 
+			set_character_flag = faction_pretender_war 		
 			ROOT = {
 				if = {
 					limit = {
 						supported_claimant = {
 							character = ROOT
 						}
-					}
+					}					
 					faction_pretender = { # The target (title) of the faction
 						reverse_war = {
 							target = ROOT
@@ -1752,9 +1766,9 @@ character_event = {
 	desc = "AI_EVENT"
 	
 	mean_time_to_happen = {
-		months = 6	
+		months = 6
 		modifier = {
-			factor = 2
+			factor = 1.5
 			always = yes
 		}
 		modifier = {
@@ -1838,7 +1852,7 @@ character_event = {
 			}
 		}	
 		modifier = {
-			factor = 10
+			factor = 2
 			NOT = {
 				OR = {
 					trait = zealous
@@ -1846,8 +1860,7 @@ character_event = {
 					trait = detached_priest
 					trait = martial_cleric
 					trait = scholarly_theologian
-					trait = mastermind_theologian					
-					piety = 50
+					trait = mastermind_theologian
 				}
 			}
 		}

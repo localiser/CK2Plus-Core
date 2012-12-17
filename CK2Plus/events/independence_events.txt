@@ -1,0 +1,61 @@
+#enclaved character declares independence
+character_event = {
+	id = 2500000
+	is_triggered_only = yes
+	picture = "GFX_evt_council"
+	
+	trigger = {
+		is_ruler = yes
+		higher_tier_than = baron
+		independent = no
+		liege = { independent = yes }
+		num_of_count_titles = 1
+		NOT = { any_demesne_province = { has_province_flag = contingent_territory } }
+		OR = {
+			NOT = { liege = { ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } } } }
+			liege = { lower_tier_than = king }
+		}
+		OR = {
+			primary_title = { NOT = { has_crown_law_title = yes } }
+			primary_title = { crownlaw_title = { has_law = centralization_0 } }
+			liege = { lower_tier_than = king }
+		}
+	}
+	
+	desc = "EVTDESC2500000"
+	
+	option = {
+		name = "EVTOPTA2500000"
+		ai_chance = { factor = 100 }
+		hidden_tooltip = {
+			opinion = {
+				modifier = opinion_independent
+				who = liege
+				years = 100
+			}	
+			liege = { character_event = { id = 2500001 } }	
+		}
+		set_defacto_liege = ROOT
+	}
+	option = {
+		name = "EVTOPTB2500000"
+		ai_chance = { factor = 0 }
+	}	
+}
+
+character_event = {
+	id = 2500001
+	is_triggered_only = yes
+	picture = "GFX_evt_council"
+	
+	desc = "EVTDESC2500001"
+	
+	option = {
+		name = "EVTOPTA2500001"
+		opinion = {
+			modifier = opinion_independent
+			who = FROM
+			years = 100
+		}
+	}
+}

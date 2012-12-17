@@ -143,6 +143,7 @@ character_event = {
 			FROM = {
 				NOT = {
 					trait = wounded
+					trait = blinded
 				}
 			}
 		}
@@ -213,7 +214,10 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA64003"
-		add_trait = wounded
+		random_list = {
+			75 = { add_trait = wounded }
+			25 = { add_trait = blinded }
+		}
 		FROM = {
 			reverse_opinion = {
 				modifier = opinion_love_rival

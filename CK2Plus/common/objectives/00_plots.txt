@@ -670,8 +670,19 @@ plot_embezzle_from_liege = {
 		OR = {	
 			NOT = { treasury = -100 }
 			FROM = { prisoner = yes }
+			NOT = { is_liege_of = FROM }
+			is_ruler = no
 			is_alive = no
 			FROM = { trait = incapable }
+			FROM = {
+				NOT = {
+					has_job_title = job_chancellor
+					has_job_title = job_treasurer
+					has_job_title = job_spymaster
+					has_job_title = job_marshal
+					has_job_title = job_spiritual
+				}
+			}
 		}
 	}
 	abort_effect = {
