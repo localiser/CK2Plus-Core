@@ -7,8 +7,8 @@ Contact: m.anward@live.se
 Credits: Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Duc Toto du Haricot (French Translation), Arko (ARKO Pack), zeek40 (Scripting and event writing), idib816 (Jewish Cultures), Sleight of Hand (Breton Names), Slim Jim Pickens (Culture Buildings), Maestro Ugo (Lupus Agnum), Elryck and Arko (Mercator Mod), zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario), Viscardus (Cornish Characters, Anglo-Norse Culture), Cetan (Expanded Character Tooltips), Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies), Spartan_One (Mod File Hosting), Peuri (Little Portait Mod), Trovador and thrashing mad (Enhanced Portraits Mod), EmperorTojo (Icelandic Culture Mod), Ijtzoi (All the Way to Timbuktu), Syren (Syren's Nicknames Mod), mate0815 (Better Looking Characters integration), Shaytana (Better Looking Characters), EOOQE (German Localisation), Keanon (Patrum Scuta), Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics), Zaldax (An Offer You Can't Refuse), Velho e Bom Joe (Culturally Different Cities), Icecream Jones (flags, new countries), Strudel Man (many tweaks and additions), NoNotTheMindProbe (russian kingdoms), pothkan (CK2 heraldy mod), The_Chancellor (Council Reshuffling mod), avee (Family Relations Mod, Better Rebels mod, Death Causes mod), Sniper4625 (misc graphics), Van Diemen (HRE Revised Mod, Youth traits), riso (Treaty of Nymphaeum scenario), Six Gun South (PMM)
 
 ****************
-* Installation *
-****************
+* Installation
+
 1) If you have an older version of the mod installed, delete those older versions first.
 2) Unzip to your Crusader Kings II game folder OR the Crusader Kings II my documents folder.
 3) Make sure the mod was extracted to the correct folder. Inside the 'mod' folder, there should be a CK2Plus.mod file. If there is not, and instead another 'mod' folder, you extracted the mod incorrectly.
@@ -18,13 +18,13 @@ Credits: Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Du
 7) Hit play.
 
 **************
-* Disclaimer *
-**************
+* Disclaimer
+
 CK2Plus is a collaborative effort. While most of the work is done by me personally, it also includes parts of many other mods (see credits for full list). You are free to use any part of this mod in your own mods as long as you give due credit to the creator of said part.
 
 ************
-* Features *
-************
+* Features
+
 - 'Shattered World' scenario with the world divided into independent counts, featuring over 500 new playable characters.
 - AI Mercenary system that makes the AI actually spend its money on winning wars rather than horde it as they are being wiped out.
 - New faction system where vassals are members of permanent factions with multiple goals and moods, making factions into an exciting aspect of internal politics that can be both good and bad, instead of just being glorified plots.
@@ -48,16 +48,16 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 - German and French localisation.
 
 ****************
-* Future Plans *
-****************
+* Future Plans
+
 - Non-Christian versions of personality traits with different piety (for chaste lustful etc).
 - Grand Banquet event where you can invite neighbours, friends and allies instead of just vassals.
 - Rework child education events to be more restricted by your traits, and more balanced between the options instead of there always being one 'best'  option.
 - Executing characters gives landed relatives of theirs the option to ask for blood money - if you refuse, they can send assassins or launch a blood feud war against you.
 
 ********************
-* Optional Modules *
-********************
+* Optional Modules
+
 Use any combination of the following:
 - 'Vanilla Aztecs' will make the Aztecs from Sunset Invasion appear in virtually every game as in vanilla, instead of only appearing in 10% of games (CK2+ default).
 - 'Gender Equality' makes women eligible for any position on the council and allows them to inherit on the same grounds as men.
@@ -72,8 +72,8 @@ Use only ONE of the following:
 - 'Divided Muslims' divides the Fatimids and Seljuks into mid-sized states, for players who would like to have more options on Muslim states to play.
 
 *******
-* FAQ *
-*******
+* FAQ
+
 Q: Are there supposed to only be two de jure empires?
 A: Yes, Empires are mostly titular in CK2+. See Help and Tutorials for details.
 
