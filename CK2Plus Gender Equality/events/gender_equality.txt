@@ -56,40 +56,8 @@ character_event = {
 		}		
 		clr_character_flag = no_prestige_loss_on_succ_law		
 		any_independent_ruler = {
-			set_character_flag = no_prestige_loss_on_succ_law
-			any_demesne_title = {
-				add_law = true_cognatic_succession
-			}
-			any_vassal = {
-				remove_opinion = {
-					modifier = good_succ_law_change
-					who = liege
-				}
-				remove_opinion = {
-					modifier = bad_succ_law_change
-					who = liege
-				}
-				remove_opinion = {
-					modifier = succ_law_change
-					who = liege
-				}			
-			}
-			any_courtier = {
-				remove_opinion = {
-					modifier = good_succ_law_change
-					who = liege
-				}
-				remove_opinion = {
-					modifier = bad_succ_law_change
-					who = liege
-				}
-				remove_opinion = {
-					modifier = succ_law_change
-					who = liege
-				}			
-			}			
-			clr_character_flag = no_prestige_loss_on_succ_law		
-			any_realm_lord = {
+			if = {
+				limit = { NOT = { religion_group = muslim } }
 				set_character_flag = no_prestige_loss_on_succ_law
 				any_demesne_title = {
 					add_law = true_cognatic_succession
@@ -121,9 +89,46 @@ character_event = {
 						modifier = succ_law_change
 						who = liege
 					}			
-				}				
-				clr_character_flag = no_prestige_loss_on_succ_law
-			}
+				}
+				clr_character_flag = no_prestige_loss_on_succ_law	
+			}	
+			any_realm_lord = {
+				if = {
+					limit = { NOT = { religion_group = muslim } }
+					set_character_flag = no_prestige_loss_on_succ_law
+					any_demesne_title = {
+						add_law = true_cognatic_succession
+					}
+					any_vassal = {
+						remove_opinion = {
+							modifier = good_succ_law_change
+							who = liege
+						}
+						remove_opinion = {
+							modifier = bad_succ_law_change
+							who = liege
+						}
+						remove_opinion = {
+							modifier = succ_law_change
+							who = liege
+						}			
+					}
+					any_courtier = {
+						remove_opinion = {
+							modifier = good_succ_law_change
+							who = liege
+						}
+						remove_opinion = {
+							modifier = bad_succ_law_change
+							who = liege
+						}
+						remove_opinion = {
+							modifier = succ_law_change
+							who = liege
+						}			
+					}
+					clr_character_flag = no_prestige_loss_on_succ_law	
+				}
 		}
 	}
 }

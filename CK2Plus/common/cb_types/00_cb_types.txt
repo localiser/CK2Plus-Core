@@ -4122,12 +4122,18 @@ succession_on_liege = {
 	can_call_vassals = yes
 
 	allow_whitepeace = no
+	
+	can_use_title = {
+		is_primary_holder_title_tier = yes
+	}
 
 	is_valid_title = {
+		is_primary_holder_title_tier = yes
 		FROM = {
 			has_landed_title = PREV
 		}
 	}
+	
 	on_success = {
 		hidden_tooltip = { 
 			any_attacker = {
@@ -4146,18 +4152,71 @@ succession_on_liege = {
 		} 
 		FROM = {
 			prestige = -100
+		}
+		FROM = {
 			any_demesne_title = {
-				limit = {
-					tier = FROM
+				limit =	{
+					is_primary_holder_title_tier = yes
+					is_primary_holder_title = no
 				}
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
+				}
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
+				}
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
 				usurp_title_plus_barony_if_unlanded = ROOT
 			}
-			capital_scope = {
-				county = {
-					usurp_title_plus_barony_if_unlanded = ROOT
+			primary_title = {
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
 				}
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
+				}
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
+				usurp_title_plus_barony_if_unlanded = ROOT				
 			}
 		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					FROM = {
+						primary_title = { NOT = { has_law = succ_feudal_elective } }
+						OR = {
+							num_of_count_titles = 2
+							primary_title = { higher_tier_than = count }
+						}
+					}
+				}
+				FROM = {
+					capital_scope = {
+						county = {
+							usurp_title_plus_barony_if_unlanded = ROOT
+						}
+					}
+				}			
+			}	
+		}		
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = 200
@@ -4166,34 +4225,11 @@ succession_on_liege = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { participation_scaled_prestige = 200 }
 		}
-	}
-	
-	on_success_title = {		
-		if = {
-			limit = {
-				OR = {
-					tier = king
-					tier = emperor
-				}
-#				is_titular = no
-				NOT = { has_law = centralization_0 }
-			}
-			if = {
-				limit = { has_law = centralization_1 }
-				add_law = centralization_0
-			}
-			if = {
-				limit = { has_law = centralization_2 }
-				add_law = centralization_1
-			}
-			if = {
-				limit = { has_law = centralization_3 }
-				add_law = centralization_2
-			}
-			if = {
-				limit = { has_law = centralization_4 }
-				add_law = centralization_3
-			}
+		hidden_tooltip = {
+			FROM = {
+				set_defacto_liege = ROOT
+				imprison = ROOT
+			}		
 		}
 	}
 	
@@ -4267,6 +4303,7 @@ other_succession = {
 	allow_whitepeace = no
 
 	can_use_title = {
+		is_primary_holder_title_tier = yes
 		OR = {
 			has_global_flag = gender_equality
 			ROOT = { is_female = no }
@@ -4279,7 +4316,7 @@ other_succession = {
 	}
 
 	is_valid_title = {
-
+		is_primary_holder_title_tier = yes
 		FROM = {
 			has_landed_title = PREV
 		}
@@ -4301,105 +4338,86 @@ other_succession = {
 				clr_character_flag = considered_for_independence
 			}
 		} 
-		ROOT = {
-			opinion = {
-				modifier = pressed_my_claim 
-				who = PREV
-			}
+		FROM = {
+			prestige = -100
 		}
-		prestige = 50
-		any_attacker = {
-			limit = { character = ROOT }
-			participation_scaled_prestige = 100
-		}
-		any_attacker = {
-			limit = { NOT = { character = ROOT } }
-			hidden_tooltip = { participation_scaled_prestige = 100 }
-		}
-	}
-
-	on_success_title = {
-		if = {
-			limit = {
-				is_primary_holder_title = yes
-				FROM = {
-					demesne_size = 2
+		FROM = {
+			any_demesne_title = {
+				limit =	{
+					is_primary_holder_title_tier = yes
+					is_primary_holder_title = no
 				}
-			}
-			FROM = {
-				capital_scope = {
-					county = {
-						usurp_title_plus_barony_if_unlanded = ROOT
-					}
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
 				}
-			}			
-		}		
-		usurp_title_plus_barony_if_unlanded = ROOT
-		if = {
-			limit = {
-				OR = {
-					tier = king
-					tier = emperor
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
 				}
-#				is_titular = no
-				NOT = { has_law = centralization_0 }
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
+				usurp_title_plus_barony_if_unlanded = ROOT
 			}
-			if = {
-				limit = { has_law = centralization_1 }
-				add_law = centralization_0
-			}
-			if = {
-				limit = { has_law = centralization_2 }
-				add_law = centralization_1
-			}
-			if = {
-				limit = { has_law = centralization_3 }
-				add_law = centralization_2
-			}
-			if = {
-				limit = { has_law = centralization_4 }
-				add_law = centralization_3
+			primary_title = {
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
+				}
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
+				}
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
+				usurp_title_plus_barony_if_unlanded = ROOT				
 			}
 		}
-	}
-
-	on_success_posttitle = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					top_liege = {
-						ROOT = {
-							NOT = {
-								top_liege = {
-									character = PREVPREV
-								}
-							}
+					FROM = {
+						primary_title = { NOT = { has_law = succ_feudal_elective } }
+						OR = {
+							num_of_count_titles = 2
+							primary_title = { higher_tier_than = count }
 						}
 					}
 				}
-
-				ROOT = {
-					set_defacto_liege = PREV
-				}
-			}
-
-			if = {
-				limit = {
-					top_liege = {
-						ROOT = {
-							NOT = {
-								top_liege = {
-									character = PREVPREV
-								}
-							}
+				FROM = {
+					capital_scope = {
+						county = {
+							usurp_title_plus_barony_if_unlanded = ROOT
 						}
 					}
-				}
-
-				ROOT = {
-					set_defacto_liege = ROOT
-				}
-			}
+				}			
+			}	
+		}		
+		any_attacker = {
+			limit = { character = FROMFROM }
+			participation_scaled_prestige = 200
+		}
+		any_attacker = {
+			limit = { NOT = { character = FROMFROM } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
+		}
+		hidden_tooltip = {
+			FROM = {
+				set_defacto_liege = ROOT
+				imprison = ROOT
+			}		
 		}
 	}
 	
@@ -4474,6 +4492,7 @@ other_succession_on_liege = {
 	allow_whitepeace = no
 
 	can_use_title = {
+		is_primary_holder_title_tier = yes
 		OR = {
 			has_global_flag = gender_equality
 			ROOT = { is_female = no }
@@ -4486,6 +4505,7 @@ other_succession_on_liege = {
 	}
 
 	is_valid_title = {
+		is_primary_holder_title_tier = yes
 		FROM = {
 			has_landed_title = PREV
 		}
@@ -4507,123 +4527,86 @@ other_succession_on_liege = {
 				clr_character_flag = considered_for_independence
 			}
 		} 
-		ROOT = {
-			opinion = {
-				modifier = pressed_my_claim 
-				who = PREV
-			}
+		FROM = {
+			prestige = -100
 		}
-		
-		# If the claimant has the wrong government type, take care of that first.
-		if = {
-			limit = {
-				FROM = {
-					primary_title = {
-						higher_tier_than = ROOT
-					}
-					is_feudal = yes
-				}
-				ROOT = {
-					is_ruler = yes
-					OR = {
-						is_theocracy = yes
-						is_republic = yes
-					}
-				}
-			}
-			ROOT = { abdicate = yes }
-		}
-		
 		FROM = {
 			any_demesne_title = {
-				limit = {
-					tier = FROM
+				limit =	{
+					is_primary_holder_title_tier = yes
+					is_primary_holder_title = no
 				}
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
+				}
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
+				}
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
 				usurp_title_plus_barony_if_unlanded = ROOT
 			}
-			capital_scope = {
-				county = {
-					usurp_title_plus_barony_if_unlanded = ROOT
+			primary_title = {
+				if = {
+					limit = { has_law = centralization_1 }
+					add_law_w_cooldown = centralization_0
 				}
-			}			
-		}
-		
-		any_attacker = {
-			limit = { character = ROOT }
-			participation_scaled_prestige = 100
-		}
-		any_attacker = {
-			limit = { NOT = { character = ROOT } }
-			hidden_tooltip = { participation_scaled_prestige = 100 }
-		}
-	}
-
-	on_success_title = {
-		if = {
-			limit = {
-				OR = {
-					tier = king
-					tier = emperor
+				if = {
+					limit = { has_law = centralization_2 }
+					add_law_w_cooldown = centralization_1
 				}
-#				is_titular = no
-				NOT = { has_law = centralization_0 }
-			}
-			if = {
-				limit = { has_law = centralization_1 }
-				add_law = centralization_0
-			}
-			if = {
-				limit = { has_law = centralization_2 }
-				add_law = centralization_1
-			}
-			if = {
-				limit = { has_law = centralization_3 }
-				add_law = centralization_2
-			}
-			if = {
-				limit = { has_law = centralization_4 }
-				add_law = centralization_3
+				if = {
+					limit = { has_law = centralization_3 }
+					add_law_w_cooldown = centralization_2
+				}
+				if = {
+					limit = { has_law = centralization_4 }
+					add_law_w_cooldown = centralization_3
+				}				
+				usurp_title_plus_barony_if_unlanded = ROOT				
 			}
 		}
-	}
-
-	on_success_posttitle = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					top_liege = {
-						ROOT = {
-							NOT = {
-								top_liege = {
-									character = PREVPREV
-								}
-							}
+					FROM = {
+						primary_title = { NOT = { has_law = succ_feudal_elective } }
+						OR = {
+							num_of_count_titles = 2
+							primary_title = { higher_tier_than = count }
 						}
 					}
 				}
-
-				ROOT = {
-					set_defacto_liege = PREV
-				}
-			}
-
-			if = {
-				limit = {
-					top_liege = {
-						ROOT = {
-							NOT = {
-								top_liege = {
-									character = PREVPREV
-								}
-							}
+				FROM = {
+					capital_scope = {
+						county = {
+							usurp_title_plus_barony_if_unlanded = ROOT
 						}
 					}
-				}
-
-				ROOT = {
-					set_defacto_liege = ROOT
-				}
-			}
+				}			
+			}	
+		}		
+		any_attacker = {
+			limit = { character = FROMFROM }
+			participation_scaled_prestige = 200
+		}
+		any_attacker = {
+			limit = { NOT = { character = FROMFROM } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
+		}
+		hidden_tooltip = {
+			FROM = {
+				set_defacto_liege = ROOT
+				imprison = ROOT
+			}		
 		}
 	}
 	
