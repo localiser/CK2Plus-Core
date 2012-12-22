@@ -50,6 +50,10 @@ job_chancellor = {
 			}			
 		}		
 	}
+	dismiss_trigger = {
+		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
+		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+	}
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
@@ -110,6 +114,10 @@ job_marshal = {
 			}			
 		}		
 	}
+	dismiss_trigger = {
+		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
+		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
@@ -170,6 +178,10 @@ job_treasurer = {
 			}			
 		}		
 	}
+	dismiss_trigger = {
+		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
+		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
@@ -230,6 +242,10 @@ job_spymaster = {
 			}			
 		}		
 	}
+	dismiss_trigger = {
+		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
+		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
@@ -295,6 +311,15 @@ job_spiritual = {
 			}			
 		}		
 	}
+	dismiss_trigger = {
+		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
+		hidden_tooltip = {
+			OR = {
+				FROM = { NOT = { has_character_flag = lifetime_appointments } }
+				NOT = { religion = FROM }
+			}
+		}
+	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}

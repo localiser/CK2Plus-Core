@@ -32,7 +32,7 @@ NDiplomacy = {
 	ASSASSINATION_COST_RANK_MULT = 50,			-- Additional cost for assassinations multiplied by rank (count = 1, emperor = 4). Also applies to children of rulers.
 	WOMEN_INHERIT_PRESSED_CLAIMS = 1,			-- If set to 1, they will get pressed claims on their parents' titles
 	BASTARDS_INHERIT_PRESSED_CLAIMS = 1,		-- If set to 1, they will get pressed claims on their parents' titles	
-	MUSLIM_LAW_CHANGE_PIETY_COST = 100,			-- Piety cost for Muslims when changing normal demesne laws
+	MUSLIM_LAW_CHANGE_PIETY_COST = 50,			-- Piety cost for Muslims when changing normal demesne laws
 	MUSLIM_CROWN_LAW_CHANGE_PIETY_COST = 250,	-- Piety cost for Muslims when changing Crown laws
 	INTER_MUSLIM_WAR_MONTHLY_PIETY_COST = 2,  	-- Monthly Piety cost for Muslims who are primary attackers against a ruler of the same religion (not civil wars)
 	MUSLIM_TEMPLE_HOLDING_MONTHLY_PIETY = 0.1, 	-- Monthly Piety for Muslims for each Temple holding in the demesne	
@@ -357,7 +357,7 @@ NTitle = {
 	EMPEROR_CLAIM_PRESTIGE_COST = 2400, -- Unused, impossible
 	
 -- Title Revocation Prestige Cost
-	BARON_REVOKE_PRESTIGE_COST = 100,
+	BARON_REVOKE_PRESTIGE_COST = 250,
 	COUNT_REVOKE_PRESTIGE_COST = 250,
 	DUKE_REVOKE_PRESTIGE_COST = 500,
 	KING_REVOKE_PRESTIGE_COST = 1000,
@@ -372,7 +372,7 @@ NTitle = {
 	
 	CLAIM_VASSAL_TITLE_COST_MOD = 0.75,
 	CLAIM_DE_JURE_TITLE_COST_MOD = 0.5,
-	NORMAL_LAW_CHANGE_MONTHS = 60,
+	NORMAL_LAW_CHANGE_MONTHS = 120,
 	TITLE_USURP_COOLDOWN_MONTHS = 120,
 	DE_JURE_ASSIMILATION_YEARS = 100,		-- Duchies under the de facto control of another kingdom will change de jure liege after this many years
 	REQ_DUCHIES_FOR_KINGDOM_CREATION = 3, 	-- Number of held duchies required to create a kingdom (for rulers who are not already kings or emperors)

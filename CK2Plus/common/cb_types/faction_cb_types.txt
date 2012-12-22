@@ -42,6 +42,7 @@ lower_crown_authority_law = {
 	}
 
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
 			any_attacker = {
 				set_defacto_liege = FROM
@@ -293,6 +294,7 @@ lower_crown_authority_law = {
 	}
 
 	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
 			any_attacker = {
 				set_defacto_liege = FROM
@@ -521,6 +523,7 @@ change_seniority_succession_law = {
 	}
 	
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		FROM = {
 			any_demesne_title = { # All titles
 				limit = {
@@ -581,6 +584,7 @@ change_seniority_succession_law = {
 	}
 
 	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			prestige = -200
 			prisoner = FROM
@@ -650,6 +654,7 @@ change_primogeniture_succession_law = {
 
 	
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		FROM = {
 			
 			any_demesne_title = { # All titles
@@ -712,6 +717,7 @@ change_primogeniture_succession_law = {
 	}
 
 	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			prestige = -200
 			prisoner = FROM
@@ -779,6 +785,7 @@ change_gavelkind_succession_law = {
 	}
 	
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		FROM = {
 			any_demesne_title = { # All titles
 				limit = {
@@ -840,6 +847,7 @@ change_gavelkind_succession_law = {
 	}
 
 	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			prestige = -200
 			prisoner = FROM
@@ -926,6 +934,7 @@ change_feudal_elective_succession_law = {
 	}
 	
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		FROM = {		
 			any_demesne_title = { # All titles
 				limit = {
@@ -986,6 +995,7 @@ change_feudal_elective_succession_law = {
 	}
 	
 	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			prestige = -200
 			prisoner = FROM
@@ -1061,6 +1071,7 @@ cb_faction_independence = {
 	}
 
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
 			any_attacker = {
 				set_defacto_liege = FROM
@@ -1200,6 +1211,7 @@ cb_faction_independence = {
 	}
 
 	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
 			any_attacker = {
 				set_defacto_liege = FROM
@@ -2448,6 +2460,7 @@ cb_faction_overthrow_ruler = {
 	}
 
 	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = { 
 			any_attacker = {
 				character_event = { id = 2500000 days = 1 } 
@@ -2529,6 +2542,7 @@ cb_faction_overthrow_ruler = {
 						add_law = centralization_3
 					}
 				}
+				hidden_tooltip = { character_event = { id = 110044 } }
 				current_heir = {
 					prestige = -500
 					FROM = { abdicate_to = PREV }

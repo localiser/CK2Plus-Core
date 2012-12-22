@@ -1149,99 +1149,103 @@ castle = {
 
 	
 
-	#Greek Castle Libraries
-	greek_building_1 = {
+	# Byzantine Cataphracts
+	ca_culture_group_byzantine_1 = {
 		potential = {
-			culture = greek
+			culture_group = byzantine
 		}
-		trigger = {
-			FROM = {
-				culture = greek
-			}		
-		}
+		trigger = { 
+			FROM = { culture_group = byzantine }
+		}		
 		prerequisites = { ca_keep_1 }
-		build_cost = 100
+		build_cost = 200
 		build_time = 730
-		tech_growth_modifier = 0.05
+		knights = 10
+		horse_archers = 10
+		knights_offensive = 0.05
+		horse_archers_offensive = 0.05
 		ai_creation_factor = 101
 		
 		start = {
 			AND = {
 				FROM = { religion_group = christian }
-				year = 1085
-				has_building = ca_barracks_1
+				year = 1125
+				has_building = ca_stable_1
 			}
 		}
 	}
-	greek_building_2 = {
+	ca_culture_group_byzantine_2 = {
 		potential = {
-			culture = greek
+			culture_group = byzantine
 		}
-		trigger = {
-			FROM = {
-				culture = greek
-			}		
+		trigger = { 
+			FROM = { culture_group = byzantine }
 			TECH_CASTLE_CONSTRUCTION = 2
 		}
-		upgrades_from = greek_building_1
-		build_cost = 200
-		build_time = 1095
-		tech_growth_modifier = 0.1
-		ai_creation_factor = 100
-		
-		start = {
-			AND = {
-				FROM = { religion_group = christian }
-				year = 1145
-				has_building = ca_barracks_1
-			}
-		}
-	}
-	greek_building_3 = {
-		potential = {
-			culture = greek
-		}
-		trigger = {
-			FROM = {
-				culture = greek
-			}		
-			TECH_CASTLE_CONSTRUCTION = 3
-		}
-		upgrades_from = greek_building_2
+		upgrades_from = ca_culture_group_byzantine_1
 		build_cost = 300
-		build_time = 2190
-		tech_growth_modifier = 0.15
-		ai_creation_factor = 99
+		build_time = 1095
+		knights = 15
+		horse_archers = 10
+		knights_offensive = 0.05
+		horse_archers_offensive = 0.05
+		ai_creation_factor = 101
 		
 		start = {
 			AND = {
 				FROM = { religion_group = christian }
-				year = 1190
-				has_building = ca_barracks_1
+				year = 1140
+				has_building = ca_stable_1
 			}
 		}
 	}
-	greek_building_4 = {
+	ca_culture_group_byzantine_3 = {
 		potential = {
-			culture = greek
+			culture_group = byzantine
 		}
-		trigger = {
-			FROM = {
-				culture = greek
-			}		
-			TECH_CASTLE_CONSTRUCTION = 4
+		trigger = { 
+			FROM = { culture_group = byzantine }
+			TECH_CASTLE_CONSTRUCTION = 3 
 		}
-		upgrades_from = greek_building_3
+		upgrades_from = ca_culture_group_byzantine_2
 		build_cost = 400
 		build_time = 2190
-		tech_growth_modifier = 0.2
-		ai_creation_factor = 98
+		knights = 15
+		horse_archers = 20
+		knights_offensive = 0.05
+		horse_archers_offensive = 0.05
+		ai_creation_factor = 101
 		
 		start = {
 			AND = {
 				FROM = { religion_group = christian }
-				year = 1240
-				has_building = ca_barracks_1
+				year = 1180
+				has_building = ca_stable_1
+			}
+		}
+	}
+	ca_culture_group_byzantine_4 = {
+		potential = {
+			culture_group = byzantine
+		}
+		trigger = { 
+			FROM = { culture_group = byzantine }
+			TECH_CASTLE_CONSTRUCTION = 4
+		}
+		upgrades_from = ca_culture_group_byzantine_3
+		build_cost = 500
+		build_time = 2190
+		knights = 20
+		horse_archers = 20
+		horse_archers_offensive = 0.05
+		knights_offensive = 0.05
+		ai_creation_factor = 101
+		
+		start = {
+			AND = {
+				FROM = { religion_group = christian }
+				year = 1250
+				has_building = ca_stable_1
 			}
 		}
 	}

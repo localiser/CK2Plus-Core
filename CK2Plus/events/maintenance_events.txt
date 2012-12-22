@@ -4337,56 +4337,6 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110026
-	
-	trigger = {
-		is_ruler = yes
-		any_demesne_title = {
-			higher_tier_than = DUKE
-			OR = {
-				AND = {
-					has_law = investiture_law_0
-					ROOT = { NOT = { religion = catholic } }
-				}
-				AND = {
-					has_law = investiture_law_1
-					ROOT = { NOT = { religion = catholic } }
-				}				
-			}
-		}
-	}
-		
-	desc = "EVTDESC110024"
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-	option = {
-		name = "OK"
-		any_demesne_title = {
-			limit = {
-				higher_tier_than = DUKE
-			}	
-			if = {
-				limit = { 
-					has_law = investiture_law_0
-					ROOT = { NOT = { religion = catholic } }	
-				}
-				revoke_law = investiture_law_0
-			}
-			if = {
-				limit = { 
-					has_law = investiture_law_1
-					ROOT = { NOT = { religion = catholic } }	
-				}
-				revoke_law = investiture_law_1
-			}			
-		}
-	}
-}
-
 #AI kingdom creation event
 character_event = {
 	id = 110027
@@ -4622,6 +4572,62 @@ character_event = {
 							if = {
 								limit = {
 									ROOT = { 
+										primary_title = { has_law = tax_privileges_0 }
+									}
+								}
+								add_law = tax_privileges_0
+							}	
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = tax_privileges_1 }
+									}
+								}
+								add_law = tax_privileges_1
+							}	
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = tax_privileges_2 }
+									}
+								}
+								add_law = tax_privileges_2
+							}
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = levy_privileges_0 }
+									}
+								}
+								add_law = levy_privileges_0
+							}	
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = levy_privileges_1 }
+									}
+								}
+								add_law = levy_privileges_1
+							}
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = council_privileges_0 }
+									}
+								}
+								add_law = council_privileges_0
+							}	
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = council_privileges_1 }
+									}
+								}
+								add_law = council_privileges_1
+							}								
+							if = {
+								limit = {
+									ROOT = { 
 										primary_title = { has_law = feudal_tax_0 }
 									}
 								}
@@ -4646,62 +4652,6 @@ character_event = {
 							if = {
 								limit = {
 									ROOT = { 
-										primary_title = { has_law = feudal_tax_3 }
-									}
-								}
-								add_law = feudal_tax_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = feudal_tax_4 }
-									}
-								}
-								add_law = feudal_tax_4
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = feudal_contract_0 }
-									}
-								}
-								add_law = feudal_contract_0
-							}	
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = feudal_contract_1 }
-									}
-								}
-								add_law = feudal_contract_1
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = feudal_contract_2 }
-									}
-								}
-								add_law = feudal_contract_2
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = feudal_contract_3 }
-									}
-								}
-								add_law = feudal_contract_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = feudal_contract_4 }
-									}
-								}
-								add_law = feudal_contract_4
-							}
-							if = {
-								limit = {
-									ROOT = { 
 										primary_title = { has_law = iqta_tax_0 }
 									}
 								}
@@ -4722,63 +4672,7 @@ character_event = {
 									}
 								}
 								add_law = iqta_tax_2
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_tax_3 }
-									}
-								}
-								add_law = iqta_tax_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_tax_4 }
-									}
-								}
-								add_law = iqta_tax_4
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_contract_0 }
-									}
-								}
-								add_law = iqta_contract_0
-							}	
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_contract_1 }
-									}
-								}
-								add_law = iqta_contract_1
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_contract_2 }
-									}
-								}
-								add_law = iqta_contract_2
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_contract_3 }
-									}
-								}
-								add_law = iqta_contract_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = iqta_contract_4 }
-									}
-								}
-								add_law = iqta_contract_4
-							}							
+							}						
 							if = {
 								limit = {
 									ROOT = { 
@@ -4806,62 +4700,6 @@ character_event = {
 							if = {
 								limit = {
 									ROOT = { 
-										primary_title = { has_law = city_tax_3 }
-									}
-								}
-								add_law = city_tax_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = city_tax_4 }
-									}
-								}
-								add_law = city_tax_4
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = city_contract_0 }
-									}
-								}
-								add_law = city_contract_0
-							}	
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = city_contract_1 }
-									}
-								}
-								add_law = city_contract_1
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = city_contract_2 }
-									}
-								}
-								add_law = city_contract_2
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = city_contract_3 }
-									}
-								}
-								add_law = city_contract_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = city_contract_4 }
-									}
-								}
-								add_law = city_contract_4
-							}
-							if = {
-								limit = {
-									ROOT = { 
 										primary_title = { has_law = temple_tax_0 }
 									}
 								}
@@ -4882,63 +4720,7 @@ character_event = {
 									}
 								}
 								add_law = temple_tax_2
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_tax_3 }
-									}
-								}
-								add_law = temple_tax_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_tax_4 }
-									}
-								}
-								add_law = temple_tax_4
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_contract_0 }
-									}
-								}
-								add_law = temple_contract_0
-							}	
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_contract_1 }
-									}
-								}
-								add_law = temple_contract_1
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_contract_2 }
-									}
-								}
-								add_law = temple_contract_2
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_contract_3 }
-									}
-								}
-								add_law = temple_contract_3
-							}
-							if = {
-								limit = {
-									ROOT = { 
-										primary_title = { has_law = temple_contract_4 }
-									}
-								}
-								add_law = temple_contract_4
-							}					
+							}			
 							if = {
 								limit = {
 									ROOT = { 
@@ -5048,7 +4830,7 @@ character_event = {
 		higher_tier_than = BARON
 		primary_title = {
 			OR = {
-				#no crown law or autonomous vassals: allows 0-1
+				#no crown law or autonomous vassals: allows 0
 				AND = {
 					NOT = {
 						crownlaw_title = { has_law = centralization_1 }
@@ -5057,75 +4839,31 @@ character_event = {
 						crownlaw_title = { has_law = centralization_4 }
 					}
 					OR = {
-						has_law = iqta_tax_2
-						has_law = iqta_tax_3
-						has_law = iqta_tax_4					
-						has_law = iqta_contract_2
-						has_law = iqta_contract_3
-						has_law = iqta_contract_4					
-						has_law = feudal_tax_2
-						has_law = feudal_tax_3
-						has_law = feudal_tax_4					
-						has_law = feudal_contract_2
-						has_law = feudal_contract_3
-						has_law = feudal_contract_4
-						has_law = city_tax_2
-						has_law = city_tax_3
-						has_law = city_tax_4					
-						has_law = city_contract_2
-						has_law = city_contract_3
-						has_law = city_contract_4	
+						has_law = iqta_tax_1
+						has_law = iqta_tax_2									
+						has_law = feudal_tax_1
+						has_law = feudal_tax_2				
+						has_law = city_tax_1
+						has_law = city_tax_2					
+						has_law = temple_tax_1
 						has_law = temple_tax_2
-						has_law = temple_tax_3
-						has_law = temple_tax_4					
-						has_law = temple_contract_2
-						has_law = temple_contract_3
-						has_law = temple_contract_4						
+						has_law = tax_privileges_0
+						has_law = levy_privileges_0
 					}
 				}
-				#low crown authority: allows 0-2
-				AND = {
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-					OR = {
-						has_law = iqta_tax_3
-						has_law = iqta_tax_4					
-						has_law = iqta_contract_3
-						has_law = iqta_contract_4					
-						has_law = feudal_tax_3
-						has_law = feudal_tax_4					
-						has_law = feudal_contract_3
-						has_law = feudal_contract_4
-						has_law = city_tax_3
-						has_law = city_tax_4					
-						has_law = city_contract_3
-						has_law = city_contract_4	
-						has_law = temple_tax_3
-						has_law = temple_tax_4					
-						has_law = temple_contract_3
-						has_law = temple_contract_4						
-					}
-				}
-				#medium crown authority: allows 0-3
+				#low & medium crown authority: allows 0-1
 				AND = {
 					NOT = {
 						crownlaw_title = { has_law = centralization_3 }
 						crownlaw_title = { has_law = centralization_4 }
 					}
 					OR = {
-						has_law = iqta_tax_4					
-						has_law = iqta_contract_4					
-						has_law = feudal_tax_4					
-						has_law = feudal_contract_4
-						has_law = city_tax_4					
-						has_law = city_contract_4	
-						has_law = temple_tax_4
-						has_law = temple_contract_4						
+						has_law = iqta_tax_2								
+						has_law = feudal_tax_2				
+						has_law = city_tax_2					
+						has_law = temple_tax_2								
 					}
-				}					
+				}				
 			}	
 		}
 	}
@@ -5141,21 +4879,44 @@ character_event = {
 		primary_title = {
 			if = {
 				limit = {
+					has_law = tax_privileges_0
+					NOT = {
+						crownlaw_title = { has_law = centralization_1 }
+						crownlaw_title = { has_law = centralization_2 }
+						crownlaw_title = { has_law = centralization_3 }
+						crownlaw_title = { has_law = centralization_4 }
+					}
+				}
+				add_law = tax_privileges_1
+			}
+			if = {
+				limit = {
+					has_law = levy_privileges_0
+					NOT = {
+						crownlaw_title = { has_law = centralization_1 }
+						crownlaw_title = { has_law = centralization_2 }
+						crownlaw_title = { has_law = centralization_3 }
+						crownlaw_title = { has_law = centralization_4 }
+					}
+				}
+				add_law = levy_privileges_1
+			}				
+			if = {
+				limit = {
+					has_law = iqta_tax_1
+					NOT = {
+						crownlaw_title = { has_law = centralization_1 }
+						crownlaw_title = { has_law = centralization_2 }
+						crownlaw_title = { has_law = centralization_3 }
+						crownlaw_title = { has_law = centralization_4 }
+					}
+				}
+				add_law = iqta_tax_0
+			}
+			if = {
+				limit = {
 					has_law = iqta_tax_2
 					NOT = {
-						crownlaw_title = { has_law = centralization_1 }
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				add_law = iqta_tax_1
-			}
-			if = {
-				limit = {
-					has_law = iqta_tax_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
 						crownlaw_title = { has_law = centralization_3 }
 						crownlaw_title = { has_law = centralization_4 }
 					}
@@ -5167,52 +4928,23 @@ character_event = {
 							crownlaw_title = { has_law = centralization_2 }
 							crownlaw_title = { has_law = centralization_3 }
 							crownlaw_title = { has_law = centralization_4 }							
+						}
+					}
+					add_law = iqta_tax_0
+				}			
+				if = {
+					limit = {
+						OR = {
+							crownlaw_title = { has_law = centralization_1 }
+							crownlaw_title = { has_law = centralization_2 }
 						}
 					}
 					add_law = iqta_tax_1
 				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = iqta_tax_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = iqta_tax_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = iqta_tax_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = iqta_tax_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = iqta_tax_3
-				}				
 			}
 			if = {
 				limit = {
-					has_law = iqta_contract_2
+					has_law = feudal_tax_1
 					NOT = {
 						crownlaw_title = { has_law = centralization_1 }
 						crownlaw_title = { has_law = centralization_2 }
@@ -5220,84 +4952,12 @@ character_event = {
 						crownlaw_title = { has_law = centralization_4 }
 					}
 				}
-				add_law = iqta_contract_1
+				add_law = feudal_tax_0
 			}
-			if = {
-				limit = {
-					has_law = iqta_contract_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = iqta_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = iqta_contract_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = iqta_contract_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = iqta_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = iqta_contract_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = iqta_contract_3
-				}				
-			}		
 			if = {
 				limit = {
 					has_law = feudal_tax_2
 					NOT = {
-						crownlaw_title = { has_law = centralization_1 }
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				add_law = feudal_tax_1
-			}
-			if = {
-				limit = {
-					has_law = feudal_tax_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
 						crownlaw_title = { has_law = centralization_3 }
 						crownlaw_title = { has_law = centralization_4 }
 					}
@@ -5309,52 +4969,23 @@ character_event = {
 							crownlaw_title = { has_law = centralization_2 }
 							crownlaw_title = { has_law = centralization_3 }
 							crownlaw_title = { has_law = centralization_4 }							
+						}
+					}
+					add_law = feudal_tax_0
+				}			
+				if = {
+					limit = {
+						OR = {
+							crownlaw_title = { has_law = centralization_1 }
+							crownlaw_title = { has_law = centralization_2 }
 						}
 					}
 					add_law = feudal_tax_1
 				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = feudal_tax_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = feudal_tax_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = feudal_tax_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = feudal_tax_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = feudal_tax_3
-				}				
 			}
 			if = {
 				limit = {
-					has_law = feudal_contract_2
+					has_law = city_tax_1
 					NOT = {
 						crownlaw_title = { has_law = centralization_1 }
 						crownlaw_title = { has_law = centralization_2 }
@@ -5362,84 +4993,12 @@ character_event = {
 						crownlaw_title = { has_law = centralization_4 }
 					}
 				}
-				add_law = feudal_contract_1
+				add_law = city_tax_0
 			}
-			if = {
-				limit = {
-					has_law = feudal_contract_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = feudal_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = feudal_contract_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = feudal_contract_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = feudal_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = feudal_contract_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = feudal_contract_3
-				}				
-			}		
 			if = {
 				limit = {
 					has_law = city_tax_2
 					NOT = {
-						crownlaw_title = { has_law = centralization_1 }
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				add_law = city_tax_1
-			}
-			if = {
-				limit = {
-					has_law = city_tax_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
 						crownlaw_title = { has_law = centralization_3 }
 						crownlaw_title = { has_law = centralization_4 }
 					}
@@ -5451,52 +5010,23 @@ character_event = {
 							crownlaw_title = { has_law = centralization_2 }
 							crownlaw_title = { has_law = centralization_3 }
 							crownlaw_title = { has_law = centralization_4 }							
+						}
+					}
+					add_law = city_tax_0
+				}			
+				if = {
+					limit = {
+						OR = {
+							crownlaw_title = { has_law = centralization_1 }
+							crownlaw_title = { has_law = centralization_2 }
 						}
 					}
 					add_law = city_tax_1
 				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = city_tax_2
-				}			
 			}	
 			if = {
 				limit = {
-					has_law = city_tax_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = city_tax_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = city_tax_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = city_tax_3
-				}				
-			}
-			if = {
-				limit = {
-					has_law = city_contract_2
+					has_law = temple_tax_1
 					NOT = {
 						crownlaw_title = { has_law = centralization_1 }
 						crownlaw_title = { has_law = centralization_2 }
@@ -5504,84 +5034,12 @@ character_event = {
 						crownlaw_title = { has_law = centralization_4 }
 					}
 				}
-				add_law = city_contract_1
-			}
-			if = {
-				limit = {
-					has_law = city_contract_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = city_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = city_contract_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = city_contract_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = city_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = city_contract_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = city_contract_3
-				}				
+				add_law = temple_tax_0
 			}
 			if = {
 				limit = {
 					has_law = temple_tax_2
 					NOT = {
-						crownlaw_title = { has_law = centralization_1 }
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				add_law = temple_tax_1
-			}
-			if = {
-				limit = {
-					has_law = temple_tax_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
 						crownlaw_title = { has_law = centralization_3 }
 						crownlaw_title = { has_law = centralization_4 }
 					}
@@ -5593,119 +5051,19 @@ character_event = {
 							crownlaw_title = { has_law = centralization_2 }
 							crownlaw_title = { has_law = centralization_3 }
 							crownlaw_title = { has_law = centralization_4 }							
+						}
+					}
+					add_law = temple_tax_0
+				}			
+				if = {
+					limit = {
+						OR = {
+							crownlaw_title = { has_law = centralization_1 }
+							crownlaw_title = { has_law = centralization_2 }
 						}
 					}
 					add_law = temple_tax_1
 				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = temple_tax_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = temple_tax_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = temple_tax_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = temple_tax_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = temple_tax_3
-				}				
-			}
-			if = {
-				limit = {
-					has_law = temple_contract_2
-					NOT = {
-						crownlaw_title = { has_law = centralization_1 }
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				add_law = temple_contract_1
-			}
-			if = {
-				limit = {
-					has_law = temple_contract_3
-					NOT = {
-						crownlaw_title = { has_law = centralization_2 }
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = temple_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = temple_contract_2
-				}			
-			}	
-			if = {
-				limit = {
-					has_law = temple_contract_4
-					NOT = {
-						crownlaw_title = { has_law = centralization_3 }
-						crownlaw_title = { has_law = centralization_4 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							crownlaw_title = { has_law = centralization_1 }
-							crownlaw_title = { has_law = centralization_2 }
-							crownlaw_title = { has_law = centralization_3 }
-							crownlaw_title = { has_law = centralization_4 }							
-						}
-					}
-					add_law = temple_contract_1
-				}			
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_1 }
-					}
-					add_law = temple_contract_2
-				}
-				if = {
-					limit = {
-						crownlaw_title = { has_law = centralization_2 }
-					}
-					add_law = temple_contract_3
-				}				
 			}			
 		}
 	}
@@ -8342,46 +7700,70 @@ character_event = {
 					is_ruler = yes
 				}
 				if = {
+					limit = { has_character_flag = lifetime_appointments }
+					job_spymaster = { remove_title = job_spymaster remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_marshal = { remove_title = job_marshal remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_chancellor = { remove_title = job_chancellor remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_treasurer = { remove_title = job_treasurer remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_spiritual = { remove_title = job_spiritual remove_opinion = { who = PREV modifier = opinion_fired_from_council } }					
+					current_heir = {
+						set_character_flag = lifetime_appointments
+						job_spymaster = { remove_title = job_spymaster remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+						job_marshal = { remove_title = job_marshal remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+						job_chancellor = { remove_title = job_chancellor remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+						job_treasurer = { remove_title = job_treasurer remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+						job_spiritual = { remove_title = job_spiritual remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					}
+					clr_character_flag = lifetime_appointments
+				}					
+				if = {
 					limit = { has_character_flag = khan_threatens_player }
 					current_heir = {
 						set_character_flag = khan_threatens_player
 					}
+					clr_character_flag = khan_threatens_player
 				}				
 				if = {
 					limit = { has_character_flag = faction_feudal_war }
 					current_heir = {
 						set_character_flag = faction_feudal_war
 					}
+					clr_character_flag = faction_feudal_war
 				}
 				if = {
 					limit = { has_character_flag = faction_court_war }
 					current_heir = {
 						set_character_flag = faction_court_war
 					}
+					clr_character_flag = faction_court_war
 				}
 				if = {
 					limit = { has_character_flag = faction_republican_war }
 					current_heir = {
 						set_character_flag = faction_republican_war
 					}
+					clr_character_flag = faction_republican_war
 				}
 				if = {
 					limit = { has_character_flag = faction_religious_war }
 					current_heir = {
 						set_character_flag = faction_religious_war
 					}
+					clr_character_flag = faction_religious_war
 				}	
 				if = {
 					limit = { has_character_flag = faction_separatist_war }
 					current_heir = {
 						set_character_flag = faction_separatist_war
 					}
+					clr_character_flag = faction_separatist_war
 				}	
 				if = {
 					limit = { has_character_flag = faction_pretender_war }
 					current_heir = {
 						set_character_flag = faction_pretender_war
 					}
+					clr_character_flag = faction_pretender_war
 				}					
 			}
 			if = {
@@ -8392,6 +7774,7 @@ character_event = {
 				if = {
 					limit = { trait = loyalist }
 					current_heir = { add_trait = loyalist }
+					remove_trait = loyalist
 				}
 				if = {
 					limit = { trait = rebel }
@@ -8407,8 +7790,13 @@ character_event = {
 							current_heir = {
 								opinion = { who = PREVPREV modifier = revolting_against years = 100 }										
 							}
+							remove_opinion = {
+								who = PREV
+								modifier = revolting_against
+							}
 						}
 					}
+					remove_trait = rebel
 				}
 				current_heir = {
 					any_playable_ruler = {
@@ -8418,7 +7806,11 @@ character_event = {
 								modifier = revolting_against
 							}
 						}
-						opinion = { who = PREV modifier = revolting_against years = 100 }	
+						opinion = { who = PREV modifier = revolting_against years = 100 }
+						remove_opinion = {
+							who = ROOT
+							modifier = revolting_against
+						}						
 					}
 				}
 				current_heir = {
@@ -8490,6 +7882,22 @@ character_event = {
 					current_heir = { set_character_flag = faction_court_angry }
 				}				
 			}
+			set_variable = { which = "faction_mood_feudal" value = 0 }
+			set_variable = { which = "faction_mood_court" value = 0 }
+			set_variable = { which = "faction_mood_republican" value = 0 }
+			set_variable = { which = "faction_mood_religious" value = 0 }	
+			clr_character_flag = faction_feudal_happy
+			clr_character_flag = faction_feudal_unhappy
+			clr_character_flag = faction_feudal_angry
+			clr_character_flag = faction_republican_happy
+			clr_character_flag = faction_republican_unhappy
+			clr_character_flag = faction_republican_angry	
+			clr_character_flag = faction_religious_happy
+			clr_character_flag = faction_religious_unhappy
+			clr_character_flag = faction_religious_angry
+			clr_character_flag = faction_court_happy
+			clr_character_flag = faction_court_unhappy
+			clr_character_flag = faction_court_angry								
 			if = {
 				limit = {
 					ai = yes
@@ -9672,6 +9080,26 @@ character_event = {
 					}
 					change_variable = { which = "tyrant" value = 20 }		
 				}
+				remove_trait = tyrant1
+				remove_trait = tyrant2
+				remove_trait = tyrant3
+				remove_trait = tyrant4
+				remove_trait = tyrant5
+				remove_trait = tyrant6
+				remove_trait = tyrant7
+				remove_trait = tyrant8
+				remove_trait = tyrant9
+				remove_trait = tyrant10
+				remove_trait = tyrant11
+				remove_trait = tyrant12
+				remove_trait = tyrant13
+				remove_trait = tyrant14
+				remove_trait = tyrant15
+				remove_trait = tyrant16
+				remove_trait = tyrant17
+				remove_trait = tyrant18
+				remove_trait = tyrant19
+				remove_trait = tyrant20				
 				current_heir = {
 					remove_trait = tyrant1
 					remove_trait = tyrant2
@@ -10064,6 +9492,26 @@ character_event = {
 					}
 					change_variable = { which = "dishonorable" value = 10 }		
 				}	
+				remove_trait = dishonorable1
+				remove_trait = dishonorable2
+				remove_trait = dishonorable3
+				remove_trait = dishonorable4
+				remove_trait = dishonorable5
+				remove_trait = dishonorable6
+				remove_trait = dishonorable7
+				remove_trait = dishonorable8
+				remove_trait = dishonorable9
+				remove_trait = dishonorable10
+				remove_trait = dyn_dishonorable1
+				remove_trait = dyn_dishonorable2
+				remove_trait = dyn_dishonorable3
+				remove_trait = dyn_dishonorable4
+				remove_trait = dyn_dishonorable5
+				remove_trait = dyn_dishonorable6
+				remove_trait = dyn_dishonorable7
+				remove_trait = dyn_dishonorable8
+				remove_trait = dyn_dishonorable9
+				remove_trait = dyn_dishonorable10				
 				current_heir = {
 					remove_trait = dishonorable1
 					remove_trait = dishonorable2
@@ -11615,6 +11063,62 @@ character_event = {
 			if = {
 				limit = {
 					ROOT = { 
+						primary_title = { has_law = tax_privileges_0 }
+					}
+				}
+				add_law = tax_privileges_0
+			}	
+			if = {
+				limit = {
+					ROOT = { 
+						primary_title = { has_law = tax_privileges_1 }
+					}
+				}
+				add_law = tax_privileges_1
+			}	
+			if = {
+				limit = {
+					ROOT = { 
+						primary_title = { has_law = tax_privileges_2 }
+					}
+				}
+				add_law = tax_privileges_2
+			}
+			if = {
+				limit = {
+					ROOT = { 
+						primary_title = { has_law = levy_privileges_0 }
+					}
+				}
+				add_law = levy_privileges_0
+			}	
+			if = {
+				limit = {
+					ROOT = { 
+						primary_title = { has_law = levy_privileges_1 }
+					}
+				}
+				add_law = levy_privileges_1
+			}
+			if = {
+				limit = {
+					ROOT = { 
+						primary_title = { has_law = council_privileges_0 }
+					}
+				}
+				add_law = council_privileges_0
+			}	
+			if = {
+				limit = {
+					ROOT = { 
+						primary_title = { has_law = council_privileges_1 }
+					}
+				}
+				add_law = council_privileges_1
+			}			
+			if = {
+				limit = {
+					ROOT = { 
 						primary_title = { has_law = feudal_tax_0 }
 					}
 				}
@@ -11655,46 +11159,6 @@ character_event = {
 			if = {
 				limit = {
 					ROOT = { 
-						primary_title = { has_law = feudal_contract_0 }
-					}
-				}
-				add_law = feudal_contract_0
-			}	
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = feudal_contract_1 }
-					}
-				}
-				add_law = feudal_contract_1
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = feudal_contract_2 }
-					}
-				}
-				add_law = feudal_contract_2
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = feudal_contract_3 }
-					}
-				}
-				add_law = feudal_contract_3
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = feudal_contract_4 }
-					}
-				}
-				add_law = feudal_contract_4
-			}
-			if = {
-				limit = {
-					ROOT = { 
 						primary_title = { has_law = iqta_tax_0 }
 					}
 				}
@@ -11731,46 +11195,6 @@ character_event = {
 					}
 				}
 				add_law = iqta_tax_4
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = iqta_contract_0 }
-					}
-				}
-				add_law = iqta_contract_0
-			}	
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = iqta_contract_1 }
-					}
-				}
-				add_law = iqta_contract_1
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = iqta_contract_2 }
-					}
-				}
-				add_law = iqta_contract_2
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = iqta_contract_3 }
-					}
-				}
-				add_law = iqta_contract_3
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = iqta_contract_4 }
-					}
-				}
-				add_law = iqta_contract_4
 			}							
 			if = {
 				limit = {
@@ -11815,46 +11239,6 @@ character_event = {
 			if = {
 				limit = {
 					ROOT = { 
-						primary_title = { has_law = city_contract_0 }
-					}
-				}
-				add_law = city_contract_0
-			}	
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = city_contract_1 }
-					}
-				}
-				add_law = city_contract_1
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = city_contract_2 }
-					}
-				}
-				add_law = city_contract_2
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = city_contract_3 }
-					}
-				}
-				add_law = city_contract_3
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = city_contract_4 }
-					}
-				}
-				add_law = city_contract_4
-			}
-			if = {
-				limit = {
-					ROOT = { 
 						primary_title = { has_law = temple_tax_0 }
 					}
 				}
@@ -11891,46 +11275,6 @@ character_event = {
 					}
 				}
 				add_law = temple_tax_4
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = temple_contract_0 }
-					}
-				}
-				add_law = temple_contract_0
-			}	
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = temple_contract_1 }
-					}
-				}
-				add_law = temple_contract_1
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = temple_contract_2 }
-					}
-				}
-				add_law = temple_contract_2
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = temple_contract_3 }
-					}
-				}
-				add_law = temple_contract_3
-			}
-			if = {
-				limit = {
-					ROOT = { 
-						primary_title = { has_law = temple_contract_4 }
-					}
-				}
-				add_law = temple_contract_4
 			}					
 			if = {
 				limit = {
@@ -12088,5 +11432,45 @@ character_event = {
 	}
 }
 
+character_event = {
+	id = 110072
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = yes
+		is_ruler = yes
+		tier = baron
+		war = no
+		independent = yes
+	}
+		
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "OK"	
+		primary_title = {
+			location = {
+				county = {
+					holder_scope = { 
+						ROOT = { 
+							remove_opinion = {
+								who = PREV
+								opinion = opinion_independent
+							}
+							reverse_remove_opinion = {
+								who = PREV
+								opinion = opinion_independent
+							}	
+							set_defacto_liege = PREV 
+						} 
+					}
+				}
+			}
+		}
+	}
+}
 
 

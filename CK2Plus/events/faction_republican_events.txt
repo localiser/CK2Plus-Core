@@ -511,23 +511,23 @@ letter_event = {
 			}
 			if = {
 				limit = { has_law = centralization_1 }
-				add_law = centralization_0
+				add_law_w_cooldown = centralization_0
 			}
 			if = {
 				limit = { has_law = centralization_2 }
-				add_law = centralization_1
+				add_law_w_cooldown = centralization_1
 			}
 			if = {
 				limit = { has_law = centralization_3 }
-				add_law = centralization_2
+				add_law_w_cooldown = centralization_2
 			}
 			if = {
 				limit = { has_law = centralization_4 }
-				add_law = centralization_3
+				add_law_w_cooldown = centralization_3
 			}
 		}
 		custom_tooltip = REPUBLICANFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_republican" value = 5 }		
+		set_variable = { which = "faction_mood_republican" value = 5 }		
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -1401,8 +1401,6 @@ character_event = {
 				OR = {
 					has_law = city_tax_1
 					has_law = city_tax_2
-					has_law = city_tax_3
-					has_law = city_tax_4
 				}
 			}
 		}
@@ -1421,8 +1419,15 @@ character_event = {
 		months = 120
 		modifier = {
 			factor = 2.0
-			liege = { NOT = { has_character_flag = faction_republican_unhappy } } #content less likely to complain, angry will prefer harsher demands
-		}		
+			liege = { 
+				NOT = { has_character_flag = faction_republican_unhappy }
+				NOT = { has_character_flag = faction_republican_angry }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_character_flag = faction_republican_angry
+		}			
 		modifier = {
 			factor = 1.5
 			trait = charitable
@@ -1432,21 +1437,9 @@ character_event = {
 			trait = greedy
 		}	
 		modifier = {
-			factor = 1.5
-			liege = { primary_title = { has_law = city_tax_1 } }
-		}		
-		modifier = {
-			factor = 1.25
+			factor = 0.5
 			liege = { primary_title = { has_law = city_tax_2 } }
-		}
-		modifier = {
-			factor = 0.75
-			liege = { primary_title = { has_law = city_tax_3 } }
-		}
-		modifier = {
-			factor = 0.75
-			liege = { primary_title = { has_law = city_tax_4 } }
-		}	
+		}		
 		modifier = {
 			factor = 5.0
 			liege = {
@@ -1510,23 +1503,15 @@ letter_event = {
 		primary_title = {
 			if = {
 				limit = { has_law = city_tax_1 }
-				add_law = city_tax_0
+				add_law_w_cooldown = city_tax_0
 			}
 			if = {
 				limit = { has_law = city_tax_2 }
-				add_law = city_tax_0
-			}
-			if = {
-				limit = { has_law = city_tax_3 }
-				add_law = city_tax_1
-			}
-			if = {
-				limit = { has_law = city_tax_3 }
-				add_law = city_tax_2
-			}			
+				add_law_w_cooldown = city_tax_1
+			}		
 		}
 		custom_tooltip = REPUBLICANFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_republican" value = 3 }		
+		set_variable = { which = "faction_mood_republican" value = 3 }		
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -1774,401 +1759,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA1902033"
-	}
-}
-
-# Republican faction - demand reduction in city levies
-character_event = {
-	id = 1902040
-	picture = "GFX_evt_council"
-
-	trigger = {
-		OR = {
-			leads_faction = faction_republican_emperor
-			leads_faction = faction_republican_king
-			leads_faction = faction_republican_duke					
-		}
-		NOT = {	
-			liege = { has_character_flag = faction_republican_happy }
-		}
-		liege = {
-			primary_title = {
-				OR = {
-					has_law = city_contract_1
-					has_law = city_contract_2
-					has_law = city_contract_3
-					has_law = city_contract_4
-				}
-			}
-		}
-		liege = {
-			OR = {
-				NOT = { has_character_flag = faction_republican_event }
-				had_character_flag = {
-					flag = faction_republican_event
-					days = 730
-				}
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 240
-		modifier = {
-			factor = 2.0
-			liege = { NOT = { has_character_flag = faction_republican_unhappy } } #content less likely to complain, angry will prefer harsher demands
-		}		
-		modifier = {
-			factor = 1.5
-			trait = content
-		}		
-		modifier = {
-			factor = 0.75
-			trait = ambitious
-		}		
-		modifier = {
-			factor = 1.5
-			liege = { primary_title = { has_law = city_contract_1 } }
-		}		
-		modifier = {
-			factor = 1.25
-			liege = { primary_title = { has_law = city_contract_2 } }
-		}
-		modifier = {
-			factor = 0.75
-			liege = { primary_title = { has_law = city_contract_3 } }
-		}
-		modifier = {
-			factor = 0.75
-			liege = { primary_title = { has_law = city_contract_4 } }
-		}	
-		modifier = {
-			factor = 5.0
-			liege = {
-				any_war = {
-					defender = {
-						character = PREVPREV
-					}
-				}
-			}
-		}		
-	}
-	
-	desc = "EVTDESC1902040"
-	
-	option = {
-		name = "EVTOPTA1902040"
-		liege = { set_character_flag = faction_republican_event }
-		liege = { letter_event = { id = 1902041 tooltip = EVTTOOLTIPDEMAND days = 3 } }
-	}
-}
-
-letter_event = {
-	id = 1902041
-	is_triggered_only = yes
-	
-	desc = "EVTDESC1902041"
-
-	option = {
-		name = "EVTDEMANDYES"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 1.25
-				trait = weak
-			}
-			modifier = {
-				factor = 1.25
-				trait = craven
-			}
-			modifier = {
-				factor = 1.25
-				trait = humble
-			}
-			modifier = {
-				factor = 1.25
-				trait = kind
-			}
-			modifier = {
-				factor = 1.25
-				trait = charitable
-			}
-			modifier = {
-				factor = 1.25
-				trait = patient
-			}
-			modifier = {
-				factor = 1.25
-				trait = content
-			}
-		}
-		primary_title = {
-			if = {
-				limit = { has_law = city_contract_1 }
-				add_law = city_contract_0
-			}
-			if = {
-				limit = { has_law = city_contract_2 }
-				add_law = city_contract_0
-			}
-			if = {
-				limit = { has_law = city_contract_3 }
-				add_law = city_contract_1
-			}
-			if = {
-				limit = { has_law = city_contract_3 }
-				add_law = city_contract_2
-			}		
-		}
-		custom_tooltip = REPUBLICANFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_republican" value = 3 }		
-		hidden_tooltip = {
-			any_vassal = {
-				limit = { 
-					OR = {
-						leads_faction = faction_republican_emperor
-						leads_faction = faction_republican_king
-						leads_faction = faction_republican_duke
-						in_faction = faction_republican_emperor
-						in_faction = faction_republican_king
-						in_faction = faction_republican_duke						
-					}
-				}
-				character_event = { id = 1902042 }
-			}		
-		}
-	}	
-	option = {
-		name = "EVTDEMANDNO"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 1.25
-				trait = strong
-			}
-			modifier = {
-				factor = 1.25
-				trait = brave
-			}
-			modifier = {
-				factor = 1.25
-				trait = proud
-			}
-			modifier = {
-				factor = 1.25
-				trait = envious
-			}
-			modifier = {
-				factor = 1.25
-				trait = greedy
-			}
-			modifier = {
-				factor = 1.25
-				trait = wroth
-			}
-			modifier = {
-				factor = 1.25
-				trait = ambitious
-			}
-			modifier = {
-				factor = 2.0
-				FROM = {
-					NOT = {
-						OR = {
-							AND = {
-								leads_faction = faction_republican_emperor
-								faction_power = 
-								{
-									faction = faction_republican_emperor
-									power = 0.5
-								}	
-							}
-							AND = {
-								leads_faction = faction_republican_king
-								faction_power = 
-								{
-									faction = faction_republican_king
-									power = 0.5
-								}	
-							}
-							AND = {
-								leads_faction = faction_republican_duke
-								faction_power = 
-								{
-									faction = faction_republican_duke
-									power = 0.5
-								}	
-							}
-						}
-					}
-				}
-			}
-			modifier = {
-				factor = 0.75
-				FROM = {
-					OR = {
-						AND = {
-							leads_faction = faction_republican_emperor
-							faction_power = 
-							{
-								faction = faction_republican_emperor
-								power = 1.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_king
-							faction_power = 
-							{
-								faction = faction_republican_king
-								power = 1.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_duke
-							faction_power = 
-							{
-								faction = faction_republican_duke
-								power = 1.0
-							}	
-						}
-					}
-				}
-			}			
-			modifier = {
-				factor = 0.75
-				FROM = {
-					OR = {
-						AND = {
-							leads_faction = faction_republican_emperor
-							faction_power = 
-							{
-								faction = faction_republican_emperor
-								power = 2.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_king
-							faction_power = 
-							{
-								faction = faction_republican_king
-								power = 2.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_duke
-							faction_power = 
-							{
-								faction = faction_republican_duke
-								power = 2.0
-							}	
-						}
-					}
-				}
-			}
-			modifier = {
-				factor = 0.75
-				FROM = {
-					OR = {
-						AND = {
-							leads_faction = faction_republican_emperor
-							faction_power = 
-							{
-								faction = faction_republican_emperor
-								power = 3.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_king
-							faction_power = 
-							{
-								faction = faction_republican_king
-								power = 3.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_duke
-							faction_power = 
-							{
-								faction = faction_republican_duke
-								power = 3.0
-							}	
-						}
-					}
-				}
-			}
-			modifier = {
-				factor = 0.75
-				FROM = {
-					OR = {
-						AND = {
-							leads_faction = faction_republican_emperor
-							faction_power = 
-							{
-								faction = faction_republican_emperor
-								power = 4.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_king
-							faction_power = 
-							{
-								faction = faction_republican_king
-								power = 4.0
-							}	
-						}
-						AND = {
-							leads_faction = faction_republican_duke
-							faction_power = 
-							{
-								faction = faction_republican_duke
-								power = 4.0
-							}	
-						}
-					}
-				}
-			}			
-		}		
-		custom_tooltip = REPUBLICANFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_republican" value = -3 }		
-		hidden_tooltip = {
-			any_vassal = {
-				limit = { 
-					OR = {
-						leads_faction = faction_republican_emperor
-						leads_faction = faction_republican_king
-						leads_faction = faction_republican_duke
-						in_faction = faction_republican_emperor
-						in_faction = faction_republican_king
-						in_faction = faction_republican_duke						
-					}
-				}
-				character_event = { id = 1902043 }
-			}		
-		}
-	}
-}
-
-character_event = {
-	id = 1902042
-	picture = "GFX_evt_council"	
-	is_triggered_only = yes
-	
-	desc = "EVTDESC1902042"
-	
-	option = {
-		name = "EVTOPTA1902042"
-	}
-}
-
-character_event = {
-	id = 1902043
-	picture = "GFX_evt_council"	
-	is_triggered_only = yes
-	
-	desc = "EVTDESC1902043"
-	
-	option = {
-		name = "EVTOPTA1902043"
 	}
 }
 
@@ -2482,6 +2072,387 @@ character_event = {
 				any_vassal = { set_character_flag = do_not_join_civil_war character_event = { id = 2000040 } }	
 			}
 		}	
+	}
+}
+
+# Republican faction - demand change in tax privileges
+character_event = {
+	id = 1902050
+	picture = "GFX_evt_council"
+
+	trigger = {
+		liege = { higher_tier_than = duke }
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke
+		}		
+		NOT = {	
+			liege = { has_character_flag = faction_republican_happy }
+		}
+		liege = {
+			primary_title = {
+				OR = {
+					has_law = tax_privileges_0
+					has_law = tax_privileges_1
+				}
+			}
+		}
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180			
+		modifier = {
+			factor = 2.0
+			liege = { 
+				NOT = { has_character_flag = faction_republican_unhappy }
+				NOT = { has_character_flag = faction_republican_angry }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_character_flag = faction_republican_angry
+		}			
+		modifier = {
+			factor = 1.5
+			trait = charitable
+		}		
+		modifier = {
+			factor = 0.75
+			trait = greedy
+		}				
+		modifier = {
+			factor = 0.5
+			liege = { primary_title = { has_law = tax_privileges_0 } }
+		}			
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902050"
+	
+	option = {
+		name = "EVTOPTA1902050"
+		liege = { set_character_flag = faction_republican_event }
+		liege = { letter_event = { id = 1902051 tooltip = EVTTOOLTIPDEMAND days = 3 } }
+	}
+}
+
+letter_event = {
+	id = 1902051
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902051"
+
+	option = {
+		name = "EVTDEMANDYES"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = weak
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+		}
+		primary_title = {
+			if = {
+				limit = { has_law = tax_privileges_1 }
+				add_law_w_cooldown = tax_privileges_2
+			}		
+			if = {
+				limit = { has_law = tax_privileges_0 }
+				add_law_w_cooldown = tax_privileges_1
+			}		
+		}
+		custom_tooltip = REPUBLICANFACTIONMOODPLUS
+		set_variable = { which = "faction_mood_republican" value = 3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902052 }
+			}		
+		}
+	}	
+	option = {
+		name = "EVTDEMANDNO"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_republican_emperor
+								faction_power = 
+								{
+									faction = faction_republican_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_king
+								faction_power = 
+								{
+									faction = faction_republican_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_republican_duke
+								faction_power = 
+								{
+									faction = faction_republican_duke
+									power = 0.5
+								}	
+							}			
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 1.0
+							}	
+						}			
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 2.0
+							}	
+						}			
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 3.0
+							}	
+						}			
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_republican_emperor
+							faction_power = 
+							{
+								faction = faction_republican_emperor
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_king
+							faction_power = 
+							{
+								faction = faction_republican_king
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_republican_duke
+							faction_power = 
+							{
+								faction = faction_republican_duke
+								power = 4.0
+							}	
+						}			
+					}
+				}
+			}			
+		}		
+		custom_tooltip = REPUBLICANFACTIONMOODMINUS
+		change_variable = { which = "faction_mood_republican" value = -3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_republican_emperor
+						leads_faction = faction_republican_king
+						leads_faction = faction_republican_duke
+						in_faction = faction_republican_emperor
+						in_faction = faction_republican_king
+						in_faction = faction_republican_duke						
+					}
+				}
+				character_event = { id = 1902053 }
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = 1902052
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902052"
+	
+	option = {
+		name = "EVTOPTA1902052"
+	}
+}
+
+character_event = {
+	id = 1902053
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1902053"
+	
+	option = {
+		name = "EVTOPTA1902053"
 	}
 }
 

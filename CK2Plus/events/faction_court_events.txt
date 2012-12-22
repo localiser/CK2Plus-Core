@@ -686,7 +686,7 @@ character_event = {
 
 # Court faction - declare war to depose liege
 character_event = {
-	id = 1902023
+	id = 1904023
 	picture = "GFX_evt_council"
 
 	trigger = {
@@ -757,10 +757,10 @@ character_event = {
 		}		
 	}
 	
-	desc = "EVTDESC1902023"
+	desc = "EVTDESC1904023"
 	
 	option = {
-		name = "EVTOPTA1902023"
+		name = "EVTOPTA1904023"
 		liege = {
 			if = {
 				limit = {
@@ -855,5 +855,371 @@ character_event = {
 				any_vassal = { character_event = { id = 2000040 } }	
 			}
 		}	
+	}
+}
+
+# Court faction - demand lifetime appointments
+character_event = {
+	id = 1904040
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_court_emperor
+			leads_faction = faction_court_king
+			leads_faction = faction_court_duke					
+		}	
+		NOT = {	
+			liege = { has_character_flag = faction_court_happy }
+		}
+		liege = {
+			primary_title = {
+				has_law = council_privileges_0
+			}
+		}
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_court_event }
+				had_character_flag = {
+					flag = faction_court_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 90
+		modifier = {
+			factor = 2.0
+			liege = { 
+				NOT = { has_character_flag = faction_court_unhappy }
+				NOT = { has_character_flag = faction_court_angry }
+			} 
+		}	
+		modifier = {
+			factor = 0.5
+			has_character_flag = faction_court_angry
+		}		
+		modifier = {
+			factor = 1.5
+			trait = content
+		}		
+		modifier = {
+			factor = 0.75
+			trait = ambitious
+		}
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1904040"
+	
+	option = {
+		name = "EVTOPTA1904040"
+		liege = { set_character_flag = faction_court_event }
+		liege = { letter_event = { id = 1901041 tooltip = EVTTOOLTIPDEMAND days = 3 } }
+	}
+}
+
+letter_event = {
+	id = 1904041
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904041"
+
+	option = {
+		name = "EVTDEMANDYES"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = weak
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+		}
+		primary_title = {
+			add_law_w_cooldown = council_privileges_1
+		}
+		custom_tooltip = COURTFACTIONMOODPLUS
+		set_variable = { which = "faction_mood_court" value = 3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_court_emperor
+						leads_faction = faction_court_king
+						leads_faction = faction_court_duke
+						in_faction = faction_court_emperor
+						in_faction = faction_court_king
+						in_faction = faction_court_duke						
+					}
+				}
+				character_event = { id = 1904042 }
+			}		
+		}
+	}	
+	option = {
+		name = "EVTDEMANDNO"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2.0
+				FROM = {
+					NOT = {
+						OR = {
+							AND = {
+								leads_faction = faction_court_emperor
+								faction_power = 
+								{
+									faction = faction_court_emperor
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_king
+								faction_power = 
+								{
+									faction = faction_court_king
+									power = 0.5
+								}	
+							}
+							AND = {
+								leads_faction = faction_court_duke
+								faction_power = 
+								{
+									faction = faction_court_duke
+									power = 0.5
+								}	
+							}			
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 1.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 1.0
+							}	
+						}			
+					}
+				}
+			}			
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 2.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 2.0
+							}	
+						}			
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 3.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 3.0
+							}	
+						}			
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					OR = {
+						AND = {
+							leads_faction = faction_court_emperor
+							faction_power = 
+							{
+								faction = faction_court_emperor
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_king
+							faction_power = 
+							{
+								faction = faction_court_king
+								power = 4.0
+							}	
+						}
+						AND = {
+							leads_faction = faction_court_duke
+							faction_power = 
+							{
+								faction = faction_court_duke
+								power = 4.0
+							}	
+						}			
+					}
+				}
+			}			
+		}		
+		custom_tooltip = COURTFACTIONMOODMINUS
+		change_variable = { which = "faction_mood_court" value = -3 }		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { 
+					OR = {
+						leads_faction = faction_court_emperor
+						leads_faction = faction_court_king
+						leads_faction = faction_court_duke
+						in_faction = faction_court_emperor
+						in_faction = faction_court_king
+						in_faction = faction_court_duke						
+					}
+				}
+				character_event = { id = 1904043 }
+			}		
+		}
+	}
+}
+
+character_event = {
+	id = 1904042
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904042"
+	
+	option = {
+		name = "EVTOPTA1904042"
+	}
+}
+
+character_event = {
+	id = 1904043
+	picture = "GFX_evt_council"	
+	is_triggered_only = yes
+	
+	desc = "EVTDESC1904043"
+	
+	option = {
+		name = "EVTOPTA1904043"
 	}
 }

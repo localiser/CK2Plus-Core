@@ -3,6 +3,454 @@
 
 de_jure_laws = {
 
+# CENTRALIZATION
+
+	centralization_0 = {
+		show_as_title = yes
+		group = centralization
+		default = yes		
+		
+		allow = {	
+			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }		
+			has_law = centralization_1
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_4
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_lowered_crown_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
+				}			
+			}
+		}		
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}		
+			set_appoint_generals = yes
+			set_appoint_regents = no
+			set_the_kings_peace = no
+			set_the_kings_full_peace = no
+			set_protected_inheritance = no
+			set_allow_title_revokation = yes
+			set_allow_free_infidel_revokation = no
+			#set_allow_free_revokation = no
+		}		
+	}
+	
+	centralization_1 = {
+		show_as_title = yes
+		group = centralization
+		
+		allow = {	
+			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
+			OR = {
+				has_law = centralization_0
+				has_law = centralization_2
+			}
+			OR = {
+				has_law = centralization_2
+				holder_scope = { prestige = 500 }
+			}
+			OR = {
+				has_law = centralization_2
+				NOT = { title = e_hre }
+				holder_scope = { NOT = { religion = catholic } }
+				holder_scope = { trait = crowned_by_pope }
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_law = centralization_0 }
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_0
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }
+				}
+				if = { 
+					limit = {
+						has_law = centralization_2
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_lowered_crown_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
+				}				
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}		
+			set_appoint_generals = yes
+			set_appoint_regents = no
+			set_the_kings_peace = no
+			set_the_kings_full_peace = no
+			set_protected_inheritance = no
+			set_allow_title_revokation = yes
+			set_allow_free_infidel_revokation = no
+			#set_allow_free_revokation = no
+		}
+		
+		castle_vassal_max_levy = 0.1		
+		city_vassal_max_levy = 0.1
+		temple_vassal_max_levy = 0.1
+	}
+	
+	centralization_2 = {
+		show_as_title = yes
+		group = centralization
+		
+		allow = {	
+			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
+			OR = {
+				has_law = centralization_1
+				has_law = centralization_3
+			}
+			OR = {
+				has_law = centralization_3
+				holder_scope = { prestige = 1000 }
+			}
+			OR = {
+				has_law = centralization_3
+				NOT = { title = e_hre }
+				holder_scope = { NOT = { religion = catholic } }
+				holder_scope = { trait = crowned_by_pope }
+			}			
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_law = centralization_1 }
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_1
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }	
+				}
+				if = { 
+					limit = {
+						has_law = centralization_3
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_lowered_crown_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
+				}				
+			}		
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}			
+			set_appoint_generals = yes
+			set_appoint_regents = yes
+			set_the_kings_peace = yes
+			set_the_kings_full_peace = no
+			set_protected_inheritance = no
+			set_allow_title_revokation = yes
+			set_allow_free_infidel_revokation = no
+			#set_allow_free_revokation = no
+		}
+		
+		castle_vassal_max_levy = 0.2		
+		city_vassal_max_levy = 0.2
+		temple_vassal_max_levy = 0.2			
+	}
+	
+	centralization_3 = {
+		show_as_title = yes
+		group = centralization
+		
+		allow = {	
+			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
+			OR = {
+				has_law = centralization_2
+				has_law = centralization_4
+			}
+			OR = {
+				has_law = centralization_4
+				holder_scope = { prestige = 2500 }
+			}			
+			OR = {
+				has_law = centralization_4
+				NOT = { title = e_hre }
+				holder_scope = { NOT = { religion = catholic } }
+				holder_scope = { trait = crowned_by_pope }
+			}				
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_law = centralization_2 }
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			hidden_tooltip = {
+				if = { 
+					limit = {
+						has_law = centralization_2
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }	
+				}
+				if = { 
+					limit = {
+						has_law = centralization_4
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_lowered_crown_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
+				}				
+			}		
+		}		
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}
+			set_appoint_generals = yes
+			set_appoint_regents = yes
+			set_the_kings_peace = yes
+			set_the_kings_full_peace = no
+			set_protected_inheritance = yes
+			set_allow_title_revokation = yes
+			set_allow_free_infidel_revokation = yes
+			#set_allow_free_revokation = no
+		}
+		
+		castle_vassal_max_levy = 0.3		
+		city_vassal_max_levy = 0.3
+		temple_vassal_max_levy = 0.3			
+	}
+	
+	centralization_4 = {
+		show_as_title = yes
+		group = centralization
+		
+		allow = {	
+			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
+			has_law = centralization_3
+			holder_scope = { prestige = 5000 }			
+			OR = {
+				NOT = { title = e_hre }
+				holder_scope = { NOT = { religion = catholic } }
+				holder_scope = { trait = crowned_by_pope }
+			}			
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_law = centralization_3 }
+			}			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			hidden_tooltip = {	
+				if = { 
+					limit = {
+						has_law = centralization_3
+						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
+						has_global_flag = startup
+					}
+					any_de_jure_vassal = {
+						limit = {
+							OR = {
+								religion = ROOT
+								is_liege_or_above = ROOT
+							}
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_increased_authority
+							months = 120
+						}
+					}
+					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }					
+				}			
+			}
+		}		
+		effect = {
+			hidden_tooltip = {
+				revoke_law = centralization_0
+				revoke_law = centralization_1
+				revoke_law = centralization_2
+				revoke_law = centralization_3
+				revoke_law = centralization_4
+			}
+			set_appoint_generals = yes
+			set_appoint_regents = yes
+			set_the_kings_peace = yes
+			set_the_kings_full_peace = yes
+			set_protected_inheritance = yes
+			set_allow_title_revokation = yes
+			set_allow_free_infidel_revokation = yes
+			#set_allow_free_revokation = yes
+		}
+		
+		castle_vassal_max_levy = 0.4		
+		city_vassal_max_levy = 0.4
+		temple_vassal_max_levy = 0.4			
+	}
+	
 # INVESTITURE
 
 	investiture_law_0 = {
@@ -72,448 +520,6 @@ de_jure_laws = {
 			revoke_law = investiture_law_0
 			set_investiture = any
 		}
-	}
-
-# CENTRALIZATION
-
-	centralization_0 = {
-		show_as_title = yes
-		group = centralization
-		
-		potential = {
-			NOT = { has_law = centralization_0 }
-		}
-		allow = {	
-			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }		
-			has_law = centralization_1
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
-		ai_will_revoke = {
-			factor = 0
-		}
-		effect = {
-			revoke_law = centralization_1
-			revoke_law = centralization_2
-			revoke_law = centralization_3
-			revoke_law = centralization_4
-			set_appoint_generals = no
-			set_appoint_regents = no
-			set_the_kings_peace = no
-			set_the_kings_full_peace = no
-			set_protected_inheritance = no
-			set_allow_title_revokation = yes
-			set_allow_free_infidel_revokation = no
-			#set_allow_free_revokation = no
-			hidden_tooltip = {
-				if = { 
-					limit = {
-						has_law = centralization_4
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_lowered_crown_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
-				}			
-			}
-		}		
-	}
-	
-	centralization_1 = {
-		show_as_title = yes
-		group = centralization
-		default = yes
-		
-		potential = {
-			NOT = { has_law = centralization_1 }
-		}
-		allow = {	
-			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
-			OR = {
-				has_law = centralization_0
-				has_law = centralization_2
-			}
-			OR = {
-				has_law = centralization_2
-				holder_scope = { prestige = 500 }
-			}
-			OR = {
-				has_law = centralization_2
-				NOT = { title = e_hre }
-				holder_scope = { NOT = { religion = catholic } }
-				holder_scope = { trait = crowned_by_pope }
-			}
-		}
-		revoke_allowed = {
-			always = no
-		}			
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { has_law = centralization_0 }
-			}			
-		}
-		ai_will_revoke = {
-			factor = 0
-		}
-		effect = {
-			hidden_tooltip = {
-				if = { 
-					limit = {
-						has_law = centralization_0
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_increased_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }
-				}
-				if = { 
-					limit = {
-						has_law = centralization_2
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_lowered_crown_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
-				}				
-			}
-			
-			revoke_law = centralization_0
-			revoke_law = centralization_2
-			revoke_law = centralization_3
-			revoke_law = centralization_4
-			set_appoint_generals = yes
-			set_appoint_regents = no
-			set_the_kings_peace = no
-			set_the_kings_full_peace = no
-			set_protected_inheritance = no
-			set_allow_title_revokation = yes
-			set_allow_free_infidel_revokation = no
-			#set_allow_free_revokation = no
-		}
-		
-		castle_vassal_max_levy = 0.1		
-		city_vassal_max_levy = 0.1
-		temple_vassal_max_levy = 0.1
-	}
-	
-	centralization_2 = {
-		show_as_title = yes
-		group = centralization
-		
-		potential = {
-			NOT = { has_law = centralization_2 }
-		}
-		allow = {	
-			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
-			OR = {
-				has_law = centralization_1
-				has_law = centralization_3
-			}
-			OR = {
-				has_law = centralization_3
-				holder_scope = { prestige = 1000 }
-			}
-			OR = {
-				has_law = centralization_3
-				NOT = { title = e_hre }
-				holder_scope = { NOT = { religion = catholic } }
-				holder_scope = { trait = crowned_by_pope }
-			}			
-		}
-		revoke_allowed = {
-			always = no
-		}			
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { has_law = centralization_1 }
-			}			
-		}
-		ai_will_revoke = {
-			factor = 0
-		}
-		effect = {
-			hidden_tooltip = {
-				if = { 
-					limit = {
-						has_law = centralization_1
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_increased_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }	
-				}
-				if = { 
-					limit = {
-						has_law = centralization_3
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_lowered_crown_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
-				}				
-			}
-		
-			revoke_law = centralization_0
-			revoke_law = centralization_1
-			revoke_law = centralization_3
-			revoke_law = centralization_4
-			set_appoint_generals = yes
-			set_appoint_regents = yes
-			set_the_kings_peace = yes
-			set_the_kings_full_peace = no
-			set_protected_inheritance = no
-			set_allow_title_revokation = yes
-			set_allow_free_infidel_revokation = no
-			#set_allow_free_revokation = no
-		}
-		
-		castle_vassal_max_levy = 0.2		
-		city_vassal_max_levy = 0.2
-		temple_vassal_max_levy = 0.2			
-	}
-	
-	centralization_3 = {
-		show_as_title = yes
-		group = centralization
-		
-		potential = {
-			NOT = { has_law = centralization_3 }
-		}
-		allow = {	
-			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
-			OR = {
-				has_law = centralization_2
-				has_law = centralization_4
-			}
-			OR = {
-				has_law = centralization_4
-				holder_scope = { prestige = 2500 }
-			}			
-			OR = {
-				has_law = centralization_4
-				NOT = { title = e_hre }
-				holder_scope = { NOT = { religion = catholic } }
-				holder_scope = { trait = crowned_by_pope }
-			}				
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { has_law = centralization_2 }
-			}			
-		}
-		ai_will_revoke = {
-			factor = 0
-		}
-		effect = {
-			hidden_tooltip = {
-				if = { 
-					limit = {
-						has_law = centralization_2
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_increased_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }	
-				}
-				if = { 
-					limit = {
-						has_law = centralization_4
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_lowered_crown_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = 4 } }					
-				}				
-			}
-		
-			revoke_law = centralization_0
-			revoke_law = centralization_1
-			revoke_law = centralization_2
-			revoke_law = centralization_4
-			set_appoint_generals = yes
-			set_appoint_regents = yes
-			set_the_kings_peace = yes
-			set_the_kings_full_peace = no
-			set_protected_inheritance = yes
-			set_allow_title_revokation = yes
-			set_allow_free_infidel_revokation = yes
-			#set_allow_free_revokation = no
-		}
-		
-		castle_vassal_max_levy = 0.3		
-		city_vassal_max_levy = 0.3
-		temple_vassal_max_levy = 0.3			
-	}
-	
-	centralization_4 = {
-		show_as_title = yes
-		group = centralization
-		
-		potential = {
-			NOT = { has_law = centralization_4 }
-		}
-		allow = {	
-			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
-			has_law = centralization_3
-			holder_scope = { prestige = 5000 }			
-			OR = {
-				NOT = { title = e_hre }
-				holder_scope = { NOT = { religion = catholic } }
-				holder_scope = { trait = crowned_by_pope }
-			}			
-		}
-		revoke_allowed = {
-			always = no
-		}			
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { has_law = centralization_3 }
-			}			
-		}
-		ai_will_revoke = {
-			factor = 0
-		}
-		effect = {
-			hidden_tooltip = {	
-				if = { 
-					limit = {
-						has_law = centralization_3
-						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
-						has_global_flag = startup
-					}
-					any_de_jure_vassal = {
-						limit = {
-							OR = {
-								religion = ROOT
-								is_liege_or_above = ROOT
-							}
-						}
-						opinion = {
-							who = ROOT
-							modifier = opinion_increased_authority
-							months = 120
-						}
-					}
-					holder_scope = { change_variable = { which = "faction_mood_feudal" value = -2 } }					
-				}			
-			}
-		
-			revoke_law = centralization_0
-			revoke_law = centralization_1
-			revoke_law = centralization_2
-			revoke_law = centralization_3
-			set_appoint_generals = yes
-			set_appoint_regents = yes
-			set_the_kings_peace = yes
-			set_the_kings_full_peace = yes
-			set_protected_inheritance = yes
-			set_allow_title_revokation = yes
-			set_allow_free_infidel_revokation = yes
-			#set_allow_free_revokation = yes
-		}
-		
-		castle_vassal_max_levy = 0.4		
-		city_vassal_max_levy = 0.4
-		temple_vassal_max_levy = 0.4			
-	}
+	}	
 	
 }

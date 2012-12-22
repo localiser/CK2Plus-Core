@@ -94,6 +94,65 @@ decisions = {
 					limit = { trait = immortal2 }
 					remove_trait = immortal2
 					add_trait = immortal
+				}
+				if = {
+					limit = {
+						primary_title = { has_law = council_privileges_0 }
+						has_character_flag = lifetime_appointments
+					}	
+					clr_character_flag = lifetime_appointments	
+				}
+				if = {
+					limit = {
+						primary_title = { has_law = council_privileges_1 }
+						NOT = { has_character_flag = lifetime_appointments }
+					}	
+					set_character_flag = lifetime_appointments	
+				}				
+				if = {
+					limit = {
+						primary_title = { has_law = tax_privileges_0 }
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								NOT = { has_character_modifier = tax_privileges_0_vassal }
+								has_character_modifier = tax_privileges_2_vassal
+							}
+						}
+						add_character_modifier = { name = "tax_privileges_0_vassal" duration = -1 }
+						remove_character_modifier = tax_privileges_2_vassal
+					}
+				}
+				if = {
+					limit = {
+						primary_title = { has_law = tax_privileges_1 }
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+								has_character_modifier = tax_privileges_0_vassal
+								has_character_modifier = tax_privileges_2_vassal
+							}
+						}
+						remove_character_modifier = tax_privileges_0_vassal
+						remove_character_modifier = tax_privileges_2_vassal
+					}
+				}	
+				if = {
+					limit = {
+						primary_title = { has_law = tax_privileges_2 }
+					}
+					any_vassal = {
+						limit = {
+							OR = {
+							    has_character_modifier = tax_privileges_0_vassal
+								NOT = { has_character_modifier = tax_privileges_2_vassal }
+							}
+						}
+						remove_character_modifier = tax_privileges_0_vassal
+						add_character_modifier = { name = "tax_privileges_2_vassal" duration = -1 }
+					}
 				}				
 			}
 			#realm size
@@ -3513,7 +3572,38 @@ decisions = {
 								liege = { demesne_efficiency = 2.00 }
 							}
 							liege = { change_variable = { which = "total_faction_mood_feudal" value = 0.5 } }
-						}																				
+						}	
+						#laws
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = feudal_tax_1 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_feudal" value = -1 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = feudal_tax_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_feudal" value = -2 } }
+						}						
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = tax_privileges_0 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_feudal" value = 1.5 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = tax_privileges_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_feudal" value = -1.5 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = levy_privileges_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_feudal" value = -2 } }
+						}							
 						#CA
 						if = {
 							limit = {
@@ -3868,6 +3958,13 @@ decisions = {
 								liege = { NOT = { check_variable = { which = "faction_mood_court" value = -0.25 } } }
 							}
 							liege = { change_variable = { which = "faction_mood_court" value = 0.25 } }
+						}	
+						#laws
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = council_privileges_1 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_court" value = 2 } }
 						}						
 						#regency
 						if = {
@@ -4066,34 +4163,34 @@ decisions = {
 										check_variable = { which = "faction_members_court" value = 0.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 1.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.05 }
+									change_variable = { which = "total_faction_mood_court" value = -0.1 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 1.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 2.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.10 }
+									change_variable = { which = "total_faction_mood_court" value = -0.2 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 2.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 3.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.15 }
+									change_variable = { which = "total_faction_mood_court" value = -0.3 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 3.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 4.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.20 }
+									change_variable = { which = "total_faction_mood_court" value = -0.4 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 4.5 }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.25 }
+									change_variable = { which = "total_faction_mood_court" value = -0.5 }
 								}								
 							}
 							if = {
@@ -4114,34 +4211,34 @@ decisions = {
 										check_variable = { which = "faction_members_court" value = 0.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 1.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.05 }
+									change_variable = { which = "total_faction_mood_court" value = -0.1 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 1.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 2.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.10 }
+									change_variable = { which = "total_faction_mood_court" value = -0.2 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 2.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 3.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.15 }
+									change_variable = { which = "total_faction_mood_court" value = -0.3 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 3.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 4.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.20 }
+									change_variable = { which = "total_faction_mood_court" value = -0.4 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 4.5 }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.25 }
+									change_variable = { which = "total_faction_mood_court" value = -0.5 }
 								}
 							}
 							if = {
@@ -4162,34 +4259,34 @@ decisions = {
 										check_variable = { which = "faction_members_court" value = 0.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 1.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.05 }
+									change_variable = { which = "total_faction_mood_court" value = -0.1 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 1.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 2.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.10 }
+									change_variable = { which = "total_faction_mood_court" value = -0.2 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 2.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 3.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.15 }
+									change_variable = { which = "total_faction_mood_court" value = -0.3 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 3.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 4.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.20 }
+									change_variable = { which = "total_faction_mood_court" value = -0.4 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 4.5 }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.25 }
+									change_variable = { which = "total_faction_mood_court" value = -0.5 }
 								}
 							}						
 							if = {
@@ -4210,34 +4307,34 @@ decisions = {
 										check_variable = { which = "faction_members_court" value = 0.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 1.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.05 }
+									change_variable = { which = "total_faction_mood_court" value = -0.1 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 1.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 2.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.10 }
+									change_variable = { which = "total_faction_mood_court" value = -0.2 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 2.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 3.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.15 }
+									change_variable = { which = "total_faction_mood_court" value = -0.3 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 3.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 4.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.20 }
+									change_variable = { which = "total_faction_mood_court" value = -0.4 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 4.5 }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.25 }
+									change_variable = { which = "total_faction_mood_court" value = -0.5 }
 								}
 							}
 							if = {
@@ -4258,34 +4355,34 @@ decisions = {
 										check_variable = { which = "faction_members_court" value = 0.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 1.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.05 }
+									change_variable = { which = "total_faction_mood_court" value = -0.1 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 1.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 2.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.10 }
+									change_variable = { which = "total_faction_mood_court" value = -0.2 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 2.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 3.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.15 }
+									change_variable = { which = "total_faction_mood_court" value = -0.3 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 3.5 }
 										NOT = { check_variable = { which = "faction_members_court" value = 4.5 } }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.20 }
+									change_variable = { which = "total_faction_mood_court" value = -0.4 }
 								}
 								if = {
 									limit = {
 										check_variable = { which = "faction_members_court" value = 4.5 }
 									}
-									change_variable = { which = "total_faction_mood_court" value = -0.25 }
+									change_variable = { which = "total_faction_mood_court" value = -0.5 }
 								}
 							}	
 						}
@@ -4622,6 +4719,31 @@ decisions = {
 							}
 							liege = { change_variable = { which = "total_faction_mood_republican" value = -2 } }
 						}	
+						#laws
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = city_tax_1 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_republican" value = -1 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = city_tax_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_republican" value = -2 } }
+						}						
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = tax_privileges_0 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_republican" value = 1.5 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = tax_privileges_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_republican" value = -1.5 } }
+						}					
 						#relations
 						if = {
 							limit = {
@@ -4962,6 +5084,31 @@ decisions = {
 								liege = { trait = excommunicated }
 							}
 							liege = { change_variable = { which = "total_faction_mood_religious" value = -5 } }
+						}
+						#laws
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = temple_tax_1 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_religious" value = -1 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = temple_tax_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_religious" value = -2 } }
+						}						
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = tax_privileges_0 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_religious" value = 1.5 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = tax_privileges_2 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_religious" value = -1.5 } }
 						}						
 						#piety
 						if = {
@@ -5510,20 +5657,210 @@ decisions = {
 							NOT = { has_law = investiture_law_0 }
 							NOT = { has_law = investiture_law_1 }							
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law = investiture_law_0
-					}					
+					}	
+					if = {
+						limit = {
+							higher_tier_than = DUKE
+							holder_scope = { 
+								NOT = { religion = catholic }
+							}
+							OR = {
+								has_law = investiture_law_0
+								has_law = investiture_law_1 
+							}							
+						}
+						revoke_law = investiture_law_0
+						revoke_law = investiture_law_1
+					}						
 				}
 				any_demesne_title = {
 					limit = {
+						higher_tier_than = baron
 						is_primary_holder_title = no
 						is_primary_holder_title_tier = yes
-						lower_tier_than = king
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
+									has_law = feudal_tax_0
+								}
+							}
+							NOT = { has_law = feudal_tax_0 }
+						}
+						add_law = feudal_tax_0
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = feudal_tax_1
+								}
+							}
+							NOT = { has_law = feudal_tax_1 }
+						}
+						add_law = feudal_tax_1
+					}	
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = feudal_tax_2
+								}
+							}
+							NOT = { has_law = feudal_tax_2 }
+						}
+						add_law = feudal_tax_2
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = city_tax_0
+								}
+							}
+							NOT = { has_law = city_tax_0 }
+						}
+						add_law = city_tax_0
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = city_tax_1
+								}
+							}
+							NOT = { has_law = city_tax_1 }
+						}
+						add_law = city_tax_1
+					}	
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = city_tax_2
+								}
+							}
+							NOT = { has_law = city_tax_2 }
+						}
+						add_law = city_tax_2
+					}						
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = temple_tax_0
+								}
+							}
+							NOT = { has_law = temple_tax_0 }
+						}
+						add_law = temple_tax_0
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = temple_tax_1
+								}
+							}
+							NOT = { has_law = temple_tax_1 }
+						}
+						add_law = temple_tax_1
+					}	
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = temple_tax_2
+								}
+							}
+							NOT = { has_law = temple_tax_2 }
+						}
+						add_law = temple_tax_2
+					}	
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = tax_privileges_0
+								}
+							}
+							NOT = { has_law = tax_privileges_0 }
+						}
+						add_law = tax_privileges_0
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = tax_privileges_1
+								}
+							}
+							NOT = { has_law = tax_privileges_1 }
+						}
+						add_law = tax_privileges_1
+					}	
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = tax_privileges_2
+								}
+							}
+							NOT = { has_law = tax_privileges_2 }
+						}
+						add_law = tax_privileges_2
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = levy_privileges_0
+								}
+							}
+							NOT = { has_law = levy_privileges_0 }
+						}
+						add_law = levy_privileges_0
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = levy_privileges_1
+								}
+							}
+							NOT = { has_law = levy_privileges_1 }
+						}
+						add_law = levy_privileges_1
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = council_privileges_0
+								}
+							}
+							NOT = { has_law = council_privileges_0 }
+						}
+						add_law = council_privileges_0
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = council_privileges_1
+								}
+							}
+							NOT = { has_law = council_privileges_1 }
+						}
+						add_law = council_privileges_1
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									lower_tier_than = king
 									has_law = succ_catholic_bishopric
 								}
 							}
@@ -5531,8 +5868,7 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_catholic_bishopric
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
-					}
+					}					
 					if = {
 						limit = {
 							holder_scope = {
@@ -5544,12 +5880,12 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_gavelkind
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
+									lower_tier_than = king
 									has_law = succ_primogeniture
 								}
 							}
@@ -5557,12 +5893,12 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_primogeniture
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
+									lower_tier_than = king
 									has_law = succ_feudal_elective
 								}
 							}
@@ -5570,12 +5906,12 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_feudal_elective
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
+									lower_tier_than = king
 									has_law = succ_seniority
 								}
 							}
@@ -5583,12 +5919,12 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_seniority
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
 					}					
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
+									lower_tier_than = king
 									has_law = succ_turkish_succession
 								}
 							}
@@ -5596,12 +5932,12 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_turkish_succession
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
+									lower_tier_than = king
 									has_law = succ_open_elective
 								}
 							}
@@ -5609,9 +5945,9 @@ decisions = {
 						}
 						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_open_elective
-						holder_scope = { clr_character_flag = no_prestige_loss_on_succ_law }
 					}					
 				}
+				clr_character_flag = no_prestige_loss_on_succ_law
 				if = {
 					limit = {
 						NOT = { check_variable = { which = "dishonorable_reduction" value = 19.5 } }
