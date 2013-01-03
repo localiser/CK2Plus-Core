@@ -7715,7 +7715,14 @@ character_event = {
 						job_spiritual = { remove_title = job_spiritual remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
 					}
 					clr_character_flag = lifetime_appointments
-				}					
+				}
+				if = {
+					limit = { has_character_flag = max_levies }
+					current_heir = {
+						set_character_flag = max_levies
+					}
+					clr_character_flag = max_levies
+				}				
 				if = {
 					limit = { has_character_flag = khan_threatens_player }
 					current_heir = {

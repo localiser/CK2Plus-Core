@@ -182,10 +182,6 @@ laws = {
 			factor = 1		
 			modifier = {
 				factor = 0
-				holder_scope = { NOT = { ruled_years = 10 } }
-			}
-			modifier = {
-				factor = 0
 				holder_scope = {
 					NOT = {
 						OR = { 
@@ -206,10 +202,8 @@ laws = {
 		}
 		effect = {
 			revoke_law = levy_privileges_0
+			holder_scope = { clr_character_flag = max_levies }
 		}
-		city_vassal_min_levy = 0.0
-		castle_vassal_min_levy = 0.0
-		temple_vassal_min_levy = 0.0
 	}	
 	levy_privileges_0 = {
 		group = levy_privileges_group
@@ -257,15 +251,35 @@ laws = {
 		}
 		effect = {
 			revoke_law = levy_privileges_1
-		}
-		city_vassal_min_levy = 1.0
-		castle_vassal_min_levy = 1.0
-		temple_vassal_min_levy = 1.0		
+			holder_scope = { set_character_flag = max_levies }
+		}	
 	}
 
 	# Council Freedom Laws
 	##############################
-	
+
+	council_privileges_1 = {
+		group = council_privileges_group
+		potential = {
+			higher_tier_than = count
+		}
+		allow = {	
+			holder_scope = { war = no }		
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 0			
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			revoke_law = council_privileges_0
+			holder_scope = { set_character_flag = lifetime_appointments }
+		}
+	}	
 	council_privileges_0 = {
 		group = council_privileges_group
 		default = yes		
@@ -314,27 +328,5 @@ laws = {
 		effect = {
 			revoke_law = council_privileges_1
 		}	
-	}
-	council_privileges_1 = {
-		group = council_privileges_group
-		potential = {
-			higher_tier_than = count
-		}
-		allow = {	
-			holder_scope = { war = no }		
-		}
-		revoke_allowed = {
-			always = no
-		}			
-		ai_will_do = {
-			factor = 0			
-		}
-		ai_will_revoke = {
-			factor = 0
-		}
-		effect = {
-			revoke_law = council_privileges_0
-			holder_scope = { set_character_flag = lifetime_appointments }
-		}
 	}	
 }

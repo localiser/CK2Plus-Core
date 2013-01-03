@@ -108,6 +108,20 @@ decisions = {
 						NOT = { has_character_flag = lifetime_appointments }
 					}	
 					set_character_flag = lifetime_appointments	
+				}	
+				if = {
+					limit = {
+						primary_title = { has_law = levy_privileges_1 }
+						has_character_flag = max_levies
+					}	
+					clr_character_flag = max_levies
+				}
+				if = {
+					limit = {
+						primary_title = { has_law = levy_privileges_0 }
+						NOT = { has_character_flag = max_levies }
+					}	
+					set_character_flag = max_levies
 				}				
 				if = {
 					limit = {
@@ -3588,19 +3602,19 @@ decisions = {
 						}						
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = tax_privileges_0 } }
+								liege = { primary_title = { has_law = tax_privileges_2 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_feudal" value = 1.5 } }
 						}
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = tax_privileges_2 } }
+								liege = { primary_title = { has_law = tax_privileges_0 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_feudal" value = -1.5 } }
 						}
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = levy_privileges_2 } }
+								liege = { primary_title = { has_law = levy_privileges_0 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_feudal" value = -2 } }
 						}							
@@ -4734,15 +4748,21 @@ decisions = {
 						}						
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = tax_privileges_0 } }
+								liege = { primary_title = { has_law = tax_privileges_2 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_republican" value = 1.5 } }
 						}
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = tax_privileges_2 } }
+								liege = { primary_title = { has_law = tax_privileges_0 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_republican" value = -1.5 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = levy_privileges_0 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_republican" value = -1 } }
 						}					
 						#relations
 						if = {
@@ -5100,15 +5120,21 @@ decisions = {
 						}						
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = tax_privileges_0 } }
+								liege = { primary_title = { has_law = tax_privileges_2 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_religious" value = 1.5 } }
 						}
 						if = {
 							limit = {
-								liege = { primary_title = { has_law = tax_privileges_2 } }
+								liege = { primary_title = { has_law = tax_privileges_0 } }
 							}
 							liege = { change_variable = { which = "total_faction_mood_religious" value = -1.5 } }
+						}
+						if = {
+							limit = {
+								liege = { primary_title = { has_law = levy_privileges_0 } }
+							}
+							liege = { change_variable = { which = "total_faction_mood_religious" value = -1 } }
 						}						
 						#piety
 						if = {
