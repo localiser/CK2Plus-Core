@@ -94,7 +94,7 @@ decisions = {
 					limit = { trait = immortal2 }
 					remove_trait = immortal2
 					add_trait = immortal
-				}
+				}			
 				if = {
 					limit = {
 						primary_title = { has_law = council_privileges_0 }
@@ -5309,7 +5309,10 @@ decisions = {
 					}					
 				}				
 				#calculate moods
-				any_realm_lord = {	
+				any_realm_lord = {
+					limit = { 
+						higher_tier_than = baron 
+					}				
 					if = {
 						limit = {
 							OR = {
@@ -5632,7 +5635,6 @@ decisions = {
 							}
 							NOT = { has_law = succ_open_elective }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law = succ_open_elective
 					}
 					if = {
@@ -5644,7 +5646,6 @@ decisions = {
 							}
 							NOT = { has_law = succ_catholic_bishopric }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law = succ_catholic_bishopric
 					}
 					if = {
@@ -5656,7 +5657,6 @@ decisions = {
 							}
 							NOT = { has_law = succ_turkish_succession }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law = succ_turkish_succession
 					}					
 					if = {
@@ -5671,7 +5671,6 @@ decisions = {
 							NOT = { has_law = succ_feudal_elective }
 							NOT = { has_law = succ_seniority }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law = succ_primogeniture
 					}
 					if = {
@@ -5704,7 +5703,10 @@ decisions = {
 					limit = {
 						higher_tier_than = baron
 						is_primary_holder_title = no
-						is_primary_holder_title_tier = yes
+						OR = {
+							is_primary_holder_title_tier = yes
+							higher_tier_than = duke
+						}
 					}
 					if = {
 						limit = {
@@ -5886,13 +5888,11 @@ decisions = {
 						limit = {
 							holder_scope = {
 								primary_title = {
-									lower_tier_than = king
 									has_law = succ_catholic_bishopric
 								}
 							}
 							NOT = { has_law = succ_catholic_bishopric }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_catholic_bishopric
 					}					
 					if = {
@@ -5904,76 +5904,97 @@ decisions = {
 							}
 							NOT = { has_law = succ_gavelkind }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_gavelkind
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
-									lower_tier_than = king
 									has_law = succ_primogeniture
 								}
 							}
 							NOT = { has_law = succ_primogeniture }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_primogeniture
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
-									lower_tier_than = king
 									has_law = succ_feudal_elective
 								}
 							}
 							NOT = { has_law = succ_feudal_elective }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_feudal_elective
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
-									lower_tier_than = king
 									has_law = succ_seniority
 								}
 							}
 							NOT = { has_law = succ_seniority }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_seniority
 					}					
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
-									lower_tier_than = king
 									has_law = succ_turkish_succession
 								}
 							}
 							NOT = { has_law = succ_turkish_succession }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_turkish_succession
 					}
 					if = {
 						limit = {
 							holder_scope = {
 								primary_title = {
-									lower_tier_than = king
 									has_law = succ_open_elective
 								}
 							}
 							NOT = { has_law = succ_open_elective }
 						}
-						holder_scope = { set_character_flag = no_prestige_loss_on_succ_law }
 						add_law_w_cooldown = succ_open_elective
-					}					
+					}	
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = cognatic_succession
+								}
+							}
+							NOT = { has_law = cognatic_succession }
+						}
+						add_law_w_cooldown = cognatic_succession
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = true_cognatic_succession
+								}
+							}
+							NOT = { has_law = true_cognatic_succession }
+						}
+						add_law_w_cooldown = true_cognatic_succession
+					}		
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = agnatic_succession
+								}
+							}
+							NOT = { has_law = agnatic_succession }
+						}
+						add_law_w_cooldown = agnatic_succession
+					}							
 				}
-				clr_character_flag = no_prestige_loss_on_succ_law
 				if = {
 					limit = {
 						NOT = { check_variable = { which = "dishonorable_reduction" value = 19.5 } }

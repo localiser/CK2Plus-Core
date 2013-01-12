@@ -29,30 +29,11 @@ job_chancellor = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		if = {
-			limit = {
-				has_opinion_modifier = {
-					who = FROM
-					modifier = opinion_fired_from_council
-				}
-			}
-			remove_opinion = { who = FROM modifier = opinion_fired_from_council }
-			if = {
-				limit = {
-					NOT = {
-						has_opinion_modifier = {
-							who = FROM
-							modifier = opinion_job_security_concerns
-						}				
-					}			
-				}
-				opinion = { who = FROM modifier = opinion_job_security_concerns }
-			}			
-		}		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
-		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
 	}
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
@@ -93,30 +74,11 @@ job_marshal = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		if = {
-			limit = {
-				has_opinion_modifier = {
-					who = FROM
-					modifier = opinion_fired_from_council
-				}
-			}
-			remove_opinion = { who = FROM modifier = opinion_fired_from_council }
-			if = {
-				limit = {
-					NOT = {
-						has_opinion_modifier = {
-							who = FROM
-							modifier = opinion_job_security_concerns
-						}				
-					}			
-				}
-				opinion = { who = FROM modifier = opinion_job_security_concerns }
-			}			
-		}		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
-		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
 	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
@@ -157,30 +119,11 @@ job_treasurer = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		if = {
-			limit = {
-				has_opinion_modifier = {
-					who = FROM
-					modifier = opinion_fired_from_council
-				}
-			}
-			remove_opinion = { who = FROM modifier = opinion_fired_from_council }
-			if = {
-				limit = {
-					NOT = {
-						has_opinion_modifier = {
-							who = FROM
-							modifier = opinion_job_security_concerns
-						}				
-					}			
-				}
-				opinion = { who = FROM modifier = opinion_job_security_concerns }
-			}			
-		}		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
-		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
 	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
@@ -221,30 +164,11 @@ job_spymaster = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		if = {
-			limit = {
-				has_opinion_modifier = {
-					who = FROM
-					modifier = opinion_fired_from_council
-				}
-			}
-			remove_opinion = { who = FROM modifier = opinion_fired_from_council }
-			if = {
-				limit = {
-					NOT = {
-						has_opinion_modifier = {
-							who = FROM
-							modifier = opinion_job_security_concerns
-						}				
-					}			
-				}
-				opinion = { who = FROM modifier = opinion_job_security_concerns }
-			}			
-		}		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
-		hidden_tooltip = { FROM = { NOT = { has_character_flag = lifetime_appointments } } }
+		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
 	}	
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
@@ -290,26 +214,7 @@ job_spiritual = {
 		}
 	}
 	gain_effect = {
-		if = {
-			limit = {
-				has_opinion_modifier = {
-					who = FROM
-					modifier = opinion_fired_from_council
-				}
-			}
-			remove_opinion = { who = FROM modifier = opinion_fired_from_council }
-			if = {
-				limit = {
-					NOT = {
-						has_opinion_modifier = {
-							who = FROM
-							modifier = opinion_job_security_concerns
-						}				
-					}			
-				}
-				opinion = { who = FROM modifier = opinion_job_security_concerns }
-			}			
-		}		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
@@ -317,6 +222,7 @@ job_spiritual = {
 			OR = {
 				FROM = { NOT = { has_character_flag = lifetime_appointments } }
 				NOT = { religion = FROM }
+				trait = incapable
 			}
 		}
 	}	

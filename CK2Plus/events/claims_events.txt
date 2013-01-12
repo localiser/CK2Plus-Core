@@ -13,6 +13,7 @@ character_event = {
 					county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 					any_neighbor_province = {
 						owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
+						has_province_flag = contingent_territory
 					}
 				}
 			}		
@@ -24,18 +25,19 @@ character_event = {
 			chance = 20
 			set_character_flag = duchy_claim
 		}	
+		set_character_flag = claim_by_event
 	}
 		
 	desc = "EVTDESC1500000"
 	
 	mean_time_to_happen = {
-		months = 1000
+		months = 1200
 		modifier = {
 			factor = 0.5
 			independent = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			ai = yes
 		}
 		modifier = {
@@ -87,25 +89,21 @@ character_event = {
 			difficulty = 4
 		}		
 		modifier = {
-			factor = 0.95
+			factor = 0.9
 			realm_diplomacy = 20
 		}
 		modifier = {
-			factor = 0.95
+			factor = 0.9
 			realm_diplomacy = 30
 		}	
 		modifier = {
-			factor = 0.95
+			factor = 0.9
 			realm_diplomacy = 40
 		}
 		modifier = {
-			factor = 0.95
+			factor = 0.9
 			realm_diplomacy = 50
 		}		
-	}
-	
-	immediate = {
-		set_character_flag = claim_by_event
 	}
 
 	option = {
@@ -118,6 +116,7 @@ character_event = {
 						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
 							owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
+							has_province_flag = contingent_territory
 						}
 					}
 				}	
@@ -129,6 +128,7 @@ character_event = {
 						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
 							owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
+							has_province_flag = contingent_territory
 						}
 					}				
 				}

@@ -2819,7 +2819,8 @@ character_event = {
 						NOT = { opinion = { who = PREVPREV value = 0 } }
 					}
 				}
-				num_of_vassals = 1
+				trait = homosexual
+				is_female = no
 			}
 		}
 	}
@@ -2996,7 +2997,6 @@ character_event = {
 						}
 						trait = homosexual
 						is_female = no
-						num_of_vassals = 1
 					}
 					set_character_flag = vicious_rumor
 				}
@@ -3056,16 +3056,6 @@ character_event = {
 			location = {
 				random_province_lord = {
 					limit = {
-						NOT = { is_liege_of = ROOT }
-						NOT = { character = ROOT }
-						ROOT = {
-							liege = {
-								NOT = { opinion = { who = PREVPREV value = 0 } }
-							}
-						}
-						trait = homosexual
-						is_female = no
-						num_of_vassals = 1
 						has_character_flag = vicious_rumor
 					}
 					set_character_flag = vicious_rumor_blackmail
@@ -3090,16 +3080,6 @@ character_event = {
 			location = {
 				random_province_lord = {
 					limit = {
-						NOT = { is_liege_of = ROOT }
-						NOT = { character = ROOT }
-						ROOT = {
-							liege = {
-								NOT = { opinion = { who = PREVPREV value = 0 } }
-							}
-						}
-						trait = homosexual
-						is_female = no
-						num_of_vassals = 1
 						has_character_flag = vicious_rumor
 					}
 					set_character_flag = vicious_rumor_spread
@@ -3123,16 +3103,6 @@ character_event = {
 		hidden_tooltip = {
 			random_province_lord = {
 				limit = {
-					NOT = { is_liege_of = ROOT }
-					NOT = { character = ROOT }
-					ROOT = {
-						liege = {
-							NOT = { opinion = { who = PREVPREV value = 0 } }
-						}
-					}
-					trait = homosexual
-					is_female = no
-					num_of_vassals = 1
 					has_character_flag = vicious_rumor
 				}
 				clr_character_flag = vicious_rumor
@@ -3228,6 +3198,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA20355"
+		piety = -50
 		random_list = {
 			50 = {
 				FROM = {
@@ -3251,6 +3222,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB20355"
+		piety = -50
 		prestige = 25
 		hidden_tooltip = {
 			FROM = {

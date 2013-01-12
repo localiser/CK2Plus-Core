@@ -527,7 +527,8 @@ letter_event = {
 			}
 		}
 		custom_tooltip = FEUDALFACTIONMOODPLUS
-		set_variable = { which = "faction_mood_feudal" value = 5 }		
+		change_variable = { which = "faction_mood_feudal" value = 3 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -1418,10 +1419,19 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 180			
+		months = 180
 		modifier = {
-			factor = 2.0
+			factor = 3.0
 			liege = { 
+				ai = no
+				NOT = { has_character_flag = faction_feudal_unhappy }
+				NOT = { has_character_flag = faction_feudal_angry }
+			}
+		}		
+		modifier = {
+			factor = 10.0
+			liege = { 
+				ai = yes
 				NOT = { has_character_flag = faction_feudal_unhappy }
 				NOT = { has_character_flag = faction_feudal_angry }
 			}
@@ -1525,7 +1535,8 @@ letter_event = {
 			}		
 		}
 		custom_tooltip = FEUDALFACTIONMOODPLUS
-		set_variable = { which = "faction_mood_feudal" value = 3 }		
+		change_variable = { which = "faction_mood_feudal" value = 3 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -1575,7 +1586,7 @@ letter_event = {
 				trait = ambitious
 			}
 			modifier = {
-				factor = 2.0
+				factor = 4.0
 				FROM = {
 					NOT = {
 						OR = {
@@ -1733,7 +1744,8 @@ letter_event = {
 			}			
 		}		
 		custom_tooltip = FEUDALFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_feudal" value = -3 }		
+		change_variable = { which = "faction_mood_feudal" value = -3 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -1810,8 +1822,17 @@ character_event = {
 	mean_time_to_happen = {
 		months = 180
 		modifier = {
-			factor = 2.0
+			factor = 3.0
 			liege = { 
+				ai = no
+				NOT = { has_character_flag = faction_feudal_unhappy }
+				NOT = { has_character_flag = faction_feudal_angry }
+			}
+		}		
+		modifier = {
+			factor = 10.0
+			liege = { 
+				ai = yes
 				NOT = { has_character_flag = faction_feudal_unhappy }
 				NOT = { has_character_flag = faction_feudal_angry }
 			}
@@ -1892,7 +1913,8 @@ letter_event = {
 			add_law_w_cooldown = levy_privileges_1
 		}
 		custom_tooltip = FEUDALFACTIONMOODPLUS
-		set_variable = { which = "faction_mood_feudal" value = 3 }		
+		change_variable = { which = "faction_mood_feudal" value = 3 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -1942,7 +1964,7 @@ letter_event = {
 				trait = ambitious
 			}
 			modifier = {
-				factor = 2.0
+				factor = 4.0
 				FROM = {
 					NOT = {
 						OR = {
@@ -2100,7 +2122,8 @@ letter_event = {
 			}			
 		}		
 		custom_tooltip = FEUDALFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_feudal" value = -3 }		
+		change_variable = { which = "faction_mood_feudal" value = -3 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -2354,8 +2377,17 @@ character_event = {
 	mean_time_to_happen = {
 		months = 180			
 		modifier = {
-			factor = 2.0
+			factor = 3.0
 			liege = { 
+				ai = no
+				NOT = { has_character_flag = faction_feudal_unhappy }
+				NOT = { has_character_flag = faction_feudal_angry }
+			}
+		}		
+		modifier = {
+			factor = 10.0
+			liege = { 
+				ai = yes
 				NOT = { has_character_flag = faction_feudal_unhappy }
 				NOT = { has_character_flag = faction_feudal_angry }
 			}
@@ -2447,7 +2479,8 @@ letter_event = {
 			}		
 		}
 		custom_tooltip = FEUDALFACTIONMOODPLUS
-		set_variable = { which = "faction_mood_feudal" value = 3 }		
+		change_variable = { which = "faction_mood_feudal" value = 3 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -2497,7 +2530,7 @@ letter_event = {
 				trait = ambitious
 			}
 			modifier = {
-				factor = 2.0
+				factor = 4.0
 				FROM = {
 					NOT = {
 						OR = {
@@ -2655,7 +2688,8 @@ letter_event = {
 			}			
 		}		
 		custom_tooltip = FEUDALFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_feudal" value = -3 }		
+		change_variable = { which = "faction_mood_feudal" value = -3 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 

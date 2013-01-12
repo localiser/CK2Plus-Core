@@ -194,6 +194,10 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.33
+			has_ambition = obj_find_lover
+		}		
+		modifier = {
+			factor = 0.33
 			liege = { has_ambition = obj_find_lover }
 		}
 		modifier = {
@@ -720,7 +724,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTB301" # Acknowledge the child
-		piety = -10
+		piety = -5
 		trigger = {
 			FROM = {
 				is_female = no
@@ -740,7 +744,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTC301" # Denounce the child
-		piety = -10
 		
 		FROM = {
 			character_event = { id = 309 tooltip = "EVTTOOLTIP309" } #  The child founds a new "bastard" dynasty
@@ -887,6 +890,8 @@ character_event = {
 
 	option = {
 		name = "OK"
+		culture = FROM
+		religion = FROM
 		dynasty = FROM
 		hidden_tooltip = {
 			if = {
@@ -1130,6 +1135,10 @@ character_event = {
 			factor = 0.5
 			spouse = { has_lover = yes }
 		}
+		modifier = {
+			factor = 0.33
+			has_ambition = obj_find_lover
+		}				
 		modifier = {
 			factor = 0.5
 			NOT = { age = 30 }

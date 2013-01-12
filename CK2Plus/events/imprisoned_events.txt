@@ -167,6 +167,7 @@ character_event = {
 			}
 			banish = yes
 		}
+		clr_character_flag = kidnapped_by_plot
 	}
 }
 
@@ -365,17 +366,9 @@ character_event = {
 	mean_time_to_happen = {
 		months = 24
 		modifier = {
-			factor = 0.5
-			is_ruler = yes
+			factor = 0.1
+			host = { war = no }
 		}		
-		modifier = {
-			factor = 0.5
-			trait = proud
-		}
-		modifier = {
-			factor = 2.0
-			trait = humble
-		}
 	}
 	
 	option = {
@@ -574,7 +567,7 @@ character_event = {
 character_event = {
 	id = 50010
 	desc = "EVTDESC50010"
-	picture = "GFX_evt_torture"
+	picture = "GFX_evt_lovers"
 	
 	min_age = 14
 	only_rulers = yes
@@ -586,12 +579,12 @@ character_event = {
 		NOT = { trait = kind }
 		NOT = { trait = charitable }
 		OR = {
+			trait = paranoid
 			trait = envious
 			trait = wroth
 			trait = arbitrary
 			trait = lunatic
 			trait = possessed
-			trait = paranoid
 			trait = impaler
 			trait = cruel
 		}
@@ -600,6 +593,7 @@ character_event = {
 			prisoner = yes
 			host = { character = ROOT }
 			NOT = { has_character_modifier = house_arrest }
+			NOT = { has_character_flag = tortured2 }
 			OR = {
 				NOT = { has_character_flag = tortured }
 				had_character_flag = {
@@ -640,7 +634,6 @@ character_event = {
 			NOT = {
 				trait = possessed
 				trait = lunatic
-				trait = cruel
 				trait = impaler
 			}
 		}
@@ -677,6 +670,7 @@ character_event = {
 				prisoner = yes
 				host = { character = ROOT }
 				NOT = { has_character_modifier = house_arrest }
+				NOT = { has_character_flag = tortured2 }
 				OR = {
 					NOT = { has_character_flag = tortured }
 					had_character_flag = {

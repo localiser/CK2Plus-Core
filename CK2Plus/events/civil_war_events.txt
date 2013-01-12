@@ -1653,14 +1653,15 @@ character_event = {
 				trait = charitable
 			}
 		}
-		custom_tooltip = CUSTOMTOOLTIP26
 		any_demesne_title = {
 			limit = {
 				tier = count
 			}
 			hidden_tooltip = {
-				remove_province_modifier = tax_privileges
-				remove_province_modifier = tax_reduction			
+				location = {
+					remove_province_modifier = tax_privileges
+					remove_province_modifier = tax_reduction	
+				}
 			}
 			location = {
 				add_province_modifier = {
@@ -1687,15 +1688,18 @@ character_event = {
 						character_event = { id = 2010031 } #notify				
 					}					
 				}
-			}		
-			any_vassal = {
-				limit = {	
-					higher_tier_than = baron
-					OR = {
-						trait = loyalist
-						trait = rebel
-					}
+			}	
+		}		
+		any_vassal = {
+			limit = {	
+				higher_tier_than = baron
+				OR = {
+					trait = loyalist
+					trait = rebel
 				}
+			}
+			custom_tooltip = CUSTOMTOOLTIP39
+			hidden_tooltip = {
 				remove_trait = loyalist
 				remove_trait = rebel
 				any_playable_ruler = {
@@ -1757,7 +1761,12 @@ character_event = {
 				}
 			}	
 		}
-		custom_tooltip = CUSTOMTOOLTIP26
+		if = {
+			limit = {
+				tier = count
+			}
+			prestige = -250
+		}
 		if = {
 			limit = {
 				tier = duke
@@ -1788,15 +1797,18 @@ character_event = {
 					}
 				}
 				character_event = { id = 2010033 } #notify
-			}		
-			any_vassal = {
-				limit = {	
-					higher_tier_than = baron
-					OR = {
-						trait = loyalist
-						trait = rebel
-					}
+			}
+		}
+		any_vassal = {
+			limit = {	
+				higher_tier_than = baron
+				OR = {
+					trait = loyalist
+					trait = rebel
 				}
+			}
+			custom_tooltip = CUSTOMTOOLTIP40
+			hidden_tooltip = {			
 				remove_trait = loyalist
 				remove_trait = rebel
 				any_playable_ruler = {
@@ -1894,10 +1906,12 @@ character_event = {
 			limit = {
 				tier = count
 			}
-			remove_province_modifier = tax_privileges
-			remove_province_modifier = tax_reduction
-		}	
-	}	
+			location = {
+				remove_province_modifier = tax_privileges
+				remove_province_modifier = tax_reduction
+			}	
+		}
+	}
 	
 	option = {
 		name = "EVTOPTA2010031"
@@ -1932,9 +1946,11 @@ character_event = {
 			limit = {
 				tier = count
 			}
-			remove_province_modifier = tax_privileges
-			remove_province_modifier = tax_reduction
-		}	
+			location = {
+				remove_province_modifier = tax_privileges
+				remove_province_modifier = tax_reduction
+			}	
+		}
 	}
 	
 	option = {
@@ -2055,6 +2071,7 @@ character_event = {
 			liege = {
 				change_variable = { which = "faction_mood_feudal" value = -4 }
 				custom_tooltip = FEUDALFACTIONMOODMINUS
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			}
 		}
 		if = {
@@ -2068,6 +2085,7 @@ character_event = {
 			liege = {
 				change_variable = { which = "faction_mood_republican" value = -4 }
 				custom_tooltip = REPUBLICANFACTIONMOODMINUS
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			}
 		}
 		if = {
@@ -2081,6 +2099,7 @@ character_event = {
 			liege = {
 				change_variable = { which = "faction_mood_religious" value = -4 }
 				custom_tooltip = RELIGIOUSFACTIONMOODMINUS
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			}
 		}
 		if = {
@@ -2094,6 +2113,7 @@ character_event = {
 			liege = {
 				change_variable = { which = "faction_mood_court" value = -4 }
 				custom_tooltip = COURTFACTIONMOODMINUS
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			}
 		}		
 	}

@@ -615,17 +615,13 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {	
-		set_character_flag = no_prestige_loss_on_succ_law
 		if = {
 			limit = { check_variable = { which = "succession_law_vote" value = -0.5 } }
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
-					OR = {
-						is_primary_holder_title = yes
-						higher_tier_than = duke
-					}
-				}
+					is_primary_holder_title = yes
+				}			
 				any_de_jure_vassal_title = {
 					limit = {
 						holder_scope = { has_character_flag = vote_is_for_gavelkind }
@@ -634,7 +630,80 @@ character_event = {
 						limit = {
 							PREV = { has_law = succ_feudal_elective }
 						}
-						PREV = { add_law_w_cooldown = succ_gavelkind }
+						PREV = { 
+							hidden_tooltip = { 
+								current_heir = {
+									set_character_flag = old_heir
+								}
+							}							
+							add_law = succ_gavelkind
+							holder_scope = {
+								any_demesne_title = {
+									limit = {
+										is_primary_holder_title = no
+										OR = {
+											is_primary_holder_title_tier = yes
+											higher_tier_than = duke
+										}
+									}
+									add_law = succ_gavelkind
+								}
+							}						
+							holder_scope = {
+								hidden_tooltip = {
+									#old heir is mad
+									any_realm_character = {
+										limit = {
+											has_character_flag = old_heir
+										}
+										opinion = {
+											who = PREV
+											modifier = opinion_bad_succ_law_change
+											months = 240
+										}						
+										clr_character_flag = old_heir
+									}
+									any_independent_ruler = {
+										any_realm_character = {
+											limit = {
+												has_character_flag = old_heir
+											}
+											opinion = {
+												who = PREVÅREV
+												modifier = opinion_bad_succ_law_change
+												months = 240
+											}						
+											clr_character_flag = old_heir
+										}					
+									}			
+									#legitimate children are happy
+									any_child = {
+										limit = { 
+											NOT = { trait = bastard } 
+											NOT = {
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_good_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_bad_succ_law_change
+												}
+											}							
+										}
+										opinion = {
+											who = PREV
+											modifier = opinion_good_succ_law_change
+											months = 240
+										}
+									}
+								}							
+							}
+						}
 					}
 					holder_scope = {
 						if = {
@@ -647,15 +716,12 @@ character_event = {
 						clr_character_flag = voted_on_gavelkind
 						clr_character_flag = vote_is_for_gavelkind
 					}
-				}			
-			}
+				}
+			}		
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
-					OR = {
-						is_primary_holder_title = yes
-						higher_tier_than = duke
-					}					
+					is_primary_holder_title = yes				
 				}
 				any_de_jure_vassal_title = {
 					limit = {
@@ -665,7 +731,80 @@ character_event = {
 						limit = {
 							PREV = { has_law = succ_feudal_elective }
 						}
-						PREV = { add_law_w_cooldown = succ_primogeniture }
+						PREV = {
+							add_law = succ_primogeniture
+							holder_scope = {
+								any_demesne_title = {
+									limit = {
+										is_primary_holder_title = no
+										OR = {
+											is_primary_holder_title_tier = yes
+											higher_tier_than = duke
+										}
+									}
+									add_law = succ_primogeniture
+								}
+							}
+							hidden_tooltip = {
+								current_heir = {
+									set_character_flag = new_heir
+								}	
+							}	
+							holder_scope = {
+								hidden_tooltip = {
+									#new heir is happy
+									any_realm_character = {
+										limit = {
+											has_character_flag = new_heir
+										}
+										opinion = {
+											who = PREV
+											modifier = opinion_good_succ_law_change
+											months = 240
+										}						
+										clr_character_flag = new_heir
+									}
+									any_independent_ruler = {
+										any_realm_character = {
+											limit = {
+												has_character_flag = new_heir
+											}
+											opinion = {
+												who = PREVÅREV
+												modifier = opinion_good_succ_law_change
+												months = 240
+											}						
+											clr_character_flag = new_heir
+										}					
+									}						
+									#legitimate children are angry
+									any_child = {
+										limit = { 
+											NOT = { trait = bastard } 
+											NOT = {
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_good_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_bad_succ_law_change
+												}
+											}							
+										}
+										opinion = {
+											who = PREV
+											modifier = opinion_bad_succ_law_change
+											months = 240
+										}
+									}
+								}							
+							}
+						}
 					}
 					holder_scope = {
 						if = {
@@ -679,14 +818,11 @@ character_event = {
 						clr_character_flag = vote_is_for_primogeniture
 					}
 				}			
-			}
+			}			
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
-					OR = {
-						is_primary_holder_title = yes
-						higher_tier_than = duke
-					}					
+					is_primary_holder_title = yes				
 				}
 				any_de_jure_vassal_title = {
 					limit = {
@@ -696,7 +832,76 @@ character_event = {
 						limit = {
 							PREV = { has_law = succ_feudal_elective }
 						}
-						PREV = { add_law_w_cooldown = succ_seniority }
+						PREV = { 
+							add_law = succ_seniority
+							holder_scope = {
+								any_demesne_title = {
+									limit = {
+										is_primary_holder_title = no
+										OR = {
+											is_primary_holder_title_tier = yes
+											higher_tier_than = duke
+										}
+									}
+									add_law = succ_seniority
+								}
+							}
+							holder_scope = {
+								hidden_tooltip = {	
+									#legitimate children are angry
+									any_child = {
+										limit = { 
+											dynasty = PREV
+											NOT = { trait = bastard } 
+											NOT = {
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_good_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_bad_succ_law_change
+												}
+											}							
+										}
+										opinion = {
+											who = PREV
+											modifier = opinion_bad_succ_law_change
+											months = 240
+										}
+									}
+									#dynasty members are pleased
+									any_realm_character = {
+										limit = { 
+											dynasty = PREV
+											NOT = {
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_good_succ_law_change
+												}
+												has_opinion_modifier = {
+													who = PREV
+													modifier = opinion_bad_succ_law_change
+												}
+											}
+										}
+										opinion = {
+											who = PREV
+											modifier = opinion_good_succ_law_change
+											months = 240
+										}
+									}
+								}							
+							}
+						}
 					}
 					holder_scope = {
 						if = {
@@ -717,10 +922,7 @@ character_event = {
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
-					OR = {
-						is_primary_holder_title = yes
-						higher_tier_than = duke
-					}					
+					is_primary_holder_title = yes				
 				}
 				any_de_jure_vassal_title = {
 					limit = {
@@ -742,10 +944,7 @@ character_event = {
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
-					OR = {
-						is_primary_holder_title = yes
-						higher_tier_than = duke
-					}					
+					is_primary_holder_title = yes					
 				}
 				any_de_jure_vassal_title = {
 					limit = {
@@ -767,10 +966,7 @@ character_event = {
 			any_demesne_title = {
 				limit = {
 					has_law = succ_feudal_elective
-					OR = {
-						is_primary_holder_title = yes
-						higher_tier_than = duke
-					}					
+					is_primary_holder_title = yes				
 				}
 				any_de_jure_vassal_title = {
 					limit = {
@@ -790,7 +986,6 @@ character_event = {
 				}			
 			}			
 		}
-		clr_character_flag = no_prestige_loss_on_succ_law
 	}
 
 	option = {

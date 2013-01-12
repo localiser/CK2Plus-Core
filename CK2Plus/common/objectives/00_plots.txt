@@ -31,6 +31,7 @@ plot_discredit_councillor = {
 			has_job_title = job_marshal
 			has_job_title = job_spiritual
 		}
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 	}
 	
@@ -610,6 +611,19 @@ plot_embezzle_from_liege = {
 		modifier = {
 			factor = 0.25
 			FROM = { is_ruler = yes }
+		}	
+		modifier = {
+			factor = 0
+			FROM = { 
+				ai = yes 
+				opinion = { who = ROOT value = 0 } 
+				NOT = {
+					OR = {
+						trait = greedy
+						trait = envious
+					}
+				}
+			}
 		}		
 		modifier = {
 			factor = 0
@@ -630,6 +644,17 @@ plot_embezzle_from_liege = {
 		modifier = {
 			factor = 2.0
 			FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
+		}
+		modifier = {
+			factor = 2.0
+			FROM = {
+				OR = {
+					has_ambition = obj_amass_wealth_1
+					has_ambition = obj_amass_wealth_2
+					has_ambition = obj_amass_wealth_3
+					has_ambition = obj_amass_wealth_4
+				}
+			}
 		}
 		modifier = {
 			factor = 2.0
@@ -972,6 +997,10 @@ plot_instigate_revolt = {
 		}
 		modifier = {
 			factor = 0
+			FROM = { ai = yes lower_tier_than = count }
+		}			
+		modifier = {
+			factor = 0
 			FROM = { ai = no opinion = { who = ROOT value = -50 } }
 		}		
 		modifier = {
@@ -1214,6 +1243,10 @@ plot_fabricate_treason = {
 			factor = 100.0
 			FROM = { ai = no }
 		}
+		modifier = {
+			factor = 0
+			FROM = { ai = yes lower_tier_than = count }
+		}			
 		modifier = {
 			factor = 0
 			FROM = { ai = no opinion = { who = ROOT value = -50 } }
@@ -1468,6 +1501,10 @@ plot_fabricate_heresy = {
 			factor = 100.0
 			FROM = { ai = no }
 		}
+		modifier = {
+			factor = 0
+			FROM = { ai = yes lower_tier_than = count }
+		}			
 		modifier = {
 			factor = 0
 			FROM = { ai = no opinion = { who = ROOT value = -50 } }

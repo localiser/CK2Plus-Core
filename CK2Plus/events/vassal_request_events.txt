@@ -1095,19 +1095,11 @@ character_event = {
 			any_demesne_title = {
 				has_de_jure_pretension = ROOT
 				can_be_given_away = yes
-				lower_tier_than = PREV
-				NOT = { tier = king }
+				tier = count
 				NOT = {
 					holder_scope = {
 						capital_scope = {
 							county = {
-								title = PREVPREVPREV
-							}
-						}
-					}
-					holder_scope = {
-						any_demesne_title = {
-							duchy = {
 								title = PREVPREVPREV
 							}
 						}
@@ -1223,21 +1215,13 @@ letter_event = {
 		FROM = { clr_character_flag = requested_de_jure_title }
 		random_demesne_title = {
 			limit = {
-				has_de_jure_pretension = FROM
-				can_be_given_away = yes		
-				lower_tier_than = ROOT
-				NOT = { tier = king }
+				has_de_jure_pretension = ROOT
+				can_be_given_away = yes
+				tier = count
 				NOT = {
 					holder_scope = {
 						capital_scope = {
 							county = {
-								title = PREVPREVPREV
-							}
-						}
-					}
-					holder_scope = {
-						any_demesne_title = {
-							duchy = {
 								title = PREVPREVPREV
 							}
 						}

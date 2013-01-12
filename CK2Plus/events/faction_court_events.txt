@@ -891,8 +891,17 @@ character_event = {
 	mean_time_to_happen = {
 		months = 90
 		modifier = {
-			factor = 2.0
+			factor = 3.0
 			liege = { 
+				ai = no
+				NOT = { has_character_flag = faction_court_unhappy }
+				NOT = { has_character_flag = faction_court_angry }
+			} 
+		}		
+		modifier = {
+			factor = 10.0
+			liege = { 
+				ai = yes
 				NOT = { has_character_flag = faction_court_unhappy }
 				NOT = { has_character_flag = faction_court_angry }
 			} 
@@ -939,7 +948,7 @@ letter_event = {
 	option = {
 		name = "EVTDEMANDYES"
 		ai_chance = {
-			factor = 50
+			factor = 25
 			modifier = {
 				factor = 1.25
 				trait = weak
@@ -973,7 +982,8 @@ letter_event = {
 			add_law_w_cooldown = council_privileges_1
 		}
 		custom_tooltip = COURTFACTIONMOODPLUS
-		set_variable = { which = "faction_mood_court" value = 3 }		
+		change_variable = { which = "faction_mood_court" value = 3 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { 
@@ -993,7 +1003,7 @@ letter_event = {
 	option = {
 		name = "EVTDEMANDNO"
 		ai_chance = {
-			factor = 50
+			factor = 75
 			modifier = {
 				factor = 1.25
 				trait = strong
@@ -1023,7 +1033,7 @@ letter_event = {
 				trait = ambitious
 			}
 			modifier = {
-				factor = 2.0
+				factor = 4.0
 				FROM = {
 					NOT = {
 						OR = {
@@ -1056,7 +1066,7 @@ letter_event = {
 				}
 			}
 			modifier = {
-				factor = 0.75
+				factor = 0.5
 				FROM = {
 					OR = {
 						AND = {
@@ -1087,7 +1097,7 @@ letter_event = {
 				}
 			}			
 			modifier = {
-				factor = 0.75
+				factor = 0.5
 				FROM = {
 					OR = {
 						AND = {
@@ -1118,7 +1128,7 @@ letter_event = {
 				}
 			}
 			modifier = {
-				factor = 0.75
+				factor = 0.5
 				FROM = {
 					OR = {
 						AND = {
@@ -1149,7 +1159,7 @@ letter_event = {
 				}
 			}
 			modifier = {
-				factor = 0.75
+				factor = 0.5
 				FROM = {
 					OR = {
 						AND = {

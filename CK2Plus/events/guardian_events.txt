@@ -3991,6 +3991,40 @@ character_event = {
 	
 	trigger = {
 		has_guardian = yes
+		NOT = {
+			AND = {
+				guardian = {
+					culture = saxon
+					location = {
+						kingdom = {
+							title = k_england
+						}	
+					}
+				}
+				OR = {
+					culture_group = north_germanic
+					culture = norman
+					culture = frankish
+					culture = occitan
+				}					
+			}
+		}			
+		NOT = {	
+			AND = {
+				guardian = {
+					location = {
+						kingdom = {
+							title = k_sicily
+						}
+					}
+				}
+				OR = {
+					culture = greek
+					culture = maghreb_arabic
+					culture = norman
+				}	
+			}
+		}		
 		guardian = { 
 			NOT = { culture = ROOT }
 			location = { culture = PREV }

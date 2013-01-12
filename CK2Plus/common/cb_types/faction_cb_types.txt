@@ -218,6 +218,8 @@ lower_crown_authority_law = {
 				}				
 			}	
 		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 	}
 
 	on_success_title = {
@@ -475,6 +477,8 @@ lower_crown_authority_law = {
 		hidden_tooltip = {
 			FROM = { character_event = { id = 2010030 } }				
 		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }		
 	}
 
 	attacker_ai_victory_worth = {
@@ -1578,7 +1582,9 @@ claim_on_liege_plot = {
 				set_variable = { which = "faction_mood_republican" value = 0 }
 			}
 			ROOT = { character_event = { id = 2010030 } }	
-		}	
+		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }	
 	}
 
 	on_fail = {
@@ -1807,6 +1813,8 @@ claim_on_liege_plot = {
 		hidden_tooltip = {
 			FROM = { character_event = { id = 2010030 } } 			
 		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }		
 	}
 	
 	on_reverse_demand_title = {
@@ -2139,6 +2147,8 @@ other_claim_on_liege_plot = {
 			}
 			ROOT = { character_event = { id = 2010030 } }	
 		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }		
 	}
 
 	on_fail = {
@@ -2394,6 +2404,8 @@ other_claim_on_liege_plot = {
 		hidden_tooltip = {
 			FROM = { character_event = { id = 2010030 } }				
 		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }		
 	}
 	
 	on_reverse_demand_title = {
@@ -2485,7 +2497,28 @@ cb_faction_overthrow_ruler = {
 					}	
 				}
 			}
-		}	
+		}
+		hidden_tooltip = {
+			any_attacker = {
+				limit = { 
+					FROM = {
+						OR = {
+							age = 16 
+							AND = {
+								ROOT = { is_feudal = no }
+								FROM = { is_feudal = yes }
+							}
+							AND = {
+								ROOT = { is_feudal = yes }
+								FROM = { is_feudal = no }
+							}						
+						}	
+					}
+					trait = rebel 
+				}
+				remove_trait = rebel
+			}		
+		}
 		FROM = {
 			prestige = -500
 			remove_opinion = {
@@ -2507,10 +2540,6 @@ cb_faction_overthrow_ruler = {
 					}
 				}
 				hidden_tooltip = {
-					any_attacker = {
-						limit = { trait = rebel }
-						remove_trait = rebel
-					}
 					any_vassal = {
 						limit = { trait = loyalist }
 						remove_trait = loyalist
@@ -2616,6 +2645,17 @@ cb_faction_overthrow_ruler = {
 					usurp_title_plus_barony_if_unlanded = ROOT				
 				}
 			}
+			hidden_tooltip = {
+				FROM = { 
+					set_defacto_liege = ROOT 
+					any_vassal = {
+						limit = {
+							NOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
+						}
+						set_defacto_liege = ROOT 
+					}
+				}
+			}			
 			hidden_tooltip = {
 				if = {
 					limit = {
@@ -2787,7 +2827,9 @@ cb_faction_overthrow_ruler = {
 					}				
 				}				
 			}	
-		}		
+		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }		
 	}
 
 	on_fail = {
@@ -3023,6 +3065,8 @@ cb_faction_overthrow_ruler = {
 		hidden_tooltip = {
 			FROM = { character_event = { id = 2010030 } }			
 		}
+		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }		
 	}
 
 	attacker_ai_victory_worth = {

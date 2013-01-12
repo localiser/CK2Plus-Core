@@ -1907,9 +1907,45 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA39252" 
+		name = "EVTOPTA39252"
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}			
+			modifier = {
+				factor = 2
+				opinion = {
+					who = FROM
+					value = -25
+				}
+			}
+		}
 		FROM = {
-			character_event = { id = 39253 days = 3 random = 7 tooltip = "EVTTOOLTIP39253" }
+			character_event = { id = 39253 days = 3 random = 7 }
+		}
+	}
+	option = {
+		name = "EVTOPTB39252"
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					opinion = {
+						who = FROM
+						value = -50
+					}
+				}
+			}		
+		}
+		FROM = {
+			character_event = { id = 39254 days = 3 random = 7 }
 		}
 	}
 }
@@ -1925,93 +1961,8 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA39253"
-		trigger = {
-			reverse_opinion = { who = FROM value = 75 }
-		}
-		if = {
-			limit = { piety = 500 }
-			scaled_wealth = -1.9
-			excommunicate = no
-		}
-		if = {
-			limit = { NOT = { piety = 500 } }
-			scaled_wealth = -2.0
-			excommunicate = no
-		}
-		FROM = {
-			opinion = {
-				who = ROOT
-				modifier = opinion_repented_sins
-				years = 10
-			}
-		}
-		clr_character_flag  = ask_for_repentance	
-	}
-	option = {
-		name = "EVTOPTA39253"
-		trigger = {
-			NOT = { reverse_opinion = { who = FROM value = 75 } }
-			reverse_opinion = { who = FROM value = 0 }
-		}
-		if = {
-			limit = { piety = 400 }
-			scaled_wealth = -2.15
-			excommunicate = no
-		}
-		if = {
-			limit = { NOT = { piety = 400 } }
-			scaled_wealth = -2.25
-			excommunicate = no
-		}
-		FROM = {
-			opinion = {
-				who = ROOT
-				modifier = opinion_repented_sins
-				years = 10
-			}
-		}
-		clr_character_flag  = ask_for_repentance	
-	}
-	option = {
-		name = "EVTOPTA39253"
-		trigger = {
-			NOT = { reverse_opinion = { who = FROM value = 0 } }
-			reverse_opinion = { who = FROM value = -75 }
-		}
-		if = {
-			limit = { piety = 400 }
-			scaled_wealth = -2.4
-			excommunicate = no
-		}
-		if = {
-			limit = { NOT = { piety = 400 } }
-			scaled_wealth = -2.5
-			excommunicate = no
-		}
-		FROM = {
-			opinion = {
-				who = ROOT
-				modifier = opinion_repented_sins
-				years = 10
-			}
-		}
-		clr_character_flag  = ask_for_repentance	
-	}
-	option = {
-		name = "EVTOPTA39253"
-		trigger = {
-			NOT = { reverse_opinion = { who = FROM value = -75 } }
-		}
-		if = {
-			limit = { piety = 400 }
-			scaled_wealth = -2.65
-			excommunicate = no
-		}
-		if = {
-			limit = { NOT = { piety = 400 } }
-			scaled_wealth = -2.75
-			excommunicate = no
-		}
+		scaled_wealth = -2.0
+		excommunicate = no
 		FROM = {
 			opinion = {
 				who = ROOT
@@ -2032,6 +1983,20 @@ character_event = {
 			}
 		}
 		clr_character_flag  = ask_for_repentance	
+	}
+}
+
+#Character does not get approval
+character_event = {
+	id = 39254
+	desc = "EVTDESC39254"
+	picture = GFX_evt_pope
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA39254"
 	}
 }
 

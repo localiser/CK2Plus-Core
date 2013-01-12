@@ -272,7 +272,7 @@ NCharacter = {
 	NEED_GUARDIAN_AT_AGE = 6, -- The age at which children should be appointed a mentor/guardian
 	ASSIGN_ACTION_DAYS = 30, -- Days before a Councillor can be assigned a new job in a county
 	MARRIAGE_TIER_DIFF_PRESTIGE_MULT = 25, 	-- Prestige multiplier from marrying below or above your rank.
-	RAISED_TROOPS_VASSAL_OPINION_DAYS = 73,		-- After 73 days of having their troops raised, vassals will get -1 opinion more of you
+	RAISED_TROOPS_VASSAL_OPINION_DAYS = 36,		-- After 36 days of having their troops raised, vassals will get -1 opinion more of you
 	MAX_GENERATED_TRAITS_FOR_HISTORICAL = 3,		-- Generate random traits up this number for adult historical characters
 	MUSLIM_NUM_WIVES_MONTHLY_PRESTIGE = 0.4,		-- The prestige effect from each extra or lacking expected wife
 	INBRED_TRAIT_CHANCE_FACTOR = 1.0,				-- Inbreeding: Multiplier to the base chance
@@ -429,7 +429,7 @@ NDecadence = {
 },
 
 NMilitary = {
-	RETINUE_RATIO_PER_TECH = 0.05,
+	RETINUE_RATIO_PER_TECH = 0.025,
 	RETINUE_RATIO_BASE = 0.1,
 	CONTROLLER_MONTHS_BEFORE_OWNER_CHANGE = 120,	-- Number of months before ownership change of province, for certain cb:s that have contested titles
 	TROOPAMOUNT_PER_LEVY_SIZE = 150,				-- Multiplier for units
@@ -616,7 +616,7 @@ NMilitary = {
 },
 
 NTechnology = {
-	BASE_TECH_GROWTH_CHANCE = 0.022, --Base chance of a progress ( 1/10 of a level ) increase
+	BASE_TECH_GROWTH_CHANCE = 0.03, --Base chance of a progress ( 1/10 of a level ) increase
 	BASE_NEIGHBOUR_SPREAD_BONUS = 0.15, --bonus for each neighbour with the tech
 	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0, --multiplier to the above bonus if neighbour is of your religious group
 	BASE_DEMESNE_SPREAD_BONUS = 0.25, --bonus for each other province in demesne with the tech

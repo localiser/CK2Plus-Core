@@ -1684,6 +1684,13 @@ invasion = {
 				ROOT = { add_character_modifier = { name = "holy_truce_timer" duration = 3650 }	}
 			}
 		}
+		if = {
+			limit = {
+				higher_tier_than = BARON
+				NOT = { culture = ROOT }
+			}
+			hidden_tooltip = { conquest_culture = ROOT }
+		}
 	}
 
 	on_fail = {
@@ -1957,6 +1964,7 @@ crusade = {
 	check_de_jure_tier = KING # this scans all de jure kingdoms for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
 
 	can_use = {	
+		ROOT = { demesne_size = 1 }
 		OR = {
 			year = 1166
 			NOT = { has_global_flag = shattered_world }
@@ -2111,7 +2119,25 @@ crusade = {
 			if = {
 				limit = { OR = { religion = shiite year = 1350 has_global_flag = fourth_crusade_begin ai = no } }
 				piety = -500
-			}		
+			}				
+		}
+		clr_global_flag = fourth_crusade_begin
+	}
+	
+	on_add_title = {
+		if = {
+			limit = {
+				AND = {
+					ROOT = { religion = shiite }
+					title = k_sicily
+				}
+			}
+			set_global_flag = sicilian_jihad
+		}	
+	}
+
+	on_success_title = {
+		ROOT = {
 			if = {
 				limit = {
 					ai = no
@@ -2133,22 +2159,6 @@ crusade = {
 				}					
 			}			
 		}
-		clr_global_flag = fourth_crusade_begin
-	}
-	
-	on_add_title = {
-		if = {
-			limit = {
-				AND = {
-					ROOT = { religion = shiite }
-					title = k_sicily
-				}
-			}
-			set_global_flag = sicilian_jihad
-		}	
-	}
-
-	on_success_title = {
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -2217,6 +2227,24 @@ crusade = {
 					}				
 				}
 			}
+			hidden_tooltip = { 
+				most_participating_attacker = {
+					set_character_flag = crusade_victor
+				}			
+				any_attacker = {
+					limit = {
+						NOT = { has_character_flag = crusade_victor }
+						is_feudal = yes
+						higher_tier_than = baron
+						demesne_size = 1	
+						NOT = { religion_group = muslim }
+					}
+					character_event = { id = 1008901 }
+				}			
+				most_participating_attacker = {
+					clr_character_flag = crusade_victor
+				}
+			}			
 			most_participating_attacker = {
 				add_character_modifier = { name = victory_timer duration = 3 hidden = yes }				
 				any_demesne_title = {
@@ -2228,7 +2256,15 @@ crusade = {
 					title = PREV
 					enemy = FROM
 				}				
-				hidden_tooltip = { character_event = { id = 1008900 } }			
+				hidden_tooltip = { 
+					character_event = { id = 1008900 } 				
+				}	
+				if = {
+					limit = {
+						NOT = { culture = PREV }
+					}
+					hidden_tooltip = { PREV = { conquest_culture = THIS } }
+				}				
 			}
 		}
 		
@@ -2238,15 +2274,17 @@ crusade = {
 			participation_scaled_prestige = 500
 			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 2 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		any_attacker = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { 
 				participation_scaled_piety = 1000
-				participation_scaled_prestige = 500			
+				participation_scaled_prestige = 500	
+				custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_religious" value = 2 }	
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			}
-			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 2 }
 		}
 		
 		FROM = {
@@ -2269,10 +2307,33 @@ crusade = {
 				FROM = { is_heretic = no }
 			}
 			FROM = { religion_authority = -0.1 }
-		}		
+		}
+		hidden_tooltip = { FROM = { character_event = { id = 110033 } } }
 	}
 
 	on_fail = {
+		ROOT = {
+			if = {
+				limit = {
+					ai = no
+				}
+				add_character_modifier = {
+					name = "crusade_timer"
+					duration = 7300
+					hidden = yes
+				}					
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_character_modifier = {
+					name = "crusade_timer"
+					duration = -1
+					hidden = yes
+				}					
+			}			
+		}	
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -2293,16 +2354,40 @@ crusade = {
 			participation_scaled_piety = 200
 			custom_tooltip = RELIGIOUSFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_religious" value = -2 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 100 participation_scaled_piety = 200 }
 			custom_tooltip = RELIGIOUSFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_religious" value = -2 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}	
 	}
 
 	on_reverse_demand = {
+		ROOT = {
+			if = {
+				limit = {
+					ai = no
+				}
+				add_character_modifier = {
+					name = "crusade_timer"
+					duration = 7300
+					hidden = yes
+				}					
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_character_modifier = {
+					name = "crusade_timer"
+					duration = -1
+					hidden = yes
+				}					
+			}			
+		}	
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
 			if = {
@@ -2769,8 +2854,8 @@ holy_war = {
 	}
 	
 	on_success = {
-		ROOT = { custom_tooltip = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } }
-		FROM = { custom_tooltip = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } }
+		ROOT = { custom_tooltip = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		FROM = { custom_tooltip = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }	
 		any_attacker = {
 			limit = { character = ROOT }
@@ -2847,8 +2932,8 @@ holy_war = {
 	}
 
 	on_reverse_demand = {
-		ROOT = { custom_tooltip = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } }
-		FROM = { custom_tooltip = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } }
+		ROOT = { custom_tooltip = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		FROM = { custom_tooltip = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			piety = -200
@@ -2930,6 +3015,18 @@ excommunicated_ruler = {
 		}
 		FROM = {
 			excommunicated_for = ROOT
+		}
+		FROM = {
+			OR = {
+				ai = no
+				NOT = { trait = cynical }
+			}
+			OR = {
+				ai = no
+				trait = zealous
+				piety = 250
+				NOT = { opinion = { who = ROOT value = -50 } }
+			}
 		}
 	}
 

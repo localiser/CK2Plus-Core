@@ -22,7 +22,6 @@ character_event = {
 	option = {
 		name = "OK"
 		set_global_flag = gender_equality
-		set_character_flag = no_prestige_loss_on_succ_law
 		any_demesne_title = {
 			add_law = true_cognatic_succession
 		}
@@ -53,12 +52,10 @@ character_event = {
 				modifier = succ_law_change
 				who = liege
 			}			
-		}		
-		clr_character_flag = no_prestige_loss_on_succ_law		
+		}			
 		any_independent_ruler = {
 			if = {
 				limit = { NOT = { religion_group = muslim } }
-				set_character_flag = no_prestige_loss_on_succ_law
 				any_demesne_title = {
 					add_law = true_cognatic_succession
 				}
@@ -89,13 +86,11 @@ character_event = {
 						modifier = succ_law_change
 						who = liege
 					}			
-				}
-				clr_character_flag = no_prestige_loss_on_succ_law	
+				}	
 			}	
 			any_realm_lord = {
 				if = {
 					limit = { NOT = { religion_group = muslim } }
-					set_character_flag = no_prestige_loss_on_succ_law
 					any_demesne_title = {
 						add_law = true_cognatic_succession
 					}
@@ -127,7 +122,6 @@ character_event = {
 							who = liege
 						}			
 					}
-					clr_character_flag = no_prestige_loss_on_succ_law	
 				}
 		}
 	}

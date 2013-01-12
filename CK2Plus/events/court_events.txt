@@ -124,7 +124,8 @@ character_event = {
 			hidden_tooltip = { character_event = { id = 38261 }  }
 		}
 		custom_tooltip = COURTFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_court" value = 1 }		
+		change_variable = { which = "faction_mood_court" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 	option = {
 		name = "EVTOPTB73000" #Ignore him
@@ -147,7 +148,8 @@ character_event = {
 			hidden_tooltip = { character_event = { id = 38260 }  }
 		}
 		custom_tooltip = COURTFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_court" value = -1 }			
+		change_variable = { which = "faction_mood_court" value = -1 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 }	
 
@@ -304,7 +306,8 @@ character_event = {
 		wealth = -25
 		piety = 10
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 1 }		
+		change_variable = { which = "faction_mood_religious" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 	option = {
 		name = "EVTOPTB73002" # If the Church wants it, the Church pays for it
@@ -321,6 +324,7 @@ character_event = {
 		}
 		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
 		change_variable = { which = "faction_mood_religious" value = -1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 }	
 
@@ -459,7 +463,8 @@ character_event = {
 		wealth = -10
 		prestige = 10
 		custom_tooltip = COURTFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_court" value = 0.5 }			
+		change_variable = { which = "faction_mood_court" value = 0.5 }		
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 	option = {
 		name = "EVTOPTB73004" #This is a waste of money
@@ -594,13 +599,15 @@ character_event = {
 			piety = -5
 		}
 		custom_tooltip = COURTFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_court" value = 1 }			
+		change_variable = { which = "faction_mood_court" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 	option = {
 		name = "EVTOPTB73005" #There are better ways of spending the taxes
 		piety = 10	
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 1 }			
+		change_variable = { which = "faction_mood_religious" value = 1 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 }	
 
@@ -1246,7 +1253,8 @@ character_event = {
 	prisoner = no
 	min_age = 16
 	
-	trigger = {
+	trigger = {	
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		liege = { religion_group = ROOT }
 		NOT = { has_character_flag = ask_not_council }
@@ -1423,6 +1431,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		NOT = { liege = { spouse = { character = ROOT } } }
 		NOT = { has_job_title = job_marshal }
@@ -1523,6 +1532,7 @@ character_event = {
 	min_age = 16
 	
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		liege = { religion_group = ROOT }
 		NOT = { has_character_flag = ask_not_council }
@@ -1709,6 +1719,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		NOT = { liege = { spouse = { character = ROOT } } }
 		NOT = { has_job_title = job_spymaster }
@@ -1808,6 +1819,7 @@ character_event = {
 	min_age = 16
 	
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		liege = { religion_group = ROOT }
 		NOT = { has_character_flag = ask_not_council }
@@ -1989,6 +2001,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		NOT = { liege = { spouse = { character = ROOT } } }
 		NOT = { has_job_title = job_treasurer }
@@ -2088,6 +2101,7 @@ character_event = {
 	min_age = 16
 	
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		liege = { religion_group = ROOT }
 		NOT = { has_character_flag = ask_not_council }
@@ -2275,6 +2289,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		NOT = { liege = { spouse = { character = ROOT } } }
 		NOT = { has_job_title = job_spiritual }
@@ -2375,6 +2390,7 @@ character_event = {
 	min_age = 16
 	
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		liege = { religion_group = ROOT }
 		NOT = { has_character_flag = ask_not_council }
@@ -2548,6 +2564,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		liege = { NOT = { has_character_flag = lifetime_appointments } }
 		liege = { primary_title = { NOT = { has_law = council_privileges_1 } } }
 		NOT = { liege = { spouse = { character = ROOT } } }
 		NOT = { has_job_title = job_chancellor }

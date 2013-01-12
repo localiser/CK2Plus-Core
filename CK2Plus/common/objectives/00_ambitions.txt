@@ -697,6 +697,7 @@ obj_amass_wealth_1 = {
 		set_character_flag = obj_amass_wealth
 		custom_tooltip = REPUBLICANFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_republican" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 }
 
@@ -766,6 +767,7 @@ obj_amass_wealth_2 = {
 		set_character_flag = obj_amass_wealth
 		custom_tooltip = REPUBLICANFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_republican" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 }
 
@@ -835,6 +837,7 @@ obj_amass_wealth_3 = {
 		set_character_flag = obj_amass_wealth
 		custom_tooltip = REPUBLICANFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_republican" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 }
 
@@ -902,6 +905,7 @@ obj_amass_wealth_4 = {
 		set_character_flag = obj_amass_wealth
 		custom_tooltip = REPUBLICANFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_republican" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 }
 
@@ -962,6 +966,7 @@ obj_become_paragon_of_virtue = {
 		piety = 100
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_religious" value = 5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				has_nickname = no
@@ -1058,6 +1063,7 @@ obj_become_exalted_1 = {
 		custom_tooltip = FEUDALFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 2 }
 		change_variable = { which = "faction_mood_feudal" value = 2 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				has_nickname = no
@@ -1145,7 +1151,8 @@ obj_become_exalted_2 = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		custom_tooltip = FEUDALFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 2 }
-		change_variable = { which = "faction_mood_feudal" value = 2 }		
+		change_variable = { which = "faction_mood_feudal" value = 2 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		if = {
 			limit = {
 				has_nickname = no
@@ -1233,7 +1240,8 @@ obj_become_exalted_3 = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		custom_tooltip = FEUDALFACTIONMOODPLUS		
 		change_variable = { which = "faction_mood_court" value = 2 }
-		change_variable = { which = "faction_mood_feudal" value = 2 }		
+		change_variable = { which = "faction_mood_feudal" value = 2 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		if = {
 			limit = {
 				has_nickname = no
@@ -1319,7 +1327,8 @@ obj_become_exalted_4 = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		custom_tooltip = FEUDALFACTIONMOODPLUS		
 		change_variable = { which = "faction_mood_court" value = 2 }
-		change_variable = { which = "faction_mood_feudal" value = 2 }		
+		change_variable = { which = "faction_mood_feudal" value = 2 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				has_nickname = no
@@ -1432,6 +1441,7 @@ obj_get_married = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = { NOT = { has_character_flag = obj_get_married } }
 			piety = 25
@@ -1638,6 +1648,7 @@ obj_have_a_daughter = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = { NOT = { has_character_flag = obj_have_child_1 } }
 			piety = 25
@@ -1715,6 +1726,7 @@ obj_have_a_son = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = { NOT = { has_character_flag = obj_have_child_2 } }
 			prestige = 50
@@ -1961,8 +1973,10 @@ obj_find_lover = {
 		prisoner = no
 		age = 16
 		is_priest = no
-		is_ruler = yes
-		demesne_size = 1
+		OR = {
+			is_ruler = no
+			demesne_size = 1
+		}
 		has_lover = no
 		NOT = { has_landed_title = e_papal_state }
 		NOT = { trait = celibate }
@@ -1974,7 +1988,50 @@ obj_find_lover = {
 		}
 	}
 	chance = {
-		factor = 100		
+		factor = 100
+		modifier = {
+			factor = 0.5
+			is_ruler = no
+		}
+		modifier = {
+			factor = 2.0
+			spouse = {
+				age = 40
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			spouse = {
+				NOT = { age = 30 }
+			}
+		}			
+		modifier = {
+			factor = 0.5
+			spouse = {
+				reverse_opinion = {
+					who = ROOT
+					value = 25
+				}
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			spouse = {
+				reverse_opinion = {
+					who = ROOT
+					value = 50
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			spouse = {
+				reverse_opinion = {
+					who = ROOT
+					value = 75
+				}
+			}
+		}		
 		modifier = {
 			factor = 0.1
 			trait = chaste
@@ -2144,6 +2201,7 @@ obj_five_children = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				religion_group = muslim
@@ -2228,6 +2286,7 @@ obj_ten_children = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				religion_group = muslim
@@ -2312,6 +2371,7 @@ obj_fifteen_children = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				religion_group = muslim
@@ -2396,6 +2456,7 @@ obj_twenty_children = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				has_nickname = no
@@ -3365,6 +3426,7 @@ obj_go_crusade = {
 	effect = {
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_religious" value = 1 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		piety = 100
 		set_character_flag = obj_go_crusade
 	}
@@ -3456,7 +3518,8 @@ obj_go_jihad = {
 	}
 	effect = {
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 1 }	
+		change_variable = { which = "faction_mood_religious" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		piety = 100
 		set_character_flag = obj_go_crusade
 	}
@@ -3573,7 +3636,8 @@ obj_win_a_war = {
 	}
 	effect = {
 		custom_tooltip = FEUDALFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_feudal" value = 1 }	
+		change_variable = { which = "faction_mood_feudal" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = { NOT = { has_character_flag = obj_win_a_war } }
 			change_martial = 1
@@ -3660,7 +3724,8 @@ obj_convert_a_province = {
 	}
 	effect = {
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 1 }	
+		change_variable = { which = "faction_mood_religious" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = { NOT = { has_character_flag = obj_convert_a_province } }
 			change_learning = 1
@@ -3726,6 +3791,7 @@ obj_adopt_a_lifestyle = {
 	effect = {
 		custom_tooltip = COURTFACTIONMOODPLUS
 		change_variable = { which = "faction_mood_court" value = 0.5 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		prestige = 50
 		set_character_flag = obj_adopt_a_lifestyle
 	}
@@ -4584,7 +4650,8 @@ obj_befriend_relhead = {
 	}
 	effect = {
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 1 }	
+		change_variable = { which = "faction_mood_religious" value = 1 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		religion_head = {
 			hidden_tooltip = {
 				remove_opinion = {

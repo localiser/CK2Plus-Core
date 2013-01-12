@@ -19,7 +19,6 @@ amateurish_plotter = { #1
 	
 	ai_ambition = 10
 	ai_rationality = -10
-	ai_honor = -10
 }
 flamboyant_schemer = { #2 
 	education = yes
@@ -31,7 +30,6 @@ flamboyant_schemer = { #2
 	
 	ai_ambition = 10
 	ai_rationality = -10
-	ai_honor = -10
 }
 intricate_webweaver = { #3
 	education = yes
@@ -43,7 +41,6 @@ intricate_webweaver = { #3
 
 	ai_ambition = 20
 	ai_rationality = -20
-	ai_honor = -20
 }
 elusive_shadow = { #4
 	education = yes
@@ -55,7 +52,6 @@ elusive_shadow = { #4
 
 	ai_ambition = 20
 	ai_rationality = -20
-	ai_honor = -20
 }
 
 # DIPLOMACY OUTCOMES
@@ -66,6 +62,7 @@ naive_appeaser = { #5
 	martial = -1
 	
 	ai_ambition = -10
+	ai_zeal = -10
 }
 underhanded_rogue = { #6
 	education = yes
@@ -76,6 +73,7 @@ underhanded_rogue = { #6
 	martial = -1
 	
 	ai_ambition = -10
+	ai_zeal = -10
 }
 charismatic_negotiator = { #7
 	education = yes
@@ -86,6 +84,7 @@ charismatic_negotiator = { #7
 	martial = -1
 	
 	ai_ambition = -20
+	ai_zeal = -20
 }
 grey_eminence = { #8
 	education = yes
@@ -96,6 +95,7 @@ grey_eminence = { #8
 	martial = -1
 	
 	ai_ambition = -20
+	ai_zeal = -20
 }
 
 # STEWARDSHIP OUTCOMES
@@ -105,6 +105,7 @@ indulgent_wastrel = { #9
 	stewardship = 1
 	diplomacy = -1
 	
+	ai_rationality = -10
 	ai_zeal = -10
 }
 thrifty_clerk = { #10
@@ -115,6 +116,7 @@ thrifty_clerk = { #10
 	learning = 1	
 	diplomacy = -1
 	
+	ai_rationality = -10
 	ai_zeal = -10
 }
 fortune_builder = { #11	
@@ -125,6 +127,7 @@ fortune_builder = { #11
 	learning = 2
 	diplomacy = -1
 	
+	ai_rationality = -20
 	ai_zeal = -20
 }
 midas_touched = { #12
@@ -135,6 +138,7 @@ midas_touched = { #12
 	learning = 3
 	diplomacy = -1
 	
+	ai_rationality = -20
 	ai_zeal = -20
 }
 
@@ -156,7 +160,7 @@ tough_soldier = { #14
 	stewardship = 1	
 	learning = -1
 	
-	ai_rationality = 25
+	ai_rationality = -25
 	ai_ambition = 10
 }
 skilled_tactician = { #15
@@ -355,20 +359,12 @@ leper = { #28
 wounded = { #29
 	is_health = yes
 	
-	opposites =  {
-		maimed
-	}
-	
 	martial = -2
 	health = -2
 	customizer = no
 }
 maimed = { #30
 	is_health = yes
-	
-	opposites =  {
-		wounded
-	}
 	
 	sex_appeal_opinion = -10
 	
@@ -777,7 +773,7 @@ hedonist = { #64
 	
 	church_opinion = -10
 	
-	monthly_character_piety = -0.25
+	monthly_character_piety = -0.10
 }
 scholar = { #65
 	lifestyle = yes
@@ -818,6 +814,7 @@ impaler = { #68
 	same_opinion = 10
 	
 	ai_honor = -15
+	monthly_character_piety = -0.25
 }
 duelist = { #69
 	lifestyle = yes

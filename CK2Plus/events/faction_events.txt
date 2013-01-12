@@ -770,25 +770,25 @@ character_event = {
 	mean_time_to_happen = {
 		months = 240
 		modifier = {
-			factor = 0.9
-			realm_diplomacy = 10
+			factor = 2.00
+			NOT = { diplomacy = 5 }
 		}
 		modifier = {
-			factor = 0.9
-			realm_diplomacy = 20
+			factor = 0.75
+			diplomacy = 10
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 15
 		}	
 		modifier = {
-			factor = 0.9
-			realm_diplomacy = 30
+			factor = 0.75
+			diplomacy = 20
 		}
 		modifier = {
-			factor = 0.9
-			realm_diplomacy = 40
-		}		
-		modifier = {
-			factor = 0.9
-			realm_diplomacy = 50
-		}		
+			factor = 0.75
+			diplomacy = 25
+		}				
 	}
 	
 	desc = "EVTDESC1900500"
@@ -836,6 +836,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_feudal" value = 2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = FEUDALFACTIONMOODPLUS
 			}
 		}
@@ -849,6 +850,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_republican" value = 2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = REPUBLICANFACTIONMOODPLUS
 			}
 		}
@@ -862,6 +864,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_religious" value = 2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = RELIGIOUSFACTIONMOODPLUS
 			}
 		}
@@ -875,6 +878,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_court" value = 2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = COURTFACTIONMOODPLUS
 			}
 		}	
@@ -937,6 +941,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_feudal" value = -2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = FEUDALFACTIONMOODMINUS
 			}
 		}
@@ -950,6 +955,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_republican" value = -2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = REPUBLICANFACTIONMOODMINUS
 			}
 		}
@@ -963,6 +969,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_religious" value = -2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = RELIGIOUSFACTIONMOODMINUS
 			}
 		}
@@ -976,6 +983,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_court" value = -2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				custom_tooltip = COURTFACTIONMOODMINUS
 			}
 		}
@@ -1146,7 +1154,23 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 		modifier = {
-			factor = 0.5
+			factor = 100.0
+			liege = {
+				OR = {
+					has_landed_title = e_il-khanate
+					has_landed_title = e_golden_horde
+				}
+				religion_group = eastern_pagan
+			}
+		}		
+		modifier = {
+			factor = 0.75
+			liege = {
+				NOT = { religion_group = christian }
+			}
+		}
+		modifier = {
+			factor = 0.33
 			OR = {
 				AND = {
 					OR = {
@@ -1199,7 +1223,7 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 1.5
+			factor = 2.0
 			OR = {
 				leads_faction = faction_religious_emperor
 				leads_faction = faction_religious_king
@@ -1588,6 +1612,11 @@ character_event = {
 		NOT = { has_character_flag = faction_court_supporter }
 		NOT = { has_character_flag = faction_republican_supporter }
 		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}
 		liege = { higher_tier_than = duke }	
 		is_feudal = yes
 	}
@@ -1597,9 +1626,13 @@ character_event = {
 	mean_time_to_happen = {
 		months = 6	
 		modifier = {
-			factor = 1.25
+			factor = 1.15
 			always = yes
 		}
+		modifier = {
+			factor = 1.25
+			religion_group = muslim
+		}		
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -1680,6 +1713,11 @@ character_event = {
 		NOT = { has_character_flag = faction_court_supporter }
 		NOT = { has_character_flag = faction_republican_supporter }
 		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}		
 		liege = { higher_tier_than = count }
 		is_republic = yes		
 	}
@@ -1689,7 +1727,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 6
 		modifier = {
-			factor = 0.33
+			factor = 0.1
 			always = yes
 		}
 		modifier = {
@@ -1760,6 +1798,11 @@ character_event = {
 		NOT = { has_character_flag = faction_court_supporter }
 		NOT = { has_character_flag = faction_republican_supporter }
 		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}		
 		liege = { higher_tier_than = count }		
 	}
 	
@@ -2000,6 +2043,11 @@ character_event = {
 		NOT = { has_character_flag = faction_court_supporter }
 		NOT = { has_character_flag = faction_republican_supporter }
 		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}		
 		liege = { higher_tier_than = count }
 	}
 	
@@ -2008,7 +2056,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 6	
 		modifier = {
-			factor = 1.5
+			factor = 1.33
 			always = yes
 		}
 		modifier = {
@@ -2183,6 +2231,12 @@ character_event = {
 			factor = 2
 			age = 50
 		}	
+		modifier = {
+			factor = 0.01
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}
 		modifier = {
 			factor = 0.01
 			has_character_flag = faction_feudal_supporter

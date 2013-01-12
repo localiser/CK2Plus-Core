@@ -352,7 +352,8 @@ character_event = {
 		clr_character_flag = loan_taken
 		clr_character_flag = loan_heir
 		custom_tooltip = REPUBLICANFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_republican" value = -5 }			
+		change_variable = { which = "faction_mood_republican" value = -5 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}	
 }
 
@@ -742,7 +743,8 @@ character_event = {
 		clr_character_flag = loan_taken
 		clr_character_flag = loan_in_progress
 		custom_tooltip = REPUBLICANFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_republican" value = -5 }			
+		change_variable = { which = "faction_mood_republican" value = -5 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 }
 
@@ -792,6 +794,8 @@ character_event = {
 			opinion = {
 				modifier = got_money_request
 				who = ROOT
+				years = 10
+				multiplier = 3
 			}
 			set_character_flag = large_payment_from_vassal
 			character_event = { id = 38011 days = 1 tooltip = EVTTOOLTIP38013 }
@@ -824,6 +828,7 @@ character_event = {
 			opinion = {
 				modifier = got_money_request
 				who = ROOT
+				years = 10
 			}
 			set_character_flag = medium_payment_from_vassal
 			character_event = { id = 38011 days = 1 tooltip = EVTTOOLTIP38012 }
@@ -872,19 +877,19 @@ character_event = {
 			factor = 1
 			modifier = {
 				factor = 1.5
-				opinion = { who = from value =  25 }
+				opinion = { who = from value = 25 }
 			}
 			modifier = {
 				factor = 2
-				opinion = { who = from value =  50 }
+				opinion = { who = from value = 50 }
 			}
 			modifier = {
 				factor = 3
-				opinion = { who = from value =  75 }
+				opinion = { who = from value = 75 }
 			}
 			modifier = {
 				factor = 0
-				NOT = { opinion = { who = from value =  0 } }
+				NOT = { opinion = { who = from value = 0 } }
 			}
 		}
 		if = {
@@ -919,7 +924,7 @@ character_event = {
 			}
 			modifier = {
 				factor = 0
-				opinion = { who = from value =  90 }
+				opinion = { who = from value = 90 }
 			}
 		}
 		clr_character_flag = small_payment_from_vassal
@@ -929,6 +934,7 @@ character_event = {
 		reverse_opinion = {
 			modifier = refused_money_request
 			who = FROM
+			years = 10
 		}		
 		hidden_tooltip = {
 			FROM = { character_event = { id = 38014 days = 1 } }
@@ -947,7 +953,7 @@ character_event = {
 	
 	option = {
 		name = "OK"
-		prestige = -1
+		prestige = -25
 	}
 }
 
@@ -984,7 +990,6 @@ character_event = {
 			clr_character_flag = medium_payment_from_vassal
 			clr_character_flag = large_payment_from_vassal
 		}
-		prestige = 1
 	}
 	
 }
@@ -1051,7 +1056,8 @@ character_event = {
 		add_trait = cruel
 		set_character_flag = stolen_church_properties
 		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_religious" value = -5 }		
+		change_variable = { which = "faction_mood_religious" value = -5 }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 	option = {
 		name = "EVTOPTB38020" # Time are harsh, force them to share the costs !
@@ -1067,7 +1073,8 @@ character_event = {
 		}
 		set_character_flag = stolen_church_properties
 		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_religious" value = -2 }			
+		change_variable = { which = "faction_mood_religious" value = -2 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 	option = {
 		name = "EVTOPTC38020" # Compromise with them to find money !
@@ -1086,7 +1093,8 @@ character_event = {
 		}
 		set_character_flag = stolen_church_properties
 		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 2 }		
+		change_variable = { which = "faction_mood_religious" value = 2 }
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 	}
 }
 

@@ -12,16 +12,17 @@ decisions = {
 				tier = king
 				tier = emperor 
 			}
+			NOT = { has_character_modifier = holding_epic_tournament }			
 		}
 		allow = {
 			war = no
 			age = 16
+			ruled_years = 5
 			prestige = 500
 			wealth = 200
 			NOT = { has_character_modifier = holding_large_feast }
 			NOT = { has_character_modifier = holding_summer_fair }
 			NOT = { has_character_modifier = holding_grand_hunt }	
-			NOT = { has_character_modifier = holding_epic_tournament }
 		}
 		effect = {
 			set_character_flag = epic_tournament
@@ -83,7 +84,8 @@ decisions = {
 			treasury = -50
 			piety = 25
 			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 1 }				
+			change_variable = { which = "faction_mood_religious" value = 1 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			rightful_religious_head_scope = {
 				opinion = {
 					who = ROOT
@@ -164,7 +166,8 @@ decisions = {
 			treasury = -50
 			piety = 25
 			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 1 }			
+			change_variable = { which = "faction_mood_religious" value = 1 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			rightful_religious_head_scope = {
 				opinion = {
 					who = ROOT
@@ -251,6 +254,7 @@ decisions = {
 			piety = 25
 			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			rightful_religious_head_scope = {
 				opinion = {
 					who = ROOT
@@ -313,7 +317,13 @@ decisions = {
 			religion = catholic
 			age = 16
 			demesne_size = 1
-			NOT = { has_character_flag = ask_for_repentance }
+			OR = {
+				NOT = { has_character_flag = ask_for_repentance }
+				had_character_flag = {
+					flag = ask_for_repentance
+					days = 1825
+				}
+			}
 			rightful_religious_head_scope = {
 				ROOT = {
 					excommunicated_for = PREV
@@ -343,7 +353,8 @@ decisions = {
 	
 	demand_liege_title = {
 		is_high_prio = yes
-		potential = {
+		potential = {		
+			always = no #obsolete
 			NOT = { has_character_flag = requested_de_jure_title }
 			liege = {
 				NOT = { character = ROOT }
@@ -358,13 +369,11 @@ decisions = {
 					has_de_jure_pretension = ROOT
 					can_be_given_away = yes
 					NOT = {
-						any_demesne_title = {
-							capital_scope = {
-								duchy = {
-									title = PREVPREVPREV
-								}
+						holder_scope = {
+							any_demesne_province = {
+								duchy = { title = PREVPREVPREV }
 							}
-						}				
+						}
 					}					
 				}				
 			}
@@ -372,9 +381,9 @@ decisions = {
 			prisoner = no
 			is_playable = yes
 			tier = count
-			NOT = { trait = incapable }
+			NOT = { trait = incapable }				
 		}
-		allow = {
+		allow = {	
 			liege = {
 				opinion = {
 					who = ROOT
@@ -403,16 +412,15 @@ decisions = {
 				tier = king
 				tier = emperor 
 			}
-			NOT = { has_character_modifier = holding_large_feast }
-			NOT = { has_character_modifier = holding_summer_fair }
-			NOT = { has_character_modifier = holding_grand_hunt }	
 			NOT = { has_character_modifier = holding_epic_tournament }			
 		}
 		allow = {
 			war = no
 			age = 16
+			ruled_years = 5
 			prestige = 500
 			wealth = 200
+			NOT = { has_character_modifier = holding_grand_hunt }	
 		}
 		effect = {
 			set_character_flag = epic_tournament_furusiyya
