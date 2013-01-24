@@ -854,23 +854,6 @@ k_gondar = {
 k_hammadid = {
 	color = { 149 180 17 }
 }
-k_hansa = {
-	color={ 225 225 225 }
-	dignity = 100
-	short_name = yes
-	allow = {
-		lower_tier_than = king
-		OR = {
-			AND = {
-				is_republic = yes
-				culture = german
-			}
-			k_hansa = { OR = { is_titular = no has_holder = yes } }
-		}
-		has_global_flag = shattered_world
-	}
-	capital = 261
-}
 k_holland = {
 	color = { 156  96  100 }
 	culture = dutch
@@ -1195,6 +1178,49 @@ k_venice = {
 	color = { 54  167  156 }
 	capital = 356 # Venice
 	culture = italian
+	
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_venice = { OR = { is_titular = no has_holder = yes } }
+		}	
+	}
+	gain_effect = {
+		hidden_tooltip = {
+			character_event = { id = 110029 }
+		}
+	}
+}
+k_genoa = {
+	color={ 234 131 110 }
+	capital = 233 # Genoa
+	culture = italian
+	
+	dignity = 200 # Never want the Republic of Genoa to change primary title
+	
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_venice = { OR = { is_titular = no has_holder = yes } }
+		}	
+	}
+	gain_effect = {
+		hidden_tooltip = {
+			character_event = { id = 110029 }
+		}
+	}
+}
+
+k_pisa = {
+	color={ 196 192 140 }
+	color2={ 255 255 255 }
+	
+	capital = 327 # Pisa
+	culture = italian
+	
+	dignity = 200 # Never want the Republic of Pisa to change primary title
 	
 	allow = {
 		war = no

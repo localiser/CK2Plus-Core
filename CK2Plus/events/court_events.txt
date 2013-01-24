@@ -1269,7 +1269,10 @@ character_event = {
 		is_councillor = no
 		NOT = { liege = { has_character_flag = no_council_requests } }
 		NOT = { liege = { has_character_flag = asked_marshal_petition } }
-		NOT = { has_character_flag = asked_for_job }
+		OR = {
+			NOT = { has_character_flag = asked_for_job }
+			liege = { ai = yes }
+		}
 		liege = {
 			NOT = { character = ROOT }
 			job_marshal = {
@@ -1555,7 +1558,10 @@ character_event = {
 		is_councillor = no
 		NOT = { liege = { has_character_flag = no_council_requests } }
 		NOT = { liege = { has_character_flag = asked_spymaster_petition } }
-		NOT = { has_character_flag = asked_for_job }
+		OR = {
+			NOT = { has_character_flag = asked_for_job }
+			liege = { ai = yes }
+		}
 		liege = {
 			NOT = { character = ROOT }
 			job_spymaster = {
@@ -1842,7 +1848,10 @@ character_event = {
 		is_councillor = no
 		NOT = { liege = { has_character_flag = no_council_requests } }
 		NOT = { liege = { has_character_flag = asked_treasurer_petition } }
-		NOT = { has_character_flag = asked_for_job }
+		OR = {
+			NOT = { has_character_flag = asked_for_job }
+			liege = { ai = yes }
+		}
 		liege = {
 			NOT = { character = ROOT }
 			job_treasurer = {
@@ -2116,7 +2125,10 @@ character_event = {
 		is_councillor = no
 		NOT = { liege = { has_character_flag = no_council_requests } }
 		NOT = { liege = { has_character_flag = asked_lord_spiritual_petition } }
-		NOT = { has_character_flag = asked_for_job }
+		OR = {
+			NOT = { has_character_flag = asked_for_job }
+			liege = { ai = yes }
+		}
 		liege = {
 			NOT = { character = ROOT }
 			job_spiritual = {
@@ -2405,7 +2417,10 @@ character_event = {
 		is_councillor = no
 		NOT = { liege = { has_character_flag = no_council_requests } }
 		NOT = { liege = { has_character_flag = asked_chancellor_petition } }
-		NOT = { has_character_flag = asked_for_job }
+		OR = {
+			NOT = { has_character_flag = asked_for_job }
+			liege = { ai = yes }
+		}
 		liege = {
 			NOT = { character = ROOT }
 			job_chancellor = {

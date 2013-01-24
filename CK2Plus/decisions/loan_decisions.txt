@@ -4,7 +4,7 @@ decisions = {
 			ai = no
 			is_ruler = yes
 			NOT = { has_landed_title = e_mexikha }
-			primary_title = { higher_tier_than = BARON }
+			OR = { higher_tier_than = baron is_patrician = yes }
 			NOT = { has_character_flag = offended_moneylenders }
 			NOT = { has_character_flag = loan_taken }
 			NOT = { has_character_modifier = loan_timer }
@@ -268,7 +268,7 @@ decisions = {
 			ai = yes
 			is_ruler = yes
 			NOT = { has_landed_title = e_mexikha }
-			higher_tier_than = BARON
+			OR = { higher_tier_than = baron is_patrician = yes }
 			NOT = { check_variable = { which = "loan_amount" value = 49.5 } }
 			difficulty = 2 #ai won't take loans on low difficulties
 		}
@@ -488,7 +488,7 @@ decisions = {
 			is_ruler = yes
 			prisoner = no
 			war = no
-			higher_tier_than = BARON
+			OR = { higher_tier_than = baron is_patrician = yes }
 			check_variable = { which = "loan_amount" value = 49.5 }
 		}
 		allow = { 

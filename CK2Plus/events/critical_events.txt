@@ -123,6 +123,26 @@ character_event = {
 			remove_trait = depressed
 		}	
 	}
+	option = {
+		name = "EVTOPTB6502"
+		add_trait = cruel
+		if = {
+			limit = {
+				NOT = {
+					trait = maimed
+				}
+			}
+			random = {
+				chance = 25
+				add_trait = maimed
+				hidden_tooltip = {
+					character_event = {
+						id = 38281 #Notify Maimed
+					}
+				}
+			}
+		}
+	}
 }
 
 #Bohemian Rhapsody - only for the king of Bohemia

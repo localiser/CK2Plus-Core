@@ -182,6 +182,21 @@ opinion_non_divine_marriage = {
 	opinion = -5
 }
 
+# In Merchant Republics, Patricians expect to be on the Council
+opinion_patrician_wo_council_position = {
+	opinion = -20
+}
+
+# Patricians of one Merchant Republic hate those in another
+opinion_rival_republic = {
+	opinion = -75
+}
+
+# Feudal lords married to familymembers of patricians get this bonus towards the patrician
+opinion_royal_marriage = {
+	opinion = 30
+}
+
 ###########
 # TIMED
 ###########
@@ -234,7 +249,13 @@ broke_truce = {
 
 honored_alliance = {
 	opinion = 25
-	months = 60
+	months = 90
+}
+
+# For balance reasons, rulers who honor your calls will dislike you more afterward
+called_into_war = {
+	opinion = -25
+	months = 90
 }
 
 joined_my_war = {
@@ -539,6 +560,11 @@ OFFER_MARRIGE_INTERACTION_ON_ACCEPT = {
 
 opinion_fired_from_council = {
 	opinion = -20
+	months = 120
+}
+
+opinion_granted_independence = {
+	opinion = 50
 	months = 120
 }
 
@@ -1900,11 +1926,6 @@ opinion_issued_fatwa = {
 	months = 36
 }
 
-opinion_granted_independence = {
-	opinion = 50
-	months = 120
-}
-
 opinion_triumph_held = {
 	opinion = 20
 	months = 36
@@ -1959,6 +1980,42 @@ opinion_tzykanion_neg = {
 	opinion = -15
 	months = 24
 }
+
+opinion_feuding_family = {
+	opinion = -70
+	months = 1200	# For life
+}
+
+opinion_feuding_family_light = {
+	opinion = -40
+	months = 1200	# For life
+}
+
+opinion_seized_tp = {
+	opinion = -25
+	months = 60
+}
+
+opinion_bribed_tp = {
+	opinion = 25
+	months = 120
+}
+
+opinion_thwarted_tp_destruction = {
+	opinion = -10
+	months = 120
+}
+
+opinion_burned_tp = {
+	opinion = -25
+	months = 120
+}
+
+opinion_burned_tp_despite_bribe = {
+	opinion = -50
+	months = 120
+}
+
 
 ###########################################
 # Fake opinions to designate plot targets #

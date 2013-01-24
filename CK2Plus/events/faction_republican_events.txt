@@ -1785,6 +1785,7 @@ character_event = {
 			leads_faction = faction_republican_king
 			leads_faction = faction_republican_duke						
 		}
+		liege = { is_republic = no }
 		OR = {
 			AND = {
 				leads_faction = faction_republican_emperor
@@ -2479,3 +2480,177 @@ character_event = {
 	}
 }
 
+# republican faction - declare war to depose liege
+character_event = {
+	id = 1902064
+	picture = "GFX_evt_council"
+
+	trigger = {
+		OR = {
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke						
+		}
+		liege = { is_republic = yes }
+		OR = {
+			AND = {
+				leads_faction = faction_republican_emperor
+				faction_power = 
+				{
+					faction = faction_republican_emperor
+					power = 0.75
+				}	
+			}
+			AND = {
+				leads_faction = faction_republican_king
+				faction_power = 
+				{
+					faction = faction_republican_king
+					power = 0.75
+				}	
+			}
+			AND = {
+				leads_faction = faction_republican_duke
+				faction_power = 
+				{
+					faction = faction_republican_duke
+					power = 0.75
+				}	
+			}			
+		}
+		liege = { 
+			NOT = {
+				has_character_flag = faction_republican_war
+				has_character_flag = faction_court_war
+				has_character_flag = faction_religious_war
+				has_character_flag = faction_republican_war
+				has_character_flag = faction_separatist_war
+				has_character_flag = faction_pretender_war				
+			}
+		}
+		liege = { has_character_flag = faction_republican_angry }
+		liege = {
+			OR = {
+				NOT = { has_character_flag = faction_republican_event }
+				had_character_flag = {
+					flag = faction_republican_event
+					days = 730
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 5.0
+			liege = {
+				any_war = {
+					defender = {
+						character = PREVPREV
+					}
+				}
+			}
+		}		
+	}
+	
+	desc = "EVTDESC1902064"
+	
+	option = {
+		name = "EVTOPTA1902064"
+		liege = {
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_republican_emperor }
+				}
+				hidden_tooltip = {	
+					ROOT = {
+						add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }	
+						any_faction_backer = {
+							faction = faction_republican_emperor
+							add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }					
+						}
+					}	
+				}				
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_overthrow_ruler
+					faction = faction_republican_emperor
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_republican_king }
+				}
+				hidden_tooltip = {	
+					ROOT = {
+						add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }	
+						any_faction_backer = {
+							faction = faction_republican_king
+							add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }					
+						}
+					}	
+				}					
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_overthrow_ruler
+					faction = faction_republican_king
+				}
+			}	
+			if = {
+				limit = {
+					ROOT = { leads_faction = faction_republican_duke }
+				}
+				hidden_tooltip = {	
+					ROOT = {
+						add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }	
+						any_faction_backer = {
+							faction = faction_republican_duke
+							add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } }					
+						}
+					}	
+				}					
+				reverse_war = {
+					target = ROOT
+					casus_belli = cb_faction_overthrow_ruler
+					faction = faction_republican_duke
+				}
+			}				
+			set_character_flag = faction_republican_war			
+			#anyone else can join
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_feudal_emperor
+							leads_faction = faction_feudal_king
+							leads_faction = faction_feudal_duke					
+						}
+					}
+					character_event = { id = 2000000 }
+				}			
+				any_vassal = {
+					limit = { 
+						OR = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke					
+						}
+					}
+					character_event = { id = 2000010 }
+				}							
+				any_vassal = {
+					limit = {
+						OR = {
+							leads_faction = faction_religious_emperor
+							leads_faction = faction_religious_king
+							leads_faction = faction_religious_duke					
+						}
+					}
+					character_event = { id = 2000020 }
+				}
+				any_vassal = { character_event = { id = 2000040 } }
+			}
+		}	
+	}
+}

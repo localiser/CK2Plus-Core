@@ -8,6 +8,7 @@ character_event = {
 		war = no
 		NOT = { has_character_flag = pogrom }
 		OR = {
+			is_patrician = yes
 			NOT = { tier = baron }
 			NOT = { liege = { has_character_flag = pogrom } }
 		}
@@ -34,52 +35,52 @@ character_event = {
 		months = 1200
 		modifier = {
 			factor = 2
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = zealous		
 		}
 		modifier = {
 			factor = 1.5
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = cruel	
 		}	
 		modifier = {
 			factor = 1.5
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = arbitrary		
 		}
 		modifier = {
 			factor = 0.75
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = just		
 		}
 		modifier = {
 			factor = 0.75
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = charitable		
 		}
 		modifier = {
 			factor = 2
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = zealous }		
 		}
 		modifier = {
 			factor = 1.5
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = cruel }
 		}	
 		modifier = {
 			factor = 1.5
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = arbitrary }		
 		}
 		modifier = {
 			factor = 0.75
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = just }		
 		}
 		modifier = {
 			factor = 0.75
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = charitable }	
 		}		
 		modifier = {
@@ -131,7 +132,7 @@ character_event = {
 					limit = {
 						has_building = ct_jewish_community_3
 					}
-					e_papal_state = {
+					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 1 } }
 					}
 				}
@@ -244,52 +245,52 @@ character_event = {
 		months = 1000
 		modifier = {
 			factor = 2
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = zealous		
 		}
 		modifier = {
 			factor = 1.5
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = cruel	
 		}	
 		modifier = {
 			factor = 1.5
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = arbitrary		
 		}
 		modifier = {
 			factor = 0.75
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = just		
 		}
 		modifier = {
 			factor = 0.75
-			higher_tier_than = baron
+			OR = { higher_tier_than = baron is_patrician = yes }
 			trait = charitable		
 		}
 		modifier = {
 			factor = 2
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = zealous }		
 		}
 		modifier = {
 			factor = 1.5
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = cruel }
 		}	
 		modifier = {
 			factor = 1.5
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = arbitrary }		
 		}
 		modifier = {
 			factor = 0.75
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = just }		
 		}
 		modifier = {
 			factor = 0.75
-			tier = baron
+			tier = baron is_patrician = no
 			liege = { trait = charitable }	
 		}		
 		modifier = {
@@ -450,14 +451,14 @@ character_event = {
 	
 	trigger = {
 		war = no
-		higher_tier_than = BARON
+		OR = { higher_tier_than = baron is_patrician = yes }
 		OR = {
 			religion_group = christian
 			religion_group = muslim
 			religion_group = pagan_group
 			religion_group = eastern_pagan
 		}
-		e_papal_state = {
+		k_papal_state = {
 			holder_scope = { check_variable = { which = "jewish_refugees" value = 0.5 } }
 		}		
 		NOT = { has_character_flag = pogrom }
@@ -475,6 +476,7 @@ character_event = {
 			}
 			any_vassal = {
 				tier = baron
+				is_patrician = no
 				any_demesne_title = {
 					tier = baron
 					has_building = ct_wall_1
@@ -572,6 +574,7 @@ character_event = {
 				}	
 				any_vassal = {
 					tier = baron
+					is_patrician = no
 					any_demesne_title = {
 						tier = baron
 						has_building = ct_jewish_community_1
@@ -583,7 +586,7 @@ character_event = {
 	
 	immediate = {
 		hidden_tooltip = {
-			e_papal_state = {
+			k_papal_state = {
 				holder_scope = { change_variable = { which = "jewish_refugees" value = -1 } }
 			}			
 		}	
@@ -666,6 +669,7 @@ character_event = {
 			random_vassal = {
 				limit = {
 					tier = baron
+					is_patrician = no
 					any_demesne_title = {
 						tier = baron
 						has_building = ct_wall_1
@@ -747,7 +751,7 @@ character_event = {
 		hidden_tooltip = {
 			random = {
 				chance = 75
-				e_papal_state = {
+				k_papal_state = {
 					holder_scope = { change_variable = { which = "jewish_refugees" value = 1 } }
 				}	
 			}
@@ -774,7 +778,7 @@ character_event = {
 			remove_building = ct_jewish_community_3
 			FROM = { piety = -30 wealth = 150 }
 			hidden_tooltip = {
-				e_papal_state = {
+				k_papal_state = {
 					holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 				}
 			}				
@@ -787,7 +791,7 @@ character_event = {
 			remove_building = ct_jewish_community_2
 			FROM = { piety = -20 wealth = 100 }
 			hidden_tooltip = {
-				e_papal_state = {
+				k_papal_state = {
 					holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 				}
 			}				
@@ -801,7 +805,7 @@ character_event = {
 			remove_building = ct_jewish_community_1
 			FROM = { piety = -10 wealth = 50 }
 			hidden_tooltip = {
-				e_papal_state = {
+				k_papal_state = {
 					holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 				}
 			}				
@@ -824,7 +828,7 @@ character_event = {
 				remove_building = ct_jewish_community_3
 				FROM = { piety = -30 wealth = 150 }
 				hidden_tooltip = {
-					e_papal_state = {
+					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 					}
 				}				
@@ -837,7 +841,7 @@ character_event = {
 				remove_building = ct_jewish_community_2
 				FROM = { piety = -20 wealth = 100 }
 				hidden_tooltip = {
-					e_papal_state = {
+					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 					}
 				}
@@ -851,7 +855,7 @@ character_event = {
 				remove_building = ct_jewish_community_1
 				FROM = { piety = -10 wealth = 50 }
 				hidden_tooltip = {
-					e_papal_state = {
+					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 					}
 				}				

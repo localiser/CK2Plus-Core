@@ -12,7 +12,7 @@ action_improve_relations = {
 	
 	trigger = {
 		any_province_lord = {
-			higher_tier_than = BARON
+			OR = { higher_tier_than = baron is_patrician = yes }
 			is_theocracy = no
 			NOT = { character = FROM }
 		}
@@ -57,7 +57,7 @@ action_sow_dissent = {
 			NOT = { character = FROM }
 			any_vassal = {
 				NOT = { character = FROM }
-				higher_tier_than = baron
+				OR = { higher_tier_than = baron is_patrician = yes }
 			}
 		}
 	}

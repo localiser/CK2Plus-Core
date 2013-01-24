@@ -638,8 +638,8 @@ restore_papacy = {
 					has_landed_title = c_roma
 				}
 			}
-			NOT = { has_landed_title = e_papal_state }
-			NOT = { any_realm_lord = { has_landed_title = e_papal_state } }			
+			NOT = { has_landed_title = k_papal_state }
+			NOT = { any_realm_lord = { has_landed_title = k_papal_state } }			
 		}
 	}
 
@@ -676,7 +676,7 @@ restore_papacy = {
 						}
 					}				
 				}
-				e_papal_state = {
+				k_papal_state = {
 					holder_scope = {
 						c_roma = {
 							usurp_title_plus_barony_if_unlanded = PREV
@@ -1225,7 +1225,7 @@ restore_byzantium = {
 		}
 		usurp_title_plus_barony_if_unlanded = ROOT
 		tooltip = { e_byzantium = { gain_title = ROOT } }
-		set_character_flag = centralize_without_penalties
+		ROOT = { set_character_flag = centralize_without_penalties }
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -1247,7 +1247,7 @@ restore_byzantium = {
 				}					
 			}
 		}
-		clr_character_flag = centralize_without_penalties
+		ROOT = { clr_character_flag = centralize_without_penalties }
 		hidden_tooltip = { FROM = { character_event = { id = 110033 } } }
 	}
 

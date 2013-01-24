@@ -1,9 +1,10 @@
 decisions = {	
 	ai_raise_mercs = {
 		potential = {
+			always = no
 			ai = yes
 			is_ruler = yes
-			higher_tier_than = BARON 
+			OR = { higher_tier_than = baron is_patrician = yes } 
 			NOT = { has_landed_title = e_mexikha }
 			NOT = { has_landed_title = e_golden_horde }
 			NOT = { has_landed_title = e_il-khanate }
@@ -60,6 +61,7 @@ decisions = {
 	}
 	ai_dismiss_mercs = {
 		potential = {
+			always = no
 			ai = yes
 			is_ruler = yes
 			NOT = { has_landed_title = e_mexikha }

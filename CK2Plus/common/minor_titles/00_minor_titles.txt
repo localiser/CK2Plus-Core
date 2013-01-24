@@ -146,39 +146,6 @@ grant_estate = {
 	message = no
 }
 
-grant_independence = {
-	grant_limit = 1
-	
-	allow = {
-		FROM = { ai = no independent = yes }
-		is_ruler = yes
-		war = no
-		FROM = { war = no }
-		OR = {
-			ai = no
-			primary_title = { is_titular = yes }
-			NOT = {
-				liege = {
-					any_demesne_title = {
-						ROOT = {
-							primary_title = {
-								de_jure_liege_or_above = PREVPREV
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	gain_effect = {
-		FROM = { character_event = { id = 220002 } }
-	}
-	lose_effect = { }
-	
-	message = no
-}
-
 revoke_minor_title = {
 	grant_limit = 1
 	
@@ -263,6 +230,22 @@ title_ruler_consort = {
 	gain_effect = {
 	}
 	
+	lose_effect = {
+	}
+
+	message = no
+}
+
+title_tanist = {
+	dignity = 0.86
+	show_as_title = yes
+	realm_in_name = yes
+	
+	monthly_salary = 0.07
+	monthly_prestige = 0.02
+	
+	gain_effect = {
+	}
 	lose_effect = {
 	}
 
@@ -1321,6 +1304,123 @@ title_chief_qadi = {
 		NOT = { has_minor_title = title_court_poet }
 		NOT = { has_minor_title = title_cupbearer }
 		NOT = { has_minor_title = title_chief_architect }
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+
+# MERCHANT REPUBLIC TITLES
+
+# State Inquisitor
+title_state_inquisitor = {
+	dignity = 0.06
+	realm_in_name = yes
+	grant_limit = 3
+	opinion_effect = 10
+	
+	monthly_salary = 0.025
+	monthly_prestige = 0.005
+	
+	allow = {
+		is_adult = yes
+		is_female = no
+		FROM = {
+			is_merchant_republic = yes
+		}
+		NOT = { has_minor_title = title_court_jester }
+		NOT = { has_minor_title = title_high_admiral }
+		NOT = { has_minor_title = title_high_judge }
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_high_admiral = {
+	dignity = 0.1
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 15
+	
+	monthly_salary = 0.05
+	monthly_prestige = 0.01
+	
+	allow = {
+		is_adult = yes
+		is_female = no
+		FROM = {
+			is_merchant_republic = yes
+		}
+		NOT = { has_minor_title = title_court_jester }
+		NOT = { has_minor_title = title_state_inquisitor }
+		NOT = { has_minor_title = title_high_judge }
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_high_judge = {
+	dignity = 0.15
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 15
+	
+	monthly_salary = 0.05
+	monthly_prestige = 0.01
+	
+	allow = {
+		is_adult = yes
+		is_female = no
+		FROM = {
+			is_merchant_republic = yes
+		}
+		NOT = { has_minor_title = title_court_jester }
+		NOT = { has_minor_title = title_state_inquisitor }
+		NOT = { has_minor_title = title_high_admiral }
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# Special - This title determines the heir of a Patrician
+title_patrician_heir = {
+	dignity = 0.05
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 50
+	
+	patrician_heir = yes
+	
+	monthly_salary = 0.025
+	monthly_prestige = 0.005
+	
+	allow = {
+		is_female = no
+		dynasty = FROM
+		NOT = { trait = bastard }
+		FROM = {
+			is_patrician = yes
+		}
 	}
 	
 	gain_effect = {

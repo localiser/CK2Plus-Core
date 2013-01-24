@@ -1361,7 +1361,7 @@ obj_get_married = {
 		age = 16
 		is_married = no
 		can_marry = yes
-		NOT = { has_landed_title = e_papal_state }
+		NOT = { has_landed_title = k_papal_state }
 		NOT = { trait = celibate }
 		NOT = { trait = eunuch }
 		NOT = { trait = incapable }
@@ -1978,7 +1978,7 @@ obj_find_lover = {
 			demesne_size = 1
 		}
 		has_lover = no
-		NOT = { has_landed_title = e_papal_state }
+		NOT = { has_landed_title = k_papal_state }
 		NOT = { trait = celibate }
 		NOT = { trait = eunuch }
 		NOT = { trait = incapable }
@@ -3921,6 +3921,7 @@ obj_gain_estates_1 = {
 		prisoner = no
 		age = 16
 		is_ruler = no
+		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_gain_estates }
 		NOT = { has_character_flag = flag_denied_estates }
@@ -3930,7 +3931,7 @@ obj_gain_estates_1 = {
 			has_character_modifier = estates_3
 			has_character_modifier = estates_4
 			has_character_modifier = estates_5
-		}	
+		}
 	}
 	
 	chance = {
@@ -4006,6 +4007,7 @@ obj_gain_estates_1 = {
 			prisoner = yes
 			trait = incapable
 			is_ruler = yes
+			spouse = { is_ruler = yes }
 		}
 	}
 	abort_effect = {
@@ -4030,6 +4032,7 @@ obj_gain_estates_2 = {
 		prisoner = no
 		age = 16
 		is_ruler = no
+		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
 		has_character_modifier = estates_1	
 	}
@@ -4084,6 +4087,7 @@ obj_gain_estates_2 = {
 			prisoner = yes
 			trait = incapable
 			is_ruler = yes
+			spouse = { is_ruler = yes }
 		}
 	}
 	abort_effect = {
@@ -4108,6 +4112,7 @@ obj_gain_estates_3 = {
 		prisoner = no
 		age = 16
 		is_ruler = no
+		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
 		has_character_modifier = estates_2	
 	}
@@ -4161,6 +4166,7 @@ obj_gain_estates_3 = {
 			prisoner = yes
 			trait = incapable
 			is_ruler = yes
+			spouse = { is_ruler = yes }
 		}
 	}
 	abort_effect = {
@@ -4185,6 +4191,7 @@ obj_gain_estates_4 = {
 		prisoner = no
 		age = 16
 		is_ruler = no
+		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
 		has_character_modifier = estates_3	
 	}
@@ -4237,6 +4244,7 @@ obj_gain_estates_4 = {
 			prisoner = yes
 			trait = incapable
 			is_ruler = yes
+			spouse = { is_ruler = yes }
 		}
 	}
 	abort_effect = {

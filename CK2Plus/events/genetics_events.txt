@@ -2,21 +2,164 @@
 character_event = {
 	id = 300002
 	desc = "EVTDESC300001"
-
+	is_triggered_only = yes
+	
 	trigger = {
 		NOT = { age = 1 }
 		NOT = { has_character_flag = genetics_check }
 	}
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
+
 	option = {
 		name = "EVTOPTA300001"
 		set_character_flag = genetics_check
 		hidden_tooltip = {	
 			add_trait = young1
+			
+			#chance for genius or quick
+			if = {
+				limit = {
+					NOT = { trait = genius }
+					NOT = { trait = quick }
+					NOT = { trait = slow }
+					NOT = { trait = imbecile }
+				}
+				if = {
+					limit = {
+						OR = {
+							mother = { trait = genius }
+							mother = { trait = quick }
+						}
+						OR = {
+							father_even_if_dead = { trait = genius }
+							father_even_if_dead = { trait = quick }
+						}
+						NOT = {
+							mother = { trait = imbecile }
+							mother = { trait = slow }						
+							father_even_if_dead = { trait = imbecile}
+							father_even_if_dead = { trait = slow }							
+						}
+					}
+					random_list = {
+						75 = { }
+						20 = { add_trait = quick }
+						5 = { add_trait = genius }
+					}
+				}	
+				if = {
+					limit = {
+						OR = {		
+							mother = { trait = genius }
+							mother = { trait = quick }
+							father_even_if_dead = { trait = genius }
+							father_even_if_dead = { trait = quick }							
+						}
+						OR = {
+							NOT = {
+								mother = { trait = genius }
+								mother = { trait = quick }							
+							}
+							NOT = {
+								father_even_if_dead = { trait = genius }
+								father_even_if_dead = { trait = quick }									
+							}
+						}
+						NOT = {
+							mother = { trait = imbecile }
+							mother = { trait = slow }						
+							father_even_if_dead = { trait = imbecile}
+							father_even_if_dead = { trait = slow }							
+						}
+					}
+					random_list = {
+						87 = { }
+						10 = { add_trait = quick }
+						3 = { add_trait = genius }
+					}
+				}
+			}
+			
+			#chance for slow or imbecile
+			if = {
+				limit = {
+					NOT = { trait = genius }
+					NOT = { trait = quick }
+					NOT = { trait = slow }
+					NOT = { trait = imbecile }
+				}
+				if = {
+					limit = {
+						OR = {
+							mother = { trait = imbecile }
+							mother = { trait = slow }
+						}
+						OR = {
+							father_even_if_dead = { trait = imbecile }
+							father_even_if_dead = { trait = slow }
+						}
+						NOT = {
+							mother = { trait = genius }
+							mother = { trait = quick }						
+							father_even_if_dead = { trait = genius }
+							father_even_if_dead = { trait = quick }							
+						}
+					}
+					random_list = {
+						75 = { }
+						20 = { add_trait = slow }
+						5 = { add_trait = imbecile }
+					}
+				}	
+				if = {
+					limit = {
+						OR = {		
+							mother = { trait = imbecile }
+							mother = { trait = slow }
+							father_even_if_dead = { trait = imbecile }
+							father_even_if_dead = { trait = slow }							
+						}
+						OR = {
+							NOT = {
+								mother = { trait = imbecile }
+								mother = { trait = slow }							
+							}
+							NOT = {
+								father_even_if_dead = { trait = imbecile }
+								father_even_if_dead = { trait = slow }									
+							}
+						}
+						NOT = {
+							mother = { trait = genius }
+							mother = { trait = quick }						
+							father_even_if_dead = { trait = genius }
+							father_even_if_dead = { trait = quick }							
+						}
+					}
+					random_list = {
+						87 = { }
+						10 = { add_trait = slow }
+						3 = { add_trait = imbecile }
+					}
+				}
+			}
+			
+			#random chance for any of them
+			if = {
+				limit = {
+					NOT = { trait = genius }
+					NOT = { trait = quick }
+					NOT = { trait = slow }
+					NOT = { trait = imbecile }
+				}
+				random_list = {
+					190 = { }
+					4 = { add_trait = slow }
+					1 = { add_trait = imbecile }						
+					4 = { add_trait = quick }
+					1 = { add_trait = genius }
+				}				
+			}
+	
 			if = {
 				limit = {
 					NOT = { trait = divine_blood }
@@ -39,7 +182,7 @@ character_event = {
 			}	
 			
 			#check for stillbirth
-			character_event = { id = 190000 }			
+			character_event = { id = 190000 days = 1 }			
 
 			any_child = {
 				if = {

@@ -35,7 +35,7 @@ character_event = {
 		has_job_action = action_improve_relations
 		location = {
 			any_province_lord = {
-				primary_title = { higher_tier_than = BARON }
+				OR = { higher_tier_than = baron is_patrician = yes }
 				is_theocracy = no
 				NOT = { is_liege_of = ROOT }
 				NOT = { character = ROOT }
@@ -206,7 +206,7 @@ character_event = {
 			location = {
 				random_province_lord = {
 					limit = {
-						primary_title = { higher_tier_than = BARON }
+						OR = { higher_tier_than = baron is_patrician = yes }
 						is_theocracy = no
 						NOT = { is_liege_of = ROOT }
 						NOT = { character = ROOT }
@@ -272,7 +272,7 @@ character_event = {
 		has_job_action = action_improve_relations
 		location = {
 			any_province_lord = {
-				primary_title = { higher_tier_than = BARON }
+				OR = { higher_tier_than = baron is_patrician = yes }
 				is_theocracy = no
 				NOT = { is_liege_of = ROOT }
 				NOT = { character = ROOT }
@@ -443,7 +443,7 @@ character_event = {
 			location = {
 				random_province_lord = {
 					limit = {
-						primary_title = { higher_tier_than = BARON }
+						OR = { higher_tier_than = baron is_patrician = yes }
 						is_theocracy = no
 						NOT = { is_liege_of = ROOT }
 						NOT = { character = ROOT }
@@ -1481,7 +1481,7 @@ character_event = {
 				any_vassal = {
 					NOT = { is_liege_of = ROOT }
 					NOT = { character = ROOT }
-					higher_tier_than = baron
+					OR = { higher_tier_than = baron is_patrician = yes }
 				}
 			}
 		}
@@ -1653,7 +1653,7 @@ character_event = {
 						limit = {
 							NOT = { is_liege_of = ROOT }
 							NOT = { character = ROOT }			
-							higher_tier_than = baron
+							OR = { higher_tier_than = baron is_patrician = yes }
 						}
 						character_event = { id = 20160 days = 7 }
 					}
@@ -1700,7 +1700,7 @@ character_event = {
 				limit = {
 					NOT = { is_liege_of = FROM }
 					NOT = { character = FROM }
-					higher_tier_than = baron		
+					OR = { higher_tier_than = baron is_patrician = yes }		
 				}
 				opinion = {
 					modifier = dissent_sowed
@@ -1753,7 +1753,7 @@ character_event = {
 				any_vassal = {
 					NOT = { is_liege_of = ROOT }
 					NOT = { character = ROOT }
-					higher_tier_than = baron
+					OR = { higher_tier_than = baron is_patrician = yes }
 				}
 			}
 		}
@@ -1923,7 +1923,7 @@ character_event = {
 				limit = {
 					NOT = { is_liege_of = ROOT }
 					NOT = { same_realm = ROOT }
-					primary_title = { higher_tier_than = BARON }
+					OR = { higher_tier_than = baron is_patrician = yes }
 					independent = no
 				}
 				character_event = { id = 20170 days = 7 tooltip = "EVTTOOLTIP20170" }

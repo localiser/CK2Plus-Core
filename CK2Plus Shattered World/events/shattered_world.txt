@@ -3,7 +3,7 @@ character_event = {
 	
 	trigger = {
 		OR = {
-			has_landed_title = e_papal_state
+			has_landed_title = k_papal_state
 			has_character_flag = startup_character
 		}
 		NOT = { has_global_flag = shattered_world }
@@ -33,10 +33,10 @@ character_event = {
 				}
 			}
 			set_global_flag = shattered_world_no_dukes
-			any_playable_ruler = {
-				limit = { tier = count }
-				add_trait = bloodlust
-			}
 		}
+		any_playable_ruler = {
+			limit = { independent = yes }
+			add_trait = bloodlust
+		}		
 	}
 }

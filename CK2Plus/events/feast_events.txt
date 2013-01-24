@@ -5602,3 +5602,127 @@ character_event = {
 		}
 	}
 }
+
+#Travelling Dancers seek your patronage
+character_event = {
+	id = 72120
+	desc = EVTDESC72120
+	picture = GFX_evt_jugglers
+	
+	only_rulers = yes
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		war = no
+		has_character_modifier = holding_large_feast
+		NOT = {
+			has_character_flag = sent_invitations
+		}
+		NOT = {
+			has_character_flag = host_feast_started
+		}
+		NOT = {
+			has_character_flag = feast_dancers
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+
+		modifier = {
+			factor = 6
+			primary_title = { tier = COUNT }
+		}	
+		modifier = {
+			factor = 3
+			primary_title = { tier = DUKE }
+		}		
+		modifier = {
+			factor = 3
+			has_character_flag = feast_minstrel
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = feast_jongleur
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = feast_musicians
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = feast_fireeaters
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = feast_conjurer
+		}
+		modifier = {
+			factor = 3
+			has_character_flag = feast_acrobats
+		}
+	}
+	
+	option = {
+		name = EVTOPTA72120
+		ai_chance = {
+			factor = 5
+			
+			modifier = {
+				factor = 0.1
+				NOT = {
+					treasury = 30
+				}
+			}
+			modifier = {
+				factor = 20
+				treasury = 30
+			}
+		}
+		set_character_flag = feast_dancers
+		wealth = -10
+	}
+	option = {
+		name = EVTOPTB72120
+		ai_chance = {
+			factor = 5
+			
+			modifier = {
+				factor = 20
+				NOT = {
+					treasury = 30
+				}
+			}
+			modifier = {
+				factor = 0.1
+				treasury = 30
+			}
+		}
+		prestige = -10
+	}
+}
+
+#Travelling Dancers
+character_event = {
+	id = 4165
+	desc = EVTDESC4165
+	picture = GFX_evt_jugglers
+
+	trigger = {
+		war = no
+		in_command = no
+		has_character_flag = feast_dancers
+		has_character_modifier = holding_large_feast
+		has_character_flag = host_feast_started
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = EVTOPTA4165
+		prestige = 15
+	}
+}

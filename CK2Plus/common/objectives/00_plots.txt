@@ -1214,7 +1214,7 @@ plot_fabricate_treason = {
 		is_ruler = yes
 		prisoner = no	
 		independent = no
-		higher_tier_than = baron
+		OR = { higher_tier_than = baron is_patrician = yes }
 		OR = {
 			NOT = { has_character_flag = accused_of_treason_by_plot }
 			had_character_flag = {
@@ -1704,7 +1704,7 @@ plot_gain_vassal_title = {
 	allow = {
 		# No barony titles
 		is_titular = no
-		higher_tier_than = BARON
+		OR = { higher_tier_than = baron is_patrician = yes }
 		is_primary_type_title = no
 		controls_religion = no
 		mercenary = no

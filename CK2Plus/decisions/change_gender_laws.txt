@@ -1,7 +1,15 @@
 gender_laws = {
 	institute_cognatic_succession = {
 		potential = {
-			is_primary_holder_title = yes	
+			holder_scope = { 
+				NOT = { religion_group = muslim }
+				has_horde_culture = no
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			
+			is_landless_type_title = no
+			
 			OR = {
 				AND = {
 					tier = baron
@@ -9,9 +17,9 @@ gender_laws = {
 				}
 				holder_scope = { is_feudal = yes }
 			}
+			
+			is_primary_type_title = no
 			NOT = { has_law = cognatic_succession }
-			is_landless_type_title = no
-			NOT = { holder_scope = { religion_group = muslim } }
 			OR = {
 				holder_scope = { ai = no }
 				AND = {
@@ -359,7 +367,15 @@ gender_laws = {
 		female_dynasty_opinion = 10
 		
 		potential = {
-			is_primary_holder_title = yes
+			holder_scope = { 
+				NOT = { religion_group = muslim }
+				has_horde_culture = no
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			
+			is_landless_type_title = no
+			
 			OR = {
 				AND = {
 					tier = baron
@@ -367,9 +383,9 @@ gender_laws = {
 				}
 				holder_scope = { is_feudal = yes }
 			}
-			NOT = { has_law = true_cognatic_succession }			
-			is_landless_type_title = no
-			NOT = { holder_scope = { religion_group = muslim } }
+			
+			is_primary_type_title = no
+			NOT = { has_law = true_cognatic_succession }
 			OR = {
 				holder_scope = { ai = no }			
 				holder_scope = { 
@@ -539,7 +555,8 @@ gender_laws = {
 							months = 240
 						}							
 					}
-				}			
+				}	
+			}
 		}
 		revoke_allowed = {
 			always = no

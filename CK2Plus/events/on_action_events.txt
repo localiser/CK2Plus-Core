@@ -3890,6 +3890,8 @@ narrative_event = {
 	
 	is_triggered_only = yes
 	major = yes
+	show_ROOT = yes
+	hide_new = yes
 	
 	trigger = {
 		can_call_crusade = yes
@@ -5076,6 +5078,44 @@ diploresponse_event = {
 	}
 }
 
+# ASK_TO_EMBARGO_INTERACTION_ACCEPT_EVENT =
+diploresponse_event = {
+	id = 295
+
+	is_triggered_only = yes
+	major = no
+	is_friendly = yes
+
+	trigger = {
+		ai = no
+	}
+
+	desc = "EVTDESC295"
+
+	option = {
+		name = "OK"
+	}
+}
+
+# ASK_TO_EMBARGO_INTERACTION_DECLINE_EVENT =
+diploresponse_event = {
+	id = 296
+
+	is_triggered_only = yes
+	major = no
+
+	trigger = {
+		ai = no
+	}
+
+	desc = "EVTDESC296"
+
+	option = {
+		name = "OK"
+	}
+}
+
+
 # Rebels spawn
 province_event = {
 	id = 600
@@ -5315,5 +5355,34 @@ narrative_event = {
 				}
 			}
 		}
+	}
+}
+
+# On-action event: On Death - hidden - clear stuff
+character_event = {
+	id = 650
+	desc = "NotShown"
+	
+	is_triggered_only = yes 
+	
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				diplomatic_immunity = yes
+				leads_faction = yes
+			}
+			any_faction_backer = {
+				limit = {
+					diplomatic_immunity = yes
+				}
+				diplomatic_immunity = no
+			}
+		}
+	}
+
+	option = {
+		name = "NotShown"
 	}
 }

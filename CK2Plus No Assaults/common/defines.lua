@@ -17,17 +17,23 @@ NDiplomacy = {
 	MINIMUM_SEND_GIFT_COST = 20,
 	SEND_GIFT_INCOME_SCALEFACTOR = 24, 
 	RELEASE_PRISONER_PIETY = 0,
-	USURP_TITLE_PRESTIGE_MULT = 0.25, -- Multiplier on Creation Prestige
-	DEMESNE_BASE_MAX_SIZE = 1.00, -- Base Max Demesne Size
-	DEMESNE_MAX_SIZE_TIER_MULT = 1.00, -- Extra Max Demesne Size from the ruler's rank
-	DEMESNE_MAX_SIZE_STEWARDSHIP_MULT = 0.1, -- Extra Max Demesne Size from ruler and spouse intrigue
-	DEMESNE_MAX_SIZE_LEGALISM_MULT = 0.5, -- Extra Max Demesne Size from the level of legalism
-	GAVELKIND_MAX_SIZE_BONUS = 0.30,		-- Max demesne size bonus from Gavelkind
-	DIPLO_FRIEND_OPINION_THRESHOLD = 50,		-- Characters above this opinion are considered friends
-	DIPLO_RIVAL_OPINION_THRESHOLD = -50,		-- Characters below this opinion are considered rivals
+	USURP_TITLE_PRESTIGE_MULT = 0.25, 			-- Multiplier on Creation Prestige
+	DEMESNE_BASE_MAX_SIZE = 1.0,				-- Base Max Demesne Size
+	DEMESNE_MAX_SIZE_BARON_MULT = 1.0, 			-- Extra Max Demesne Size from the ruler's rank
+	DEMESNE_MAX_SIZE_COUNT_MULT = 1.0, 			-- Extra Max Demesne Size from the ruler's rank
+	DEMESNE_MAX_SIZE_DUKE_MULT = 1.0,			-- Extra Max Demesne Size from the ruler's rank
+	DEMESNE_MAX_SIZE_KING_MULT = 3.0,			-- Extra Max Demesne Size from the ruler's rank
+	DEMESNE_MAX_SIZE_EMPEROR_MULT = 4.0,		-- Extra Max Demesne Size from the ruler's rank
+	DEMESNE_MAX_SIZE_GREAT_DUKE_BONUS = 1.0,	-- Extra Max Demesne Size for Dukes with more than one Duchy
+	DEMESNE_MAX_SIZE_STEWARDSHIP_MULT = 0.1,	-- Extra Max Demesne Size from ruler and spouse intrigue
+	DEMESNE_MAX_SIZE_LEGALISM_MULT = 0.5,		-- Extra Max Demesne Size from the level of legalism
+	DEMESNE_MAX_SIZE_PATRICIAN = 1.0,			-- Extra Max Demesne Size for Patricians
+	GAVELKIND_MAX_SIZE_BONUS = 0.30,			-- Max demesne size bonus from Gavelkind
+	DIPLO_FRIEND_OPINION_THRESHOLD = 40,		-- OBSOLETE
+	DIPLO_RIVAL_OPINION_THRESHOLD = -40,		-- OBSOLETE
 	OBJECTIVE_DISCARD_WEIGHT_THRESHOLD = 0.05,	-- AI will not pick ambitions or plots below this evaluated weight
 	CROWN_LAW_REVOLTRISK_INCREMENT = 5,		-- Revoltrisk reduction/decrease due to crown laws
-	MAX_DUCHIES_LEGALLY_HELD = 3,				-- Max duchies that a king or above can hold before vassals start getting angry
+	MAX_DUCHIES_LEGALLY_HELD = 2,				-- Max duchies that a king or above can hold before vassals start getting angry
 	MAX_ELECTOR_TITLES_LEGALLY_HELD = 1,		-- Max elector titles that a king or above can hold before vassals start getting angry
 	ASSASSINATION_COST_RANK_MULT = 50,			-- Additional cost for assassinations multiplied by rank (count = 1, emperor = 4). Also applies to children of rulers.
 	WOMEN_INHERIT_PRESSED_CLAIMS = 1,			-- If set to 1, they will get pressed claims on their parents' titles
@@ -257,7 +263,19 @@ NDiplomacy = {
 	ASK_TO_JOIN_WAR_INTERACTION_PIETY = 0,
 	ASK_TO_JOIN_WAR_INTERACTION_PRESTIGE = 0,
 	ASK_TO_JOIN_WAR_INTERACTION_THRESHOLD_FOR_NO = 0,
-	ASK_TO_JOIN_WAR_INTERACTION_THRESHOLD_FOR_YES = 0
+	ASK_TO_JOIN_WAR_INTERACTION_THRESHOLD_FOR_YES = 0,
+	
+	RELEASE_VASSAL_INTERACTION_MONEY = 0,
+	RELEASE_VASSAL_INTERACTION_PIETY = 0,
+	RELEASE_VASSAL_INTERACTION_PRESTIGE = 0,
+	RELEASE_VASSAL_INTERACTION_THRESHOLD_FOR_NO = 0,
+	RELEASE_VASSAL_INTERACTION_THRESHOLD_FOR_YES = 0,
+	
+	ASK_TO_EMBARGO_INTERACTION_MONEY = 0,
+	ASK_TO_EMBARGO_INTERACTION_PIETY = 0,
+	ASK_TO_EMBARGO_INTERACTION_PRESTIGE = 0,
+	ASK_TO_EMBARGO_INTERACTION_THRESHOLD_FOR_NO = 0,
+	ASK_TO_EMBARGO_INTERACTION_THRESHOLD_FOR_YES = 0
 },
 
 NCharacter = {
@@ -377,7 +395,8 @@ NTitle = {
 	DE_JURE_ASSIMILATION_YEARS = 100,		-- Duchies under the de facto control of another kingdom will change de jure liege after this many years
 	REQ_DUCHIES_FOR_KINGDOM_CREATION = 3, 	-- Number of held duchies required to create a kingdom (for rulers who are not already kings or emperors)
 	REQ_KINGDOMS_FOR_EMPIRE_CREATION = 3, 	-- Number of held kingdoms required to create an Empire (for rulers who are not already emperors)
-	TITULAR_TITLE_CREATION_COST_MULT = 1	-- Titular titles are more expensive to create
+	TITULAR_TITLE_CREATION_COST_MULT = 1,	-- Titular titles are more expensive to create
+	ENFORCE_ONE_OF_EACH_HOLDING = 1			-- Require players to build at least one City, Temple and Castle in each province
 },
 
 NReligion = {
@@ -406,7 +425,25 @@ NEconomy = {
 	DECADENCE_PER_WEEK_OF_COMBAT = 0,			-- Decadence lost per 7 days of combat, for each participant in the combat
 	DECADENCE_PER_WEEK_OF_SIEGE = 0,			-- Decadence lost per 7 days of siege, for each participant in the siege
 	MUSLIM_MUSLIM_PROVINCE_TAX_MOD = -0.1,			-- Muslims get less tax from muslim provinces
-	MUSLIM_NONMUSLIM_PROVINCE_TAX_MOD = 0.15,		-- Muslims get more tax from non-muslim provinces	
+	MUSLIM_NONMUSLIM_PROVINCE_TAX_MOD = 0.25,		-- Muslims get more tax from non-muslim provinces
+	TRADE_ZONE_BONUS_MULTIPLIER = 0.025,				-- Trade posts get the trade zone value * 0.1 * this as a bonus
+	TRADE_ZONE_BONUS_MULT_CITY = 0.01,				-- Cities gain similar bonus for a tradepost being in the province
+	TRADE_CONNECTED_TO_CAPITAL_BONUS = 0.4,			-- Bonus to trade post income when connected to capital
+	TRADE_POST_COST_INC_DIST = 0.003,				-- The % increase in cost due to distance to closest connected province
+	TRADE_POST_OPINION_EFFECT = 0.4,				-- The bonus or penalty depending on topliege opinion
+	PATRICIAN_CAMPAIGN_FUND_FACTOR = 5,				-- The effect of money in the Campaign Fund on Doge elections
+	DOGE_SUCC_RANDOM_FACTOR = 100,					-- The random Respect factor on actual Doge succession
+	MERCHANT_REPUBLIC_SALARY_MULT = 3,				-- Councillor salaries in Merchant Republics are multiplied by this
+	TRADE_POST_RAISE_LOOT_MULT = 5.0,
+	PATRICIAN_FAMILY_SHARES_HEAD = 50,				-- Monthly Patrician Income, number of shares for the Patrician himself
+	PATRICIAN_FAMILY_SHARES_SON = 5,				-- Monthly Patrician Income, number of shares for the Patrician's sons
+	PATRICIAN_FAMILY_SHARES_BROTHER = 4,			-- Monthly Patrician Income, number of shares for the Patrician's brother
+	PATRICIAN_FAMILY_SHARES_UNCLE = 3,				-- Monthly Patrician Income, number of shares for the Patrician's uncles
+	PATRICIAN_FAMILY_SHARES_COUSIN = 2,				-- Monthly Patrician Income, number of shares for the Patrician's cousins
+	PATRICIAN_FAMILY_SHARES_REST = 1,				-- Monthly Patrician Income, number of shares for the Patrician's distant relatives
+	PATRICIAN_INHERITANCE_FROM_RELATIVE_MULT = 0.5,	-- When a Patrician inherits the wealth of a non-Patrician relative, this multiplier determines the part he actually gets
+	PATRICIAN_GOLD_TO_MONTHLY_PRESTIGE = 0.0005,	-- Prestige that Patricians get each month from their treasury (CFixedPoint64 to support such small numbers)
+	PATRICIAN_CITY_TAX_MULT = 0.25					-- Patricians don't pay normal City Tax to their liege... (CFixedPoint64)
 },
 
 NDecadence = {
@@ -620,7 +657,7 @@ NTechnology = {
 	BASE_NEIGHBOUR_SPREAD_BONUS = 0.15, --bonus for each neighbour with the tech
 	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0, --multiplier to the above bonus if neighbour is of your religious group
 	BASE_DEMESNE_SPREAD_BONUS = 0.25, --bonus for each other province in demesne with the tech
-	MAX_DEMESNE_BONUS = 3.0, -- maximum bonus from demesne
+	MAX_DEMESNE_BONUS = 1.0, -- maximum bonus from demesne
 	FOCUS_BONUS = 2.0, --bonus for the tech in each group set as the focus
 	
 	IDEAL_YEAR_LEVEL_1 = 1066, --the chance to get a progress to this level will increase after this date and decrease before it

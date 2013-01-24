@@ -225,11 +225,11 @@
 		}	
 	}
 	12 = { # Ocean w ships
-		factor = 0
-		#modifier = {
-			#factor = 0
-			#NOT = { location = { terrain = ocean } }
-		#}
+		factor = 10000
+		modifier = {
+			factor = 0
+			NOT = { is_at_sea = yes }
+		}
 	}
 	13 = { # Muslim interior
 		factor = 1
@@ -313,7 +313,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { has_landed_title = e_papal_state }
+			NOT = { has_landed_title = k_papal_state }
 		}
 		modifier = {
 			factor = 0
@@ -923,7 +923,7 @@
 
 		modifier = {
 			factor = 0
-			has_landed_title = e_papal_state
+			has_landed_title = k_papal_state
 		}
 		modifier = {
 			factor = 0
@@ -1023,7 +1023,7 @@
 		}		
 		modifier = {
 			factor = 0
-			NOT = { has_landed_title = e_papal_state }
+			NOT = { has_landed_title = k_papal_state }
 		}
 	}
 	
@@ -1365,7 +1365,10 @@
 		}
 		modifier = {
 			factor = 0
-			is_republic = yes
+			OR = {
+				is_patrician = yes
+				is_republic = yes
+			}
 			NOT = { tier = duke }
 			NOT = { tier = king }
 			NOT = { tier = emperor }
@@ -1535,7 +1538,7 @@
 			OR = {
 				is_theocracy = yes
 				has_job_title = job_spiritual
-				has_landed_title = e_papal_state
+				has_landed_title = k_papal_state
 			}
 		}		
 	}
@@ -1575,7 +1578,7 @@
 		}
 		modifier = {
 			factor = 0
-			has_landed_title = e_papal_state
+			has_landed_title = k_papal_state
 		}
 	}
 
@@ -1584,7 +1587,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { has_landed_title = e_papal_state }
+			NOT = { has_landed_title = k_papal_state }
 		}
 	}
 	

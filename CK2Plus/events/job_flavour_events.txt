@@ -2227,26 +2227,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB75095"
-		random_list = {
-			80 = {
-			}
-			10 = {
-				add_trait = slothful
-				hidden_tooltip = {
-					character_event = {
-						id = 38251 #Notify Slothful
-					}
-				}
-			}
-			10 = {
-				add_trait = arbitrary
-				hidden_tooltip = {
-					character_event = {
-						id = 38266 #Notify Arbitrary
-					}
-				}
-			}
-		}
+		prestige = -10
 	}
 }
 
@@ -2260,27 +2241,29 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA75096" #Deny
-		random_list = {
-			90 = {
-				FROM = {
-					character_event = {
-						id = 75097
-						tooltip = "EVTTOOLTIP75097"
-					}
-				}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				trait = deceitful
 			}
-			10 = {
-				FROM = {
-					character_event = {
-						id = 75098
-						tooltip = "EVTTOOLTIP75098"
-					}
-				}
+		}
+		FROM = {
+			character_event = {
+				id = 75097
+				tooltip = "EVTTOOLTIP75097"
 			}
 		}
 	}
 	option = {
 		name = "EVTOPTB75096" #Admit it
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				trait = honest
+			}
+		}		
 		FROM = {
 			character_event = {
 				id = 75098

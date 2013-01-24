@@ -59,7 +59,7 @@ decisions = {
 	}
 	ai_maintenance = {
 		potential = {
-			has_landed_title = e_papal_state
+			has_landed_title = k_papal_state
 			OR = {
 				NOT = { has_global_flag = maintenance_pulse }
 				had_global_flag = {
@@ -239,7 +239,7 @@ decisions = {
 			any_independent_ruler = {
 				#count members of each faction
 				any_realm_lord = {
-					limit = { higher_tier_than = baron }	
+					limit = { OR = { higher_tier_than = baron is_patrician = yes } }	
 					if = {
 						limit = {
 							OR = {
@@ -295,7 +295,7 @@ decisions = {
 				}		
 				#faction moods
 				any_realm_lord = {
-					limit = { higher_tier_than = baron }
+					limit = { OR = { higher_tier_than = baron is_patrician = yes } }
 					#feudal	
 					if = {
 						limit = {
@@ -3362,7 +3362,7 @@ decisions = {
 					}
 				}
 				any_realm_lord = {
-					limit = { higher_tier_than = baron }
+					limit = { OR = { higher_tier_than = baron is_patrician = yes } }
 					#feudal
 					if = {
 						limit = {
@@ -5311,7 +5311,7 @@ decisions = {
 				#calculate moods
 				any_realm_lord = {
 					limit = { 
-						higher_tier_than = baron 
+						OR = { higher_tier_than = baron is_patrician = yes } 
 					}				
 					if = {
 						limit = {
@@ -5670,6 +5670,8 @@ decisions = {
 							NOT = { has_law = succ_gavelkind }
 							NOT = { has_law = succ_feudal_elective }
 							NOT = { has_law = succ_seniority }
+							NOT = { has_law = succ_tanistry }
+							NOT = { has_law = succ_ultimogeniture }
 						}
 						add_law = succ_primogeniture
 					}
@@ -5701,7 +5703,7 @@ decisions = {
 				}
 				any_demesne_title = {
 					limit = {
-						higher_tier_than = baron
+						OR = { higher_tier_than = baron is_patrician = yes }
 						is_primary_holder_title = no
 						OR = {
 							is_primary_holder_title_tier = yes
@@ -5917,6 +5919,28 @@ decisions = {
 						}
 						add_law_w_cooldown = succ_primogeniture
 					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = succ_ultimogeniture
+								}
+							}
+							NOT = { has_law = succ_ultimogeniture }
+						}
+						add_law_w_cooldown = succ_ultimogeniture
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = succ_tanistry
+								}
+							}
+							NOT = { has_law = succ_tanistry }
+						}
+						add_law_w_cooldown = succ_tanistry
+					}					
 					if = {
 						limit = {
 							holder_scope = {

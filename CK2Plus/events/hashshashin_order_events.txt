@@ -378,10 +378,8 @@ character_event = {
 		OR = {
 			has_landed_title = e_il-khanate
 			has_landed_title = e_golden_horde
-			liege = { has_landed_title = e_il-khanate }
-			liege = { has_landed_title = e_golden_horde }
-			top_liege = { has_landed_title = e_il-khanate }
-			top_liege = { has_landed_title = e_golden_horde }
+			any_liege = { has_landed_title = e_il-khanate }
+			any_liege = { has_landed_title = e_golden_horde }
 		}
 		FROM = {
 			OR = {
@@ -398,12 +396,52 @@ character_event = {
 	option = {
 		name = "OK"
 		set_global_flag = mongols_provoke_assassins
-		random_list = {
-			40 = {
-				character_event = { id = 88006 days = 5 }
+		if = {
+			limit = { 
+				OR = {
+					has_landed_title = e_il-khanate
+					has_landed_title = e_golden_horde
+				}
 			}
-			60 = {
-				character_event = { id = 88008 days = 5 }
+			random_list = {
+				40 = {
+					character_event = { id = 88006 days = 5 }
+				}
+				60 = {
+					character_event = { id = 88008 days = 5 }
+				}
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					any_liege = { has_landed_title = e_il-khanate }
+					any_liege = { has_landed_title = e_golden_horde }
+				}
+			}
+			random_list = {
+				40 = {
+					any_liege = { 
+						limit = {
+							OR = {
+								has_landed_title = e_il-khanate
+								has_landed_title = e_golden_horde
+							}
+						}
+						character_event = { id = 88006 days = 5 }
+					}
+				}
+				60 = {
+					any_liege = { 
+						limit = {
+							OR = {
+								has_landed_title = e_il-khanate
+								has_landed_title = e_golden_horde
+							}
+						}
+						character_event = { id = 88008 days = 5 }
+					}
+				}
 			}
 		}
 	}
@@ -471,6 +509,13 @@ narrative_event = {
 	
 	option = {
 		name = "EVTOPTA88009"
+		trigger = { religion_group = muslim }
+	}
+	option = {
+		name = "EVTOPTA88016"
+		trigger = { 
+			NOT = { religion_group = muslim }
+		}
 	}
 }
 

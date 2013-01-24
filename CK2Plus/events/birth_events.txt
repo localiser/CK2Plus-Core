@@ -618,12 +618,22 @@ character_event = {
 # On-action event: Pregnancy in matrimony, with another father!
 character_event = {
 	id = 402
+	desc = EVTDESC402
 	picture = "GFX_evt_pregnancy"
 	
 	is_triggered_only = yes
 	
-	desc = "EVTDESC402"
-
+	trigger = {
+		is_married = yes
+		father_of_unborn = {
+			NOT = {
+				any_spouse = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	
 	option = {
 		name = "EVTOPTA402"
 		add_trait = pregnant
@@ -656,11 +666,18 @@ character_event = {
 	desc = "EVTDESC404"
 
 	option = {
-		name = "EVTOPTA404"
-		opinion = {
-			who = FROM
-			modifier = opinion_potential_cuckold
-			months = 7
+		name = EVTOPTA404
+		if = {
+			limit = {
+				FROM = {
+					father_of_unborn_known = yes
+				}
+			}
+			opinion = {
+				who = FROM
+				modifier = opinion_potential_cuckold
+				months = 7
+			}
 		}
 	}
 }
@@ -675,7 +692,12 @@ character_event = {
 	desc = "EVTDESC300"
 	picture = "GFX_evt_birth"
 	
-	is_triggered_only = yes 
+	is_triggered_only = yes
+	
+	trigger = {
+		was_conceived_a_bastard = yes
+		NOT = { real_father = { always = yes } } # There is no 'real_father' set, i.e. this is not a hidden, cuckoo bastard
+	}
 
 	option = {
 		name = "OK"
@@ -1038,6 +1060,46 @@ character_event = {
 				years = 5
 			}
 		}
+	}
+}
+
+# On-action event: A bastard child is born, but is not recognized as such by the spouse of the mother
+character_event = {
+	id = 318
+	desc = "EVTDESC318"
+	picture = "GFX_evt_birth"
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		real_father = {
+			is_alive = yes
+			ROOT = {
+				father = {
+					NOT = { character = PREVPREV }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "OK"
+		real_father = {
+			character_event = { id = 319 } # The real father is notified
+		}
+	}
+}
+
+character_event = {
+	id = 319
+	desc = "EVTDESC319"
+	picture = "GFX_evt_birth"
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "EVTOPTA319"
+		piety = -5
 	}
 }
 

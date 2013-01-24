@@ -5,13 +5,15 @@ character_event = {
 	hide_from = yes
 	
 	trigger = {
-		ai = no
-		NOT = { has_landed_title = e_mexikha }
-		NOT = { has_landed_title = e_golden_horde }
-		NOT = { has_landed_title = e_il-khanate }
-		NOT = { has_landed_title = e_timurids }		
-		OR = {
-			check_variable = { which = "mercenaries_raised" value = 0.1 }
+		ai = no	
+		OR = {	
+			AND = {
+				check_variable = { which = "mercenaries_raised" value = 0.1 }
+				NOT = { has_landed_title = e_mexikha }
+				NOT = { has_landed_title = e_golden_horde }
+				NOT = { has_landed_title = e_il-khanate }
+				NOT = { has_landed_title = e_timurids }		
+			}
 			check_variable = { which = "loan_amount" value = 0.1 }
 		}
 	}
@@ -26,7 +28,15 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA110000"
-		set_variable = { which = "mercenaries_raised" value = 0 }
+		if = {
+			limit = {
+				NOT = { has_landed_title = e_mexikha }
+				NOT = { has_landed_title = e_golden_horde }
+				NOT = { has_landed_title = e_il-khanate }
+				NOT = { has_landed_title = e_timurids }				
+			}
+			set_variable = { which = "mercenaries_raised" value = 0 }
+		}		
 		set_variable = { which = "loan_amount" value = 0 }
 		hidden_tooltip = { remove_character_modifier = loan_timer }
 	}
@@ -175,16 +185,7 @@ character_event = {
 		ai = yes
 		primary_title = { higher_tier_than = DUKE }
 		OR = {
-			num_of_duke_titles = 4	
-			AND = {
-				NOT = { 
-					any_demesne_title = {
-						tier = duke
-						is_titular = yes
-					}
-				}
-				num_of_duke_titles = 3
-			}
+			num_of_duke_titles = 3
 			AND = {
 				primary_title = { has_law = succ_feudal_elective }
 				num_of_duke_titles = 2
@@ -4441,6 +4442,22 @@ character_event = {
 							if = {
 								limit = {
 									ROOT = { 
+										primary_title = { has_law = succ_ultimogeniture }
+									}
+								}
+								add_law = succ_ultimogeniture
+							}
+							if = {
+								limit = {
+									ROOT = { 
+										primary_title = { has_law = succ_tanistry }
+									}
+								}
+								add_law = succ_tanistry
+							}							
+							if = {
+								limit = {
+									ROOT = { 
 										primary_title = { has_law = succ_feudal_elective }
 									}
 								}
@@ -7069,7 +7086,7 @@ character_event = {
 					NOT = {
 						title = e_rebels
 						title = e_pirates
-						title = e_papal_state
+						title = k_papal_state
 						title = e_timurids
 						title = e_mexikha
 						title = e_byzantium
@@ -7120,7 +7137,7 @@ character_event = {
 						NOT = {
 							title = e_rebels
 							title = e_pirates
-							title = e_papal_state
+							title = k_papal_state
 							title = e_timurids
 							title = e_mexikha
 							title = e_byzantium
@@ -9627,7 +9644,7 @@ character_event = {
 	is_triggered_only = yes
 	trigger = {
 		OR = {
-			has_landed_title = e_papal_state
+			has_landed_title = k_papal_state
 			has_landed_title = d_teutonic_order
 			has_landed_title = d_knights_hospitaler
 			has_landed_title = d_knights_templar	
@@ -11111,6 +11128,58 @@ character_event = {
 	option = {
 		name = "OK"	
 		liege = {
+			set_variable = { which = "realm_size" value = 0 }
+			any_demesne_title = {
+				limit = { tier = baron }
+				holder_scope = {
+					change_variable = { which = "realm_size" value = 1 } 
+				}					
+			}
+			any_realm_lord = {
+				limit = { is_liege_or_above = PREV }
+				any_demesne_title = {
+					limit = { tier = baron }
+					holder_scope = {
+						PREV = {
+							PREV = {
+								PREV = {
+									change_variable = { which = "realm_size" value = 1 } 
+								}
+							}
+						}
+					}					
+				}				
+			}
+			if = {
+				limit = {
+					primary_title = { has_law = tax_privileges_0 }
+				}
+				any_vassal = {
+					limit = {
+						OR = {
+							NOT = { has_character_modifier = tax_privileges_0_vassal }
+							has_character_modifier = tax_privileges_2_vassal
+						}
+					}
+					add_character_modifier = { name = "tax_privileges_0_vassal" duration = -1 }
+					remove_character_modifier = tax_privileges_2_vassal
+				}
+			}
+			if = {
+				limit = {
+					primary_title = { has_law = tax_privileges_1 }
+				}
+				any_vassal = {
+					limit = {
+						OR = {
+							has_character_modifier = tax_privileges_0_vassal
+							has_character_modifier = tax_privileges_2_vassal
+						}
+					}
+					remove_character_modifier = tax_privileges_0_vassal
+					remove_character_modifier = tax_privileges_2_vassal
+				}
+			}				
 			#reset variables
 			set_variable = { which = "total_faction_mood_feudal" value = 0 }
 			set_variable = { which = "total_faction_mood_court" value = 0 }
@@ -11126,7 +11195,7 @@ character_event = {
 			set_variable = { which = "faction_members_religious" value = 0 }
 			#count members of each faction
 			any_vassal = {
-				limit = { higher_tier_than = baron }	
+				limit = { OR = { higher_tier_than = baron is_patrician = yes } }	
 				if = {
 					limit = {
 						OR = {
@@ -11183,7 +11252,7 @@ character_event = {
 			#faction moods
 			any_vassal = {
 				limit = { 
-					higher_tier_than = baron 
+					OR = { higher_tier_than = baron is_patrician = yes } 
 				}
 				#feudal	
 				if = {
@@ -14252,7 +14321,7 @@ character_event = {
 			}
 			any_vassal = {
 				limit = { 
-					higher_tier_than = baron 
+					OR = { higher_tier_than = baron is_patrician = yes } 
 				}
 				#feudal
 				if = {
@@ -16150,7 +16219,7 @@ character_event = {
 			#calculate moods
 			any_vassal = {
 				limit = { 
-					higher_tier_than = baron 
+					OR = { higher_tier_than = baron is_patrician = yes } 
 				}			
 				if = {
 					limit = {
@@ -16496,4 +16565,60 @@ character_event = {
 	}
 }
 
+character_event = {
+	id = 110075
+	
+	trigger = {
+		ai = yes
+		is_ruler = yes
+		is_patrician = no
+		controls_religion = no
+		any_demesne_title = {
+			tier = baron
+			dejure_liege_title = {
+				holder_scope = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+	}
+		
+	desc = "AI_EVENT"
 
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "OK"	
+		any_demesne_title = {
+			limit = {
+				tier = baron
+				dejure_liege_title = {
+					holder_scope = {
+						NOT = { same_realm = ROOT }
+					}
+				}					
+			}
+			dejure_liege_title = {
+				holder_scope = {
+					set_character_flag = is_holder
+					ROOT = {
+						random_demesne_title = {
+							limit = {
+								tier = baron
+								dejure_liege_title = {
+									holder_scope = {
+										has_character_flag = is_holder
+									}
+								}					
+							}
+							gain_title = PREVPREV
+						}
+					}
+					clr_character_flag = is_holder
+				}
+			}
+		}
+	}
+}
