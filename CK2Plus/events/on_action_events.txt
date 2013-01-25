@@ -4866,12 +4866,19 @@ character_event = {
 		if = {
 			limit = {
 				tier = baron
+				is_patrician = no
 			}
 			wealth = 10
 		}
 		if = {
 			limit = {
-				tier = count
+				OR = {
+					tier = count
+					AND = {
+						tier = baron
+						is_patrician = yes
+					}
+				}
 			}
 			wealth = 25
 		}
@@ -4900,12 +4907,19 @@ character_event = {
 		if = {
 			limit = {
 				tier = baron
+				is_patrician = no
 			}
 			prestige = 10
 		}
 		if = {
 			limit = {
-				tier = count
+				OR = {
+					tier = count
+					AND = {
+						tier = baron
+						is_patrician = yes
+					}
+				}
 			}
 			prestige = 25
 		}

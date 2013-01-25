@@ -10,14 +10,6 @@
 	d_ancona = {
 		color={ 130 227 180 }
 		color2={ 255 255 255 }
-		culture = italian
-		allow = {
-			war = no
-			is_republic = yes
-		}
-		
-		capital = 350 #Ancona
-		dignity = 10
 	}	
 	d_aquileia = {
 		color = { 250 175 250 }
@@ -1203,7 +1195,7 @@ k_genoa = {
 		war = no
 		OR = {
 			is_republic = yes
-			k_venice = { OR = { is_titular = no has_holder = yes } }
+			k_genoa = { OR = { is_titular = no has_holder = yes } }
 		}	
 	}
 	gain_effect = {
@@ -1212,7 +1204,6 @@ k_genoa = {
 		}
 	}
 }
-
 k_pisa = {
 	color={ 196 192 140 }
 	color2={ 255 255 255 }
@@ -1226,7 +1217,51 @@ k_pisa = {
 		war = no
 		OR = {
 			is_republic = yes
-			k_venice = { OR = { is_titular = no has_holder = yes } }
+			k_pisa = { OR = { is_titular = no has_holder = yes } }
+		}	
+	}
+	gain_effect = {
+		hidden_tooltip = {
+			character_event = { id = 110029 }
+		}
+	}
+}
+k_gotland = {
+	color={ 96 92 240 }
+	color2={ 255 255 255 }
+	
+	capital = 301 #Gotland
+	culture = swedish
+	
+	dignity = 200 # Never want the Republic of Pisa to change primary title
+	
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_gotland = { OR = { is_titular = no has_holder = yes } }
+		}	
+	}
+	gain_effect = {
+		hidden_tooltip = {
+			character_event = { id = 110029 }
+		}
+	}
+}
+k_ancona = {
+	color={ 130 227 180 }
+	color2={ 255 255 255 }
+	
+	capital = 350 # Ancona
+	culture = italian
+	
+	dignity = 200 # Never want the Republic of Pisa to change primary title
+	
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_ancona = { OR = { is_titular = no has_holder = yes } }
 		}	
 	}
 	gain_effect = {

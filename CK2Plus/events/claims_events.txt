@@ -4,10 +4,17 @@ character_event = {
 	picture = GFX_evt_emissary
 	only_rulers = yes
 	
-	trigger = {
-		is_feudal = yes
+	trigger = {	
+		OR = {
+			is_feudal = yes
+			has_global_flag = shattered_world
+		}
 		primary_title = { higher_tier_than = BARON }
 		any_playable_ruler = {
+			OR = {
+				is_feudal = yes
+				has_global_flag = shattered_world
+			}
 			any_demesne_title = {
 				location = {
 					duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
@@ -111,6 +118,10 @@ character_event = {
 		name = "OK"
 		random_playable_ruler = {
 			limit = {
+				OR = {
+					is_feudal = yes
+					has_global_flag = shattered_world
+				}
 				any_demesne_title = {
 					location = {
 						duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
