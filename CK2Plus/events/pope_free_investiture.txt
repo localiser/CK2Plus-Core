@@ -15,9 +15,10 @@ character_event = {
 	picture = GFX_evt_icon
 	border = GFX_event_normal_frame_religion
 	
-	only_rulers = yes
+	only_playable = yes
 	
 	trigger = {
+		year = 1000
 		religion = catholic
 		controls_religion = yes
 		war = no
@@ -37,7 +38,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 200 #once every 20 years
+		months = 100 #once every 10 years
 		modifier = {
 			factor = 0.25
 			trait = zealous
@@ -104,15 +105,21 @@ character_event = {
        				is_titular = no
        				has_law = investiture_law_1 
 	    		}
+			revoke_law = investiture_law_1
 			add_law_w_cooldown = investiture_law_0
 		}
 		piety = 50
 		prestige = -200
+		religion_authority = {
+			modifier = ruler_bowed_to_pope
+			years = 10
+		}
 		clr_character_flag = pope_wants_our_law_changed
 		FROM = {
 			opinion = {
 				modifier = pope_invest_approve
 				who = ROOT
+				years = 5
 			}
 		}
 		hidden_tooltip = {
@@ -130,12 +137,16 @@ character_event = {
 		}
 		piety = -100
 		add_trait = excommunicated
-		religion_authority = -0.05
+		religion_authority = {
+			modifier = ruler_defied_pope
+			years = 10
+		}
 		set_character_flag = pope_we_refuse_law_changed
 		FROM = {
 			opinion = {
 				modifier = pope_invest_dislike
 				who = ROOT
+				years = 5
 			}
 		}	 
 		hidden_tooltip = {
@@ -170,7 +181,7 @@ character_event = {
 		name = "EVTOPTD67001"
 		tooltip_info = learning
 		trigger = {
-			learning = 14
+			learning = 12
 		}
 		ai_chance = {
 			factor = 100

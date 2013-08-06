@@ -9,11 +9,11 @@ eunuch = { #121
 }
 
 blinded = { #122
+	is_health = yes
 	sex_appeal_opinion = -10
 	martial = -6
 	stewardship = -2
 	intrigue = -2
-	health = -1
 	
 	customizer = no
 	
@@ -108,4 +108,84 @@ has_aztec_disease = { #131
 	fertility = -0.2
 	
 	customizer = no
+}
+
+child_of_consort = {
+	diplomacy = -1
+
+	customizer = no
+}
+
+peasant_leader = {
+	diplomacy = -5
+	
+	same_opinion = 50
+	
+	vassal_opinion = -20
+
+	rebel_inherited = yes
+	customizer = no
+}
+
+heresiarch = {
+	infidel_opinion = -30
+	
+	same_religion_opinion = 50
+	
+	rebel_inherited = yes
+	customizer = no
+	religious = yes
+}
+
+berserker = {
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+	}
+	martial = 4
+	diplomacy = -2
+	
+	same_opinion = 20
+	
+	ai_rationality = -5
+}
+
+varangian = {
+	martial = 2
+	diplomacy = 1
+	
+	same_opinion = 20
+	
+	customizer = no
+}
+
+saoshyant = {
+	zoroastrian_opinion = 20
+	
+	customizer = no
+}
+
+saoshyant_descendant = {
+	agnatic = yes # Always inherited from fathers
+	
+	zoroastrian_opinion = 10
+	
+	customizer = no
+}
+
+viking = {
+	potential = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+	}
+	martial = 1
+	monthly_character_prestige = 0.3
+	same_religion_opinion = 15
+	
+	same_opinion = 10
+	religious = yes
 }

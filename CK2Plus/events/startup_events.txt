@@ -2,7 +2,7 @@ character_event = {
 	id = 7110000
 	picture = "GFX_evt_council"	
 	is_triggered_only = yes
-	
+
 	hide_from = yes
 	
 	trigger = {
@@ -35,32 +35,6 @@ character_event = {
 				character_event = { id = 1000046500 } #family relations
 				character_event = { id = 110050 } #remove undesirable claims
 			}				
-		}
-		#set starting realm size
-		any_playable_ruler = {
-			set_variable = { which = "realm_size" value = 0 }
-			any_demesne_title = {
-				limit = { tier = baron }
-				holder_scope = {
-					change_variable = { which = "realm_size" value = 1 } 
-				}					
-			}
-			any_realm_lord = {
-				limit = { is_liege_or_above = PREV }
-				any_demesne_title = {
-					limit = { tier = baron }
-					holder_scope = {
-						PREV = {
-							PREV = {
-								PREV = {
-									change_variable = { which = "realm_size" value = 1 } 
-								}
-							}
-						}
-					}					
-				}				
-			}
-			character_event = { id = 110033 }
 		}
 		#set some historical variables
 		any_independent_ruler = {

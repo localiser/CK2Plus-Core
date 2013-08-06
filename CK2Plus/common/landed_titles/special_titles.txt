@@ -45,6 +45,8 @@ k_papal_state = {
 	# Cannot be held as a secondary title
 	primary = yes
 	
+	assimilate = no
+	
 	# Regnal names
 	male_names = {
 		John Gregory Benedict Clement Innocent Leo Pius Stephen Boniface Urban Alexander Adrian Paul
@@ -239,6 +241,8 @@ k_orthodox = {
 	
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 	
+	assimilate = no
+	
 	# Regnal names
 	male_names = {
 		Alexios Antonios Athanasios Basileios Chariton Dionysios Dositheos Eustathios Eustratios Euthymios
@@ -385,6 +389,10 @@ e_golden_horde = {
 	
 	capital = 619 #Saray
 	
+	allow = {
+		has_holder = yes
+	}	
+	
 	culture = mongol
 	religion = tengri_pagan
 }
@@ -399,6 +407,25 @@ e_il-khanate = {
 	
 	capital = 693 #Baghdad
 	
+	allow = {
+		has_holder = yes
+	}	
+	
+	culture = mongol
+	religion = tengri_pagan
+}
+
+e_mongol_empire = {
+	color = { 255 255 255 }
+	color2 = { 255 20 20 }
+	
+	capital = 622
+	
+	# Always exists
+	landless = yes
+	
+	tribe = yes
+	
 	culture = mongol
 	religion = tengri_pagan
 }
@@ -412,6 +439,10 @@ e_timurids = {
 	short_name = yes
 	
 	capital = 903 #Samarkand
+	
+	allow = {
+		has_holder = yes
+	}
 	
 	culture = mongol
 	religion = shiite
@@ -435,7 +466,7 @@ e_roman_empire = {
 	religion = orthodox
 	
 	allow = {
-		always = no # Only created through special event
+		has_holder = yes
 	}
 }
 
@@ -462,21 +493,15 @@ k_hansa = {
 	
 	capital = 262 # Lübeck
 	
+	short_name = yes
+	
 	dignity = 200 # Never want the Hanseatic League to change primary title
 	
 	allow = {
-		always = no
-		is_republic = yes
+		independent = yes
+		tier = duke
+		is_merchant_republic = yes
 	}
-}	
-
-d_gotland = {
-	color={ 0 45 110 }
-	color2={ 255 255 255 }
-	
-	capital = 301 # Gotland
-	
-	dignity = 10
 }	
 
 ######################################
@@ -506,6 +531,31 @@ b_morosini = {
 }
 
 b_ziani = {
+	culture = italian
+	religion = catholic
+}
+
+b_candiano = {
+	culture = italian
+	religion = catholic
+}
+
+b_orsoleo = {
+	culture = italian
+	religion = catholic
+}
+
+b_participazio = {
+	culture = italian
+	religion = catholic
+}
+
+b_tribuno = {
+	culture = italian
+	religion = catholic
+}
+
+b_tradonico = {
 	culture = italian
 	religion = catholic
 }
@@ -643,4 +693,244 @@ b_stracca = {
 b_lilli = {
 	culture = italian
 	religion = catholic
+}
+
+# AMALFI:
+
+b_konstantios = {
+	culture = greek
+	religion = catholic
+}
+
+b_mauro = {
+	culture = italian
+	religion = catholic
+}
+
+b_musco = {
+	culture = italian
+	religion = catholic
+}
+
+b_polkarios = {
+	culture = greek
+	religion = catholic
+}
+
+b_urso = {
+	culture = italian
+	religion = catholic
+}
+
+# Pagan heads of religion
+
+d_norse_pagan_reformed = {
+	color={ 155 155 235 }
+	color2={ 220 220 0 }
+	
+	capital = 290 #Uppland
+	
+	title = "FYLKIR"
+	title_female = "FYLKJA"
+	foa = "FYLKIR_FOA"
+	
+	creation_requires_capital = no
+	
+	allow = {
+		religion = norse_pagan_reformed
+		num_of_holy_sites = 3
+		piety = 500
+	}
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	# Controls a religion
+	controls_religion = norse_pagan_reformed
+	
+	religion = norse_pagan_reformed
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_tengri_pagan_reformed = {
+	color={ 100 80 100 }
+	color2={ 220 220 0 }
+	
+	capital = 594 #	Sarkel
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = tengri_pagan_reformed
+	
+	religion = tengri_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_baltic_pagan_reformed = {
+	color={ 122 165 70 }
+	color2={ 220 220 0 }
+	
+	capital = 366 #Stettin
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = baltic_pagan_reformed
+	
+	religion = baltic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_finnish_pagan_reformed = {
+	color={ 240 240 220 }
+	color2={ 220 220 0 }
+	
+	capital = 381 # Uusimaa
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = finnish_pagan_reformed
+	
+	religion = finnish_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_slavic_pagan_reformed = {
+	color={ 175 50 136 }
+	color2={ 220 220 0 }
+	
+	capital = 515 # Tirgoviste
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = slavic_pagan_reformed
+	
+	religion = slavic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_aztec_reformed = {
+	color={ 245 245 135 }
+	color2={ 220 220 0 }
+	
+	capital = 1 #???????
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = aztec_reformed
+	
+	religion = aztec_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_west_african_pagan_reformed = {
+	color={ 91 49 13 }
+	color2={ 220 220 0 }
+	
+	capital = 925 # Mali
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = west_african_pagan_reformed
+	
+	religion = west_african_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_zoroastrian = {
+	color={ 180 120 40 }
+	color2={ 220 220 0 }
+	
+	capital = 646 #	Esfahan
+	
+	title = "HEAD_MOABADAN_MOABAD"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = zoroastrian
+	
+	religion = zoroastrian
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }

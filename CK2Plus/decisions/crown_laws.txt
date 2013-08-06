@@ -165,16 +165,32 @@ de_jure_laws = {
 			#set_allow_free_revokation = no
 		}
 		
-		castle_vassal_max_levy = 0.1		
-		city_vassal_max_levy = 0.1
-		temple_vassal_max_levy = 0.1
+		castle_vassal_max_levy = 0.05		
+		city_vassal_max_levy = 0.05
+		temple_vassal_max_levy = 0.05
+		
+		castle_vassal_min_levy = 0.05
+		city_vassal_min_levy = 0.05
+		temple_vassal_min_levy = 0.05
 	}
 	
 	centralization_2 = {
 		show_as_title = yes
 		group = centralization
 		
-		allow = {	
+		allow = {
+			holder_scope = { 
+				is_republic = no 
+				hidden_tooltip = {
+					NOT = { religion = norse_pagan }
+					NOT = { religion = tengri_pagan }
+					NOT = { religion = baltic_pagan }
+					NOT = { religion = finnish_pagan }
+					NOT = { religion = aztec }
+					NOT = { religion = slavic_pagan }
+				}
+				custom_tooltip = TT_NOT_UNREFORMED_PAGAN
+			}		
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			OR = {
 				has_law = centralization_1
@@ -268,9 +284,13 @@ de_jure_laws = {
 			#set_allow_free_revokation = no
 		}
 		
-		castle_vassal_max_levy = 0.2		
-		city_vassal_max_levy = 0.2
-		temple_vassal_max_levy = 0.2			
+		castle_vassal_max_levy = 0.1		
+		city_vassal_max_levy = 0.1
+		temple_vassal_max_levy = 0.1
+		
+		castle_vassal_min_levy = 0.1
+		city_vassal_min_levy = 0.1
+		temple_vassal_min_levy = 0.1			
 	}
 	
 	centralization_3 = {
@@ -278,6 +298,18 @@ de_jure_laws = {
 		group = centralization
 		
 		allow = {	
+			holder_scope = { 
+				is_republic = no 
+				hidden_tooltip = {
+					NOT = { religion = norse_pagan }
+					NOT = { religion = tengri_pagan }
+					NOT = { religion = baltic_pagan }
+					NOT = { religion = finnish_pagan }
+					NOT = { religion = aztec }
+					NOT = { religion = slavic_pagan }
+				}
+				custom_tooltip = TT_NOT_UNREFORMED_PAGAN
+			}		
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			OR = {
 				has_law = centralization_2
@@ -371,16 +403,32 @@ de_jure_laws = {
 			#set_allow_free_revokation = no
 		}
 		
-		castle_vassal_max_levy = 0.3		
-		city_vassal_max_levy = 0.3
-		temple_vassal_max_levy = 0.3			
+		castle_vassal_max_levy = 0.15		
+		city_vassal_max_levy = 0.15
+		temple_vassal_max_levy = 0.15
+		
+		castle_vassal_min_levy = 0.15
+		city_vassal_min_levy = 0.15
+		temple_vassal_min_levy = 0.15			
 	}
 	
 	centralization_4 = {
 		show_as_title = yes
 		group = centralization
 		
-		allow = {	
+		allow = {
+			holder_scope = { 
+				is_republic = no 
+				hidden_tooltip = {
+					NOT = { religion = norse_pagan }
+					NOT = { religion = tengri_pagan }
+					NOT = { religion = baltic_pagan }
+					NOT = { religion = finnish_pagan }
+					NOT = { religion = aztec }
+					NOT = { religion = slavic_pagan }
+				}
+				custom_tooltip = TT_NOT_UNREFORMED_PAGAN
+			}		
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			has_law = centralization_3
 			holder_scope = { prestige = 5000 }			
@@ -446,9 +494,13 @@ de_jure_laws = {
 			#set_allow_free_revokation = yes
 		}
 		
-		castle_vassal_max_levy = 0.4		
-		city_vassal_max_levy = 0.4
-		temple_vassal_max_levy = 0.4			
+		castle_vassal_max_levy = 0.2		
+		city_vassal_max_levy = 0.2
+		temple_vassal_max_levy = 0.2
+		
+		castle_vassal_min_levy = 0.2
+		city_vassal_min_levy = 0.2
+		temple_vassal_min_levy = 0.2		
 	}
 	
 # INVESTITURE

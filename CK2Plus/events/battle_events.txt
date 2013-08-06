@@ -1,11 +1,15 @@
 #On-action combat event: Killed in action
 character_event = {
 	id = 242
-	desc = "EVTDESC242"	
-	picture = "GFX_evt_death"
+	desc = EVTDESC242	
+	picture = GFX_evt_death
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { trait = berserker }
+	}
 
 	mean_time_to_happen = {
 		days = 1
@@ -169,15 +173,15 @@ character_event = {
 	}
 	
 	option = {
-		name = "ALAS"
+		name = ALAS
 	}	
 }
 
 #On-action combat event: Wounded in action
 character_event = {
 	id = 243
-	desc = "EVTDESC243"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC243
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -185,6 +189,7 @@ character_event = {
 	trigger = {
 		NOT = { trait = wounded }
 		NOT = { trait = maimed }
+		NOT = { trait = berserker }
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
@@ -330,7 +335,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "CURSES"
+		name = CURSES
 		add_trait = wounded
 		if = {
 			limit = {	
@@ -350,8 +355,8 @@ character_event = {
 #On-action combat event: Maimed in action
 character_event = {
 	id = 244
-	desc = "EVTDESC244"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC244
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
@@ -359,6 +364,7 @@ character_event = {
 	
 	trigger = {
 		NOT = { trait = maimed }
+		NOT = { trait = berserker }
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
@@ -504,7 +510,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "CURSES"
+		name = CURSES
 		add_trait = maimed
 		if = {
 			limit = {	
@@ -524,8 +530,8 @@ character_event = {
 #On-action combat event: Serious head injury in action
 character_event = {
 	id = 245
-	desc = "EVTDESC245"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC245
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
@@ -678,7 +684,7 @@ character_event = {
 	}
 
 	option = {
-		name = "CURSES"
+		name = CURSES
 		add_trait = incapable
 		if = {
 			limit = {	
@@ -698,8 +704,8 @@ character_event = {
 #On-action combat event: Character skill improves
 character_event = {
 	id = 246
-	desc = "EVTDESC246"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC246
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -833,7 +839,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EXCELLENT"
+		name = EXCELLENT
 		if = {
 			limit = {
 				trait = skilled_tactician
@@ -873,8 +879,8 @@ character_event = {
 #On-action combat event: Flat improvement to martial skill
 character_event = {
 	id = 247
-	desc = "EVTDESC247"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC247
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -1002,7 +1008,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EXCELLENT"
+		name = EXCELLENT
 		change_martial = 1
 		if = {
 			limit = {	
@@ -1022,7 +1028,7 @@ character_event = {
 #On-action combat event: Tech Increase in Capital
 character_event = {
 	id = 248
-	desc = "EVTDESC248"
+	desc = EVTDESC248
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
@@ -1030,6 +1036,7 @@ character_event = {
 
 	trigger = {
 		is_alive = yes
+		is_landed = yes
 		OR = {
 			trait = brilliant_strategist
 			trait = skilled_tactician
@@ -1146,7 +1153,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EXCELLENT"
+		name = EXCELLENT
 		capital_scope = {
 			add_province_modifier = {
 				name = war_knowledge
@@ -1159,7 +1166,7 @@ character_event = {
 #Opponent is informed that enemy commander has been killed
 character_event = {
 	id = 249
-	desc = "EVTDESC249"
+	desc = EVTDESC249
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
@@ -1170,15 +1177,15 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA249"
+		name = EVTOPTA249
 	}
 }
 
 #On-action combat event: Becoming Brave
 character_event = {
 	id = 270
-	desc = "EVTDESC270"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC270
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -1306,7 +1313,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EXCELLENT"
+		name = EXCELLENT
 		add_trait = brave
 		if = {
 			limit = {	
@@ -1326,8 +1333,8 @@ character_event = {
 #On-action combat event: Becoming Craven
 character_event = {
 	id = 271
-	desc = "EVTDESC271"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC271
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -1469,7 +1476,7 @@ character_event = {
 	}
 
 	option = {
-		name = "CURSES"
+		name = CURSES
 		add_trait = craven
 		if = {
 			limit = {	
@@ -1489,8 +1496,8 @@ character_event = {
 #On-action combat event: Becoming Wroth
 character_event = {
 	id = 272
-	desc = "EVTDESC272"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC272
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -1507,7 +1514,7 @@ character_event = {
 	}
 
 	option = {
-		name = "CURSES"
+		name = CURSES
 		add_trait = wroth
 	}
 }
@@ -1515,8 +1522,8 @@ character_event = {
 #On-action combat event: Becoming Patient
 character_event = {
 	id = 273
-	desc = "EVTDESC273"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC273
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
@@ -1533,7 +1540,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EXCELLENT"
+		name = EXCELLENT
 		add_trait = patient
 	}
 }
@@ -1541,9 +1548,7 @@ character_event = {
 #On-action battle_won: Heroism shown.
 character_event = {
 	id = 260
-	desc = "EVTDESC260"
-	picture = "GFX_evt_battle"
-	border = GFX_event_normal_frame_war
+	hide_window = yes
 	
 	is_triggered_only = yes
 
@@ -1670,22 +1675,20 @@ character_event = {
 		}
 
 	}
+	
+	immediate = {
+		random_list = {
+			16 = { character_event = { id = 262 } }
+			16 = { character_event = { id = 263 } }
+			16 = { character_event = { id = 264 } }
+			16 = { character_event = { id = 265 } }
+			16 = { character_event = { id = 266 } }
+			16 = { character_event = { id = 267 } }
+		}
+	}
 
 	option = {
-		name = "EXCELLENT"
-		prestige = 25
-		if = {
-			limit = {	
-				is_ruler = yes
-				religion_group = muslim
-				NOT = { 
-					any_liege = {
-						dynasty = ROOT
-					}
-				}
-			}
-			decadence = -1
-		}		
+		name = OK
 	}
 }
 
@@ -1693,8 +1696,8 @@ character_event = {
 #On-action battle_won: Soldier Distinguishes himself.
 character_event = {
 	id = 261
-	desc = "EVTDESC261"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC261
+	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -1728,7 +1731,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EXCELLENT"
+		name = EXCELLENT
 		create_random_soldier = {
 			random_traits = yes
 			dynasty = random
@@ -1739,12 +1742,102 @@ character_event = {
 	}
 }
 
+# Heroism Shown 1
+character_event = {
+	id = 262
+	desc = EVTDESC262
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA262
+		prestige = 100
+	}
+}
+
+# Heroism Shown 2
+character_event = {
+	id = 263
+	desc = EVTDESC263
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA262
+		prestige = 100
+	}
+}
+
+# Heroism Shown 3
+character_event = {
+	id = 264
+	desc = EVTDESC264
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA262
+		prestige = 100
+	}
+}
+
+# Heroism Shown 4
+character_event = {
+	id = 265
+	desc = EVTDESC265
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA262
+		prestige = 100
+	}
+}
+
+# Heroism Shown 5
+character_event = {
+	id = 266
+	desc = EVTDESC266
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA262
+		prestige = 100
+	}
+}
+
+# Heroism Shown 6
+character_event = {
+	id = 267
+	desc = EVTDESC267
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA262
+		prestige = 100
+	}
+}
+
 
 #On-action battle_lost: Imprisoned by the enemy
 character_event = {
 	id = 250
-	desc = "EVTDESC250"
-	picture = "GFX_evt_into_the_dungeon"
+	desc = EVTDESC250
+	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -1861,12 +1954,12 @@ character_event = {
 	}
 
 	option = {
-		name = "CURSES"
+		name = CURSES
 		imprison = FROM
 		hidden_tooltip = {
 			FROM = {
 				character_event = { 
-					id = 50020 # "imprisoned_events.txt"
+					id = 50020 # imprisoned_events.txt
 				}
 			}
 		}
@@ -1883,17 +1976,17 @@ letter_event = {
 		ai = no
 	}
 
-	desc = "EVTDESC251"
+	desc = EVTDESC251
 
 	option = {
-		name = "OK"
+		name = OK
 	}
 }
 
 # Leading defender dies, will never trigger from code
 letter_event = {
 	id = 252
-	desc = "EVTDESC251"
+	desc = EVTDESC251
 	border = GFX_event_letter_frame_war
 	
 	is_triggered_only = yes
@@ -1903,14 +1996,14 @@ letter_event = {
 	}
 	
 	option = {
-		name = "OK"
+		name = OK
 	}
 }
 
 #Marshal: Unnecessary violence
 character_event = {
 	id = 255
-	desc = "EVTDESC255"
+	desc = EVTDESC255
 	picture = GFX_evt_torture
 	border = GFX_event_normal_frame_war
 	
@@ -1931,7 +2024,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA255"
+		name = EVTOPTA255
 		prestige = -20
 		piety = -20
 		hidden_tooltip = {
@@ -1947,18 +2040,18 @@ character_event = {
 #Liege: Marshal used unnecessary violence
 character_event = {
 	id = 256
-	desc = "EVTDESC256"
+	desc = EVTDESC256
 	picture = GFX_evt_torture
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
 
 	option = {
-		name = "EVTOPTA256" #That's the cruelty of war
+		name = EVTOPTA256 #That's the cruelty of war
 		piety = -10
 	}
 	option = {
-		name = "EVTOPTB256" #Disapprove of his conduct
+		name = EVTOPTB256 #Disapprove of his conduct
 		opinion = {
 			modifier = opinion_disapprove
 			who = FROM
@@ -1966,7 +2059,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC256" #He's right, we should terrorise our enemy
+		name = EVTOPTC256 #He's right, we should terrorise our enemy
 		opinion = {
 			modifier = opinion_approves
 			who = FROM
@@ -2000,20 +2093,34 @@ character_event = {
 	trigger = { 
 		can_have_more_leadership_traits = yes
 		is_alive = yes
-		NOT = {
-			and = {
-				trait = rough_terrain_leader
-				trait = flat_terrain_leader
-				trait = mountain_terrain_leader
-				trait = desert_terrain_leader
-				trait = cavalry_leader
-				trait = heavy_infantry_leader
-				trait = light_foot_leader
-				trait = defensive_leader
-				trait = aggressive_leader
-				trait = inspiring_leader
-				trait = incapable
+		OR = {
+			NOT = {
+				OR = {
+					trait = rough_terrain_leader
+					trait = flat_terrain_leader
+					trait = mountain_terrain_leader
+					trait = desert_terrain_leader
+				}
 			}
+			NOT = {
+				OR = {
+					trait = cavalry_leader
+					trait = heavy_infantry_leader
+					trait = light_foot_leader
+				}
+			}
+			NOT = {
+				OR = {
+					trait = defensive_leader
+					trait = aggressive_leader
+				}
+			}
+			NOT = {
+				trait = inspiring_leader
+			}
+		}
+		NOT = {
+			trait = incapable
 		}
 	}
 	
@@ -2227,19 +2334,31 @@ character_event = {
 	trigger = { 
 		can_have_more_leadership_traits = yes
 		is_alive = yes
-		NOT = {
-			and = {
-				trait = rough_terrain_leader
-				trait = flat_terrain_leader
-				trait = mountain_terrain_leader
-				trait = desert_terrain_leader
-				trait = cavalry_leader
-				trait = heavy_infantry_leader
-				trait = light_foot_leader
-				trait = trickster
-				trait = flanker
-				trait = incapable
+		OR = {
+			NOT = {
+				OR = {
+					trait = rough_terrain_leader
+					trait = flat_terrain_leader
+					trait = mountain_terrain_leader
+					trait = desert_terrain_leader
+				}
 			}
+			NOT = {
+				OR = {
+					trait = cavalry_leader
+					trait = heavy_infantry_leader
+					trait = light_foot_leader
+				}
+			}
+			NOT = {
+				trait = flanker
+			}
+			NOT = {
+				trait = trickster
+			}
+		}
+		NOT = {
+			trait = incapable
 		}
 	}
 	
@@ -2434,14 +2553,23 @@ character_event = {
 	trigger = { 
 		can_have_more_leadership_traits = yes
 		is_alive = yes
-		NOT = {
-			and = {
+		OR = {
+			NOT = {
 				trait = organizer
-				trait = experimenter
-				trait = holy_warrior
-				trait = unyielding_leader
-				trait = incapable
 			}
+			NOT = {
+				trait = experimenter
+			}
+			NOT = {
+				trait = holy_warrior
+				trait = cynical
+			}
+			NOT = {
+				trait = unyielding_leader
+			}
+		}
+		NOT = {
+			trait = incapable
 		}
 	}
 	

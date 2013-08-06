@@ -3073,7 +3073,10 @@ character_event = {
 	picture = GFX_evt_spymaster	
 	trigger = {
 		age = 16
-		has_plot = plot_fabricate_treason
+		OR = {
+			has_plot = plot_fabricate_treason
+			has_plot = plot_fabricate_treason_liege
+		}
 		NOT = { has_character_flag = plot_in_action }
 		NOT = {
 			plot_target_char = {
@@ -3711,6 +3714,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA1007055"	
 		cancel_plot = plot_fabricate_treason
+		cancel_plot = plot_fabricate_treason_liege
 	}
 }
 
@@ -3929,6 +3933,7 @@ character_event = {
 		name = "EVTOPTA1007058"		
 		prestige = -100	
 		cancel_plot = plot_fabricate_treason
+		cancel_plot = plot_fabricate_treason_liege
 	}
 }
 
@@ -4600,7 +4605,10 @@ character_event = {
 	picture = GFX_evt_spymaster	
 	trigger = {
 		age = 16
-		has_plot = plot_fabricate_treason
+		OR = {
+			has_plot = plot_fabricate_treason
+			has_plot = plot_fabricate_treason_liege
+		}
 		NOT = { has_character_flag = plot_in_action }
 		plot_target_char = {
 			liege = {
@@ -5206,6 +5214,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA1007075"	
 		cancel_plot = plot_fabricate_treason
+		cancel_plot = plot_fabricate_treason_liege
 	}
 }
 
@@ -5400,5 +5409,6 @@ character_event = {
 		name = "EVTOPTA1007078"		
 		prestige = -100	
 		cancel_plot = plot_fabricate_treason
+		cancel_plot = plot_fabricate_treason_liege
 	}
 }

@@ -13,7 +13,13 @@ faction_feudal_emperor = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes	
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
 		is_feudal = yes 
@@ -24,6 +30,17 @@ faction_feudal_emperor = {
 		NOT = { liege = { has_character_flag = faction_feudal_war } }
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}		
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -31,13 +48,30 @@ faction_feudal_emperor = {
 					NOT = { character = ROOT }
 				}
 			}
-		}
-		NOT = { liege = { in_faction = faction_feudal_emperor } }
+		}		
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}
 		modifier = {
 			factor = 10
 			tier = king
@@ -65,6 +99,24 @@ faction_feudal_emperor = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_feudal_supporter }
@@ -102,7 +154,13 @@ faction_feudal_king = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}	
 		prisoner = no
 		is_ruler = yes
 		is_feudal = yes 
@@ -113,6 +171,17 @@ faction_feudal_king = {
 		NOT = { liege = { has_character_flag = faction_feudal_war } }
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -121,12 +190,29 @@ faction_feudal_king = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_feudal_king } }
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}			
 		modifier = {
 			factor = 10
 			tier = duke
@@ -155,6 +241,24 @@ faction_feudal_king = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_feudal_supporter }
@@ -233,8 +337,14 @@ faction_republican_emperor = {
 	type = character
 	
 	# Plotter scope
-	potential = {	
-		ai = yes	
+	potential = {		
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
 		OR = {
@@ -247,6 +357,17 @@ faction_republican_emperor = {
 		NOT = { liege = { has_character_flag = faction_republican_war } }	
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -255,12 +376,29 @@ faction_republican_emperor = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_republican_emperor } }
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 10
 			tier = king
@@ -293,6 +431,24 @@ faction_republican_emperor = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}			
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_republican_supporter }
@@ -338,19 +494,40 @@ faction_republican_king = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes	
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
 		OR = {
 			is_patrician = yes
 			is_republic = yes
 		}
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = king }
 		NOT = { liege = { has_character_flag = faction_republican_war } }	
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -359,12 +536,29 @@ faction_republican_king = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_republican_king } }
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}			
 		modifier = {
 			factor = 10
 			tier = duke
@@ -393,6 +587,24 @@ faction_republican_king = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}			
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_republican_supporter }
@@ -438,19 +650,40 @@ faction_republican_duke = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes	
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
 		OR = {
 			is_patrician = yes
 			is_republic = yes
 		}
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = duke }
 		NOT = { liege = { has_character_flag = faction_republican_war } }	
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -459,12 +692,29 @@ faction_republican_duke = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_republican_duke } }
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}			
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_republican_supporter }
@@ -489,6 +739,24 @@ faction_republican_duke = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}			
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_republican_supporter }
@@ -535,9 +803,19 @@ faction_religious_emperor = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = emperor }
@@ -545,6 +823,17 @@ faction_religious_emperor = {
 		NOT = { liege = { has_character_flag = faction_religious_war } }
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -553,12 +842,29 @@ faction_religious_emperor = {
 				}
 			}
 		}	
-		NOT = { liege = { in_faction = faction_religious_emperor } }
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}
 		modifier = {
 			factor = 10
 			tier = king
@@ -591,6 +897,24 @@ faction_religious_emperor = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
@@ -636,9 +960,19 @@ faction_religious_king = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = king }
@@ -646,6 +980,17 @@ faction_religious_king = {
 		NOT = { liege = { has_character_flag = faction_religious_war } }
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -653,13 +998,30 @@ faction_religious_king = {
 					NOT = { character = ROOT }
 				}
 			}
-		}	
-		NOT = { liege = { in_faction = faction_religious_king } }
+		}
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 10
 			tier = duke
@@ -688,6 +1050,24 @@ faction_religious_king = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
@@ -733,9 +1113,19 @@ faction_religious_duke = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = duke }
@@ -743,6 +1133,17 @@ faction_religious_duke = {
 		NOT = { liege = { has_character_flag = faction_religious_war } }
 		age = 16
 		NOT = { trait = incapable }
+		liege = {
+			NOT = {
+				religion = norse_pagan
+				religion = tengri_pagan
+				religion = baltic_pagan
+				religion = slavic_pagan
+				religion = finnish_pagan
+				religion = west_african_pagan
+				religion = aztec	
+			}		
+		}
 		NOT = {
 			liege = {
 				any_vassal = {
@@ -751,12 +1152,29 @@ faction_religious_duke = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_religious_duke } }
 	}
 	
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
@@ -781,6 +1199,24 @@ faction_religious_duke = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			ROOT = { NOT = { has_character_flag = faction_religious_supporter } }
@@ -828,9 +1264,19 @@ faction_court_emperor = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = emperor }
@@ -843,7 +1289,6 @@ faction_court_emperor = {
 				}
 			}
 		}	
-		NOT = { liege = { in_faction = faction_court_emperor } }
 		OR = {
 			is_feudal = yes
 			liege = { is_feudal = no }
@@ -853,6 +1298,24 @@ faction_court_emperor = {
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 10
 			tier = king
@@ -885,6 +1348,24 @@ faction_court_emperor = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_court_supporter }
@@ -930,9 +1411,19 @@ faction_court_king = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = king }
@@ -945,7 +1436,6 @@ faction_court_king = {
 				}
 			}
 		}	
-		NOT = { liege = { in_faction = faction_court_king } }	
 		OR = {
 			is_feudal = yes
 			liege = { is_feudal = no }
@@ -955,6 +1445,24 @@ faction_court_king = {
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}	
 		modifier = {
 			factor = 10
 			tier = duke
@@ -983,6 +1491,24 @@ faction_court_king = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_court_supporter }
@@ -1028,9 +1554,19 @@ faction_court_duke = {
 	
 	# Plotter scope
 	potential = {	
-		ai = yes
+		OR = {
+			NOT = { has_character_flag = former_faction_leader }
+			had_character_flag = {
+				flag = former_faction_leader
+				days = 7
+			}
+		}
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		liege = { NOT = { character = ROOT } }
 		liege = { tier = duke }
@@ -1043,7 +1579,6 @@ faction_court_duke = {
 				}
 			}
 		}
-		NOT = { liege = { in_faction = faction_court_duke } }
 		OR = {
 			is_feudal = yes
 			liege = { is_feudal = no }
@@ -1053,6 +1588,24 @@ faction_court_duke = {
 	# AI creation weight
 	chance = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_court_supporter }
@@ -1077,6 +1630,24 @@ faction_court_duke = {
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
 		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }
+				liege = { religion = aztec }			
+				NOT = { liege = { culture_group = PREV } }
+				NOT = { liege = { religion_group = PREV } }
+			}
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_character_flag = faction_court_supporter }
@@ -1125,6 +1696,10 @@ faction_separatist = {
 	potential = {
 		prisoner = no
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		NOT = { liege = { character = ROOT } }
 		NOT = { liege = { has_character_flag = faction_separatist_war } }	
 		independent = no
@@ -1143,23 +1718,111 @@ faction_separatist = {
 	
 	# AI creation weight
 	chance = {
-		factor = 1
+		factor = 100
+		modifier = {
+			factor = 0
+			controls_religion = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = { 
+				liege = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}			
 		#not unless we have a province
 		modifier = {
 			factor = 0
 			NOT = { num_of_count_titles = 1 }
 		}
+		#wrong culturegroup/religiongroup: different check
+		modifier = {
+			factor = 0
+			OR = {	
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}			
+			liege = {
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}	
+			}	
+			OR = {
+				leads_faction = faction_pretender
+				liege = {
+					any_vassal = {
+						leads_faction = faction_pretender
+						culture = ROOT
+						religion = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }	
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}
+			opinion = { who = liege value = 0 }
+		}		
 		#0 separatism: never
 		modifier = {
 			factor = 0
 			NOT = { check_variable = { which = "separatist_sentiment" value = 0.05 } }
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}	
+				culture_group = ROOT 
+				religion_group = ROOT
+			}		
 		}
 		#1 separatism
 		modifier = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 0.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 1.05 } }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}				
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {	
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
@@ -1167,10 +1830,6 @@ faction_separatist = {
 					}
 					culture = ROOT
 					religion = ROOT
-					AND = {
-						culture_group = ROOT
-						religion_group = ROOT
-					}
 					reverse_opinion = {
 						who = ROOT
 						value = 0
@@ -1183,7 +1842,18 @@ faction_separatist = {
 			factor = 0 
 			check_variable = { which = "separatist_sentiment" value = 1.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 2.05 } }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}				
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
@@ -1194,8 +1864,10 @@ faction_separatist = {
 						religion = ROOT	
 					}		
 					AND = {
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = -50
@@ -1213,13 +1885,26 @@ faction_separatist = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 2.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 3.05 } }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}				
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {	
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = -25
@@ -1245,13 +1930,26 @@ faction_separatist = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 3.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 4.05 } }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}				
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {	
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = 0
@@ -1276,13 +1974,26 @@ faction_separatist = {
 		modifier = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 4.05 }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}				
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = 25
@@ -1310,35 +2021,110 @@ faction_separatist = {
 		factor = 100
 		modifier = {
 			factor = 0
-			prisoner = yes
+			controls_religion = yes
 		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = { 
+				liege = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}		
 		#not unless we have a province
 		modifier = {
 			factor = 0
 			NOT = { num_of_count_titles = 1 }
 		}
+		#wrong culturegroup/religiongroup: different check
+		modifier = {
+			factor = 0
+			OR = {	
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}			
+			liege = {
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}	
+			}				
+			OR = {
+				leads_faction = faction_pretender
+				liege = {
+					any_vassal = {
+						leads_faction = faction_pretender
+						culture = ROOT
+						religion = ROOT
+					}
+				}
+			}
+		}		
+		modifier = {
+			factor = 0
+			OR = {
+				liege = { religion = norse_pagan }
+				liege = { religion = tengri_pagan }
+				liege = { religion = baltic_pagan }
+				liege = { religion = slavic_pagan }
+				liege = { religion = finnish_pagan }
+				liege = { religion = west_african_pagan }	
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}
+			opinion = { who = liege value = 0 }
+		}		
 		#0 separatism: never
 		modifier = {
 			factor = 0
 			NOT = { check_variable = { which = "separatist_sentiment" value = 0.05 } }
+			liege = { 
+				culture_group = ROOT 
+				religion_group = ROOT
+			}		
 		}
 		#1 separatism
 		modifier = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 0.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 1.05 } }
-			liege = {
-				OR = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}			
+				culture_group = ROOT 
+				religion_group = ROOT
+				OR = {	
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
 					}
 					culture = ROOT
 					religion = ROOT
-					AND = {
-						culture_group = ROOT
-						religion_group = ROOT
-					}
 					reverse_opinion = {
 						who = ROOT
 						value = 0
@@ -1351,7 +2137,18 @@ faction_separatist = {
 			factor = 0 
 			check_variable = { which = "separatist_sentiment" value = 1.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 2.05 } }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}			
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
@@ -1362,8 +2159,10 @@ faction_separatist = {
 						religion = ROOT	
 					}		
 					AND = {
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = -50
@@ -1381,13 +2180,26 @@ faction_separatist = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 2.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 3.05 } }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}			
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {	
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = -25
@@ -1414,12 +2226,25 @@ faction_separatist = {
 			check_variable = { which = "separatist_sentiment" value = 3.05 }
 			NOT = { check_variable = { which = "separatist_sentiment" value = 4.05 } }
 			liege = {
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}			
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {	
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = 0
@@ -1444,13 +2269,26 @@ faction_separatist = {
 		modifier = {
 			factor = 0
 			check_variable = { which = "separatist_sentiment" value = 4.05 }
-			liege = {
+			liege = { 
+				NOT = {
+					religion = norse_pagan
+					religion = tengri_pagan
+					religion = baltic_pagan
+					religion = slavic_pagan
+					religion = finnish_pagan
+					religion = west_african_pagan
+					religion = aztec	
+				}			
+				culture_group = ROOT 
+				religion_group = ROOT
 				OR = {
 					AND = {
 						ROOT = { primary_title = { de_jure_liege_or_above = PREVPREV } }
 						ROOT = { any_demesne_province = { has_province_flag = contingent_territory } }
-						culture_group = ROOT
-						religion_group = ROOT
+						OR = {
+							culture = ROOT
+							religion = ROOT						
+						}
 						reverse_opinion = {
 							who = ROOT
 							value = 25
@@ -1470,7 +2308,7 @@ faction_separatist = {
 					}					
 				}
 			}
-		}		
+		}	
 	}
 	
 	success = {	
@@ -1496,6 +2334,10 @@ faction_pretender = {
 	# Plotter scope
 	potential = {
 		is_ruler = yes
+		OR = {
+			is_patrician = no
+			is_merchant_republic = yes
+		}		
 		independent = no
 		is_landed = yes
 		prisoner = no
@@ -1508,7 +2350,19 @@ faction_pretender = {
 	
 	# Target scope
 	allow = {
-		is_primary_holder_title = yes
+		is_primary_holder_title_tier = yes
+		OR = {
+			is_primary_holder_title = yes
+			FROM = { 
+				primary_title = {
+					OR = {	
+						dejure_liege_title = { title = PREVPREVPREV }
+						kingdom = { title = PREVPREVPREV }
+						empire = { title = PREVPREVPREV }
+					}
+				}
+			}
+		}
 		new_character = { prisoner = no }
 		NOT = {
 			new_character = {
@@ -1543,6 +2397,19 @@ faction_pretender = {
 				NOT = { has_law = agnatic_succession }
 			}
 		}
+		OR = {
+			NOT = { has_law = succ_feudal_elective }
+			new_character = { is_ruler = no }
+			new_character = {
+				primary_title = {
+					OR = {
+						empire = { title = PREVPREVPREV }
+						kingdom = { title = PREVPREVPREV }
+						dejure_liege_title = { title = PREVPREVPREV }
+					}
+				}
+			}
+		}
 	}
 	
 	# AI creation weight
@@ -1553,8 +2420,61 @@ faction_pretender = {
 			always = yes
 		}
 		modifier = {
+			factor = 0.1
+			NOT = { is_primary_holder_title = yes }
+		}
+		modifier = {
+			factor = 0
+			FROM = { controls_religion = yes }
+		}	
+		modifier = {
+			factor = 0
+			FROM = { 
+				OR = {
+					trait = incapable
+					NOT = { age = 16 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = { 
+				liege = {
+					current_heir = {
+						character = FROM
+					}
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { FROM = { liege = { culture_group = FROM } } }
+				NOT = { FROM = { liege = { religion_group = FROM } } }
+			}
+			FROM = { opinion = { who = liege value = 25 } }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { FROM = { liege = { culture_group = FROM } } }
+				NOT = { FROM = { liege = { religion_group = FROM } } }
+			}
+			FROM = { 
+				opinion = { who = liege value = 0 } 
+				NOT = {
+					trait = proud
+					trait = ambitious
+					trait = envious
+					trait = brave
+				}				
+			}			
+		}	
+		modifier = {
 			factor = 0
 			NOT = { new_character = { character = FROM } }
+			FROM = { liege = { culture_group = PREV } }
+			FROM = { liege = { religion_group = PREV } }		
 			FROM = { 
 				NOT = {
 					OR = {
@@ -1637,6 +2557,8 @@ faction_pretender = {
 		modifier = {
 			factor = 0
 			NOT = { new_character = { character = FROM } }
+			FROM = { liege = { culture_group = PREV } }
+			FROM = { liege = { religion_group = PREV } }			
 			FROM = { 
 				OR = {
 					AND = {
@@ -1697,6 +2619,8 @@ faction_pretender = {
 		modifier = {
 			factor = 0.25
 			NOT = { new_character = { character = FROM } }
+			FROM = { liege = { culture_group = PREV } }
+			FROM = { liege = { religion_group = PREV } }			
 			FROM = { 
 				OR = {
 					AND = {
@@ -1793,7 +2717,7 @@ faction_pretender = {
 			}
 		}		
 		modifier = {
-			factor = 0.5
+			factor = 0
 			NOT = { new_character = { character = FROM } }
 			new_character = {
 				NOT = { culture_group = FROM }
@@ -1996,6 +2920,8 @@ faction_pretender = {
 		modifier = {
 			factor = 0
 			new_character = { character = FROM }
+			FROM = { liege = { culture_group = PREV } }
+			FROM = { liege = { religion_group = PREV } }				
 			FROM = {
 				opinion = {
 					who = liege
@@ -2125,23 +3051,84 @@ faction_pretender = {
 	
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
 	membership = {
-		factor = 1
+		factor = 1			
 		modifier = {
-			factor = 0.5
-			always = yes
+			factor = 0
+			controls_religion = yes
+		}	
+		modifier = {
+			factor = 0
+			OR = {
+				trait = incapable
+				NOT = { age = 16 }
+			}
 		}
 		modifier = {
 			factor = 0
+			ROOT = { 
+				liege = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}				
+		modifier = {
+			factor = 0
 			FROMFROM = { is_conquered = yes }
-			NOT = { new_character = { culture = ROOT } }
+			FROM = { 
+				supported_claimant = {			
+					NOT = { culture = ROOT }
+				} 
+			}
 		}				
 		modifier = {
 			factor = 0
 			prisoner = yes
 		}
+		#different culture group: uses another calc
+		modifier = {
+			factor = 100
+			OR = {
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}
+			FROM = { 
+				supported_claimant = {
+					culture = ROOT
+					religion = ROOT
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { liege = { culture_group = ROOT } }
+				NOT = { liege = { religion_group = ROOT } }
+			}
+			ROOT = { 
+				opinion = { who = liege value = 0 } 
+				NOT = {
+					trait = proud
+					trait = ambitious
+					trait = envious
+					trait = brave
+				}				
+			}			
+		}		
 		modifier = {
 			factor = 0
 			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			liege = { culture_group = ROOT }
+			liege = { religion_group = ROOT }			
 			ROOT = { 
 				NOT = {
 					OR = {
@@ -2163,7 +3150,7 @@ faction_pretender = {
 								in_faction = faction_feudal_king
 								in_faction = faction_feudal_duke							
 							}
-							FROM = {
+							FROM = {	
 								OR = {
 									leads_faction = faction_feudal_emperor
 									leads_faction = faction_feudal_king
@@ -2177,6 +3164,10 @@ faction_pretender = {
 										}
 									}
 								}
+								OR = {
+									ai = yes
+									liege = { has_character_flag = faction_feudal_angry }
+								}								
 							}
 						}
 						AND = {
@@ -2197,8 +3188,12 @@ faction_pretender = {
 											leads_faction = faction_republican_king
 											leads_faction = faction_republican_duke								
 										}
-									}
+									}									
 								}
+								OR = {
+									ai = yes
+									liege = { has_character_flag = faction_republican_angry }
+								}								
 							}
 						}
 						AND = {
@@ -2219,8 +3214,12 @@ faction_pretender = {
 											leads_faction = faction_religious_king
 											leads_faction = faction_religious_duke								
 										}
-									}
+									}								
 								}
+								OR = {
+									ai = yes
+									liege = { has_character_flag = faction_religious_angry }
+								}									
 							}
 						}
 						AND = {
@@ -2241,8 +3240,12 @@ faction_pretender = {
 											leads_faction = faction_court_king
 											leads_faction = faction_court_duke								
 										}
-									}
+									}								
 								}
+								OR = {
+									ai = yes
+									liege = { has_character_flag = faction_court_angry }
+								}									
 							}
 						}							
 					}
@@ -2271,8 +3274,12 @@ faction_pretender = {
 									leads_faction = faction_feudal_king
 									leads_faction = faction_feudal_duke								
 								}
-							}
+							}						
 						}
+						OR = {
+							ai = yes
+							liege = { has_character_flag = faction_feudal_angry }
+						}							
 					}
 				}
 				AND = {
@@ -2293,8 +3300,12 @@ faction_pretender = {
 									leads_faction = faction_republican_king
 									leads_faction = faction_republican_duke								
 								}
-							}
+							}						
 						}
+						OR = {
+							ai = yes
+							liege = { has_character_flag = faction_republican_angry }
+						}							
 					}
 				}
 				AND = {
@@ -2317,6 +3328,10 @@ faction_pretender = {
 								}
 							}
 						}
+						OR = {
+							ai = yes
+							liege = { has_character_flag = faction_religious_angry }
+						}							
 					}
 				}
 				AND = {
@@ -2339,6 +3354,10 @@ faction_pretender = {
 								}
 							}
 						}
+						OR = {
+							ai = yes
+							liege = { has_character_flag = faction_court_angry }
+						}							
 					}
 				}				
 			}
@@ -2346,6 +3365,8 @@ faction_pretender = {
 		modifier = {
 			factor = 0
 			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			liege = { culture_group = ROOT }
+			liege = { religion_group = ROOT }			
 			OR = {
 				AND = {
 					OR = {
@@ -2404,6 +3425,8 @@ faction_pretender = {
 		modifier = {
 			factor = 0.25
 			NOT = { FROM = { supported_claimant = { character = ROOT } } }
+			liege = { culture_group = ROOT }
+			liege = { religion_group = ROOT }			
 			OR = {
 				AND = {
 					OR = {
@@ -2494,7 +3517,7 @@ faction_pretender = {
 			}
 		}	
 		modifier = {
-			factor = 0.5
+			factor = 0
 			NOT = { FROM = { supported_claimant = { character = ROOT } } }
 			FROM = { 
 				supported_claimant = {

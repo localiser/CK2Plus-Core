@@ -25,6 +25,7 @@ character_event = {
 				using_cb = crusade
 			}
 			any_liege = {
+				religion = catholic
 				any_war = {
 					using_cb = crusade
 				}
@@ -708,6 +709,7 @@ character_event = {
 			NOT = {
 				any_realm_province = {
 					any_neighbor_province = {
+						has_owner = yes
 						NOT = { religion_group = christian } 
 					}
 				}
@@ -765,6 +767,7 @@ character_event = {
 				NOT = {
 					any_realm_province = {
 						any_neighbor_province = {
+							has_owner = yes
 							NOT = { religion_group = christian } 
 						}
 					}
@@ -1012,6 +1015,7 @@ character_event = {
 			NOT = {
 				any_realm_province = {
 					any_neighbor_province = {
+						has_owner = yes
 						NOT = { religion_group = christian } 
 					}
 				}
@@ -1225,6 +1229,7 @@ character_event = {
 			NOT = {
 				any_realm_province = {
 					any_neighbor_province = {
+						has_owner = yes
 						NOT = { religion_group = christian } 
 					}
 				}
@@ -1423,6 +1428,7 @@ character_event = {
 				NOT = {
 					any_realm_province = {
 						any_neighbor_province = {
+							has_owner = yes
 							NOT = { religion = catholic } 
 						}
 					}
@@ -1449,6 +1455,7 @@ character_event = {
 					NOT = {
 						any_realm_province = {
 							any_neighbor_province = {
+								has_owner = yes
 								NOT = { religion_group = christian } 
 							}
 						}
@@ -1484,6 +1491,7 @@ character_event = {
 				NOT = {
 					any_realm_province = {
 						any_neighbor_province = {
+							has_owner = yes
 							NOT = { religion_group = christian } 
 						}
 					}
@@ -1516,6 +1524,7 @@ character_event = {
 					NOT = {
 						any_realm_province = {
 							any_neighbor_province = {
+								has_owner = yes
 								NOT = { religion_group = christian } 
 							}
 						}
@@ -2577,6 +2586,8 @@ character_event = {
 					ROOT = {
 						any_demesne_title = {
 							limit = {
+								is_titular = no		
+								is_landless_type_title = no
 								OR = {
 									higher_tier_than = count
 									location = { 
@@ -2977,7 +2988,7 @@ character_event = {
 	}
 	# A distant relative
 	option = {
-		name = "EVTOPTC1008900"
+		name = "EVTOPTC1008901"
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -3093,7 +3104,7 @@ character_event = {
 	option = {
 		name = "EVTOPTD1008901"
 		ai_chance = {
-			factor = 50
+			factor = 20
 			modifier = {
 				factor = 2
 				trait = zealous

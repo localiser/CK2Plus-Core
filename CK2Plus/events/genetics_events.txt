@@ -142,23 +142,6 @@ character_event = {
 					}
 				}
 			}
-			
-			#random chance for any of them
-			if = {
-				limit = {
-					NOT = { trait = genius }
-					NOT = { trait = quick }
-					NOT = { trait = slow }
-					NOT = { trait = imbecile }
-				}
-				random_list = {
-					190 = { }
-					4 = { add_trait = slow }
-					1 = { add_trait = imbecile }						
-					4 = { add_trait = quick }
-					1 = { add_trait = genius }
-				}				
-			}
 	
 			if = {
 				limit = {
@@ -926,7 +909,7 @@ character_event = {
 
 	hide_from = yes
 	min_age = 15
-	max_age = 25
+	max_age = 30
 	
 	trigger = {
 		ai = yes
@@ -959,7 +942,7 @@ character_event = {
 		liege = { 
 			NOT = { trait = immortal }
 			age = 15
-			NOT = { age = 25 }
+			NOT = { age = 30 }
 			ai = no
 			NOT = { trait = young16 }
 		}
@@ -989,7 +972,7 @@ character_event = {
 		is_ruler = no
 		liege = { 
 			NOT = { trait = immortal }
-			age = 25
+			age = 30
 			ai = no
 			OR = {
 				trait = young1
@@ -1019,7 +1002,7 @@ character_event = {
 
 	hide_from = yes
 	
-	min_age = 25
+	min_age = 30
 	max_age = 50
 	
 	trigger = {

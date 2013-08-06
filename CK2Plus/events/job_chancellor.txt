@@ -47,30 +47,6 @@ character_event = {
 		months = 120
 
 		modifier = {
-			factor = 3.0
-			liege = { ai = yes }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 4
-		}		
-		modifier = {
 			factor = 1.1
 			NOT = { opinion = { who = liege value = -100 } }
 		}
@@ -284,30 +260,6 @@ character_event = {
 		months = 240
 
 		modifier = {
-			factor = 3.0
-			liege = { ai = yes }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 4
-		}		
-		modifier = {
 			factor = 0.9
 			NOT = { opinion = { who = liege value = -100 } }
 		}
@@ -514,6 +466,7 @@ character_event = {
 		has_job_action = action_fabricate_claims
 		NOT = { has_character_modifier = bribed_by_noble_timer }
 		liege = {
+			ai = no
 			prestige = 0
 			ROOT = {
 				location = {
@@ -543,32 +496,17 @@ character_event = {
 
 		modifier = {
 			factor = 0.75
+			has_global_flag = shattered_world_no_dukes
+			NOT = { year = 1150 }
+		}		
+		modifier = {
+			factor = 0.75
 			has_global_flag = shattered_world
 			NOT = { year = 1150 }
 		}
 		modifier = {
-			factor = 100.0
-			liege = { ai = yes }
-		}
-		modifier = {
-			factor = 0.75
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 0.75
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 1.5
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 1.5
-			liege = { ai = no }
-			difficulty = 4
+			factor = 2.0
+			has_global_flag = hardcore_mode
 		}		
 		modifier = {
 			factor = 1.1
@@ -698,42 +636,6 @@ character_event = {
 			factor = 0.95
 			diplomacy = 25
 		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 400 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 600 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 800 }
-		}		
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 1000 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 1200 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 1400 }
-		}	
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 1600 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 1800 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { prestige = 00 }
-		}		
 	}
 	
 	option = {
@@ -1118,7 +1020,7 @@ character_event = {
 	trigger = {
 		has_job_action = action_fabricate_claims
 		NOT = { has_character_modifier = bribed_by_noble_timer }
-		liege = { prestige = 0 }
+		liege = { ai = no prestige = 0 }
 		location = {
 			county = {
 				holder_scope = {
@@ -1131,30 +1033,6 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 
-		modifier = {
-			factor = 100.0
-			liege = { ai = yes }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 4
-		}		
 		modifier = {
 			factor = 0.9
 			NOT = { opinion = { who = liege value = -100 } }
@@ -1476,6 +1354,12 @@ character_event = {
 		has_job_action = action_sow_dissent
 		location = {
 			owner = {
+				religion = ROOT
+				FROM = {
+					liege = {
+						religion = PREVPREV
+					}
+				}
 				NOT = { is_liege_of = ROOT }
 				NOT = { character = ROOT }
 				any_vassal = {
@@ -1488,32 +1372,8 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 180
-
-		modifier = {
-			factor = 3.0
-			liege = { ai = yes }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 4
-		}		
+		months = 240
+	
 		modifier = {
 			factor = 1.1
 			NOT = { opinion = { who = liege value = -100 } }
@@ -1762,30 +1622,6 @@ character_event = {
 	mean_time_to_happen = {
 		months = 90
 
-		modifier = {
-			factor = 3.0
-			liege = { ai = yes }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 4
-		}		
 		modifier = {
 			factor = 0.9
 			NOT = { opinion = { who = liege value = -100 } }

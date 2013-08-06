@@ -149,7 +149,7 @@ character_event = {
 		}
 		FROM = {
 			random = {
-				chance = 20
+				chance = 33
 				
 				character_event = {
 					id = 64003
@@ -176,17 +176,7 @@ character_event = {
 		}
 		FROM = {
 			random = {
-				chance = 10
-				
-				set_character_flag = wounded_by_lover
-				character_event = {
-					id = 64004
-					days = 14
-					tooltip = "EVTTOOLTIP64003"
-				}
-			}
-			random = {
-				chance = 10
+				chance = 25
 				
 				set_character_flag = made_infirm
 				character_event = {
@@ -256,7 +246,7 @@ character_event = {
 		trigger = {
 			has_character_flag = made_infirm
 		}
-		add_trait = infirm
+		add_trait = incapable
 		clr_character_flag = made_infirm
 		FROM = {
 			reverse_opinion = {
@@ -822,7 +812,10 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		NOT = { religion_group = muslim }
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+		}
 		fertility = 0.5
 		has_epidemic = no
 		is_ill = no
@@ -835,6 +828,7 @@ character_event = {
 		}
 		any_courtier = {
 			is_female = yes
+			NOT = { is_close_relative = ROOT }
 			NOT = {
 				trait = homosexual
 			}
@@ -842,7 +836,7 @@ character_event = {
 				trait = celibate
 			}
 			NOT = { trait = eunuch }
-			age = 16
+			is_marriage_adult = yes
 			NOT = {
 				age = 30
 
@@ -900,6 +894,7 @@ character_event = {
 		random_courtier = {
 			limit = {
 				is_female = yes
+				NOT = { is_close_relative = ROOT }
 				NOT = {
 					trait = homosexual
 				}
@@ -907,7 +902,7 @@ character_event = {
 					trait = celibate
 				}
 				NOT = { trait = eunuch }
-				age = 16
+				is_marriage_adult = yes
 				NOT = {
 					age = 30
 
@@ -944,6 +939,7 @@ character_event = {
 		random_courtier = {
 			limit = {
 				is_female = yes
+				NOT = { is_close_relative = ROOT }
 				NOT = {
 					trait = homosexual
 				}
@@ -951,7 +947,7 @@ character_event = {
 					trait = celibate
 				}
 				NOT = { trait = eunuch }
-				age = 16
+				is_marriage_adult = yes
 				NOT = {
 					age = 30
 
@@ -2256,7 +2252,14 @@ character_event = {
 			chance = 50
 			
 			lover = {
-				impregnate = ROOT
+				if = {
+					limit = { is_married = yes }
+					impregnate_cuckoo = ROOT
+				}
+				if = {
+					limit = { is_married = no }
+					impregnate = ROOT
+				}	
 			}
 		}		
 	}
@@ -2271,7 +2274,14 @@ character_event = {
 			}
 			20 = {
 				lover = {
-					impregnate = ROOT
+					if = {
+						limit = { is_married = yes }
+						impregnate_cuckoo = ROOT
+					}
+					if = {
+						limit = { is_married = no }
+						impregnate = ROOT
+					}	
 				}
 			}
 			20 = {
@@ -2404,7 +2414,14 @@ character_event = {
 			
 			piety = -10
 			lover = {
-				impregnate = ROOT
+				if = {
+					limit = { is_married = yes }
+					impregnate_cuckoo = ROOT
+				}
+				if = {
+					limit = { is_married = no }
+					impregnate = ROOT
+				}	
 			}
 		}		
 	}
@@ -2432,7 +2449,14 @@ character_event = {
 			
 			piety = -10
 			lover = {
-				impregnate = ROOT
+				if = {
+					limit = { is_married = yes }
+					impregnate_cuckoo = ROOT
+				}
+				if = {
+					limit = { is_married = no }
+					impregnate = ROOT
+				}	
 			}
 		}
 	}
@@ -2485,11 +2509,11 @@ character_event = {
 	desc = "EVTDESC64085"
 	picture = GFX_evt_lovers
 	
-	min_age = 16
 	capable_only = yes
 	only_rulers = no
 	
 	trigger = {
+		is_marriage_adult = yes
 		is_married = no
 		is_ruler = no
 		prisoner = no
@@ -2836,7 +2860,6 @@ character_event = {
 		trait = stressed
 		fertility = 0.4
 		lover = {
-			age = 16
 			is_female = yes
 			is_pregnant = no
 			fertility = 0.5
@@ -2866,7 +2889,14 @@ character_event = {
 			random = {
 				chance = 25
 				
-				impregnate = ROOT
+				if = {
+					limit = { is_married = yes }
+					impregnate_cuckoo = ROOT
+				}
+				if = {
+					limit = { is_married = no }
+					impregnate = ROOT
+				}
 				hidden_tooltip = {
 					ROOT = {
 						character_event = {
@@ -2888,7 +2918,14 @@ character_event = {
 			}
 			25 = {
 				lover = {
-					impregnate = ROOT
+					if = {
+						limit = { is_married = yes }
+						impregnate_cuckoo = ROOT
+					}
+					if = {
+						limit = { is_married = no }
+						impregnate = ROOT
+					}
 				}
 				hidden_tooltip = {
 					ROOT = {
@@ -3790,7 +3827,6 @@ character_event = {
 	desc = "EVTDESC64135"
 	picture = GFX_evt_market
 	
-	min_age = 16
 	capable_only = yes
 	only_rulers = yes
 	
@@ -4025,30 +4061,46 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 300
+		months = 180
 	
 		modifier = {
-			factor = 0.7
+			factor = 0.9
+			lover = { fertility = 0.5 }
+		}	
+		modifier = {
+			factor = 0.9
+			lover = { fertility = 0.6 }
+		}	
+		modifier = {
+			factor = 0.9
 			lover = { fertility = 0.7 }
 		}
 		modifier = {
-			factor = 0.7
+			factor = 0.9
 			lover = { fertility = 0.8 }
 		}
 		modifier = {
-			factor = 0.7
+			factor = 0.9
 			lover = { fertility = 0.9 }
-		}	
+		}
 		modifier = {
-			factor = 0.7
+			factor = 0.9
+			fertility = 0.5
+		}		
+		modifier = {
+			factor = 0.9
+			fertility = 0.6
+		}		
+		modifier = {
+			factor = 0.9
 			fertility = 0.7
 		}
 		modifier = {
-			factor = 0.7
+			factor = 0.9
 			fertility = 0.8
 		}
 		modifier = {
-			factor = 0.7
+			factor = 0.9
 			fertility = 0.9
 		}
 	}
@@ -4062,7 +4114,14 @@ character_event = {
 		}
 		lover = {
 			ROOT = {
-				impregnate = PREV
+				if = {
+					limit = { is_married = yes }
+					impregnate_cuckoo = PREV
+				}
+				if = {
+					limit = { is_married = no }
+					impregnate = PREV
+				}
 			}
 		}
 	}
@@ -4074,7 +4133,14 @@ character_event = {
 			}
 		}
 		lover = {
-			impregnate = ROOT
+			if = {
+				limit = { is_married = yes }
+				impregnate_cuckoo = ROOT
+			}
+			if = {
+				limit = { is_married = no }
+				impregnate = ROOT
+			}
 		}
 	}
 }
@@ -4083,6 +4149,11 @@ character_event = {
 	id = 64200
 	picture = GFX_evt_lovers
 	trigger = {
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+			is_female = yes
+		}	
 		is_married = yes
 		has_lover = no
 		OR = {
@@ -4238,12 +4309,15 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = chaste }
-				NOT = { trait = lustful }
 			}
-			add_trait = chaste
-			hidden_tooltip = {
-				character_event = {
-					id = 38274 #Notify Chaste
+			random = {
+				chance = 25
+				
+				add_trait = chaste
+				hidden_tooltip = {
+					character_event = {
+						id = 38274 #Notify Chaste
+					}
 				}
 			}				
 		}		
@@ -4281,7 +4355,6 @@ character_event = {
 		}
 		if = {
 			limit = {
-				NOT = { trait = chaste }
 				NOT = { trait = lustful }
 			}
 			add_trait = lustful

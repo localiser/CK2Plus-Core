@@ -10,7 +10,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA2000000"
 		ai_chance = {
-			factor = 10
+			factor = 100
 			modifier = {
 				factor = 0
 				has_character_flag = do_not_join_civil_war
@@ -23,7 +23,7 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 20
+				factor = 100
 				liege = { has_character_flag = faction_feudal_angry }
 			}
 			modifier = {
@@ -67,6 +67,7 @@ character_event = {
 				}
 			}				
 		}
+		hidden_tooltip = { liege = { set_character_flag = faction_feudal_war } }
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = 2000001 }
@@ -188,7 +189,6 @@ character_event = {
 		ai_chance = {
 			factor = 100
 		}
-		prestige = -100
 		hidden_tooltip = {
 			liege = {
 				any_vassal = {
@@ -363,7 +363,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA2000010"
 		ai_chance = {
-			factor = 10
+			factor = 100
 			modifier = {
 				factor = 0
 				has_character_flag = do_not_join_civil_war
@@ -374,9 +374,9 @@ character_event = {
 					NOT = { has_character_flag = faction_court_angry } 
 					NOT = { has_character_flag = faction_court_unhappy } 
 				}
-			}
+			}		
 			modifier = {
-				factor = 20
+				factor = 100
 				liege = { has_character_flag = faction_court_angry }
 			}
 			modifier = {
@@ -420,6 +420,7 @@ character_event = {
 				}
 			}				
 		}
+		hidden_tooltip = { liege = { set_character_flag = faction_court_war } }
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = 2000011 }
@@ -541,7 +542,6 @@ character_event = {
 		ai_chance = {
 			factor = 100
 		}
-		prestige = -100
 		hidden_tooltip = {
 			liege = {
 				any_vassal = {
@@ -701,7 +701,6 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTC2000015"
-		prestige = -50
 	}
 }
 
@@ -717,7 +716,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA2000020"
 		ai_chance = {
-			factor = 10
+			factor = 100
 			modifier = {
 				factor = 0
 				has_character_flag = do_not_join_civil_war
@@ -730,7 +729,7 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 20
+				factor = 100
 				liege = { has_character_flag = faction_religious_angry }
 			}
 			modifier = {
@@ -774,6 +773,7 @@ character_event = {
 				}
 			}				
 		}
+		hidden_tooltip = { liege = { set_character_flag = faction_religious_war } }		
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = 2000021 }
@@ -895,7 +895,6 @@ character_event = {
 		ai_chance = {
 			factor = 100
 		}
-		prestige = -100
 		hidden_tooltip = {
 			liege = {
 				any_vassal = {
@@ -1071,7 +1070,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA2000030"
 		ai_chance = {
-			factor = 10
+			factor = 100
 			modifier = {
 				factor = 0
 				has_character_flag = do_not_join_civil_war
@@ -1084,7 +1083,7 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 20
+				factor = 100
 				liege = { has_character_flag = faction_republican_angry }
 			}
 			modifier = {
@@ -1128,6 +1127,7 @@ character_event = {
 				}
 			}				
 		}
+		hidden_tooltip = { liege = { set_character_flag = faction_republican_war } }		
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = 2000031 }
@@ -1249,7 +1249,6 @@ character_event = {
 		ai_chance = {
 			factor = 100
 		}
-		prestige = -100
 		hidden_tooltip = {
 			liege = {
 				any_vassal = {
@@ -1422,7 +1421,8 @@ character_event = {
 	
 	trigger = {
 		prisoner = no
-		OR = { higher_tier_than = baron is_patrician = yes }
+		is_patrician = no
+		higher_tier_than = baron
 		OR = {
 			AND = {
 				NOT = { trait = incapable }
@@ -1602,8 +1602,7 @@ character_event = {
 		name = "EVTOPTC2000040"
 		ai_chance = {
 			factor = 100
-		}
-		prestige = -100	
+		}	
 		clr_character_flag = do_not_join_civil_war
 	}
 }
@@ -1882,6 +1881,7 @@ character_event = {
 					who = ROOT
 					modifier = opinion_upset
 					months = 120
+					multiplier = 2
 				}	
 				character_event = { id = 2010035 } #notify
 			}
@@ -2058,6 +2058,7 @@ character_event = {
 				who = FROM
 				modifier = opinion_upset
 				months = 120
+				multiplier = 2
 			}		
 		}	
 		if = {

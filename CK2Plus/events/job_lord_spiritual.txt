@@ -63,7 +63,11 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1000		
+		months = 750	
+		modifier = {
+			factor = 1.33
+			has_global_flag = hardcore_mode
+		}			
 		modifier = {
 			factor = 0.75
 			location = { is_capital = yes }
@@ -80,6 +84,7 @@ character_event = {
 				OR = {
 					culture_group = ROOT 
 					any_neighbor_province = {
+						has_owner = yes
 						culture_group = PREV
 						religion = ROOT
 					}
@@ -92,6 +97,7 @@ character_event = {
 				OR = {
 					culture = ROOT 
 					any_neighbor_province = {
+						has_owner = yes
 						culture = PREV
 						religion = ROOT
 					}
@@ -129,62 +135,24 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			location = { religion_group = ROOT }
-		}
+		}	
 		modifier = {
 			factor = 0.75
-			NOT = { religion_group = eastern_pagan }
-			NOT = { religion_group = african_pagan }
-			NOT = { religion_group = pagan_group }
-			location = { religion_group = eastern_pagan }
-		}		
-		modifier = {
-			factor = 0.75
-			NOT = { religion_group = eastern_pagan }
-			NOT = { religion_group = african_pagan }
-			NOT = { religion_group = pagan_group }
-			location = { religion_group = african_pagan }
-		}		
-		modifier = {
-			factor = 0.75
-			NOT = { religion_group = eastern_pagan }
-			NOT = { religion_group = african_pagan }
 			NOT = { religion_group = pagan_group }
 			location = { religion_group = pagan_group }
-		}
-		modifier = {
-			factor = 1.25
-			religion_group = eastern_pagan
-			location = {
-				NOT = { religion_group = eastern_pagan }
-				NOT = { religion_group = african_pagan }
-				NOT = { religion_group = pagan_group }			
-			}
-		}		
-		modifier = {
-			factor = 1.25
-			religion_group = african_pagan
-			location = {
-				NOT = { religion_group = eastern_pagan }
-				NOT = { religion_group = african_pagan }
-				NOT = { religion_group = pagan_group }			
-			}
-		}		
+		}	
 		modifier = {
 			factor = 1.25
 			religion_group = pagan_group
 			location = {
-				NOT = { religion_group = eastern_pagan }
-				NOT = { religion_group = african_pagan }
 				NOT = { religion_group = pagan_group }			
 			}
 		}	
 		modifier = {
 			factor = 100
 			NOT = { any_liege = { ai = no } }
-			religion_group = eastern_pagan
+			religion = tengri_pagan
 			location = {
-				NOT = { religion_group = eastern_pagan }
-				NOT = { religion_group = african_pagan }
 				NOT = { religion_group = pagan_group }			
 			}
 		}		
@@ -506,8 +474,14 @@ character_event = {
 					}
 				}
 			}
-			religion_authority = 0.002
-			location = { religion_authority = -0.002 }
+			religion_authority = {
+				modifier = converted_province_to			
+			}
+			location = {
+				religion_authority = {
+					modifier = converted_province_from		
+				}			
+			}
 		}
 		location = {
 			religion = ROOT 
@@ -576,8 +550,7 @@ letter_event = {
 	
 	is_triggered_only = yes
 
-	option = {
-		piety = 10	
+	option = {	
 		name = "EXCELLENT"
 	}
 }
@@ -626,15 +599,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 120
-		modifier = {
-			factor = 1.25
-			religion_group = eastern_pagan
-		}		
-		modifier = {
-			factor = 1.25
-			religion_group = african_pagan
-		}		
+		months = 120		
 		modifier = {
 			factor = 1.25
 			religion_group = pagan_group
@@ -642,7 +607,7 @@ character_event = {
 		modifier = {
 			factor = 100
 			NOT = { any_liege = { ai = no } }
-			religion_group = eastern_pagan
+			religion = tengri_pagan
 		}
 		modifier = {
 			factor = 1.1
@@ -913,7 +878,23 @@ letter_event = {
 	
 	option = {
 		name = "EVTOPTA20010"
+		
+		if = {
+			limit = { higher_tier_than = BARON }
+			religion_authority = {
+				modifier = ruler_converted_from
+			}
+		}		
+		
 		religion = FROM
+		
+		if = {
+			limit = { higher_tier_than = BARON }
+			religion_authority = {
+				modifier = ruler_converted_to
+			}
+		}
+		
 		hidden_tooltip = {
 			FROM = {
 				liege = { letter_event = { id = 20011 days = 7 } }
@@ -1929,6 +1910,7 @@ character_event = {
 	id = 20038
 	desc = "EVTDESC20038"
 	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
 	
@@ -1941,6 +1923,7 @@ character_event = {
 letter_event = {
 	id = 20039
 	desc = "EVTDESC20039"
+	border = GFX_event_letter_frame_religion
 	
 	is_triggered_only = yes
 	
@@ -1964,6 +1947,691 @@ letter_event = {
 						modifier = opinion_irritated
 						years = 5
 					}
+				}
+			}
+		}
+	}
+}
+
+# Chaplain arrives at Pagan capital
+character_event = {
+	id = 39650
+	desc = EVTDESC39650
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_inquisition
+		NOT = { has_character_flag = preacher_arrives }
+		location = {
+			owner = {
+				NOT = { character = ROOT }
+				NOT = { is_liege_of = ROOT }
+				NOT = { religion = ROOT }
+				religion_group = pagan_group
+				NOT = { same_realm = ROOT }
+				controls_religion = no
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA39650
+		set_character_flag = preacher_arrives
+		location = {
+			owner = {
+				character_event = { id = 39600 days = 4 tooltip = EVTTOOLTIP39600 }
+			}
+		}
+	}
+}
+
+# Chaplain has a chance of converting the Pagan lord
+character_event = {
+	id = 39651
+	desc = EVTDESC39651
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_inquisition
+		has_character_flag = preacher_arrives
+		location = {
+			owner = {
+				NOT = { character = ROOT }
+				NOT = { is_liege_of = ROOT }
+				NOT = { religion = ROOT }
+				religion_group = pagan_group
+				NOT = { same_realm = ROOT }
+				controls_religion = no
+				at_location = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 440	
+		modifier = {
+			factor = 0.9
+			location = {
+				owner = {		
+					culture_group = ROOT
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			location = {
+				owner = {		
+					culture = ROOT
+				}
+			}
+		}		
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 100 }
+		}	
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.6
+		}		
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.8
+		}	
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.9
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 1.0
+		}		
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.5 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.3 }
+		}	
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.2 }
+		}	
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA39651
+		hidden_tooltip = {
+			location = {
+				owner = {
+					character_event = { id = 39601 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+# Chaplain converts Pagan courtier
+character_event = {
+	id = 39652
+	desc = EVTDESC39652
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_inquisition
+		has_character_flag = preacher_arrives
+		location = {
+			owner = {
+				NOT = { character = ROOT }
+				NOT = { is_liege_of = ROOT }
+				NOT = { religion = ROOT }
+				religion_group = pagan_group
+				NOT = { same_realm = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.9
+			location = {
+				owner = {		
+					culture_group = ROOT
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			location = {
+				owner = {		
+					culture = ROOT
+				}
+			}
+		}	
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 100 }
+		}	
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.6
+		}		
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.8
+		}	
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.9
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 1.0
+		}		
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.5 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.3 }
+		}	
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.2 }
+		}	
+		modifier = {
+			factor = 1.1
+			NOT = { religion_authority = 0.1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA39652
+		hidden_tooltip = {
+			location = {
+				owner = {
+					random_courtier = {
+						limit = { 
+							age = 10
+							prisoner = no
+							at_location = ROOT
+							NOT = { trait = incapable }
+							ai = yes
+							religion_group = pagan_group
+						}
+						character_event = { id = 39610 days = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Chaplain squabbles with other chaplain
+character_event = {
+	id = 39653
+	desc = EVTDESC39653
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_inquisition
+		has_character_flag = preacher_arrives
+		location = {
+			owner = {
+				NOT = { character = ROOT }
+				NOT = { is_liege_of = ROOT }
+				NOT = { religion = ROOT }
+				religion_group = pagan_group
+				NOT = { same_realm = ROOT }
+			}
+		}
+		any_playable_ruler = {
+			any_courtier = {
+				has_job_action = action_inquisition
+				has_character_flag = preacher_arrives
+				at_location = ROOT
+				NOT = { character = ROOT }
+				NOT = { same_liege = ROOT }
+			}
+		}			
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 100 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
+			learning = 11
+		}		
+		modifier = {
+			factor = 0.95
+			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
+		}
+		modifier = {
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
+		}		
+	}
+	
+	option = {
+		name = EVTOPTA39653
+		hidden_tooltip = {
+			random_playable_ruler = {
+				limit = {
+					any_courtier = {
+						has_job_action = action_inquisition
+						has_character_flag = preacher_arrives
+						at_location = ROOT
+						NOT = { character = ROOT }
+						NOT = { same_liege = ROOT }
+					}
+				}
+				random_courtier = {
+					limit = {
+						has_job_action = action_inquisition
+						has_character_flag = preacher_arrives
+						at_location = ROOT
+						NOT = { character = ROOT }
+						NOT = { same_liege = ROOT }
+					}
+					character_event = { id = 39611 days = 1 }
 				}
 			}
 		}
@@ -2001,26 +2669,6 @@ character_event = {
 	mean_time_to_happen = { 
 		months = 120
 
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 4
-		}
 		modifier = {
 			factor = 1.1
 			NOT = { opinion = { who = liege value = -100 } }
@@ -2255,26 +2903,6 @@ character_event = {
 		months = 240
 
 		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 4
-		}
-		modifier = {
 			factor = 1.1
 			NOT = { opinion = { who = liege value = -100 } }
 		}
@@ -2490,26 +3118,6 @@ character_event = {
 		months = 1000
 
 		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			difficulty = 4
-		}
-		modifier = {
 			factor = 1.1
 			NOT = { opinion = { who = liege value = -100 } }
 		}
@@ -2689,26 +3297,6 @@ character_event = {
 	mean_time_to_happen = {
 		months = 1000
 
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 1 }
-		}
-		modifier = {
-			factor = 1.1
-			liege = { ai = no }
-			NOT = { difficulty = 2 }
-		}	
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 3
-		}
-		modifier = {
-			factor = 0.9
-			liege = { ai = no }
-			difficulty = 4
-		}
 		modifier = {
 			factor = 0.95
 			NOT = { opinion = { who = liege value = -100 } }
@@ -2915,56 +3503,136 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = { 
-		months = 220
-		
+	mean_time_to_happen = {
+		months = 240
+
 		modifier = {
-			factor = 1.25
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 100 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
 			NOT = { learning = 2 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			NOT = { learning = 3 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			NOT = { learning = 4 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			NOT = { learning = 5 }
 		}
 		modifier = {
-			factor = 0.75
-			learning = 10
+			factor = 1.05
+			NOT = { learning = 6 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
 			learning = 11
-		}
+		}		
 		modifier = {
-			factor = 0.75
+			factor = 0.95
 			learning = 12
-		}
+		}	
 		modifier = {
-			factor = 0.75
+			factor = 0.95
 			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
 		}
 		modifier = {
-			factor = 2.0
-			NOT = { religion_authority = 0.4 }
+			factor = 0.95
+			learning = 16
 		}
 		modifier = {
-			factor = 2.0
-			NOT = { religion_authority = 0.2 }
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
 		}
 		modifier = {
-			factor = 0.75
-			religion_authority = 0.6
+			factor = 0.95
+			learning = 19
 		}
 		modifier = {
-			factor = 0.75
-			religion_authority = 0.8
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
 		}
 	}
 	
@@ -3046,55 +3714,135 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 120
-	
+		months = 480
+
 		modifier = {
-			factor = 0.75
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 100 }
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 0.95
 			NOT = { learning = 2 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 0.95
 			NOT = { learning = 3 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 0.95
 			NOT = { learning = 4 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 0.95
 			NOT = { learning = 5 }
 		}
 		modifier = {
-			factor = 1.25
-			learning = 10
+			factor = 0.95
+			NOT = { learning = 6 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 0.95
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 1.05
 			learning = 11
-		}
+		}		
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			learning = 12
-		}
+		}	
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			learning = 13
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 14
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 15
 		}
 		modifier = {
-			factor = 0.75
-			NOT = { religion_authority = 0.4 }
+			factor = 1.05
+			learning = 16
 		}
 		modifier = {
-			factor =0.75
-			NOT = { religion_authority = 0.2 }
+			factor = 1.05
+			learning = 17
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 18
 		}
 		modifier = {
-			factor = 2.0
-			religion_authority = 0.6
+			factor = 1.05
+			learning = 19
 		}
 		modifier = {
-			factor = 2.0
-			religion_authority = 0.8
+			factor = 1.05
+			learning = 20
+		}
+		modifier = {
+			factor = 1.05
+			learning = 21
+		}
+		modifier = {
+			factor = 1.05
+			learning = 22
+		}
+		modifier = {
+			factor = 1.05
+			learning = 23
+		}
+		modifier = {
+			factor = 1.05
+			learning = 24
+		}
+		modifier = {
+			factor = 1.05
+			learning = 25
 		}
 	}
 	
@@ -3191,26 +3939,151 @@ character_event = {
 	
 	trigger = {
 		has_job_action = action_charity
+		NOT = { trait = charitable }
 	}
 	
 	mean_time_to_happen = {
-		months = 1000
-		
+		months = 480
+
 		modifier = {
-			factor = 1.5
-			trait = charitable
-		}
-		modifier = {
-			factor = 1.25
+			factor = 2.0
 			trait = just
+		}		
+		modifier = {
+			factor = 0.5
+			trait = arbitrary
 		}
 		modifier = {
-			factor = 0.50
+			factor = 0.5
 			trait = greedy
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -100 } }
 		}
 		modifier = {
-			factor = 0.75
-			trait = envious
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 1.1
+			opinion = { who = liege value = 100 }
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 1.05
+			learning = 11
+		}		
+		modifier = {
+			factor = 1.05
+			learning = 12
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 13
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 14
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 15
+		}
+		modifier = {
+			factor = 1.05
+			learning = 16
+		}
+		modifier = {
+			factor = 1.05
+			learning = 17
+		}	
+		modifier = {
+			factor = 1.05
+			learning = 18
+		}
+		modifier = {
+			factor = 1.05
+			learning = 19
+		}
+		modifier = {
+			factor = 1.05
+			learning = 20
+		}
+		modifier = {
+			factor = 1.05
+			learning = 21
+		}
+		modifier = {
+			factor = 1.05
+			learning = 22
+		}
+		modifier = {
+			factor = 1.05
+			learning = 23
+		}
+		modifier = {
+			factor = 1.05
+			learning = 24
+		}
+		modifier = {
+			factor = 1.05
+			learning = 25
 		}
 	}
 	
@@ -3275,39 +4148,135 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 180
-		
+		months = 240
+
 		modifier = {
-			factor = 1.25
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -100 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -75 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -50 } }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { opinion = { who = liege value = -25 } }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 25 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 50 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 75 }
+		}
+		modifier = {
+			factor = 0.95
+			opinion = { who = liege value = 100 }
+		}		
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 1 }
+		}		
+		modifier = {
+			factor = 1.05
 			NOT = { learning = 2 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			NOT = { learning = 3 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			NOT = { learning = 4 }
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.05
 			NOT = { learning = 5 }
 		}
 		modifier = {
-			factor = 0.75
-			learning = 10
+			factor = 1.05
+			NOT = { learning = 6 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.05
+			NOT = { learning = 7 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.05
+			NOT = { learning = 9 }
+		}
+		modifier = {
+			factor = 0.95
 			learning = 11
-		}
+		}		
 		modifier = {
-			factor = 0.75
+			factor = 0.95
 			learning = 12
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 13
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 14
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 15
 		}
 		modifier = {
-			factor = 0.75
-			learning = 13
+			factor = 0.95
+			learning = 16
+		}
+		modifier = {
+			factor = 0.95
+			learning = 17
+		}	
+		modifier = {
+			factor = 0.95
+			learning = 18
+		}
+		modifier = {
+			factor = 0.95
+			learning = 19
+		}
+		modifier = {
+			factor = 0.95
+			learning = 20
+		}
+		modifier = {
+			factor = 0.95
+			learning = 21
+		}
+		modifier = {
+			factor = 0.95
+			learning = 22
+		}
+		modifier = {
+			factor = 0.95
+			learning = 23
+		}
+		modifier = {
+			factor = 0.95
+			learning = 24
+		}
+		modifier = {
+			factor = 0.95
+			learning = 25
 		}
 	}
 	

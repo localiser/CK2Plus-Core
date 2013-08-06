@@ -54,8 +54,6 @@
 			factor = 2
 			OR = {
 				religion_group = pagan_group
-				religion_group = african_pagan
-				religion_group = eastern_pagan
 				religion_group = aztec_group
 			}
 		}
@@ -126,8 +124,6 @@
 			factor = 0
 			NOT = { religion_group = aztec_group }
 			NOT = { religion_group = pagan_group }
-			NOT = { religion_group = eastern_pagan }
-			NOT = { religion_group = african_pagan }
 		}
 		modifier = {
 			factor = 0
@@ -360,8 +356,6 @@
 			factor = 0
 			NOT = { religion_group = aztec_group }
 			NOT = { religion_group = pagan_group }
-			NOT = { religion_group = african_pagan }
-			NOT = { religion_group = eastern_pagan }
 		}
 		modifier = {
 			factor = 10
@@ -378,7 +372,7 @@
 	}
 }
 
-# p1 hair
+# p1 hair  --- WARNING! Property 1 MUST be Hair, otherwise the hair hiding helmets wont work ---
 1 = {
 	0 = { # Completely bald
 		factor = 1
@@ -399,8 +393,8 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = africangfx
-			NOT = { culture_group = west_african }
-			NOT = { culture_group = east_african }
+			NOT = { culture = manden }
+			NOT = { culture = ethiopian }
 			OR = {
 				higher_tier_than = count
 				spouse = { higher_tier_than = count }
@@ -411,13 +405,14 @@
 
 	1 = { # Black Adder
 		factor = 1
+		
 		# Does not suit African females of a Western Culture
 		modifier = {
 			factor = 0
 			is_female = yes
 			graphical_culture = africangfx
-			NOT = { culture_group = west_african }
-			NOT = { culture_group = east_african }
+			NOT = { culture = manden }
+			NOT = { culture = ethiopian }
 			OR = {
 				higher_tier_than = count
 				spouse = { higher_tier_than = count }
@@ -428,13 +423,14 @@
 	
 	2 = { # Page
 		factor = 1
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -448,13 +444,14 @@
 
 	3 = { # Synth
 		factor = 1
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -468,13 +465,14 @@
 
 	4 = { # Long Straight
 		factor = 1
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -488,13 +486,14 @@
 
 	5 = { # Long Curly
 		factor = 1
+		
 		# Does not suit African females of a Western Culture
 		modifier = {
 			factor = 0
 			is_female = yes
 			graphical_culture = africangfx
-			NOT = { culture_group = west_african }
-			NOT = { culture_group = east_african }
+			NOT = { culture = manden }
+			NOT = { culture = ethiopian }
 			OR = {
 				higher_tier_than = count
 				spouse = { higher_tier_than = count }
@@ -535,8 +534,8 @@
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -552,8 +551,8 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = africangfx
-			NOT = { culture_group = west_african }
-			NOT = { culture_group = east_african }
+			NOT = { culture = manden }
+			NOT = { culture = ethiopian }
 			OR = {
 				higher_tier_than = count
 				spouse = { higher_tier_than = count }
@@ -564,13 +563,14 @@
 	
 	7 = {  # Short
 		factor = 1
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -586,8 +586,8 @@
 			factor = 0
 			is_female = yes
 			graphical_culture = africangfx
-			NOT = { culture_group = west_african }
-			NOT = { culture_group = east_african }
+			NOT = { culture = manden }
+			NOT = { culture = ethiopian }
 			OR = {
 				higher_tier_than = count
 				spouse = { higher_tier_than = count }
@@ -604,20 +604,16 @@
 		factor = 1
 		modifier = {
 			factor = 5
-			OR = {
-				religion_group = aztec_group
-				religion_group = pagan_group
-				religion_group = african_pagan
-				religion_group = eastern_pagan
-			}
+			religion_group = pagan_group
 		}
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -631,22 +627,19 @@
 	
 	10 = {  # Long Uncouth
 		factor = 1
+		
 		modifier = {
 			factor = 5
-			OR = {
-				religion_group = aztec_group
-				religion_group = pagan_group
-				religion_group = african_pagan
-				religion_group = eastern_pagan
-			}
+			religion_group = pagan_group
 		}
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -671,13 +664,14 @@
 	
 	12 = { # Marine
 		factor = 1
+		
 		# Does not suit Western females with African style headgear
 		modifier = {
 			factor = 0
 			is_female = yes
 			OR = {
-				culture_group = west_african
-				culture_group = east_african
+				culture = manden
+				culture = ethiopian
 			}
 			NOT = { graphical_culture = africangfx }
 			NOT = { graphical_culture = muslimgfx }
@@ -705,6 +699,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
+		modifier = {
+			factor = 0
 			NOT = { tier = king }
 			NOT = { tier = emperor }
 			NOT = { spouse = { tier = king } }
@@ -715,6 +716,13 @@
 	
 	1 = { # Royal clothes 2
 		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
 		modifier = {
 			factor = 0
 			NOT = { tier = king }
@@ -729,6 +737,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
+		modifier = {
+			factor = 0
 			NOT = { tier = king }
 			NOT = { tier = emperor }
 			NOT = { spouse = { tier = king } }
@@ -739,6 +754,13 @@
 	
 	3 = { # Noble clothes 1
 		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
 		modifier = {
 			factor = 0
 			NOT = { tier = duke }
@@ -755,6 +777,13 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
+		modifier = {
+			factor = 0
 			NOT = { tier = duke }
 			NOT = { tier = count }
 			NOT = { tier = baron }
@@ -767,6 +796,13 @@
 	
 	5 = { # Noble clothes 3
 		factor = 1
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
 		modifier = {
 			factor = 0
 			NOT = { tier = duke }
@@ -783,6 +819,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				is_ruler = yes
 				has_minor_title = title_prince
@@ -795,18 +833,15 @@
 			factor = 10
 			is_ruler = yes
 			is_theocracy = yes
-			OR = {
-				religion_group = aztec_group
-				religion_group = pagan_group
-				religion_group = african_pagan
-				religion_group = eastern_pagan
-			}
+			religion_group = pagan_group
 		}
 	}
 	7 = { # Modest clothes 2
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				is_ruler = yes
 				has_minor_title = title_prince
@@ -821,6 +856,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				is_ruler = yes
 				has_minor_title = title_prince
@@ -831,29 +868,14 @@
 		}
 	}
 	9 = { # Shady clothes
-		factor = 3
+		factor = 100
 		modifier = {
 			factor = 0
-			OR = {
-				tier = king
-				tier = emperor
-				AND = {
-					tier = duke
-					any_demesne_title = {
-						tier = baron
-					}
-				}
-				spouse = { tier = king }
-				spouse = { tier = emperor }
-			}
-		}
+			higher_tier_than = duke
+		}		
 		modifier = {
 			factor = 0
 			NOT = { has_job_title = job_spymaster }
-			OR = {
-				tier = duke
-				NOT = { intrigue = 10 }
-			}
 		}
 	}
 	
@@ -862,8 +884,8 @@
 		factor = 100
 		modifier = {
 			factor = 0
+			NOT = { has_job_title  = job_marshal }
 			NOT = { in_command = yes }
-			NOT = { has_job_title = job_marshal }
 			NOT = {
 				primary_title = {
 					OR = {
@@ -876,7 +898,7 @@
 						title = d_ghazi_sunni
 						title = d_ghazi_shiite
 						title = d_hashshashin
-						title = d_ulfheonar
+						title = d_jomsvikings
 						title = d_devotees_of_the_true_prophet
 						title = d_great_host
 						title = d_guardians_of_the_sacred_flame
@@ -884,151 +906,11 @@
 					}
 				}
 			}
-		}
-	}
-
-	# Catholic Bishop
-	11 = {
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { religion_group = christian }
-		}
-		
-		modifier = { 
-			factor = 0 
-			OR = {
-				in_command = yes
-				has_job_title = job_marshal
-				primary_title = {
-					OR = {
-						mercenary = yes
-						title = d_livonian_order
-						title = d_teutonic_order
-						title = d_order_of_santiago
-						title = d_knights_templar
-						title = d_knights_hospitaler
-						title = d_ghazi_sunni
-						title = d_ghazi_shiite
-						title = d_hashshashin
-						title = d_ulfheonar
-						title = d_devotees_of_the_true_prophet
-						title = d_great_host
-						title = d_guardians_of_the_sacred_flame
-						title = d_disciples_of_the_old_gods
-					}
-				}
-			}		
-		}
-
-		modifier = {
-			factor = 0
-			has_landed_title = k_papal_state
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				religion = orthodox 
-				is_heresy_of = orthodox
-				religion = miaphysite
-				is_heresy_of = miaphysite
-				has_landed_title = k_orthodox
-				has_landed_title = d_miaphysite
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				is_ruler = no
-				is_theocracy = no
-			}
-			NOT = { has_job_title = job_spiritual }
-		}
-	}
-	
-	# Orthodox Bishop
-	12 = {
-		factor = 100
-		modifier = { 
-			factor = 0 
-			OR = {
-				in_command = yes
-				has_job_title = job_marshal
-				primary_title = {
-					OR = {
-						mercenary = yes
-						title = d_livonian_order
-						title = d_teutonic_order
-						title = d_order_of_santiago
-						title = d_knights_templar
-						title = d_knights_hospitaler
-						title = d_ghazi_sunni
-						title = d_ghazi_shiite
-						title = d_hashshashin
-						title = d_ulfheonar
-						title = d_devotees_of_the_true_prophet
-						title = d_great_host
-						title = d_guardians_of_the_sacred_flame
-						title = d_disciples_of_the_old_gods
-					}
-				}
-			}		
-		}		
-		modifier = {
-			factor = 0
-			NOT = { religion = orthodox }
-			NOT = { is_heresy_of = orthodox }
-			NOT = { religion = miaphysite }
-			NOT = { is_heresy_of = miaphysite }
-			NOT = { has_landed_title = k_orthodox }
-			NOT = { has_landed_title = d_miaphysite }
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				is_ruler = no
-				is_theocracy = no
-			}
-			NOT = { has_job_title = job_spiritual }
-		}
-	}
-	
-	# Pope
-	13 = {
-		factor = 100
-		modifier = { 
-			factor = 0 
-			OR = {
-				in_command = yes
-				has_job_title = job_marshal
-				primary_title = {
-					OR = {
-						mercenary = yes
-						title = d_livonian_order
-						title = d_teutonic_order
-						title = d_order_of_santiago
-						title = d_knights_templar
-						title = d_knights_hospitaler
-						title = d_ghazi_sunni
-						title = d_ghazi_shiite
-						title = d_hashshashin
-						title = d_ulfheonar
-						title = d_devotees_of_the_true_prophet
-						title = d_great_host
-						title = d_guardians_of_the_sacred_flame
-						title = d_disciples_of_the_old_gods
-					}
-				}
-			}		
-		}		
-		modifier = {
-			factor = 0
-			NOT = { has_landed_title = k_papal_state }
 		}
 	}
 	
 	# Ragged prison clothes
-	14 = {
+	11 = {
 		factor = 100
 		modifier = {
 			factor = 0
@@ -1039,240 +921,100 @@
 
 # p4 beard
 4 = {
-
-0 = {
- factor = 4 # cleanshaven
- modifier = {
-	factor = 2 #muslim beard
-	religion_group = muslim
-	}
-
- modifier = {
-	factor = 4 #catholic priesthood
-	religion = catholic
-	OR = {
-		AND = {
-				is_ruler = yes
-				is_theocracy = yes
-		}
-		has_job_title = job_spiritual
-		
-	}
-	}
-
- modifier = {
-	factor = 100
-	culture = norman
-	}
-
- modifier = {
-	factor = 3
-	culture = frankish
-	}
-
- modifier = {
-	factor = 1.5
-	culture = german
-	}
-
- modifier = {
-	factor = 0.25
-	culture = italian
-	}
-
- modifier = {
-	factor = 0.05
-	culture = andalusian_arabic
-	}
-
- modifier = {
-	factor = 0.05
-	culture = persian
-	}
-
- modifier = {
-	factor = 0.05
-	culture = maghreb_arabic
-	}
-
- modifier = {
-	factor = 0.1 #bearded cultures
-		OR = {
-			culture_group = byzantine
-			culture_group = celtic
-			culture_group = east_slavic
-			culture_group = west_slavic
-			culture_group = north_germanic
-			religion_group = pagan_group
-			religion_group = eastern_pagan
-			religion_group = african_pagan
-		}
-	}
-
-}
-
-1 = {	#standard beard
- factor = 1
- modifier = {
-	factor = 4
-	culture = castillan
-	}
-
- modifier = {
-	factor = 3
-	culture = basque
-	}
-
- modifier = {
-	factor = 4
-	culture = portuguese
-	}
-
- modifier = {
-	factor = 3
-	culture = catalan
-	}
-}
-
-2 = {	#medium beard
- factor = 1
- modifier = {
-	factor = 4
-	culture = basque
-	}
-
+	0 = {
+		factor = 1
 		modifier = {
-			factor = 3
-			OR = {
-				culture_group = byzantine
-				culture_group = east_slavic
-				culture_group = west_slavic
-				culture_group = north_germanic
-				religion_group = pagan_group
-				religion_group = eastern_pagan
-				religion_group = african_pagan
-			}
-		}
-
-}
-
-3 = {	#twopoint beard
- factor = 1
-		modifier = {
-			factor = 3
-			OR = {
-				culture_group = east_slavic
-				culture_group = west_slavic
-				culture_group = north_germanic
-				religion_group = pagan_group
-				religion_group = eastern_pagan
-				religion_group = african_pagan
-			}
-		}
-}
-
-4 = {	#moustache and beard
- factor = 1
- modifier = {
-	factor = 6
-	culture = hungarian
-	}
-
- modifier = {
-	factor = 6
-	culture = polish
-	}
-
- modifier = {
-	factor = 6
-	culture = croatian
-	}
-
- modifier = {
-	factor = 6
-	culture = alan
-	}
-}
-
-5 = {	#moustache
- factor = 1
- modifier = {
-	factor = 15
-	culture = saxon
-	}
- modifier = {
-	factor = 0.25
-	culture = greek
-	}
-}
-
-6 = {	#big curly beard
-		factor = 100
-		modifier = {
-			factor = 0.01
-			NOT = { religion = orthodox }
-			NOT = { is_heresy_of = orthodox }
+			factor = 0
+			religion_group = muslim
+			NOT = { graphical_culture = muslimgfx }
 		}
 		modifier = {
-			factor = 0.01
+			factor = 30
+			religion_group = christian
 			OR = {
-				religion = orthodox
-				is_heresy_of = orthodox
+				culture = greek
+				culture = italian
 			}
 			OR = {
-				is_ruler = no
-				is_theocracy = no
+				graphical_culture = southerngfx
+				graphical_culture = byzantinegfx
 			}
-			NOT = { has_job_title = job_spiritual }
 		}
 		modifier = {
-			factor = 3
+			factor = 15
+			religion_group = christian
+			culture_group = iberian
 			OR = {
-				culture_group = byzantine
-				culture_group = east_slavic
-				culture_group = west_slavic
-				culture_group = north_germanic
-				religion_group = pagan_group
-				religion_group = eastern_pagan
-				religion_group = african_pagan
+				graphical_culture = southerngfx
+				graphical_culture = byzantinegfx
 			}
 		}
-
-}
-
-7 = {	#thin moustache
-	factor = 1
- modifier = {
-	factor = 6
-	culture = persian
 	}
-
- modifier = {
-	factor = 6
-	culture = hungarian
+	1 = {
+		factor = 1
 	}
-
- modifier = {
-	factor = 6
-	culture = polish
+	2 = {
+		factor = 1
 	}
-
- modifier = {
-	factor = 6
-	culture = croatian
+	3 = {
+		factor = 1
 	}
-
- modifier = {
-	factor = 3
-	culture = levantine_arabic
+	4 = {
+		factor = 1
 	}
-
- modifier = {
-	factor = 0.25
-	culture = greek
+	5 = {
+		factor = 1
 	}
-}
-
+	6 = {
+		factor = 1
+	}
+	7 = {
+		factor = 1
+	}
+	8 = {
+		factor = 1
+	}
+	9 = {
+		factor = 1
+		modifier = {
+			factor = 5
+			religion_group = christian
+			culture_group = iberian
+			OR = {
+				graphical_culture = southerngfx
+				graphical_culture = byzantinegfx
+			}
+		}
+	}
+	10 = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religion_group = muslim
+			NOT = { graphical_culture = muslimgfx }
+		}
+		modifier = {
+			factor = 20
+			religion_group = christian
+			culture_group = iberian
+			OR = {
+				graphical_culture = southerngfx
+				graphical_culture = byzantinegfx
+			}
+		}
+		modifier = {
+			factor = 60
+			religion_group = christian
+			OR = {
+				culture = greek
+				culture = italian
+			}
+			OR = {
+				graphical_culture = southerngfx
+				graphical_culture = byzantinegfx
+			}
+		}
+	}
 }
 
 # p5 headgear
@@ -1282,16 +1024,19 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { in_command = no }
-		}
-		modifier = {
-			factor = 0
 			NOT = { tier = emperor }
 			NOT = { spouse = { tier = emperor } }
 		}
 		modifier = {
 			factor = 0
 			is_feudal = no
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
 		}
 	}
 	
@@ -1300,16 +1045,19 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { in_command = no }
-		}
-		modifier = {
-			factor = 0
 			NOT = { tier = king }
 			NOT = { spouse = { tier = king } }
 		}
 		modifier = {
 			factor = 0
 			is_feudal = no
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
 		}
 	}
 
@@ -1318,16 +1066,19 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { in_command = no }
-		}
-		modifier = {
-			factor = 0
 			NOT = { tier = king }
 			NOT = { spouse = { tier = king } }
 		}
 		modifier = {
 			factor = 0
 			is_feudal = no
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
 		}
 	}
 
@@ -1336,10 +1087,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { in_command = no }
-		}
-		modifier = {
-			factor = 0
 			NOT = { tier = king }
 			NOT = { spouse = { tier = king } }
 		}
@@ -1347,15 +1094,18 @@
 			factor = 0
 			is_feudal = no
 		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
 	}
 
 	# Simple golden band/turban
 	4 = {
 		factor = 1
-		modifier = {
-			factor = 0
-			NOT = { in_command = no }
-		}
 		modifier = {
 			factor = 0
 			is_feudal = yes
@@ -1365,10 +1115,7 @@
 		}
 		modifier = {
 			factor = 0
-			OR = {
-				is_patrician = yes
-				is_republic = yes
-			}
+			is_republic = yes
 			NOT = { tier = duke }
 			NOT = { tier = king }
 			NOT = { tier = emperor }
@@ -1382,6 +1129,13 @@
 			is_feudal = yes
 			tier = king
 		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
 	}
 
 	# Common headgear 1 - hood
@@ -1389,6 +1143,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				is_ruler = yes
 				has_minor_title = title_prince
@@ -1401,12 +1157,7 @@
 			factor = 10
 			is_ruler = yes
 			is_theocracy = yes
-			OR = {
-				religion_group = aztec_group
-				religion_group = pagan_group
-				religion_group = eastern_pagan
-				religion_group = african_pagan
-			}
+			religion_group = pagan_group
 		}
 	}
 	
@@ -1415,6 +1166,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				is_ruler = yes
 				has_minor_title = title_prince
@@ -1430,6 +1183,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				NOT = { religion = orthodox }
 				is_ruler = yes
@@ -1446,6 +1201,8 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				is_ruler = yes
 				has_minor_title = title_prince
@@ -1461,43 +1218,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			OR = {
-				in_command = yes
-				has_job_title = job_marshal
-				primary_title = {
-					OR = {
-						mercenary = yes
-						title = d_livonian_order
-						title = d_teutonic_order
-						title = d_order_of_santiago
-						title = d_knights_templar
-						title = d_knights_hospitaler
-						title = d_ghazi_sunni
-						title = d_ghazi_shiite
-						title = d_hashshashin
-						title = d_ulfheonar
-						title = d_devotees_of_the_true_prophet
-						title = d_great_host
-						title = d_guardians_of_the_sacred_flame
-						title = d_disciples_of_the_old_gods
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				tier = king
-				tier = emperor
-				AND = {
-					tier = duke
-					any_demesne_title = {
-						tier = baron
-					}
-				}
-				spouse = { tier = king }
-				spouse = { tier = emperor }
-			}
+			higher_tier_than = count
 		}
 		modifier = {
 			factor = 0
@@ -1510,8 +1231,8 @@
 		factor = 100
 		modifier = {
 			factor = 0
+			NOT = { has_job_title  = job_marshal }
 			NOT = { in_command = yes }
-			NOT = { has_job_title = job_marshal }
 			NOT = {
 				primary_title = {
 					OR = {
@@ -1524,7 +1245,7 @@
 						title = d_ghazi_sunni
 						title = d_ghazi_shiite
 						title = d_hashshashin
-						title = d_ulfheonar
+						title = d_jomsvikings
 						title = d_devotees_of_the_true_prophet
 						title = d_great_host
 						title = d_guardians_of_the_sacred_flame
@@ -1535,11 +1256,11 @@
 		}
 		modifier = {
 			factor = 0
-			OR = {
-				is_theocracy = yes
-				has_job_title = job_spiritual
-				has_landed_title = k_papal_state
-			}
+			higher_tier_than = count
+		}
+		modifier = {
+			factor = 0
+			is_female = yes
 		}		
 	}
 
@@ -1557,59 +1278,6 @@
 				spouse = { tier = king }
 				spouse = { tier = duke }
 			}
-		}
-	}
-
-	# Catholic mitre
-	12 = {
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { religion = catholic }
-			NOT = { is_heresy_of = catholic }
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				is_ruler = no
-				is_theocracy = no
-			}
-			NOT = { has_job_title  = job_spiritual }
-		}
-		modifier = {
-			factor = 0
-			has_landed_title = k_papal_state
-		}
-	}
-
-	# Papal tiara
-	13 = {
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { has_landed_title = k_papal_state }
-		}
-	}
-	
-	# Orthodox mitre
-	14 = {
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { religion = orthodox }
-			NOT = { is_heresy_of = orthodox }
-			NOT = { religion = miaphysite }
-			NOT = { is_heresy_of = miaphysite }
-			NOT = { has_landed_title = k_orthodox }
-			NOT = { has_landed_title = d_miaphysite }
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				is_ruler = no
-				is_theocracy = no
-			}
-			NOT = { has_job_title  = job_spiritual }
 		}
 	}
 }

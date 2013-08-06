@@ -670,22 +670,15 @@ character_event = {
 		set_character_flag = hunt_good_hounds
 		prestige = 5
 		random = {
-			chance = 5
+			chance = 15
 			add_trait = wounded
 		}
 	}
 	
 	option = {
-		name = "EVTOPTB36025"
-		ai_chance = {
-			factor = 0
-		}
-		add_trait = craven
-	}
-	
-	option = {
 		name = "EVTOPTC36025"
 		set_character_flag = hunt_good_hounds
+		prestige = 5
 		random = {
 			chance = 25
 			character_event = { id = 36026 days = 1 random = 2 tooltip = "EVTTOOLTIP36026" }
@@ -694,26 +687,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTD36025"
-		add_trait = content
-		random_vassal = {
-			limit = {
-				war = no
-				prisoner = no
-				age = 16
-				NOT = {
-					trait = content
-				}
-				OR = {
-					trait = ambitious
-					trait = brave
-				}
-			}
-			opinion = {
-				modifier = content_neg
-				who = ROOT
-				years = 10
-			}
-		}
+		prestige = -5
 	}
 }
 
@@ -933,7 +907,7 @@ character_event = {
 	}		
 
 	mean_time_to_happen = {
-		days = 200
+		days = 400
 		
 		modifier = {
 			factor = 0.8

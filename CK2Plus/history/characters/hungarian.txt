@@ -23,6 +23,30 @@
 	}
 }
 
+6847 = {
+	name="Csák"
+	religion=tengri_pagan
+	culture=hungarian
+	840.1.1={
+		birth=yes
+	}
+	897.1.1={
+		death=yes
+	}
+}
+
+6848 = {
+	name="Gyula"
+	religion=tengri_pagan
+	culture=hungarian
+	841.1.1={
+		birth=yes
+	}
+	895.1.1={
+		death=yes
+	}
+}
+
 20356 = {
 	name="György"
 	dynasty=19010
@@ -1695,7 +1719,9 @@
 		birth="1021.1.1"
 	}
 	1063.12.1 = {
-		give_job_title=job_spiritual
+		effect = {
+			give_job_title=job_spiritual
+		}
 	}
 	1080.1.1 = {
 		death="1080.1.1"
@@ -9452,25 +9478,115 @@
 	religion="tengri_pagan"
 	culture="hungarian"
 	father=159137
-	845.1.2={
-		birth="845.1.2"
+	845.1.1={
+		birth="845.1.1"
 	}
-	907.1.2={
-		death="907.1.2"
+	907.1.1={
+		death="907.1.1"
 	}
 }
 
 159137 = {
-	name="Álmos"
-	dynasty=591
+	name="Álmos" # Ruler of the Magyars in 845
+	dynasty=708
 	religion="tengri_pagan"
 	culture="hungarian"
 	father=159138
 	mother=159139
-	810.1.2={
-		birth="810.1.2"
+	martial = 8
+	add_trait = brilliant_strategist
+	
+	810.1.1 = {
+		birth = yes
 	}
-	895.1.2={
-		death="895.1.2"
+	
+	867.1.1 = {
+		# Boost the initial strength of the Magyars
+		effect = {
+			spawn_unit = {
+				province = 544 # Korsun
+				owner = ROOT
+				leader = ROOT
+				match_character = ROOT
+				match_mult = 1
+				attrition = 0.5
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 23
+				attributes = {
+					martial = 6
+				}
+				trait = skilled_tactician
+			}
+			new_character = {
+				spawn_unit = {
+					province = 544 # Korsun
+					owner = ROOT
+					leader = THIS
+					match_character = ROOT
+					match_mult = 1
+					attrition = 0.5
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 27
+				attributes = {
+					martial = 6
+				}
+				trait = skilled_tactician
+			}
+			new_character = {
+				spawn_unit = {
+					province = 544 # Korsun
+					owner = ROOT
+					leader = THIS
+					match_character = ROOT
+					match_mult = 1
+					attrition = 0.5
+				}
+			}
+		}
+	}
+	
+	895.1.1={
+		death = yes
+	}
+}
+
+163168 = {
+	name="Linütika"
+	dynasty=708
+	religion="tengri_pagan"
+	culture="hungarian"
+	father=159136
+	861.1.1={
+		birth="861.1.1"
+	}
+	906.1.1={
+		death="906.1.1"
+	}
+}
+
+163169 = {
+	name="Tarkatzus"
+	dynasty=708
+	religion="tengri_pagan"
+	culture="hungarian"
+	father=159136
+	864.1.1={
+		birth="864.1.1"
+	}
+	920.1.1={
+		death="920.1.1"
 	}
 }

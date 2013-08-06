@@ -38,7 +38,6 @@ character_event = {
 			has_plot = plot_gain_liege_title
 			has_plot = plot_gain_fellow_vassal_title
 			has_plot = plot_weaken_fellow_vassal
-			has_plot = plot_gain_vassal_title
 			has_plot = plot_kidnap_liege
 			has_plot = plot_kill_character
 			has_plot = plot_discredit_councillor
@@ -46,7 +45,9 @@ character_event = {
 			has_plot = plot_kidnap_character
 			has_plot = plot_instigate_revolt
 			has_plot = plot_fabricate_treason
+			has_plot = plot_fabricate_treason_liege
 			has_plot = plot_fabricate_heresy
+			has_plot = plot_seize_trade_post
 		}
 		is_plot_active = no
 		any_courtier = {
@@ -191,6 +192,7 @@ letter_event = {
 	}
 	option = {
 		name = "EVTOPTB7260"
+		set_character_flag = abort_plot
 		if = {
 			limit = {
 				plot_target_char = {
@@ -234,8 +236,9 @@ letter_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { 
+				limit = { 	
 					liege = {
+						ai = yes
 						has_opinion_modifier = {
 							who = ROOT
 							modifier = devious_plotter
@@ -313,7 +316,6 @@ character_event = {
 				has_plot = plot_gain_liege_title
 				has_plot = plot_gain_fellow_vassal_title
 				has_plot = plot_weaken_fellow_vassal
-				has_plot = plot_gain_vassal_title
 				has_plot = plot_kidnap_liege
 				has_plot = plot_kill_character
 				has_plot = plot_discredit_councillor
@@ -321,7 +323,9 @@ character_event = {
 				has_plot = plot_kidnap_character
 				has_plot = plot_instigate_revolt
 				has_plot = plot_fabricate_treason
-				has_plot = plot_fabricate_heresy				
+				has_plot = plot_fabricate_treason_liege
+				has_plot = plot_fabricate_heresy
+				has_plot = plot_seize_trade_post		
 			}
 			is_plot_active = no
 			NOT = { has_character_flag = event7040 }
@@ -329,7 +333,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 300
+		months = 500
 
 		modifier = {
 			factor = 0.5
@@ -389,7 +393,6 @@ character_event = {
 					has_plot = plot_gain_liege_title
 					has_plot = plot_gain_fellow_vassal_title
 					has_plot = plot_weaken_fellow_vassal
-					has_plot = plot_gain_vassal_title
 					has_plot = plot_kidnap_liege
 					has_plot = plot_kill_character
 					has_plot = plot_discredit_councillor
@@ -397,7 +400,9 @@ character_event = {
 					has_plot = plot_kidnap_character
 					has_plot = plot_instigate_revolt
 					has_plot = plot_fabricate_treason
-					has_plot = plot_fabricate_heresy					
+					has_plot = plot_fabricate_treason_liege
+					has_plot = plot_fabricate_heresy
+					has_plot = plot_seize_trade_post
 				}
 				NOT = { has_character_flag = event7040 }
 			}
@@ -425,6 +430,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7045"
+		set_character_flag = abort_plot
 		if = {
 			limit = {
 				plot_target_char = {
@@ -446,7 +452,7 @@ character_event = {
 				}
 			}
 			reveal_plot = yes
-		}		
+		}
 		plot_target_char = {
 			opinion = {
 				modifier = devious_plotter
@@ -470,6 +476,7 @@ character_event = {
 			if = {
 				limit = { 
 					liege = {
+						ai = yes
 						has_opinion_modifier = {
 							who = ROOT
 							modifier = devious_plotter
@@ -3047,18 +3054,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}
+	
 	option = {
 		name = "EVTOPTA8150" # The conspirators provide the poison
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 8162 days = 1 }
-			}
-		}
-		
-		set_character_flag = murder_in_motion
+	
 		plot_target_char = { character_event = { id = 8155 days = 30 tooltip = "EVTTOOLTIP8155" } }
 	}
 	option = {
@@ -3075,7 +3080,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 8155 days = 30 tooltip = "EVTTOOLTIP8155" } }
 	}
 	option = {
@@ -3093,7 +3097,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 8155 days = 30 tooltip = "EVTTOOLTIP8155" } }
 	}
 	option = {
@@ -3109,17 +3112,8 @@ character_event = {
 				character_event = { id = 8162 days = 1 }
 			}
 		}
-		
-		set_character_flag = murder_in_motion
+
 		plot_target_char = { character_event = { id = 8155 days = 30 tooltip = "EVTTOOLTIP8155" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { learning = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -3324,6 +3318,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}	
+	
 	option = {
 		name = "EVTOPTA8150" # The conspirators provide the poison
 		trigger = {
@@ -3397,20 +3400,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 8160 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { learning = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -3683,7 +3672,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8160"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 8155 days = 30 tooltip = "EVTTOOLTIP8155" } }
 		FROM = { character_event = { id = 8161 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -3707,7 +3696,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 8155 days = 30 tooltip = "EVTTOOLTIP8155" } } }
 	}
 }
 
@@ -4542,18 +4530,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA8170" # The conspirators provide the poison
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-				character_event = { id = 8182 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 8175 days = 30 tooltip = "EVTTOOLTIP8175" } }
 	}
 	option = {
@@ -4570,7 +4556,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 8175 days = 30 tooltip = "EVTTOOLTIP8175" } }
 	}
 	option = {
@@ -4588,7 +4573,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 8175 days = 30 tooltip = "EVTTOOLTIP8175" } }
 	}
 	option = {
@@ -4605,16 +4589,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 8175 days = 30 tooltip = "EVTTOOLTIP8175" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -4820,6 +4795,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA8170" # The conspirators provide a killer
 		trigger = {
@@ -4896,19 +4880,6 @@ character_event = {
 		}
 	}
 	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
-		}
-	}
 }
 
 # Falling Accident - Plot backer requests funds
@@ -5188,7 +5159,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8180"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 8175 days = 30 tooltip = "EVTTOOLTIP8175" } }		
 		FROM = { character_event = { id = 8181 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -5212,7 +5183,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 8175 days = 30 tooltip = "EVTTOOLTIP8175" } } }
 	}
 }
 
@@ -6570,18 +6540,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7700" # The conspirators provide the archers
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7712 days = 1 }
-			}
-		}
-		
-		set_character_flag = murder_in_motion
+
 		plot_target_char = { character_event = { id = 7705 days = 30 tooltip = "EVTTOOLTIP7705" } }
 	}
 	option = {
@@ -6597,8 +6565,7 @@ character_event = {
 				character_event = { id = 7712 days = 1 }
 			}
 		}
-		
-		set_character_flag = murder_in_motion
+	
 		plot_target_char = { character_event = { id = 7705 days = 30 tooltip = "EVTTOOLTIP7705" } }
 	}
 	option = {
@@ -6616,7 +6583,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7705 days = 30 tooltip = "EVTTOOLTIP7705" } }
 	}
 	option = {
@@ -6633,16 +6599,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7705 days = 30 tooltip = "EVTTOOLTIP7705" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { martial = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -6848,6 +6805,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7700" # The conspirators provide the archers
 		trigger = {
@@ -6921,20 +6887,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7710 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { martial = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -7205,7 +7157,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7710"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7705 days = 30 tooltip = "EVTTOOLTIP7705" } }	
 		FROM = { character_event = { id = 7711 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -7229,7 +7181,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7705 days = 30 tooltip = "EVTTOOLTIP7705" } } }
 	}
 }
 
@@ -8064,18 +8015,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7720" # The conspirators provide the manure
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7722 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7725 days = 30 tooltip = "EVTTOOLTIP7725" } }
 	}
 	option = {
@@ -8092,7 +8041,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7725 days = 30 tooltip = "EVTTOOLTIP7725" } }
 	}
 	option = {
@@ -8110,7 +8058,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7725 days = 30 tooltip = "EVTTOOLTIP7725" } }
 	}
 	option = {
@@ -8127,16 +8074,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7725 days = 30 tooltip = "EVTTOOLTIP7725" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { stewardship = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -8341,6 +8279,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7720" # The conspirators provide the manure
 		trigger = {
@@ -8414,20 +8361,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7730 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { stewardship = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -8698,7 +8631,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7730"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7725 days = 30 tooltip = "EVTTOOLTIP7725" } }		
 		FROM = { character_event = { id = 7731 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -8722,7 +8655,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7725 days = 30 tooltip = "EVTTOOLTIP7725" } } }
 	}
 }
 
@@ -9555,18 +9487,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7740" # The conspirators bribe the maid
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7742 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7745 days = 30 tooltip = "EVTTOOLTIP7745" } }
 	}
 	option = {
@@ -9583,7 +9513,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7745 days = 30 tooltip = "EVTTOOLTIP7745" } }
 	}
 	option = {
@@ -9601,7 +9530,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7745 days = 30 tooltip = "EVTTOOLTIP7745" } }
 	}
 	option = {
@@ -9618,16 +9546,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7745 days = 30 tooltip = "EVTTOOLTIP7745" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -9830,6 +9749,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7740" # The conspirators bribe the maid
 		trigger = {
@@ -9903,20 +9831,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7750 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -10187,7 +10101,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7750"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7745 days = 30 tooltip = "EVTTOOLTIP7745" } }		
 		FROM = { character_event = { id = 7751 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -10211,7 +10125,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7745 days = 30 tooltip = "EVTTOOLTIP7745" } } }
 	}
 }
 
@@ -11045,18 +10958,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7760" # The conspirators get the man inside
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7762 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7765 days = 30 tooltip = "EVTTOOLTIP7765" } }
 	}
 	option = {
@@ -11072,8 +10983,6 @@ character_event = {
 				character_event = { id = 7772 days = 1 }
 			}
 		}
-		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7765 days = 30 tooltip = "EVTTOOLTIP7765" } }
 	}
 	option = {
@@ -11091,7 +11000,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7765 days = 30 tooltip = "EVTTOOLTIP7765" } }
 	}
 	option = {
@@ -11108,16 +11016,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7765 days = 30 tooltip = "EVTTOOLTIP7765" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -11321,6 +11220,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7760" # The conspirators get the man inside
 		trigger = {
@@ -11394,20 +11302,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7770 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -11678,7 +11572,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7770"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7765 days = 30 tooltip = "EVTTOOLTIP7765" } }
 		FROM = { character_event = { id = 7771 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -11702,7 +11596,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7765 days = 30 tooltip = "EVTTOOLTIP7765" } } }
 	}
 }
 
@@ -12537,18 +12430,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7780" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7782 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7785 days = 30 tooltip = "EVTTOOLTIP7785" } }
 	}
 	option = {
@@ -12565,7 +12456,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7785 days = 30 tooltip = "EVTTOOLTIP7785" } }
 	}
 	option = {
@@ -12583,7 +12473,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7785 days = 30 tooltip = "EVTTOOLTIP7785" } }
 	}
 	option = {
@@ -12600,16 +12489,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7785 days = 30 tooltip = "EVTTOOLTIP7785" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -12814,6 +12694,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7780" # The conspirators bribe servants
 		trigger = {
@@ -12887,20 +12776,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7790 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-					has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -13171,7 +13046,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7790"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7785 days = 30 tooltip = "EVTTOOLTIP7785" } }
 		FROM = { character_event = { id = 7791 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -13195,7 +13070,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7785 days = 30 tooltip = "EVTTOOLTIP7785" } } }
 	}
 }
 
@@ -14031,18 +13905,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7800" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7802 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7805 days = 30 tooltip = "EVTTOOLTIP7805" } }
 	}
 	option = {
@@ -14059,7 +13931,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7805 days = 30 tooltip = "EVTTOOLTIP7805" } }
 	}
 	option = {
@@ -14077,7 +13948,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7805 days = 30 tooltip = "EVTTOOLTIP7805" } }
 	}
 	option = {
@@ -14094,16 +13964,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7805 days = 30 tooltip = "EVTTOOLTIP7805" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { learning = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -14309,6 +14170,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7800" # The conspirators bribe servants
 		trigger = {
@@ -14382,20 +14252,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7810 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { learning = 10 }
-			NOT = {
-				any_backed_character = {
-				has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -14666,7 +14522,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7810"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7805 days = 30 tooltip = "EVTTOOLTIP7805" } }		
 		FROM = { character_event = { id = 7811 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -14690,7 +14546,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7805 days = 30 tooltip = "EVTTOOLTIP7805" } } }
 	}
 }
 
@@ -15524,19 +15379,17 @@ character_event = {
 			}
 		}
 	}
+
+	immediate = {
+		set_character_flag = murder_in_motion
+	}
 	
 	option = {
 		name = "EVTOPTA7820" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7822 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7825 days = 30 tooltip = "EVTTOOLTIP7825" } }
 	}
 	option = {
@@ -15553,7 +15406,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7825 days = 30 tooltip = "EVTTOOLTIP7825" } }
 	}
 	option = {
@@ -15571,7 +15423,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7825 days = 30 tooltip = "EVTTOOLTIP7825" } }
 	}
 	option = {
@@ -15588,16 +15439,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7825 days = 30 tooltip = "EVTTOOLTIP7825" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { learning = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -15802,6 +15644,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7820" # The conspirators bribe servants
 		trigger = {
@@ -15875,20 +15726,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7830 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { learning = 10 }
-			NOT = {
-				any_backed_character = {
-				has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -16159,7 +15996,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7830"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7825 days = 30 tooltip = "EVTTOOLTIP7825" } }		
 		FROM = { character_event = { id = 7831 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -16183,7 +16020,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7825 days = 30 tooltip = "EVTTOOLTIP7825" } } }
 	}
 }
 
@@ -17018,18 +16854,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}
+
 	option = {
 		name = "EVTOPTA7840" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7842 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7845 days = 30 tooltip = "EVTTOOLTIP7845" } }
 	}
 	option = {
@@ -17046,7 +16880,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7845 days = 30 tooltip = "EVTTOOLTIP7845" } }
 	}
 	option = {
@@ -17064,7 +16897,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7845 days = 30 tooltip = "EVTTOOLTIP7845" } }
 	}
 	option = {
@@ -17081,16 +16913,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7845 days = 30 tooltip = "EVTTOOLTIP7845" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -17295,6 +17118,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7840" # The conspirators bribe servants
 		trigger = {
@@ -17368,20 +17200,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7850 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-				has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -17652,7 +17470,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7850"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7845 days = 30 tooltip = "EVTTOOLTIP7845" } }	
 		FROM = { character_event = { id = 7851 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -17676,7 +17494,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7845 days = 30 tooltip = "EVTTOOLTIP7845" } } }
 	}
 }
 
@@ -18512,18 +18329,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7860" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7862 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7865 days = 30 tooltip = "EVTTOOLTIP7865" } }
 	}
 	option = {
@@ -18540,7 +18355,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7865 days = 30 tooltip = "EVTTOOLTIP7865" } }
 	}
 	option = {
@@ -18558,7 +18372,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7865 days = 30 tooltip = "EVTTOOLTIP7865" } }
 	}
 	option = {
@@ -18575,16 +18388,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7865 days = 30 tooltip = "EVTTOOLTIP7865" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -18790,6 +18594,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7860" # The conspirators bribe servants
 		trigger = {
@@ -18863,20 +18676,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7870 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-				has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -19147,7 +18946,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7870"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7865 days = 30 tooltip = "EVTTOOLTIP7865" } }		
 		FROM = { character_event = { id = 7871 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -19171,7 +18970,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7865 days = 30 tooltip = "EVTTOOLTIP7865" } } }
 	}
 }
 
@@ -20006,18 +19804,16 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7880" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7882 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7885 days = 30 tooltip = "EVTTOOLTIP7885" } }
 	}
 	option = {
@@ -20034,7 +19830,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7885 days = 30 tooltip = "EVTTOOLTIP7885" } }
 	}
 	option = {
@@ -20052,7 +19847,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7885 days = 30 tooltip = "EVTTOOLTIP7885" } }
 	}
 	option = {
@@ -20069,16 +19863,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7885 days = 30 tooltip = "EVTTOOLTIP7885" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -20283,6 +20068,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7880" # The conspirators bribe servants
 		trigger = {
@@ -20356,20 +20150,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7890 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-				has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -20640,7 +20420,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7890"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7885 days = 30 tooltip = "EVTTOOLTIP7885" } }		
 		FROM = { character_event = { id = 7891 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -20664,7 +20444,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7885 days = 30 tooltip = "EVTTOOLTIP7885" } } }
 	}
 }
 
@@ -21498,18 +21277,16 @@ character_event = {
 		}		
 	}
 	
+	immediate = {
+		set_character_flag = murder_in_motion
+	}	
+	
 	option = {
 		name = "EVTOPTA7900" # The conspirators bribe the servants
 		trigger = {
 			plot_power = 1.0
 		}
-		hidden_tooltip = {
-			any_plot_backer = {
-					character_event = { id = 7902 days = 1 }
-			}
-		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7905 days = 30 tooltip = "EVTTOOLTIP7905" } }
 	}
 	option = {
@@ -21526,7 +21303,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7905 days = 30 tooltip = "EVTTOOLTIP7905" } }
 	}
 	option = {
@@ -21544,7 +21320,6 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7905 days = 30 tooltip = "EVTTOOLTIP7905" } }
 	}
 	option = {
@@ -21561,16 +21336,7 @@ character_event = {
 			}
 		}
 		
-		set_character_flag = murder_in_motion
 		plot_target_char = { character_event = { id = 7905 days = 30 tooltip = "EVTTOOLTIP7905" } }
-	}
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = { plot_power = 1.0 }
-		}
 	}
 }
 
@@ -21775,6 +21541,15 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kill_character	
+			}
+			set_character_flag = murder_in_motion
+		}
+	}		
+	
 	option = {
 		name = "EVTOPTA7900" # The conspirators bribe servants
 		trigger = {
@@ -21848,20 +21623,6 @@ character_event = {
 				plot_power = 0.5
 			}
 			character_event = { id = 7900 tooltip = "EVTTOOLTIP8160" }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD8150" # I cannot afford this
-		trigger = {
-			ai = no
-			NOT = { intrigue = 10 }
-			NOT = {
-				any_backed_character = {
-				has_plot = plot_kill_character
-					plot_power = 1.0
-				}
-			}
 		}
 	}
 }
@@ -22132,7 +21893,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA7910"
-		set_character_flag = murder_in_motion
+		plot_target_char = { character_event = { id = 7905 days = 30 tooltip = "EVTTOOLTIP7905" } }
 		FROM = { character_event = { id = 7911 tooltip = "EVTTOOLTIP8161" } }
 		hidden_tooltip = {
 			any_plot_backer = {
@@ -22156,7 +21917,6 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA8161"
-		FROM = { plot_target_char = { character_event = { id = 7905 days = 30 tooltip = "EVTTOOLTIP7905" } } }
 	}
 }
 

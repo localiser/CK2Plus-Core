@@ -3459,7 +3459,12 @@ character_event = {
 				add_trait = tyrant1
 			}		
 		}
-		add_trait = just
+		if = {
+			limit = {
+				NOT = { trait = just }
+			}
+			add_trait = just
+		}
 	}
 	option = {
 		name = "EVTOPTC72056"
@@ -3467,7 +3472,12 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB72056"
-		add_trait = arbitrary
+		if = {
+			limit = {
+				NOT = { trait = arbitrary }
+			}
+			add_trait = arbitrary
+		}
 		location = {
 			add_province_modifier = {
 				name = peasants_upset
@@ -4654,6 +4664,10 @@ character_event = {
 			}
 			NOT = { trait = chaste }
 		}
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+		}		
 		has_lover = no
 		NOT = { trait = shy }
 		fertility = 0.4

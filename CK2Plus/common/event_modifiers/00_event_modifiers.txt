@@ -38,20 +38,19 @@
 # HARD CODED - DO NOT REMOVE
 the_dungeon = {
 	intrigue = -5
-	diplomacy = -5
-	fertility = -10
 	icon = 38
 }
 the_oubliette = {
 	health = -1
 	intrigue = -10
-	diplomacy = -10
-	fertility = -10
 	icon = 38
 }
 house_arrest = {
-	fertility = -10
 	icon = 38
+}
+truce_breaker = {
+	diplomacy = -5
+	icon = 21
 }
 
 # CHARACTER RELATIONS MODIFIERS
@@ -126,12 +125,10 @@ heretic_joan_darc = {
 	icon = 31
 }
 no_green_man = {
-	regiment_reinforcement_speed = 0.10
 	icon = 13
 }
 
 dead_green_man = {
-	regiment_reinforcement_speed = 0.10
 	monthly_character_prestige = -0.05
 	icon = 13
 }
@@ -204,8 +201,6 @@ mercy_to_sinners = {
 	icon = 17
 }
 
-
-
 #Married Life
 unrighteous_spouse = {
 	monthly_character_piety = -0.05
@@ -213,13 +208,11 @@ unrighteous_spouse = {
 	icon = 26
 }
 offended_moneylenders = {
-	city_tax_modifier = -0.5
-	castle_tax_modifier = -0.5
-	temple_tax_modifier = -0.5
+	global_tax_modifier = -0.5
 	icon = 24
 }
 diplomacy_advice = {
-	local_revolt_risk = -0.05
+	local_revolt_risk = -0.01
 	icon = 32
 }
 martial_advice = {
@@ -297,6 +290,7 @@ spy_imprison = {
 }
 the_content = {
 	monthly_character_prestige = -0.05
+	diplomacy = 1
 	icon = 25
 }
 the_fainthearted = {
@@ -386,10 +380,12 @@ the_gardener = {
 }
 kings_stipend = {
 	health = 3
+	monthly_character_wealth = 0.01
 	icon = 18
 }
 emperors_stipend = {
 	health = 3
+	monthly_character_wealth = 0.01
 	icon = 18
 }
 wine_meat = {
@@ -665,12 +661,12 @@ recent_revolt = {
 }
 
 religious_tension = {
-	local_revolt_risk = 0.1
+	local_revolt_risk = 0.02
 	icon = 35
 }
 
 force_converting = {
-	local_revolt_risk = 0.1
+	local_revolt_risk = 0.02
 	icon = 35
 }
 
@@ -679,19 +675,17 @@ heretic_stronghold = {
 }
 
 high_taxes = {
-	local_revolt_risk = 0.05
+	local_revolt_risk = 0.01
 	icon = 24
 }
 
 incompetent_rule = {
-	local_revolt_risk = 0.05
+	local_revolt_risk = 0.01
 	icon = 32	
 }
 
 thieves_guild = {
-	city_tax_modifier = -0.25
-	castle_tax_modifier = -0.25
-	temple_tax_modifier = -0.25
+	local_tax_modifier = -0.25
 	icon = 24
 }
 smugglers_ring = {
@@ -703,9 +697,7 @@ smugglers_ring = {
 
 highway_robber_band = {
 	supply_limit = -2
-	castle_levy_size = -0.33
-	city_levy_size = -0.33
-	temple_levy_size = -0.33
+	levy_size = -0.33
 	icon = 31
 }
 
@@ -822,7 +814,7 @@ fatwa_timer = { icon = 1 }
 
 voice_of_jesus = {
 	monthly_character_piety = 1
-	church_opinion = -30
+	church_opinion = -50
 	icon = 35
 }
 
@@ -832,7 +824,7 @@ holy_comet = {
 
 voice_of_satan = {
 	monthly_character_piety = -1
-	church_opinion = -30
+	church_opinion = -50
 	icon = 35
 }
 	
@@ -879,8 +871,26 @@ drunk_commander = {
 
 #court events
 peasants_scorned = {
-	local_revolt_risk = 0.03
+	local_revolt_risk = 0.01
 	icon = 32
+}
+
+peasant_unrest = {
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.5
+	icon = 31
+}
+
+religious_unrest = { 
+	icon = 35
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.5
+}
+
+cultural_unrest = { 
+	icon = 31
+	local_revolt_risk = 0.1
+	local_tax_modifier = -0.5
 }
 
 # Pagans
@@ -937,17 +947,17 @@ ignored_confessor = {
 }
 
 peasants_upset = {
-	local_revolt_risk = 0.02
+	local_revolt_risk = 0.01
 	icon = 32
 }
 
 public_execution = {
-	local_revolt_risk = -0.1
+	local_revolt_risk = -0.02
 	icon = 14
 }
 
 restricted_peasant_access = {
-	local_revolt_risk = 0.05
+	local_tax_modifier = -0.2
 	icon = 32
 }
 
@@ -980,13 +990,11 @@ troops_increases = {
 	icon = 13
 }
 steward_taxincome = {
-	city_tax_modifier = 0.25
-	castle_tax_modifier = 0.25
-	temple_tax_modifier = 0.25
+	global_tax_modifier = 0.25
 	icon = 6
 }
 steward_revoltrisk = {
-	local_revolt_risk = -0.05
+	local_revolt_risk = -0.01
 	icon = 1
 }
 increase_arrest_chance = {
@@ -1007,12 +1015,12 @@ spiritual_increase_piety = {
 }
 
 arbitrary_steward = {
-	local_revolt_risk = 0.05
+	local_revolt_risk = 0.01
 	icon = 19
 }
 
 just_steward = {
-	local_revolt_risk = -0.05
+	local_revolt_risk = -0.01
 	icon = 1
 }
 
@@ -1073,17 +1081,17 @@ stop_commerce = {
 	icon = 6
 }
 prima_noctae = {
-	local_revolt_risk = 0.03
+	local_revolt_risk = 0.01
 	icon = 19
 }
 peasants_forbidden_sale = {
-	local_revolt_risk = 0.02
+	local_revolt_risk = 0.01
 	city_tax_modifier = 0.15
 	icon = 6
 }
 
 clergy_extra_tithe = {
-	local_revolt_risk = 0.02
+	local_revolt_risk = 0.01
 	temple_tax_modifier = 0.15
 	icon = 6
 }
@@ -1211,19 +1219,17 @@ hot_revenge = {
 	icon = 5
 }
 imam_appreciates = {
-	church_opinion = 25
+	monthly_character_piety = 0.2
 	icon = 17
 }
 
 pious_imams = {
 	monthly_character_piety = 0.2
-	church_opinion = 2
 	global_tax_modifier = -0.1
 	icon = 8
 }
 unfunny_imam = {
 	monthly_character_piety = -0.10
-	church_opinion = -0.05
 	icon = 26
 }
 
@@ -1309,6 +1315,49 @@ aspiring_faqih = {
 	icon = 7
 }
 
+morale_from_nerge = {
+	land_morale = 0.3
+	icon = 13
+}
+held_blot_modifier = {
+	land_morale = 0.15
+	monthly_character_prestige = 0.3
+	icon = 13
+}
+
+killed_an_old_one = {
+	martial = 3
+	intrigue = 2
+	icon = 13
+}
+
+raised_runestone = {
+	diplomacy = 2
+	general_opinion = 10
+	icon = 5
+}
+
+broken_spirit = {
+	health = -2
+	fertility = -0.3
+	martial = -10
+	diplomacy = -4
+	stewardship = -4
+	intrigue = -4
+	learning = -4
+	icon = 40
+}
+
+held_nerge_timer = { icon = 1 }
+
+held_blot_timer = { icon = 1 }
+
+held_ukon_juhla_timer = { icon = 1 }
+
+held_uzgavenes_timer = { icon = 1 }
+
+held_jarilo_timer = { icon = 1 }
+
 faction_succ_seniority_ultimatum_timer = { icon = 1 }
 
 faction_succ_primogeniture_ultimatum_timer = { icon = 1 }
@@ -1322,3 +1371,10 @@ faction_lower_CA_ultimatum_timer = { icon = 1 }
 faction_independence_ultimatum_timer = { icon = 1 }
 
 faction_claimant_timer = { icon = 1 }
+
+# hidden
+planning_claimant_adventure = { icon = 1 }
+planning_duchy_adventure = { icon = 1 }
+
+launched_prepared_invasion = { icon = 1 } # Used in the code - do NOT remove!
+launched_subjugation = { icon = 1 }

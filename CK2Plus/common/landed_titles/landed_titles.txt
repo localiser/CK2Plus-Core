@@ -9,19 +9,14 @@ k_burgundy = {
 	
 	catholic = 100 #Crusade target weight	
 	
-	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }	
 	
 	d_dauphine = {
 		color={ 107 94 169 }
 		color2={ 255 255 255 }
 		
 		capital = 228 #Vienne
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_dauphine_viennois = {
 			color={ 109 75 15 }
@@ -93,7 +88,7 @@ k_burgundy = {
 		
 		capital	= 221 # Provence
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_provence = {
 			color={ 197 58 50 }
@@ -165,7 +160,7 @@ k_burgundy = {
 		
 		capital = 237 #Savoy
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_savoie = {
 			color={ 76 246 106 }
@@ -237,7 +232,7 @@ k_burgundy = {
 		
 		capital = 135 #Besancon
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_besancon = {
 			color={ 70 16 169 }
@@ -285,7 +280,10 @@ k_burgundy = {
 			color={ 245 6 139 }
 			color2={ 255 255 255 }
 			
+			german = "Neuenburg"
+			
 			b_neuchatel = {
+				german = "Neuenburg"
 			}
 			b_stimier = {
 			}
@@ -326,22 +324,19 @@ k_burgundy = {
 	}
 }
 
-	k_netherlands = {
+	k_lotharingia = {
 		color = { 220  138  57 }
 		color2={ 255 255 255 }
 		
-		culture = dutch
+		culture = frankish
 		
 		capital = 117 #Brabant
 		
+		dignity = 5
+		
 		catholic = 10 #Crusade target weight
 		
-		allow = { war = no } 
-		gain_effect = {
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no } 	
 		
 		d_alsace = { 
 			color={ 199 175 12 }
@@ -349,7 +344,7 @@ k_burgundy = {
 			
 			capital = 134 #Sundgau
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_nordgau = {
 				color={ 156 114 31 }
@@ -400,7 +395,7 @@ k_burgundy = {
 			
 			capital = 124 #Pfalz
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_pfalz = {
 				color={ 102 172 239 }
@@ -472,7 +467,7 @@ k_burgundy = {
 			
 			capital = 127 #Lorraine	
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_verdun = {
 				color={ 165 204 101 }
@@ -482,17 +477,15 @@ k_burgundy = {
 				}
 				b_grandpre = {
 				}
-				b_barleduc = {
-				}
-				b_vaucouleurs = {
-				}
 				b_barlecomte = {
-				}
-				b_saintmihel = {
 				}
 				b_longuyon = {
 				}
 				b_doaumont = {
+				}
+				b_stenay = {
+				}
+				b_etain = {
 				}
 			}
 			c_lorraine = {
@@ -537,6 +530,23 @@ k_burgundy = {
 				b_dompaire = {
 				}
 			}
+			c_bar = {
+				color={ 111 111 111 }
+				color2={ 255 255 255 }
+				
+				b_barleduc = {
+				}
+				b_vaucouleurs = {
+				}
+				b_saintmihel = {
+				}
+				b_commercy = {
+				}
+				b_joinville = {
+				}
+				b_saintdizier = {
+				}
+			}			
 		}		
 		d_luxembourg = {
 			color={ 102 97 150 }
@@ -544,7 +554,7 @@ k_burgundy = {
 			
 			capital = 115 #Luxembourg
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_luxembourg = {
 				color={ 249 111 65 }
@@ -595,7 +605,7 @@ k_burgundy = {
 			
 			capital = 89 #Cleves
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+			allow = { war = no }		
 		
 			c_kleve = {
 				color={ 56 64 129 }
@@ -669,7 +679,7 @@ k_burgundy = {
 			
 			culture = dutch
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_holland = {
 				color={ 198 204 20 }
@@ -720,6 +730,8 @@ k_burgundy = {
 				b_middelburg = {
 				}
 				b_tholen = {
+					holy_site = norse_pagan
+					holy_site = norse_pagan_reformed				
 				}
 				b_veere = {
 				}
@@ -743,7 +755,7 @@ k_burgundy = {
 			
 			culture = dutch
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_gelre = {
 				color={ 90 237 139 }
@@ -838,7 +850,7 @@ k_burgundy = {
 			
 			culture = dutch
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_brabant = {
 				color={ 111 94 155 }
@@ -895,12 +907,7 @@ k_burgundy = {
 		
 		catholic = 10 #Crusade target weight
 		
-		allow = { war = no } 
-		gain_effect = {
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no } 	
 		
 		d_holstein = {
 			color={ 152 225 112 }
@@ -908,7 +915,7 @@ k_burgundy = {
 		
 			capital = 263 #Holstein
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_hamburg = {
 				color={ 181 161 34 }
@@ -917,11 +924,13 @@ k_burgundy = {
 				danish = "Hamborg"
 				swedish = "Hamborg"
 				norwegian = "Hamborg"
+				norse = "Hamborg"
 			
 				b_hamburg = {
 					danish = "Hamborg"
 					swedish = "Hamborg"
 					norwegian = "Hamborg"
+					norse = "Hamborg"
 				}
 				b_altona = {
 				}
@@ -929,6 +938,7 @@ k_burgundy = {
 					danish = "Harborg"
 					swedish = "Harborg"
 					norwegian = "Harborg"
+					norse = "Harborg"
 				}
 				b_brunsbuttel = {
 				}
@@ -938,6 +948,7 @@ k_burgundy = {
 					danish = "Ditmarsken"
 					swedish = "Ditmarsken"
 					norwegian = "Ditmarsken"
+					norse = "Ditmarsken"
 				}
 				b_niendorf = {
 				}
@@ -951,6 +962,7 @@ k_burgundy = {
 				danish = "Lybæk"
 				swedish = "Lybäck"
 				norwegian = "Lybæk"
+				norse = "Lybæck"
 				pommeranian = "Liubice"
 				polish = "Liubice"
 				bohemian = "Liubice"
@@ -960,6 +972,7 @@ k_burgundy = {
 					danish = "Lybæk"
 					swedish = "Lybäck"
 					norwegian = "Lybæk"
+					norse = "Lybæck"
 					pommeranian = "Liubice"
 					polish = "Liubice"
 					bohemian = "Liubice"
@@ -968,6 +981,7 @@ k_burgundy = {
 				b_ratzeburg = {
 					danish = "Ratseborg"
 					swedish = "Ratseborg"
+					norse = "Ratseborg"
 					norwegian = "Ratseborg"
 				}
 				b_travemunde = {
@@ -1021,13 +1035,14 @@ k_burgundy = {
 			
 			capital = 119 #Köln
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_koln = {
 				color={ 166 202 32 }
 				color2={ 255 255 255 }
 			
 				b_koln = {
+					holy_site = catholic
 				}
 				b_berg = {
 				}
@@ -1093,7 +1108,7 @@ k_burgundy = {
 			
 			capital = 256 #Weimar
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_plauen = {
 				color={ 36 204 187 }
@@ -1144,7 +1159,7 @@ k_burgundy = {
 
 			capital = 366 # Stettin
 
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_wolgast = {
 				color={ 98 204 82 }
@@ -1195,6 +1210,10 @@ k_burgundy = {
 				b_charenza = {
 				}
 				b_arkona = {
+					holy_site = slavic_pagan
+					holy_site = slavic_pagan_reformed
+					holy_site = baltic_pagan
+					holy_site = baltic_pagan_reformed				
 				}
 				b_rugard = {
 				}
@@ -1216,7 +1235,7 @@ k_burgundy = {
 			
 			capital = 260 #Mecklemburg
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_mecklemburg = {
 				color={ 48 41 229 }
@@ -1358,7 +1377,7 @@ k_burgundy = {
 		
 			capital = 257 #Brunswick
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 					
 			c_luneburg = {
 				color={ 152 66 29 }
@@ -1390,6 +1409,8 @@ k_burgundy = {
 				b_bielefeld = {
 				}
 				b_paderborn = {
+					holy_site = norse_pagan
+					holy_site = norse_pagan_reformed				
 				}
 				b_hildesheim = {
 				}
@@ -1451,7 +1472,7 @@ k_burgundy = {
 			
 			capital = 365 #Brandenburg
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_altmark = {
 				color={ 145 75 25 }
@@ -1523,7 +1544,7 @@ k_burgundy = {
 			
 			capital = 312 #Meissen
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_meissen = {
 				color={ 36 8 97 }
@@ -1574,7 +1595,7 @@ k_burgundy = {
 		
 			capital = 255 #Thuringen
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_thuringen = {
 				color={ 211 67 127 }
@@ -1625,7 +1646,7 @@ k_burgundy = {
 			
 			capital = 254 #Wurzburg
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_leiningen = {
 				color={ 192 78 90 }
@@ -1697,7 +1718,7 @@ k_burgundy = {
 			
 			capital = 125 #Baden
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_baden = {
 				color={ 74 207 6 }
@@ -1748,7 +1769,7 @@ k_burgundy = {
 			
 			capital = 245 #Schwyz
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_schwyz = {
 				color={ 195 219 19 }
@@ -1841,7 +1862,7 @@ k_burgundy = {
 			
 			capital = 316 #Tirol
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_tirol = {
 				color={ 149 80 128 }
@@ -1892,7 +1913,7 @@ k_burgundy = {
 			
 			capital = 249 #Schwaben
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_schwaben = {
 				color={ 230 136 43 }
@@ -1987,7 +2008,7 @@ k_burgundy = {
 			
 			capital = 360 #Oberbayern
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_kempten = {
 				color={ 165 232 174 }
@@ -2080,7 +2101,7 @@ k_burgundy = {
 			
 			capital = 449 #Österreich
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_salzburg = {
 				color={ 59 50 207 }
@@ -2179,12 +2200,7 @@ k_burgundy = {
         
         catholic = 10 #Crusade target weight 
         
-		allow = { war = no } 
-		gain_effect = {
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}        
+		allow = { war = no }      
         
         d_bohemia = {
             color={ 165 90 11 }
@@ -2192,7 +2208,7 @@ k_burgundy = {
             
             capital = 437 # Praha
             
-            allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+            allow = { war = no }
             
             c_domazlice = {
                 color={ 80 174 101 }
@@ -2306,7 +2322,7 @@ k_burgundy = {
             
             capital = 440 # Olomouc
             
-            allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+            allow = { war = no }
             
             c_hradec = {
                 color={ 218 181 96 }
@@ -2405,11 +2421,6 @@ k_france = {
 	catholic = 100 #Crusade target weight
 	
 	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
 	
 	d_bourbon = {
 		color={ 113 112 96 }
@@ -2417,7 +2428,7 @@ k_france = {
 		
 		capital = 146 #Bourbon
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_bourbon = {
 			color={ 187 108 107 }
@@ -2491,7 +2502,7 @@ k_france = {
 				
 		culture = occitan
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lusignan = {
 			color={ 127 165 86 }
@@ -2586,7 +2597,7 @@ k_france = {
 		
 		capital = 77 #Artois
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_artois = {
 			color={ 106 127 51 }
@@ -2660,7 +2671,7 @@ k_france = {
 		
 		capital = 78 #Brugge
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_hainaut = {
 			color={ 138 192 23 }
@@ -2753,7 +2764,7 @@ k_france = {
 		
 		capital = 136 #Dijon
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_auxerre = {
 			color={ 162 82 96 }
@@ -2889,7 +2900,7 @@ k_france = {
 		
 		capital = 139 #Bourges
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_tourraine = {
 			color={ 46 185 129 }
@@ -2941,7 +2952,7 @@ k_france = {
 		
 		capital = 107 #Anjou
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_anjou = {
 			color={ 220 160 93 }
@@ -3015,7 +3026,7 @@ k_france = {
 		
 		culture = norman
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_evreux = {
 			color={ 55 248 225 }
@@ -3108,7 +3119,7 @@ k_france = {
 		
 		capital = 138 #Orleans
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_orleans = {
 			color={ 228 198 154 }
@@ -3180,7 +3191,7 @@ k_france = {
 		
 		capital = 114 #Reims
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_troyes = {
 			color={ 24 211 237 }
@@ -3256,7 +3267,7 @@ k_france = {
 		
 		capital = 149 #Bordeaux
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_bordeaux = {
 			color={ 227 139 58 }
@@ -3351,29 +3362,8 @@ k_france = {
 		
 		capital = 209 #Armagnac
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
-		
-		c_foix = {
-			color={ 81 160 105 }
-			color2={ 255 255 255 }
-			
-			b_foix = {
-			} 
-			b_pamiers = {
-			} 
-			b_mirepoix = {
-			} 
-			b_montsegur = {
-			} 
-			b_stbertrand = {
-			}  
-			b_roquefeuil = {
-			} 
-			b_stgaudens = {
-			}  
-			b_usson = {
-			} 
-		}
+		allow = { war = no }
+
 		c_bearn = {
 			color={ 237 184 35 }
 			color2={ 255 255 255 }
@@ -3467,7 +3457,7 @@ k_france = {
 		
 		capital = 217 #Auvergne
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_auvergne = {
 			color={ 149 204 222 }
@@ -3541,7 +3531,7 @@ k_france = {
 		
 		capital = 214 #Toulouse
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_montpellier = {
 			color={ 31 93 100 }
@@ -3563,7 +3553,28 @@ k_france = {
 			}
 			b_melgueil = {
 			}
-		}
+		}	
+		c_foix = {
+			color={ 81 160 105 }
+			color2={ 255 255 255 }
+			
+			b_foix = {
+			} 
+			b_pamiers = {
+			} 
+			b_mirepoix = {
+			} 
+			b_montsegur = {
+			} 
+			b_stbertrand = {
+			}  
+			b_roquefeuil = {
+			} 
+			b_stgaudens = {
+			}  
+			b_usson = {
+			} 
+		}		
 		c_narbonne = {
 			color={ 160 46 198 }
 			color2={ 255 255 255 }
@@ -3657,7 +3668,7 @@ k_france = {
 		
 		dignity = 10
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 	
 		c_ile_de_france = {
 			color={ 38 144 211 }
@@ -3668,6 +3679,8 @@ k_france = {
 			b_melun = {
 			}
 			b_stdenis = {
+					holy_site = aztec
+					holy_site = aztec_reformed			
 			}
 			b_meaux = {
 			}
@@ -3687,7 +3700,7 @@ k_france = {
 		
 		capital = 95 # Amiens
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_amiens = {
 			color={ 213 237 40 }
@@ -3765,12 +3778,7 @@ k_brittany = {
 	
 	catholic = 10 #Crusade target weight	
 	
-	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no } 	
 
 	d_brittany = {
 		color={ 133 34 210 }
@@ -3780,132 +3788,186 @@ k_brittany = {
 		
 		culture = breton
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_nantes = {
 			color={ 75 84 223 }
 			color2={ 255 255 255 }
 			
+			breton = "Naoned"
+			
 			b_nantes = {
+				breton = "Naoned"
 			}
 			b_chateaubriant = {
+				breton = "Kastell-Briant"
 			}
 			b_redon = {
 			}
 			b_guerande = {
+				breton = "Gwenrann"
 			}
 			b_clisson = {
+				breton = "Klison"
 			}
 			b_donges = {
+				breton = "Donez"
 			}
 			b_la_roche-bernard = {
+				breton = "Ar Roc'h-Bernez"
 			}
 			b_st_nazaire = {
+				breton = "Sant-Nazer"
 			}
 		}
 		c_vannes = {
 			color={ 89 32 196 }
 			color2={ 255 255 255 }
 			
-			b_vannes = {
+			breton = "Gwened"
+			
+			b_vannes = {	
+				breton = "Gwened"
 			}
 			b_josselin = {
+				breton = "Josilin"
 			}
 			b_st_gildas = {
+				breton = "Sant Gweltaz"
 			}
 			b_locmine = {
+				breton = "Logunec'h"
 			}
 			b_hennebont = {
+				breton = "Henbont"
 			}
 			b_pontivy = {
+				breton = "Pondi"
 			}
 			b_auray = {
+				breton = "An Alre"
 			}
 			b_ploermel = {
+				breton = "Ploermael"
 			}
 		}
 		c_cornouaille = {
 			color={ 224 116 96 }
 			color2={ 255 255 255 }
 			
+			breton = "Kernev"
+			
 			b_quimper = {
+				breton = "Kemper"
 			}
 			b_carhaix = {
+				breton = "Karaez-Plougêr"
 			}
 			b_quimperle = {
+				breton = "Kemperle"
 			}
 			b_landevennec = {
+				breton = "Landevenneg"
 			}
 			b_corlay = {
+				breton = "Korle"
 			}
 			b_huelgoat = {
+				breton = "An Uhelgoad"
 			}
 			b_langonnet = {
+				breton = "Langoned"
 			}
 			b_lezergue = {
+				breton = "Kastellin"
 			}
 		}
 		c_french_leon = {
 			color={ 88 99 174 }
 			color2={ 255 255 255 }
 			
+			breton = "Leon"
+			
 			b_brest = {
 			}
 			b_guingamp = {
+				breton = "Gwengamp"
 			}
 			b_st_pol_de_leon = {
+				breton = "Kastell-Paol"
 			}
 			b_treguier = {
+				breton = "Landreger"
 			}
 			b_morlaix = {
+				breton = "Montroulez"
 			}
 			b_roscoff = {
+				breton = "Rosco"
 			}
 			b_plougonven = {
 			}
 			b_plourivo = {
+				breton = "Plourivoù"
 			}
 		}
 		c_penthievre = {
 			color={ 99 199 69 }
 			color2={ 255 255 255 }
 			
+			breton = "Sant-Brieg"
+			
 			b_verdelet = {
+				breton = "Sant-Brieg"
 			}
 			b_st_brieuc = {
+				breton = "Sant Tudwal"
 			}
 			b_monkontour = {
 			}
 			b_peran = {
+				breton = "Sant-Pêran"
 			}
 			b_loudeac = {
+				breton = "Loudieg"
 			}
 			b_paimpol = {
+				breton = "Pempoull"
 			}
 			b_chatelaudren = {
+				breton = "Kastellaodren"
 			}
 			b_quintin = {
+				breton = "Kintin"
 			}
 		}
 		c_rennes = {
 			color={ 38 108 117 }
 			color2={ 255 255 255 }
 			
+			breton = "Roazhon"
+			
 			b_rennes = {
+				breton = "Roazhon"
 			}
 			b_fougeres = {
+				breton = "Felger"
 			}
 			b_st_michel = {
+				breton = "Menez Mikael ar Mor"
 			}
 			b_st_malo = {
+				breton = "Sant-Maloù"
 			}
 			b_dol = {
 			}
 			b_dinan = {
 			}
 			b_st_meen = {
+				breton = "Sant-Meven"
 			}
 			b_porhoet = {
+				breton = "Pourc'hoad"
 			}
 		}
 	}
@@ -3924,12 +3986,7 @@ k_sicily = {
 	catholic = 500 #Crusade target weight
 	shiite = 50 #Crusade target weight
 	
-	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no } 	
 		
 		d_benevento = {
 			color={ 153 247 29 }
@@ -3937,7 +3994,7 @@ k_sicily = {
 			
 			capital = 335 #Benevento
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_benevento = {
 				color={ 163 13 109 }
@@ -4003,7 +4060,7 @@ k_sicily = {
 			
 			capital = 851 #Capua
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_capua = {
 				color={ 94 153 140 }
@@ -4046,11 +4103,11 @@ k_sicily = {
 				}
 				b_ischia = {
 				}
-				b_castellamare = {
+				b_portici={
 				}
-				b_sorrento = {
+				b_turris_octava={
 				}
-				b_capri = {
+				b_afragola={
 				}
 			}
 		}
@@ -4060,7 +4117,7 @@ k_sicily = {
 			
 			capital = 347 #Apulia
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_apulia = {
 				color={ 197 229 48 }
@@ -4137,21 +4194,21 @@ k_sicily = {
 			color={ 129 177 125 }
 			color2={ 255 255 255 }
 			
+			greek = "Lukania"
+			
 			capital = 336 #Salerno
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_salerno = {
 				color={ 38 225 151 }
-				color2={ 255 255 255 }
-				
-				greek = "Amalfi"				
+				color2={ 255 255 255 }				
 				
 				b_salerno = {
 				}
 				b_acenzera = {
 				}
-				b_amalfi = {
+				b_eboli = {
 				}
 				b_nocera = {
 				}
@@ -4188,6 +4245,27 @@ k_sicily = {
 				b_cassano = {
 				}
 			}
+			c_amalfi = {
+				color={ 120 200 225 }
+				color2 = { 255 255 255 }
+				
+				b_amalfi={
+				}
+				b_sorrento={
+				}
+				b_ravello={
+				}
+				b_tramonti={
+				}
+				b_positano={
+				}
+				b_castellamare = {
+				}
+				b_capri = {
+				}
+				b_minori = {
+				}
+			}			
 		}
 		d_calabria = {
 			color={ 166 189 199 }
@@ -4195,7 +4273,7 @@ k_sicily = {
 			
 			capital = 338 #Reggio
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_consenza = {
 				color={ 129 110 231 }
@@ -4251,7 +4329,7 @@ k_sicily = {
 			
 			capital = 340 #Palermo
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_palermo = {
 				color={ 254 244 253 }
@@ -4454,11 +4532,6 @@ k_italy = {
 	catholic = 1000 #Crusade target weight
 	
 	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
 	
 	d_carinthia = {
 		color={ 166 117 117 }
@@ -4466,7 +4539,7 @@ k_italy = {
 		
 		capital = 456 #Carinthia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_istria = {
 			color={ 139 65 17 }
@@ -4569,7 +4642,7 @@ k_italy = {
 		
 		capital = 356 # Venice
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_venezia = {
 			color = { 40  143  132 }
@@ -4599,7 +4672,7 @@ k_italy = {
 		
 		capital = 319 #Verona
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_treviso = {
 			color={ 26 238 23 }
@@ -4692,7 +4765,7 @@ k_italy = {
 		
 		capital = 235 # Lombardia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_brescia = {
 			color={ 192 166 151 }
@@ -4801,11 +4874,11 @@ k_italy = {
 			}
 		}
 	}
-	d_piedmont = {
+	d_susa = {
 		color={ 114 122 38 }
 		color2={ 255 255 255 }	
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_piemonte = {
 			color={ 169 225 129 }
@@ -4879,7 +4952,7 @@ k_italy = {
 		
 		capital = 233 #Genoa
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_genoa = {
 			color={ 187 158 26 }
@@ -4930,7 +5003,7 @@ k_italy = {
 		
 		capital = 322 #Modena
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_modena = {
 			color={ 215 18 28 }
@@ -4981,7 +5054,7 @@ k_italy = {
 		
 		capital = 353 #Ferrara
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_bologna = {
 			color={ 116 151 214 }
@@ -5053,7 +5126,7 @@ k_italy = {
 		
 		capital = 328 #Firenze
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lucca = {
 			color={ 82 96 193 }
@@ -5125,7 +5198,7 @@ k_italy = {
 		
 		capital = 327 #Pisa
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_pisa = {
 			color={ 94 136 63 }
@@ -5174,7 +5247,7 @@ k_italy = {
 		
 		capital = 333 #Roma
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_roma = {
 			color={ 242 233 156 }
@@ -5182,6 +5255,11 @@ k_italy = {
 			
 			b_roma = {
 				pentarchy = yes
+				holy_site = catholic
+				holy_site = aztec
+				holy_site = aztec_reformed
+				holy_site = hellenic_pagan
+				holy_site = pagan
 			}
 			b_viterbo = {
 			}
@@ -5247,7 +5325,7 @@ k_italy = {
 		
 		capital = 349 #Spoleto
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 				
 		c_spoleto = {
 			color={ 191 191 140 }
@@ -5314,7 +5392,7 @@ k_italy = {
 		
 		capital = 326 #Cagliari
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_corsica = {
 			color={ 210 155 229 }
@@ -5391,11 +5469,6 @@ k_georgia = {
 	culture = georgian
 	
 	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
 
 	d_kartli = {
 		color={ 234 119 119 }
@@ -5403,7 +5476,7 @@ k_georgia = {
 		
 		capital = 679 # Kartli
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_kartli = {
 			color={ 57 120 5 }
@@ -5502,7 +5575,7 @@ k_georgia = {
 		
 		capital = 600 #Abkhazia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_imeretia = {
 			color={ 51 195 124 }
@@ -5580,18 +5653,13 @@ k_georgia = {
 		culture = greek
 		capital = 482 #Athens
 		
-		allow = { war = no } 
-		gain_effect = {
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no } 	
 
 		d_epirus = {
 			color={ 134 63 109 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 472
 			
@@ -5673,7 +5741,7 @@ k_georgia = {
 			color={ 137 27 99 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 470 # Dyrrachion
 			
@@ -5753,7 +5821,7 @@ k_georgia = {
 			color={ 194 140 86 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 484 # Naxos
 			
@@ -5767,6 +5835,7 @@ k_georgia = {
 					turkish = "Balakhisar"
 				}
 				b_lampsakos = {
+					holy_site = hellenic_pagan
 				}
 				b_alexandriatroas = {
 				}
@@ -5866,7 +5935,7 @@ k_georgia = {
 			color={ 172 76 139 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 496 # Byzantion
 			
@@ -5904,6 +5973,9 @@ k_georgia = {
 				}
 				b_hagiasophia = {
 					pentarchy = yes
+					holy_site = orthodox
+					holy_site = nestorian
+					holy_site = pagan
 					turkish = "Ayasofya"
 				}
 				b_galata = {
@@ -5948,7 +6020,7 @@ k_georgia = {
 			color={ 249 206 173 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 494 # Adrianopolis
 			
@@ -6005,7 +6077,7 @@ k_georgia = {
 			color={ 89 140 76 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 490 # Thessalonike
 			
@@ -6040,6 +6112,7 @@ k_georgia = {
 					turkish = "Salonika"
 				}
 				b_thesedessa = {
+					holy_site = hellenic_pagan
 				}
 				b_voden = {
 				}
@@ -6083,7 +6156,7 @@ k_georgia = {
 			color={ 76 66 208 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 482 # Atheniai
 			
@@ -6136,6 +6209,7 @@ k_georgia = {
 				b_athens = {
 				}
 				b_piraeaus = {
+					holy_site = hellenic_pagan
 				}
 				b_megara = {
 				}
@@ -6155,7 +6229,7 @@ k_georgia = {
 			color={ 197 192 106 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 476 # Achaia
 			
@@ -6250,7 +6324,7 @@ k_georgia = {
 			color={ 106 127 183 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 480 # Chandax
 			
@@ -6333,18 +6407,13 @@ k_georgia = {
 		culture = greek
 		capital = 750 #Nikaea
 		
-		allow = { war = no } 
-		gain_effect = {		
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no } 	
 
 		d_charsianon = {
 			color={ 113 150 11 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 760 # Tyana
 			
@@ -6425,7 +6494,7 @@ k_georgia = {
 			color={ 195 149 155 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 751 # Paphlagonia
 			
@@ -6507,7 +6576,7 @@ k_georgia = {
 			
 			capital = 750 #Nikaea
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_nikaea = {
 				color={ 86 27 148 }
@@ -6617,7 +6686,7 @@ k_georgia = {
 			color={ 74 123 122 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 759 # Ikonion
 			
@@ -6675,7 +6744,7 @@ k_georgia = {
 			color={ 144 52 53 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 748 # Laodikeia
 			
@@ -6733,7 +6802,7 @@ k_georgia = {
 			color={ 154 69 116 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 486 # Samos
 			
@@ -6747,6 +6816,8 @@ k_georgia = {
 					turkish = "Ayasoluk"
 				}
 				b_lebedos = {
+					holy_site = orthodox
+					holy_site = nestorian				
 				}
 				b_miletos = {
 				}
@@ -6815,7 +6886,7 @@ k_georgia = {
 			color={ 136 157 23 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 757 # Famagusta
 			
@@ -6872,7 +6943,7 @@ k_georgia = {
 			color={ 219 124 139 }
 			color2={ 255 255 20 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 755 # Attaleia
 			
@@ -6959,18 +7030,14 @@ k_trebizond = {
 	catholic = 25
 
 	allow = { war = no } 
-	gain_effect = {
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}			
+		
 	d_trebizond = {
 		color={ 69 157 208 }
 		color2={ 255 255 255 }
 		
 		capital = 678 #Trebizond
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_theodosiopolis = {
 			color={ 179 169 76 }
@@ -7043,7 +7110,7 @@ k_trebizond = {
 		color={ 39 110 100 }
 		color2={ 255 255 20 }
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		capital = 738 # Amisos
 		
@@ -7103,20 +7170,15 @@ k_trebizond = {
 		
 		sunni = 100
 		
-		allow = { war = no } 
-		gain_effect = {		
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}				
+		allow = { war = no } 				
 		
 		culture = armenian	
 	
 		d_armenia = {
-			color={ 129 42 109 }
+			color={ 179 42 109 }
 			color2={ 255 255 255 }
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			capital = 681 #	Ani
 			
@@ -7132,6 +7194,7 @@ k_trebizond = {
 				b_van = {
 				}
 				b_surbkhach = {
+					holy_site = judaism
 				}
 				b_vostan = {
 				}
@@ -7143,31 +7206,7 @@ k_trebizond = {
 				}
 				b_hadamakert = {
 				}
-			}
-			c_karin = {
-				color={ 143 27 85 }
-				color2={ 255 255 255 }
-				
-				turkish = "Erzurum"
-				
-				b_daroynk = {
-				}
-				b_karin = {
-					turkish = "Erzurum"
-				}
-				b_owshank = {
-				}
-				b_mardin = {
-				} 
-				b_baghesh = {
-				}
-				b_pasen = {
-				}
-				b_tercan = {
-				}
-				b_kirklarkilisesi = {
-				}
-			}			
+			}		
 			c_dwin = {
 				color={ 55 19 178 }
 				color2={ 255 255 255 }
@@ -7217,13 +7256,37 @@ k_trebizond = {
 			}
 		}		
 		d_mesopotamia = {
-			color={ 113 150 32 }
+			color={ 213 215 32 }
 			color2={ 255 255 255 }
 			
 			capital = 702 #Mesopotamia
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
-			
+			allow = { war = no }
+
+			c_karin = {
+				color={ 143 27 85 }
+				color2={ 255 255 255 }
+				
+				turkish = "Erzurum"
+				
+				b_daroynk = {
+				}
+				b_karin = {
+					turkish = "Erzurum"
+				}
+				b_owshank = {
+				}
+				b_mardin = {
+				} 
+				b_baghesh = {
+				}
+				b_pasen = {
+				}
+				b_tercan = {
+				}
+				b_kirklarkilisesi = {
+				}
+			}			
 			c_mesopotamia = {
 				color={ 17 26 247 }
 				color2={ 255 255 255 }
@@ -7266,48 +7329,6 @@ k_trebizond = {
 				b_sason = {
 				}
 			}
-			c_amida = {
-				color={ 220 144 69 }
-				color2={ 255 255 255 }
-				
-				b_kiaburc = {
-				}
-				b_amida = {
-				}
-				b_ulucamii = {
-				}
-				b_suraamede = {
-				}
-				b_mayyafarikin = {
-				}
-				b_hazretisuleymancamii = {
-				}
-				b_egil = {
-				}
-				b_idtodyolataloho = {
-				}
-			}
-			c_nisibin = {
-				color={ 236 94 98 }
-				color2={ 255 255 255 }
-				
-				b_nusaybin = {
-				}
-				b_savur = {
-				}
-				b_dairodmorhannanyo = {
-				}
-				b_kerburan = {
-				}
-				b_cizre = {
-				}
-				b_sittiradviyyemadrasa = {
-				}
-				b_dayrodmorgabriel = {
-				}
-				b_yaqobnsibnaya = {
-				}
-			}
 		}
 		d_edessa = {
 			color={ 184 193 89 }
@@ -7315,7 +7336,7 @@ k_trebizond = {
 			
 			capital = 699 #Edessa
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_edessa = {
 				color={ 171 35 234 }
@@ -7379,28 +7400,7 @@ k_trebizond = {
 				}
 				b_amanus = {
 				}
-			}
-			c_bira = {
-				color={ 92 8 20 }
-				color2={ 255 255 255 }
-
-				b_bira = {
-				}
-				b_tella = {
-				}
-				b_resaina = {
-				}
-				b_qalarebete = {
-				}
-				b_derik = {
-				}
-				b_qoser = {
-				}
-				b_samrah = {
-				}
-				b_stewr = {
-				}
-			}			
+			}		
 		}
 		d_coloneia = {
 			color={ 107 94 169 }
@@ -7408,7 +7408,7 @@ k_trebizond = {
 			
 			capital = 706 #Coloneia
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_koloneia = {
 				color={ 89 37 197 }
@@ -7459,7 +7459,7 @@ k_trebizond = {
 			
 			capital = 761 #Tarsos
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 	
 			c_lykandos = {
 				color={ 245 52 43 }
@@ -7598,12 +7598,7 @@ k_poland = {
 	
 	catholic = 10 #Crusade target weight
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no }	
 	
 	d_mazovia = {
 		color={ 17 16 203 }
@@ -7611,7 +7606,7 @@ k_poland = {
 		
 		capital = 529 # Plock
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_plock = {
 			color={ 38 236 56 }
@@ -7620,6 +7615,8 @@ k_poland = {
 			b_plock = {
 			}
 			b_pruszkow = {
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed					
 			}
 			b_warszawa = {
 			}
@@ -7663,12 +7660,12 @@ k_poland = {
 		
 		capital = 368 # Danzig
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_danzig = {
 			color={ 143 153 6 }
 			color2={ 255 255 255 }
-		
+	
 			pommeranian = "Gdansk"
 			polish = "Gdansk"
 			bohemian = "Gdansk"
@@ -7677,6 +7674,7 @@ k_poland = {
 			lithuanian = "Gdansk"
 			lettigallish = "Gdansk"
 			swedish = "Danzig"
+			norse = "Danzig"
 			norwegian = "Danzig"
 			danish = "Danzig"
 		
@@ -7691,6 +7689,7 @@ k_poland = {
 				lithuanian = "Gdansk"
 				lettigallish = "Gdansk"
 				swedish = "Danzig"
+				norse = "Danzig"
 				norwegian = "Danzig"
 				danish = "Danzig"
 			}
@@ -7715,6 +7714,7 @@ k_poland = {
 			swedish = "Stolp"
 			norwegian = "Stolp"
 			danish = "Stolp"
+			norse = "Stolp"
 		
 			b_rugenwalde = {
 			}
@@ -7723,6 +7723,7 @@ k_poland = {
 				swedish = "Stolp"
 				norwegian = "Stolp"
 				danish = "Stolp"
+				norse = "Stolp"
 			}
 			b_colberg = {
 			}
@@ -7744,7 +7745,7 @@ k_poland = {
 		
 		capital = 370 # Marienburg
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_marienburg = {
 			color={ 42 33 100 }
@@ -7791,15 +7792,17 @@ k_poland = {
 		c_chelminskie = {
 			color={ 36 149 14 }
 			color2={ 255 255 255 }
-		
+	
 			german = "Kulm"
 			swedish = "Kulm"
 			norwegian = "Kulm"
 			danish = "Kulm"
+			norse = "Kulm"
 		
 			b_chelmno = {
 				german = "Kulm"
 				swedish = "Kulm"
+				norse = "Kulm"
 				norwegian = "Kulm"
 				danish = "Kulm"
 			}
@@ -7816,6 +7819,8 @@ k_poland = {
 			b_eylau = {
 			}
 			b_briesen = {
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
 			}
 		}
 		c_sambia = {
@@ -7826,6 +7831,7 @@ k_poland = {
 			lettigallish = "Semba"
 			german = "Samland"
 			swedish = "Samland"
+			norse = "Samland"
 			danish = "Samland"
 			norwegian = "Samland"
 				
@@ -7838,6 +7844,10 @@ k_poland = {
 				bohemian = "Krolewiec"
 			}
 			b_fischhausen = {
+				prussian = "Romowe"
+				pommeranian = "Romowe"
+				lithuanian = "Romowe"
+				lettigallish = "Romowe"	
 			}
 			b_sambrandenburg = {
 				polish = "Bramborska"
@@ -7862,7 +7872,7 @@ k_poland = {
 		
 		capital = 429 # Gnieznenskie
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_lubusz = {
 			color={ 40 156 219 }
@@ -7955,7 +7965,7 @@ k_poland = {
 		
 		capital = 435 # Upper Silesia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_lower_silesia = {
 			color={ 62 134 167 }
@@ -8048,7 +8058,7 @@ k_poland = {
 		
 		capital = 527 # Krakowskie
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_krakowskie = {
 			color={ 67 235 71 }
@@ -8120,7 +8130,7 @@ k_poland = {
 		
 		capital = 428 # Kujawy
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_sieradzko-leczyckie = {
 			color={ 19 245 151 }
@@ -8177,12 +8187,7 @@ k_lithuania = {
 	
 	culture = lithuanian
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no } 	
 	
 	d_livonia = {
 		color={ 110 50 50 }
@@ -8190,13 +8195,27 @@ k_lithuania = {
 		
 		capital = 377 # Liivimaa
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 2
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}	
 		
 		c_livs = {
 			color={ 106 202 239 }
 			color2={ 255 255 255 }
 
 			swedish = "Livland"
+			norse = "Livland"
 			danish = "Livland"
 			norwegian = "Livland"
 			german = "Livland"
@@ -8205,12 +8224,14 @@ k_lithuania = {
 			}
 			b_lemisele = {
 				swedish = "Lemsal"
+				norse = "Lemsal"
 				danish = "Lemsal"
 				norwegian = "Lemsal"
 				german = "Lemsal"
 			}
 			b_uxkull = { # Ikskila
 				swedish = "Yxkull"
+				norse = "Yxkull"
 				danish = "Yxkull"
 				norwegian = "Yxkull"
 				german = "Üxküll"
@@ -8231,9 +8252,10 @@ k_lithuania = {
 			color2={ 255 255 255 }
 			
 			swedish = "Lettgallen"
+			norse = "Lettgallen"
 			danish = "Lettgallen"
 			norwegian = "Lettgallen"
-			german = "Lettgallen"			
+			german = "Lettgallen"
 		
 			b_jersika = {
 			}
@@ -8257,12 +8279,14 @@ k_lithuania = {
 			color2={ 255 255 255 }
 		
 			swedish = "Dorpat"
+			norse = "Dorpat"
 			danish = "Dorpat"
 			norwegian = "Dorpat"
 			german = "Dorpat"
 		
 			b_tartu = {
 				swedish = "Dorpat"
+				norse = "Dorpat"
 				danish = "Dorpat"
 				norwegian = "Dorpat"
 				german = "Dorpat"
@@ -8287,24 +8311,30 @@ k_lithuania = {
 			color2={ 255 255 255 }
 		
 			swedish = "Ösel"
+			norse = "Ösel"
 			danish = "Øsel"
 			norwegian = "Øsel"
 			german = "Ösel"
 		
 			b_kuressare = {
 				swedish = "Arensborg"
+				norse = "Arensborg"
 				danish = "Arensborg"
 				norwegian = "Arensborg"
 				german = "Arensburg"
 			}
 			b_hiiumaa = {
 				swedish = "Dagö"
+				norse = "Dagö"
 				danish = "Dagø"
 				norwegian = "Dagø"
 				german = "Dagö"
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed
 			}
 			b_muhu = {
 				swedish = "Moon"
+				norse = "Moon"
 				danish = "Moon"
 				norwegian = "Moon"
 				german = "Mohn"
@@ -8329,24 +8359,24 @@ k_lithuania = {
 		
 		dignity = 5
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+		allow = { war = no }		
 	
 		c_polotsk = {
 			color={ 125 14 14 }
 			color2={ 255 255 255 }
 		
 			swedish = "Pallteskja"
+			norse = "Pallteskja"
 			danish = "Pallteskja"
 			norwegian = "Pallteskja"
 		
 			b_polotsk = {
 				swedish = "Pallteskja"
+				norse = "Pallteskja"
 				danish = "Pallteskja"
 				norwegian = "Pallteskja"
 			}
 			b_braslaw = {
-			}
-			b_lepiel = {
 			}
 			b_dzisna = {
 			}
@@ -8365,6 +8395,7 @@ k_lithuania = {
 		
 			german = "Düna"
 			swedish = "Dyna"
+			norse = "Dyna"
 			danish = "Dyna"
 			norwegian = "Dyna"
 			russian = "Dvina"
@@ -8372,6 +8403,7 @@ k_lithuania = {
 			b_daugavpils = {
 				german = "Dünaburg"
 				swedish = "Dynaborg"
+				norse = "Dynaborg"
 				danish = "Dynaborg"
 				norwegian = "Dynaborg"
 				finnish = "Väinänlinna"
@@ -8392,6 +8424,17 @@ k_lithuania = {
 			b_vilani = {
 			}
 		}
+		c_lepiel = {
+			color={ 125 24 24 }
+			color2={ 255 255 255 }
+
+			b_lepiel = {
+			}
+			b_chashniki = {
+			}
+			b_novolukoml = {
+			}
+		}		
 	}
 	d_podlasie = {
 		color={ 246 113 13 }
@@ -8399,7 +8442,7 @@ k_lithuania = {
 		
 		capital = 425 #Podlasia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 
 		c_podlasie = {
 			color={ 74 43 211 }
@@ -8410,6 +8453,8 @@ k_lithuania = {
 			b_kolno = {
 			}
 			b_sejny = {
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed			
 			}
 			b_lomza = {
 			}
@@ -8450,7 +8495,7 @@ k_lithuania = {
 		
 		capital = 420 # Aukshayts
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_aukshayts = {
 			color={ 104 197 165 }
@@ -8522,16 +8567,17 @@ k_lithuania = {
 		
 		capital = 373 # Kurzeme
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_kurs = {
 			color={ 33 8 92 }
 			color2={ 255 255 255 }
-			
+		
 			german = "Kurland"
 			swedish = "Kurland"
+			norse = "Kurland"
 			danish = "Kurland"
-			norwegian = "Kurland"			
+			norwegian = "Kurland"		
 			
 			b_grobin = {
 			}
@@ -8556,10 +8602,13 @@ k_lithuania = {
 			
 			german = "Riga"
 			swedish = "Riga"
+			norse = "Riga"
 			danish = "Riga"
-			norwegian = "Riga"			
+			norwegian = "Riga"		
 			
 			b_riga = {
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed			
 			}
 			b_bauska = {
 			}
@@ -8583,7 +8632,7 @@ k_lithuania = {
 		
 		capital = 421 #Zhmud
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_memel = {
 			color={ 236 231 153 }
@@ -8596,6 +8645,7 @@ k_lithuania = {
 			b_gargzdai = {
 				german = "Garsden"
 				swedish = "Garsden"
+				norse = "Garsden"
 				danish = "Garsden"
 				norwegian = "Garsden"
 				polish = "Gorzdy"
@@ -8645,15 +8695,26 @@ k_lithuania = {
 			color={ 94 188 96 }
 			color2={ 255 255 255 }
 			
+			german = "Sameiten"
+			prussian = "Zhmud"
+			lithuanian = "Zemaitija"
+			polish = "Zhmudz"
+			russian = "Zhmud"
+			pommeranian = "Zhmud"
+			bohemian = "Zhmud"
+			lettigallish = "Zemaiteje"
+			
 			b_raseiniai = {
 				german = "Raseinen"
 				swedish = "Raseinen"
+				norse = "Raseinen"
 				danish = "Raseinen"
 				norwegian = "Raseinen"
 			}
 			b_jurbarkas = {
 				german = "Georgenburg"
 				swedish = "Georgsborg"
+				norse = "Georgsborg"
 				danish = "Georgsborg"
 				norwegian = "Georgsborg"
 			}
@@ -8682,11 +8743,11 @@ k_novgorod = {
 	culture = russian
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	
+	swedish = "Holmgård"
+	norse = "Holmgarðr"
+	danish = "Holmgård"
+	norwegian = "Holmgård"	
 	
 	d_novgorod = {
 		color={ 107 164 64 }
@@ -8695,12 +8756,26 @@ k_novgorod = {
 		capital = 414 # Novgorod
 		
 		swedish = "Holmgård"
+		norse = "Holmgarðr"
 		danish = "Holmgård"
-		norwegian = "Holmgård"		
+		norwegian = "Holmgård"	
 		
 		dignity = 5
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 4
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 		
 		c_bezhetsky_verh = {
 			color={ 43 42 182 }
@@ -8710,14 +8785,20 @@ k_novgorod = {
 				
 			b_bezhetsk = { # Staraya Ladoga
 				swedish = "Aldeigjuborg"
+				norse = "Aldeigjuborg"
 				danish = "Aldeigjuborg"
 				norwegian = "Aldeigjuborg"
 				finnish = "Alodejoki"
 			}
 			b_spasnakholmu = {
+				swedish = "Spångsholm"
+				norse = "Spångsholmr"
+				danish = "Spångsholm"
+				norwegian = "Spngsholm"
 			}
 			b_sonkovo = { # Gorodishche
 				swedish = "Alaborg"
+				norse = "Alaborg"
 				danish = "Alaborg"
 				norwegian = "Alaborg"
 			}
@@ -8757,19 +8838,29 @@ k_novgorod = {
 		c_novgorod = {
 			color={ 149 166 106 }
 			color2={ 255 255 255 }
-					
+			
 			swedish = "Holmgård"
+			norse = "Holmgarðr"
 			danish = "Holmgård"
 			norwegian = "Holmgård"
 					
 			b_borovichi = {
+				norse = Nygarðr
+				swedish = Nygård
+				norwegian = Nygård
+				danish = Nygård
 			}
 			b_novgorod = {
 				swedish = "Holmgård"
+				norse = "Holmgarðr"
 				danish = "Holmgård"
 				norwegian = "Holmgård"
 			}
 			b_tikhvin = {
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed								
 			}
 			b_chudovo = {
 			}
@@ -8810,7 +8901,7 @@ k_novgorod = {
 		
 		capital = 401 # Hlynov
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_hlynov = {
 			color={ 87 74 134 }
@@ -8882,7 +8973,7 @@ k_novgorod = {
 		
 		capital = 408 # Beloozero
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_beloozero = {
 			color={ 148 69 44 }		
@@ -8977,7 +9068,7 @@ k_novgorod = {
 		
 		german = "Pleskau"	
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_pskov = {
 			color={ 26 129 66 }
@@ -9032,7 +9123,7 @@ k_novgorod = {
 		
 		culture = komi
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_romny = {
 			color={ 43 98 179 }
@@ -9126,7 +9217,7 @@ k_novgorod = {
 		
 		capital = 397 #samoyeds
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+		allow = { war = no }		
 
 		c_ugra = {
 			color={ 139 82 60 }
@@ -9198,22 +9289,34 @@ k_novgorod = {
 		
 		capital = 574 # Rostov
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_rostov = {
 			color={ 198 233 55 }
 			color2={ 255 255 255 }
 				
 			swedish = "Radstofa"
+			norse = "Radstofa"
 			danish = "Radstofa"
 			norwegian = "Radstofa"
+			komi=Merya
+			mordvin=Merya
+			samoyed=Merya
+			finnish=Merya
+			lappish=Merya
 				
 			b_sarskoyegorodishche = {
+				komi=Merya
+				mordvin=Merya
+				samoyed=Merya
+				finnish=Merya
+				lappish=Merya
 			}
-			b_spasoyakovlevsky = {
+			b_spasoyakovlevsky = {			
 			}
 			b_rostov = {
 				swedish = "Radstofa"
+				norse = "Radstofa"
 				danish = "Radstofa"
 				norwegian = "Radstofa"
 			}
@@ -9256,7 +9359,7 @@ k_novgorod = {
 		
 		capital = 572 # Yaroslavl
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_kostroma = {
 			color={ 123 206 220 }
@@ -9330,14 +9433,14 @@ k_rus = {
 	
 	culture = russian
 	
+	norse = Könugarðr
+	swedish = Könugård
+	norwegian = Kønugård
+	danish = Kønugård
+	
 	capital = 547 # Kiev
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 
 	d_kiev = {
 		color = { 124  183  151 }
@@ -9347,7 +9450,25 @@ k_rus = {
 		
 		dignity = 10
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 1
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
+		
+		norse = Könugarðr
+		swedish = Könugård
+		norwegian = Kønugård
+		danish = Kønugård		
 
 		c_korsun = {
 			color={ 21 40 111 }
@@ -9374,9 +9495,20 @@ k_rus = {
 			color={ 75 147 185 }
 			color2={ 255 255 255 }
 
+			norse = Könugarðr
+			swedish = Könugård
+			norwegian = Kønugård
+			danish = Kønugård
+
 			b_kiev = {
+				norse = Könugarðr
+				swedish = Könugård
+				norwegian = Kønugård
+				danish = Kønugård
 			}
 			b_yuriev = {
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed				
 			}
 			b_iskorosten = {
 			}
@@ -9398,7 +9530,7 @@ k_rus = {
 		
 		capital = 582 # Vladimir
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_gorodez = {
 			color={ 229 116 29 }
@@ -9447,11 +9579,13 @@ k_rus = {
 			color2={ 255 255 255 }
 					
 			swedish = "Sursdalar"
+			norse = "Sursdalar"
 			danish = "Sursdalar"
 			norwegian = "Sursdalar"
 					
 			b_suzdal = {
 				swedish = "Sursdalar"
+				norse = "Sursdalar"
 				danish = "Sursdalar"
 				norwegian = "Sursdalar"
 			}
@@ -9498,7 +9632,7 @@ k_rus = {
 		
 		capital = 570 # Tver
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_tver = {
 			color={ 237 37 240 }
@@ -9549,7 +9683,7 @@ k_rus = {
 		
 		capital = 575 # Moskva
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_mozhaysk = {
 			color={ 52 249 162 }
@@ -9621,7 +9755,7 @@ k_rus = {
 		
 		capital = 567 # Novgorod Seversky
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_novgorod_seversky = {
 			color={ 175 91 67 }
@@ -9651,6 +9785,8 @@ k_rus = {
 			b_bryansk = {
 			}
 			b_pochep = {
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed			
 			}
 			b_orel = {
 			}
@@ -9672,7 +9808,7 @@ k_rus = {
 		
 		capital = 580 # Ryazan
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_pronsk = {
 			color={ 208 214 91 }
@@ -9700,11 +9836,13 @@ k_rus = {
 			color2={ 255 255 255 }
 			
 			swedish = "Moramar"
+			norse = "Moramar"
 			danish = "Moramar"
 			norwegian = "Moramar"
 			
 			b_murom = {
 				swedish = "Moramar"
+				norse = "Moramar"
 				danish = "Moramar"
 				norwegian = "Moramar"
 			}
@@ -9730,6 +9868,8 @@ k_rus = {
 			b_ryazan = {
 			}
 			b_solotcha = {
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed			
 			}
 			b_grodets = {
 			}
@@ -9772,7 +9912,7 @@ k_rus = {
 		
 		capital = 552 # Turov
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_turov = {
 			color={ 145 68 181 }
@@ -9823,7 +9963,7 @@ k_rus = {
 		
 		capital = 536 # Galich
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_terebovl = {
 			color={ 86 148 182 }
@@ -9895,7 +10035,7 @@ k_rus = {
 		
 		capital = 535 # Vladimir Volynsky
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_vladimir_volynsky = {
 			color={ 140 193 123 }
@@ -9947,7 +10087,7 @@ k_rus = {
 		
 		capital = 417 # Vitebsk
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_minsk = {
 			color={ 211 196 64 }
@@ -10019,18 +10159,20 @@ k_rus = {
 		
 		capital = 568 # Smolensk
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_smolensk = {
 			color={ 25 142 49 }
 			color2={ 255 255 255 }
 				
 			swedish = "Smaleskja"
+			norse = "Smaleskja"
 			danish = "Smaleskja"
 			norwegian = "Smaleskja"
 				
 			b_smolensk = {
 				swedish = "Smaleskja"
+				norse = "Smaleskja"
 				danish = "Smaleskja"
 				norwegian = "Smaleskja"
 			}
@@ -10048,7 +10190,7 @@ k_rus = {
 			}
 			b_yartsevo = {
 			}
-		}
+		}		
 		c_mstislavl = {
 			color={ 163 118 57 }
 			color2={ 255 255 255 }
@@ -10070,6 +10212,17 @@ k_rus = {
 			b_rahacou = {
 			}
 		}
+		c_roslavl = {
+			color={ 239 242 185 }
+			color2={ 255 255 255 }
+				
+			b_roslavl = {
+			}
+			b_pochinok = {
+			}
+			b_chocimsk = {
+			}
+		}		
 	}
 	d_chernigov = {
 		color={ 235 150 91 }
@@ -10079,7 +10232,7 @@ k_rus = {
 		
 		dignity = 5
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lyubech = {
 			color={ 161 121 69 }		
@@ -10132,7 +10285,7 @@ k_rus = {
 		
 		dignity = 5
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_pereyaslavl = {
 			color={ 181 242 181 }
@@ -10165,11 +10318,6 @@ k_volga = {
 	capital = 610 # Bulgar
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
 	
 	d_bulgar = { 
 		color={ 193 158 63 }
@@ -10177,7 +10325,7 @@ k_volga = {
 		
 		capital = 610 # Bulgar
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_bilyar = {
 			color={ 202 12 175 }
@@ -10291,7 +10439,7 @@ k_volga = {
 		
 		capital = 886 # Perm
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_perm = {
 			color={ 232 54 24 }
@@ -10300,6 +10448,8 @@ k_volga = {
 			b_perym = {
 			}
 			b_perm = {
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed					
 			}
 			b_gorodki = {
 			}
@@ -10475,7 +10625,7 @@ k_volga = {
 		
 		capital = 590 #Chuvash
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 	
 		c_chuvash = {
 			color={ 124 74 242 }
@@ -10547,7 +10697,7 @@ k_volga = {
 		
 		capital = 589 # Grassland Cheremisa
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_mountain_cheremisa = {
 			color={ 48 220 210 }
@@ -10621,12 +10771,7 @@ k_crimea = {
 	
 	capital = 559 # Crimea	
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 	
 	d_crimea = { 
 		color={ 196 33 55 }
@@ -10634,7 +10779,7 @@ k_crimea = {
 		
 		capital = 559 # Crimea
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_lower_don = {
 			color={ 59 78 187 }
@@ -10727,6 +10872,9 @@ k_crimea = {
 			b_bakhchisaray = {
 			}
 			b_aqmescit = {
+				holy_site = tengri_pagan
+				holy_site = tengri_pagan_reformed		
+				holy_site = judaism
 			}
 			b_dzhankoy = {
 			}
@@ -10746,7 +10894,7 @@ k_crimea = {
 		color={ 201 91 124 }
 		color2={ 255 255 20 }
 
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		capital = 560 # Cherson
 
@@ -10820,7 +10968,7 @@ k_crimea = {
 		
 		capital = 597 # Azov
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_tana = {
 			color={ 181 62 17 }
@@ -10913,7 +11061,7 @@ k_crimea = {
 		
 		capital = 565 #Sharukan
 	
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 	
 		c_sharukan = {
 			color={ 203 138 227 }
@@ -10987,12 +11135,7 @@ k_cuman = {
 	
 	capital = 619 # Saray		
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 
 	d_saray = {
 		color={ 121 138 40 }
@@ -11000,7 +11143,7 @@ k_cuman = {
 		
 		capital = 619 # Saray
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_yaik = {
 			color={ 43 240 201 }
@@ -11093,7 +11236,7 @@ k_cuman = {
 		
 		capital = 891 # Tyumen
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_tyumen = {
 			color={ 126 207 54 }
@@ -11165,7 +11308,7 @@ k_cuman = {
 		
 		capital = 594 # Sarkel
 	
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_khopyor = {
 			color={ 217 168 150 }
@@ -11258,7 +11401,7 @@ k_cuman = {
 		
 		capital = 620 # Itil
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_itil = {
 			color={ 159 176 242 }
@@ -11269,6 +11412,8 @@ k_cuman = {
 			b_khaganbaligh = {
 			}
 			b_saqsin = {
+				holy_site = tengri_pagan
+				holy_site = tengri_pagan_reformed			
 			}
 			b_kamyzyak = {
 			}
@@ -11312,7 +11457,7 @@ k_cuman = {
 		
 		capital = 896 # Aktobe
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_ryn_desert = {
 			color={ 17 58 189 }
@@ -11365,6 +11510,8 @@ k_cuman = {
 			b_tara = {
 			}
 			b_isilkul = {
+				holy_site = tengri_pagan
+				holy_site = tengri_pagan_reformed			
 			}
 			b_kalachinsk = {
 			}
@@ -11386,12 +11533,7 @@ k_alania = {
 
 	capital = 603 # Alania
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 	
 	d_alania = {
 		color={ 155 110 48 }
@@ -11399,7 +11541,7 @@ k_alania = {
 		
 		capital = 603 # Alania
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_sarpa = {
 			color={ 80 102 167 }
@@ -11516,12 +11658,7 @@ k_alania = {
 		capital = 667 #Tabriz
 		culture = persian
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no }	
 
 		d_tabriz = {
 			color={ 58 83 130 }
@@ -11529,7 +11666,7 @@ k_alania = {
 			
 			capital = 667 #Tabriz
 
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_oromieh = {
 				color={ 117 166 60 }
@@ -11540,6 +11677,7 @@ k_alania = {
 				b_khoy = {
 				}
 				b_takhtesoleyman = {
+					holy_site = zoroastrian # The Great Fire of Adur Gushnasp				
 				}
 				b_avajiq = {
 				}
@@ -11596,12 +11734,12 @@ k_alania = {
 			}
 		}		
 		d_azerbaijan = {
-			color={ 160 232 20 }
+			color={ 240 132 20 }
 			color2={ 255 255 255 }
 			
 			capital = 670 #Azerbaijan
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			culture = persian
 			
@@ -11700,7 +11838,7 @@ k_alania = {
 			
 			capital = 674 #Derbent
 
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_albania = {
 				color={ 193 166 97 }
@@ -11776,18 +11914,14 @@ k_khwarizm = {
 		capital = 623 # Khwarizm
 		
 		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		
 	d_khwarizmian = {
 		color={ 74 159 76  }
 		color2={ 255 255 255 }
 		
 		capital = 623 # Khwarizm
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_khwarizm = {
 			color={ 227 173 27 }
@@ -11901,7 +12035,7 @@ k_khwarizm = {
 		
 		capital = 903 #Samarkand
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 	
 		c_samarkand = {
 			color={ 55 216 28 }
@@ -11952,7 +12086,7 @@ k_khwarizm = {
 		
 		capital = 628 #Bukhara
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_bukhara = {
 			color={ 169 247 34 }
@@ -12024,7 +12158,7 @@ k_khwarizm = {
 		
 		capital = 901 #Khiva
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_khiva = {
 			color={ 94 246 148 }
@@ -12054,6 +12188,8 @@ k_khwarizm = {
 			b_akmechet = {
 			}
 			b_kyzylorda = {
+				holy_site = tengri_pagan
+				holy_site = tengri_pagan_reformed				
 			}
 			b_kazaly = {
 			}
@@ -12104,11 +12240,6 @@ k_persia = {
 	sunni = 100 #Crusade target weight
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
 	
 	d_merv = { 
 		color={ 153 201 70 }
@@ -12116,7 +12247,7 @@ k_persia = {
 		
 		capital = 630 #Merv
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_merv = {
 			color={ 150 10 110 }
@@ -12209,7 +12340,7 @@ k_persia = {
 		
 		capital = 632 #Khorasan
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_khorasan = {
 			color={ 199 137 55 }
@@ -12239,6 +12370,7 @@ k_persia = {
 			b_nishapur = {
 			}
 			b_jajarm = {
+				holy_site = zoroastrian # The Great Fire of Adur Burzen-Mehr			
 			}
 			b_tus = {
 			}
@@ -12302,7 +12434,7 @@ k_persia = {
 		
 		capital = 662 #Mazandaran
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_tabaristan = {
 			color={ 183 17 193 }
@@ -12374,7 +12506,7 @@ k_persia = {
 		
 		capital = 646 #Esfahan
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_esfahan = {
 			color={ 186 31 144 }
@@ -12467,7 +12599,7 @@ k_persia = {
 		
 		capital = 641 #Hormuz
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_sistan = {
 			color={ 167 116 19 }
@@ -12478,6 +12610,7 @@ k_persia = {
 			b_kuh_taftan = {
 			}
 			b_nok_kundi = {
+				holy_site = zoroastrian # Lake Hamun / Mount Khwaja			
 			}
 			b_dozz_aap = {
 			}
@@ -12579,7 +12712,7 @@ k_persia = {
 		
 		capital = 643 #Fars
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_fars = {
 			color={ 67 160 219 }
@@ -12588,6 +12721,7 @@ k_persia = {
 			b_perozabad = {
 			}
 			b_kakhesasan = {
+				holy_site = zoroastrian # The Great Fire of Adur Farnbag			
 			}
 			b_darab = {
 			}
@@ -12651,7 +12785,7 @@ k_persia = {
 		
 		capital = 663 #Rayy
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_qom = {
 			color={ 201 134 60 }
@@ -12704,6 +12838,7 @@ k_persia = {
 			b_tehran = {
 			}
 			b_roudehen = {
+				holy_site = zoroastrian
 			}
 			b_hashtgerd = {
 			}
@@ -12723,7 +12858,7 @@ k_persia = {
 		
 		capital = 894 #Baluchistan
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_baluchistan = {
 			color={ 113 181 197 }
@@ -12816,7 +12951,7 @@ k_persia = {
 		
 		capital = 905 #Herat
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_herat = {
 			color={ 24 39 144 }
@@ -12937,12 +13072,7 @@ k_mesopotamia = {
 	
 	culture = levantine_arabic
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 	
 	d_kermanshah = {
 		color={ 166 189 199 }
@@ -12950,7 +13080,7 @@ k_mesopotamia = {
 		
 		capital = 688 #Kermanshah
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_kermanshah = {
 			color={ 217 175 237 }
@@ -13022,7 +13152,7 @@ k_mesopotamia = {
 		
 		capital = 656 #Tigris
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 				
 		c_tigris = {
 			color={ 16 107 219 }
@@ -13094,7 +13224,7 @@ k_mesopotamia = {
 		
 		capital = 694 #Karbala
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+		allow = { war = no }		
 	
 		c_karbala = {
 			color={ 239 207 13 }
@@ -13122,6 +13252,7 @@ k_mesopotamia = {
 			color2={ 255 255 255 }
 			
 			b_nadjaf = {
+				holy_site = shiite
 			}
 			b_kufah = {
 			}
@@ -13166,7 +13297,7 @@ k_mesopotamia = {
 		
 		capital = 693 #Baghdad
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+		allow = { war = no }		
 		
 		c_baghdad = {
 			color={ 129 169 243 }
@@ -13175,6 +13306,7 @@ k_mesopotamia = {
 			b_baqubah = {
 			}
 			b_bagdad = {
+				holy_site = sunni
 			}
 			b_hillah = {
 			}
@@ -13238,7 +13370,7 @@ k_mesopotamia = {
 		
 		capital = 687 #Kirkuk
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 		
 		c_kirkuk = {
 			color={ 33 244 115 }
@@ -13310,7 +13442,7 @@ k_mesopotamia = {
 		
 		capital = 697 #Mosul
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_mosul = {
 			color={ 204 99 74 }
@@ -13354,27 +13486,6 @@ k_mesopotamia = {
 			b_sarsink = {
 			}
 		}
-		c_al_jazira = {
-			color={ 113 108 165 }
-			color2={ 255 255 255 }
-			
-			b_hasakah = {
-			}
-			b_dayrik = {
-			}
-			b_qamishhlo = {
-			}
-			b_darbasiyah = {
-			}
-			b_teltamer = {
-			}
-			b_hamoukar = {
-			}
-			b_amuda = {
-			}
-			b_dakhiliyah = {
-			}
-		}
 		c_sinjar = {
 			color={ 98 243 147 }
 			color2={ 255 255 255 }
@@ -13397,6 +13508,97 @@ k_mesopotamia = {
 			}
 		}
 	}
+	d_jazira = {
+		color={ 95 180 35 }
+		color2={ 255 255 255 }
+		
+		capital = 700 # Bira
+
+		c_bira = {
+			color={ 92 8 20 }
+			color2={ 255 255 255 }
+
+			b_bira = {
+			}
+			b_tella = {
+			}
+			b_resaina = {
+			}
+			b_qalarebete = {
+			}
+			b_derik = {
+			}
+			b_qoser = {
+			}
+			b_samrah = {
+			}
+			b_stewr = {
+			}
+		}			
+		c_al_jazira = {
+			color={ 113 108 165 }
+			color2={ 255 255 255 }
+			
+			b_hasakah = {
+			}
+			b_dayrik = {
+			}
+			b_qamishhlo = {
+			}
+			b_darbasiyah = {
+			}
+			b_teltamer = {
+			}
+			b_hamoukar = {
+			}
+			b_amuda = {
+			}
+			b_dakhiliyah = {
+			}
+		}
+		c_amida = {
+			color={ 220 144 69 }
+			color2={ 255 255 255 }
+			
+			b_kiaburc = {
+			}
+			b_amida = {
+			}
+			b_ulucamii = {
+			}
+			b_suraamede = {
+			}
+			b_mayyafarikin = {
+			}
+			b_hazretisuleymancamii = {
+			}
+			b_egil = {
+			}
+			b_idtodyolataloho = {
+			}
+		}
+		c_nisibin = {
+			color={ 236 94 98 }
+			color2={ 255 255 255 }
+			
+			b_nusaybin = {
+			}
+			b_savur = {
+			}
+			b_dairodmorhannanyo = {
+			}
+			b_kerburan = {
+			}
+			b_cizre = {
+			}
+			b_sittiradviyyemadrasa = {
+			}
+			b_dayrodmorgabriel = {
+			}
+			b_yaqobnsibnaya = {
+			}
+		}		
+	}
 }
 
 	k_serbia = {
@@ -13409,12 +13611,7 @@ k_mesopotamia = {
 		
 		capital = 502 # Rashka
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no }	
 
 		d_rashka = {
 			color={ 107 170 77 }
@@ -13424,7 +13621,7 @@ k_mesopotamia = {
 			
 			capital = 502 # Rashka
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_rashka = {
 				color={ 28 187 196 }
@@ -13511,7 +13708,7 @@ k_mesopotamia = {
 			
 			capital = 468 #Ragusa
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			serbian = "Duklja"
 			croatian = "Duklja"
@@ -13588,12 +13785,7 @@ k_mesopotamia = {
 		
 		capital = 465 # Zadar	
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no }	
 	
 		d_slavonia = {
 			color={ 112 150 105 }
@@ -13601,7 +13793,7 @@ k_mesopotamia = {
 			
 			capital = 461 #Zagreb
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 	
 			c_krizevci = {
 				color={ 114 37 69 }
@@ -13673,7 +13865,7 @@ k_mesopotamia = {
 			
 			capital = 463 #Usora
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 	
 			c_rama = {
 				color={ 222 248 25 }
@@ -13724,7 +13916,7 @@ k_mesopotamia = {
 			
 			capital = 466 #Zachlumia
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 	
 			c_zachlumia = {
 				color={ 26 168 90 }
@@ -13810,7 +14002,7 @@ k_mesopotamia = {
 			
 			capital = 465 #Zadar
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 	
 			c_split = {
 				color={ 112 175 168 }
@@ -13879,25 +14071,16 @@ k_mesopotamia = {
 		capital = 499 # Tyrnovo	
 		
 		allow = { 
-			war = no 
-			OR = {
-				ai = no
-				NOT = { tier = emperor }
-			}
+			war = no
 		} 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
-		
+
 		d_vidin = {
 			color={ 122 103 58 }
 			color2={ 255 255 255 }
 			
 			capital = 506 #Vidin
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			greek = "Bononia"
 			
@@ -13958,7 +14141,7 @@ k_mesopotamia = {
 			
 			capital = 499 #Tyrnovo
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			greek = "Moesia"
 			
@@ -14067,7 +14250,7 @@ k_mesopotamia = {
 			
 			capital = 509 #Karvuna
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_mesembria = {
 				color={ 8 200 198 }
@@ -14146,12 +14329,7 @@ k_mesopotamia = {
 		
 		capital = 514 #Turnu
 
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		allow = { war = no }	
 		
 		d_wallachia = {
 			color={ 192 238 69 }
@@ -14159,7 +14337,7 @@ k_mesopotamia = {
 			
 			capital = 514 #Turnu
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_turnu = {
 				color={ 196 172 92 }
@@ -14231,6 +14409,8 @@ k_mesopotamia = {
 				b_barlad = {
 				}
 				b_husi = {
+					holy_site = slavic_pagan
+					holy_site = slavic_pagan_reformed				
 				}
 				b_vaslui = {
 				}
@@ -14252,7 +14432,7 @@ k_mesopotamia = {
 			
 			capital = 512 #Belgorod
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_peresechen = {
 				color={ 53 141 10 }
@@ -14371,12 +14551,7 @@ k_mesopotamia = {
 
 		culture = hungarian	
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no }	
 
 		d_pecs = {
 			color={ 117 127 174 }
@@ -14384,7 +14559,7 @@ k_mesopotamia = {
 			
 			capital = 452 #Pecs
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_pecs = {
 				color={ 128 95 229 }
@@ -14456,7 +14631,7 @@ k_mesopotamia = {
 			
 			capital = 517 #Temes
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_temes = {
 				color={ 168 62 192 }
@@ -14507,7 +14682,7 @@ k_mesopotamia = {
 			
 			capital	= 444 # Esztergom
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_sopron = {
 				color={ 240 196 48 }
@@ -14598,7 +14773,7 @@ k_mesopotamia = {
 			
 			capital	= 443 #Nitra
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_nitra = {
 				color={ 80 33 148 }
@@ -14691,7 +14866,7 @@ k_mesopotamia = {
 			
 			capital = 537 #Bereg
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_saris = {
 				color={ 227 90 177 }
@@ -14784,7 +14959,7 @@ k_mesopotamia = {
 			
 			capital = 522 #Pest
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_heves = {
 				color={ 178 142 73 }
@@ -14814,6 +14989,8 @@ k_mesopotamia = {
 				b_pest = {
 				}
 				b_vac = {
+					holy_site = tengri_pagan
+					holy_site = tengri_pagan_reformed				
 				}
 				b_kecskemet = {
 				}
@@ -14856,7 +15033,7 @@ k_mesopotamia = {
 			
 			capital = 540 #Szekelyfold
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_szekelyfold = {
 				color={ 121 120 178 }
@@ -14934,12 +15111,7 @@ k_mesopotamia = {
 		
 		culture = basque
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}		
+		allow = { war = no }	
 	
 		d_navarra = {
 			color = { 230 198 90 }
@@ -14947,7 +15119,7 @@ k_mesopotamia = {
 			
 			capital = 152 # Navarra
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_viscaya = {
 				color = { 179 233 61 }
@@ -15026,12 +15198,7 @@ k_castille = { #Spain
 	
 	catholic = 10 #Crusade target weight
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 	
 	culture = castillan	
 	
@@ -15039,7 +15206,7 @@ k_castille = { #Spain
 		color = { 202 146 12 }
 		color2={ 255 255 255 }
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		capital = 199 # Burgos
 		
@@ -15134,7 +15301,7 @@ k_castille = { #Spain
 		
 		capital = 197 #Toledo
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_toledo = {
 			color = { 245 204 15 }
@@ -15230,12 +15397,7 @@ k_andalusia = {
 	color={ 244 227 160 }
 	color2={ 255 255 255 }
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 	
 	capital = 181 # Cordoba
 	
@@ -15249,7 +15411,7 @@ k_andalusia = {
 		
 		capital = 181 # Cordoba
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_cordoba = {
 			color = { 130 80 149 }
@@ -15267,6 +15429,9 @@ k_andalusia = {
 				levantine_arabic = "Qurtubah"
 				egyptian_arabic = "Qurtubah"
 				andalusian_arabic = "Qurtubah"
+				holy_site = sunni
+				holy_site = aztec
+				holy_site = aztec_reformed				
 			}
 			b_alcolea = {
 			}
@@ -15332,7 +15497,7 @@ k_andalusia = {
 		
 		capital = 169 #Murcia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_almansa = {
 			color = { 28 39 186 }
@@ -15394,7 +15559,7 @@ k_andalusia = {
 		
 		capital = 180 #Granada
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_granada = {
 			color = { 245 242 15 }
@@ -15466,7 +15631,7 @@ k_andalusia = {
 		
 		capital = 182 #Seville
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_sevilla = {
 			color = { 9 34 129 }
@@ -15586,12 +15751,42 @@ k_leon = {
 	
 	culture = castillan
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
+	# Creation/usurpation trigger
+	allow = {
+		war = no
+		religion_group = christian
+		FROM = {
+			any_previous_holder = {
+				always = yes
+			}
 		}
-	}	
+	}
+}
+
+k_asturias = {
+	color={ 233 158 51 }
+	color2={ 255 255 255 }
+	
+	dignity = 10
+	
+	capital = 155 # Asturias de Oviedo
+	
+	culture = castillan
+	
+	catholic = 10 #Crusade target weight
+	
+	# Creation/usurpation trigger
+	allow = {
+		war = no
+		k_leon = {
+			has_holder = no
+			NOT = {
+				any_previous_holder = {
+					always = yes
+				}
+			}
+		}
+	}
 
 	d_galicia = {
 		color = { 213 158 51 }
@@ -15625,6 +15820,7 @@ k_leon = {
 			color2={ 255 255 255 }
 			
 			b_santiago = {
+				holy_site = catholic			
 			}
 			b_vigo = {
 			}
@@ -15648,7 +15844,7 @@ k_leon = {
 		
 		capital = 154 #Asturias de Oviedo
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_asturias_de_oviedo = {
 			color = { 93 170 172 }
@@ -15699,7 +15895,7 @@ k_leon = {
 		
 		capital = 190 # Leon
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_leon = {
 			color = { 210 65 168 }
@@ -15771,7 +15967,7 @@ k_leon = {
 		
 		capital = 184 #Badajoz
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_plasencia = {
 			color = { 118 226 167 }
@@ -15870,12 +16066,7 @@ k_portugal = {
 	
 	culture = portuguese
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}
+	allow = { war = no }
 
 	d_porto = {
 		color = { 222 208 245 }
@@ -15987,7 +16178,7 @@ k_portugal = {
 		
 		capital = 160 #Lisboa
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lisboa = {
 			color = { 182 88 5 }
@@ -16091,7 +16282,7 @@ k_portugal = {
 		
 		capital = 163 #Faro
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_silves = {
 			color = { 22 105 56 }
@@ -16170,12 +16361,7 @@ k_aragon = {
 	
 	culture = castillan
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 
 	d_aragon = {
 		color = { 166 98 122 }
@@ -16183,7 +16369,7 @@ k_aragon = {
 		
 		capital = 202 #Zaragoza
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_albarracin = {
 			color = { 48 188 242 }
@@ -16289,7 +16475,7 @@ k_aragon = {
 		
 		culture = catalan
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_barcelona = {
 			color = { 120 132 188 }
@@ -16457,7 +16643,7 @@ k_aragon = {
 		
 		capital = 171 #Valencia
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_castellon = {
 			color = { 111 208 97 }
@@ -16549,7 +16735,7 @@ k_aragon = {
 		color = { 68 126 72 }
 		color2={ 255 255 255 }
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		capital = 827 #Mallorca
 		
@@ -16635,12 +16821,7 @@ k_algiers = {
 	
 	culture = maghreb_arabic
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	allow = { war = no }
 	
 	d_kabylia = {
 		color={ 244 247 231 }
@@ -16648,7 +16829,7 @@ k_algiers = {
 		
 		capital = 821 #Constantine
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_constantine = {
 			color={ 226 163 148 }
@@ -16720,7 +16901,7 @@ k_algiers = {
 		
 		capital = 831 #AlDjazair
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_lemdiyya = {
 			color={ 180 240 199 }
@@ -16813,7 +16994,7 @@ k_algiers = {
 		
 		capital = 834 #Tlemcen
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_tlemcen = {
 			color={ 69 142 153 }
@@ -16885,7 +17066,7 @@ k_algiers = {
 		
 		capital = 828 #Ouled Nail
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 		
 		c_atlas_mnt = {
 			color={ 81 229 210 }
@@ -16896,6 +17077,8 @@ k_algiers = {
 			b_djelfa = {
 			}
 			b_bordj = {
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed	
 			}
 			b_elyourh = {
 			}
@@ -17005,12 +17188,7 @@ k_morocco = {
 	
 	catholic = 10 #Crusade target weight
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no }	
 	
 	d_marrakech = {
 		color={ 191 126 128 }
@@ -17018,7 +17196,7 @@ k_morocco = {
 		
 		capital = 843 # Marrakech
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_marrakech = {
 			color={ 45 152 34 }
@@ -17027,6 +17205,10 @@ k_morocco = {
 			b_marrakech = {
 			}
 			b_sidirahhal = {
+				holy_site = aztec
+				holy_site = aztec_reformed
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed			
 			}
 			b_ouarzazate = {
 			}
@@ -17090,7 +17272,7 @@ k_morocco = {
 		
 		capital = 841 #Tangiers
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_infa = {
 			color={ 36 187 129 }
@@ -17162,7 +17344,7 @@ k_morocco = {
 		
 		capital = 840 #Fes
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_fes = {
 			color={ 169 20 159 }
@@ -17232,7 +17414,7 @@ k_morocco = {
 		color={ 146 45 92 }
 		color2={ 75 50 10 }
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		capital = 946 #Taghaza
 		
@@ -17263,12 +17445,7 @@ k_mauretania = {
 	
 	catholic = 10 #Crusade target weight	
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no }	
 
 	d_ifni = {
 		color={ 179 102 48 }
@@ -17276,7 +17453,7 @@ k_mauretania = {
 		
 		capital = 846 #Ifni
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }	
+		allow = { war = no }	
 	
 		c_ifni = {
 			color={ 221 147 229 }
@@ -17320,27 +17497,6 @@ k_mauretania = {
 			b_tiglit = {
 			}
 		}		
-		c_canarias = {
-			color={ 243 108 15 }
-			color2={ 255 255 255 }
-	
-			b_grancanaria = {
-			}
-			b_tenerife = {
-			}
-			b_lagomera = {
-			}
-			b_lanzarote = {
-			}
-			b_fuerteventura = {
-			}
-			b_lagraciosa = {
-			}
-			b_alegranza = {
-			}
-			b_lapalma = {
-			}
-		}
 	}
 	d_laayoune = { #North
 		color={ 106 198 75 }
@@ -17348,7 +17504,7 @@ k_mauretania = {
 		
 		capital = 911 #El Aaiun
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_el_aaiun = { #NorthV
 			color={ 80 91 230 }
@@ -17389,6 +17545,27 @@ k_mauretania = {
 			color2={ 255 255 255 }
 			b_ouadene = { 
 			}			
+		}	
+		c_canarias = {
+			color={ 243 108 15 }
+			color2={ 255 255 255 }
+	
+			b_grancanaria = {
+			}
+			b_tenerife = {
+			}
+			b_lagomera = {
+			}
+			b_lanzarote = {
+			}
+			b_fuerteventura = {
+			}
+			b_lagraciosa = {
+			}
+			b_alegranza = {
+			}
+			b_lapalma = {
+			}
 		}		
 	}	
 }
@@ -17404,19 +17581,14 @@ k_africa = {
 	catholic = 10 #Crusade target weight	
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
-	
+
 	d_tunis = {
 		color={ 20 232 95 }
 		color2={ 255 255 255 }
 		
 		capital = 817 #Tunis
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_tunis = {
 			color={ 86 84 31 }
@@ -17447,7 +17619,7 @@ k_africa = {
 			}
 			b_lekef = {
 			}
-			b_siliana = {
+			b_siliana = {				
 			}
 			b_kasserine = {
 			}
@@ -17551,7 +17723,7 @@ k_africa = {
 		
 		capital = 811 #Tripolitania
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_tripolitana = {
 			color={ 238 202 156 }
@@ -17644,7 +17816,7 @@ k_africa = {
 		
 		capital = 808 #Benghazi
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_cyrenaica = {
 			color={ 211 50 189 }
@@ -17746,19 +17918,14 @@ k_egypt = {
 	shiite = 100 #Crusade target weight	
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
-	
+
 	d_alexandria = {
 		color={ 160 219 194 }
 		color2={ 255 255 255 }
 		
 		capital = 802 #Alexandria
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_alexandria = {
 			color={ 229 203 176 }
@@ -17766,6 +17933,11 @@ k_egypt = {
 		
 			b_alexandria = {
 				pentarchy = yes
+				holy_site = miaphysite
+				holy_site = monophysite
+				holy_site = nestorian		
+				holy_site = orthodox
+				holy_site = hellenic_pagan
 			}
 			b_abukir = {
 			}
@@ -17873,7 +18045,7 @@ k_egypt = {
 		
 		capital = 798 #Damietta
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_gabiyaha = {
 			color={ 128 29 31 }
@@ -17966,7 +18138,7 @@ k_egypt = {
 		
 		capital	= 796 # Cairo
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_cairo = {
 			color={ 24 236 119 }
@@ -18062,7 +18234,7 @@ k_egypt = {
 		
 		capital = 788 #Farama
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_farama = {
 			color={ 83 230 145 }
@@ -18163,12 +18335,7 @@ k_egypt = {
 		
 		capital = 728 # Damascus
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		allow = { war = no }		
 
 		d_damascus = {
 			color={ 222 255 3 }
@@ -18176,7 +18343,7 @@ k_egypt = {
 			
 			capital = 728 # Damascus
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_damascus = {
 				color={ 125 255 6 }
@@ -18185,6 +18352,7 @@ k_egypt = {
 				b_qsarbardawil = {
 				}
 				b_damascus = {
+					holy_site = shiite
 				}
 				b_daraa = {
 				}
@@ -18269,7 +18437,7 @@ k_egypt = {
 			
 			capital = 727 #Syria
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_syria = {
 				color={ 119 24 99 }
@@ -18334,27 +18502,6 @@ k_egypt = {
 				b_qummoualad = {
 				}
 			}
-			c_tadmor = {
-				color={ 16 219 48 }
-				color2={ 255 255 255 }
-			
-				b_husaiba = {
-				}
-				b_bukamal = {
-				}
-				b_alqaim = {
-				}
-				b_salhiyah = {
-				}
-				b_assusah = {
-				}
-				b_subaykhan = {
-				}
-				b_asharah = {
-				}
-				b_alqunjah = {
-				}
-			}
 		}				
 		d_aleppo = {
 			color={ 255 87 127 }
@@ -18362,7 +18509,7 @@ k_egypt = {
 			
 			capital = 733 #Aleppo
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_aleppo = {
 				color={ 14 166 199 }
@@ -18434,7 +18581,7 @@ k_egypt = {
 			
 			capital = 730 #Palmyra
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+			allow = { war = no }		
 
 			c_palmyra = {
 				color={ 116 219 213 }
@@ -18498,7 +18645,28 @@ k_egypt = {
 				}
 				b_zaazouaa = {
 				}
-			}		
+			}	
+			c_tadmor = {
+				color={ 16 219 48 }
+				color2={ 255 255 255 }
+			
+				b_husaiba = {
+				}
+				b_bukamal = {
+				}
+				b_alqaim = {
+				}
+				b_salhiyah = {
+				}
+				b_assusah = {
+				}
+				b_subaykhan = {
+				}
+				b_asharah = {
+				}
+				b_alqunjah = {
+				}
+			}			
 		}
 		d_antioch = {
 			color={ 229 147 225 }
@@ -18506,7 +18674,7 @@ k_egypt = {
 			
 			capital = 764 #Antioch
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_antiocheia = {
 				color={ 82 62 134 }
@@ -18514,6 +18682,10 @@ k_egypt = {
 			
 				b_antiocheia = {
 					pentarchy = yes
+					holy_site = orthodox
+					holy_site = miaphysite
+					holy_site = monophysite
+					holy_site = nestorian
 				}
 				b_latakiah = {
 				}
@@ -18573,7 +18745,7 @@ k_egypt = {
 			
 			capital = 767 #Tripoli
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_tortosa = {
 				color={ 43 24 184 }
@@ -18665,6 +18837,8 @@ k_egypt = {
 		color={ 180 180 180 }
 		color2={ 255 255 255 }
 		
+		assimilate = no
+		
 		capital = 774 # Jerusalem
 		
 		catholic = 250 #Crusade target weight
@@ -18673,12 +18847,7 @@ k_egypt = {
 		
 		culture = levantine_arabic	
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		allow = { war = no } 			
 		
 		d_oultrejourdain = {
 			color={ 237 221 116 }
@@ -18686,7 +18855,7 @@ k_egypt = {
 			
 			capital = 778 #Monreal
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_monreal = {
 				color={ 28 152 116 }
@@ -18780,7 +18949,7 @@ k_egypt = {
 			
 			capital = 780 #Ascalon
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_darum = {
 				color={ 114 177 231 }
@@ -18897,6 +19066,7 @@ k_egypt = {
 				b_yeruham = {
 				}
 				b_dimona = {
+					holy_site = judaism
 				}
 				b_avdat = {
 				}
@@ -18916,7 +19086,7 @@ k_egypt = {
 			
 			capital = 774 # Jerusalem
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_jerusalem = {
 				color={ 245 251 239 }
@@ -18926,6 +19096,14 @@ k_egypt = {
 				}
 				b_jerusalem = {
 					pentarchy = yes
+					holy_site = catholic
+					holy_site = orthodox
+					holy_site = sunni
+					holy_site = shiite
+					holy_site = miaphysite
+					holy_site = monophysite
+					holy_site = nestorian
+					holy_site = judaism
 				}
 				b_nablus = {
 				}
@@ -19010,7 +19188,7 @@ k_egypt = {
 			
 			capital = 770 #Beirut
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_tyrus = {
 				color={ 134 208 240 }
@@ -19121,12 +19299,7 @@ k_arabia = {
 	
 	culture = bedouin_arabic
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no }
 
 	d_basra = {
 		color={ 101 102 163 }
@@ -19134,7 +19307,7 @@ k_arabia = {
 		
 		capital = 649 #Basra
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_kufa = {
 			color={ 239 129 195 }
@@ -19227,7 +19400,7 @@ k_arabia = {
 		
 		capital = 651 #Damman
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_damman = {
 			color={ 140 213 204 }
@@ -19322,7 +19495,7 @@ k_arabia = {
 		
 		capital = 722 #Petra
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_al_aqabah = {
 			color={ 67 184 220 }
@@ -19415,7 +19588,7 @@ k_arabia = {
 		
 		capital = 718 #Medina
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_hijaz = {
 			color={ 143 143 10 }
@@ -19443,6 +19616,8 @@ k_arabia = {
 			color2={ 255 255 255 }
 		
 			b_medina = {
+				holy_site = sunni
+				holy_site = shiite				
 			}
 			b_khaybar = {
 			}
@@ -19464,6 +19639,9 @@ k_arabia = {
 			color2={ 255 255 255 }
 		
 			b_mecca = {
+				holy_site = sunni
+				holy_site = shiite
+				holy_site = pagan
 			}
 			b_jeddah = {
 			}
@@ -19508,7 +19686,7 @@ k_arabia = {
 		
 		capital = 860 #Sanaa
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_bayda = {
 			color={ 112 25 58 }
@@ -19622,7 +19800,7 @@ k_arabia = {
 		
 		capital = 868 #Muscat
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_hajar = {
 			color={ 29 244 154 }
@@ -19736,7 +19914,7 @@ k_arabia = {
 		
 		capital = 716 #Arar
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_rafha = {
 			color={ 237 146 78 }
@@ -19875,12 +20053,7 @@ k_arabia = {
 
 		culture = ethiopian
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		allow = { war = no }		
 
 		d_axum = {
 			color={ 178 30 193 }
@@ -19888,7 +20061,7 @@ k_arabia = {
 			
 			capital = 875 #Aksum
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_aksum = {
 				color={ 169 94 249 }
@@ -19897,6 +20070,8 @@ k_arabia = {
 				b_adwa = {
 				}
 				b_aksum = {
+					holy_site = miaphysite
+					holy_site = monophysite				
 				}
 				b_mekele = {
 				}
@@ -19952,7 +20127,7 @@ k_arabia = {
 			
 			capital = 880 #Sennar
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_kassala = {
 				color={ 132 122 67 }
@@ -20016,7 +20191,7 @@ k_arabia = {
 			
 			capital = 881 #Asosa
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_asosa = {
 				color={ 152 76 212 }
@@ -20067,7 +20242,7 @@ k_arabia = {
 			
 			capital = 883 # Gondar
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_gondar = {
 				color={ 172 131 199 }
@@ -20078,6 +20253,7 @@ k_arabia = {
 				b_gondar = {
 				}
 				b_roha = {
+					holy_site = judaism
 				}
 				b_ambassel = {
 				}
@@ -20140,12 +20316,7 @@ k_arabia = {
 		
 		culture = somali
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		allow = { war = no }		
 		
 		d_berbera = {
 			color={ 137 183 124 }
@@ -20153,7 +20324,7 @@ k_arabia = {
 
 			capital = 872 #Berbera
 		
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 		
 			c_busaso = {
 				color={ 103 215 147 }
@@ -20215,7 +20386,7 @@ k_arabia = {
 			
 			dignity = 5
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 			
 			c_harer = {
 				color={ 83 20 122 }
@@ -20267,12 +20438,7 @@ k_arabia = {
 		
 		culture = nubian
 		
-		allow = { war = no } 
-		gain_effect = {	
-			hidden_tooltip = {
-				character_event = { id = 110029 }
-			}
-		}			
+		allow = { war = no }		
 		
 		d_aswan = {
 			color={ 41 188 120 }
@@ -20280,7 +20446,7 @@ k_arabia = {
 			
 			capital = 794 #Aswan
 			
-			allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+			allow = { war = no }
 
 			c_aswan = {
 				color={ 49 132 184 }
@@ -20312,6 +20478,8 @@ k_arabia = {
 				b_dongola = {
 				}
 				b_ghazali = {
+					holy_site = miaphysite
+					holy_site = monophysite				
 				}
 				b_dotawo = {
 				}
@@ -20376,12 +20544,7 @@ k_england = {
 	
 	catholic = 10 #Crusade target weight	
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no } 	
 	
 	d_northumberland = {
 		color={ 255 0 0 }
@@ -20389,7 +20552,7 @@ k_england = {
 		
 		capital = 52 #Northumbria
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_northumberland = {
 			color={ 200 130 209 }
@@ -20401,6 +20564,7 @@ k_england = {
 				norwegian = "Bamborg"
 				danish = "Bamborg"
 				swedish = "Bamborg"
+				norse = "Bamborg"
 			}
 			b_hexham = {
 			}
@@ -20419,9 +20583,18 @@ k_england = {
 			color={ 20 93 182 }
 			color2={ 255 255 255 }
 
+			norwegian = "Dunholm"
+			danish = "Dunholm"
+			swedish = "Dunholm"
+			norse = "Dunholm"
+
 			b_gateshead = {
 			}
 			b_durham = {
+				norwegian = "Dunholm"
+				danish = "Dunholm"
+				swedish = "Dunholm"
+				norse = "Dunholm"
 			}
 			b_chester-le-street = {
 			}
@@ -20485,7 +20658,7 @@ k_england = {
 		
 		capital = 58 #Lancaster
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lancaster = {
 			color={ 80 9 234 }
@@ -20532,15 +20705,17 @@ k_england = {
 		c_derby = {
 			color={ 177 62 243 }
 			color2={ 255 255 255 }
-		
+	
 			norwegian = "Djuraby"
 			danish = "Djuraby"
 			swedish = "Djuraby"
+			norse = "Djuraby"
 		
 			b_derby = {
 				norwegian = "Djuraby"
 				danish = "Djuraby"
 				swedish = "Djuraby"
+				norse = "Djuraby"
 			}
 			b_bakewell = {
 			}
@@ -20566,7 +20741,25 @@ k_england = {
 		
 		dignity = 5
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 12
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
+		
+		norwegian = "Jorvik"
+		danish = "Jorvik"
+		swedish = "Jorvik"
+		norse = "Jorvik"	
 		
 		c_york = {
 			color={ 126 31 155 }
@@ -20575,11 +20768,13 @@ k_england = {
 			norwegian = "Jorvik"
 			danish = "Jorvik"
 			swedish = "Jorvik"
+			norse = "Jorvik"
 
 			b_york = {
 				norwegian = "Jorvik"
 				danish = "Jorvik"
 				swedish = "Jorvik"
+				norse = "Jorvik"
 			}
 			b_richmond = {
 			}
@@ -20589,6 +20784,7 @@ k_england = {
 				norwegian = "Skardaborg"
 				danish = "Skardaborg"
 				swedish = "Skardaborg"
+				norse = "Skardaborg"
 			}
 			b_skipton = {
 			}
@@ -20600,6 +20796,7 @@ k_england = {
 				norwegian = "Kungsborg"
 				danish = "Kungsborg"
 				swedish = "Kungsborg"
+				norse = "Kungsborg"
 			}
 		}
 		c_leicester = {
@@ -20651,7 +20848,7 @@ k_england = {
 		
 		capital = 70 #Norfolk
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_norfolk = {
 			color={ 26 222 118 }
@@ -20688,6 +20885,7 @@ k_england = {
 				danish = "Lothvistoft"
 				swedish = "Lothvistoft"
 				norwegian = "Lothvistoft"
+				norse = "Lothvistoft"
 			}
 			b_dunwich = {
 			}
@@ -20726,7 +20924,7 @@ k_england = {
 		
 		capital = 22 #Oxford
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_oxford = {
 			color={ 42 76 160 }
@@ -20779,7 +20977,7 @@ k_england = {
 		
 		saxon = "Essex"		
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_bedford = {
 			color={ 156 143 96 }
@@ -20811,6 +21009,8 @@ k_england = {
 			b_london = {
 			}
 			b_st_pauls = {
+				holy_site = aztec
+				holy_site = aztec_reformed			
 			}
 			b_tottenham = {
 			}
@@ -20853,7 +21053,7 @@ k_england = {
 		
 		saxon = "Mercia"		
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_hereford = {
 			color={ 106 165 217 }
@@ -20946,7 +21146,7 @@ k_england = {
 		
 		capital = 21 #Gloucester
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_gloucester = {
 			color={ 13 229 144 }
@@ -20997,7 +21197,7 @@ k_england = {
 		
 		capital = 73 #Kent
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_surrey = {
 			color={ 186 19 169 }
@@ -21029,6 +21229,7 @@ k_england = {
 			b_dover = {
 			}
 			b_canterbury = {
+				holy_site = catholic
 			}
 			b_faversham = {
 			}
@@ -21069,7 +21270,7 @@ k_england = {
 		
 		capital = 31 #Cornwall
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_cornwall = {
 			color={ 94 28 110 }
@@ -21120,7 +21321,7 @@ k_england = {
 		
 		capital = 28 #Somerset
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_dorset = {
 			color={ 83 116 229 }
@@ -21178,11 +21379,6 @@ k_wales = {
 	culture = welsh
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
 	
 	d_gwynedd = {
 		color={ 206  181  97 }
@@ -21190,7 +21386,7 @@ k_wales = {
 		
 		capital = 64 # Gwynedd
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_gwynedd = {
 			color={ 200 182 99 }
@@ -21241,7 +21437,7 @@ k_wales = {
 		
 		capital = 65 #Powys
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }		
+		allow = { war = no }		
 	
 		c_powys = {
 			color={ 132 84 234 }
@@ -21292,7 +21488,7 @@ k_wales = {
 		
 		capital = 18 #Dyfed
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_dyfed = {
 			color={ 167 103 226 }
@@ -21352,12 +21548,7 @@ k_scotland = {
 	
 	culture = scottish
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no } 	
 	
 	d_galloway = {
 		color = { 6 42 127 }
@@ -21365,7 +21556,7 @@ k_scotland = {
 		
 		capital = 50 #Galloway
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_galloway = {
 			color={ 27 177 185 }
@@ -21439,9 +21630,23 @@ k_scotland = {
 		
 		norwegian = "Søreyar"
 		danish = "Søreyar"
-		swedish = "Söröarna"		
+		swedish = "Söröarna"
+		norse = "Suðreyjar"	
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 8
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
+		
+		allow = { war = no }
 		
 		c_innse_gall = {
 			color={ 242 174 249 }
@@ -21450,6 +21655,7 @@ k_scotland = {
 			norwegian = "Søreyar"
 			danish = "Søreyar"
 			swedish = "Söröarna"
+			norse = "Suðreyjar"
 			
 			b_snizort = {
 			}
@@ -21461,6 +21667,7 @@ k_scotland = {
 				norwegian = "Stornavåg"
 				danish = "Stornavik"
 				swedish = "Stornavik"
+				norse = "Stornavik"
 			}
 			b_laggan = {
 			}
@@ -21468,6 +21675,7 @@ k_scotland = {
 				norwegian = "Vik"
 				danish = "Vik"
 				swedish = "Vik"
+				norse = "Vik"
 			}
 			b_dunvegan = {
 			}
@@ -21481,11 +21689,13 @@ k_scotland = {
 			norwegian = "Mann"
 			danish = "Mann"
 			swedish = "Mann"
+			norse = "Mann"
 			
 			b_peel = {
 				norwegian = "Pålø"
 				danish = "Pålø"
 				swedish = "Pålø"
+				norse = "Pålø"
 			}
 			b_rushen = {
 			}
@@ -21530,7 +21740,7 @@ k_scotland = {
 		
 		capital = 48 #Lothian
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lothian = {
 			color={ 211 23 102 }
@@ -21602,7 +21812,7 @@ k_scotland = {
 		
 		capital = 43 #Gowrie
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_gowrie = {
 			color={ 147 167 79 }
@@ -21695,7 +21905,7 @@ k_scotland = {
 		
 		capital = 40 #Moray
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_moray = {
 			color={ 237 219 158 }
@@ -21728,6 +21938,7 @@ k_scotland = {
 				norwegian = "Tingvall"
 				danish = "Tingvall"
 				swedish = "Tingvall"
+				norse = "Tingvall"
 			}
 			b_rosemarkie = {
 			}
@@ -21770,11 +21981,13 @@ k_scotland = {
 			norwegian = "Katanes"
 			danish = "Katanæs"
 			swedish = "Katanäs"
+			norse = "Katanæs"
 			
 			b_wick = {
 				norwegian = "Vik"
 				danish = "Vik"
 				swedish = "Vik"
+				norse = "Vik"
 			}
 			b_dunbeath = {
 			}
@@ -21784,6 +21997,7 @@ k_scotland = {
 				swedish = "Tjurså"
 				danish = "Tyrså"
 				norwegian = "Tyrså"
+				norse = "Tyrså"
 			}
 			b_dunrobin = {
 			}
@@ -21791,6 +22005,7 @@ k_scotland = {
 				swedish = "Fresvik"
 				danish = "Fresvik"
 				norwegian = "Fresvik"
+				norse = "Fresvik"
 			}
 			b_latheron = {
 			}
@@ -21812,11 +22027,6 @@ k_ireland = {
 	culture = irish
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
 	
 	d_ulster = {
 		color={ 205 52 31 }
@@ -21824,13 +22034,27 @@ k_ireland = {
 		
 		capital = 5 #Ulster
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		norwegian = Strangfjord
+		swedish = Strangfjord
+		danish = Strangfjord
+		norse = Strangfjorðr		
 		
 		c_ulster = {
 			color={ 126  92  39 }
 			color2={ 255 255 255 }
 		
+			norwegian = Strangfjord
+			swedish = Strangfjord
+			danish = Strangfjord
+			norse = Strangfjorðr
+		
 			b_downpatrick = {
+				norwegian = Strangfjord
+				swedish = Strangfjord
+				danish = Strangfjord
+				norse = Strangfjorðr
 			}
 			b_dunseverick = {
 			}
@@ -21856,6 +22080,10 @@ k_ireland = {
 			b_armagh = {
 			}
 			b_dundalk = {
+				norwegian = Kerlingfjord
+				swedish = Kerlingfjord
+				danish = Kerlingfjord
+				norse = Kerlingfjorðr
 			}
 			b_clogher = {
 			}
@@ -21917,7 +22145,7 @@ k_ireland = {
 		
 		capital = 9 #Connacht
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_breifne = {
 			color={ 80  123  79 }
@@ -21968,7 +22196,25 @@ k_ireland = {
 		
 		capital = 11 #Dublin
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		norwegian = "Dublin"
+		danish = "Dublin"
+		swedish = "Dublin"
+		norse = "Dublin"	
+
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 3
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 	
 		c_kildare = {
 			color={ 110  94  125 }
@@ -22019,16 +22265,27 @@ k_ireland = {
 		
 		capital = 16 #Leinster
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		norwegian = Veisafjord
+		swedish = Veisafjord
+		danish = Veisafjord
+		norse = Veisafjorðr		
 		
 		c_leinster = {
 			color={ 40  126  66 }
 			color2={ 255 255 255 }
 
+			norwegian = Veisafjord
+			swedish = Veisafjord
+			danish = Veisafjord
+			norse = Veisafjorðr
+
 			b_wexford = {
 				norwegian = Veisafjord
 				swedish = Veisafjord
 				danish = Veisafjord
+				norse = Veisafjorðr
 			}
 			b_leighlin = {
 			}
@@ -22073,16 +22330,27 @@ k_ireland = {
 		
 		capital = 14 #Desmond
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		norwegian = "Hlymrek"
+		danish = "Lymrek"
+		swedish = "Lymrek"
+		norse = "Hlymrek"		
 	
 		c_thomond = {
 			color={ 245  167  130 }
 			color2={ 255 255 255 }
 	
+			norwegian = "Hlymrek"
+			danish = "Lymrek"
+			swedish = "Lymrek"
+			norse = "Hlymrek"
+	
 			b_limerick = {
 				norwegian = "Hlymrek"
 				danish = "Lymrek"
 				swedish = "Lymrek"
+				norse = "Hlymrek"
 			}
 			b_bunratty = {
 			}
@@ -22103,10 +22371,16 @@ k_ireland = {
 			color={ 105 121 221 }
 			color2={ 255 255 255 }
 	
+			norwegian = Vedrafjord
+			swedish = Vedrafjord
+			danish = Vedrafjord
+			norse = Veðrafjorðr
+	
 			b_waterford = {
 				norwegian = Vedrafjord
 				swedish = Vedrafjord
 				danish = Vedrafjord
+				norse = Veðrafjorðr
 			}
 			b_cahir = {
 			}
@@ -22158,11 +22432,6 @@ k_finland = {
 	culture = finnish
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
 
 	d_esthonia = {
 		color={ 55 55 165 }
@@ -22172,7 +22441,7 @@ k_finland = {
 		
 		culture = ugricbaltic
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 	
 		c_reval = {
 			color={ 205 93 61 }
@@ -22182,30 +22451,35 @@ k_finland = {
 			danish = "Reval"
 			norwegian = "Reval"
 			german = "Reval"
+			norse = "Reval"
 		
 			b_reval = { # Kalevan
 				swedish = "Reval"
 				danish = "Reval"
 				norwegian = "Reval"
 				german = "Reval"
+				norse = "Reval"
 			}
 			b_hapsal = { # Haapsalu
 				swedish = "Hapsal"
 				danish = "Hapsal"
 				norwegian = "Hapsal"
 				german = "Hapsal"
+				norse = "Hapsal"
 			}
 			b_toompea = {
 				swedish = "Domberg"
 				danish = "Domberg"
 				norwegian = "Domberg"
 				german = "Domberg"
+				norse = "Domberg"
 			}
 			b_leal = { # Lihula
 				swedish = "Lehal"
 				danish = "Lehal"
 				norwegian = "Lehal"
 				german = "Leal"
+				norse = "Leal"
 			}
 			b_borpeal = {
 			}
@@ -22244,25 +22518,30 @@ k_finland = {
 		
 		capital = 392 #Kexholm
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_kexholm = {
 			color={ 167 222 226 }
 			color2={ 255 255 255 }
 		
 			swedish = "Kexholm"
+			norse = "Kexholm"
 			norwegian = "Kexholm"
 			danish = "Kexholm"
 		
 			b_antrea = {
 				swedish = "St Andree"
+				norse = "St Andree"
 				norwegian = "St Andree"
 				danish = "St Andree"
 			}
 			b_raivola = {
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed				
 			}
 			b_kakisalmi = {
 				swedish = "Kexholm"
+				norse = "Kexholm"
 				norwegian = "Kexholm"
 				danish = "Kexholm"
 				russian = "Korela"
@@ -22290,6 +22569,7 @@ k_finland = {
 			}
 			b_noteborg = {
 				swedish = "Nöteborg"
+				norse = "Nöteborg"
 				norwegian = "Nøteborg"
 				danish = "Nøteborg"
 				german = "Schlüsselburg"
@@ -22298,12 +22578,14 @@ k_finland = {
 			b_valaam = {
 				finnish = "Valamo"
 				swedish = "Valamo"
+				norse = "Valamo"
 			}
 			b_jogopera = {
 			}
 			b_ivanovskaya = { # Teusina
 				swedish = "Teusina"
 				norwegian = "Teusina"
+				norse = "Teusina"
 				danish = "Teusina"
 				russian = "Tyavzino"
 			}
@@ -22314,6 +22596,7 @@ k_finland = {
 			b_khotchino = {
 				finnish = "Hatsina"
 				swedish = "Hatsina"
+				norse = "Hatsina"
 			}
 		}
 		c_savolaks = {
@@ -22321,16 +22604,19 @@ k_finland = {
 			color2={ 255 255 255 }
 	
 			swedish = "Savolax"
+			norse = "Savolax"
 			norwegian = "Savolax"
 			danish = "Savolax"
 		
 			b_olavinlinna = {
 				swedish = "Olofsborg"
+				norse = "Olofsborg"
 				norwegian = "Olavsborg"
 				danish = "Olavsborg"
 			}
 			b_mikkeli = {
 				swedish = "St Michel"
+				norse = "St Michel"
 				norwegian = "St Michel"
 				danish = "St Michel"
 			}
@@ -22340,11 +22626,13 @@ k_finland = {
 			}
 			b_brahelinna = {
 				swedish = "Brahehus"
+				norse = "Brahehus"
 				norwegian = "Brahehus"
 				danish = "Brahehus"
 			}
 			b_iisalmi = {
 				swedish = "Idensalmi"
+				norse = "Idensalmi"
 				norwegian = "Idensalmi"
 				danish = "Idensalmi"
 			}
@@ -22362,19 +22650,21 @@ k_finland = {
 		
 		swedish = "Karelen"
 		danish = "Karelen"
+		norse = "Karelen"
 		norwegian = "Karelen"
-		russian = "Kareliya"		
+		russian = "Kareliya"	
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_onega = {
 			color={ 37 84 14 }
 			color2={ 255 255 255 }
 			
 			swedish = "Onega"
+			norse = "Onega"
 			danish = "Onega"
 			norwegian = "Onega"
-			russian = "Onezhskoe"			
+			russian = "Onezhskoe"		
 		
 			b_ust-onega = {
 			}
@@ -22398,9 +22688,10 @@ k_finland = {
 			color2={ 255 255 255 }
 			
 			swedish = "Östkarelen"
+			norse = "Östkarelen"
 			danish = "Østkarelen"
 			norwegian = "Østkarelen"
-			russian = "Kareliya"			
+			russian = "Kareliya"		
 		
 			b_kem = {
 			}
@@ -22445,11 +22736,13 @@ k_finland = {
 			color2={ 255 255 255 }
 		
 			swedish = "Kandalax"
+			norse = "Kandalax"
 			norwegian = "Kandalax"
 			danish = "Kandalax"
 		
 			b_kantalahti = {
 				swedish = "Kandalax"
+				norse = "Kandalax"
 				norwegian = "Kandalax"
 				danish = "Kandalax"
 			}
@@ -22475,43 +22768,50 @@ k_finland = {
 		
 		capital = 382 # Suomi
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_nyland = {
 			color={ 219 53 54 }
 			color2={ 255 255 255 }
 		
 			swedish = "Nyland"
+			norse = "Nyland"
 			norwegian = "Nyland"
 			danish = "Nyland"
 		
 			b_porvoo = {
 				swedish = "Borgå"
+				norse = "Borgå"
 				norwegian = "Borgå"
 				danish = "Borgå"
 			}
 			b_raseborg = {
 				swedish = "Raseborg"
+				norse = "Raseborg"
 				norwegian = "Raseborg"
 				danish = "Raseborg"
 			}
 			b_espoo = {
 				swedish = "Esbo"
+				norse = "Esbo"
 				norwegian = "Esbo"
 				danish = "Esbo"
 			}
 			b_siuntio = {
 				swedish = "Sjundeå"
+				norse = "Sjundeå"
 			}
 			b_svartholm = {
 			}
 			b_hanko = {
 				swedish = "Hangö"
+				norse = "Hangö"
 				norwegian = "Hangø"
 				danish = "Hangø"
 			}
 			b_lohja = {
 				swedish = "Lojo"
+				norse = "Lojo"
 				norwegian = "Lojo"
 				danish = "Lojo"
 			}
@@ -22524,21 +22824,24 @@ k_finland = {
 		
 			swedish = "Finland"
 			norwegian = "Finland"
+			norse = "Finland"
 			danish = "Finland"
-			german = "Finland"
 		
 			b_kuusisto  = {
 				swedish = "Kustö"
+				norse = "Kustö"
 				norwegian = "Kustø"
 				danish = "Kustø"
 			}
 			b_turku  = {
 				swedish = "Åbo"
+				norse = "Åbo"
 				norwegian = "Åbo"
 				danish = "Åbo"
 			}
 			b_naantali = {
 				swedish = "Nådendal"
+				norse = "Nådendal"
 				norwegian = "Nådendal"
 				danish = "Nådendal"
 			}
@@ -22546,11 +22849,13 @@ k_finland = {
 			}
 			b_rauma  = {
 				swedish = "Raumo"
+				norse = "Raumo"
 			}
 			b_jukarsborg  = {
 			}
 			b_lieto  = {
 				swedish = "Lundo"
+				norse = "Lundo"
 			}
 			b_stenberga  = {
 			}
@@ -22562,14 +22867,17 @@ k_finland = {
 			swedish = "Österbotten"
 			norwegian = "Østerbotten"
 			danish = "Østerbotten"
+			norse = "Austerbotn"
 		
 			b_oulu = {
 				swedish = "Uleåborg"
+				norse = "Uleåborg"
 				norwegian = "Uleåborg"
 				danish = "Uleåborg"
 			}
 			b_nykarleby = {
 				swedish = "Nykarleby"
+				norse = "Nykarleby"
 				norwegian = "Nykarleby"
 				danish = "Nykarleby"
 			}
@@ -22614,11 +22922,13 @@ k_finland = {
 			swedish = "Tavastehus"
 			norwegian = "Tavastehus"
 			danish = "Tavastehus"
+			norse = "Tavastehus"
 		
 			b_hameenlinna = {
 				swedish = "Tavastehus"
 				norwegian = "Tavastehus"
 				danish = "Tavastehus"
+				norse = "Tavastehus"
 			}
 			b_lahti = {
 			}
@@ -22640,11 +22950,13 @@ k_finland = {
 			color2={ 255 255 255 }
 		
 			swedish = "Satakunda"
+			norse = "Satakunda"
 		
 			b_ulvila = {
 			}
 			b_liinmaa = {
 				swedish = "Vredenborg"
+				norse = "Vredenborg"
 				norwegian = "Vredenborg"
 				danish = "Vredenborg"
 				german = "Vreghdenborch"
@@ -22674,12 +22986,7 @@ k_sweden = {
 	
 	culture = swedish	
 	
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
+	allow = { war = no } 	
 
 	d_jamtland = {
 		color={ 15 199 239 }
@@ -22687,10 +22994,11 @@ k_sweden = {
 		
 		capital = 285 #Hälsingland
 		
-		norwegian = "Jemtland"
-		danish = "Jemtland"		
+			norwegian = "Jemtland"
+			danish = "Jemtland"
+			norse = "Jamtaland"	
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_jamtland = {
 			color={ 191 155 45 }
@@ -22698,6 +23006,7 @@ k_sweden = {
 			
 			norwegian = "Jemtland"
 			danish = "Jemtland"
+			norse = "Jamtaland"
 			
 			b_mjalleborgen = {
 			}
@@ -22737,6 +23046,7 @@ k_sweden = {
 			
 			norwegian = "Helsingland"
 			danish = "Helsingland"
+			norse = "Helsingland"
 			
 			b_norrala = {
 			}
@@ -22762,6 +23072,7 @@ k_sweden = {
 			color2={ 255 255 255 }
 			
 			swedish = "Härjedalen"
+			norse = "Herjadal"
 			
 			b_sveg = {
 			}
@@ -22777,7 +23088,22 @@ k_sweden = {
 		
 		capital = 290 # Uppland
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		norse = Sviþjod
+		
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 10
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 		
 		c_uppland = {
 			color={ 5 215 255 }
@@ -22786,6 +23112,8 @@ k_sweden = {
 			b_sigtuna = {
 			}
 			b_uppsala = {
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed			
 			}
 			b_osteras = {
 				norwegian = "Østerås"
@@ -22805,6 +23133,8 @@ k_sweden = {
 			}
 			b_vaksala = {
 			}
+			b_birka = {
+			}			
 		}
 		c_gastrikland = {
 			color={ 105 182 246 }
@@ -22865,9 +23195,10 @@ k_sweden = {
 		capital = 293 # Östergötland
 	
 		norwegian = "Østergøtland"
-		danish = "Østergøtland"		
+		danish = "Østergøtland"	
+		norse = "Austergautland"		
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_ostergotland = {
 			color={ 181 241 132 }
@@ -22875,6 +23206,7 @@ k_sweden = {
 			
 			norwegian = "Østergøtland"
 			danish = "Østergøtland"
+			norse = "Austergautland"
 			
 			b_stegeborg = {
 			}
@@ -22900,6 +23232,14 @@ k_sweden = {
 			}
 			b_vreta = {
 			}
+			b_nasborg = {
+				norwegian = "Nesborg"
+				danish = "Næsborg"
+			}
+			b_jonkoping = {
+				norwegian = "Jønkøping"
+				danish = "Jønkøbing"
+			}
 		}
 		c_narke = {
 			color={ 120 219 174 }
@@ -22907,6 +23247,7 @@ k_sweden = {
 			
 			norwegian = "Nerike"
 			danish = "Nerke"
+			norse = Nerike
 			
 			b_goksholm = {
 				norwegian = "Gøksholm"
@@ -22929,12 +23270,38 @@ k_sweden = {
 			b_hallsberg = {
 			}
 		}
+		c_tjust = {
+			color={ 75 60 190 }
+			color2={ 255 255 255 }
+			
+			b_vastervik = {
+				norwegian = "Vestervik"
+				danish = "Vestervik"
+			}
+			b_vimmerby = {
+			}
+			b_doderhult = {
+				norwegian = "Døderhult"
+				danish = "Døderhult"
+			}
+			b_hulingsryd = { # Now Hultsfred
+			}
+			b_tornsfall = {
+				norwegian = "Tørnsfall"
+				danish = "Tørnsfall"
+			}
+			b_kisa = {
+			}
+			b_jangolsrum = {
+			}
+		}		
 		c_sodermanland = {
 			color={ 112 43 158 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Sødermanland"
 			danish = "Sødermanland"
+			norse = "Sudermanland"			
 			
 			b_nykoping = {
 				norwegian = "Nykøping"
@@ -22969,8 +23336,22 @@ k_sweden = {
 		
 		norwegian = "Vestergøtland"
 		danish = "Vestergøtland"		
+		norse = "Vestergautland"		
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 11
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 		
 		c_vastergotland = {
 			color={ 146  108  146 }		
@@ -22978,6 +23359,7 @@ k_sweden = {
 			
 			norwegian = "Vestergøtland"
 			danish = "Vestergøtland"
+			norse = "Vestergautland"
 				
 			b_galakvist = {
 				norwegian = "Gælakvist"
@@ -22988,6 +23370,7 @@ k_sweden = {
 				danish = "Lødøse"
 			}
 			b_skara = {
+				holy_site = pagan
 			}
 			b_falkoping = {
 				norwegian = "Falkøping"
@@ -23029,6 +23412,8 @@ k_sweden = {
 			color={ 174 204 48 }
 			color2={ 255 255 255 }
 			
+			norse = Alfheimr
+			
 			b_bagahus = {
 			}
 			b_kungahalla = {
@@ -23056,7 +23441,7 @@ k_sweden = {
 		color2={ 255 255 255 }
 		capital = 285 # Hälsingland
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_lappland = {
 			color={ 45 45 115 }
@@ -23087,8 +23472,13 @@ k_sweden = {
 			
 			norwegian = "Vesterbotten"
 			danish = "Vesterbotten"
+			norse = "Vesterbotn"
+			finnish=Länsipohja
+			lappish=Länsipohja
 			
 			b_umea = {
+				finnish=Uumaja
+				lappish=Ume
 			}
 			b_bygdea = {
 			}
@@ -23110,6 +23500,8 @@ k_sweden = {
 		c_angermanland = {
 			color={ 46 150 11 }
 			color2={ 255 255 255 }
+			
+			norse = Angermanland
 			
 			b_bjartra = {
 				norwegian = "Bjertrå"
@@ -23144,14 +23536,16 @@ k_sweden = {
 		color2={ 255 255 255 }
 		capital = 288 # Värmland
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_dalarna = {
 			color={ 182 107 14 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Jernbæraland"
-			danish = "Jernbæraland"			
+			danish = "Jernbæraland"
+			english = Dalecarlia
+			norse = Járnberaland	
 			
 			b_borganas = {
 			}
@@ -23175,7 +23569,8 @@ k_sweden = {
 			color2={ 255 255 255 }
 			
 			norwegian = "Vermland"
-			danish = "Værmland"			
+			danish = "Værmland"
+			norse = "Vermaland"		
 			
 			b_saxholm = {
 			}
@@ -23200,6 +23595,7 @@ k_sweden = {
 			
 			norwegian = "Vestmanland"
 			danish = "Vestmanland"
+			norse = "Vestmannaland"
 			
 			b_vasteras = {
 				norwegian = "Vesterås"
@@ -23228,37 +23624,56 @@ k_sweden = {
 	d_smaland = {
 		color={ 220  138  57 }
 		color2={ 255 255 255 }
-		capital = 298 # Småland
+		capital = 298 # Småland	
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+			norse = "Smáland"		
 		
 		c_smaland = {
 			color={ 43 5 240 }
 			color2={ 255 255 255 }
 			
+			b_piksborg = {
+			}
+			b_vaxjo = {
+				danish = Vexjø
+				norwegian = Vexjø
+			}
 			b_aringsas = {
-			}
-			b_nasborg = {
-				norwegian = "Næsborg"
-				danish = "Næsborg"
-			}
-			b_kronoberg = {
-			}
-			b_jonkoping = {
-				norwegian = "Jønkøping"
-				danish = "Jønkøbing"
 			}
 			b_alvesta = {
 			}
-			b_kalmar = {
+			b_kronoberg = {
 			}
-			b_vastervik = {
-				norwegian = "Vestervik"
-				danish = "Vestervik"
+			b_furuby = {
 			}
-			b_piksborg = {
+			b_markaryd={
+				norse = Madkharydh
 			}
 		}
+		c_more = {
+			color={ 105 55 215 }
+			color2={ 255 255 255 }
+			
+			danish = Møre
+			norwegian = Møre
+			
+			b_kalmar = {
+			}
+			b_kalmar_hus = {
+			}
+			b_torsas = {
+			}
+			b_soderakra = {
+			}
+			b_monsteras = {
+			}
+			b_madesjo = {
+			}
+			b_alem = {
+			}
+		}		
 		c_oland = {
 			color={ 215 100 190 }
 			color2={ 255 255 255 }
@@ -23284,7 +23699,20 @@ k_sweden = {
 				norwegian = "Grønhøgen"
 				danish = "Grønhøgen"
 			}
+			b_kopingsvik = {
+				danish = "Købingsvik"
+				norwegian = "Køpingsvik"
+			}
 		}
+	}
+	d_gotland = {
+		color={ 0 45 110 }
+		color2={ 255 255 255 }
+		
+		capital = 301 # Gotland
+		
+		dignity = 10
+		
 		c_gotland = {
 			color={ 14 14 249 }
 			color2={ 255 255 255 }
@@ -23305,8 +23733,8 @@ k_sweden = {
 			}
 			b_hemse = {
 			}
-		}
-	}
+		}		
+	}		
 }
 
 k_denmark = {
@@ -23320,11 +23748,6 @@ k_denmark = {
 	capital = 266 # Sjaelland
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
 	
 	d_skane = {
 		color={ 241  243  33 }
@@ -23332,7 +23755,7 @@ k_denmark = {
 	
 		capital = 303 # Skåne
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_skane = {
 			color={ 158 204 46 }
@@ -23414,6 +23837,8 @@ k_denmark = {
 		c_bornholm = {
 			color={ 142 109 69 }
 			color2={ 255 255 255 }
+			
+			norse = Burgundaholmr
 		
 			b_ronne = {
 			}
@@ -23423,6 +23848,7 @@ k_denmark = {
 			}
 			b_nexo = {
 				swedish = "Nexö"
+				norse = "Nexö"
 			}
 			b_aakirkeby = {
 			}
@@ -23439,32 +23865,46 @@ k_denmark = {
 		color2={ 255 255 255 }
 		capital = 266 # Sjaelland
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		swedish = Själland
+		english = Zealand
+		norse = Sjælland		
 		
 		c_sjaelland = {
 			color={ 216 50 50 }
 			color2={ 255 255 255 }
 			
-			swedish = "Själland"
+			swedish = Själland
+			english = Zealand
+			norse = Sjælland
 			
 			b_kobenhavn = {
 				swedish = "Köpenhamn"
+				norse = Köpenhamn
 			}
 			b_roskilde = {
 			}
 			b_helsingor = {
-				swedish = "Helsingör"
+				swedish = Helsingör
+				norse = Helsingör
 			}
 			b_kalundborg = {
 			}
 			b_naestved = {
-				swedish = "Nästved"
+				swedish = Nästved
+				norse = Næstved
 			}
 			b_slagelse = {
 			}
 			b_vordingborg = {
 			}
 			b_ringsted = {
+			}
+			b_lejre = {
+				norse = Hleiðra
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed		
 			}
 		}
 		c_fyn = {
@@ -23508,7 +23948,20 @@ k_denmark = {
 		
 		capital = 264 #Slesvig
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 0
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 		
 		c_slesvig = {
 			color={ 36 134 246 }
@@ -23536,6 +23989,9 @@ k_denmark = {
 			}
 			b_kolding = {
 			}
+			b_hedeby = {
+				norse = Heiðabyr
+			}
 		}
 		c_jylland = {
 			color={ 78 248 206 }
@@ -23550,6 +24006,7 @@ k_denmark = {
 			}
 			b_ringkobing = {
 				swedish = "Ringköping"
+				norse = Ringköping
 			}
 			b_randers = {
 			}
@@ -23558,6 +24015,8 @@ k_denmark = {
 			b_skive = {
 			}
 			b_skagen = {
+			}
+			b_jelling = {
 			}
 		}
 	}
@@ -23574,11 +24033,6 @@ k_norway = {
 	capital = 274 # Bergenshus
 	
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}		
 
 	d_iceland = {
 		color={ 195 190 255 }
@@ -23586,7 +24040,7 @@ k_norway = {
 		
 		capital = 1 #Vestisland
 
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_vestisland = {
 			color={ 160 210 250 }
@@ -23642,7 +24096,7 @@ k_norway = {
 		
 		capital = 274 #Bergenshus
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		
 		c_agder = {
 			color={ 243 238 134 }
@@ -23711,11 +24165,14 @@ k_norway = {
 			color={ 235 247 40 }
 			color2={ 255 255 255 }
 			
+			norse = Hordaland
+			
 			b_bergenhus = {
 			}
 			b_kinsarvik = {
 			}
 			b_bergen = {
+				norse = Bjorgvin
 			}
 			b_vik = {
 			}
@@ -23735,7 +24192,20 @@ k_norway = {
 		
 		capital = 272 #Åkershus
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 6
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 		
 		c_vestfold = {
 			color={ 77 193 96 }
@@ -23807,7 +24277,7 @@ k_norway = {
 		
 		capital = 278 #Halogaland
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 
 		c_halogaland = {
 			color={ 36 108 220 }
@@ -23877,16 +24347,32 @@ k_norway = {
 		color={ 144 90 205 }
 		color2={ 255 255 255 }
 		
-		capital = 275 #Trondelag
+		capital = 275 #Trondelag	
+		
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 9
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
 		
 		swedish = "Tröndelag"
-		german = "Tröndelag"		
-		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		german = "Tröndelag"
+		norse = "Tröndelag"		
 		
 		c_hedmark = {
 			color={ 249 227 162 }
 			color2={ 255 255 255 }
+			
+			norse = Heidmark
 			
 			b_hamarhus = {
 			}
@@ -23910,7 +24396,8 @@ k_norway = {
 			color2={ 255 255 255 }
 			
 			swedish = "Tröndelag"
-			german = "Tröndelag"			
+			german = "Tröndelag"
+			norse = "Tröndelag"	
 			
 			b_nidaros = {
 			}
@@ -23944,6 +24431,8 @@ k_norway = {
 			b_hegra = {
 			}
 			b_maere = {
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed			
 			}
 			b_leksvik = {
 			}
@@ -23958,7 +24447,22 @@ k_norway = {
 		
 		capital = 36 #Orkney
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
+		
+		pagan_coa = {
+			template = 0
+			layer = {
+				texture = 2
+				texture_internal = 5
+				emblem = 0
+				color = 0
+				color = 0
+				color = 0
+			}
+			religion = "norse_pagan"
+		}		
+		
+		norse = "Norðreyjar"		
 		
 		c_faereyar = {
 			color={ 25 87 103 }
@@ -23997,6 +24501,7 @@ k_norway = {
 				norwegian = "Konungsborg"
 				danish = "Konungsborg"
 				swedish = "Konungsborg"
+				norse = "Konungsborg"
 			}
 			b_sumburgh = {
 			}
@@ -24013,16 +24518,19 @@ k_norway = {
 			
 			swedish = "Orknö"
 			danish = "Orknø"
+			norse = "Orknö"
 			
 			b_kirkwall = {
 				norwegian = "Kirkuvåg"
 				danish = "Kyrkovik"
 				swedish = "Kyrkovik"
+				norse = "Kyrkovik"
 			}
 			b_birsay = {
 				norwegian = "Birgishærad"
 				danish = "Birgishærad"
 				swedish = "Birgishärad"
+				norse = "Birgishærad"
 			}
 			b_orphir = {
 			}
@@ -24045,18 +24553,14 @@ k_jolof = {
 	color2={ 185 48 15 }
 	capital = 937 #Cayor
 	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}			
+		
 	d_takrur = { #North
 		color={ 251 173 138 }
 		color2={ 155 58 55 }
 		
 		capital = 932 #Morfil
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_morfil = { #West
 			color={ 201 103 58 }
 			color2={ 185 98 15 }
@@ -24073,6 +24577,8 @@ k_jolof = {
 			color={ 221 163 8 }
 			color2={ 145 68 35 }
 			b_matam = {
+			}
+			b_kaedi = {
 			}
 			b_kanel = { 
 			}					
@@ -24114,7 +24620,7 @@ k_jolof = {
 		
 		capital = 937 #Cayor
 		
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_cayor = { #West
 			color={ 198 94 21 }
 			color2={ 160 150 36 }
@@ -24143,6 +24649,8 @@ k_jolof = {
 			b_jurbel = {
 			}
 			b_mbour = { 
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed	
 			}	
 			b_bambey = { 
 			}				
@@ -24165,17 +24673,12 @@ k_ghana = {
 	color={ 199 103 13 }
 	color2={ 65 130 36 }
 	capital = 929 #Doubmi Saleh
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}			
+	allow = { war = no } 		
 	d_susu = { #East
 		color={ 213 94 26 }
 		color2={ 68 164 51 }
 		capital = 925 #Soumpi
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_kirina = { #East
 			color={ 161 90 21 }
 			color2={ 50 75 10 }
@@ -24207,20 +24710,28 @@ k_ghana = {
 		color={ 146 106 54 }
 		color2={ 51 66 10 }
 		capital = 929 #Doubmi Saleh
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_aoudagast = { #West
 			color={ 192 155 83 }
 			color2={ 54 75 23 }
 			b_aoudaghost = {
 			}
 			b_rkiz = { 
-			}				
+			}
+			b_tichit = {
+			}
+			b_tagand = {
+			}
 		}
 		c_oualata = { #East
 			color={ 162 118 74 }
 			color2={ 50 72 32 }
 			b_oualata = {
-			}					
+			}
+			b_nema = {
+			}
+			b_goumbou = {
+			}
 		}
 		c_koumbi_saleh = { #South
 			color={ 156 90 64 }
@@ -24230,16 +24741,19 @@ k_ghana = {
 			b_koumbi_saleh = {
 			}
 			b_vizir_am_soumaba = {
+				holy_site = pagan
 			}
 			b_ain_verba = { 
-			}				
+			}
+			b_gumbu = {
+			}
 		}
 	}
 	d_jeno = { #Southeast
 		color={ 198 165 24 }
 		color2={ 61 75 10 }
 		capital = 930 #Djenne
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_djenne = {
 			color={ 162 136 54 }
 			color2={ 50 75 10 }
@@ -24258,6 +24772,8 @@ k_ghana = {
 			color={ 175 90 54 }
 			color2={ 50 75 10 }
 			b_bamako = { 
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed						
 			}
 			b_koro_koulikoro = { 
 			}	
@@ -24282,7 +24798,7 @@ k_ghana = {
 	d_kangaba = {
 		color={ 198 159 54 }
 		color2={ 50 75 10 }
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		capital = 917 #Niani
 		c_yaresna = { #North
 			color={ 186 176 66 }
@@ -24321,18 +24837,13 @@ k_ghana = {
 k_songhai = {
 	color={ 186 120 74 }
 	color2={ 75 50 10 }
-	capital = 920 #Timbuktu
-	allow = { war = no } 
-	gain_effect = {	
-		hidden_tooltip = {
-			character_event = { id = 110029 }
-		}
-	}	
+	capital = 919 # Gao
+	allow = { war = no }	
 	d_songhai = {
 		color={ 136 90 74 }
 		color2={ 75 50 10 }
 		capital = 920 #Timbuktu
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_gao = { #East
 			color={ 190 120 110 }
 			color2={ 50 75 10 }
@@ -24354,7 +24865,7 @@ k_songhai = {
 			}
 			b_kabara = { 
 			}					
-			b_sankore = { 
+			b_sankore = { 			
 			}	
 			b_djinguereber = { 
 			}	
@@ -24378,7 +24889,7 @@ k_songhai = {
 		color={ 112 75 13 }
 		color2={ 50 75 10 }
 		capital = 927 #Kumbee-Tenga
-		allow = { war = no } gain_effect = { hidden_tooltip = { character_event = { id = 110017 } } }
+		allow = { war = no }
 		c_wagadou = { #North
 			color={ 148 92 13 }
 			color2={ 50 75 10 }
@@ -24399,7 +24910,9 @@ k_songhai = {
 			b_tillaberi = { 
 			}
 			b_bardouga = { 
-			}				
+			}		
+			b_bura = {
+			}
 		}
 		c_koudougu = { #West
 			color={ 249 93 14 }
@@ -24409,6 +24922,8 @@ k_songhai = {
 			b_nuarungu = { 
 			}	
 			b_naa_bwewaa = { 
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed	
 			}
 			b_tongo = { 
 			}

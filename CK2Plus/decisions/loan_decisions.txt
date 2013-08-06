@@ -270,7 +270,6 @@ decisions = {
 			NOT = { has_landed_title = e_mexikha }
 			OR = { higher_tier_than = baron is_patrician = yes }
 			NOT = { check_variable = { which = "loan_amount" value = 49.5 } }
-			difficulty = 2 #ai won't take loans on low difficulties
 		}
 		allow = { 
 			OR = {	
@@ -291,25 +290,7 @@ decisions = {
 				limit = {
 					NOT = { monthly_income = 2.5 }
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 50
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 75
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 100
-				}				
+				wealth = 50			
 				set_variable = { which = "loan_amount" value = 50 }
 			}
 			#100g loan
@@ -318,25 +299,7 @@ decisions = {
 					monthly_income = 2.5
 					NOT = { monthly_income = 5 }
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 100
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 125
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 150
-				}
+				wealth = 100
 				set_variable = { which = "loan_amount" value = 100 }			
 			}
 			#200g loan
@@ -345,25 +308,7 @@ decisions = {
 					monthly_income = 5
 					NOT = { monthly_income = 10 } 	
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 200
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 225
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 250
-				}
+				wealth = 200
 				set_variable = { which = "loan_amount" value = 200 }				
 			}
 			#400g loan
@@ -372,25 +317,7 @@ decisions = {
 					monthly_income = 10
 					NOT = { monthly_income = 15 } 
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 400
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 450
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 500
-				}
+				wealth = 400
 				set_variable = { which = "loan_amount" value = 400 }			
 			}
 			#600g loan
@@ -399,25 +326,7 @@ decisions = {
 					monthly_income = 15
 					NOT = { monthly_income = 20 }
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 600
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 650
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 700
-				}
+				wealth = 600
 				set_variable = { which = "loan_amount" value = 600 }			
 			}
 			#800g loan
@@ -426,25 +335,7 @@ decisions = {
 					monthly_income = 20
 					NOT = { monthly_income = 25 }
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 800
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 900
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 1000
-				}
+				wealth = 800
 				set_variable = { which = "loan_amount" value = 800 }				
 			}			
 			#1000g loan
@@ -452,25 +343,7 @@ decisions = {
 				limit = {
 					monthly_income = 25 	
 				}
-				if = {
-					limit = {
-						NOT = { difficulty = 3 }
-					}
-					wealth = 1000
-				}	
-				if = {
-					limit = {
-						difficulty = 3
-						NOT = { difficulty = 4 }
-					}
-					wealth = 1100
-				}
-				if = {
-					limit = {
-						difficulty = 4
-					}
-					wealth = 1200
-				}
+				wealth = 1000
 				set_variable = { which = "loan_amount" value = 1000 }				
 			}
 			add_character_modifier = { name = "loan_timer" duration = -1 }

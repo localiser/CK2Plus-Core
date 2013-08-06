@@ -6,10 +6,17 @@ succession_laws = {
 		oldest_child_opinion = 30
 		child_opinion = -20
 		potential = {
-			is_primary_holder_title = yes		
+			is_primary_holder_title = yes
+			holder_scope = { 
+				NOT = { religion = norse_pagan }
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = baltic_pagan }
+				NOT = { religion = finnish_pagan }
+				NOT = { religion = aztec }
+				NOT = { religion = slavic_pagan }
+			}			
 			is_landless_type_title = no
 			holder_scope = {
-				religion_group = pagan_group
 				OR = {
 					NOT = { religion_group = muslim }
 					culture = mongol
@@ -35,12 +42,7 @@ succession_laws = {
 			}
 			NOT = { has_law = succ_ultimogeniture }
 			holder_scope = { NOT = { religion_group = muslim } }
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					culture = mongol							
-				}	
-			}
+			holder_scope = { ai = no }
 			has_global_flag = startup
 		}
 		allow = {
@@ -216,6 +218,14 @@ succession_laws = {
 		
 		potential = {
 			is_primary_holder_title = yes
+			holder_scope = { 
+				NOT = { religion = norse_pagan }
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = baltic_pagan }
+				NOT = { religion = finnish_pagan }
+				NOT = { religion = aztec }
+				NOT = { religion = slavic_pagan }
+			}	
 			is_landless_type_title = no
 			holder_scope = {
 				NOT = { religion_group = muslim }
@@ -243,20 +253,7 @@ succession_laws = {
 				NOT = { has_law = succ_feudal_elective }
 				is_titular = yes
 			}
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					religion_group = christian
-					NOT = { current_heir = { father = { character = PREVPREV } } }
-					NOT = { current_heir = { mother = { character = PREVPREV } } }
-					NOT = { current_heir = { any_sibling = { character = PREVPREV } } }
-					age = 30
-					OR = {
-						trait = charitable
-						trait = just
-					}					
-				}
-			}
+			holder_scope = { ai = no }
 			has_global_flag = startup
 		}
 		allow = {
@@ -473,6 +470,14 @@ succession_laws = {
 		
 		potential = {
 			is_primary_holder_title = yes
+			holder_scope = { 
+				NOT = { religion = norse_pagan }
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = baltic_pagan }
+				NOT = { religion = finnish_pagan }
+				NOT = { religion = aztec }
+				NOT = { religion = slavic_pagan }
+			}	
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -496,20 +501,7 @@ succession_laws = {
 				holder_scope = { is_feudal = yes }
 			}
 			NOT = { has_law = succ_feudal_elective }	
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					religion_group = christian				
-					NOT = { current_heir = { father = { character = PREVPREV } } }
-					NOT = { current_heir = { mother = { character = PREVPREV } } }
-					NOT = { current_heir = { any_sibling = { character = PREVPREV } } }
-					age = 30
-					OR = {
-						trait = charitable
-						trait = just
-					}					
-				}
-			}
+			holder_scope = { ai = no }
 			has_global_flag = startup
 		}
 		allow = {
@@ -749,17 +741,7 @@ succession_laws = {
 				is_titular = yes
 			}
 			NOT = { has_law = succ_gavelkind }
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					has_global_flag = startup
-					age = 30
-					OR = {
-						trait = content
-						trait = charitable
-					}					
-				}								
-			}			
+			holder_scope = { ai = no }			
 			has_global_flag = startup
 		}
 		allow = {
@@ -936,6 +918,14 @@ succession_laws = {
 	
 		potential = {
 			is_primary_holder_title = yes
+			holder_scope = { 
+				NOT = { religion = norse_pagan }
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = baltic_pagan }
+				NOT = { religion = finnish_pagan }
+				NOT = { religion = aztec }
+				NOT = { religion = slavic_pagan }
+			}	
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -968,20 +958,7 @@ succession_laws = {
 				is_titular = yes
 			}
 			NOT = { has_law = succ_seniority }
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					religion_group = christian
-					NOT = { current_heir = { father = { character = PREVPREV } } }
-					NOT = { current_heir = { mother = { character = PREVPREV } } }
-					NOT = { current_heir = { any_sibling = { character = PREVPREV } } }
-					age = 30
-					OR = {
-						trait = humble
-						trait = trusting
-					}					
-				}
-			}
+			holder_scope = { ai = no }
 			has_global_flag = startup			
 		}
 		allow = {
@@ -1152,6 +1129,14 @@ succession_laws = {
 		child_opinion = -20
 		potential = {
 			is_primary_holder_title = yes
+			holder_scope = { 
+				NOT = { religion = norse_pagan }
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = baltic_pagan }
+				NOT = { religion = finnish_pagan }
+				NOT = { religion = aztec }
+				NOT = { religion = slavic_pagan }
+			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -1174,21 +1159,7 @@ succession_laws = {
 				NOT = { has_law = succ_feudal_elective }
 				is_titular = yes
 			}
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					any_child = {
-						is_female = no
-						age = 6
-					}				
-					age = 30
-					OR = {
-						trait = proud
-						trait = ambitious
-						trait = greedy
-					}					
-				}	
-			}
+			holder_scope = { ai = no }
 			has_global_flag = startup
 		}
 		allow = {
@@ -1384,17 +1355,7 @@ succession_laws = {
 			NOT = { tier = baron }
 			has_law = succ_feudal_elective
 			is_titular = no
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					has_global_flag = startup
-					age = 30
-					OR = {
-						trait = content
-						trait = charitable
-					}					
-				}								
-			}			
+			holder_scope = { ai = no }		
 			holder_scope = { NOT = { has_character_flag = voting_on_succession_law } }
 			has_global_flag = startup
 		}
@@ -1556,20 +1517,7 @@ succession_laws = {
 			}
 			has_law = succ_feudal_elective
 			is_titular = no
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					religion_group = christian
-					NOT = { current_heir = { father = { character = PREVPREV } } }
-					NOT = { current_heir = { mother = { character = PREVPREV } } }
-					NOT = { current_heir = { any_sibling = { character = PREVPREV } } }
-					age = 30
-					OR = {
-						trait = humble
-						trait = trusting
-					}					
-				}
-			}
+			holder_scope = { ai = no }
 			holder_scope = { NOT = { has_character_flag = voting_on_succession_law } }
 			has_global_flag = startup			
 		}
@@ -1719,21 +1667,7 @@ succession_laws = {
 			}
 			has_law = succ_feudal_elective
 			is_titular = no
-			OR = {
-				holder_scope = { ai = no }
-				holder_scope = {
-					any_child = {
-						is_female = no
-						age = 6
-					}				
-					age = 30
-					OR = {
-						trait = proud
-						trait = ambitious
-						trait = greedy
-					}					
-				}	
-			}
+			holder_scope = { ai = no }
 			holder_scope = { NOT = { has_character_flag = voting_on_succession_law } }
 			has_global_flag = startup
 		}

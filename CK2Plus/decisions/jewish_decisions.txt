@@ -2,6 +2,7 @@ decisions = {
 	pogrom = {
 		potential = {	
 			is_ruler = yes
+			NOT = { has_character_flag = pogrom	}
 			OR = { higher_tier_than = baron is_patrician = yes }
 			NOT = { religion_group = judaism_group }
 			OR = {
@@ -59,30 +60,64 @@ decisions = {
 				limit = { trait = charitable }
 				remove_trait = charitable
 			}
-			random_list = {
-			 	25 = {
-					if = {
-						limit = { NOT = { trait = arbitrary } }
+			if = { 
+				limit = { 
+					NOT = { trait = greedy }
+					trait = arbitrary
+				}
+				random_list = {
+					50 = {
+						add_trait = greedy
+						hidden_tooltip = {
+							character_event = {
+								id = 38252 #Notify Greedy
+							}
+						}	 	
+					}
+					50 = { }
+				}
+			}			
+			if = { 
+				limit = { 
+					NOT = { trait = arbitrary }
+					trait = greedy
+				}
+				random_list = {
+					50 = {
 						add_trait = arbitrary
 						hidden_tooltip = {
 							character_event = {
 								id = 38266 #Notify Arbitrary
 							}
-						}
-					}			 	
-			 	}
-			 	25 = {
-					if = {
-						limit = { NOT = { trait = greedy } }
+						}		 	
+					}
+					50 = { }
+				}
+			}
+			if = { 
+				limit = { 
+					NOT = { trait = arbitrary }
+					NOT = { trait = greedy }
+				}
+				random_list = {
+					25 = {
+						add_trait = arbitrary
+						hidden_tooltip = {
+							character_event = {
+								id = 38266 #Notify Arbitrary
+							}
+						}		 	
+					}
+					25 = {
 						add_trait = greedy
 						hidden_tooltip = {
 							character_event = {
 								id = 38252 #Notify Greedy
 							}
 						}
-					}			 	
-			 	}
-			 	50 = { }
+					}
+					50 = { }
+				}
 			}
 			custom_tooltip = REPUBLICANFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_republican" value = -2 }			

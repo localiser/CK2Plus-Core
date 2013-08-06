@@ -404,13 +404,22 @@ province_event = {
 					}
 				}
 			}
-			has_province_modifier = brm_revolt
 			has_disease = yes
 		}
 	}
 	
 	mean_time_to_happen = {
-		months = 120			
+		months = 240	
+		modifier = {
+			factor = 0.5
+			owner = {
+				ROOT = {
+					controller = {
+						NOT = { character = PREVPREV }
+					}
+				}
+			}
+		}
 		modifier = {
 			factor = 0.9
 			owner = { NOT = { realm_learning = 10 } }

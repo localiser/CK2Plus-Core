@@ -13,7 +13,7 @@
 # Relative demands inheritance due to his ambition
 character_event = {
 	id = 37000
-	desc = "EVTDESC37000"
+	desc = EVTDESC37000
 	picture = GFX_evt_emissary
 	
 	min_age = 20
@@ -68,7 +68,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA37000" # Ask liege for a title
+		name = EVTOPTA37000 # Ask liege for a title
 		liege = { character_event = { id = 37001 days = 3 tooltip = EVTTOOLTIP37001 } }
 	}
 }
@@ -76,13 +76,13 @@ character_event = {
 # Liege responds to the request
 character_event = {
 	id = 37001
-	desc = "EVTDESC37001"
+	desc = EVTDESC37001
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37001" # Promise that you'll arrange it
+		name = EVTOPTA37001 # Promise that you'll arrange it
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -112,7 +112,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTC37001" # Say he's not ready yet
+		name = EVTOPTC37001 # Say he's not ready yet
 		ai_chance = {
 			factor = 90
 		}			
@@ -123,19 +123,19 @@ character_event = {
 # The relative is filled with anticipation
 character_event = {
 	id = 37002
-	desc = "EVTDESC37002"
+	desc = EVTDESC37002
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37002" # It had better not be hollow words...
+		name = EVTOPTA37002 # It had better not be hollow words...
 		opinion = {
 			who = FROM
 			modifier = opinion_promised_title
 			months = 36
 		}
-		set_character_flag = "flag_promised_title"
+		set_character_flag = flag_promised_title
 		add_character_modifier = { name = promised_a_title duration = -1 }
 	}
 }
@@ -143,13 +143,13 @@ character_event = {
 # The relative is deeply offended
 character_event = {
 	id = 37003
-	desc = "EVTDESC37003"
+	desc = EVTDESC37003
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37003" # This will not stand!
+		name = EVTOPTA37003 # This will not stand!
 		opinion = {
 			who = FROM
 			modifier = opinion_denied_title
@@ -164,13 +164,13 @@ character_event = {
 # The relative is disappointed
 character_event = {
 	id = 37004
-	desc = "EVTDESC37004"
+	desc = EVTDESC37004
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37004" # I can accept this.
+		name = EVTOPTA37004 # I can accept this.
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -194,7 +194,7 @@ character_event = {
 		cancel_ambition = yes		
 	}
 	option = {
-		name = "EVTOPTB37004" # I am mad about this!
+		name = EVTOPTB37004 # I am mad about this!
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -227,7 +227,7 @@ character_event = {
 # Relative reminds liege of promised title
 character_event = {
 	id = 37005
-	desc = "EVTDESC37005"
+	desc = EVTDESC37005
 	picture = GFX_evt_emissary
 	
 	min_age = 20
@@ -280,7 +280,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA37005" # Ask liege for a title
+		name = EVTOPTA37005 # Ask liege for a title
 		liege = { character_event = { id = 37006 days = 3 tooltip = EVTTOOLTIP37006 } }
 	}
 }
@@ -288,7 +288,7 @@ character_event = {
 # Liege responds to the reminder
 character_event = {
 	id = 37006
-	desc = "EVTDESC37006"
+	desc = EVTDESC37006
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
@@ -300,7 +300,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA37006" # Oh, very well!
+		name = EVTOPTA37006 # Oh, very well!
 		random_demesne_title = {
 			limit = {
 				can_be_given_away = yes
@@ -321,7 +321,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB37006" # I've had it with his whining!
+		name = EVTOPTB37006 # I've had it with his whining!
 		FROM = { character_event = { id = 37007 tooltip = EVTTOOLTIP37007 } }
 	}
 }
@@ -329,13 +329,13 @@ character_event = {
 # Liege breaks the promise
 character_event = {
 	id = 37007
-	desc = "EVTDESC37007"
+	desc = EVTDESC37007
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37007" # This is an outrage!
+		name = EVTOPTA37007 # This is an outrage!
 		opinion = {
 			who = FROM
 			modifier = opinion_broken_title_promise
@@ -350,13 +350,13 @@ character_event = {
 # IDs to 37049 reserved for more events concerning this ambition
 
 ##############################################################
-# Close relative asks to get married due to "obj_get_married"
+# Close relative asks to get married due to obj_get_married
 ##############################################################
 
 # First event of the series
 character_event = {
 	id = 37050
-	desc = "EVTDESC37050"
+	desc = EVTDESC37050
 	picture = GFX_evt_marriage
 	
 	min_age = 20
@@ -373,6 +373,11 @@ character_event = {
 			has_minor_title = title_regent
 		}
 		is_betrothed = no
+		NOT = {
+			any_consort = {
+				always = yes
+			}
+		}
 		
 		liege = {
 			NOT = { religion_group = muslim }
@@ -406,7 +411,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA37050" # Ask liege
+		name = EVTOPTA37050 # Ask liege
 		liege = { character_event = { id = 37051 days = 3 tooltip = EVTTOOLTIP37051 } }
 	}
 	
@@ -415,18 +420,18 @@ character_event = {
 # Liege responds to marriage request
 character_event = {
 	id = 37051
-	desc = "EVTDESC37051"
+	desc = EVTDESC37051
 	picture = GFX_evt_marriage
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37051" # Promise that you'll arrange it
+		name = EVTOPTA37051 # Promise that you'll arrange it
 		FROM = { character_event = { id = 37052 tooltip = EVTTOOLTIP37052 } }
 	}
 	
 	option = {
-		name = "EVTOPTB37051" # Mention a Church career...
+		name = EVTOPTB37051 # Mention a Church career...
 		FROM = { character_event = { id = 37053 tooltip = EVTTOOLTIP37053 } }
 	}
 }
@@ -434,13 +439,13 @@ character_event = {
 # The relative is delighted
 character_event = {
 	id = 37052
-	desc = "EVTDESC37052"
+	desc = EVTDESC37052
 	picture = GFX_evt_marriage
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "OK" # Great news!
+		name = OK # Great news!
 		set_character_flag = flag_promised_marriage
 		add_character_modifier = { name = promised_a_marriage duration = -1 }
 		opinion = {
@@ -454,13 +459,13 @@ character_event = {
 # The relative is disappointed
 character_event = {
 	id = 37053
-	desc = "EVTDESC37053"
+	desc = EVTDESC37053
 	picture = GFX_evt_marriage
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "OK" # Bleak news
+		name = OK # Bleak news
 		set_character_flag = flag_denied_marriage
 		opinion = {
 			who = FROM
@@ -473,7 +478,7 @@ character_event = {
 # Relative reminds liege of promised marriage
 character_event = {
 	id = 37054
-	desc = "EVTDESC37054"
+	desc = EVTDESC37054
 	picture = GFX_evt_marriage
 	
 	min_age = 20
@@ -520,7 +525,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA37054" # Ask dad
+		name = EVTOPTA37054 # Ask dad
 		liege = { character_event = { id = 37055 days = 3 tooltip = EVTTOOLTIP37055 } }
 	}
 }
@@ -528,13 +533,13 @@ character_event = {
 # The liege is reminded of the promise
 character_event = {
 	id = 37055
-	desc = "EVTDESC37055"
+	desc = EVTDESC37055
 	picture = GFX_evt_marriage
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37055" # Alright, alright!
+		name = EVTOPTA37055 # Alright, alright!
 		trigger = {
 			FROM = {
 				is_married = no
@@ -562,7 +567,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB37055" # You're off to the monastery!
+		name = EVTOPTB37055 # You're off to the monastery!
 		trigger = {
 			FROM = {
 				is_married = no
@@ -590,7 +595,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTC37055" # I haven't found anyone for you...
+		name = EVTOPTC37055 # I haven't found anyone for you...
 		trigger = {
 			FROM = {
 				is_married = no
@@ -603,7 +608,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTD37055"
+		name = EVTOPTD37055
 		trigger = {
 			FROM = {
 				is_married = yes
@@ -618,7 +623,7 @@ character_event = {
 # Male relative who was denied decides to marry in secret
 character_event = {
 	id = 37056
-	desc = "EVTDESC37056"
+	desc = EVTDESC37056
 	picture = GFX_evt_marriage
 	
 	min_age = 20
@@ -660,7 +665,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA37056" # I'm getting married right now
+		name = EVTOPTA37056 # I'm getting married right now
 		random_courtier = {
 			limit = {
 				is_female = yes
@@ -676,13 +681,13 @@ character_event = {
 # The liege is informed of the secret marriage
 character_event = {
 	id = 37057
-	desc = "EVTDESC37057"
+	desc = EVTDESC37057
 	picture = GFX_evt_marriage
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37057" # Ah well
+		name = EVTOPTA37057 # Ah well
 		tooltip_info = kind
 		trigger = {
 			trait = kind
@@ -690,7 +695,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB37057" # The insolence!
+		name = EVTOPTB37057 # The insolence!
 		trigger = {
 			NOT = { trait = kind }
 		}
@@ -702,7 +707,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTC37057" # They will both pay for this!
+		name = EVTOPTC37057 # They will both pay for this!
 		trigger = {
 			OR = {
 				trait = wroth
@@ -735,7 +740,7 @@ character_event = {
 # Relative demands estates due to his ambition
 character_event = {
 	id = 37500
-	desc = "AI_EVENT"
+	desc = AI_EVENT
 	picture = GFX_evt_emissary
 	
 	min_age = 20
@@ -804,7 +809,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "OK" # Ask liege for estates
+		name = OK # Ask liege for estates
 		liege = { character_event = { id = 37501 days = 3 } }
 	}
 }
@@ -812,13 +817,13 @@ character_event = {
 # Liege responds to the request
 character_event = {
 	id = 37501
-	desc = "EVTDESC37501"
+	desc = EVTDESC37501
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA37501" # Give him what he wants
+		name = EVTOPTA37501 # Give him what he wants
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -862,7 +867,7 @@ character_event = {
 		}			
 		FROM = { 
 			add_character_modifier = {
-				name = "estates_1" 
+				name = estates_1 
 				duration = -1
 			}
 			hidden_tooltip = {
@@ -872,7 +877,7 @@ character_event = {
 	}	
 	
 	option = {
-		name = "EVTOPTB37501" # Say you can't afford it
+		name = EVTOPTB37501 # Say you can't afford it
 		ai_chance = {
 			factor = 90
 		}			

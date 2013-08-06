@@ -61,6 +61,7 @@ province_event = {
 				}
 			}
 			any_neighbor_province = {
+				has_owner = yes
 				ROOT = {
 					owner = {
 						culture = PREVPREV
@@ -84,6 +85,7 @@ province_event = {
 			factor = 10
 			NOT = {
 				any_neighbor_province = {
+					has_owner = yes
 					ROOT = {
 						owner = {
 							culture = PREVPREV
@@ -104,6 +106,7 @@ province_event = {
 			factor = 5
 			NOT = {
 				any_neighbor_province = {
+					has_owner = yes
 					ROOT = {
 						owner = {
 							culture = PREVPREV
@@ -246,11 +249,11 @@ province_event = {
 			kingdom = {
 				OR = {
 					title = k_nikaea
-					title = k_rum
+					title = k_trebizond
 					title = k_armenia
 				}
 			}			
-			NOT = { year = 1150 }
+			NOT = { year = 1200 }
 		}		
 		modifier = {
 			factor = 0.5
@@ -395,7 +398,33 @@ character_event = {
 		capital_scope = {
 			religion = ROOT
 			NOT = { culture = ROOT }
-			any_neighbor_province = { culture = ROOT }			
+			any_neighbor_province = { has_owner = yes culture = ROOT }	
+			NOT = {
+				AND = {
+					culture = greek
+					ROOT = {
+						OR = {
+							religion = catholic
+							is_heresy_of = catholic
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					OR = {
+						culture = levantine_arabic
+						culture = egyptian_arabic
+						culture = bedouin_arabic
+					}
+					ROOT = {
+						OR = {
+							religion = catholic
+							is_heresy_of = catholic
+						}
+					}
+				}
+			}			
 			NOT = {
 				AND = {
 					culture = saxon
@@ -519,7 +548,7 @@ character_event = {
 		modifier = {
 			factor = 5.0
 			culture = turkish
-			NOT = { year = 1150 }
+			NOT = { year = 1200 }
 		}		
 		modifier = {
 			factor = 5.0
@@ -561,7 +590,7 @@ character_event = {
 				factor = 2
 				tier = duke
 			}
-			#catholics
+			#germanic + latin
 			modifier = {
 				factor = 100
 				OR = {
@@ -570,9 +599,6 @@ character_event = {
 					culture_group = west_germanic
 					culture_group = latin
 					culture_group = iberian
-					culture_group = celtic
-					culture_group = west_slavic
-					culture_group = magyar
 				}
 				capital_scope = {
 					NOT = {
@@ -581,12 +607,33 @@ character_event = {
 						culture_group = west_germanic
 						culture_group = latin
 						culture_group = iberian
-						culture_group = celtic
+					}
+				}
+			}
+			#west slavs
+			modifier = {
+				factor = 100
+				OR = {
+					culture_group = west_slavic
+					culture_group = magyar
+				}
+				capital_scope = {
+					NOT = {
 						culture_group = west_slavic
 						culture_group = magyar
 					}
 				}
-			}	
+			}
+			#celts
+			modifier = {
+				factor = 100
+				culture_group = celtic
+				capital_scope = {
+					NOT = {
+						culture_group = celtic
+					}
+				}
+			}			
 			#orthodox
 			modifier = {
 				factor = 100

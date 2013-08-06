@@ -49,7 +49,6 @@ on_yearly_pulse = {
 		100 = 30021
 		100 = 30025
 		100 = 30030
-		100 = 30040
 		100 = 30045
 		100 = 30050
 		100 = 30051
@@ -59,11 +58,6 @@ on_yearly_pulse = {
 		100 = 30057
 		100 = 30058
 		100 = 30059
-		100 = 30060
-		100 = 30063
-		100 = 30066
-		100 = 30069
-		100 = 30072
 		100 = 30075
 		100 = 30085
 		100 = 30100
@@ -104,8 +98,8 @@ on_yearly_pulse = {
 		250 = 66100
 		
 		#Hedge Knights Events
-		100 = 71000 
-		100 = 71006 
+		50 = 71000 
+		50 = 71006 
 		
 		#Rumours Events
 		10 = 69000
@@ -311,7 +305,6 @@ on_yearly_pulse = {
 		50 = 3495	
 		50 = 3280
 		50 = 3282
-		50 = 3283
 		50 = 3286
 		50 = 3710
 		50 = 3715
@@ -385,11 +378,13 @@ on_bi_yearly_pulse = {
 		100000 = 110046
 		100000 = 110047
 		100000 = 110048
+		100000 = 110028
+		100000 = 110063
 		
 		#Mid prio maintenance
 		10000 = 110043
-		10000 = 110066
-		10000 = 110067
+		10000 = 110075	
+		10000 = 110076		
 		
 		#Low prio maintenance
 		1000 = 110001		
@@ -402,11 +397,13 @@ on_bi_yearly_pulse = {
 		#Low chance maintenance
 		100 = 1400000	
 		100 = 110049		
-		100 = 110057
 		100 = 110058	
 
 		#Rare maintenance
 		20 = 110020
+		
+		#Very rare maintenance
+		5 = 1500050
 		
 		#Old age events
 		1000 = 300003
@@ -475,13 +472,17 @@ on_five_year_pulse = {
 		10 = 3440
 		10 = 3445
 		10 = 3450
-		10 = 3455		
+		10 = 3455	
+		10 = 3456		
 		
 		#Zealous
 		10 = 3460
 		10 = 3465
 		10 = 3470
 		10 = 3475
+		10 = 3476
+		10 = 3750
+		10 = 3755
 
 		#Trusting
 		10 = 3500
@@ -527,15 +528,12 @@ on_five_year_pulse = {
 		10 = 1046
 		10 = 1047
 		10 = 1048
-		10 = 1049
-		10 = 1050
 		10 = 1051
 		10 = 1052
 		10 = 1053
 		10 = 1054
 		10 = 1057
 		10 = 1058
-		10 = 1060
 		10 = 1070
 		10 = 3264
 		10 = 3730
@@ -581,6 +579,8 @@ on_yearly_childhood_pulse = {
 		100 = 1720
 		100 = 1730
 		100 = 1965
+		100 = 1632
+		100 = 1732
 		
 		#Toddler flavour events (age 2-5), not very common, but some will get them.
 		10 = 1900 
@@ -624,7 +624,7 @@ on_yearly_childhood_pulse = {
 		50 = 1934
 		50 = 1935
 		
-		750 = 0
+		1000 = 0
 	}
 }
 
@@ -649,6 +649,12 @@ on_combat_pulse = {
 		20 = 96500 # Gain Combat Trait 1
 		20 = 96501 # Gain Combat Trait 2
 		20 = 96502 # Gain Combat Trait 3
+		
+		20 = TOG.3000 # Becomes Berserker
+		15 = TOG.3001 # Berserker Maimed
+		20 = TOG.3002 # Berserker Wounded
+		15 = TOG.3003 # Berserker Killed
+		25 = TOG.3004 # Berserker Kills Many
 	}
 }
 
@@ -656,22 +662,22 @@ on_combat_pulse = {
 on_siege_pulse = {
 	random_events = {
 		200000 = 0
-		100 = 62000
-		100 = 62001
-		100 = 62003
-		100 = 62004
-		100 = 62005
-		100 = 62006
-		100 = 62007
-		100 = 62008
-		100 = 62009
-		100 = 62010
+		75 = 62000
+		75 = 62001
+		75 = 62003
+		75 = 62004
+		75 = 62005
+		75 = 62006
+		75 = 62007
+		75 = 62008
+		75 = 62009
+		75 = 62010
 		25 = 62014
-		100 = 62015
-		1 = 62011	
-		1 = 62012
-		1 = 62013
-		50 = 1059008
+		75 = 62015
+		15 = 62011	
+		15 = 62012
+		15 = 62013
+		100 = 1059008
 	}
 }
 
@@ -738,12 +744,9 @@ on_siege_won_leader = {
 		100 = 8340 # Finds the Spear of Destiny / Holy Lance
 		100 = 8342 # Finds the Holy Grail
 		500 = 8345 # Sack of Jerusalem
+		
 	}
 }
-
-#on_siege_lost = {
-#
-#}
 
 on_siege_lost_leader = {
 	events = {
@@ -751,13 +754,22 @@ on_siege_lost_leader = {
 	}
 }
 
-# Fires for all characters presumed to be in the Holding at the time. Siege winner unit owner in the 'new_character' scope, lost holding title in FROM, local character in ROOT.
-on_siege_over = {
-	random_events = {
-		300 = 0
-		3 = 62500 # Capture enemy character
- 		100 = SSI.61 # Aztec sacrifice
+# Fires for the owner of the winning unit (ROOT). The taken Holding title is in FROM.
+on_siege_over_winner = {
+	events = {
+		TOG.1005 # Peasants take county capital
+		TOG.1025 # Heretics take county capital
+		TOG.1045 # Nationalists take county capital
 	}
+}
+
+# Fires for all characters presumed to be in the Holding at the time. Siege winner unit owner in the 'new_character' scope, lost holding title in FROM, local character in ROOT.
+on_siege_over_loc_chars = {
+	random_events = {
+ 		1000 = 0 # Nothing happens
+ 		400 = SSI.61 # Aztec sacrifice
+ 		20 = 62100 # Character imprisoned
+ 	}
 }
 
 #character
@@ -796,8 +808,10 @@ on_assassination_disc = {
 on_birth = {
 	events = {
 		300 # A Bastard is born
+		312 # The child of a consort is born		
 		318 # A Bastard is born, but is not recognized as such by the mother's spouse (cuckoo!)
 		300002 # Various childbirth stuff
+		TOG.3206 # Child Perceived to be Demon Born
 	}
 }
 
@@ -807,15 +821,23 @@ on_pregnancy = {
  		400 # Pregnancy in matrimony
  		401 # Pregnancy out of wedlock
  		402 # Pregnancy in matrimony, with another father!
+ 		410 # Pregnancy as consort
+ 		412 # Pregnancy as consort, with another father!		
  	}
 }
 
 #character
 on_crusade_creation = {
 	events = {
- 		200 # Crusade against Muslims
- 		201 # Holy War against Pagans
+ 		200 # Christian Crusade against Muslims
+ 		201 # Christian Crusade against Pagans
+ 		321 # Christian Crusade against Heretics
  		320 # Jihad against Christians
+ 		322 # Jihad against Pagans
+ 		323 # Jihad against Heretics
+ 		324 # Pagan Holy War against Christians
+ 		325 # Pagan Holy War against Muslims
+ 		326 # Pagan Holy War against other Pagans
  	}
 }
 
@@ -823,7 +845,6 @@ on_crusade_creation = {
 on_marriage = {
 	events = {
  		500 # Royal Marriage Aid Duty
-		110066
  	}
 }
 
@@ -869,12 +890,38 @@ on_exiled = {
  	}
 }
 
+#character. Fires every month for characters who are preparing an invasion.
+on_prepared_invasion_monthly = {
+	random_events = {
+		50 = 0
+		15 = 62322 	# A small force flocks to your banner
+		15 = 62320 	# A significant force flocks to your banner
+		2 = 62321 	# A Hero joins your cause with his retinue
+	}
+}
+
+#character. Fires if a prepared invasion becomes invalid.
+on_prepared_invasion_aborts = {
+	events = {
+		62300 # Handle abort
+	}
+}
+
+#character. Fires if a prepared invasion expires.
+on_prepared_invasion_expires = {
+	events = {
+		62310 # Handle expiration
+	}
+}
+
 on_death = {
 	events = {
 		24500
 		24502
+		70041
 		38000
 		110044
+		88341
 	}
 	random_events = {
 		10 = 24505
@@ -922,6 +969,17 @@ on_letter_event_message = {
 on_character_event_message = {
 	events = {
 		2
+	}
+}
+
+on_loot_settlement = {
+	random_events = {
+		10 = TOG.3300
+		10 = TOG.3301
+		10 = TOG.3302
+		10 = TOG.3303
+		100 = TOG.3320
+		900 = 0
 	}
 }
 
@@ -1176,6 +1234,18 @@ DECLARE_WAR_INTERACTION_ACCEPT_EVENT = {
 	}
 }
 
+RETRACT_VASSAL_INTERACTION_ACCEPT_EVENT = {
+	events = {
+		274
+	}
+}
+
+RETRACT_VASSAL_INTERACTION_DECLINE_EVENT = {
+	events = {
+		275
+	}
+}
+
 INVITE_TO_COURT_INTERACTION_ACCEPT_EVENT = {
 	events = {
 		280
@@ -1248,6 +1318,18 @@ ASK_TO_EMBARGO_INTERACTION_DECLINE_EVENT = {
 	}
 }
 
+MAKE_CONSORT_INTERACTION_ACCEPT_EVENT = {
+	events = {
+		297
+	}
+}
+
+MAKE_CONSORT_INTERACTION_DECLINE_EVENT = {
+	events = {
+		298
+	}
+}
+
 # never triggered, but reserved for CB use
 on_warleader_death = {
 	events = {
@@ -1274,21 +1356,27 @@ on_approve_de_jure_law = {
 # When rebels appear
 on_rebel_revolt = {
 	events = {
-		1000025000 #600
+		600 		# Only valid without "The Old Gods" DLC
+		TOG.1030 	# Heretic rebels reinforced
+		TOG.1020	# Heretic rebels rise up
+		TOG.1050 	# Nationalist rebels reinforced
+		TOG.1040	# Nationalist rebels rise up
+		TOG.1010 	# Peasant rebels reinforced
+		TOG.1000 	# Peasant rebels rise up
 	}
 }
 
 # When province defects to rebels
 on_defect_to_rebels = {
 	events = {
-		610
+		610			# Only valid without "The Old Gods" DLC
 	}
 }
 
 # When rebels disperse
 on_defect_from_rebels = {
 	events = {
-		615
+		615			# Only valid without "The Old Gods" DLC
 	}
 }
 
@@ -1303,5 +1391,19 @@ on_crusade_success = {
 on_crusade_failure = {
 	events = {
 		621
+	}
+}
+
+# When a pagan ruler forces a prisoner to be his consort
+on_forced_consort = {
+	events = {
+		660
+	}
+}
+
+# When a pagan religion is reformed
+on_reform_religion = {
+	events = {
+		670
 	}
 }

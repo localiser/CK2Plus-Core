@@ -32,7 +32,7 @@ character_event = {
 				in_command = no
 				prisoner = no
 				NOT = { trait = incapable }
-				NOT = { reverse_opinion = { who = ROOT value = 20 } }
+				NOT = { reverse_opinion = { who = ROOT value = 0 } }
 				NOT = { has_dynasty_flag = the_victims }
 				NOT = { has_character_flag = the_grand_ball }
 			}
@@ -43,7 +43,7 @@ character_event = {
 					age = 16
 					in_command = no
 					prisoner = no
-					NOT = { reverse_opinion = { who = ROOT value = 20 } }
+					NOT = { reverse_opinion = { who = ROOT value = 0 } }
 					NOT = { trait = incapable }
 					NOT = { has_dynasty_flag = the_victims }
 					NOT = { has_character_flag = the_grand_ball }
@@ -55,27 +55,6 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 320
-		
-		modifier = {
-			factor = 0.8
-			NOT = { reverse_opinion = { who = ROOT value = -20 } }
-		}
-		modifier = {
-			factor = 0.8
-			NOT = { reverse_opinion = { who = ROOT value = -40 } }
-		}
-		modifier = {
-			factor = 0.8
-			NOT = { reverse_opinion = { who = ROOT value = -60 } }
-		}
-		modifier = {
-			factor = 0.8
-			NOT = { reverse_opinion = { who = ROOT value = -80 } }
-		}
-		modifier = {
-			factor = 0.6
-			NOT = { reverse_opinion = { who = ROOT value = -100 } }
-		}
 	}
 	
 	immediate = {
@@ -83,7 +62,11 @@ character_event = {
 			limit = {
 				liege = { 
 					ai = no
-					NOT = { has_dynasty_flag = the_victims }
+					NOT = {
+						reverse_opinion = { who = ROOT value = 0 }
+						has_dynasty_flag = the_victims
+						any_vassal = { ai = no }
+					}
 				}
 			}
 			liege = { 
@@ -93,7 +76,8 @@ character_event = {
 		}
 		if = {
 			limit = {
-				liege = { 
+				liege = {
+					ai = yes
 					any_vassal = {
 						is_patrician = yes
 						ai = no
@@ -109,7 +93,7 @@ character_event = {
 						age = 16
 						in_command = no
 						prisoner = no
-						NOT = { reverse_opinion = { who = ROOT value = 20 } }
+						NOT = { reverse_opinion = { who = ROOT value = 0 } }
 						NOT = { has_dynasty_flag = the_victims }
 					}
 					narrative_event = { id = REP.101 }
@@ -919,6 +903,7 @@ character_event = {
 					NOT = { trait = incapable }
 					any_child = {
 						age = 15
+						is_female = no
 						NOT = { 
 							age = 30 
 							trait = homosexual
@@ -943,6 +928,7 @@ character_event = {
 						NOT = { trait = incapable }
 						any_child = {
 							age = 15
+							is_female = no
 							NOT = { 
 								age = 30 
 								trait = homosexual
@@ -1037,6 +1023,7 @@ narrative_event = {
 		random_child = {
 			limit = {
 				age = 15
+				is_female = no
 				NOT = { 
 					age = 30 
 					trait = homosexual
@@ -1067,6 +1054,7 @@ narrative_event = {
 		random_child = {
 			limit = {
 				age = 15
+				is_female = no
 				NOT = { 
 					age = 30 
 					trait = homosexual
@@ -1212,6 +1200,8 @@ character_event = {
 	id = REP.167
 	hide_window = yes
 	
+	is_patrician = yes
+	
 	trigger = {
 		has_dlc = "The Republic"
 		has_dynasty_flag = feud_peace_2
@@ -1231,6 +1221,7 @@ character_event = {
 	}
 	
 	immediate = {
+		clr_dynasty_flag = feud_peace_2
 		if = {
 			limit = {
 				liege = { 
@@ -1240,6 +1231,7 @@ character_event = {
 			}
 			liege = { 
 				narrative_event = { id = REP.168 }
+				clr_dynasty_flag = feud_peace_1
 			}
 		}
 		if = {
@@ -1260,6 +1252,7 @@ character_event = {
 						has_dynasty_flag = feud_peace_1
 					}
 					narrative_event = { id = REP.168 }
+					clr_dynasty_flag = feud_peace_1
 				}
 			}
 		}
@@ -1323,6 +1316,7 @@ character_event = {
 				NOT = { has_dynasty_flag = smugglers_feud }
 				any_child = {
 					is_female = no
+					is_alive = yes
 					age = 16
 					NOT = { age = 35 }
 					in_command = no
@@ -1343,6 +1337,7 @@ character_event = {
 					NOT = { has_dynasty_flag = smugglers_feud }
 					any_child = {
 						is_female = no
+						is_alive = yes
 						age = 16
 						NOT = { age = 35 }
 						in_command = no
@@ -1375,6 +1370,7 @@ character_event = {
 				random_child = {
 					limit = {
 						is_female = no
+						is_alive = yes
 						age = 16
 						NOT = { age = 35 }
 						in_command = no
@@ -1409,6 +1405,7 @@ character_event = {
 					random_child = {
 						limit = {
 							is_female = no
+							is_alive = yes
 							age = 16
 							NOT = { age = 35 }
 							in_command = no

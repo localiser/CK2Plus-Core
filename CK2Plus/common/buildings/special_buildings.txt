@@ -1,6 +1,7 @@
 castle = {
 	#Extra troops for holy orders
 	ca_order_house = {
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		potential = {
 			FROM = {
 				independent = yes
@@ -11,7 +12,7 @@ castle = {
 					has_landed_title = d_ghazi_sunni
 					has_landed_title = d_ghazi_shiite
 					has_landed_title = d_hashshashin
-					has_landed_title = d_ulfheonar
+					has_landed_title = d_jomsvikings
 					has_landed_title = d_devotees_of_the_true_prophet
 					has_landed_title = d_great_host
 					has_landed_title = d_guardians_of_the_sacred_flame
@@ -26,13 +27,13 @@ castle = {
 		archers = 150
 		ai_creation_factor = 10000
 
-		start = {
-			year = 1066
-		}
+		extra_tech_building_start = -1.0
 	}	
 	#Special baltic tribes building
 	ca_culture_group_baltic_0 = {
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		potential = {
+			always = no
 			NOT = { has_global_flag = shattered_world }
 			FROM = {
 				religion_group = pagan_group
@@ -46,25 +47,7 @@ castle = {
 		archers = 100
 		ai_creation_factor = 100
 
-		start = {
-			year = 1066
-		}
-	}
-
-	ca_con_wall_6 = { # Theodosian Walls
-		potential = {
-			FROMFROM = { title = b_constantinople }
-		}
-		desc = ca_con_wall_6_desc
-		upgrades_from = ca_wall_5
-		build_cost = 150
-		build_time = 1460 #4y
-		fort_level = 4.0
-		ai_creation_factor = 86
-
-		start = {
-			year = 1066
-		}
+		extra_tech_building_start = -1.0
 	}
 }
 # City
@@ -84,9 +67,7 @@ city = {
 		tax_income = 2
 		ai_creation_factor = 1
 
-		start = {
-			year = 1500
-		}
+		extra_tech_building_start = 10.0
 	}
 	ct_jewish_community_2 = {
 		upgrades_from = ct_jewish_community_1
@@ -104,9 +85,7 @@ city = {
 		tax_income = 2
 		ai_creation_factor = 1
 
-		start = {
-			year = 1500
-		}
+		extra_tech_building_start = 10.0
 	}
 	ct_jewish_community_3 = {
 		upgrades_from = ct_jewish_community_2
@@ -124,8 +103,6 @@ city = {
 		tax_income = 2
 		ai_creation_factor = 1
 
-		start = {
-			year = 1500
-		}
+		extra_tech_building_start = 10.0
 	}
 }

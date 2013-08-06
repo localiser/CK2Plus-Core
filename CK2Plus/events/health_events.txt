@@ -11,8 +11,8 @@
 #Syphilitic
 character_event = {
 	id = 6000
-	desc = "EVTDESC6000"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6000
+	picture = GFX_evt_illness
 	
 	min_age = 16
 	capable_only = yes
@@ -104,7 +104,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6000"
+		name = EVTOPTA6000
 		add_trait = syphilitic
 	}
 }
@@ -112,8 +112,8 @@ character_event = {
 #Remove Syphilitic
 character_event = {
 	id = 6001
-	desc = "EVTDESC6001"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6001
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		health = 6
@@ -134,7 +134,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6001"
+		name = EVTOPTA6001
 		remove_trait = syphilitic
 	}
 }
@@ -142,8 +142,8 @@ character_event = {
 #Leper
 character_event = {
 	id = 6010
-	desc = "EVTDESC6010"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6010
+	picture = GFX_evt_illness
 	
 	min_age = 10
 	
@@ -168,7 +168,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6010"
+		name = EVTOPTA6010
 		add_trait = leper
 	}
 }
@@ -176,8 +176,8 @@ character_event = {
 #Remove Leper
 character_event = {
 	id = 6011
-	desc = "EVTDESC6011"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6011
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
@@ -192,17 +192,17 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6011"
+		name = EVTOPTA6011
 		remove_trait = leper
 		treasury = -25
 	}
 }
 
-#Lunatic
+#s
 character_event = {
 	id = 6020
-	desc = "EVTDESC6020"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6020
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
@@ -217,12 +217,8 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 20000
+		months = 10000
 		
-		modifier = {
-			factor = 0.5
-			trait = syphilitic
-		}
 		modifier = {
 			factor = 0.25
 			trait = depressed
@@ -246,7 +242,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6020"
+		name = EVTOPTA6020
 		add_trait = lunatic
 		remove_trait = depressed
 		remove_trait = stressed
@@ -256,22 +252,21 @@ character_event = {
 ### Remove Lunatic ###
 character_event = {
 	id = 6021
-	desc = "EVTDESC6021"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6021
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
 	trigger = {
 		health = 4
 		trait = lunatic
-		NOT = { trait = syphilitic }
 		NOT = {
 			religion_group = muslim
 		}
 	}
 	
 	mean_time_to_happen = {
-		months = 20000
+		months = 10000
 		modifier = {
 			factor = 0.5
 			health = 6
@@ -279,7 +274,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6021"
+		name = EVTOPTA6021
 		remove_trait = lunatic
 	}
 }
@@ -287,8 +282,8 @@ character_event = {
 ### Remove Lunatic - Muslim ###
 character_event = {
 	id = 6022
-	desc = "EVTDESC6022"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6022
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
@@ -308,7 +303,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6021"
+		name = EVTOPTA6021
 		remove_trait = lunatic
 	}
 }
@@ -316,8 +311,8 @@ character_event = {
 ### Possessed ###
 character_event = {
 	id = 6030
-	desc = "EVTDESC6030"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6030
+	picture = GFX_evt_lunatic
 	
 	min_age = 10
 	
@@ -331,7 +326,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 20000
+		months = 30000
 
 		modifier = {
 			factor = 0.75
@@ -348,7 +343,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6030"
+		name = EVTOPTA6030
 		add_trait = possessed
 	}
 }
@@ -356,8 +351,8 @@ character_event = {
 ### Remove Possessed ###
 character_event = {
 	id = 6031
-	desc = "EVTDESC6031"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6031
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
@@ -379,7 +374,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6031"
+		name = EVTOPTA6031
 		remove_trait = possessed
 		remove_character_modifier = voice_of_satan
 		remove_character_modifier = voice_of_jesus 
@@ -390,8 +385,8 @@ character_event = {
 ### Possessed - Muslim ###
 character_event = {
 	id = 6032
-	desc = "EVTDESC6032"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6032
+	picture = GFX_evt_lunatic
 	
 	min_age = 10
 	
@@ -403,7 +398,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 20000
+		months = 30000
 
 		modifier = {
 			factor = 0.75
@@ -420,7 +415,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6032"
+		name = EVTOPTA6032
 		add_trait = possessed
 	}
 }
@@ -428,8 +423,8 @@ character_event = {
 ### Remove Possessed - Muslim ###
 character_event = {
 	id = 6033
-	desc = "EVTDESC6033"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6033
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
@@ -449,7 +444,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6033"
+		name = EVTOPTA6033
 		remove_trait = possessed
 	}
 }
@@ -457,8 +452,8 @@ character_event = {
 #Stressed
 character_event = {
 	id = 6040
-	desc = "EVTDESC6040"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6040
+	picture = GFX_evt_lunatic
 	
 	min_age = 16
 	
@@ -504,7 +499,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6040"
+		name = EVTOPTA6040
 		add_trait = stressed
 	}
 }
@@ -512,8 +507,8 @@ character_event = {
 #Remove Stressed
 character_event = {
 	id = 6041
-	desc = "EVTDESC6041"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6041
+	picture = GFX_evt_recovery
 	
 	min_age = 16
 	
@@ -558,7 +553,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6041"
+		name = EVTOPTA6041
 		remove_trait = stressed
 	}
 }
@@ -566,8 +561,8 @@ character_event = {
 #Depressed
 character_event = {
 	id = 6050
-	desc = "EVTDESC6050"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6050
+	picture = GFX_evt_lunatic
 	
 	min_age = 10
 	
@@ -626,7 +621,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6050"
+		name = EVTOPTA6050
 		add_trait = depressed
 	}
 }
@@ -634,8 +629,8 @@ character_event = {
 #Remove Depressed
 character_event = {
 	id = 6051
-	desc = "EVTDESC6051"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6051
+	picture = GFX_evt_recovery
 	
 	min_age = 10
 	
@@ -689,7 +684,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6051"
+		name = EVTOPTA6051
 		remove_trait = depressed
 	}
 }
@@ -697,8 +692,8 @@ character_event = {
 #Ill
 character_event = {
 	id = 6060
-	desc = "EVTDESC6060"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6060
+	picture = GFX_evt_illness
 	
 	trigger = {
 		NOT = { trait = immortal }
@@ -714,7 +709,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 360
+		months = 480
 
 		modifier = {
 			factor = 0.35
@@ -733,7 +728,7 @@ character_event = {
 			trait = depressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			trait = stressed
 		}
 		modifier = {
@@ -763,7 +758,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6060"
+		name = EVTOPTA6060
 		add_trait = ill
 	}
 }
@@ -771,23 +766,22 @@ character_event = {
 #Remove Ill
 character_event = {
 	id = 6061
-	desc = "EVTDESC6061"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6061
+	picture = GFX_evt_recovery
 	
 	trigger = {
-		base_health = 3
 		trait = ill
 	}
 	
 	mean_time_to_happen = {
-		months = 12
+		months = 6
 		
 		modifier = {
 			factor = 2.0
 			trait = depressed
 		}
 		modifier = {
-			factor = 2.0
+			factor = 1.5
 			trait = stressed
 		}
 		modifier = {
@@ -799,10 +793,6 @@ character_event = {
 			has_character_modifier = the_dungeon
 		}		
 		modifier = {
-			factor = 0.2
-			base_health = 5
-		}
-		modifier = {
 			factor = 0.5
 			base_health = 6
 		}
@@ -810,10 +800,14 @@ character_event = {
 			factor = 0.5
 			base_health = 7
 		}
+		modifier = {
+			factor = 0.5
+			base_health = 8
+		}		
 	}
 	
 	option = {
-		name = "EVTOPTA6061"
+		name = EVTOPTA6061
 		remove_trait = ill
 	}
 }
@@ -821,8 +815,8 @@ character_event = {
 #Ill, commanding troops not in battle
 #character_event = {
 #	id = 6062
-#	desc = "EVTDESC6062"
-#	picture = "GFX_evt_illness"
+#	desc = EVTDESC6062
+#	picture = GFX_evt_illness
 #	
 #	prisoner = no
 #	capable_only = yes
@@ -848,44 +842,29 @@ character_event = {
 #	}
 #	
 #	option = {
-#		name = "EVTOPTA6062"
+#		name = EVTOPTA6062
 #		morale = -0.1
 #	}
 #	option = {
-#		name = "EVTOPTB6062"
+#		name = EVTOPTB6062
 #	}
 #}
 
 #Pneumonic
 character_event = {
 	id = 6070
-	desc = "EVTDESC6070"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6070
+	picture = GFX_evt_illness
 	
 	trigger = {
 		NOT = { trait = immortal }
-		OR = {
-			trait = ill
-			trait = has_measles
-		}
+		trait = ill
 		NOT = { trait = pneumonic }
 	}
 	
 	mean_time_to_happen = {
 		months = 240
-		
-		modifier = {
-			factor = 0.35
-			NOT = { age = 1 }
-		}	
-		modifier = {
-			factor = 0.35
-			NOT = { age = 3 }
-		}	
-		modifier = {
-			factor = 0.35
-			NOT = { age = 6 }
-		}		
+				
 		modifier = {
 			factor = 0.5
 			NOT = { base_health = 5 }
@@ -930,7 +909,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6070"
+		name = EVTOPTA6070
 		add_trait = pneumonic
 	}
 }
@@ -938,8 +917,8 @@ character_event = {
 #Remove Pneumonic
 character_event = {
 	id = 6071
-	desc = "EVTDESC6071"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6071
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		base_health = 4
@@ -987,7 +966,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6071"
+		name = EVTOPTA6071
 		remove_trait = pneumonic
 	}
 }
@@ -995,8 +974,8 @@ character_event = {
 #Wounded
 character_event = {
 	id = 6080
-	desc = "EVTDESC6080"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6080
+	picture = GFX_evt_illness
 	
 	trigger = {
 		OR = {
@@ -1039,7 +1018,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6080"
+		name = EVTOPTA6080
 		add_trait = wounded
 	}
 }
@@ -1047,8 +1026,8 @@ character_event = {
 #Remove Wounded
 character_event = {
 	id = 6081
-	desc = "EVTDESC6081"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6081
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		base_health = 4
@@ -1084,7 +1063,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6081"
+		name = EVTOPTA6081
 		trigger = {
 			random = 33
 		}		
@@ -1092,7 +1071,7 @@ character_event = {
 		add_trait = scarred	
 	}
 	option = {
-		name = "EVTOPTA6081"
+		name = EVTOPTA6081
 		trigger = {
 			NOT = { random = 33 }
 		}
@@ -1104,8 +1083,8 @@ character_event = {
 #Remove maimed
 character_event = {
 	id = 6083
-	desc = "EVTDESC6083"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6083
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		base_health = 4
@@ -1158,7 +1137,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA20033"
+		name = EVTOPTA20033
 		remove_trait = maimed
 		add_trait = scarred
 	}
@@ -1168,13 +1147,12 @@ character_event = {
 #illness from wound..
 character_event = {
 	id = 6082
-	desc = "EVTDESC6082"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6082
+	picture = GFX_evt_illness
 	
 	trigger = {
 		NOT = { trait = immortal }
 		trait = wounded
-		NOT = { base_health = 8 }
 		NOT = { trait = ill }
 		OR = {
 			NOT = { has_character_flag = illness_from_wound }
@@ -1192,11 +1170,6 @@ character_event = {
 			factor = 0.9
 			in_command = yes
 		}
-		
-		modifier = {
-			factor = 0.8
-			NOT = { base_health = 5 }
-		}
 		modifier = {
 			factor = 0.5
 			age = 60
@@ -1206,10 +1179,42 @@ character_event = {
 			age = 70
 		}
 		
+		modifier = {
+			factor = 0.5
+			trait = depressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = stressed
+		}
+		modifier = {
+			factor = 0.5
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.1
+			has_character_modifier = the_oubliette
+		}
+		modifier = {
+			factor = 0.25
+			has_character_modifier = the_dungeon
+		}
+		modifier = {
+			factor = 1.5
+			base_health = 6
+		}
+		modifier = {
+			factor = 2.0
+			base_health = 7
+		}
+		modifier = {
+			factor = 2.0
+			base_health = 8
+		}		
 	}
 	
 	option = {
-		name = "EVTOPTA6082"
+		name = EVTOPTA6082
 		add_trait = ill
 		set_character_flag = illness_from_wound
 	}
@@ -1219,8 +1224,8 @@ character_event = {
 #Infirm
 character_event = {
 	id = 6100
-	desc = "EVTDESC6100"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6100
+	picture = GFX_evt_illness
 	
 	min_age = 45
 	
@@ -1268,7 +1273,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6100"
+		name = EVTOPTA6100
 		add_trait = infirm
 	}
 }
@@ -1276,8 +1281,8 @@ character_event = {
 #Incapable
 character_event = {
 	id = 6110
-	desc = "EVTDESC6110"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6110
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		NOT = { trait = immortal }
@@ -1314,7 +1319,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6110"
+		name = EVTOPTA6110
 		add_trait = incapable
 		remove_trait = infirm
 	}
@@ -1323,8 +1328,8 @@ character_event = {
 #Recovery from Tuberculosis
 character_event = {
 	id = 6111
-	desc = "EVTDESC6111"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6111
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		trait = has_tuberculosis
@@ -1388,7 +1393,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6111"
+		name = EVTOPTA6111
 		remove_trait = has_tuberculosis
 	}
 }
@@ -1396,8 +1401,8 @@ character_event = {
 #Recovery from Typhoid Fever
 character_event = {
 	id = 6112
-	desc = "EVTDESC6112"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6112
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		trait = has_typhoid_fever
@@ -1461,7 +1466,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6112"
+		name = EVTOPTA6112
 		remove_trait = has_typhoid_fever
 	}
 }
@@ -1469,8 +1474,8 @@ character_event = {
 #Recovery from Typhus
 character_event = {
 	id = 6113
-	desc = "EVTDESC6113"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6113
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		trait = has_typhus
@@ -1534,7 +1539,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6113"
+		name = EVTOPTA6113
 		remove_trait = has_typhus
 	}
 }
@@ -1542,8 +1547,8 @@ character_event = {
 #Recovery from the PLAGUE!
 character_event = {
 	id = 6114
-	desc = "EVTDESC6114"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6114
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		trait = has_bubonic_plague
@@ -1606,7 +1611,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6114"
+		name = EVTOPTA6114
 		remove_trait = has_bubonic_plague
 	}
 }
@@ -1614,8 +1619,8 @@ character_event = {
 #Recovery from Measles
 character_event = {
 	id = 6115
-	desc = "EVTDESC6115"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6115
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		trait = has_measles
@@ -1679,7 +1684,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6115"
+		name = EVTOPTA6115
 		remove_trait = has_measles
 	}
 }
@@ -1687,8 +1692,8 @@ character_event = {
 #Recovery from Smallpox
 character_event = {
 	id = 6116
-	desc = "EVTDESC6116"
-	picture = "GFX_evt_recovery"
+	desc = EVTDESC6116
+	picture = GFX_evt_recovery
 	
 	trigger = {
 		trait = has_small_pox
@@ -1752,7 +1757,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6116"
+		name = EVTOPTA6116
 		remove_trait = has_small_pox
 	}
 }
@@ -1760,8 +1765,8 @@ character_event = {
 #I hear the voice of Jesus
 character_event = {
 	id = 6200
-	desc = "EVTDESC6200"
-	picture = "GFX_evt_whispers"
+	desc = EVTDESC6200
+	picture = GFX_evt_whispers
 	min_age = 10
 	
 	trigger = {
@@ -1844,7 +1849,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6200"
+		name = EVTOPTA6200
 		add_character_modifier = {
 			name = voice_of_jesus 
 			duration = -1
@@ -1855,8 +1860,8 @@ character_event = {
 #I give to the poor 
 character_event = {
 	id = 6201
-	desc = "EVTDESC6201"
-	picture = "GFX_evt_carriage"
+	desc = EVTDESC6201
+	picture = GFX_evt_carriage
 	
 	min_age = 16
 	
@@ -1874,7 +1879,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6201"
+		name = EVTOPTA6201
 		wealth = -50
 		piety = 50
 	}
@@ -1883,8 +1888,8 @@ character_event = {
 # I will wear a Cilice
 character_event = {
 	id = 6202
-	desc = "EVTDESC6202"
-	picture = "GFX_evt_garden"
+	desc = EVTDESC6202
+	picture = GFX_evt_garden
 	min_age = 16
 	
 	trigger = {
@@ -1896,7 +1901,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6202"
+		name = EVTOPTA6202
 		prestige = -100
 		piety = 100
 	}
@@ -1905,8 +1910,8 @@ character_event = {
 # Comet Sighted
 character_event = {
 	id = 6203
-	desc = "EVTDESC6203"
-	picture = "GFX_evt_comet"
+	desc = EVTDESC6203
+	picture = GFX_evt_comet
 	min_age = 16
 	
 	trigger = {
@@ -1925,7 +1930,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6203"
+		name = EVTOPTA6203
 		add_character_modifier = {
 			name = holy_comet
 			duration = -1			
@@ -1936,8 +1941,8 @@ character_event = {
 # I must leave behind my lust
 character_event = {
 	id = 6204
-	desc = "EVTDESC6204"
-	picture = "GFX_evt_brothel_scene"
+	desc = EVTDESC6204
+	picture = GFX_evt_brothel_scene
 	min_age = 16
 
 	trigger = {
@@ -1953,7 +1958,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6204"
+		name = EVTOPTA6204
 		remove_trait = lustful 
 		remove_trait = hedonist
 	}
@@ -1962,8 +1967,8 @@ character_event = {
 # I must lead life of the chaste
 character_event = {
 	id = 6205
-	desc = "EVTDESC6205"
-	picture =  "GFX_evt_garden"
+	desc = EVTDESC6205
+	picture =  GFX_evt_garden
 	min_age = 16
 
 	trigger = {
@@ -1979,7 +1984,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6205"
+		name = EVTOPTA6205
 		add_trait = chaste
 	}
 }
@@ -1987,8 +1992,8 @@ character_event = {
 # I must leave behind my guttony
 character_event = {
 	id = 6206
-	desc = "EVTDESC6206"
-	picture = "GFX_evt_banquet_hall_feast"
+	desc = EVTDESC6206
+	picture = GFX_evt_banquet_hall_feast
 	min_age = 16
 
 	trigger = {
@@ -2001,7 +2006,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6206"
+		name = EVTOPTA6206
 		remove_trait = gluttonous
 	}
 }
@@ -2009,8 +2014,8 @@ character_event = {
 # I must show temperance
 character_event = {
 	id = 6207
-	desc = "EVTDESC6207"
-	picture =  "GFX_evt_garden"
+	desc = EVTDESC6207
+	picture =  GFX_evt_garden
 	min_age = 16
 
 	trigger = {
@@ -2026,7 +2031,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6207"
+		name = EVTOPTA6207
 		add_trait = temperate
 	}
 }
@@ -2034,8 +2039,8 @@ character_event = {
 # I must leave behind my greed
 character_event = {
 	id = 6208
-	desc = "EVTDESC6208"
-	picture = "GFX_evt_drunk"
+	desc = EVTDESC6208
+	picture = GFX_evt_drunk
 	min_age = 16
 
 	trigger = {
@@ -2048,7 +2053,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6208"
+		name = EVTOPTA6208
 		remove_trait = greedy
 	}
 }
@@ -2056,8 +2061,8 @@ character_event = {
 # I must show charity
 character_event = {
 	id = 6209
-	desc = "EVTDESC6209"
-	picture =  "GFX_evt_garden"
+	desc = EVTDESC6209
+	picture =  GFX_evt_garden
 	min_age = 16
 
 	trigger = {
@@ -2073,7 +2078,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6209"
+		name = EVTOPTA6209
 		add_trait = charitable
 	}
 }
@@ -2081,8 +2086,8 @@ character_event = {
 # I must leave behind my sloth
 character_event = {
 	id = 6210
-	desc = "EVTDESC6210"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6210
+	picture = GFX_evt_illness
 	min_age = 16
 
 	trigger = {
@@ -2095,15 +2100,15 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6210"
+		name = EVTOPTA6210
 		remove_trait = slothful
 	}
 }
 #I must be more diligent
 character_event = {
 	id = 6211
-	desc = "EVTDESC6211"
-	picture =  "GFX_evt_garden"
+	desc = EVTDESC6211
+	picture =  GFX_evt_garden
 	min_age = 16
 
 	trigger = {
@@ -2119,7 +2124,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6211"
+		name = EVTOPTA6211
 		add_trait = diligent
 	}
 }
@@ -2127,8 +2132,8 @@ character_event = {
 # I must stop being envious
 character_event = {
 	id = 6212
-	desc = "EVTDESC6212"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6212
+	picture = GFX_evt_illness
 	min_age = 16
 
 	trigger = {
@@ -2141,15 +2146,15 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6212"
+		name = EVTOPTA6212
 		remove_trait = envious
 	}
 }
 #I must be kind
 character_event = {
 	id = 6213
-	desc = "EVTDESC6213"
-	picture =  "GFX_evt_garden"
+	desc = EVTDESC6213
+	picture =  GFX_evt_garden
 	min_age = 16
 
 	trigger = {
@@ -2165,7 +2170,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6213"
+		name = EVTOPTA6213
 		add_trait = kind
 	}
 }
@@ -2173,8 +2178,8 @@ character_event = {
 # My anger is consuming me
 character_event = {
 	id = 6214
-	desc = "EVTDESC6214"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6214
+	picture = GFX_evt_illness
 	min_age = 16
 
 	trigger = {
@@ -2187,7 +2192,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6214"
+		name = EVTOPTA6214
 		remove_trait = wroth
 	}
 }
@@ -2195,8 +2200,8 @@ character_event = {
 # I must be more patient
 character_event = {
 	id = 6215
-	desc = "EVTDESC6215"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6215
+	picture = GFX_evt_illness
 	min_age = 16
 
 	trigger = {
@@ -2212,7 +2217,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6215"
+		name = EVTOPTA6215
 		add_trait = patient
 	}
 }
@@ -2220,8 +2225,8 @@ character_event = {
 # My pride is too great
 character_event = {
 	id = 6216
-	desc = "EVTDESC6216"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6216
+	picture = GFX_evt_illness
 	min_age = 16
 
 	trigger = {
@@ -2234,7 +2239,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6216"
+		name = EVTOPTA6216
 		remove_trait = proud
 	}
 }
@@ -2242,8 +2247,8 @@ character_event = {
 # I must be more patient
 character_event = {
 	id = 6217
-	desc = "EVTDESC6217"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6217
+	picture = GFX_evt_illness
 	min_age = 16
 
 	trigger = {
@@ -2259,7 +2264,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6217"
+		name = EVTOPTA6217
 		add_trait = humble
 	}
 }
@@ -2267,8 +2272,8 @@ character_event = {
 #Jesus admits that the Bible is not 100% accurate
 character_event = {
 	id = 6218
-	desc = "EVTDESC6218"
-	picture = "GFX_evt_heretic"
+	desc = EVTDESC6218
+	picture = GFX_evt_heretic
 	min_age = 16
 	
 	trigger = {
@@ -2280,7 +2285,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6218"
+		name = EVTOPTA6218
 		become_heretic = yes
 	}
 }
@@ -2288,8 +2293,8 @@ character_event = {
 #Jesus hands out military advice
 character_event = {
 	id = 6219
-	desc = "EVTDESC6219"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC6219
+	picture = GFX_evt_battle
 	min_age = 16
 	
 	trigger = {
@@ -2305,7 +2310,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6219"
+		name = EVTOPTA6219
 		add_character_modifier = {
 			name = military_jesus
 			duration = -1
@@ -2316,8 +2321,8 @@ character_event = {
 #Jesus falls silent on military matters
 character_event = {
 	id = 6220
-	desc = "EVTDESC6220"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC6220
+	picture = GFX_evt_battle
 	min_age = 16
 	
 	trigger = {
@@ -2329,7 +2334,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6220"
+		name = EVTOPTA6220
 		remove_character_modifier = military_jesus
 	}
 }
@@ -2337,8 +2342,8 @@ character_event = {
 #The Holy Spirit Fills me
 character_event = {
 	id = 6221
-	desc = "EVTDESC6221"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC6221
+	picture = GFX_evt_battle
 	min_age = 16
 	
 	trigger = {
@@ -2354,7 +2359,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6221"
+		name = EVTOPTA6221
 		add_character_modifier = {
 			name = speaking_in_tounges
 			duration = -1
@@ -2365,8 +2370,8 @@ character_event = {
 #The Holy Spirit leaves me
 character_event = {
 	id = 6222
-	desc = "EVTDESC6222"
-	picture = "GFX_evt_battle"
+	desc = EVTDESC6222
+	picture = GFX_evt_battle
 	min_age = 16
 	
 	trigger = {
@@ -2378,7 +2383,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA6222"
+		name = EVTOPTA6222
 		remove_character_modifier = speaking_in_tounges
 	}
 }
@@ -2386,8 +2391,8 @@ character_event = {
 #I hear the voice, but I don't think it is Jesus
 character_event = {
 	id = 6223
-	desc = "EVTDESC6223"
-	picture = "GFX_evt_whispers"
+	desc = EVTDESC6223
+	picture = GFX_evt_whispers
 	min_age = 10
 	
 	trigger = {
@@ -2454,7 +2459,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6223"
+		name = EVTOPTA6223
 		add_character_modifier = {
 			name = voice_of_satan
 			duration = -1
@@ -2465,8 +2470,8 @@ character_event = {
 #Satan - torture prisoner
 character_event = {
 	id = 6224
-	desc = "EVTDESC6224"
-	picture = "GFX_evt_torture"
+	desc = EVTDESC6224
+	picture = GFX_evt_torture
 	
 	min_age = 16
 	only_rulers = yes
@@ -2487,7 +2492,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6224" 
+		name = EVTOPTA6224 
 		random_courtier = {
 			limit = {
 				prisoner = yes
@@ -2502,8 +2507,8 @@ character_event = {
 #Demon - homosexual
 character_event = {
 	id = 6225
-	desc = "EVTDESC6225"
-	picture = "GFX_evt_scandal"
+	desc = EVTDESC6225
+	picture = GFX_evt_scandal
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2517,7 +2522,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6225"
+		name = EVTOPTA6225
 		add_trait = homosexual
 	}
 }
@@ -2525,8 +2530,8 @@ character_event = {
 #Fish - intrigue
 character_event = {
 	id = 6226
-	desc = "EVTDESC6226"
-	picture = "GFX_evt_scandal"
+	desc = EVTDESC6226
+	picture = GFX_evt_scandal
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2540,7 +2545,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6226"
+		name = EVTOPTA6226
 		change_intrigue = 1
 	}
 }	
@@ -2548,8 +2553,8 @@ character_event = {
 #Asmodeus - remove chaste
 character_event = {
 	id = 6227
-	desc = "EVTDESC6227"
-	picture = "GFX_evt_brothel"
+	desc = EVTDESC6227
+	picture = GFX_evt_brothel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2561,7 +2566,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6227"
+		name = EVTOPTA6227
 		remove_trait = chaste
 	}
 }
@@ -2569,8 +2574,8 @@ character_event = {
 #Asmodeus - remove chaste
 character_event = {
 	id = 6228
-	desc = "EVTDESC6228"
-	picture = "GFX_evt_brothel"
+	desc = EVTDESC6228
+	picture = GFX_evt_brothel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2585,7 +2590,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6228"
+		name = EVTOPTA6228
 		remove_trait = chaste
 	}
 }
@@ -2593,8 +2598,8 @@ character_event = {
 #Satan - patient
 character_event = {
 	id = 6229
-	desc = "EVTDESC6229"
-	picture = "GFX_evt_quarrel"
+	desc = EVTDESC6229
+	picture = GFX_evt_quarrel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2606,7 +2611,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6229"
+		name = EVTOPTA6229
 		remove_trait = patient
 	}
 }
@@ -2614,8 +2619,8 @@ character_event = {
 #Voice - wroth
 character_event = {
 	id = 6230
-	desc = "EVTDESC6230"
-	picture = "GFX_evt_quarrel"
+	desc = EVTDESC6230
+	picture = GFX_evt_quarrel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2630,7 +2635,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6230"
+		name = EVTOPTA6230
 		add_trait = wroth
 	}
 }
@@ -2638,8 +2643,8 @@ character_event = {
 #Morning Star - humble
 character_event = {
 	id = 6231
-	desc = "EVTDESC6231"
-	picture = "GFX_evt_shadow"
+	desc = EVTDESC6231
+	picture = GFX_evt_shadow
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2651,7 +2656,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6231"
+		name = EVTOPTA6231
 		remove_trait = humble
 	}
 }
@@ -2659,8 +2664,8 @@ character_event = {
 #Lucifer - proud
 character_event = {
 	id = 6232
-	desc = "EVTDESC6232"
-	picture = "GFX_evt_shadow"
+	desc = EVTDESC6232
+	picture = GFX_evt_shadow
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2675,7 +2680,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6232"
+		name = EVTOPTA6232
 		add_trait = proud
 	}
 }
@@ -2683,8 +2688,8 @@ character_event = {
 #Lord of the Flies - remove temperate
 character_event = {
 	id = 6233
-	desc = "EVTDESC6233"
-	picture = "GFX_evt_quarrel"
+	desc = EVTDESC6233
+	picture = GFX_evt_quarrel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2696,7 +2701,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6233"
+		name = EVTOPTA6233
 		remove_trait = temperate
 	}
 }
@@ -2704,8 +2709,8 @@ character_event = {
 #Beelzebub - gluttonous
 character_event = {
 	id = 6234
-	desc = "EVTDESC6234"
-	picture = "GFX_evt_feast"
+	desc = EVTDESC6234
+	picture = GFX_evt_feast
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2720,7 +2725,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6234"
+		name = EVTOPTA6234
 		add_trait = gluttonous
 	}
 }
@@ -2728,8 +2733,8 @@ character_event = {
 #Mammon - remove charitable
 character_event = {
 	id = 6235
-	desc = "EVTDESC6235"
-	picture = "GFX_evt_quarrel"
+	desc = EVTDESC6235
+	picture = GFX_evt_quarrel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2741,7 +2746,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6235"
+		name = EVTOPTA6235
 		remove_trait = charitable
 	}
 }
@@ -2749,8 +2754,8 @@ character_event = {
 #Mammon - Greedy
 character_event = {
 	id = 6236
-	desc = "EVTDESC6236"
-	picture = "GFX_evt_feast"
+	desc = EVTDESC6236
+	picture = GFX_evt_feast
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2765,7 +2770,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6236"
+		name = EVTOPTA6236
 		add_trait = greedy
 	}
 }
@@ -2773,8 +2778,8 @@ character_event = {
 #Leviathan - Remove Kind
 character_event = {
 	id = 6237
-	desc = "EVTDESC6237"
-	picture = "GFX_evt_quarrel"
+	desc = EVTDESC6237
+	picture = GFX_evt_quarrel
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2786,7 +2791,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6237"
+		name = EVTOPTA6237
 		remove_trait = kind
 	}
 }
@@ -2794,8 +2799,8 @@ character_event = {
 #Leviathan - Envious
 character_event = {
 	id = 6238
-	desc = "EVTDESC6238"
-	picture = "GFX_evt_feast"
+	desc = EVTDESC6238
+	picture = GFX_evt_feast
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2810,7 +2815,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6238"
+		name = EVTOPTA6238
 		add_trait = envious
 	}
 }
@@ -2818,8 +2823,8 @@ character_event = {
 #Belphegor - Diligent
 character_event = {
 	id = 6239
-	desc = "EVTDESC6239"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6239
+	picture = GFX_evt_illness
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2831,7 +2836,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6239"
+		name = EVTOPTA6239
 		remove_trait = diligent
 	}
 }
@@ -2839,8 +2844,8 @@ character_event = {
 #Belphegor - Slothful
 character_event = {
 	id = 6240
-	desc = "EVTDESC6240"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6240
+	picture = GFX_evt_illness
 	
 	trigger = {
 		has_character_modifier = voice_of_satan
@@ -2855,7 +2860,7 @@ character_event = {
 	} 
 	
 	option = {
-		name = "EVTOPTA6240"
+		name = EVTOPTA6240
 		add_trait = slothful
 	}
 }
@@ -2865,8 +2870,8 @@ character_event = {
 # Ruler Implements New Law
 character_event = {
 	id = 6300
-	desc = "EVTDESC6300"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6300
+	picture = GFX_evt_lunatic
 	
 	min_age = 16
 	prisoner = no
@@ -2882,7 +2887,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6300"
+		name = EVTOPTA6300
 		tooltip_info = lunatic
 		character_event = { id = 6305 tooltip = EVTTOOLTIP6305 }
 		hidden_tooltip = {
@@ -2892,7 +2897,7 @@ character_event = {
 		}	
 	}
 	option = {
-		name = "EVTOPTB6300"
+		name = EVTOPTB6300
 		tooltip_info = lunatic
 		character_event = { id = 6306 tooltip = EVTTOOLTIP6306 }
 		hidden_tooltip = {
@@ -2902,7 +2907,7 @@ character_event = {
 		}	
 	}
 	option = {
-		name = "EVTOPTC6300"
+		name = EVTOPTC6300
 		tooltip_info = lunatic
 		character_event = { id = 6307 tooltip = EVTTOOLTIP6307 }
 		hidden_tooltip = {
@@ -2912,7 +2917,7 @@ character_event = {
 		}	
 	}
 	option = {
-		name = "EVTOPTD6300"
+		name = EVTOPTD6300
 		tooltip_info = lunatic
 		character_event = { id = 6308 tooltip = EVTTOOLTIP6308 }
 		hidden_tooltip = {
@@ -2926,14 +2931,14 @@ character_event = {
 # Turnip Law (Vassals)
 narrative_event = {
 	id = 6301
-	title = "EVTNAME6301"
-	desc = "EVTDESC6301"
-	picture = "GFX_evt_recieve_letter"
+	title = EVTNAME6301
+	desc = EVTDESC6301
+	picture = GFX_evt_recieve_letter
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6301"
+		name = EVTOPTA6301
 		custom_tooltip = ignore_law
 	}
 }
@@ -2941,14 +2946,14 @@ narrative_event = {
 # Pants Law (Vassals)
 narrative_event = {
 	id = 6302
-	title = "EVTNAME6302"
-	desc = "EVTDESC6302"
-	picture = "GFX_evt_recieve_letter"
+	title = EVTNAME6302
+	desc = EVTDESC6302
+	picture = GFX_evt_recieve_letter
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6302"
+		name = EVTOPTA6302
 		custom_tooltip = ignore_law
 	}
 }
@@ -2956,14 +2961,14 @@ narrative_event = {
 # Hole Law (Vassals)
 narrative_event = {
 	id = 6303
-	title = "EVTNAME6303"
-	desc = "EVTDESC6303"
-	picture = "GFX_evt_recieve_letter"
+	title = EVTNAME6303
+	desc = EVTDESC6303
+	picture = GFX_evt_recieve_letter
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6303"
+		name = EVTOPTA6303
 		custom_tooltip = ignore_law
 	}
 }
@@ -2971,14 +2976,14 @@ narrative_event = {
 # Violence Law (Vassals)
 narrative_event = {
 	id = 6304
-	title = "EVTNAME6304"
-	desc = "EVTDESC6304"
-	picture = "GFX_evt_recieve_letter"
+	title = EVTNAME6304
+	desc = EVTDESC6304
+	picture = GFX_evt_recieve_letter
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6304"
+		name = EVTOPTA6304
 		custom_tooltip = ignore_law
 	}
 }
@@ -2986,16 +2991,16 @@ narrative_event = {
 # Turnip Law (Liege)
 narrative_event = {
 	id = 6305
-	title = "EVTNAME6301"
-	desc = "EVTDESC6305"
-	picture = "GFX_evt_courier"
+	title = EVTNAME6301
+	desc = EVTDESC6305
+	picture = GFX_evt_courier
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6305"
+		name = EVTOPTA6305
 		any_vassal = {
 			opinion = {
 				modifier = opinion_insane_law
@@ -3008,16 +3013,16 @@ narrative_event = {
 # Pants Law (Liege)
 narrative_event = {
 	id = 6306
-	title = "EVTNAME6302"
-	desc = "EVTDESC6306"
-	picture = "GFX_evt_courier"
+	title = EVTNAME6302
+	desc = EVTDESC6306
+	picture = GFX_evt_courier
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6305"
+		name = EVTOPTA6305
 		any_vassal = {
 			opinion = {
 				modifier = opinion_insane_law
@@ -3030,16 +3035,16 @@ narrative_event = {
 # Hole Law (Liege)
 narrative_event = {
 	id = 6307
-	title = "EVTNAME6303"
-	desc = "EVTDESC6307"
-	picture = "GFX_evt_courier"
+	title = EVTNAME6303
+	desc = EVTDESC6307
+	picture = GFX_evt_courier
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6305"
+		name = EVTOPTA6305
 		any_vassal = {
 			opinion = {
 				modifier = opinion_insane_law
@@ -3052,16 +3057,16 @@ narrative_event = {
 # Violence Law (Liege)
 narrative_event = {
 	id = 6308
-	title = "EVTNAME6304"
-	desc = "EVTDESC6308"
-	picture = "GFX_evt_courier"
+	title = EVTNAME6304
+	desc = EVTDESC6308
+	picture = GFX_evt_courier
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6305"
+		name = EVTOPTA6305
 		any_vassal = {
 			opinion = {
 				modifier = opinion_insane_law
@@ -3076,8 +3081,8 @@ narrative_event = {
 # Gopher Maid
 character_event = {
 	id = 6315
-	desc = "EVTDESC6315"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6315
+	picture = GFX_evt_lunatic
 	
 	ai = no
 	min_age = 16
@@ -3092,7 +3097,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6315"
+		name = EVTOPTA6315
 		tooltip_info = lunatic
 		prestige = -20
 	}
@@ -3101,8 +3106,8 @@ character_event = {
 # Howling at the Moon
 character_event = {
 	id = 6316
-	desc = "EVTDESC6316"
-	picture = "GFX_evt_lunatic"
+	desc = EVTDESC6316
+	picture = GFX_evt_lunatic
 	
 	ai = no
 	min_age = 16
@@ -3117,7 +3122,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6316"
+		name = EVTOPTA6316
 		tooltip_info = lunatic
 		prestige = -20
 	}
@@ -3126,8 +3131,8 @@ character_event = {
 ### Horse Chancellor
 character_event = {
 	id = 6317
-	desc = "EVTDESC6317"
-	picture = "GFX_evt_courier"
+	desc = EVTDESC6317
+	picture = GFX_evt_courier
 	
 	min_age = 16
 	prisoner = no
@@ -3144,7 +3149,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6317"
+		name = EVTOPTA6317
 		tooltip_info = lunatic
 		job_chancellor = {
 			opinion = {
@@ -3163,13 +3168,13 @@ character_event = {
 # Chancellor informed
 character_event = {
 	id = 6318
-	desc = "EVTDESC6318"
-	picture = "GFX_evt_courier"
+	desc = EVTDESC6318
+	picture = GFX_evt_courier
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA6318"
+		name = EVTOPTA6318
 		prestige = -20
 		custom_tooltip = horse_chancellor
 	}
@@ -3179,8 +3184,8 @@ character_event = {
 #Wounded becomes Maimed
 character_event = {
 	id = 6600
-	desc = "EVTDESC6600"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6600
+	picture = GFX_evt_illness
 	
 	trigger = {
 		trait = wounded
@@ -3229,7 +3234,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6600"
+		name = EVTOPTA6600
 		random_list = {
 			25 = { death = { death_reason = death_accident } }
 			75 = {
@@ -3245,25 +3250,20 @@ character_event = {
 #Blinded
 character_event = {
 	id = 6601
-	desc = "EVTDESC6601"
-	picture = "GFX_evt_illness"
+	desc = EVTDESC6601
+	picture = GFX_evt_illness
 	
 	trigger = {
 		NOT = { trait = immortal }
-		OR = {
-			trait = ill
-			trait = pneumonic
-		}
-		NOT = { trait = pneumonic }
+		trait = ill
 	}
 	
 	immediate = {
 		remove_trait = ill
-		remove_trait = pneumonic	
 	}
 	
 	mean_time_to_happen = {
-		months = 1000
+		months = 3000
 			
 		modifier = {
 			factor = 0.5
@@ -3274,15 +3274,11 @@ character_event = {
 			NOT = { base_health = 4 }
 		}
 		modifier = {
-			factor = 0.5
-			trait = pneumonic
-		}
-		modifier = {
-			factor = 0.1
+			factor = 0.25
 			has_character_modifier = the_oubliette
 		}
 		modifier = {
-			factor = 0.25
+			factor = 0.5
 			has_character_modifier = the_dungeon
 		}		
 		modifier = {
@@ -3300,7 +3296,310 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA6601"
+		name = EVTOPTA6601
 		add_trait = blinded
 	}
+}
+
+### Lunatic Pagan series
+
+# Rats in the walls
+character_event = {
+	id = 6350
+	desc = EVTDESC6350
+	picture = GFX_evt_recovery
+	
+	min_age = 16
+	prisoner = no
+	only_rulers = yes
+	
+	trigger = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+		}
+		NOT = { has_character_flag = the_old_ones_are_waking }
+	}
+	
+	immediate = {
+		set_character_flag = the_old_ones_are_waking
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
+			NOT = { trait = lunatic }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA6350
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6350
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}
+}
+
+# Something in the well
+character_event = {
+	id = 6351
+	desc = EVTDESC6351
+	picture = GFX_evt_garden
+	
+	min_age = 16
+	prisoner = no
+	only_rulers = yes
+	
+	trigger = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+		}
+		NOT = { has_character_flag = the_old_ones_are_waking }
+	}
+	
+	immediate = {
+		set_character_flag = the_old_ones_are_waking
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
+			NOT = { trait = lunatic }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA6351
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6351
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}	
+}
+
+# Tomb raiding
+character_event = {
+	id = 6352
+	desc = EVTDESC6352
+	picture = GFX_evt_death
+	
+	min_age = 16
+	prisoner = no
+	only_rulers = yes
+	
+	trigger = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+		}
+		NOT = { has_character_flag = the_old_ones_are_waking }
+	}
+	
+	immediate = {
+		set_character_flag = the_old_ones_are_waking
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
+			NOT = { trait = lunatic }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA6352
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6352
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}	
+}
+
+# A law against the killing of cats
+character_event = {
+	id = 6353
+	desc = EVTDESC6353
+	picture = GFX_evt_burning_house
+	
+	min_age = 16
+	prisoner = no
+	only_rulers = yes
+	
+	trigger = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+		}
+		NOT = { has_character_flag = the_old_ones_are_waking }
+	}
+	
+	immediate = {
+		set_character_flag = the_old_ones_are_waking
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		modifier = {
+			factor = 100
+			NOT = { trait = lunatic }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA6353
+		if = {
+			limit = { NOT = { trait = lunatic } }
+			add_trait = lunatic
+		}
+		character_event = { id = 6354 days = 14 tooltip = EVTTOOLTIP6354 }
+	}
+	option = {
+		name = EVTOPTB6353
+		trigger = {
+			NOT = { trait = lunatic }
+		}
+	}	
+}
+
+# Visiting a quaint village
+character_event = {
+	id = 6354
+	desc = EVTDESC6354
+	picture = GFX_evt_shadowy_cabal
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA6354
+		character_event = { id = 6355 days = 7 tooltip = EVTTOOLTIP6355 }
+	}
+}
+
+# A seaside ritual
+character_event = {
+	id = 6355
+	desc = EVTDESC6355
+	picture = GFX_evt_shadowy_cabal
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA6355
+		change_learning = 1
+		character_event = { id = 6356 days = 1 tooltip = EVTTOOLTIP6356 }
+	}
+}
+
+# Something rises from the sea...
+character_event = {
+	id = 6356
+	desc = EVTDESC6356
+	picture = GFX_evt_shadowy_cabal
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA6356
+		piety = 100
+		death = { death_reason = death_sacrificed }
+	}
+	option = {
+		name = EVTOPTB6356
+		character_event = { id = 6357 days = 1 tooltip = EVTTOOLTIP6357 }
+	}
+}
+
+# Commendeer a longship
+character_event = {
+	id = 6357
+	desc = EVTDESC6357
+	picture = GFX_evt_kraken
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA6357
+		character_event = { id = 6358 days = 1 tooltip = EVTTOOLTIP6358 }
+	}
+}
+
+# Waking up
+character_event = {
+	id = 6358
+	desc = EVTDESC6358
+	picture = GFX_evt_recovery
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA6358
+		prestige = 100
+		if = {
+			limit = { lifestyle_traits = 1 }
+			change_learning = 1
+		}		
+		if = {
+			limit = { NOT = { lifestyle_traits = 1 } }
+			add_trait = scholar
+		}
+	}
+	option = {
+		name = EVTOPTB6358
+		add_character_modifier = { name = "killed_an_old_one" duration = 3635 }
+	}	
 }

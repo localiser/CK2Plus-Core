@@ -2,6 +2,8 @@
 # OPINION MODIFIERS
 ##########################################################################
 
+# inherit = yes  # Heirs inherit this opinion
+
 # Opinion modifiers can give a reason to do the following actions without penalties
 # prison_reason
 # banish_reason
@@ -17,7 +19,7 @@
 ##############
 
 same_dynasty = {
-	opinion = 10
+	opinion = 5
 }
 
 opinion_ally = {
@@ -58,7 +60,7 @@ de_jure_liege_hog = {
 
 # Not applied under Feudal Elective
 opinion_pretender = {
-	opinion = -50
+	opinion = -20
 }
 
 opinion_nominee = {
@@ -79,7 +81,7 @@ opinion_infidel = {
 	opinion = -20
 }
 opinion_heretic = {
-	opinion = -30
+	opinion = -50
 }
 opinion_related_religion = {
 	opinion = -10
@@ -174,12 +176,22 @@ opinion_friend = {
 
 # Dynasties with Divine Blood get this vassal opinion for marriages to close family members.
 opinion_divine_blood_marriage = {
-	opinion = 5
+	opinion = 10
 }
 
 # Dynasties with Divine Blood get this vassal opinion for marriages to non-dynasty members or too distant relatives
 opinion_non_divine_marriage = {
-	opinion = -5
+	opinion = -10
+}
+
+# Non-Temple vassal opinion for sacred marriage to close family members
+opinion_religious_divine_blood_marriage = {
+	opinion = 10
+}
+
+# Temple vassal opinion for sacred marriage to close family members
+opinion_priest_religious_divine_blood_marriage = {
+	opinion = 25
 }
 
 # In Merchant Republics, Patricians expect to be on the Council
@@ -197,9 +209,25 @@ opinion_royal_marriage = {
 	opinion = 30
 }
 
+# Heir Educated with Proper Culture
+opinion_heir_guardian_my_culture = {
+	opinion = 10
+}
+
+# Heir Educated with Foreign Culture
+opinion_heir_guardian_foreign_culture = {
+	opinion = -10
+}
+
 ###########
 # TIMED
 ###########
+
+opinion_looted = {
+	opinion = -40
+	months = 6
+	enemy = yes # this will make the characters enemies of eachother ( effectively at war )
+}
 
 # De jure vassals of titles you destroy get this
 opinion_destroyed_dj_liege_title = {
@@ -453,6 +481,11 @@ opinion_divorced = {
 	months = 240
 }
 
+opinion_set_aside = {
+	opinion = -25
+	months = 1200
+}
+
 opinion_entrusted_ward = {
 	opinion = 10
 	months = 120
@@ -474,6 +507,15 @@ opinion_traitor = {
 	prison_reason = yes # This one gives righteous cause to imprison a character
 	revoke_reason = yes # This one gives righteous cause to revoke ONE title
 	execute_reason = yes
+}
+
+opinion_rebel_traitor = {
+	opinion = -100
+	months = 1200
+	prison_reason = yes
+	revoke_reason = yes
+	execute_reason = yes
+	inherit = yes
 }
 
 opinion_lowered_crown_authority = {
@@ -518,6 +560,27 @@ opinion_spared_after_revolt = {
 opinion_fought_for_claimant = {
 	opinion = 50
 	months = 240
+}
+
+# This opinion is crucial to the Prepared Invasion mechanic
+preparing_to_invade = {
+	opinion = -10
+	months = 24
+	preparing_invasion = yes
+}
+
+# This opinion is crucial to the Prepared Invasion mechanic
+preparing_to_invade_me = {
+	opinion = -50
+	months = 24
+	inherit = yes
+	preparing_to_invade_me = yes
+}
+
+# Did not invade in a Prepared Invasion: lost face towards vassals
+opinion_failed_invasion = {
+	opinion = -25
+	months = 60
 }
 
 ###########
@@ -942,6 +1005,16 @@ not_feeling_apreciated = {
 	opinion = -10
 }
 
+opinion_evil_tyrant = {
+	opinion = -200
+	months = 1200
+}
+
+opinion_regent_lowered_CA = {
+	opinion = -50
+	months = 360
+}
+
 # Plot related
 attempted_murder_of_spouse = {
 	opinion = -100
@@ -972,6 +1045,7 @@ revealed_plot = {
 scheming_bastard = {
 	opinion = -25
 }
+
 #Dynastic Requests
 dynastic_refused_claim = {
 	opinion = -30
@@ -1795,7 +1869,8 @@ opinion_nomuslim = {
 }
 
 opinion_pleased = {
-	opinion = 10
+	opinion = 20
+	months = 120
 }
 
 opinion_sadaqah = {
@@ -2016,6 +2091,149 @@ opinion_burned_tp_despite_bribe = {
 	months = 120
 }
 
+opinion_forced_consort = {
+	opinion = -50
+	months = 1200
+}
+
+opinion_forced_wife_consort = {
+	opinion = -50
+	months = 1200
+}
+
+opinion_forced_relative_consort = {
+	opinion = -25
+	months = 1200
+}
+
+opinion_nerge_rival = {
+	opinion = -25
+	months = 36
+}
+
+opinion_held_nerge = {
+	opinion = 15
+	months = 12
+}
+
+opinion_punished_nerge = {
+	opinion = -15
+	months = 36
+}
+
+opinion_held_blot = {
+	opinion = 15
+	months = 12
+}
+
+opinion_feast_scandal = {
+	opinion = -15
+	months = 12
+}
+
+opinion_vomit = {
+	opinion = -30
+	months = 12
+}
+
+opinion_drinking_buddy = {
+	opinion = 15
+	months = 12
+}
+
+opinion_lustful_buddy = {
+	opinion = 15
+	months = 12
+}
+
+opinion_feast_friend = {
+	opinion = 30
+	months = 12
+}
+
+opinion_homosexual_sympathy = {
+	opinion = 15
+	months = 12
+}
+
+opinion_ukon_juhla = {
+	opinion = 15
+	months = 12
+}
+
+opinion_uzgavenes = {
+	opinion = 15
+	months = 12
+}
+
+opinion_refused_blot = {
+	opinion = -15
+	months = 12
+}
+
+opinion_refused_ukon_juhla = {
+	opinion = -10
+	months = 12
+}
+
+opinion_refused_uzgavenes = {
+	opinion = -10
+	months = 12
+}
+
+opinion_went_berserk = {
+	opinion = -30
+	months = 12
+}
+
+opinion_jarilo = {
+	opinion = 15
+	months = 12
+}
+
+opinion_refused_jarilo = {
+	opinion = -10
+	months = 12
+}
+
+opinion_represented_jarilo = {
+	opinion = 10
+	months = 12
+}
+
+opinion_mutual_respect = {
+	opinion = 15
+	months = 12
+}
+
+opinion_imprisoned_missionary = {
+	opinion = -20
+	months = 24
+}
+
+opinion_allowed_missionary = {
+	opinion = 10
+	months = 12
+}
+
+opinion_banished_missionary = {
+	opinion = -15
+	months = 12
+}
+
+opinion_sent_preacher = {
+	opinion = -10
+	months = 60
+}
+
+opinion_did_not_support_preacher = {
+	opinion = -5
+	months = 12
+}
+opinion_supported_preacher = {
+	opinion = 10
+	months = 12
+}
 
 ###########################################
 # Fake opinions to designate plot targets #
@@ -2024,4 +2242,19 @@ opinion_burned_tp_despite_bribe = {
 opinion_plot_weaken_fellow_vassal = {
 	opinion = 0
 	months = 2400
+}
+
+opinion_abducted_spouse = {
+	opinion = 0
+	months = 2400
+}
+
+opinion_claimant_adventure_target = {
+	opinion = 0
+	months = 24
+}
+
+opinion_duchy_adventure_target = {
+	opinion = 0
+	months = 24
 }

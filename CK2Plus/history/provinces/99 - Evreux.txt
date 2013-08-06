@@ -8,18 +8,24 @@ max_settlements = 4
 b_evreux = castle
 b_alencon = city
 b_lisieux = temple 
-b_argentan = castle
+#b_argentan = castle
 #b_honfleur = city
 #b_falaise = castle
 #b_sees = temple
 #b_verneuil = castle
 
 # Misc
-culture = norman
+culture = frankish
 religion = catholic
 
 # History
-1060.1.1 = { 
+911.1.1 = { # Viking takeover
+	remove_settlement = b_alencon
+	remove_settlement = b_lisieux
+	b_argentan = castle
+	b_alencon = city
+	b_lisieux = temple
+
 	b_evreux = ca_keep_1
 	b_evreux = ca_training_grounds_1
 	b_evreux = ca_stable_1
@@ -39,6 +45,13 @@ religion = catholic
 	b_argentan = ca_town_1
 	
 	b_alencon = ct_port_1
+}
+
+960.1.1 = {
+	culture = norman
+}
+
+1066.1.1 = {
 	b_alencon = ct_port_2
 	b_alencon = ct_port_3
 }

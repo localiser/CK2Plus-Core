@@ -8,7 +8,7 @@
 #Death of a loved wife...
 character_event = {
 	id = 24500	
-	desc = "EVTDESC24500"
+	desc = EVTDESC24500
 	picture = GFX_evt_death
 	
 	only_women = yes
@@ -39,7 +39,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA24500"
+		name = EVTOPTA24500
 		spouse = { character_event = { id = 24501 days = 64 tooltip = EVTTOOLTIP24501 } }
 	}
 }
@@ -47,7 +47,7 @@ character_event = {
 # and what happens...
 character_event = {
 	id = 24501
-	desc = "EVTDESC24501"
+	desc = EVTDESC24501
 	picture = GFX_evt_death
 
 	is_triggered_only = yes
@@ -59,7 +59,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA24501"
+		name = EVTOPTA24501
 		random_list = {
 			90 = {
 				add_trait = lustful
@@ -73,7 +73,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB24501"
+		name = EVTOPTB24501
 		add_trait = depressed
 		add_trait = celibate
 	}	
@@ -83,7 +83,7 @@ character_event = {
 #Death of a good son
 character_event = {
 	id = 24502
-	desc = "EVTDESC24502"
+	desc = EVTDESC24502
 	picture = GFX_evt_death
 	
 	is_triggered_only = yes
@@ -109,7 +109,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA24502"
+		name = EVTOPTA24502
 		father = { character_event = { id = 24503 days = 128 tooltip = EVTTOOLTIP24503 } }
 	}
 }
@@ -117,13 +117,13 @@ character_event = {
 # and what happens first...
 character_event = {
 	id = 24503
-	desc = "EVTDESC24503"
+	desc = EVTDESC24503
 	picture = GFX_evt_death
 
 	is_triggered_only = yes 
 	
 	option = {
-		name = "EVTOPTA24503"
+		name = EVTOPTA24503
 		trigger = {
 			is_married = yes
 			spouse = { 
@@ -135,7 +135,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB24503"
+		name = EVTOPTB24503
 		random_child = {
 			limit = { 
 				is_female = no
@@ -159,15 +159,15 @@ character_event = {
 #and the final part...
 character_event = {
 	id = 24504
-	desc = "EVTDESC24504"
+	desc = EVTDESC24504
 	picture = GFX_evt_death
 
 	is_triggered_only = yes 
 	
 	option = {
-		name = "EVTOPTA24504"
+		name = EVTOPTA24504
 		spouse = {
-			impregnate = prev 
+			impregnate_cuckoo = PREV
 			if = {
 				limit = {
 					NOT = { trait = depressed }
@@ -181,7 +181,7 @@ character_event = {
 #Suspicious death: Start
 character_event = {
 	id = 24505
-	desc = "EVTDESC24505"
+	desc = EVTDESC24505
 	picture = GFX_evt_death
 	
 	is_triggered_only = yes
@@ -220,7 +220,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA24505"
+		name = EVTOPTA24505
 		trigger = {
 			NOT = {
 				has_character_flag = murdered_by_guardian
@@ -241,13 +241,13 @@ character_event = {
 			}
 			character_event = {
 				id = 24506
-				tooltip = "EVTTOOLTIP24506"
+				tooltip = EVTTOOLTIP24506
 			}
 		}
 	}
 	
 	option = {
-		name = "EVTOPTA24505"
+		name = EVTOPTA24505
 		trigger = {
 			has_character_flag = murdered_by_guardian
 		}
@@ -261,7 +261,7 @@ character_event = {
 				set_character_flag = guardian_murdered_child
 				character_event = {
 					id = 24506
-					tooltip = "EVTTOOLTIP24506"
+					tooltip = EVTTOOLTIP24506
 				}
 			}
 		}
@@ -278,7 +278,7 @@ character_event = {
 				set_character_flag = guardian_murdered_child
 				character_event = {
 					id = 24506
-					tooltip = "EVTTOOLTIP24506"
+					tooltip = EVTTOOLTIP24506
 				}
 			}
 		}
@@ -289,13 +289,13 @@ character_event = {
 #Suspicious death: Courtier
 character_event = {
 	id = 24506
-	desc = "EVTDESC24506"
+	desc = EVTDESC24506
 	picture = GFX_evt_death
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA24506" #Keep my grudge
+		name = EVTOPTA24506 #Keep my grudge
 		trigger = {
 			NOT = {
 				has_character_flag = guardian_murdered_child
@@ -325,7 +325,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB24506"
+		name = EVTOPTB24506
 		trigger = {
 			is_ruler = yes
 			NOT = {
@@ -356,7 +356,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC24506"
+		name = EVTOPTC24506
 		trigger = {
 			is_ruler = no
 			NOT = {
@@ -383,12 +383,12 @@ character_event = {
 		liege = {
 			character_event = {
 				id = 24507
-				tooltip = "EVTTOOLTIP24507"
+				tooltip = EVTTOOLTIP24507
 			}
 		}
 	}
 	option = {
-		name = "EVTOPTA24506" #Keep my grudge
+		name = EVTOPTA24506 #Keep my grudge
 		trigger = {
 			has_character_flag = guardian_murdered_child
 		}
@@ -407,7 +407,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTB24506"
+		name = EVTOPTB24506
 		trigger = {
 			is_ruler = yes
 			has_character_flag = guardian_murdered_child
@@ -426,7 +426,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC24506"
+		name = EVTOPTC24506
 		trigger = {
 			is_ruler = no
 			has_character_flag = guardian_murdered_child
@@ -447,7 +447,7 @@ character_event = {
 		liege = {
 			character_event = {
 				id = 24507
-				tooltip = "EVTTOOLTIP24507"
+				tooltip = EVTTOOLTIP24507
 			}
 		}
 	}
@@ -456,13 +456,13 @@ character_event = {
 #Suspicious death: Liege
 character_event = {
 	id = 24507
-	desc = "EVTDESC24507"
+	desc = EVTDESC24507
 	picture = GFX_evt_death
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA24507" #Ignore
+		name = EVTOPTA24507 #Ignore
 		random_courtier = {
 			limit = {
 				has_character_flag = murder_suspect
@@ -484,7 +484,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB24507" #Imprison
+		name = EVTOPTB24507 #Imprison
 		random_courtier = {
 			limit = {
 				has_character_flag = murder_suspect
@@ -517,7 +517,7 @@ character_event = {
 #Death of a Councillor
 character_event = {
 	id = 24510
-	desc = "EVTDESC24510"
+	desc = EVTDESC24510
 	picture = GFX_evt_death
 	
 	is_triggered_only = yes
@@ -556,11 +556,11 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA24510"
+		name = EVTOPTA24510
 		liege = {
 			character_event = {
 				id = 4140
-				tooltip = "EVTTOOLTIP4140"
+				tooltip = EVTTOOLTIP4140
 			}
 		}
 	}
@@ -569,7 +569,7 @@ character_event = {
 #Funeral Procession
 character_event = {
 	id = 4140
-	desc = "EVTDESC4140"
+	desc = EVTDESC4140
 	picture = GFX_evt_death
 	
 	is_triggered_only = yes
@@ -579,20 +579,25 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA4140"
+		name = EVTOPTA4140
+		trigger = {
+			NOT = { trait = cynical }
+		}
 		piety = 10
 	}
 	
 	option = {
-		name = "EVTOPTB4140"
+		name = EVTOPTB4140
+		tooltip_info = cynical
 		trigger = {
-			NOT = { trait = cynical }
+			trait = cynical
+		
 		}
-		add_trait = cynical
+		piety = -10
 	}
 	
 	option = {
-		name = "EVTOPTC4140"
+		name = EVTOPTC4140
 		tooltip_info = charitable
 		trigger = {
 			trait = charitable
@@ -602,6 +607,7 @@ character_event = {
 				}
 			}
 		}
+		wealth = -5
 		FROM = {
 			spouse = {
 				opinion = {

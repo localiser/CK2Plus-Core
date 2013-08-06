@@ -15,7 +15,6 @@ character_event = {
 	desc = "EVTDESC76000"
 	picture = GFX_evt_lovers
 	
-	min_age = 16
 	max_age = 25
 	only_men = yes
 	only_rulers = yes
@@ -24,6 +23,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_marriage_adult = yes
 		is_married = no
 		NOT = {
 			trait = chaste
@@ -116,7 +116,7 @@ character_event = {
 		any_child = {
 			is_female = yes
 			is_alive = yes
-			age = 16
+			is_marriage_adult = yes
 			is_married = no
 			fertility = 0.4
 			NOT = {
@@ -158,7 +158,7 @@ character_event = {
 		random_child = {
 			limit = {
 				is_female = yes
-				age = 16
+				is_marriage_adult = yes
 				is_married = no
 				fertility = 0.4
 				NOT = {
@@ -192,7 +192,7 @@ character_event = {
 		random_child = {
 			limit = {
 				is_female = yes
-				age = 16
+				is_marriage_adult = yes
 				is_married = no
 				fertility = 0.4
 				NOT = {
@@ -313,7 +313,7 @@ character_event = {
 				limit = {
 					is_councillor = no
 					is_female = yes
-					age = 16
+					is_marriage_adult = yes
 					is_abroad = no
 					is_married = no
 					fertility = 0.6
@@ -372,7 +372,7 @@ character_event = {
 			limit = {
 				is_councillor = no
 				is_female = yes
-				age = 16
+				is_marriage_adult = yes
 				is_abroad = no
 				is_married = no
 				fertility = 0.6
@@ -440,7 +440,7 @@ character_event = {
 			trait = bastard
 			age = 0
 			NOT = {
-				age = 16
+				is_marriage_adult = yes
 			}
 		}
 	}
@@ -468,7 +468,7 @@ character_event = {
 				trait = bastard
 				age = 0
 				NOT = {
-					age = 16
+					is_marriage_adult = yes
 				}
 			}
 			set_character_flag = ruler_wants_me_dead
@@ -503,7 +503,7 @@ character_event = {
 			trait = bastard
 			is_female = no
 			is_ruler = no
-			age = 16
+			is_marriage_adult = yes
 			is_abroad = no
 		}
 	}
@@ -519,7 +519,7 @@ character_event = {
 				trait = bastard
 				is_female = no
 				is_ruler = no
-				age = 16
+				is_marriage_adult = yes
 				is_abroad = no
 			}
 			opinion = {
@@ -546,7 +546,7 @@ character_event = {
 				trait = bastard
 				is_female = no
 				is_ruler = no
-				age = 16
+				is_marriage_adult = yes
 				is_abroad = no
 			}
 			random = {
@@ -568,7 +568,7 @@ character_event = {
 				trait = bastard
 				is_female = no
 				is_ruler = no
-				age = 16
+				is_marriage_adult = yes
 				is_abroad = no
 			}
 			remove_trait = bastard
@@ -583,11 +583,10 @@ character_event = {
 	desc = "EVTDESC76020"
 	picture = GFX_evt_emissary
 	
-	min_age = 16
-	
 	is_triggered_only = yes
 	
 	trigger = {
+		is_marriage_adult = yes
 		trait = bastard
 		NOT = {
 			trait = lustful
@@ -735,11 +734,11 @@ character_event = {
 	desc = "EVTDESC76025"
 	picture = GFX_evt_birth
 	
-	min_age = 16
 	only_women = yes
 	is_triggered_only = yes
 	
 	trigger = {
+		is_marriage_adult = yes
 		NOT = {
 			has_character_flag = raising_bastard
 		}
@@ -752,7 +751,7 @@ character_event = {
 		any_child = {
 			age = 5
 			NOT = {
-				age = 16
+				is_marriage_adult = yes
 			}
 			trait = bastard
 			father = {
@@ -964,11 +963,11 @@ character_event = {
 	picture = GFX_evt_child_bully
 	
 	min_age = 6
-	max_age = 16
 	
 	is_triggered_only = yes
 	
 	trigger = {
+		is_marriage_adult = no
 		trait = bastard
 		father = {
 			is_ruler = yes
@@ -976,7 +975,7 @@ character_event = {
 			any_child = {
 				age = 6
 				NOT = {
-					age = 16
+					is_marriage_adult = yes
 				}
 				NOT = {
 					trait = bastard
@@ -995,7 +994,7 @@ character_event = {
 			limit = {
 				age = 6
 				NOT = {
-					age = 16
+					is_marriage_adult = yes
 				}
 			}
 			opinion = {
@@ -1039,7 +1038,7 @@ character_event = {
 					limit = {
 						age = 6
 						NOT = {
-							age = 16
+							is_marriage_adult = yes
 						}
 					}
 					opinion = {
@@ -1070,7 +1069,7 @@ character_event = {
 					limit = {
 						age = 6
 						NOT = {
-							age = 16
+							is_marriage_adult = yes
 						}
 					}
 					opinion = {
@@ -1093,7 +1092,7 @@ character_event = {
 					limit = {
 						age = 6
 						NOT = {
-							age = 16
+							is_marriage_adult = yes
 						}
 					}
 					opinion = {

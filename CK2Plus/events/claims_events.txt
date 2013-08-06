@@ -3,6 +3,7 @@ character_event = {
 	id = 1500050
 	picture = GFX_evt_emissary
 	only_rulers = yes
+	is_triggered_only = yes
 	
 	trigger = {	
 		OR = {
@@ -39,77 +40,55 @@ character_event = {
 	desc = "EVTDESC1500000"
 	
 	mean_time_to_happen = {
-		months = 1200
+		days = 1
 		modifier = {
 			factor = 0.5
-			independent = yes
-		}
+			ai = no
+		}			
 		modifier = {
-			factor = 0.75
-			ai = yes
-		}
+			factor = 0.5
+			independent = no
+		}		
 		modifier = {
-			factor = 0.75
+			factor = 2
 			has_global_flag = shattered_world
 			NOT = { year = 1150 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 2
 			has_global_flag = shattered_world
 			NOT = { year = 1100 }
 		}		
 		modifier = {
-			factor = 0.75
+			factor = 2
 			has_global_flag = shattered_world_no_dukes
 			NOT = { year = 1150 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 2
 			has_global_flag = shattered_world_no_dukes
 			NOT = { year = 1100 }
-		}
+		}	
 		modifier = {
-			factor = 0.1
+			factor = 100.0
 			has_global_flag = shattered_world_no_dukes
 			NOT = { year = 1070 }
 			NOT = { has_character_flag = claim_by_event }
 		}			
 		modifier = {
-			factor = 1.5
-			ai = yes
-			NOT = { difficulty = 1 }
-		}		
-		modifier = {
-			factor = 1.25
-			ai = yes
-			difficulty = 1
-			NOT = { difficulty = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			ai = yes
-			difficulty = 3
-			NOT = { difficulty = 4 }
-		}
-		modifier = {
-			factor = 0.66
-			ai = yes
-			difficulty = 4
-		}		
-		modifier = {
-			factor = 0.9
+			factor = 1.1
 			realm_diplomacy = 20
 		}
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			realm_diplomacy = 30
 		}	
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			realm_diplomacy = 40
 		}
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			realm_diplomacy = 50
 		}		
 	}

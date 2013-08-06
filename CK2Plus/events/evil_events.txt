@@ -7,200 +7,20 @@
 #############################################
 #Written by Johan Andersson
 
-
-#if low demesne efficiency => increase revolt risk in a province.
-province_event = {
-	id = 68000
-	desc = "EVTDESC68000"
-	picture = "GFX_evt_bandits"
-	
-	trigger = {
-		NOT = { owner = { demesne_efficiency = 1.0 } }
-		NOT = { has_province_modifier = incompetent_rule } 
-	}
-	
-	mean_time_to_happen = {
-		months = 1000
-		
-		#lower if really bad demesne efficiency
-		modifier = {
-			factor = 0.9
-			NOT = { owner = { demesne_efficiency = 0.9 } }
-		}
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { demesne_efficiency = 0.7 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { owner = { demesne_efficiency = 0.5 } }
-		}
-		modifier = {
-			factor = 0.3
-			NOT = { owner = { demesne_efficiency = 0.3 } }
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { owner = { demesne_efficiency = 0.1 } }
-		}
-
-		#traits affect this
-		modifier = {
-			factor = 1.5
-			owner = { trait = ambitious }
-		}		
-		modifier = {
-			factor = 5.0
-			owner = { trait = just }
-		}		
-		modifier = {
-			factor = 0.5
-			owner = { trait = arbitrary }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = greedy }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = cruel }
-		}		
-		modifier = {
-			factor = 0.1
-			owner = { trait = slothful }
-		}
-		modifier = {
-			factor = 0.2
-			owner = { trait = incapable }
-		}
-		modifier = {
-			factor = 0.1
-			owner = { trait = infirm }
-		}
-
-		#modify by stewardship and intrigue	
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { realm_stewardship = 15 } }
-		}
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { realm_stewardship = 10 } }
-		}
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { realm_stewardship = 5 } }
-		}	
-		modifier = {
-			factor = 2.0
-			owner = { realm_stewardship = 30 }
-		}
-		modifier = {
-			factor = 1.5
-			owner = { realm_stewardship = 40 }
-		}
-		modifier = {
-			factor = 2.0
-			owner = { realm_intrigue = 30 }
-		}
-		modifier = {
-			factor = 1.5
-			owner = { realm_intrigue = 40 }
-		}
-	}
-
-	option = {
-		name = "EVTOPTA68000"
-		add_province_modifier = {
-			name = incompetent_rule
-			duration = -1
-		}
-	}
-}
-
-
-province_event = {
-	id = 68001
-	desc = "EVTDESC68001"
-	picture = "GFX_evt_council"
-	
-	trigger = {
-		owner = { 
-			demesne_efficiency = 1.0
-			prisoner = no
-		}
-		has_province_modifier = incompetent_rule
-	}
-	
-	
-	mean_time_to_happen = {
-		months = 1			
-	}
-
-	option = {
-		name = "EVTOPTA68001"
-		trigger = {
-			NOT = {
-				religion_group = muslim
-			}
-		}
-		remove_province_modifier = incompetent_rule
-	}
-	option = {
-		name = "EVTOPTB68001"
-		trigger = {
-			religion_group = muslim
-		}
-		remove_province_modifier = incompetent_rule
-	}
-}
-
-
-#establishment of thieves_guild in a province, if low stewardship or low demesne efficiency.
+#establishment of thieves_guild in a province, if low stewardship
 province_event = {
 	id = 68010
 	desc = "EVTDESC68010"
 	picture = "GFX_evt_bandits"
 	
 	trigger = {
-		OR = {
-			NOT = { owner = { demesne_efficiency = 1.0 } }
-			NOT = { owner = { realm_stewardship = 20 } }
-		}
+		NOT = { owner = { realm_stewardship = 30 } }
 		NOT = { has_province_modifier = thieves_guild } 
 	}
 	
 	
 	mean_time_to_happen = {
 		months = 2600
-
-		#unlikely if demesne efficiency is good
-		modifier = {
-			factor = 2.0
-			owner = { demesne_efficiency = 1.0 }
-		}
-		
-		#lower if really bad demesne efficiency
-		modifier = {
-			factor = 0.9
-			NOT = { owner = { demesne_efficiency = 0.9 } }
-		}
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { demesne_efficiency = 0.7 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { owner = { demesne_efficiency = 0.5 } }
-		}
-		modifier = {
-			factor = 0.3
-			NOT = { owner = { demesne_efficiency = 0.3 } }
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { owner = { demesne_efficiency = 0.1 } }
-		}
 		
 		modifier = {
 			factor = 0.7
@@ -216,46 +36,8 @@ province_event = {
 		}
 		
 		modifier = {
-			factor = 1.5
-			owner = { realm_stewardship = 30 }
-		}
-		modifier = {
-			factor = 2.0
-			owner = { realm_stewardship = 40 }
-		}
-
-		#traits affect this
-		modifier = {
-			factor = 1.5
-			owner = { trait = ambitious }
-		}		
-		modifier = {
 			factor = 5.0
-			owner = { trait = just }
-		}		
-		modifier = {
-			factor = 0.5
-			owner = { trait = arbitrary }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = greedy }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = cruel }
-		}		
-		modifier = {
-			factor = 0.1
-			owner = { trait = slothful }
-		}
-		modifier = {
-			factor = 0.2
-			owner = { trait = incapable }
-		}
-		modifier = {
-			factor = 0.1
-			owner = { trait = infirm }
+			owner = { realm_stewardship = 20 }
 		}
 	}
 
@@ -268,7 +50,7 @@ province_event = {
 	}
 }
 
-#destruction of thieves_guild in a province, if high stewardship AND nice demesne efficiency.
+#destruction of thieves_guild in a province, if high stewardship
 province_event = {
 	id = 68011
 	desc = "EVTDESC68011"
@@ -276,10 +58,6 @@ province_event = {
 	picture = "GFX_evt_burning_house"
 	
 	trigger = {
-		owner = { 
-			demesne_efficiency = 1.0
-			prisoner = no
-		}
 		has_province_modifier = thieves_guild
 	}
 	
@@ -291,8 +69,8 @@ province_event = {
 			owner = { realm_stewardship = 20 }
 		}
 		modifier = {
-			factor = 0.75
-			owner = { realm_intrigue = 30 }
+			factor = 0.5
+			owner = { realm_stewardship = 30 }
 		}
 	
 		modifier = {
@@ -310,16 +88,13 @@ province_event = {
 
 
 
-#establishment of smugglers_ring in a province, if low diplomacy or low demesne efficiency.
+#establishment of smugglers_ring in a province, if low diplomacy
 province_event = {
 	id = 68020
 	desc = "EVTDESC68020"
 	
 	trigger = {
-		OR = {
-			NOT = { owner = { demesne_efficiency = 1.0 } }
-			NOT = { owner = { realm_diplomacy = 20 } }
-		}
+		NOT = { owner = { realm_diplomacy = 30 } }
 		NOT = { has_province_modifier = smugglers_ring } 
 	}
 	
@@ -329,33 +104,6 @@ province_event = {
 	mean_time_to_happen = {
 		months = 2600
 
-		#unlikely if demesne efficiency is good
-		modifier = {
-			factor = 2.0
-			owner = { demesne_efficiency = 1.0 }
-		}
-		
-		#lower if really bad demesne efficiency
-		modifier = {
-			factor = 0.9
-			NOT = { owner = { demesne_efficiency = 0.9 } }
-		}
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { demesne_efficiency = 0.7 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { owner = { demesne_efficiency = 0.5 } }
-		}
-		modifier = {
-			factor = 0.3
-			NOT = { owner = { demesne_efficiency = 0.3 } }
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { owner = { demesne_efficiency = 0.1 } }
-		}
 		modifier = {
 			factor = 0.7
 			NOT = { owner = { realm_diplomacy = 15 } }
@@ -370,46 +118,8 @@ province_event = {
 		}
 		
 		modifier = {
-			factor = 1.5
-			owner = { realm_diplomacy = 30 }
-		}
-		modifier = {
-			factor = 2.0
-			owner = { realm_diplomacy = 40 }
-		}
-
-		#traits affect this
-		modifier = {
-			factor = 1.5
-			owner = { trait = ambitious }
-		}		
-		modifier = {
 			factor = 5.0
-			owner = { trait = just }
-		}		
-		modifier = {
-			factor = 0.5
-			owner = { trait = arbitrary }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = greedy }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = cruel }
-		}		
-		modifier = {
-			factor = 0.1
-			owner = { trait = slothful }
-		}
-		modifier = {
-			factor = 0.2
-			owner = { trait = incapable }
-		}
-		modifier = {
-			factor = 0.1
-			owner = { trait = infirm }
+			owner = { realm_diplomacy = 20 }
 		}
 	}
 
@@ -422,7 +132,7 @@ province_event = {
 	}
 }
 
-#destruction of smugglers_ring in a province, if high diplomacy AND nice demesne efficiency.
+#destruction of smugglers_ring in a province
 province_event = {
 	id = 68021
 	desc = "EVTDESC68021"
@@ -430,10 +140,6 @@ province_event = {
 	picture = "GFX_evt_burning_house"
 	
 	trigger = {
-		owner = { 
-			demesne_efficiency = 1.0
-			prisoner = no
-		}
 		has_province_modifier = smugglers_ring
 	}
 	
@@ -444,8 +150,8 @@ province_event = {
 			owner = { realm_diplomacy = 20 }
 		}
 		modifier = {
-			factor = 0.75
-			owner = { realm_intrigue = 30 }
+			factor = 0.5
+			owner = { realm_diplomacy = 30 }
 		}
 	
 		modifier = {
@@ -459,7 +165,7 @@ province_event = {
 		remove_province_modifier = smugglers_ring
 	}
 }
-#establishment of highway_robber_band in a province, if low martial or low demesne efficiency.
+#establishment of highway_robber_band in a province, if low martial
 province_event = {
 	id = 68030
 	desc = "EVTDESC68030"
@@ -467,44 +173,13 @@ province_event = {
 	picture = "GFX_evt_bandits"
 	
 	trigger = {
-		OR = {
-			NOT = { owner = { demesne_efficiency = 1.0 } }
-			NOT = { owner = { realm_martial = 20 } }
-		}
+		NOT = { owner = { realm_martial = 30 } }
 		NOT = { has_province_modifier = highway_robber_band } 
 	}
 	
 	
 	mean_time_to_happen = {
 		months = 2600
-
-		#unlikely if demesne efficiency is good
-		modifier = {
-			factor = 2.0
-			owner = { demesne_efficiency = 1.0 }
-		}
-		
-		#lower if really bad demesne efficiency
-		modifier = {
-			factor = 0.9
-			NOT = { owner = { demesne_efficiency = 0.9 } }
-		}
-		modifier = {
-			factor = 0.7
-			NOT = { owner = { demesne_efficiency = 0.7 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { owner = { demesne_efficiency = 0.5 } }
-		}
-		modifier = {
-			factor = 0.3
-			NOT = { owner = { demesne_efficiency = 0.3 } }
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { owner = { demesne_efficiency = 0.1 } }
-		}
 		
 		modifier = {
 			factor = 0.7
@@ -519,46 +194,8 @@ province_event = {
 			NOT = { owner = { realm_martial = 5 } }
 		}
 		modifier = {
-			factor = 1.5
-			owner = { realm_martial = 30 }
-		}
-		modifier = {
-			factor = 2.0
-			owner = { realm_martial = 40 }
-		}
-
-		#traits affect this
-		modifier = {
-			factor = 1.5
-			owner = { trait = ambitious }
-		}		
-		modifier = {
 			factor = 5.0
-			owner = { trait = just }
-		}		
-		modifier = {
-			factor = 0.5
-			owner = { trait = arbitrary }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = greedy }
-		}
-		modifier = {
-			factor = 0.7
-			owner = { trait = cruel }
-		}		
-		modifier = {
-			factor = 0.1
-			owner = { trait = slothful }
-		}
-		modifier = {
-			factor = 0.2
-			owner = { trait = incapable }
-		}
-		modifier = {
-			factor = 0.1
-			owner = { trait = infirm }
+			owner = { realm_martial = 20 }
 		}
 	}
 
@@ -570,17 +207,13 @@ province_event = {
 		}
 	}
 }
-#destruction of highway_robber_band in a province, if high martial AND nice demesne efficiency.
+#destruction of highway_robber_band in a province
 province_event = {
 	id = 68031
 	desc = "EVTDESC68031"
 	picture = "GFX_evt_burning_house"
 	
 	trigger = {
-		owner = { 
-			demesne_efficiency = 1.0
-			prisoner = no
-		}
 		has_province_modifier = highway_robber_band
 	}
 	
@@ -592,8 +225,8 @@ province_event = {
 			owner = { realm_martial = 20 }
 		}
 		modifier = {
-			factor = 0.75
-			owner = { realm_intrigue = 30 }
+			factor = 0.5
+			owner = { realm_martial = 30 }
 		}
 	
 		modifier = {

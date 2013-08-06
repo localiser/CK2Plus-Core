@@ -273,17 +273,12 @@ province_event = {
 						}
 					}
 				}
-				set_character_flag = tournament_has_ended_furusiyya
 				opinion = {
 					modifier = opinion_tournament_participant
 					who = PREV
 					years = 2
 				}				
-				reverse_opinion = {
-					modifier = opinion_tournament_participant
-					who = PREV
-					years = 2
-				}
+				set_character_flag = tournament_has_ended_furusiyya
 				clr_character_flag = attending_tournament_furusiyya
 				clr_character_flag = attending_tournament_event_furusiyya
 			}
@@ -1993,12 +1988,10 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA88284"
-		FROM = {
-			opinion = {
-				modifier = opinion_tournament_winner
-				who = ROOT
-				years = 20
-			}
+		opinion = {
+			modifier = opinion_tournament_winner
+			who = FROM
+			years = 20
 		}
 	}
 }
@@ -2200,12 +2193,10 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA88285"
-		FROM = {
-			opinion = {
-				modifier = opinion_tournament_second_place
-				who = ROOT
-				years = 15
-			}
+		opinion = {
+			modifier = opinion_tournament_second_place
+			who = FROM
+			years = 15
 		}
 	}
 }
@@ -2408,12 +2399,10 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA88286"
-		FROM = {
-			opinion = {
-				modifier = opinion_tournament_third_place
-				who = ROOT
-				years = 10
-			}
+		opinion = {
+			modifier = opinion_tournament_third_place
+			who = FROM
+			years = 10
 		}
 	}
 }
@@ -3303,5 +3292,94 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA88303"
+	}
+}
+
+# Ruler has died, the tournament is over
+character_event = {
+	id = 88341
+	title = TOURNAMENTTITLE
+	desc = EVTDESC70041
+	picture = GFX_evt_death
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = tournament_begins_furusiyya
+	}
+	
+	option = {
+		name = EVTOPTA70041
+		clr_character_flag = tournament_begins_furusiyya
+		clr_character_flag = winner_furusiyya
+		clr_character_flag = second_place_furusiyya
+		clr_character_flag = third_place_furusiyya
+		clr_character_flag = attending_tournament_furusiyya
+		clr_character_flag = attending_tournament_event_furusiyya
+		clr_character_flag = tournament_third_place_furusiyya
+		clr_character_flag = tournament_second_place_furusiyya
+		clr_character_flag = tournament_winner_furusiyya
+		any_vassal = {
+			limit = {
+				has_character_flag = attending_tournament_furusiyya
+				NOT = {
+					character = PREV
+				}
+				NOT = {
+					has_character_flag = tournament_third_place_furusiyya
+				}
+				NOT = {
+					has_character_flag = tournament_second_place_furusiyya
+				}
+				NOT = {
+					has_character_flag = tournament_winner_furusiyya
+				}
+			}
+			set_character_flag = tournament_has_ended_furusiyya
+			clr_character_flag = attending_tournament_furusiyya
+			clr_character_flag = attending_tournament_event_furusiyya
+			letter_event = {
+				id = 70042
+				days = 2
+				random = 2
+				tooltip = EVTTOOLTIP70042
+			}
+		}
+		any_vassal = {
+			limit = {
+				has_character_flag = attending_tournament_furusiyya
+				OR = {
+					has_character_flag = tournament_third_place_furusiyya
+					has_character_flag = tournament_second_place_furusiyya
+					has_character_flag = tournament_winner_furusiyya
+				}
+			}
+			letter_event = {
+				id = 88342
+				days = 2
+				random = 2
+				tooltip = EVTTOOLTIP70042
+			}
+			set_character_flag = tournament_has_ended_furusiyya
+			clr_character_flag = tournament_third_place_furusiyya
+			clr_character_flag = tournament_second_place_furusiyya
+			clr_character_flag = tournament_winner_furusiyya
+			clr_character_flag = attending_tournament_furusiyya
+			clr_character_flag = attending_tournament_event_furusiyya
+		}
+	}
+}
+
+#The tournament has been cancelled due to Ruler's death
+letter_event = {
+	id = 88342
+	title = TOURNAMENTTITLE
+	desc = EVTDESC70042
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA70042
 	}
 }

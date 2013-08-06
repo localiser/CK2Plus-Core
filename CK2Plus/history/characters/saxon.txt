@@ -513,7 +513,7 @@
 		wealth = 250
 		raise_levies = {
 			location = 62
-			force_mult = 0.25
+			force_mult = 0.15
 		}
 	}
 	1066.10.14={
@@ -521,7 +521,7 @@
 		raise_levies = {
 			dismiss = yes
 			location = 62
-			force_mult = 0.25
+			force_mult = 0.15
 		}
 
 		death = {
@@ -577,7 +577,9 @@
 	}
 	1066.1.1={
 		employer=102531
-		give_job_title = job_marshal
+		effect = {
+			give_job_title = job_marshal
+		}
 	}
 	1066.1.1={
 		add_claim = c_york
@@ -1301,6 +1303,31 @@
 	}
 }
 
+6890 = {
+	name=Ecgwyn # Fantasy
+	female=yes
+	religion="catholic"
+	culture=saxon
+	828.1.1 = {
+		birth=yes
+	}
+	894.1.1 = {
+		death=yes
+	}
+}
+
+6891 = {
+	name=Burgflæd # Fantasy
+	female=yes
+	religion="catholic"
+	culture=saxon
+	845.1.1 = {
+		birth=yes
+	}
+	899.1.1 = {
+		death=yes
+	}
+}
 
 7387 = {
 	name="Hextilda"
@@ -1337,25 +1364,30 @@
 }
 
 7627 = {
-	name="Alfred"
+	name=Alfred
 	dynasty=100072
-	martial=4
-	diplomacy=6
+	martial=8
+	diplomacy=9
 	intrigue=7
-	stewardship=7
-	religion="catholic"
-	culture="saxon"
-	add_trait="honest"
-	add_trait="tough_soldier"
+	stewardship=8
+	learning = 6
+	religion=catholic
+	culture=saxon
+	add_trait=honest
+	add_trait=just
+	add_trait=gregarious
+	add_trait=diligent
+	add_trait=quick
+	add_trait=brilliant_strategist
 	father=33355
 	849.1.1={
-		birth="849.1.1"
+		birth=yes
 	}
 	890.1.1 = {
 		give_nickname=nick_the_great
 	}
 	899.10.26={
-		death="899.10.26"
+		death=yes
 	}
 }
 
@@ -2167,13 +2199,21 @@
 }
 
 163064 = {
-	name="Edmund"
+	name="Edmund" # of East Anglia
 	dynasty=626
 	religion="catholic"
 	culture="saxon"
 	840.1.1 = {
 		birth="840.1.1"
 	}
+	
+	866.11.2={
+		raise_levies = {
+			location=70 # Norfolk
+			force_mult=2.0
+		}
+	}
+	
 	869.11.20 = {
 		death="869.11.20"
 	}
@@ -2183,8 +2223,11 @@
 	dynasty=813
 	religion="catholic"
 	culture="saxon"
-	840.1.1 = {
-		birth="840.1.1"
+	830.1.1 = {
+		birth="830.1.1"
+	}
+	855.1.1 = {
+		add_spouse=168594
 	}
 	874.1.1 = {
 		death="874.1.1"
@@ -2196,10 +2239,175 @@
 	dynasty=814
 	religion="catholic"
 	culture="saxon"
+	martial=5
+	diplomacy=3
+	stewardship=3
+	intrigue=6
+	learning=5
+	add_trait=deceitful
+	add_trait=cruel
+	add_trait=arbitrary
+	add_trait=paranoid
+	add_trait=intricate_webweaver
+	
+	824.1.1 = {
+		birth=yes
+	}
+	
+	840.1.1 = {
+		add_spouse = 6890
+	}
+	
+	866.11.2={
+		raise_levies = {
+			location=52 # Northumberland
+			force_mult=2.0
+		}
+	}
+	
+	867.3.21 = {
+		death=yes
+	}
+}
+
+6861 = {
+	name="Blæja"
+	female=yes
+	dynasty=814
+	religion="catholic"
+	culture=saxon
+	father = 163103
+	mother = 6890
+	841.1.1={
+		birth=yes
+	}
+	893.1.1={
+		death=yes
+	}
+}
+
+6875 = {
+	name="Ælfgar"
+	dynasty=814
+	religion="catholic"
+	culture=saxon
+	father = 163103
+	mother = 6890
+	843.1.1={
+		birth=yes
+	}
+	866.1.1 = {
+		add_spouse = 6891
+	}
+	867.3.21={
+		death=yes
+	}
+}
+
+163120 = {
+	name="Eardulf" # Bishop of Durham/Lindisfarne
+	religion="catholic"
+	culture="saxon"
+	learning=5
+	add_trait=scholarly_theologian
+	
+	829.1.1 = {
+		birth="829.1.1"
+	}
+	900.1.1 = {
+		death="900.1.1"
+	}
+}
+
+163121 = {
+	name="Oswine" # Earl of Lancaster (made up)
+	religion="catholic"
+	culture="saxon"
+	
 	830.1.1 = {
 		birth="830.1.1"
 	}
-	867.3.21 = {
-		death="867.3.21"
+	880.1.1 = {
+		death="880.1.1"
+	}
+}
+
+163122 = {
+	name="Ælfwald" # Earl of Westmorland (made up)
+	religion="catholic"
+	culture="saxon"
+	
+	833.1.1 = {
+		birth="833.1.1"
+	}
+	880.1.1 = {
+		death="880.1.1"
+	}
+}
+
+163123 = {
+	name="Sæxræd" # Earl of Cumberland (made up)
+	religion="catholic"
+	culture="saxon"
+	
+	835.1.1 = {
+		birth="835.1.1"
+	}
+	885.1.1 = {
+		death="885.1.1"
+	}
+}
+159465 = {
+	name="Ælfræd" #Alured
+	religion="catholic"
+	culture="saxon"
+	dynasty=100031 #of Cornwall
+	father=159464
+	970.1.1={
+		birth="970.1.1"
+	}
+	1020.1.1={
+		death="1020.1.1"
+	}
+}
+159470 = {
+	name="Godwine"  #Godwyn
+	religion="catholic"
+	culture="saxon"
+	dynasty=100031 #of Cornwall
+	father=159465
+	1014.1.1={
+		birth="1014.1.1"
+	}
+	1070.1.1={
+		death="1070.1.1"
+	}
+}
+159471 = {
+	name="Hereberht" 
+	religion="catholic"
+	culture="saxon"
+	dynasty=100031
+	father=159470
+	1050.1.1={
+		birth="1050.1.1"
+	}
+	1100.1.1={
+		death="1100.1.1"
+	}
+}
+
+168594 = {
+	name="Æthelswith"
+	female=yes
+	dynasty=100072
+	religion="catholic"
+	culture="saxon"
+	father=33355
+	838.1.1={
+		birth=yes
+	}
+	888.1.1={
+		death=yes
 	}
 }

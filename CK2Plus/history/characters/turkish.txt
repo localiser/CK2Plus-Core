@@ -1,3 +1,18 @@
+74031 = {
+	name="Kurush"
+	dynasty=12274
+
+	culture="turkish"
+	religion="zoroastrian"
+
+	820.1.1={
+		birth="820.1.1"
+	}
+	872.1.1={
+		death="872.1.1"
+	}
+}
+
 144011 = {
 	name="Malik Shah"
 	dynasty=613
@@ -227,9 +242,17 @@
 144031 = {
 	name="Nur ad-Din Zangi"
 	dynasty=101687
+	martial=8
+	diplomacy=6
+	intrigue=6
+	stewardship=5
 	religion="sunni"
 	culture="turkish"
 	father = 144029
+	add_trait="skilled_tactician"
+	add_trait="ambitious"
+	add_trait="zealous"
+	add_trait="just"
 	1118.2.1={
 		birth="1118.2.1"
 	}
@@ -2929,19 +2952,19 @@
 		decadence = -25
 	}
 	1066.9.10 = {	
-		wealth=500
-		#raise_levies = {
-		#	location = 659
-		#	force_mult = 1.25
-		#}	
-	}
-	1071.8.26 = {	
-		#raise_levies = {
-		#	dismiss = yes
-		#	location = 659
-		#	force_mult = 1.25
-		#}	
+		wealth=1000	
+		raise_levies = {
+			location=670
+			force_mult=1.25
+		}		
 	}	
+	1071.8.26 = {
+		raise_levies = {
+			dismiss=yes
+			location=670
+			force_mult=1.25
+		}		
+	}
 	1072.11.1={
 		death="1072.11.1"
 	}
@@ -7833,5 +7856,170 @@
 	}
 	1369.1.1={
 		death="1369.1.1"
+	}
+}
+
+74029 = {
+	name="Kiliç"
+	dynasty=12272
+
+	culture="turkish"
+	religion="tengri_pagan"
+
+	837.1.1={
+		birth="837.1.1"
+	}
+	
+	867.1.1 = {
+		# Boost the initial strength of the Pechenegs
+		effect = {
+			spawn_unit = {
+				province = 900 # Kyzylorda
+				owner = ROOT
+				leader = ROOT
+				match_character = ROOT
+				match_mult = 0.5
+				attrition = 0.5
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 23
+				attributes = {
+					martial = 6
+				}
+				trait = skilled_tactician
+			}
+			new_character = {
+				spawn_unit = {
+					province = 900 # Kyzylorda
+					owner = ROOT
+					leader = THIS
+					match_character = ROOT
+					match_mult = 0.5
+					attrition = 0.5
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 27
+				attributes = {
+					martial = 6
+				}
+				trait = skilled_tactician
+			}
+			new_character = {
+				spawn_unit = {
+					province = 900 # Kyzylorda
+					owner = ROOT
+					leader = THIS
+					match_character = ROOT
+					match_mult = 0.5
+					attrition = 0.5
+				}
+			}
+		}
+	}
+	
+	891.1.1={
+		death="891.1.1"
+	}
+}
+74032 = {
+	name="Aksonqor"
+	dynasty=12272
+
+	father=74029
+
+	culture="turkish"
+	religion="tengri_pagan"
+
+	859.1.1={
+		birth="859.1.1"
+	}
+	922.1.1={
+		death="922.1.1"
+	}
+}
+
+163131 = {
+	name="Bugha"
+	dynasty=7519
+
+	culture="turkish"
+	religion="sunni"
+
+	817.1.1={
+		birth="817.1.1"
+	}
+	868.7.1={
+		death="868.7.1"
+	}
+}
+
+163132 = {
+	name="Musi"
+	dynasty=7517
+
+	culture="turkish"
+	religion="sunni"
+
+	817.1.1={
+		birth="817.1.1"
+	}
+	877.1.1={
+		death="877.1.1"
+	}
+}
+
+163135 = {
+	name="Ali"
+	dynasty=7520
+
+	culture="turkish"
+	religion="sunni"
+
+	840.1.1={
+		birth="840.1.1"
+	}
+	897.1.1={
+		death="897.1.1"
+	}
+}
+
+163136 = {
+	name="Abu Ja'far"
+	dynasty=7521
+
+	culture="turkish"
+	religion="sunni"
+
+	839.1.1={
+		birth="839.1.1"
+	}
+	899.1.1={
+		death="899.1.1"
+	}
+}
+
+163137 = {
+	name="Abu Husayan"
+	dynasty=7521
+
+	culture="turkish"
+	religion="sunni"
+
+	837.1.1={
+		birth="837.1.1"
+	}
+	896.1.1={
+		death="896.1.1"
 	}
 }

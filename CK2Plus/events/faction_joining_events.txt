@@ -1,0 +1,667 @@
+#Join/leave faction events
+character_event = {
+	id = 1910000
+	
+	trigger = {
+		ai = yes
+		is_ruler = yes
+		independent = no
+		is_patrician = no
+		OR = { higher_tier_than = baron is_patrician = yes }
+		NOT = { has_character_flag = faction_feudal_supporter }
+		NOT = { has_character_flag = faction_court_supporter }
+		NOT = { has_character_flag = faction_republican_supporter }
+		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}
+		liege = { higher_tier_than = duke }	
+		is_feudal = yes
+	}
+	
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		months = 6	
+		modifier = {
+			factor = 0.95
+			always = yes
+		}
+		modifier = {
+			factor = 1.25
+			religion_group = muslim
+		}		
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.75
+			trait = proud
+		}
+		modifier = {
+			factor = 0.9
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 0.9
+			trait = greedy
+		}			
+		modifier = {
+			factor = 2
+			trait = humble
+		}			
+		modifier = {
+			factor = 2
+			trait = content
+		}	
+		modifier = {
+			factor = 0.9
+			trait = hunter
+		}
+		modifier = {
+			factor = 0.9
+			trait = diligent
+		}			
+		modifier = {
+			factor = 0.9
+			trait = duelist
+		}
+		modifier = {
+			factor = 0.9
+			trait = envious
+		}
+		modifier = {
+			factor = 1.5
+			trait = kind
+		}
+		modifier = {
+			factor = 0.9
+			trait = wroth
+		}
+		modifier = {
+			factor = 0.9
+			trait = brave
+		}
+		modifier = {
+			factor = 2.0
+			trait = craven
+		}		
+		modifier = {
+			factor = 0.9
+			trait = cruel
+		}
+	}
+	
+	option = {
+		name = "OK"
+		set_character_flag = faction_feudal_supporter
+	}
+}
+
+character_event = {
+	id = 1910001
+	
+	trigger = {
+		ai = yes
+		is_ruler = yes
+		independent = no
+		is_patrician = no
+		OR = { higher_tier_than = baron is_patrician = yes }
+		NOT = { has_character_flag = faction_feudal_supporter }
+		NOT = { has_character_flag = faction_court_supporter }
+		NOT = { has_character_flag = faction_republican_supporter }
+		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}		
+		liege = { higher_tier_than = count }
+		OR = {
+			is_patrician = yes
+			is_republic = yes
+			is_merchant_republic = yes
+		}
+	}
+	
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 1.15
+			always = yes
+		}
+		modifier = {
+			factor = 0.25
+			liege = { 
+				NOT = {
+					is_patrician = yes
+					is_republic = yes
+					is_merchant_republic = yes
+				}			
+			}
+		}
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.5
+			trait = greedy
+		}
+		modifier = {
+			factor = 2
+			trait = charitable
+		}		
+		modifier = {
+			factor = 2
+			trait = humble
+		}
+		modifier = {
+			factor = 0.9
+			trait = diligent
+		}			
+		modifier = {
+			factor = 0.9
+			trait = envious
+		}
+		modifier = {
+			factor = 1.5
+			trait = kind
+		}		
+	}
+	
+	option = {
+		name = "OK"
+		set_character_flag = faction_republican_supporter
+	}
+}
+
+character_event = {
+	id = 1910002
+	
+	trigger = {
+		ai = yes
+		is_ruler = yes
+		independent = no
+		is_patrician = no
+		OR = { higher_tier_than = baron is_patrician = yes }
+		NOT = { has_character_flag = faction_feudal_supporter }
+		NOT = { has_character_flag = faction_court_supporter }
+		NOT = { has_character_flag = faction_republican_supporter }
+		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}		
+		liege = { higher_tier_than = count }		
+	}
+	
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 1.5
+			always = yes
+		}
+		modifier = {
+			factor = 100
+			NOT = {
+				#feudal faction already exists and has backing
+				liege = {
+					OR = {
+						lower_tier_than = king
+						any_vassal = {
+							NOT = {
+								leads_faction = faction_feudal_emperor
+								leads_faction = faction_feudal_king
+								leads_faction = faction_feudal_duke					
+							}
+							OR = {
+								in_faction = faction_feudal_emperor
+								in_faction = faction_feudal_king
+								in_faction = faction_feudal_duke
+							}
+						}
+					}
+				}
+				#court faction already exists and has backing
+				liege = {
+					any_vassal = {
+						NOT = {
+							leads_faction = faction_court_emperor
+							leads_faction = faction_court_king
+							leads_faction = faction_court_duke			
+						}			
+						OR = {
+							in_faction = faction_court_emperor
+							in_faction = faction_court_king
+							in_faction = faction_court_duke
+						}
+					}
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0.9
+			rightful_religious_head_scope = {
+				is_alive = yes
+				reverse_opinion = { who = ROOT value = 75 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			rightful_religious_head_scope = {
+				is_alive = yes
+				reverse_opinion = { who = ROOT value = 50 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			rightful_religious_head_scope = {
+				is_alive = yes
+				reverse_opinion = { who = ROOT value = 25 }
+			}
+		}		
+		modifier = {
+			factor = 1.25
+			rightful_religious_head_scope = {
+				is_alive = yes
+				NOT = { reverse_opinion = { who = ROOT value = 0 } }
+			}
+		}		
+		modifier = {
+			factor = 1.25
+			rightful_religious_head_scope = {
+				is_alive = yes
+				NOT = { reverse_opinion = { who = ROOT value = -25 } }
+			}
+		}	
+		modifier = {
+			factor = 1.25
+			rightful_religious_head_scope = {
+				is_alive = yes
+				NOT = { reverse_opinion = { who = ROOT value = -50 } }
+			}
+		}	
+		modifier = {
+			factor = 2
+			NOT = {
+				OR = {
+					trait = zealous
+					is_theocracy = yes
+					trait = detached_priest
+					trait = martial_cleric
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+				}
+			}
+		}
+		modifier = {
+			factor = 100
+			trait = cynical
+		}
+		modifier = {
+			factor = 10
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.5
+			trait = celibate
+		}		
+		modifier = {
+			factor = 4
+			trait = kinslayer
+		}
+		modifier = {
+			factor = 4
+			trait = impaler
+		}	
+		modifier = {
+			factor = 4
+			trait = homosexual
+		}		
+		modifier = {
+			factor = 2
+			trait = lustful
+		}			
+		modifier = {
+			factor = 0.9
+			trait = shy
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}	
+		modifier = {
+			factor = 0.9
+			trait = scholar
+		}	
+		modifier = {
+			factor = 0.9
+			trait = faqih
+		}
+		modifier = {
+			factor = 0.9
+			trait = hafiz
+		}		
+		modifier = {
+			factor = 0.9
+			trait = temperate
+		}
+		modifier = {
+			factor = 0.9
+			trait = charitable
+		}			
+		modifier = {
+			factor = 0.33
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 0.9
+			trait = hajjaj
+		}
+		modifier = {
+			factor = 0.9
+			OR = {
+				trait = crusader
+				trait = mujahid
+			}
+		}
+		modifier = {
+			factor = 0.9
+			trait = mystic
+		}
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.33
+			is_theocracy = yes
+		}
+		modifier = {
+			factor = 0.01
+			primary_title = {
+				OR = {
+					title = d_teutonic_order
+					title = d_knights_templar
+					title = d_knights_hospitaler
+					title = d_ghazi_sunni
+					title = d_ghazi_shiite
+					title = d_hashshashin
+					title = d_jomsvikings
+					title = d_devotees_of_the_true_prophet
+					title = d_great_host
+					title = d_guardians_of_the_sacred_flame
+					title = d_disciples_of_the_old_gods
+				}
+			}	
+		}		
+		modifier = {
+			factor = 0.75
+			religion_group = muslim
+		}
+		modifier = {
+			factor = 100
+			NOT = { piety = 0 }
+		}		
+		modifier = {
+			factor = 0.5
+			piety = 100
+		}			
+		modifier = {
+			factor = 0.5
+			piety = 250
+		}	
+		modifier = {
+			factor = 0.5
+			piety = 500
+		}	
+		modifier = {
+			factor = 0.5
+			piety = 750
+		}
+		modifier = {
+			factor = 0.5
+			piety = 1000
+		}			
+	}
+	
+	option = {
+		name = "OK"
+		set_character_flag = faction_religious_supporter
+	}
+}
+
+character_event = {
+	id = 1910003
+	
+	trigger = {
+		ai = yes
+		is_ruler = yes
+		independent = no
+		is_patrician = no
+		OR = { higher_tier_than = baron is_patrician = yes }
+		NOT = { has_character_flag = faction_feudal_supporter }
+		NOT = { has_character_flag = faction_court_supporter }
+		NOT = { has_character_flag = faction_republican_supporter }
+		NOT = { has_character_flag = faction_religious_supporter }
+		NOT = {
+			liege = {
+				current_heir = { character = ROOT }
+			}
+		}		
+		liege = { higher_tier_than = count }
+	}
+	
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		months = 6	
+		modifier = {
+			factor = 1.33
+			always = yes
+		}
+		modifier = {
+			factor = 100
+			NOT = {
+				#feudal faction already exists and has backing
+				liege = {
+					OR = {
+						lower_tier_than = king
+						any_vassal = {
+							NOT = {
+								leads_faction = faction_feudal_emperor
+								leads_faction = faction_feudal_king
+								leads_faction = faction_feudal_duke					
+							}
+							OR = {
+								in_faction = faction_feudal_emperor
+								in_faction = faction_feudal_king
+								in_faction = faction_feudal_duke
+							}
+						}
+					}
+				}				
+			}
+		}		
+		modifier = {
+			factor = 0.75
+			trait = humble
+		}	
+		modifier = {
+			factor = 0.75
+			trait = eunuch
+		}			
+		modifier = {
+			factor = 0.5
+			trait = content
+		}
+		modifier = {
+			factor = 0.9
+			trait = gregarious
+		}
+		modifier = {
+			factor = 100
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2
+			trait = brave
+		}
+		modifier = {
+			factor = 0.9
+			trait = craven
+		}				
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}	
+		modifier = {
+			factor = 1.5
+			trait = ugly
+		}		
+		modifier = {
+			factor = 0.75
+			trait = fair
+		}
+		modifier = {
+			factor = 0.9
+			trait = falconer
+		}			
+		modifier = {
+			factor = 0.9
+			trait = poet
+		}
+		modifier = {
+			factor = 0.9
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.9
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.9
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 0.9
+			trait = slothful
+		}				
+		modifier = {
+			factor = 0.9
+			OR = {
+				trait = charismatic_negotiator
+				trait = fortune_builder
+				trait = scholarly_theologian
+				trait = skilled_tactician
+				trait = intricate_webweaver
+			}
+		}			
+		modifier = {
+			factor = 0.75
+			OR = {
+				trait = grey_eminence
+				trait = midas_touched
+				trait = mastermind_theologian
+				trait = brilliant_strategist
+				trait = elusive_shadow
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_job_title = job_chancellor
+				has_job_title = job_treasurer
+				has_job_title = job_spymaster
+				has_job_title = job_marshal
+				has_job_title = job_spiritual
+			}
+		}		
+	}
+	
+	option = {
+		name = "OK"
+		set_character_flag = faction_court_supporter
+	}
+}
+
+character_event = {
+	id = 1910010
+	
+	trigger = {
+		ai = yes
+		war = no
+		is_ruler = yes
+		independent = no
+		age = 16
+		NOT = {
+			leads_faction = faction_feudal_emperor
+			leads_faction = faction_feudal_king
+			leads_faction = faction_feudal_duke
+			leads_faction = faction_republican_emperor
+			leads_faction = faction_republican_king
+			leads_faction = faction_republican_duke
+			leads_faction = faction_religious_emperor
+			leads_faction = faction_religious_king
+			leads_faction = faction_religious_duke
+			leads_faction = faction_court_emperor
+			leads_faction = faction_court_king
+			leads_faction = faction_court_duke			
+		}
+		OR = {
+			liege = {
+				current_heir = { character = ROOT }
+			}		
+			AND = {
+				has_character_flag = faction_feudal_supporter
+				OR = {
+					is_feudal = no
+					is_patrician = yes
+					liege = { lower_tier_than = king }
+				}			
+			}
+			AND = {
+				has_character_flag = faction_republican_supporter
+				is_patrician = no
+				is_republic = no
+				is_merchant_republic = no		
+			}
+			AND = {
+				has_character_flag = faction_religious_supporter
+				OR = {
+					trait = cynical
+					NOT = { piety = 0 }
+				}			
+			}
+		}
+	}
+		
+	desc = "AI_EVENT"
+
+	mean_time_to_happen = {
+		days = 1	
+	}
+	
+	option = {
+		name = "OK"		
+		clr_character_flag = faction_feudal_supporter
+		clr_character_flag = faction_court_supporter
+		clr_character_flag = faction_republican_supporter
+		clr_character_flag = faction_religious_supporter
+		clr_character_flag = faction_leader
+	}
+}

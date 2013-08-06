@@ -22,6 +22,10 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+		}	
 		is_married = yes
 		is_pregnant = no
 		prisoner = no
@@ -121,32 +125,41 @@ character_event = {
 		name = "EVTOPTA30000" #Separate bedchambers? Sure!
 		spouse = {
 			opinion = {
-				modifier = insulted
+				modifier = opinion_rival
 				who = ROOT
-				years = 5
+				years = 100
+			}
+			reverse_opinion = {
+				modifier = opinion_rival
+				who = ROOT
+				years = 100
 			}
 		}
 	}
 	
 	option = {
 		name = "EVTOPTB30000" #Let us rekindle our love!
-		spouse = {
-			opinion = {
-				modifier = opinion_rekindle_love
-				who = ROOT
-				years = 5
-			}
+		trigger = {
+			opinion = { who = ROOT value = -50 }
+			has_lover = no
 		}
-	}
-	
-	option = {
-		name = "EVTOPTC30000" #Whatever you say, honey
-		piety = 5
-		spouse = {
-			opinion = {
-				modifier = opinion_whipped
-				who = ROOT
-				years = 5
+		random_list = {
+			50 = {
+				add_lover = ROOT
+			}
+			50 = {
+				spouse = {
+					opinion = {
+						modifier = opinion_rival
+						who = ROOT
+						years = 100
+					}
+					reverse_opinion = {
+						modifier = opinion_rival
+						who = ROOT
+						years = 100
+					}
+				}
 			}
 		}
 	}
@@ -168,29 +181,26 @@ character_event = {
 	trigger = {
 		is_married = yes
 		religion = catholic
-		num_of_children = 1
-		any_child = {
-			is_primary_heir = yes
-			NOT = {
-				trait = bastard
-			}
-		}
 		spouse = {
 			prisoner = no
 			is_alive = yes
 			is_abroad = no
 			at_location = ROOT
 			NOT = {
-				num_of_children = 1
-			}
-			NOT = {
 				opinion = { who = ROOT value = -50 }
+				reverse_opinion = { who = ROOT value = -50 }
 			}
 		}
 	}
 	
 	mean_time_to_happen = {
 		days = 1
+		modifier = {
+			factor = 0.25
+			spouse = {
+				num_of_children = 1
+			}
+		}
 	}
 	
 	option = {
@@ -210,13 +220,6 @@ character_event = {
 	option = {
 		name = "EVTOPTB30001" #Let us try this one more time
 		piety = 5
-		spouse = {
-			reverse_opinion = {
-				modifier = opinion_rekindle_love
-				who = ROOT
-				years = 5
-			}
-		}
 	}
 }
 
@@ -1250,6 +1253,7 @@ character_event = {
 			at_location = ROOT
 			NOT = {
 				trait = incapable
+				host = { character = ROOT }
 			}
 		}
 		NOT = { has_character_flag = prisoner_spouse }
@@ -1547,241 +1551,6 @@ character_event = {
 	}	
 }
 
-#Annoying courtier
-character_event = {
-	id = 30040
-	desc = "EVTDESC30040"
-	picture = "GFX_evt_council"
-	
-	only_women = yes
-	capable_only = yes
-	prisoner = no
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		is_married = yes
-		NOT = { demesne_size = 1 }
-		NOT = { trait = humble }
-		NOT = { trait = kind }
-		spouse = {
-			NOT = { has_character_flag = lifetime_appointments }
-			primary_title = { NOT = { has_law = council_privileges_1 } }	
-			prisoner = no
-			is_alive = yes
-			is_abroad = no
-			at_location = ROOT
-			any_courtier = {
-				is_councillor = yes
-				NOT = { character = ROOT }
-				NOT = { opinion = { who = ROOT  value = 30 } }
-				OR = {
-					trait = envious
-					trait = wroth 
-					trait = paranoid
-					trait = deceitful
-					trait = arbitrary
-					trait = ambitious
-				}
-				NOT = { has_character_flag = annoying_courtier }
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 2
-			trait = wroth
-		}
-		
-		modifier = {
-			factor = 1.5
-			trait = ambitious
-		}
-		modifier = {
-			factor = 1.25
-			trait = cruel
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA30040"
-		trigger = {
-			NOT = { personality_traits = 5 }
-		}
-		add_trait = humble
-	}
-	
-	option = {
-		name = "EVTOPTB30040"
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 5
-				trait = ambitious
-			}
-		}
-		spouse = {
-			random_courtier = {
-				limit = {
-					is_councillor = yes
-					NOT = { character = ROOT }
-					NOT = { opinion = { who = ROOT  value = 30 } }
-					OR = {
-						trait = envious
-						trait = wroth 
-						trait = paranoid
-						trait = deceitful
-						trait = arbitrary
-						trait = ambitious
-					}
-					NOT = { has_character_flag = annoying_courtier }
-				}
-				set_character_flag = annoying_courtier
-			}
-			character_event = {
-				id = 30041
-				tooltip = "EVTTOOLTIP30040"
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTC30040"
-		spouse = {
-			random_courtier = {
-				limit = {
-					is_councillor = yes
-					NOT = { character = ROOT }
-					NOT = { opinion = { who = ROOT  value = 30 } }
-					OR = {
-						trait = envious
-						trait = wroth 
-						trait = paranoid
-						trait = deceitful
-						trait = arbitrary
-						trait = ambitious
-					}
-					NOT = { has_character_flag = annoying_courtier }
-				}
-				set_character_flag = annoying_courtier
-				opinion = {
-					modifier = opinion_mocked
-					who = ROOT
-					years = 5
-				}
-			}
-			character_event = {
-				id = 30042
-				days = 2
-				tooltip = "EVTTOOLTIP30042"
-			}
-		}
-	}
-}
-
-#Spouse might fire chancellor, etc
-character_event = {
-	id = 30041
-	desc = "EVTDESC30041"
-	picture = "GFX_evt_quarrel"
-
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30041"
-		random_courtier = {
-			limit = {
-				has_character_flag = annoying_courtier
-			}
-			clr_character_flag = annoying_courtier
-			opinion = {
-				modifier = opinion_fired_from_council
-				who = ROOT
-				years = 10
-			}
-			remove_title = job_treasurer
-			remove_title = job_chancellor
-			remove_title = job_marshal
-			remove_title = job_spymaster
-			remove_title = job_spiritual
-		}
-		FROM = {
-			opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTB30041"
-		FROM = {
-			opinion = {
-				modifier = opinion_disappointed
-				who = ROOT
-				years = 5
-			}
-		}
-	}
-}
-
-#Spouse hears about punishment
-character_event = {
-	id = 30042
-	desc = "EVTDESC30042"
-	picture = "GFX_evt_quarrel"
-	
-	is_triggered_only = yes
-
-	option = {
-		name = "EVTOPTA30042"
-		random_courtier = {
-			limit = {
-				has_character_flag = annoying_courtier
-			}
-			opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-			clr_character_flag = annoying_courtier
-		}
-		spouse = {
-			opinion = {
-				modifier = opinion_disappointed
-				who = ROOT
-				years = 5
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTB30042"
-		spouse = {
-			opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = annoying_courtier
-			}
-			clr_character_flag = annoying_courtier
-			opinion = {
-				modifier = opinion_disappointed
-				who = ROOT
-				years = 5
-			}
-		}
-	}
-}
-
 #Push courtier into river?
 character_event = {
 	id = 30045
@@ -2026,6 +1795,10 @@ character_event = {
 	age = 20
 	
 	trigger = {
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+		}	
 		spouse = {
 			is_alive = yes
 			is_abroad = no
@@ -2034,7 +1807,7 @@ character_event = {
 			opinion = { who = ROOT value = 0 }
 			reverse_opinion = { who = ROOT value = 0 }
 			NOT = {
-				opinion = { who = ROOT value = 100 }
+				opinion = { who = ROOT value = 50 }
 			}
 		}
 		treasury = 50
@@ -2119,6 +1892,10 @@ character_event = {
 	is_triggered_only = yes	
 	
 	trigger = {
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+		}	
 		war = no
 		in_command = no
 		spouse = {
@@ -2747,980 +2524,6 @@ character_event = {
 	}
 }
 
-### Wife suggests new councillors ###
-
-# Wife suggests new Chancellor: Start
-character_event = {
-	id = 30060
-	desc = "EVTDESC30060"
-	picture = GFX_evt_council
-	
-	age = 20
-	only_rulers = no
-	only_women = yes
-	prisoner = no
-	capable_only = yes
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		independent = no
-		NOT = {
-			demesne_size = 1
-		}
-		any_courtier = {
-			OR = {
-				lover = { character = prev }
-				reverse_opinion = { who = ROOT value = 40 }
-			}
-			is_councillor = no
-			diplomacy = 10
-			age = 16
-			is_female = no
-			prisoner = no
-			NOT = { trait = incapable }
-			liege = {
-				NOT = {
-					character = PREV
-				}
-			}
-			NOT = {
-				spouse = {
-					character = ROOT
-				}
-			}
-		}
-		OR = {
-			trait = ambitious
-			trait = diligent
-			trait = charitable
-		}
-		spouse = {
-			is_ruler = yes
-			prisoner = no
-			is_alive = yes
-			is_abroad = no
-			at_location = ROOT
-		}
-		job_chancellor = {
-			NOT = {
-				character = ROOT
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 0.5
-			spouse = {
-				trait = wroth
-			}
-		}
-		modifier = {
-			factor = 2
-			spouse = {
-				trait = trusting
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA30060"
-		random_courtier = {
-			limit = {
-				OR = {
-					lover = { character = prev }
-					reverse_opinion = { who = ROOT value = 40 }
-				}
-				is_councillor = no
-				diplomacy = 10
-				age = 16
-				is_female = no
-				prisoner = no
-				NOT = { trait = incapable }
-				liege = {
-					NOT = {
-						character = PREV
-					}
-				}
-				NOT = {
-					spouse = {
-						character = ROOT
-					}
-				}
-			}
-			set_character_flag = new_chancellor
-		}
-		spouse = {
-			character_event = {
-				id = 30061
-				tooltip = "EVTTOOLTIP30061"
-			}
-		}
-	}
-}
-
-#Wife suggests new Chancellor: Husband decides
-character_event = {
-	id = 30061
-	desc = "EVTDESC30061"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30061"
-		job_chancellor = {
-			opinion = {
-				modifier = opinion_revoked_chancellor_title
-				who = ROOT
-				years = 10
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = new_chancellor
-			}
-			give_job_title = job_chancellor
-			clr_character_flag = new_chancellor
-		}
-		FROM = {
-			set_character_flag = husband_accepted_chancellor
-			character_event = {
-				id = 30062
-				tooltip = "EVTTOOLTIPA30062"
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB30061"
-		FROM = {
-			set_character_flag = husband_denied_chancellor
-			character_event = {
-				id = 30062
-				tooltip = "EVTTOOLTIPB30062"
-			}
-		}
-	}
-}
-
-#Wife suggests new Chancellor: The End
-character_event = {
-	id = 30062
-	desc = "EVTDESC30062"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30062"
-		trigger = {
-			has_character_flag = husband_accepted_chancellor
-		}
-		clr_character_flag = husband_accepted_chancellor
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-		}				
-	}
-	option = {
-		name = "EVTOPTB30062"
-		trigger = {
-			has_character_flag = husband_declined_chancellor
-		}
-		clr_character_flag = husband_declined_chancellor
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_denied_advice
-				who = ROOT
-				years = 5
-			}
-		}				
-	}
-}
-
-# Wife suggests new Marshal: Start
-character_event = {
-	id = 30063
-	desc = "EVTDESC30063"
-	picture = GFX_evt_council
-	
-	age = 20
-	only_rulers = no
-	only_women = yes
-	prisoner = no
-	capable_only = yes
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = {
-			demesne_size = 1
-		}
-		independent = no
-		any_courtier = {
-			OR = {
-				lover = { character = prev }
-				reverse_opinion = { who = ROOT value = 40 }
-			}
-			is_councillor = no
-			martial = 10
-			age = 16
-			is_female = no
-			prisoner = no
-			NOT = { trait = incapable }
-			liege = {
-				NOT = {
-					character = PREV
-				}
-			}
-			NOT = {
-				spouse = {
-					character = ROOT
-				}
-			}
-		}
-		spouse = {
-			is_ruler = yes
-			prisoner = no
-			is_alive = yes
-			is_abroad = no
-			at_location = ROOT
-		}
-		OR = {
-			trait = ambitious
-			trait = diligent
-			trait = charitable
-		}
-		job_marshal = {
-			NOT = {	character = ROOT }
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 0.5
-			spouse = {
-				trait = wroth
-			}
-		}
-		modifier = {
-			factor = 2
-			spouse = {
-				trait = trusting
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA30063"
-		random_courtier = {
-			limit = {
-				OR = {
-				lover = { character = prev }
-					reverse_opinion = { who = ROOT value = 40 }
-				}
-				is_councillor = no
-				martial = 10
-				age = 16
-				is_female = no
-				prisoner = no
-				NOT = { trait = incapable }
-				liege = {
-					NOT = {
-						character = PREV
-					}
-				}
-				NOT = {
-					spouse = {
-						character = ROOT
-					}
-				}
-			}
-			set_character_flag = new_marshal
-		}
-		spouse = {
-			character_event = {
-				id = 30064
-				tooltip = "EVTTOOLTIP30064"
-			}
-		}
-	}
-}
-
-#Wife suggests new Marshal: Husband decides
-character_event = {
-	id = 30064
-	desc = "EVTDESC30064"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30064"
-		job_marshal = {
-			opinion = {
-				modifier = opinion_revoked_marshal_title
-				who = ROOT
-				years = 10
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = new_marshal
-			}
-			give_job_title = job_marshal
-			clr_character_flag = new_marshal
-		}
-		FROM = {
-			set_character_flag = husband_accepted_marshal
-			character_event = {
-				id = 30065
-				tooltip = "EVTTOOLTIPA30065"
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB30064"
-		FROM = {
-			set_character_flag = husband_denied_marshal
-			character_event = {
-				id = 30065
-				tooltip = "EVTTOOLTIPB30065"
-			}
-		}
-	}
-}
-
-#Wife suggests new Marshal: The End
-character_event = {
-	id = 30065
-	desc = "EVTDESC30065"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30065"
-		trigger = {
-			has_character_flag = husband_accepted_marshal
-		}
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-		}
-		clr_character_flag = husband_accepted_marshal				
-	}
-	option = {
-		name = "EVTOPTB30065"
-		trigger = {
-			has_character_flag = husband_declined_marshal
-		}
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_denied_advice
-				who = ROOT
-				years = 5
-			}
-		}
-		clr_character_flag = husband_declined_marshal			
-	}
-}
-
-# Wife suggests new Steward: Start
-character_event = {
-	id = 30066
-	desc = "EVTDESC30066"
-	picture = GFX_evt_council
-	
-	age = 20
-	only_rulers = no
-	only_women = yes
-	prisoner = no
-	capable_only = yes
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = {
-			demesne_size = 1
-		}
-		independent = no
-		any_courtier = {
-			OR = {
-				lover = { character = prev }
-				reverse_opinion = { who = ROOT value = 40 }
-			}
-			is_councillor = no
-			stewardship = 10
-			age = 16
-			is_female = no
-			prisoner = no
-			NOT = { trait = incapable }
-			liege = {
-				NOT = {
-					character = PREV
-				}
-			}
-			NOT = {
-				spouse = {
-					character = ROOT
-				}
-			}
-		}
-		OR = {
-			trait = ambitious
-			trait = diligent
-			trait = charitable
-		}
-		spouse = {
-			is_ruler = yes
-			prisoner = no
-			is_alive = yes
-			is_abroad = no
-			at_location = ROOT
-		}
-		job_treasurer = {
-			NOT = {
-				character = ROOT
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 0.5
-			spouse = {
-				trait = wroth
-			}
-		}
-		modifier = {
-			factor = 2
-			spouse = {
-				trait = trusting
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA30066"
-		random_courtier = {
-			limit = {
-				OR = {
-					lover = { character = prev }
-					reverse_opinion = { who = ROOT value = 40 }
-				}
-				is_councillor = no
-				stewardship = 10
-				age = 16
-				is_female = no
-				prisoner = no
-				NOT = { trait = incapable }
-				liege = {
-					NOT = {
-						character = PREV
-					}
-				}
-				NOT = {
-					spouse = {
-						character = ROOT
-					}
-				}
-			}
-			set_character_flag = new_steward
-		}
-		spouse = {
-			character_event = {
-				id = 30067
-				tooltip = "EVTTOOLTIP30067"
-			}
-		}
-	}
-}
-
-#Wife suggests new Steward: Husband decides
-character_event = {
-	id = 30067
-	desc = "EVTDESC30067"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30067"
-		job_treasurer = {
-			opinion = {
-				modifier = opinion_revoked_steward_title
-				who = ROOT
-				years = 10
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = new_steward
-			}
-			give_job_title = job_treasurer
-			clr_character_flag = new_steward
-		}
-		FROM = {
-			set_character_flag = husband_accepted_steward
-			character_event = {
-				id = 30068
-				tooltip = "EVTTOOLTIPA30067"
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB30067"
-		FROM = {
-			set_character_flag = husband_denied_steward
-			character_event = {
-				id = 30068
-				tooltip = "EVTTOOLTIPB30067"
-			}
-		}
-	}
-}
-
-#Wife suggests new Steward: The End
-character_event = {
-	id = 30068
-	desc = "EVTDESC30068"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30068"
-		trigger = {
-			has_character_flag = husband_accepted_steward
-		}
-		opinion = {
-			modifier = opinion_grateful
-			who = FROM
-			years = 5
-		}
-		clr_character_flag = husband_accepted_steward		
-	}
-	option = {
-		name = "EVTOPTB30068"
-		trigger = {
-			has_character_flag = husband_denied_steward
-		}
-		clr_character_flag = husband_denied_steward
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_denied_advice
-				who = ROOT
-				years = 5
-			}
-		}				
-	}
-}
-
-# Wife suggests new Spymaster: Start
-character_event = {
-	id = 30069
-	desc = "EVTDESC30069"
-	picture = GFX_evt_council
-	
-	age = 20
-	only_rulers = no
-	only_women = yes
-	prisoner = no
-	capable_only = yes
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = {
-			demesne_size = 1
-		}
-		independent = no
-		any_courtier = {
-			OR = {
-				lover = { character = prev }
-				reverse_opinion = { who = ROOT value = 40 }
-			}
-			is_councillor = no
-			intrigue = 10
-			age = 16
-			is_female = no
-			prisoner = no
-			NOT = { trait = incapable }
-			liege = {
-				NOT = {
-					character = PREV
-				}
-			}
-			NOT = {
-				spouse = {
-					character = ROOT
-				}
-			}
-		}
-		OR = {
-			trait = ambitious
-			trait = diligent
-			trait = charitable
-		}
-		spouse = {
-			is_ruler = yes
-			prisoner = no
-			is_alive = yes
-			is_abroad = no
-			at_location = ROOT
-		}
-		job_spymaster = {
-			NOT = {
-				character = ROOT
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 0.5
-			spouse = {
-				trait = wroth
-			}
-		}
-		modifier = {
-			factor = 2
-			spouse = {
-				trait = trusting
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA30069"
-		random_courtier = {
-			limit = {
-				OR = {
-					lover = { character = prev }
-					reverse_opinion = { who = ROOT value = 40 }
-				}
-				is_councillor = no
-				intrigue = 10
-				age = 16
-				is_female = no
-				prisoner = no
-				NOT = { trait = incapable }
-				liege = {
-					NOT = {
-						character = PREV
-					}
-				}
-				NOT = {
-					spouse = {
-						character = ROOT
-					}
-				}
-			}
-			set_character_flag = new_spymaster
-		}
-		spouse = {
-			character_event = {
-				id = 30070
-				tooltip = "EVTTOOLTIP30070"
-			}
-		}
-	}
-}
-
-#Wife suggests new Spymaster: Husband decides
-character_event = {
-	id = 30070
-	desc = "EVTDESC30070"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30070"
-		job_spymaster = {
-			opinion = {
-				modifier = opinion_revoked_spymaster_title
-				who = ROOT
-				years = 10
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = new_spymaster
-			}
-			give_job_title = job_spymaster
-			clr_character_flag = new_spymaster
-		}
-		FROM = {
-			set_character_flag = husband_accepted_spymaster
-			character_event = {
-				id = 30071
-				tooltip = "EVTTOOLTIPA30071"
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB30070"
-		FROM = {
-			set_character_flag = husband_denied_spymaster
-			character_event = {
-				id = 30071
-				tooltip = "EVTTOOLTIPB30071"
-			}
-		}
-	}
-}
-
-#Wife suggests new Spymaster: The End
-character_event = {
-	id = 30071
-	desc = "EVTDESC30071"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30071"
-		trigger = {
-			has_character_flag = husband_accepted_spymaster
-		}
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-		}
-		clr_character_flag = husband_accepted_spymaster	
-	}
-	option = {
-		name = "EVTOPTB30071"
-		trigger = {
-			has_character_flag = husband_declined_spymaster
-		}
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_denied_advice
-				who = ROOT
-				years = 5
-			}
-		}
-		clr_character_flag = husband_declined_spymaster			
-	}
-}
-
-# Wife suggests new Lord Spiritual: Start
-character_event = {
-	id = 30072
-	desc = "EVTDESC30072"
-	picture = GFX_evt_council
-	
-	age = 20
-	only_rulers = no
-	only_women = yes
-	prisoner = no
-	capable_only = yes
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = {
-			demesne_size = 1
-		}
-		NOT = {
-			religion_group = muslim
-		}
-		spouse = {
-			NOT = {
-				religion_group = muslim
-			}
-		}
-		independent = no
-		any_courtier = {
-			OR = {
-				lover = { character = prev }
-				reverse_opinion = { who = ROOT value = 40 }
-			}
-			is_councillor = no
-			learning = 10
-			age = 16
-			is_female = no
-			prisoner = no
-			NOT = { trait = incapable }
-			liege = {
-				NOT = {
-					character = PREV
-				}
-			}
-			NOT = {
-				spouse = {
-					character = ROOT
-				}
-			}
-		}
-		OR = {
-			trait = ambitious
-			trait = diligent
-			trait = charitable
-		}
-		job_spiritual = {
-			NOT = {
-				character = ROOT
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		
-		modifier = {
-			factor = 0.5
-			spouse = {
-				trait = wroth
-			}
-		}
-		modifier = {
-			factor = 2
-			spouse = {
-				trait = trusting
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA30072"
-		random_courtier = {
-			limit = {
-				OR = {
-				lover = { character = prev }
-					reverse_opinion = { who = ROOT value = 40 }
-				}
-				is_councillor = no
-				learning = 10
-				age = 16
-				is_female = no
-				prisoner = no
-				NOT = { trait = incapable }
-				liege = {
-					NOT = {
-						character = PREV
-					}
-				}
-				NOT = {
-					spouse = {
-						character = ROOT
-					}
-				}
-			}
-			set_character_flag = new_lord_spiritual
-		}
-		spouse = {
-			character_event = {
-				id = 30073
-				tooltip = "EVTTOOLTIP30073"
-			}
-		}
-	}
-}
-
-#Wife suggests new Lord Spiritual: Husband decides
-character_event = {
-	id = 30073
-	desc = "EVTDESC30073"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30073"
-		job_spiritual = {
-			opinion = {
-				modifier = opinion_revoked_lord_spiritual_title
-				who = ROOT
-				years = 10
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_character_flag = new_lord_spiritual
-			}
-			give_job_title = job_spiritual
-			clr_character_flag = new_lord_spiritual
-		}
-		FROM = {
-			set_character_flag = husband_accepted_lord_spiritual
-			character_event = {
-				id = 30074
-				tooltip = "EVTTOOLTIPA30074"
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTB30073"
-		FROM = {
-			set_character_flag = husband_denied_lord_spiritual
-			character_event = {
-				id = 30074
-				tooltip = "EVTTOOLTIPB30074"
-			}
-		}
-	}
-}
-
-#Wife suggests new Lord Spiritual: The End
-character_event = {
-	id = 30074
-	desc = "EVTDESC30074"
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTA30074"
-		trigger = {
-			has_character_flag = husband_accepted_lord_spiritual
-		}
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_grateful
-				who = ROOT
-				years = 5
-			}
-		}
-		clr_character_flag = husband_accepted_lord_spiritual
-	}
-	option = {
-		name = "EVTOPTB30074"
-		trigger = {
-			has_character_flag = husband_declined_lord_spiritual
-		}
-		FROM = {
-			reverse_opinion = {
-				modifier = opinion_denied_advice
-				who = ROOT
-				years = 5
-			}
-		}
-		clr_character_flag = husband_declined_lord_spiritual
-	}
-}
-
 #Pregnant with courtier: Start
 character_event = {
 	id = 30075
@@ -3807,7 +2610,7 @@ character_event = {
 					reverse_opinion = { who = ROOT value = 40 }
 				}
 			}
-			impregnate = ROOT
+			impregnate_cuckoo = ROOT
 		}
 		hidden_tooltip = {
 			character_event = {
@@ -5248,6 +4051,10 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		OR = {
+			religion_group = christian
+			religion_group = judaism_group
+		}	
 		has_lover = no
 		spouse = {
 			war = no
@@ -5333,9 +4140,8 @@ character_event = {
 			}
 			add_lover = ROOT
 			random = {
-				chance = 15
-				
-				impregnate = ROOT
+				chance = 50
+				impregnate_cuckoo = ROOT
 			}
 		}
 	}
