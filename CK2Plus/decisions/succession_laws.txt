@@ -8,7 +8,7 @@ succession_laws = {
 		dynasty_opinion = 10
 		vassal_opinion = 5
 	
-		potential = {									
+		potential = {
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -63,7 +63,10 @@ succession_laws = {
 				NOT = { religion = slavic_pagan }
 			}		
 			holder_scope = {
-				NOT = { religion_group = muslim }
+				OR = {
+					NOT = { religion_group = muslim }
+					is_patrician = yes
+				}
 				is_merchant_republic = no
 				
 				OR = {
@@ -80,7 +83,12 @@ succession_laws = {
 					tier = baron
 					is_feudal = yes
 				}
-				holder_scope = { is_feudal = yes }
+				holder_scope = {
+					OR = {
+						is_feudal = yes
+						is_patrician = yes
+					}
+				}
 			}
 			
 			is_primary_type_title = no
@@ -198,6 +206,7 @@ succession_laws = {
 		child_opinion = 30
 		dynasty_opinion = 10
 		potential = {
+			NOT = { has_law = succ_turkish_succession }
 			OR = {
 				is_landless_type_title = no
 				is_tribal_type_title = yes
@@ -206,6 +215,7 @@ succession_laws = {
 				is_republic = no
 				is_merchant_republic = no
 				religion_group = muslim
+				is_patrician = no
 			}
 			is_primary_type_title = no
 			OR = {
@@ -257,7 +267,10 @@ succession_laws = {
 				}
 			}
 			OR = {
-				is_landless_type_title = yes
+				AND = {
+					is_landless_type_title = yes
+					is_tribal_type_title = no
+				}
 				holder_scope = { is_theocracy = no }
 				holder_scope = { 
 					NOT = { religion = catholic } 
@@ -290,6 +303,7 @@ succession_laws = {
 			holder_scope = { 
 				religion = catholic 
 				is_merchant_republic = no
+				is_patrician = no
 			}
 			is_primary_type_title = no
 		}

@@ -3307,7 +3307,7 @@ narrative_event = {
 	immediate = {
 		set_global_flag = seljuk_rumors
 		activate_title = { title = k_seljuk_turks status = yes }
-		create_random_soldier = {
+		create_character = {
 			random_traits = no
 			dynasty = 613 # Seljuk
 			name = Seljuk
@@ -3330,9 +3330,17 @@ narrative_event = {
 			trait = zealous
 		}
 		new_character = {
+			set_character_flag = centralize_without_penalties      
+			set_character_flag = horde_invader
 			k_seljuk_turks = {
-				grant_title = PREV
+				add_law = succ_turkish_succession
+				add_law = feudal_tax_0
+				add_law = city_tax_0
+				add_law = temple_tax_0
+				add_law = centralization_1			
+				gain_title = PREV
 			}
+			clr_character_flag = centralize_without_penalties
 			set_defacto_liege = THIS
 		}
 	}
@@ -3350,7 +3358,7 @@ narrative_event = {
 	major = yes
 	hide_new = yes
 	
-	picture = GFX_evt_mongols
+	picture = "GFX_evt_mongols" 
 	border = GFX_event_narrative_frame_war
 	
 	only_playable = yes
@@ -3373,11 +3381,11 @@ narrative_event = {
 		}
 		set_global_flag = seljuk_arrival
 		set_character_flag = horde_invader
-		900 = { # Kyzylorda
+		907 = { # Birjand
 			kingdom = {
 				ROOT = {
 					war = {
-						casus_belli = tribal_invasion
+						casus_belli = seljuk_invasion
 						target = PREVPREV # The top liege of the owner of Kyzylorda
 						thirdparty_title = PREV # The de jure kingdom
 					}
@@ -3388,69 +3396,204 @@ narrative_event = {
 		spawn_unit = {
 			owner = ROOT
 			leader = ROOT
-			province = 900 # Kyzylorda
+			province = 907 # Birjand
 			troops =
 			{
-				horse_archers = { 7500 7500 }
-				light_cavalry = { 4000 4000 }
-				light_infantry = { 3000 3000 }
-				heavy_infantry = { 1500 1500 }
+				horse_archers = { 10000 10000 }
+				light_cavalry = { 6666 6666 }
+				light_infantry = { 2222 2222 }
+				heavy_infantry = { 1112 1112 }
 				knights = { 200 200 }
 			}
 		}
-		create_character = {
-			random_traits = yes
-			dynasty = random
-			religion = sunni
-			culture = turkish
-			female = no
-			age = 40
-			attributes = {
-				martial = 12
+		random = {
+			chance = 75	
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = sunni
+				culture = turkish
+				female = no
+				age = 40
+				attributes = {
+					martial = 12
+				}
+				trait = brilliant_strategist
 			}
-			trait = brilliant_strategist
-		}
-		new_character = {
-			spawn_unit = {
-				province = 900 # Kyzylorda
-				owner = PREV
-				troops =
-				{
-					horse_archers = { 7500 7500 }
-					light_cavalry = { 4000 4000 }
-					light_infantry = { 3000 3000 }
-					heavy_infantry = { 1500 1500 }
-					knights = { 200 200 }
+			new_character = {
+				remove_trait = amateurish_plotter
+				remove_trait = flamboyant_schemer
+				remove_trait = intricate_webweaver
+				remove_trait = elusive_shadow
+				remove_trait = naive_appeaser
+				remove_trait = underhanded_rogue
+				remove_trait = charismatic_negotiator
+				remove_trait = grey_eminence
+				remove_trait = indulgent_wastrel
+				remove_trait = thrifty_clerk
+				remove_trait = fortune_builder
+				remove_trait = midas_touched
+				remove_trait = misguided_warrior
+				remove_trait = tough_soldier
+				remove_trait = skilled_tactician
+				remove_trait = detached_priest
+				remove_trait = martial_cleric
+				remove_trait = scholarly_theologian
+				remove_trait = mastermind_theologian
+				spawn_unit = {
+					province = 907 # Balkh
+					troops =
+					{
+						horse_archers = { 10000 10000 }
+						light_cavalry = { 6666 6666 }
+						light_infantry = { 2222 2222 }
+						heavy_infantry = { 1112 1112 }
+						knights = { 200 200 }
+					}
 				}
 			}
 		}
-		create_character = {
-			random_traits = yes
-			dynasty = random
-			religion = sunni
-			culture = turkish
-			female = no
-			age = 40
-			attributes = {
-				martial = 12
+		random = {
+			chance = 50
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = sunni
+				culture = turkish
+				female = no
+				age = 36
+				attributes = {
+					martial = 11
+				}
+				trait = brilliant_strategist
 			}
-			trait = brilliant_strategist
-		}
-		new_character = {
-			spawn_unit = {
-				province = 900 # Kyzylorda
-				owner = PREV
-				troops =
-				{
-					horse_archers = { 7500 7500 }
-					light_cavalry = { 4000 4000 }
-					light_infantry = { 3000 3000 }
-					heavy_infantry = { 1500 1500 }
-					knights = { 200 200 }
+			new_character = {
+				remove_trait = amateurish_plotter
+				remove_trait = flamboyant_schemer
+				remove_trait = intricate_webweaver
+				remove_trait = elusive_shadow
+				remove_trait = naive_appeaser
+				remove_trait = underhanded_rogue
+				remove_trait = charismatic_negotiator
+				remove_trait = grey_eminence
+				remove_trait = indulgent_wastrel
+				remove_trait = thrifty_clerk
+				remove_trait = fortune_builder
+				remove_trait = midas_touched
+				remove_trait = misguided_warrior
+				remove_trait = tough_soldier
+				remove_trait = skilled_tactician
+				remove_trait = detached_priest
+				remove_trait = martial_cleric
+				remove_trait = scholarly_theologian
+				remove_trait = mastermind_theologian
+				spawn_unit = {
+					province = 907 # Balkh
+					troops =
+					{
+						horse_archers = { 10000 10000 }
+						light_cavalry = { 6666 6666 }
+						light_infantry = { 2222 2222 }
+						heavy_infantry = { 1112 1112 }
+						knights = { 200 200 }
+					}
 				}
 			}
 		}
-		
+		random = {
+			chance = 33
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = sunni
+				culture = turkish
+				female = no
+				age = 34
+				attributes = {
+					martial = 12
+				}
+				trait = brilliant_strategist
+			}
+			new_character = {
+				remove_trait = amateurish_plotter
+				remove_trait = flamboyant_schemer
+				remove_trait = intricate_webweaver
+				remove_trait = elusive_shadow
+				remove_trait = naive_appeaser
+				remove_trait = underhanded_rogue
+				remove_trait = charismatic_negotiator
+				remove_trait = grey_eminence
+				remove_trait = indulgent_wastrel
+				remove_trait = thrifty_clerk
+				remove_trait = fortune_builder
+				remove_trait = midas_touched
+				remove_trait = misguided_warrior
+				remove_trait = tough_soldier
+				remove_trait = skilled_tactician
+				remove_trait = detached_priest
+				remove_trait = martial_cleric
+				remove_trait = scholarly_theologian
+				remove_trait = mastermind_theologian
+				spawn_unit = {
+					province = 907 # Balkh
+					troops =
+					{
+						horse_archers = { 10000 10000 }
+						light_cavalry = { 6666 6666 }
+						light_infantry = { 2222 2222 }
+						heavy_infantry = { 1112 1112 }
+						knights = { 200 200 }
+					}
+				}
+			}
+		}
+		random = {
+			chance = 15
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = sunni
+				culture = turkish
+				female = no
+				age = 34
+				attributes = {
+					martial = 12
+				}
+				trait = brilliant_strategist
+			}
+			new_character = {
+				remove_trait = amateurish_plotter
+				remove_trait = flamboyant_schemer
+				remove_trait = intricate_webweaver
+				remove_trait = elusive_shadow
+				remove_trait = naive_appeaser
+				remove_trait = underhanded_rogue
+				remove_trait = charismatic_negotiator
+				remove_trait = grey_eminence
+				remove_trait = indulgent_wastrel
+				remove_trait = thrifty_clerk
+				remove_trait = fortune_builder
+				remove_trait = midas_touched
+				remove_trait = misguided_warrior
+				remove_trait = tough_soldier
+				remove_trait = skilled_tactician
+				remove_trait = detached_priest
+				remove_trait = martial_cleric
+				remove_trait = scholarly_theologian
+				remove_trait = mastermind_theologian
+				spawn_unit = {
+					province = 907 # Balkh
+					troops =
+					{
+						horse_archers = { 10000 10000 }
+						light_cavalry = { 6666 6666 }
+						light_infantry = { 2222 2222 }
+						heavy_infantry = { 1112 1112 }
+						knights = { 200 200 }
+					}
+				}
+			}
+		}
 		# Some extra courtiers
 		create_character = {
 			random_traits = yes
@@ -3486,7 +3629,7 @@ narrative_event = {
 		}
 		create_character = {
 			random_traits = yes
-			dynasty = none
+			dynasty = random
 			religion = sunni
 			culture = turkish
 			female = no
@@ -3494,7 +3637,7 @@ narrative_event = {
 		}
 		create_character = {
 			random_traits = yes
-			dynasty = none
+			dynasty = random
 			religion = sunni
 			culture = turkish
 			female = no
@@ -3502,7 +3645,7 @@ narrative_event = {
 		}
 		create_character = {
 			random_traits = yes
-			dynasty = none
+			dynasty = random
 			religion = sunni
 			culture = turkish
 			female = no
@@ -3510,19 +3653,43 @@ narrative_event = {
 		}
 		create_character = {
 			random_traits = yes
-			dynasty = none
-			religion = tengri_pagan
+			dynasty = random
+			religion = sunni
 			culture = turkish
 			female = yes
 			age = 16
 		}
 		create_character = {
 			random_traits = yes
-			dynasty = none
-			religion = tengri_pagan
+			dynasty = random
+			religion = sunni
 			culture = turkish
 			female = yes
 			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = sunni
+			culture = turkish
+			female = yes
+			age = 18
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = sunni
+			culture = turkish
+			female = yes
+			age = 18
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = sunni
+			culture = turkish
+			female = yes
+			age = 20
 		}
 	}
 	option = {
@@ -3542,9 +3709,9 @@ narrative_event = {
 	option = {
 		name = "EVTOPTD60201"
 		trigger = {
-			OR = {
-				religion_group = pagan_group
-				religion_group = zoroastrian_group
+			NOT = {
+				religion_group = muslim
+				religion_group = christian
 			}
 			NOT = { has_landed_title = k_seljuk_turks }
 		}

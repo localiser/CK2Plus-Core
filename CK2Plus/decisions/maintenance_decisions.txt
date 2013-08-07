@@ -157,7 +157,7 @@ decisions = {
 					any_vassal = {
 						limit = {
 							OR = {
-							    has_character_modifier = tax_privileges_0_vassal
+								has_character_modifier = tax_privileges_0_vassal
 								NOT = { has_character_modifier = tax_privileges_2_vassal }
 							}
 						}
@@ -7131,6 +7131,7 @@ decisions = {
 					}					
 				}				
 			}
+			#title laws, and dishonor and tyrrany reductions
 			any_playable_ruler = {
 				if = {
 					limit = {
@@ -7144,6 +7145,7 @@ decisions = {
 					}
 					change_variable = { which = "years_of_peace" value = 1 }
 				}
+				#patrician succession
 				any_demesne_title = {
 					limit = {
 						OR = {
@@ -7163,6 +7165,7 @@ decisions = {
 					add_law = succ_seniority
 					add_law = agnatic_succession
 				}
+				#non-patrician succession
 				any_demesne_title = {
 					limit = {
 						holder_scope = { is_patrician = no }
@@ -7171,10 +7174,14 @@ decisions = {
 							higher_tier_than = duke
 						}
 					}
+					#holy orders, mercenaries, cites, and non-catholic temples
 					if = {
 						limit = {
 							OR = {
-								is_landless_type_title = yes
+								AND = {
+									is_landless_type_title = yes
+									is_tribal_type_title = no
+								}
 								holder_scope = { 
 									is_feudal = no
 									OR = {
@@ -7187,9 +7194,13 @@ decisions = {
 						}
 						add_law = succ_open_elective
 					}
+					#catholic temples
 					if = {
 						limit = {
-							is_landless_type_title = no
+							OR = {
+								is_landless_type_title = no
+								is_tribal_type_title = yes
+							}
 							holder_scope = { 
 								is_theocracy = yes
 								religion = catholic
@@ -7198,9 +7209,13 @@ decisions = {
 						}
 						add_law = succ_catholic_bishopric
 					}
+					#feudal muslims
 					if = {
 						limit = {
-							is_landless_type_title = no
+							OR = {
+								is_landless_type_title = no
+								is_tribal_type_title = yes
+							}
 							holder_scope = { 
 								is_feudal = yes
 								religion_group = muslim
@@ -7208,39 +7223,48 @@ decisions = {
 							NOT = { has_law = succ_turkish_succession }
 						}
 						add_law = succ_turkish_succession
-					}	
+					}
 					if = {
 						limit = {
-							is_landless_type_title = no
+							OR = {
+								is_landless_type_title = no
+								is_tribal_type_title = yes
+							}
 							holder_scope = { 
 								is_feudal = yes
 								OR = {
-									religion = norse_pagan
-									religion = tengri_pagan
-									religion = baltic_pagan
-									religion = finnish_pagan
-									religion = aztec
-									religion = slavic_pagan 
+									religion = norse_pagan #Tweaked by Battle Bunny
+									religion = finnish_pagan #Tweaked by Battle Bunny
+									religion = baltic_pagan #Tweaked by Battle Bunny
+									religion = tengri_pagan #Tweaked by Battle Bunny
+									religion = slavic_pagan #Tweaked by Battle Bunny
+									religion = aztec #Tweaked by Battle Bunny
+									religion = west_african_pagan #Tweaked by Battle Bunny
 								}
 							}
 							NOT = { has_law = succ_gavelkind }
 						}
-						add_law = succ_gavelkind
-					}					
+						add_law = succ_gavelkind #Tweaked by Battle Bunny
+					}
+					#feudal non-muslim, non-unreformed pagans
 					if = {
 						limit = {
-							is_landless_type_title = no
+							OR = {
+								is_landless_type_title = no
+								is_tribal_type_title = yes
+							}
 							holder_scope = { 
 								is_feudal = yes
-								NOT = { religion_group = muslim }
-								NOT = {
-									religion = norse_pagan
-									religion = tengri_pagan
-									religion = baltic_pagan
-									religion = finnish_pagan
-									religion = aztec
-									religion = slavic_pagan 
-								}							
+								NOT = { 
+									religion = norse_pagan #Tweaked by Battle Bunny
+									religion = finnish_pagan #Tweaked by Battle Bunny
+									religion = baltic_pagan #Tweaked by Battle Bunny
+									religion = tengri_pagan #Tweaked by Battle Bunny
+									religion = slavic_pagan #Tweaked by Battle Bunny
+									religion = aztec #Tweaked by Battle Bunny
+									religion = west_african_pagan #Tweaked by Battle Bunny
+									religion_group = muslim
+								}
 							}
 							NOT = { has_law = succ_primogeniture }
 							NOT = { has_law = succ_gavelkind }
@@ -7251,6 +7275,8 @@ decisions = {
 						}
 						add_law = succ_primogeniture
 					}
+					#feudal unreformed pagans
+					#catholic investiture
 					if = {
 						limit = {
 							higher_tier_than = DUKE
@@ -7262,6 +7288,7 @@ decisions = {
 						}
 						add_law = investiture_law_0
 					}	
+					#non-catholic no investiture
 					if = {
 						limit = {
 							higher_tier_than = DUKE
@@ -7277,6 +7304,7 @@ decisions = {
 						revoke_law = investiture_law_1
 					}						
 				}
+				#baron vassal succession
 				any_vassal = {
 					limit = { tier = baron is_patrician = no }
 					any_demesne_title = {
@@ -7286,7 +7314,10 @@ decisions = {
 						if = {
 							limit = {
 								OR = {
-									is_landless_type_title = yes
+									AND = {
+										is_landless_type_title = yes
+										is_tribal_type_title = no
+									}
 									holder_scope = { 
 										is_feudal = no
 										OR = {
@@ -7301,7 +7332,10 @@ decisions = {
 						}
 						if = {
 							limit = {
-								is_landless_type_title = no
+								OR = {
+									is_landless_type_title = no
+									is_tribal_type_title = yes
+								}
 								holder_scope = { 
 									is_theocracy = yes
 									religion = catholic
@@ -7312,7 +7346,10 @@ decisions = {
 						}
 						if = {
 							limit = {
-								is_landless_type_title = no
+								OR = {
+									is_landless_type_title = no
+									is_tribal_type_title = yes
+								}
 								holder_scope = { 
 									is_feudal = yes
 									religion_group = muslim
@@ -7323,7 +7360,10 @@ decisions = {
 						}
 						if = {
 							limit = {
-								is_landless_type_title = no
+								OR = {
+									is_landless_type_title = no
+									is_tribal_type_title = yes
+								}
 								holder_scope = { 
 									is_feudal = yes
 									OR = {
@@ -7333,6 +7373,7 @@ decisions = {
 										religion = finnish_pagan
 										religion = aztec
 										religion = slavic_pagan 
+										religion = west_african_pagan #Tweaked by Battle Bunny
 									}
 								}
 								NOT = { has_law = succ_gavelkind }
@@ -7341,7 +7382,10 @@ decisions = {
 						}						
 						if = {
 							limit = {
-								is_landless_type_title = no
+								OR = {
+									is_landless_type_title = no
+									is_tribal_type_title = yes
+								}
 								holder_scope = { 
 									is_feudal = yes
 									NOT = { religion_group = muslim }
@@ -7351,7 +7395,8 @@ decisions = {
 										religion = baltic_pagan
 										religion = finnish_pagan
 										religion = aztec
-										religion = slavic_pagan 
+										religion = slavic_pagan
+										religion = west_african_pagan #Tweaked by Battle Bunny
 									}	
 								}
 								NOT = { has_law = succ_primogeniture }
@@ -7390,6 +7435,7 @@ decisions = {
 						}						
 					}
 				}
+				#set laws for secondary titles
 				any_demesne_title = {
 					limit = {
 						higher_tier_than = baron
@@ -7707,6 +7753,28 @@ decisions = {
 						}
 						add_law = agnatic_succession
 					}							
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = enatic_cognatic_succession
+								}
+							}
+							NOT = { has_law = enatic_cognatic_succession }
+						}
+						add_law = enatic_cognatic_succession
+					}
+					if = {
+						limit = {
+							holder_scope = {
+								primary_title = {
+									has_law = enatic_succession
+								}
+							}
+							NOT = { has_law = enatic_succession }
+						}
+						add_law = enatic_succession
+					}					
 				}
 				if = {
 					limit = {

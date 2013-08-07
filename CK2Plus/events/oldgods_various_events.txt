@@ -3316,4 +3316,63 @@ character_event = {
 	}
 }
 
+# Will the real Odin please stand up?
+character_event = {
+	id = TOG.3402
+	desc = EVTDESC_TOG_3402
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		NOT = { has_character_flag = odin_event }
+	}
+	
+	immediate = {
+		set_character_flag = odin_event
+	}
+	
+	option = {
+		name = EVTOPTA_TOG_3402
+		wealth = 50
+		prestige = 50
+		add_trait = zealous
+		custom_tooltip = odin_option_a
+	}
+	option = {
+		name = EVTOPTB_TOG_3402
+		prestige = -50
+		if = {
+			limit = {
+				NOT = {
+					lifestyle_traits = 1
+				}
+			}
+			add_trait = hunter
+		}
+		custom_tooltip = odin_option_b
+	}
+	option = {
+		name = EVTOPTC_TOG_3402
+		prestige = -50
+		if = {
+			limit = { trait = zealous }
+			remove_trait = zealous
+		}
+		if = {
+			limit = { NOT = { trait = zealous } }
+			add_trait = cynical
+		}
+		custom_tooltip = odin_option_c
+	}
+}
 

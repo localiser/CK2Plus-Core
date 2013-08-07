@@ -107,4 +107,81 @@ gender_laws = {
 			factor = 0
 		}		
 	}
+	enatic_succession = {
+		male_dynasty_opinion = -20
+		female_dynasty_opinion = 20
+		
+		potential = {
+			holder_scope = {
+				ai = no
+				NOT = { religion_group = muslim }
+				has_horde_culture = no
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			
+			is_landless_type_title = no
+			
+			OR = {
+				AND = {
+					tier = baron
+					is_feudal = yes
+				}
+				holder_scope = { is_feudal = yes }
+			}
+			
+			is_primary_type_title = no
+			OR = {
+				has_holder = no
+				has_law = enatic_succession
+				NOT = { has_global_flag = startup }
+			}		
+		}
+		allow = { }
+		effect = {
+			gender_succ = enatic
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+	enatic_cognatic_succession = {
+		male_dynasty_opinion = -15
+		female_dynasty_opinion = 10
+		
+		potential = {
+			holder_scope = {
+				ai = no
+				NOT = { religion_group = muslim }
+				has_horde_culture = no
+				is_merchant_republic = no
+				is_patrician = no
+			}
+			
+			is_landless_type_title = no
+			
+			OR = {
+				AND = {
+					tier = baron
+					is_feudal = yes
+				}
+				holder_scope = { is_feudal = yes }
+			}
+			
+			is_primary_type_title = no
+			OR = {
+				has_holder = no
+				has_law = enatic_cognatic_succession
+				NOT = { has_global_flag = startup }
+			}		
+		}
+		allow = { }
+		effect = {
+			gender_succ = enatic_cognatic
+		}
+		revoke_allowed = {
+			always = no
+		}			
+	}
+	
 }

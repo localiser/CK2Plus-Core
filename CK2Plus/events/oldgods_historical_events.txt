@@ -249,6 +249,13 @@ letter_event = {
 			set_global_flag = jomsvikings_founded
 			FROM = {
 				wealth = 300
+				religion = ROOT
+			}
+			if = {
+				limit = { has_global_flag = norse_reformation }
+				d_jomsvikings = {
+					religion = norse_pagan_reformed # This Holy Order now changes religion
+				}
 			}
 		}
 		custom_tooltip = jomsvikings_founded
@@ -398,7 +405,7 @@ character_event = {
 	}
 }
 
-# Chief Writes a Letter (Stettin)
+# Chief Writes a Letter (Wolgast)
 character_event = {
 	id = TOG.4005
 	hide_window = yes
@@ -444,6 +451,13 @@ letter_event = {
 			set_global_flag = jomsvikings_founded
 			FROM = {
 				wealth = 300
+				religion = ROOT
+			}
+			if = {
+				limit = { has_global_flag = norse_reformation }
+				d_jomsvikings = {
+					religion = norse_pagan_reformed # This Holy Order now changes religion
+				}
 			}
 		}
 		custom_tooltip = jomsvikings_founded
@@ -593,7 +607,7 @@ character_event = {
 	}
 }
 
-# Chief Writes a Letter (Stettin)
+# Chief Writes a Letter (Rügen)
 character_event = {
 	id = TOG.4015
 	hide_window = yes
@@ -639,6 +653,13 @@ letter_event = {
 			set_global_flag = jomsvikings_founded
 			FROM = {
 				wealth = 300
+				religion = ROOT
+			}
+			if = {
+				limit = { has_global_flag = norse_reformation }
+				d_jomsvikings = {
+					religion = norse_pagan_reformed # This Holy Order now changes religion
+				}
 			}
 		}
 		custom_tooltip = jomsvikings_founded
@@ -788,7 +809,7 @@ character_event = {
 	}
 }
 
-# Chief Writes a Letter (Stettin)
+# Chief Writes a Letter (Werle)
 character_event = {
 	id = TOG.4025
 	hide_window = yes
@@ -834,6 +855,13 @@ letter_event = {
 			set_global_flag = jomsvikings_founded
 			FROM = {
 				wealth = 300
+				religion = ROOT
+			}
+			if = {
+				limit = { has_global_flag = norse_reformation }
+				d_jomsvikings = {
+					religion = norse_pagan_reformed # This Holy Order now changes religion
+				}
 			}
 		}
 		custom_tooltip = jomsvikings_founded
@@ -915,5 +943,31 @@ narrative_event = {
 					religion = norse_pagan_reformed
 			}
 		}
+	}
+}
+
+# Jomsvikings Reform
+character_event = {
+	id = TOG.4030
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = norse_reformation
+		NOT = { has_global_flag = jomsvikings_reformed }
+		is_title_active = d_jomsvikings
+	}
+	
+	immediate = {
+		d_jomsvikings = {
+			religion = norse_pagan_reformed # This Holy Order now changes religion
+			holder_scope = {
+				religion = norse_pagan_reformed
+			}
+		}
+		set_global_flag = jomsvikings_reformed
+	}
+		
+	option = {
+		name = OK
 	}
 }

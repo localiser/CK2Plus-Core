@@ -34,8 +34,10 @@ claim = {
 			ROOT = { ai = no }
 			higher_tier_than = count
 			ROOT = { religion_group = FROM }
+			ROOT = { has_character_flag = claimant_adventurer }
 		}
 		OR = {
+			ROOT = { has_character_flag = claimant_adventurer }
 			has_global_flag = gender_equality
 			ROOT = { is_female = no }
 			ROOT = { is_ruler = yes }
@@ -67,6 +69,7 @@ claim = {
 			AND = {
 				ROOT = { has_weak_claim = PREV }
 				OR = {
+					ROOT = { has_character_flag = claimant_adventurer }
 					is_pretender = yes # Checks vs ROOT character
 					holder_scope = { has_regent = yes }
 					AND = {
@@ -79,6 +82,7 @@ claim = {
 			}
 		}
 		OR = {
+			ROOT = { has_character_flag = claimant_adventurer }
 			FROM = { NOT = { religion = ROOT } }
 			ROOT = { trait = cynical }
 			ROOT = { ai = no }
@@ -398,7 +402,7 @@ other_claim = {
 			participation_scaled_prestige = 100
 		}
 		any_attacker = {
-			limit = { NOT = { character = PREV} }
+			limit = { NOT = { character = PREV } }
 			hidden_tooltip = { participation_scaled_prestige = 100 }
 		}		
 		FROM = {
@@ -1798,7 +1802,7 @@ crusade = {
 	check_de_jure_tier = KING # this scans all de jure kingdoms for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
 
 	can_use = {	
-		ROOT = { demesne_size = 1 }
+#		ROOT = { demesne_size = 1 }
 		year = 1000
 		OR = {
 			year = 1166
@@ -7764,7 +7768,7 @@ county_conquest = {
 			holder_scope = {
 				is_liege_or_above = FROM
 			}
-		}		
+		}
 		
 		ROOT = {
 			NOT = { religion_group = christian } 
