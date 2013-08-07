@@ -58,25 +58,37 @@ Use only ONE of the following:
 ## FAQ
 
 Q: Can I play CK2+ multiplayer?
+
 A: Yes, but you must ensure that all players are using the same set of optional modules. You can't have one player playing with No Assaults and another without, or someone playing with Shattered World and someone else playing without, and so on.
 
+
 Q: I have claims/de jure claims/other CBs on a character but declare war says I have no valid casus belli?
+
 A: Check if either you or the character has the 'truce' modifier, which prevents war declarations on newly formed rebel counties and crusader states.
 
+
 Q: Is there supposed to only be two de jure Empires?
+
 A: Yes. There are dozens of different titular empires to form instead.
 
+
 Q: Is the Catholic world supposed to start at 0 tech?
+
 A: Yes, starting tech was lowered across the board to give Pagans, Armenians, Ethiopians etc more of a fighting chance against Catholics/Muslims.
 
 Q: Why isn't the option to fabricate claims available?
+
 A: You need to have at least 0 prestige to fabricate claims.
 
 Q: Why don't get I get Kingdom de jure claims?
+
 A: You need Medium or higher CA to press Kingdom de jure claims.
 
+
 Q: Why can't I declare Holy Wars?
+
 A: Holy Wars can only be declared every 5 years by the same character. If you have recently declared one, your character will have a modifier that blocks further Holy Wars until it expires.
+
 
 ## Credits
 - Nexoid (misc icon graphics)
