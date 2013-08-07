@@ -1,27 +1,24 @@
-CCK2Plus for Crusader Kings 2
-Author: Martin "Wiz" Anward
-Contact: m(dot)anward(at)live(dot)se
-Credits: Nexoid (misc icon graphics), Glassmage (Cultural cities 1.091 integration), Necroskowitz (Jewish ruler titles), Hoodinski (Eastern European dynasty names), Werther, River, Faelron, Duc Toto du Haricot (French Translation), Arko (ARKO Pack), zeek40 (Scripting and event writing), idib816 (Jewish Cultures), Sleight of Hand (Breton Names), Slim Jim Pickens (Culture Buildings), Maestro Ugo (Lupus Agnum), Elryck and Arko (Mercator Mod), zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario), Viscardus (Cornish Characters, Anglo-Norse Culture), Cetan (Expanded Character Tooltips), Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies), Spartan_One (Mod File Hosting), Peuri (Little Portait Mod), Trovador and thrashing mad (Enhanced Portraits Mod), EmperorTojo (Icelandic Culture Mod), Ijtzoi (All the Way to Timbuktu), Syren (Syren's Nicknames Mod), mate0815 (Better Looking Characters integration), Shaytana (Better Looking Characters), EOOQE (German Localisation), Keanon (Patrum Scuta), Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics), Zaldax (An Offer You Can't Refuse), Velho e Bom Joe (Culturally Different Cities), Icecream Jones (flags, new countries), Strudel Man (many tweaks and additions), NoNotTheMindProbe (russian kingdoms), pothkan (CK2 heraldy mod), The_Chancellor (Council Reshuffling mod), avee (Family Relations Mod, Better Rebels mod, Death Causes mod), Sniper4625 (misc graphics), Van Diemen (HRE Revised Mod, Youth traits), riso (Treaty of Nymphaeum scenario), Six Gun South (PMM)
+CK2Plus for Crusader Kings 2
 
-****************
-* Installation *
-****************
+Original Author: Martin "Wiz" Anward
+
+Maintained by the community
+
+
+
+## Installation
+
 1) If you have an older version of the mod installed, delete those older versions first.
 2) Unzip to your Crusader Kings II game folder OR the Crusader Kings II my documents folder.
 3) Make sure the mod was extracted to the correct folder. Inside the 'mod' folder, there should be a CK2Plus.mod file. If there is not, and instead another 'mod' folder, you extracted the mod incorrectly.
-4) Unzip any Hotfixes to your Crusader Kings II folder (same place you installed the mod in step 2).
+4) Unzip any Hotfixes to your Crusader Kings II folder (same place you installed the mod in step 2.
 5) Start the CK2 launcher and check 'CK2+ X.XX' in the list of mods.
 6) Check any optional modules you want to use along with CK2Plus.
 7) Hit play.
 
-**************
-* Disclaimer *
-**************
-CK2Plus is a collaborative effort. While most of the work is done by me personally, it also includes parts of many other mods (see credits for full list). You are free to use any part of this mod in your own mods as long as you give due credit to the creator of said part.
 
-************
-* Features *
-************
+## Features
+
 - 'Shattered World' scenario with the world divided into independent counts, featuring over 500 new playable characters.
 - New faction system where vassals are members of permanent factions with multiple goals and moods, making factions into an exciting aspect of internal politics that can be both good and bad, instead of just being glorified plots.
 - Rebalanced levies and laws that reduce the military capabilities of large kingdoms with weak authority (like France or the HRE).
@@ -42,28 +39,24 @@ CK2Plus is a collaborative effort. While most of the work is done by me personal
 - More cultures.
 - German and French localisation.
 
-****************
-* Future Plans *
-****************
+## Future Plans
+
 - Non-Christian versions of personality traits with different piety (for chaste lustful etc).
 - Grand Banquet event where you can invite neighbours, friends and allies instead of just vassals.
 - Rework child education events to be more restricted by your traits, and more balanced between the options instead of there always being one 'best'  option.
 - Executing characters gives landed relatives of theirs the option to ask for blood money - if you refuse, they can send assassins or launch a blood feud war against you.
 
-********************
-* Optional Modules *
-********************
+## Optional Modules
 Use any combination of the following:
-- 'Vanilla Hordes' will make the Aztecs and Mongols appear in every game instead of 20%/50% of games as is CK2+ default.
+- 'Vanilla Hordes' will make the Aztecs and Mongols appear in every game instead of 20%-50% of games as is CK2+ default.
 - 'Gender Equality' makes women eligible for any position on the council and allows them to inherit on the same grounds as men.
 - 'Hardcore Mode' decreases demesne size and income, makes breaking treaties more costly and in general slows down the pace of expansion for the player.
 
 Use only ONE of the following:
 - 'Shattered World' divides the world into either independent counts or small independent states, depending on the start you choose.
 
-*******
-* FAQ *
-*******
+## FAQ
+
 Q: Can I play CK2+ multiplayer?
 A: Yes, but you must ensure that all players are using the same set of optional modules. You can't have one player playing with No Assaults and another without, or someone playing with Shattered World and someone else playing without, and so on.
 
@@ -84,3 +77,44 @@ A: You need Medium or higher CA to press Kingdom de jure claims.
 
 Q: Why can't I declare Holy Wars?
 A: Holy Wars can only be declared every 5 years by the same character. If you have recently declared one, your character will have a modifier that blocks further Holy Wars until it expires.
+
+## Credits
+-Nexoid (misc icon graphics)
+-Glassmage (Cultural cities 1.091 integration)
+-Necroskowitz (Jewish ruler titles),
+-Hoodinski (Eastern European dynasty names) 
+-Werther, River, Faelron, Duc Toto du Haricot (French Translation)
+-Arko (ARKO Pack)
+-0zeek40 (Scripting and event writing)
+-idib816 (Jewish Cultures)
+-Sleight of Hand (Breton Names)
+-Slim Jim Pickens (Culture Buildings)
+-Maestro Ugo (Lupus Agnum)
+-Elryck and Arko (Mercator Mod)
+-zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario)
+-Viscardus (Cornish Characters, Anglo-Norse Culture)
+-Cetan (Expanded Character Tooltips)
+-Crackdtoothgrin (Crackdtoothgrin's Graphical Goodies)
+-Spartan_One (Mod File Hosting)
+-Peuri (Little Portait Mod)
+-Trovador and thrashing mad (Enhanced Portraits Mod)
+-EmperorTojo (Icelandic Culture Mod)
+-Ijtzoi (All the Way to Timbuktu)
+-Syren (Syren's Nicknames Mod)
+-mate0815 (Better Looking Characters integration)
+-Shaytana (Better Looking Characters)
+-EOOQE (German Localisation)
+-Keanon (Patrum Scuta)
+-Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics)
+-Zaldax (An Offer You Can't Refuse)
+-Velho e Bom Joe (Culturally Different Cities)
+-Icecream Jones (flags, new countries)
+-Strudel Man (many tweaks and additions)
+-NoNotTheMindProbe (russian kingdoms)
+-pothkan (CK2 heraldy mod)
+-The_Chancellor (Council Reshuffling mod)
+-avee (Family Relations Mod, Better Rebels mod, Death Causes mod)
+-Sniper4625 (misc graphics)
+-Van Diemen (HRE Revised Mod, Youth traits)
+-riso (Treaty of Nymphaeum scenario)
+-Six Gun South (PMM)
