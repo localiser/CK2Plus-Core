@@ -1,0 +1,114 @@
+k_ghaznavids = { # Ghaznavids
+	color={ 223 255 0 }
+	capital = 299 # As the actual capital is not present
+	culture = turkish
+	
+	tribe=yes
+  
+  culture = turkish
+	
+	#landless = yes
+	
+	allow = {
+		always = no
+	}
+}
+
+k_umayyad = { # Cordoba
+    color = { 31 138 40 }
+	  color2={ 255 255 255 }
+		
+		capital = 181 # Cordoba
+		
+		culture = andalusian_arabic
+		
+		catholic = 100 # Crusade target weight
+		muslim = 50 # Crusade target weight
+		west_african_pagan_reformed = 50
+    	
+  	title = "CALIPH"
+  	title_female = "CALIPHA"
+	  foa = "CALIPH_FOA"
+    
+    short_name = yes
+    dynasty_title_names = no
+	
+  	allow = {
+	 	   always = no
+   	}
+} 
+
+k_fatimid = { # Fatimids
+		color={ 10 255 80 }
+		color2={ 255 255 255 }
+		
+		capital	= 796 # Cairo
+		
+		culture = egyptian_arabic
+		
+		orthodox = 20 # Crusade target weight
+		muslim = 400 # Crusade target weight
+    
+  	title = "CALIPH"
+  	title_female = "CALIPHA"
+	  foa = "CALIPH_FOA"
+	
+  	allow = {
+	 	   always = no
+   	}
+}
+
+k_pechenegs = {
+	color = { 173 150 43 }
+	color2 = { 0 128 128 }
+	
+	capital = 543 # Oleshye
+	
+	tribe = yes
+	culture = pecheneg
+	
+	allow = {
+		always = no
+	}
+}
+
+k_khazaria = {
+	color={ 250 184 31 }
+	color2={ 255 255 255 }
+	
+	capital = 620 #	Itil
+	
+	culture = khazar
+	
+	# Creation/Usurp Trigger
+	allow = {
+		culture = khazar
+	}
+}
+
+d_dublin = {
+	color = { 255 65 20 }
+	capital = 11 # Dublin
+	culture = danish
+	allow = {
+		war = no
+		OR = {
+			culture = english_norse
+			culture_group = north_germanic		
+			d_dublin = { OR = { is_titular = no has_holder = yes } }
+		}	
+	}
+}
+
+e_seljuk_turks = { # Seljuk Turks
+	color={ 99 168 74 }   
+	color2={ 255 255 255 }
+	capital = 693 # Baghdad
+	culture = turkish  
+  
+  short_name = yes
+	
+	allow = {
+		always = no
+	}
+}

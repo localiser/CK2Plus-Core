@@ -1,0 +1,89 @@
+decisions = {
+
+	form_the_great_seljuq = {
+		is_high_prio = yes
+    
+		potential = { 
+			e_seljuk_turks = {
+				has_holder = no
+			}
+      has_global_flag = seljuk_arrival  
+		  has_character_flag = horde_invader 
+			NOT = { has_global_flag = seljuk_empire }  
+      culture = turkish     
+			religion_group = muslim 
+			independent = yes 
+      prisoner = no
+		}
+    
+		allow = {
+			war = no
+			prisoner = no
+			prestige = 1000
+      piety = 100
+      wealth = 300
+      OR = {
+		     has_landed_title = c_baghdad
+         is_liege_or_above = c_baghdad
+      }
+      has_landed_title = k_persia     
+		}
+    
+		effect = {
+			set_global_flag = seljuk_empire
+			prestige = 500
+      wealth = -300
+      
+			if = {
+				limit = { has_nickname = no }
+				give_nickname = nick_the_great
+			}  
+		e_seljuk_turks = {
+			grant_title = ROOT
+			copy_title_laws = k_persia
+		} 
+		k_persia = {
+			destroy_landed_title = THIS
+		}
+      
+    hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = e_seljuk_turks }
+					ai = no
+				}
+				narrative_event = { id = 90009010 }
+			}  
+    }  
+    create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = sunni
+			culture = turkish
+			female = no
+			age = 35
+			attributes = {
+				martial = 10
+			}
+			trait = skilled_tactician
+		}
+		spawn_unit = {
+				province = 907 #
+				troops =
+				{
+					horse_archers = { 7500 7500 }
+					light_cavalry = { 4000 4000 }
+					light_infantry = { 3000 3000 }
+					heavy_infantry = { 1500 1500 }
+					knights = { 200 200 }
+				}
+		}
+
+		}
+    
+		ai_will_do = {
+			factor = 1
+			
+		}
+	}
+}

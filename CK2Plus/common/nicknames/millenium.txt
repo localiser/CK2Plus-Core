@@ -1,0 +1,48 @@
+nick_the_bulgar_slayer = { }
+nick_the_ill_advised = { } 
+nick_the_red = { }    
+nick_forkbeard = { }
+nick_skotkonung = { } 
+nick_almanzor = { }
+
+nick_the_black = {
+	allow = {
+		age = 20
+		NOT = { trait = kind }
+		NOT = { trait = just }
+		AND = {
+			trait = cruel
+			trait = wroth
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 5.0
+			trait = impaler
+		}
+		modifier = {
+			factor = 5.0
+			trait = arbitrary
+		}
+	}
+}    
+
+nick_the_posthumous = {
+	allow = {
+		NOT = { age = 1 }
+    is_female = no
+	  father = {
+			is_alive = no
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 10.0
+	    mother = {
+		  	is_alive = no
+	   	}
+		}
+	}
+} 
