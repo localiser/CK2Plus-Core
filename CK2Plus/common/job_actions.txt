@@ -13,8 +13,8 @@ action_improve_relations = {
 	trigger = {
 		any_province_lord = {
 			OR = { higher_tier_than = baron is_patrician = yes }
-			is_theocracy = no
 			NOT = { character = FROM }
+			is_theocracy = no
 		}
 	}
 	
@@ -87,7 +87,7 @@ action_squeeze_peasants = {
 		}
 	}
 	
-	local_tax_modifier = 0.02
+	local_tax_modifier = 0.025
 	
 	events = { 920 921 }
 }
@@ -101,7 +101,7 @@ action_oversee_construction = {
 		}
 	}
 	
-	local_build_time_modifier = -0.02
+	local_build_time_modifier = -0.025
 	
 	events = { 923 924 }
 }
@@ -110,7 +110,7 @@ action_advance_eco_tech = {
 	attribute = stewardship
 
 	trigger = {
-		owner = {
+		any_province_lord = {
 			character = FROM
 		}
 	}
@@ -162,7 +162,7 @@ action_organize_spies = {
 		}
 	}
 	
-	assassinate_chance_modifier = 0.002
+	assassinate_chance_modifier = 0.005
 	
 	events = { 935 936 }
 }
@@ -172,7 +172,7 @@ action_advance_mil_tech = {
 	attribute = martial
 
 	trigger = {
-		owner = {
+		any_province_lord = {
 			character = FROM
 		}
 	}
@@ -316,10 +316,8 @@ action_improve_rel_relations = {
 	
 	trigger = {
 		any_province_lord = {
-			OR = {
-				religion = FROM
-				is_theocracy = yes
-			}
+			religion = FROM
+			is_theocracy = yes
 		}
 	}
 	
@@ -330,8 +328,11 @@ action_advance_cul_tech = {
 	attribute = learning
 	
 	trigger = {
-		owner = {
-			character = FROM
+		any_province_lord = {
+			OR = {
+				character = FROM
+				is_liege_or_above = FROM
+			}
 		}
 	}
 	
