@@ -15525,9 +15525,12 @@ k_andalusia = {
 	color2={ 255 255 255 }
 	
 	allow = { 
-      war = no
-		  has_global_flag = umayyad_has_fallen    
-  }
+		war = no
+		OR = {
+			NOT = { has_global_flag = umayyad_has_fallen }
+			NOT = { has_global_flag = 867_start_umayyad }
+		}   
+	}
 	
 	capital = 181 # Cordoba
 	
@@ -18056,7 +18059,10 @@ k_egypt = {
 	
 	allow = {
   war = no
-	has_global_flag = fatimid_has_fallen  
+	OR = {
+		NOT = { has_global_flag = fatimid_has_fallen }
+		NOT = { has_global_flag = 867_start_fatimid }
+	}
   } 
 
 	d_alexandria = {
