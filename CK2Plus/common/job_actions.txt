@@ -53,15 +53,25 @@ action_sow_dissent = {
 	attribute = diplomacy
 	
 	trigger = {
-		owner = {
-			NOT = { character = FROM }
-			religion = ROOT
-			religion = FROM
-			any_vassal = {
+		OR = {
+			any_province_lord = {
 				NOT = { character = FROM }
-				OR = { higher_tier_than = baron is_patrician = yes }
+				NOT = { is_liege_or_above = FROM }
+			}
+			owner = {
+				NOT = { character = FROM }
+				religion = ROOT
+				religion = FROM
+				any_vassal = {
+					NOT = { character = FROM }
+					OR = { higher_tier_than = baron is_patrician = yes }
+				}
 			}
 		}
+		
+	}
+	trigger = {
+		
 	}
 	
 	events = { 916 917 }
@@ -177,7 +187,10 @@ action_train_troops = {
 
 	trigger = {
 		any_province_lord = {
-			character = FROM
+			OR = { 
+				character = FROM
+				liege = FROM
+			}
 		}
 	}
 	
@@ -303,8 +316,10 @@ action_improve_rel_relations = {
 	
 	trigger = {
 		any_province_lord = {
-			religion = FROM
-			is_theocracy = yes
+			OR = {
+				religion = FROM
+				is_theocracy = yes
+			}
 		}
 	}
 	

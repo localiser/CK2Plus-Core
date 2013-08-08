@@ -22,6 +22,7 @@ character_event = {
 	title = "EVTNAME932"
 	desc = "EVTDESC932"
 	picture = GFX_evt_library
+	border = GFX_event_normal_frame_intrigue
 	
 	capable_only = yes
 	prisoner = no
@@ -87,8 +88,8 @@ character_event = {
 			NOT = { intrigue = 5 }
 		}
 		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 6 }
+			factor = 1.25
+			NOT = { intrigue = 3 }
 		}
 		modifier = {
 			factor = 1.05
@@ -135,32 +136,32 @@ character_event = {
 			intrigue = 18
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 19
+			factor = 1.25
+			NOT = { intrigue = 3 }
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 20
+			factor = 1.25
+			NOT = { intrigue = 4 }
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 21
+			factor = 1.25
+			NOT = { intrigue = 5 }
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 22
+			factor = 0.75
+			intrigue = 10
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 23
+			factor = 0.75
+			intrigue = 11
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 24
+			factor = 0.75
+			intrigue = 12
 		}
 		modifier = {
-			factor = 0.95
-			intrigue = 25
+			factor = 0.75
+			intrigue = 13
 		}
 	}
 
@@ -174,6 +175,7 @@ character_event = {
 letter_event = {
 	id = 20320
 	desc = "EVTDESC20320"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -193,6 +195,7 @@ character_event = {
 	title = "EVTNAME933"
 	desc = "EVTDESC933"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 	
 	capable_only = yes
 	prisoner = no
@@ -215,135 +218,39 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 120
-
+		months = 360
+		
 		modifier = {
-			factor = 0.9
-			NOT = { opinion = { who = liege value = -100 } }
-		}
-		modifier = {
-			factor = 0.9
-			NOT = { opinion = { who = liege value = -75 } }
-		}
-		modifier = {
-			factor = 0.9
-			NOT = { opinion = { who = liege value = -50 } }
-		}
-		modifier = {
-			factor = 0.9
-			NOT = { opinion = { who = liege value = -25 } }
-		}
-		modifier = {
-			factor = 1.05
-			opinion = { who = liege value = 25 }
-		}
-		modifier = {
-			factor = 1.05
-			opinion = { who = liege value = 50 }
-		}
-		modifier = {
-			factor = 1.05
-			opinion = { who = liege value = 75 }
-		}
-		modifier = {
-			factor = 1.05
-			opinion = { who = liege value = 100 }
-		}		
-		modifier = {
-			factor = 0.95
-			NOT = { intrigue = 1 }
-		}		
-		modifier = {
-			factor = 0.95
+			factor = 0.75
 			NOT = { intrigue = 2 }
 		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			NOT = { intrigue = 3 }
 		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			NOT = { intrigue = 4 }
 		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			NOT = { intrigue = 5 }
 		}
 		modifier = {
-			factor = 0.95
-			NOT = { intrigue = 6 }
+			factor = 1.25
+			intrigue = 10
 		}
 		modifier = {
-			factor = 0.95
-			NOT = { intrigue = 7 }
-		}
-		modifier = {
-			factor = 0.95
-			NOT = { intrigue = 8 }
-		}
-		modifier = {
-			factor = 0.95
-			NOT = { intrigue = 9 }
-		}
-		modifier = {
-			factor = 1.05
+			factor = 1.25
 			intrigue = 11
-		}		
+		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			intrigue = 12
-		}	
+		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			intrigue = 13
-		}	
-		modifier = {
-			factor = 1.05
-			intrigue = 14
-		}	
-		modifier = {
-			factor = 1.05
-			intrigue = 15
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 16
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 17
-		}	
-		modifier = {
-			factor = 1.05
-			intrigue = 18
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 19
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 20
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 21
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 22
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 23
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 24
-		}
-		modifier = {
-			factor = 1.05
-			intrigue = 25
 		}
 	}
 
@@ -369,33 +276,37 @@ character_event = {
 	id = 20330
 	desc = "EVTDESC20330"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
 	option = {
 		name = "EVOPTA20330"
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 75 }
 		FROM = {
-			opinion = {
-				who = ROOT
-				modifier = opinion_arrest_attempt
-				months = 240
-			}		
 			imprison = ROOT
 			liege = {
 				letter_event = { id = 20331 days = 7 tooltip = "EVTTOOLTIP20331" }
 				opinion = {
 					modifier = opinion_furious
 					who = ROOT
-					years = 5
+					years = 2
 				}
 			}
 		}
 	}
 	option = {
 		name = "EVOPTB20330"
-		ai_chance = { factor = 50 }
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				FROM = { has_character_flag = spymaster_found_spying }
+			}
+		}
+		prestige = 15
 		FROM = {
+			set_character_flag = spymaster_found_spying
 			letter_event = { id = 20332 days = 7 tooltip = "EVTTOOLTIP20332" }
 		}
 	}
@@ -405,6 +316,7 @@ character_event = {
 letter_event = {
 	id = 20331
 	desc = "EVTDESC20331"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -414,7 +326,7 @@ letter_event = {
 			opinion = {
 				modifier = opinion_dishonorable_scum
 				who = ROOT
-				years = 5
+				years = 2
 			}
 		}
 	}
@@ -424,6 +336,7 @@ letter_event = {
 letter_event = {
 	id = 20332
 	desc = "EVTDESC20332"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -449,6 +362,7 @@ character_event = {
 	title = "EVTNAME935"
 	desc = "EVTDESC935"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	capable_only = yes
 	prisoner = no
@@ -464,142 +378,45 @@ character_event = {
 						NOT = { opinion = { who = PREVPREV value = 0 } }
 					}
 				}
-				trait = homosexual
-				is_female = no
+				num_of_vassals = 1
 			}
 		}
 	}
 	
 	mean_time_to_happen = {
 		months = 240
-
+		
 		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -100 } }
-		}
-		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -75 } }
-		}
-		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -50 } }
-		}
-		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -25 } }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 25 }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 50 }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 75 }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 100 }
-		}		
-		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 1 }
-		}		
-		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 2 }
 		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 3 }
 		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 4 }
 		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 5 }
 		}
 		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 6 }
+			factor = 0.75
+			intrigue = 10
 		}
 		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 7 }
-		}
-		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 8 }
-		}
-		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 9 }
-		}
-		modifier = {
-			factor = 0.95
+			factor = 0.75
 			intrigue = 11
-		}		
+		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			intrigue = 12
-		}	
+		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			intrigue = 13
-		}	
-		modifier = {
-			factor = 0.95
-			intrigue = 14
-		}	
-		modifier = {
-			factor = 0.95
-			intrigue = 15
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 16
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 17
-		}	
-		modifier = {
-			factor = 0.95
-			intrigue = 18
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 19
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 20
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 21
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 22
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 23
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 24
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 25
 		}
 	}
 	
@@ -618,6 +435,7 @@ character_event = {
 						}
 						trait = homosexual
 						is_female = no
+						num_of_vassals = 1
 					}
 					set_character_flag = vicious_rumor
 				}
@@ -631,6 +449,7 @@ character_event = {
 letter_event = {
 	id = 20350
 	desc = "EVTDESC20350"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -668,6 +487,7 @@ character_event = {
 	id = 20351
 	desc = "EVTDESC20351"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -677,6 +497,16 @@ character_event = {
 			location = {
 				random_province_lord = {
 					limit = {
+						NOT = { is_liege_of = ROOT }
+						NOT = { character = ROOT }
+						ROOT = {
+							liege = {
+								NOT = { opinion = { who = PREVPREV value = 0 } }
+							}
+						}
+						trait = homosexual
+						is_female = no
+						num_of_vassals = 1
 						has_character_flag = vicious_rumor
 					}
 					set_character_flag = vicious_rumor_blackmail
@@ -692,6 +522,7 @@ character_event = {
 	id = 20352
 	desc = "EVTDESC20352"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -701,6 +532,16 @@ character_event = {
 			location = {
 				random_province_lord = {
 					limit = {
+						NOT = { is_liege_of = ROOT }
+						NOT = { character = ROOT }
+						ROOT = {
+							liege = {
+								NOT = { opinion = { who = PREVPREV value = 0 } }
+							}
+						}
+						trait = homosexual
+						is_female = no
+						num_of_vassals = 1
 						has_character_flag = vicious_rumor
 					}
 					set_character_flag = vicious_rumor_spread
@@ -716,6 +557,7 @@ character_event = {
 	id = 20353
 	desc = "EVTDESC20353"
 	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -724,6 +566,16 @@ character_event = {
 		hidden_tooltip = {
 			random_province_lord = {
 				limit = {
+					NOT = { is_liege_of = ROOT }
+					NOT = { character = ROOT }
+					ROOT = {
+						liege = {
+							NOT = { opinion = { who = PREVPREV value = 0 } }
+						}
+					}
+					trait = homosexual
+					is_female = no
+					num_of_vassals = 1
 					has_character_flag = vicious_rumor
 				}
 				clr_character_flag = vicious_rumor
@@ -737,6 +589,7 @@ character_event = {
 	id = 20354
 	desc = "EVTDESC20354"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -744,8 +597,8 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA20354"
-		ai_chance = { factor = 50 }
-		wealth = -50
+		ai_chance = { factor = 40 }
+		scaled_wealth = -0.25
 		hidden_tooltip = {
 			FROM = {
 				character_event = { id = 20359 days = 1 }
@@ -755,7 +608,7 @@ character_event = {
 	option = {
 		name = "EVTOPTB20354"
 		ai_chance = {
-			factor = 25
+			factor = 30
 			modifier = {
 				factor = 3.0
 				OR = {
@@ -788,7 +641,7 @@ character_event = {
 	option = {
 		name = "EVTOPTC20354"
 		ai_chance = {
-			factor = 25
+			factor = 30
 			modifier = {
 				factor = 3.0
 				OR = {
@@ -812,6 +665,7 @@ character_event = {
 	id = 20355
 	desc = "EVTDESC20355"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -858,6 +712,7 @@ character_event = {
 	id = 20364
 	desc = "EVTDESC20364"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -872,6 +727,7 @@ character_event = {
 	id = 20365
 	desc = "EVTDESC20365"
 	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -885,6 +741,7 @@ character_event = {
 	id = 20356
 	desc = "EVTDESC20356"
 	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -906,8 +763,8 @@ character_event = {
 		}
 		clr_character_flag = spymaster_killed
 		death = {
-			death_reason = death_murder
-			killer = ROOT
+			death_reason = death_murder_unknown
+			killer = FROM
 		}
 	}
 }
@@ -916,6 +773,7 @@ character_event = {
 letter_event = {
 	id = 20357
 	desc = "EVTDESC20357"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -936,6 +794,7 @@ character_event = {
 	id = 20358
 	desc = "EVTDESC20358"
 	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -959,6 +818,7 @@ character_event = {
 	id = 20359
 	desc = "EVTDESC20359"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -976,6 +836,7 @@ character_event = {
 letter_event = {
 	id = 20360
 	desc = "EVTDESC20360"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -998,6 +859,7 @@ character_event = {
 	id = 20361
 	desc = "EVTDESC20361"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -1006,7 +868,9 @@ character_event = {
 	option = {
 		name = "EVTOPTA20361"
 		hidden_tooltip = {
-			liege = { letter_event = { id = 20362 days = 1 } }
+			liege = {
+				letter_event = { id = 20362 days = 1 }
+			}
 		}
 	}
 }
@@ -1015,6 +879,7 @@ character_event = {
 letter_event = {
 	id = 20362
 	desc = "EVTDESC20362"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1035,6 +900,7 @@ character_event = {
 	id = 20363
 	desc = "EVTDESC20363"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -1068,7 +934,7 @@ character_event = {
 			opinion = {
 				modifier = opinion_homosexual
 				who = ROOT
-				years = 5
+				years = 2
 			}
 			clr_character_flag = opinion_liege_homosexual
 		}
@@ -1079,7 +945,7 @@ character_event = {
 			opinion = {
 				modifier = opinion_homosexual
 				who = ROOT
-				years = 5
+				years = 2
 			}
 			clr_character_flag = opinion_liege_homosexual
 		}
@@ -1092,6 +958,7 @@ character_event = {
 	title = "EVTNAME936"
 	desc = "EVTDESC936"
 	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
 
 	capable_only = yes
 	prisoner = no
@@ -1116,132 +983,36 @@ character_event = {
 		months = 240
 		
 		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -100 } }
-		}
-		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -75 } }
-		}
-		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -50 } }
-		}
-		modifier = {
-			factor = 1.1
-			NOT = { opinion = { who = liege value = -25 } }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 25 }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 50 }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 75 }
-		}
-		modifier = {
-			factor = 0.95
-			opinion = { who = liege value = 100 }
-		}		
-		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 1 }
-		}		
-		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 2 }
 		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 3 }
 		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 4 }
 		}
 		modifier = {
-			factor = 1.05
+			factor = 1.25
 			NOT = { intrigue = 5 }
 		}
 		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 6 }
+			factor = 0.75
+			intrigue = 10
 		}
 		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 7 }
-		}
-		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 8 }
-		}
-		modifier = {
-			factor = 1.05
-			NOT = { intrigue = 9 }
-		}
-		modifier = {
-			factor = 0.95
+			factor = 0.75
 			intrigue = 11
-		}		
+		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			intrigue = 12
-		}	
+		}
 		modifier = {
-			factor = 0.95
+			factor = 0.75
 			intrigue = 13
-		}	
-		modifier = {
-			factor = 0.95
-			intrigue = 14
-		}	
-		modifier = {
-			factor = 0.95
-			intrigue = 15
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 16
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 17
-		}	
-		modifier = {
-			factor = 0.95
-			intrigue = 18
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 19
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 20
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 21
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 22
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 23
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 24
-		}
-		modifier = {
-			factor = 0.95
-			intrigue = 25
 		}
 	}
 	
@@ -1272,6 +1043,7 @@ character_event = {
 letter_event = {
 	id = 20370
 	desc = "EVTDESC20370"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1300,6 +1072,7 @@ character_event = {
 	id = 20371
 	desc = "EVTDESC20371"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1331,6 +1104,7 @@ character_event = {
 	id = 20372
 	desc = "EVTDESC20372"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1361,6 +1135,7 @@ character_event = {
 	id = 20373
 	desc = "EVTDESC20373"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -1392,7 +1167,7 @@ character_event = {
 	option = {
 		name = "EVTOPTB20373"
 		prestige = -25
-		wealth = -50
+		scaled_wealth = -0.25
 		clr_character_flag = corrupt_nobel
 		hidden_tooltip = {
 			FROM = {
@@ -1407,6 +1182,7 @@ character_event = {
 	id = 20374
 	desc = "EVTDESC20374"
 	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1421,6 +1197,7 @@ character_event = {
 	id = 20375
 	desc = "EVTDESC20375"
 	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1434,6 +1211,7 @@ character_event = {
 	id = 20376
 	desc = "EVTDESC20376"
 	picture = GFX_evt_melee
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -1454,7 +1232,10 @@ character_event = {
 			liege = { character_event = { id = 20378 days = 1 } }
 		}
 		clr_character_flag = spymaster_killed
-		death = { death_reason = death_murder_unknown }
+		death = {
+			death_reason = death_murder
+			killer = FROM
+		}
 	}
 }
 
@@ -1462,6 +1243,7 @@ character_event = {
 letter_event = {
 	id = 20377
 	desc = "EVTDESC20377"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1482,6 +1264,7 @@ character_event = {
 	id = 20378
 	desc = "EVTDESC20378"
 	picture = GFX_evt_death
+	border = GFX_event_normal_frame_intrigue
 
 	hide_from = yes
 	
@@ -1504,6 +1287,7 @@ character_event = {
 letter_event = {
 	id = 20379
 	desc = "EVTDESC20379"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1519,6 +1303,7 @@ letter_event = {
 letter_event = {
 	id = 20369
 	desc = "EVTDESC20369"
+	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
 	
@@ -1527,3 +1312,5 @@ letter_event = {
 		wealth = 50
 	}
 }
+
+
