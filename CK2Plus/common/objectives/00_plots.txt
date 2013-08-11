@@ -998,7 +998,7 @@ plot_kidnapping = {
 	}
 	
 	chance = {
-		factor = 2
+		factor = 1
 		
 		modifier = {
 			factor = 0.01
@@ -1053,7 +1053,24 @@ plot_kidnapping = {
 			factor = 1.5
 			FROM = { intrigue = 16 }
 		}
-
+		modifier = {
+			factor = 0
+			FROM = { ai = yes 
+				OR = {
+				trait = content
+				trait = honest
+				trait = kind
+				trait = just
+				trait = charitable
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+			ai = yes
+			FROM = { opinion = { who = ROOT value = 25 } }
+		}
 		modifier = {
 			factor = 0
 			their_opinion = { who = FROM value = 75 }
