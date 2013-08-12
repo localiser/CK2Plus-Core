@@ -11,65 +11,34 @@ character_event = {
 	option = {
 		name = "selj_victory_option"
 		ai_chance = {
-			factor = 1
-		}
-		trigger = {
-			OR = {
-				ai = no
-				NOT = { religion_group = muslim }
-			}		
-			NOT = {
-				any_realm_character = {
-					age = 16
-					dynasty = ROOT
-					NOT = { is_close_relative = ROOT }
-					OR = {
-						NOT = { age = 45 }
-						any_child = { is_female = no is_ruler = no is_primary_heir = no }
-					}
-					NOT = { trait = incapable }
-					piety = 0
-					is_ruler = no
-					is_female = no
-					is_primary_heir = no
-					religion = ROOT
-					culture = ROOT
-					is_alive = yes
-				}
-			}
+			factor = 100
 		}
 
 		custom_tooltip = CUSTOMSELJTT
 		hidden_tooltip = {
 			create_character = {
-				random_traits = yes
+				random_traits = no
 				dynasty = random
 				religion = ROOT
 				culture = ROOT
 				female = no
 				age = 25
+				add_trait=brilliant_strategist
+				add_trait=quick
+				add_trait=ambitious
+				add_trait=strong
+				add_trait=brave
 				attributes = {
-					martial = 10
+					martial = 5
+					diplomacy = 5
+					intrigue = 5
+					learning = 5
+					stewardship = 5
 				}
 			}		
 			new_character = {
 				set_character_flag = centralize_without_penalties
-				fertility = 0.5
-				if = {
-					limit = {
-						religion = catholic
-					}
-				}
-				if = {
-					limit = {
-						religion = shiite
-					}
-				}
-				if = {
-					limit = {
-						religion = sunni
-					}
-				}		
+				fertility = 0.5	
 				ROOT = {
 					random_demesne_title = {
 						limit = {
@@ -79,53 +48,15 @@ character_event = {
 							}
 							location = { NOT = { has_province_flag = previous_holding } }
 						}
-						if = {
-							limit = {
-								kingdom = { title = k_armenia }
-								ROOT = { religion_group = muslim }
-								k_rum = { has_holder = no }
-							}
-							k_rum = { 
-								add_law = investiture_law_0
-								add_law = city_tax_0
-								add_law = city_contract_0
-								add_law = temple_tax_0
-								add_law = temple_contract_0
-								add_law = centralization_1
-								gain_title = PREVPREVPREV
-							}
-						}						
-						kingdom = { 
-							destroy_landed_title = yes
-							revoke_law = investiture_law_0
-							revoke_law = investiture_law_1
+						k_rum = { 
+							add_law = investiture_law_0
 							add_law = city_tax_0
 							add_law = city_contract_0
 							add_law = temple_tax_0
 							add_law = temple_contract_0
 							add_law = centralization_1
 							gain_title = PREVPREVPREV
-							if = {
-								limit = {
-									ROOT = { religion = catholic }
-								}
-								add_law = investiture_law_0
-							}
-							if = {
-								limit = {
-									ROOT = { religion_group = muslim }
-								}
-								add_law = iqta_tax_0
-								add_law = iqta_contract_0
-							}							
-							if = {
-								limit = {
-									ROOT = { NOT = { religion_group = muslim } }
-								}
-								add_law = feudal_tax_0
-								add_law = feudal_contract_0
-							}
-						}						
+						}										
 					}				
 					any_demesne_title = {
 						limit = {
@@ -148,5 +79,6 @@ character_event = {
 		any_demesne_title = {
 			location = { clr_province_flag = previous_holding }
 		}
+		hidden_tooltip = { k_armenia = { destroy_landed_title = yes } }
 	}	
 }
