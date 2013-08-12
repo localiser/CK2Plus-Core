@@ -964,19 +964,18 @@ plot_embezzle_from_liege = {
 
 # Character plots to imprison a character
 plot_kidnapping = {
-	type = realm_characters_plus
-	murder_plot = yes
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse
 	intrigue_plot = yes
+	murder_plot = yes
 	
 	# Plotter scope
 	potential = {
 		prisoner = no
-		age = 16
-		is_ruler = yes
-		NOT = { trait = incapable }
+		age = 16	
+		NOT = { trait = incapable }	
 	}
-	
-	# Target scope
+
+	# Target allow trigger for when players target a specific character in the GUI
 	player_allow = {
 		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
 		prisoner = no
@@ -989,136 +988,140 @@ plot_kidnapping = {
 	
 	# Target scope
 	allow = {
-		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
-		prisoner = no
+		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }	
+		always = no #player only for now
 		OR = {
 			is_ruler = no
 			any_liege = { character = FROM }
-		}
-		same_realm = FROM
+		}		
+		prisoner = no
+		same_realm = FROM		
 	}
 	
 	chance = {
 		factor = 1
-		
 		modifier = {
-			factor = 0.01
-			FROM = {
-				trait = content
-				NOT = { trait = lunatic } 
-				NOT = { trait = possessed }
-			}
-		}
-		
-		modifier = {
-			factor = 1.5
-			FROM = { trait = arbitrary }
-		}
-		modifier = {
-			factor = 2
-			FROM = { trait = cruel }
-		}
-		modifier = {
-			factor = 2
-			FROM = { trait = deceitful }
-		}
-		modifier = {
-			factor = 2
-			FROM = { trait = envious }
-		}
-		modifier = {
-			factor = 4
-			FROM = { trait = ambitious }
+			factor = 100.0
+			FROM = { ai = no }
 		}
 		modifier = {
 			factor = 0.5
-			FROM = { trait = honest }
+			FROM = { trait = dishonorable1 }
+		}	
+		modifier = {
+			factor = 0.4
+			FROM = { trait = dishonorable2 }
+		}	
+		modifier = {
+			factor = 0.3
+			FROM = { trait = dishonorable3 }
 		}
 		modifier = {
-			factor = 0.5
-			FROM = { trait = kind }
+			factor = 0.2
+			FROM = { trait = dishonorable4 }
 		}
 		modifier = {
-			factor = 0.5
-			FROM = { trait = just }
-		}
-		modifier = {
-			factor = 1.5
-			FROM = { intrigue = 12 }
-		}
-		modifier = {
-			factor = 1.5
-			FROM = { intrigue = 14 }
-		}
-		modifier = {
-			factor = 1.5
-			FROM = { intrigue = 16 }
-		}
+			factor = 0.1
+			FROM = { trait = dishonorable5 }
+		}	
 		modifier = {
 			factor = 0
-			FROM = { ai = yes 
+			FROM = { 
+				ai = yes
 				OR = {
-				trait = content
-				trait = honest
-				trait = kind
-				trait = just
-				trait = charitable
+					trait = dishonorable6
+					trait = dishonorable7
+					trait = dishonorable8
+					trait = dishonorable9
+					trait = dishonorable10
+				}
+			}
+		}			
+		modifier = {
+			factor = 0
+			FROM = {
+				ai = yes
+				OR = {
+					trait = content
+					trait = honest
+					trait = kind
+					trait = just
+					trait = charitable
 				}
 			}
 		}
 		modifier = {
 			factor = 0
-			FROM = {
-			ai = yes
+			FROM = { ai = yes opinion = { who = ROOT value = 50 } }
+		}	
+		modifier = {
+			factor = 0.25
 			FROM = { opinion = { who = ROOT value = 25 } }
-		}
+		}	
 		modifier = {
-			factor = 0
-			their_opinion = { who = FROM value = 75 }
-		}
-		modifier = {
-			factor = 0.5
-			their_opinion = { who = FROM value = 50 }
+			factor = 1.5
+			FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
 		}
 		modifier = {
 			factor = 1.5
-			NOT = { their_opinion = { who = FROM value = -25 } }
+			FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { their_opinion = { who = FROM value = -50 } }
+			FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
 		}
+		modifier = {
+			factor = 0.6
+			NOT = { FROM = {intrigue = 3} }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { FROM = {intrigue = 6} }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { FROM = {intrigue = 9} }
+		}
+		modifier = {
+			factor = 1.2
+			FROM = {intrigue = 12}
+		}
+		modifier = {
+			factor = 1.2
+			FROM = {intrigue = 15}
+		}
+		modifier = {
+			factor = 1.2
+			FROM = {intrigue = 18}
+		}	
 		modifier = {
 			factor = 2.0
-			NOT = { their_opinion = { who = FROM value = -75 } }
+			FROM = { trait = envious }
 		}
 		modifier = {
-			factor = 0.2
-			OR={
-				FROM = {any_liege = {any_child={character=ROOT}}}
-				FROM = {any_liege = {any_spouse={character=ROOT}}}
-				FROM = {any_liege = {any_sibling={character=ROOT}}}
-				FROM = {any_liege = {mother={character=ROOT}}}
-				FROM = {any_liege = {father={character=ROOT}}}
-			}
-			ROOT={OR={is_landed = no is_ruler=no}}
+			factor = 4.0
+			FROM = { trait = ambitious }
 		}
 	}
 	
 	success = {
 		prisoner = yes
-		host = {character = FROM}
+		host = { character = FROM }
 	}
-	effect = {
-		# I'm sure I'll have some flags to clear here
-		FROM = {
-			any_plot_backer = {
-				reverse_opinion = {
-					modifier = opinion_grateful
-					who = FROM
-					years = 5
-				}
+	abort = {
+		OR = {	
+			AND = {
+				prisoner = yes
+				host = { NOT = { character = FROM } }
 			}
+			FROM = { has_character_flag = abort_plot }
+			FROM = { prisoner = yes }
+			is_alive = no
+			FROM = { trait = incapable }
+		}
+	}
+	abort_effect = {
+		FROM = {
 			# Clear flags
 			hidden_tooltip = {
 				clr_character_flag = event7040
@@ -1130,20 +1133,15 @@ plot_kidnapping = {
 			}
 		}
 	}
-	
-	abort = {
-		OR = {
-			is_alive = no
-			AND = {
-				prisoner = yes
-				NOT = {host = {character = FROM}}
-			}
-		}
-		
-	}
-	abort_effect = {
-		# I'm sure I'll have some flags to clear here
+	effect = {
 		FROM = {
+			any_plot_backer = {
+				reverse_opinion = {
+					modifier = opinion_grateful
+					who = FROM
+					years = 5
+				}
+			}
 			# Clear flags
 			hidden_tooltip = {
 				clr_character_flag = event7040
