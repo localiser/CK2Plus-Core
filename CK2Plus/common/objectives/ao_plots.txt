@@ -64,7 +64,7 @@ plot_seduce_liege = {
 	}
 	
 	chance = {
-		factor = 1
+		factor = 1.0
 		modifier = {
 			factor = 0
 			FROM = { trait = content }
@@ -74,11 +74,11 @@ plot_seduce_liege = {
 			NOT = { opinion = { who = FROM value = 0 } }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.3
 			opinion = { who = FROM value = 20 } 
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.4
 			opinion = { who = FROM value = 40 } 
 		}
 		modifier = {
@@ -86,7 +86,7 @@ plot_seduce_liege = {
 			opinion = { who = FROM value = 60 } 
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.6
 			opinion = { who = FROM value = 80 } 
 		}
 		modifier = {
@@ -127,27 +127,27 @@ plot_seduce_liege = {
 			FROM = { trait = elusive_shadow }
 		}
 		modifier = {
-			factor = 0
+			factor = 0.01
 			trait = chaste
 		}
 		modifier = {
-			factor = 1.0
+			factor = 1.10
 			tier = duke
 		}
 		
 		modifier = {
-			factor = 1.25
+			factor = 1.20
 			OR = {
 				tier = king
 				tier = emperor
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.4
 			FROM = { age = 25 }
 		}
 		modifier = {
-			factor = 0
+			factor = 0.01
 			FROM = { age = 35 }
 		}
 		modifier = {
@@ -157,12 +157,12 @@ plot_seduce_liege = {
 			}
 		}
 		modifier = {
-			factor = 0.2
+			factor = 0.1
 			FROM = { num_of_children = 2 }
 		}
 		
 		modifier = {
-			factor = 0
+			factor = 0.01
 			FROM = { num_of_children = 3 }
 		}
 		modifier = {
@@ -174,7 +174,7 @@ plot_seduce_liege = {
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.4
 			FROM = { is_married = yes }
 		}
 		modifier = {
@@ -346,11 +346,11 @@ plot_seduce_for_men = {
 			NOT = { opinion = { who = FROM value = 0 } }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.3
 			opinion = { who = FROM value = 20 } 
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.4
 			opinion = { who = FROM value = 40 } 
 		}
 		modifier = {
@@ -358,7 +358,7 @@ plot_seduce_for_men = {
 			opinion = { who = FROM value = 60 } 
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.6
 			opinion = { who = FROM value = 80 } 
 		}
 		modifier = {
@@ -407,7 +407,7 @@ plot_seduce_for_men = {
 			FROM = { trait = slow } 
 		}
 		modifier = {
-			factor = 0
+			factor = 0.01
 			trait = chaste
 		}
 		modifier = {
@@ -434,7 +434,7 @@ plot_seduce_for_men = {
 			}
 		}
 		modifier = {
-			factor = 0.25
+			factor = 0.20
 			FROM = { 
 				any_child = {
 					trait = bastard
@@ -454,12 +454,12 @@ plot_seduce_for_men = {
 			is_ruler = no
 		}
 		modifier = {
-			factor = 1.0
+			factor = 1.10
 			tier = duke
 		}
 		
 		modifier = {
-			factor = 1.25
+			factor = 1.20
 			OR = {
 				tier = king
 				tier = emperor
@@ -537,20 +537,23 @@ plot_seduce_for_men = {
 		
 plot_fabricate_evidence_betrayal_same_realm = {
 	type = realm_characters_plus
-	#vassal_intrigue_plot = yes
-	#intrigue_plot = yes
+	vassal_intrigue_plot = yes
+	intrigue_plot = yes
 	potential = {
-		NOT = { OR = {trait = incapable trait = imbecile} }
-		is_adult = yes	
+		NOT = { OR = { trait = incapable trait = imbecile } }
+		prisoner = no
+		age = 16
 		is_ruler = yes
 	}
 	player_allow = {
-		is_adult = yes
+		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
+		age = 16
 		is_ruler = yes
 		same_realm = FROM
 	}
 	allow = {
-		is_adult = yes
+		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
+		age = 16
 		is_ruler = yes
 		same_realm = FROM
 	}
@@ -561,66 +564,71 @@ plot_fabricate_evidence_betrayal_same_realm = {
 			FROM = { ai = no }
 		}	
 		modifier = {
-			factor = 0
+			factor = 0.01
 			FROM = {
 				OR = { trait = content trait = honest trait = just }
 				ai = yes
 			}
 		}
 		modifier = {
-			factor = 1.5
+			factor = 1.01
 			FROM = { trait = deceitful }
 		}
 		modifier = {
-			factor = 1.5
+			factor = 1.01
 			FROM = { trait = ambitious }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.01
 			FROM = { trait = kind }
 		}
 		modifier = {
-			factor = 0
+			factor = 0.01
 			FROM = { ai = yes opinion = { who = ROOT value = 50 } }
 		}	
 		modifier = {
-			factor = 0.25
+			factor = 0.01
 			FROM = { opinion = { who = ROOT value = 25 } }
 		}	
 		modifier = {
-			factor = 1.5
-			FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
+			factor = 0.01
+			FROM = { opinion = { who = ROOT value = -25 } }
 		}
 		modifier = {
-			factor = 1.5
+			factor = 1.01
 			FROM = { NOT = { opinion = { who = ROOT value = -50 } } }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 1.01
 			FROM = { NOT = { opinion = { who = ROOT value = -75 } } }
-		modifier = {
-			factor = 0.6
-			NOT = { FROM = {intrigue = 3} }
 		}
 		modifier = {
-			factor = 0.6
-			NOT = { FROM = {intrigue = 6} }
+			factor = 10
+			FROM = { NOT = { opinion = { who = ROOT value = -100 } } }
 		}
 		modifier = {
-			factor = 0.6
-			NOT = { FROM = {intrigue = 9} }
+			factor = 0.01
+			FROM = { NOT = {intrigue = 3} }
 		}
 		modifier = {
-			factor = 1.2
-			FROM = {intrigue = 12}
+			factor = 0.01
+			FROM = { NOT = {intrigue = 6} }
 		}
 		modifier = {
-			factor = 1.2
-			FROM = {intrigue = 15}
+			factor = 0.01
+			FROM = { NOT = {intrigue = 9} }
 		}
 		modifier = {
-			factor = 1.2
-			FROM = {intrigue = 18}
+			factor = 0.01
+			FROM = { NOT = {intrigue = 12} }
+		}
+		modifier = {
+			factor = 1.01
+			FROM = { intrigue = 16 diplomacy = 8 }
+		}
+		modifier = {
+			factor = 1.1
+			FROM = { intrigue = 20 diplomacy = 10 }
 		}
 		modifier = {
 			factor = 10
@@ -635,6 +643,9 @@ plot_fabricate_evidence_betrayal_same_realm = {
 			any_plot_backer = {
 				reverse_opinion = { modifier = opinion_grateful who = FROM years = 5}
 			}
+			hidden_tooltip = {
+				reverse_opinion = { who = ROOT modifier = opinion_recent_plot months = 60 }
+			}
 		}
 		clr_character_flag = fabbetrayalvictim
 	}
@@ -642,6 +653,12 @@ plot_fabricate_evidence_betrayal_same_realm = {
 		ROOT = { has_opinion_modifier = {who = FROM modifier = opinion_tried_to_frame_me} }
 	}
 	abort_effect = {
+		FROM = {
+			# Clear flags
+			hidden_tooltip = {
+				reverse_opinion = { who = ROOT modifier = opinion_recent_plot months = 60 }
+			}
+		}
 	}
 }
 
@@ -658,12 +675,12 @@ plot_fabricate_evidence_betrayal = { # Outside Realm
 	player_allow = {
 		independent = yes
 		is_ruler = yes
-		NOT = {same_realm = FROM}
+		NOT = { same_realm = FROM }
 	}
 	allow = {
 		independent = yes
 		is_ruler = yes
-		NOT={same_realm = FROM}
+		NOT = { same_realm = FROM }
 	}
 	chance = {
 		factor = 1
