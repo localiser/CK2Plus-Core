@@ -68,10 +68,6 @@ action_sow_dissent = {
 				}
 			}
 		}
-		
-	}
-	trigger = {
-		
 	}
 	
 	events = { 916 917 }
@@ -162,7 +158,7 @@ action_organize_spies = {
 		}
 	}
 	
-	assassinate_chance_modifier = 0.005
+	assassinate_chance_modifier = 0.004
 	
 	events = { 935 936 }
 }
@@ -187,9 +183,9 @@ action_train_troops = {
 
 	trigger = {
 		any_province_lord = {
-			OR = { 
+			OR = {
 				character = FROM
-				liege = FROM
+				is_liege_or_above = FROM
 			}
 		}
 	}
@@ -215,7 +211,7 @@ action_assist_arrest = {
 	arrest_chance_modifier = 0.005
 	local_revolt_risk = -0.002
 	
-	events = { }	
+	events = { }
 }
 
 # Lord Spiritual
