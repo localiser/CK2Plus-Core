@@ -978,7 +978,9 @@ plot_kidnapping = {
 
 	# Target allow trigger for when players target a specific character in the GUI
 	player_allow = {
-		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
+		NOT = { 
+			has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } 
+		}
 		prisoner = no
 		OR = {
 			is_ruler = no
@@ -1100,15 +1102,15 @@ plot_kidnapping = {
 		}
 		modifier = {
 			factor = 0
-			FROM = { NOT = { OR = { intrigue = 6 diplomacy = 6 } }
+			FROM = { NOT = { OR = { intrigue = 6 diplomacy = 6 } } }
 		}
 		modifier = {
 			factor = 0
-			FROM = { NOT = { OR = { intrigue = 9 diplomacy = 9 } }
+			FROM = { NOT = { OR = { intrigue = 9 diplomacy = 9 } } }
 		}
 		modifier = {
 			factor = 0
-			FROM = { NOT = { OR = { intrigue = 12 diplomacy = 12 } }
+			FROM = { NOT = { OR = { intrigue = 12 diplomacy = 12 } } }
 		}
 		modifier = {
 			factor = 1.01
