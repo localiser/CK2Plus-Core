@@ -1015,13 +1015,11 @@ character_event = {
 			modifier = cuckolded
 			years = 10
 		}
-		FROMFROM = {
-			mother = {
-				reverse_opinion = {
-					who = ROOT
-					modifier = unfaithful
-					years = 10
-				}
+		spouse = {
+			reverse_opinion = {
+				who = ROOT
+				modifier = unfaithful
+				years = 10
 			}
 		}
 	}
@@ -1068,9 +1066,9 @@ character_event = {
 
 	option = {
 		name = OK
+		dynasty = father_bastard
 		culture = FROM
 		religion = FROM
-		dynasty = FROM
 		hidden_tooltip = {
 			if = {
 				limit = { 
@@ -1160,12 +1158,15 @@ character_event = {
 
 	option = {
 		name = OK
+		dynasty = mother_bastard
 		
 		father = {
 			spouse = {
 				character_event = { id = 311 } # The father's wife is displeased
 			}
 		}
+		set_father = 0
+		set_real_father = FROM
 	}
 }
 

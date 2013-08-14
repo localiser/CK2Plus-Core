@@ -1355,11 +1355,14 @@ plot_instigate_revolt = {
 	}
 	
 	success = {
-		hidden_tooltip = {
-			has_character_flag = plot_success
+		custom_tooltip = { 
+			text = CUSTOMTOOLTIP32
+			hidden_tooltip = {
+				has_character_flag = plot_success
+			}
 		}
-		custom_tooltip = CUSTOMTOOLTIP32
 	}
+
 	abort = {
 		OR = {	
 			opinion = { who = liege value = 25 }
@@ -1591,11 +1594,15 @@ plot_fabricate_treason = {
 	}
 	
 	success = {
-		hidden_tooltip = {
-			has_character_flag = plot_success
+		
+		custom_tooltip = {
+			text = CUSTOMTOOLTIP31
+			hidden_tooltip = {
+				has_character_flag = plot_success
+			}
 		}
-		custom_tooltip = CUSTOMTOOLTIP31
 	}
+
 	abort = {
 		OR = {	
 			liege = {
@@ -2701,18 +2708,20 @@ plot_weaken_fellow_vassal = {
 	}
 	
 	success = {
-		hidden_tooltip = {
-			holder_scope = {
-				NOT = { num_of_duke_titles = 2 }
-				NOT = { 
-					has_opinion_modifier = {
-						modifier = opinion_plot_weaken_fellow_vassal
-						who = FROM			
+		custom_tooltip = {
+			text = PLOT_TOOLTIP_WEAKEN_VASSAL
+			hidden_tooltip = {
+				holder_scope = {
+					NOT = { num_of_duke_titles = 2 }
+					NOT = { 
+						has_opinion_modifier = {
+							modifier = opinion_plot_weaken_fellow_vassal
+							who = FROM			
+						}
 					}
 				}
 			}
 		}
-		custom_tooltip = PLOT_TOOLTIP_WEAKEN_VASSAL
 	}
 	abort = {
 		OR = {

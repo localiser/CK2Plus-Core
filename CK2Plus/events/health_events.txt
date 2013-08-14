@@ -7,6 +7,8 @@
 ###################################
 #
 # Written by Sara Wendel-Örtqvist
+# and Chris King
+# and Henrik Eklund
 
 #Syphilitic
 character_event = {
@@ -21,6 +23,12 @@ character_event = {
 		NOT = { trait = immortal }
 		NOT = {
 			trait = syphilitic
+		}
+		NOT = {
+			trait = celibate
+		}
+		NOT = {
+			trait = infirm
 		}
 		OR = {
 			NOT = { trait = chaste }
@@ -41,12 +49,6 @@ character_event = {
 				is_abroad = no
 				trait = syphilitic 
 			}			
-		}
-		NOT = {
-			trait = celibate
-		}
-		NOT = {
-			trait = infirm
 		}
 	}
 	
@@ -198,7 +200,7 @@ character_event = {
 	}
 }
 
-#s
+#Lunatic
 character_event = {
 	id = 6020
 	desc = EVTDESC6020
@@ -858,7 +860,10 @@ character_event = {
 	
 	trigger = {
 		NOT = { trait = immortal }
-		trait = ill
+		OR = {
+			trait = ill
+			trait = has_measles
+		}
 		NOT = { trait = pneumonic }
 	}
 	
@@ -985,6 +990,7 @@ character_event = {
 		}
 		NOT = {
 			trait = wounded
+			trait = maimed
 		}		
 	}
 	
@@ -1548,7 +1554,7 @@ character_event = {
 character_event = {
 	id = 6114
 	desc = EVTDESC6114
-	picture = GFX_evt_recovery
+	picture = GFX_evt_plague_doctor
 	
 	trigger = {
 		trait = has_bubonic_plague
@@ -1915,25 +1921,23 @@ character_event = {
 	min_age = 16
 	
 	trigger = {
-		trait = possessed
 		OR = {
-			religion = catholic
-			religion = orthodox
-		}		
-		NOT = { has_character_modifier = voice_of_jesus }
-		NOT = { has_character_modifier = voice_of_satan }
+			trait = possessed
+			has_character_modifier = voice_of_jesus
+			has_character_modifier = voice_of_satan
+		}
 		NOT = { has_character_modifier = holy_comet }
 	}
 	
 	mean_time_to_happen = {
-		months = 480
+		months = 120
 	}
 
 	option = {
 		name = EVTOPTA6203
 		add_character_modifier = {
 			name = holy_comet
-			duration = -1			
+			duration = -1
 		}
 	}
 }
@@ -2269,7 +2273,7 @@ character_event = {
 	}
 }
 
-#Jesus admits that the Bible is not 100% accurate
+# Jesus admits that the Bible is not 100% accurate
 character_event = {
 	id = 6218
 	desc = EVTDESC6218
@@ -2290,7 +2294,7 @@ character_event = {
 	}
 }
 
-#Jesus hands out military advice
+# Jesus hands out military advice
 character_event = {
 	id = 6219
 	desc = EVTDESC6219
@@ -2939,7 +2943,7 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTA6301
-		custom_tooltip = ignore_law
+		custom_tooltip = { text = ignore_law }
 	}
 }
 
@@ -2954,7 +2958,7 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTA6302
-		custom_tooltip = ignore_law
+		custom_tooltip = { text = ignore_law }
 	}
 }
 
@@ -2969,7 +2973,7 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTA6303
-		custom_tooltip = ignore_law
+		custom_tooltip = { text = ignore_law }
 	}
 }
 
@@ -2984,7 +2988,7 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTA6304
-		custom_tooltip = ignore_law
+		custom_tooltip = { text = ignore_law }
 	}
 }
 
@@ -3176,7 +3180,7 @@ character_event = {
 	option = {
 		name = EVTOPTA6318
 		prestige = -20
-		custom_tooltip = horse_chancellor
+		custom_tooltip = { text = horse_chancellor }
 	}
 }
 

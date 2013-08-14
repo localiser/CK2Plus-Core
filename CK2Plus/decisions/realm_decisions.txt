@@ -143,88 +143,6 @@ decisions = {
 		}
 	}
 	
-	sadaqah_saddka  = {
-		potential = {
-			OR = {
-				religion = shiite
-				religion = sunni
-			}
-			age = 16
-			demesne_size = 1
-			rightful_religious_head_scope = {
-				is_alive = yes
-				NOT = {
-					character = ROOT
-				}
-			}
-		}
-		allow = {
-			NOT = { has_character_modifier = charity_timer }
-			treasury = 50
-		}
-		effect = {
-			treasury = -50
-			piety = 25
-			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
-			rightful_religious_head_scope = {
-				opinion = {
-					who = ROOT
-					modifier = opinion_sadaqah
-					years = 3
-				}
-			}
-			if = {
-				limit = {
-					ai = no
-				}
-				add_character_modifier = {
-					name = charity_timer
-					duration = 1095
-					hidden = yes
-				}	
-			}
-			if = {
-				limit = {
-					ai = yes
-				}
-				add_character_modifier = {
-					name = charity_timer
-					duration = 3650
-					hidden = yes
-				}	
-			}			
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { treasury = 200 }
-			}
-			modifier = {
-				factor = 0
-				piety = 100
-			}
-			modifier = {
-				factor = 0
-				lower_tier_than = duke
-			}			
-			modifier = {
-				factor = 0
-				trait = cynical
-			}
-			modifier = {
-				factor = 0
-				trait = cruel
-			}
-			modifier = {
-				factor = 0
-				trait = greedy
-			}			
-		}
-	}	
-	
 	give_to_charity = {
 		potential = {
 			OR = {
@@ -310,7 +228,7 @@ decisions = {
 				trait = greedy
 			}			
 		}
-	}		
+	}
 
 	issue_declaration_of_repentance = {
 		potential = {
@@ -353,8 +271,8 @@ decisions = {
 	
 	demand_liege_title = {
 		is_high_prio = yes
-		potential = {		
-			always = no #obsolete
+		potential = {
+			# always = no #obsolete
 			NOT = { has_character_flag = requested_de_jure_title }
 			liege = {
 				NOT = { character = ROOT }
@@ -381,9 +299,9 @@ decisions = {
 			prisoner = no
 			is_playable = yes
 			tier = count
-			NOT = { trait = incapable }				
+			NOT = { trait = incapable }
 		}
-		allow = {	
+		allow = {
 			liege = {
 				opinion = {
 					who = ROOT
@@ -397,6 +315,88 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 0 # The AI is limited to the similar event 63040
+		}
+	}
+
+	sadaqah_saddka  = {
+		potential = {
+			OR = {
+				religion = shiite
+				religion = sunni
+			}
+			age = 16
+			demesne_size = 1
+			rightful_religious_head_scope = {
+				is_alive = yes
+				NOT = {
+					character = ROOT
+				}
+			}
+		}
+		allow = {
+			NOT = { has_character_modifier = charity_timer }
+			treasury = 50
+		}
+		effect = {
+			treasury = -50
+			piety = 25
+			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 1 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			rightful_religious_head_scope = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_sadaqah
+					years = 3
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_character_modifier = {
+					name = charity_timer
+					duration = 1095
+					hidden = yes
+				}	
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_character_modifier = {
+					name = charity_timer
+					duration = 3650
+					hidden = yes
+				}	
+			}			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}			
+			modifier = {
+				factor = 0
+				trait = cynical
+			}
+			modifier = {
+				factor = 0
+				trait = cruel
+			}
+			modifier = {
+				factor = 0
+				trait = greedy
+			}			
 		}
 	}
 
@@ -600,18 +600,20 @@ decisions = {
 			any_realm_lord = { has_landed_title = c_roma }
 		}
 		effect = {
-			custom_tooltip = rome_capital
-			hidden_tooltip = {
-				b_tivoli = { province_capital = yes }
-				ROOT = {
-					b_tivoli = {
-						usurp_title = PREV
+			custom_tooltip = {
+				text = rome_capital
+				hidden_tooltip = {
+					b_tivoli = { province_capital = yes }
+					ROOT = {
+						b_tivoli = {
+							usurp_title = PREV
+						}
 					}
-				}
-				#b_roma = { set_name = Lateran }
-				b_tivoli = { 
-					set_name = Rome 
-					ROOT = { capital = PREV }
+					#b_roma = { set_name = Lateran }
+					b_tivoli = { 
+						set_name = Rome 
+						ROOT = { capital = PREV }
+					}
 				}
 			}
 		}
@@ -803,10 +805,12 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_nerge
-			hidden_tooltip = { 
-				character_event = { id = TOG.100 } 
+			custom_tooltip = {
+				text = prepare_nerge
+				hidden_tooltip = { 
+					character_event = { id = TOG.100 } 
+				}
 			}
-			custom_tooltip = prepare_nerge
 		}
 		revoke_allowed = {
 			always = no
@@ -862,10 +866,12 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_blot
-			hidden_tooltip = { 
-				character_event = { id = TOG.600 } 
+			custom_tooltip = {
+				text = prepare_blot
+				hidden_tooltip = { 
+					character_event = { id = TOG.600 } 
+				}
 			}
-			custom_tooltip = prepare_blot
 		}
 		revoke_allowed = {
 			always = no
@@ -921,10 +927,12 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_ukon_juhla
-			hidden_tooltip = { 
-				character_event = { id = TOG.700 } 
+			custom_tooltip = {
+				text = prepare_ukon_juhla
+				hidden_tooltip = { 
+					character_event = { id = TOG.700 } 
+				}
 			}
-			custom_tooltip = prepare_ukon_juhla
 		}
 		revoke_allowed = {
 			always = no
@@ -980,10 +988,12 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_uzgavenes
-			hidden_tooltip = { 
-				character_event = { id = TOG.750 } 
+			custom_tooltip = {
+				text = prepare_uzgavenes
+				hidden_tooltip = { 
+					character_event = { id = TOG.750 } 
+				}
 			}
-			custom_tooltip = prepare_uzgavenes
 		}
 		revoke_allowed = {
 			always = no
@@ -1039,10 +1049,12 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_jarilo
-			hidden_tooltip = { 
-				character_event = { id = TOG.800 } 
+			custom_tooltip = {
+				text = prepare_jarilo
+				hidden_tooltip = { 
+					character_event = { id = TOG.800 } 
+				}
 			}
-			custom_tooltip = prepare_jarilo
 		}
 		revoke_allowed = {
 			always = no
@@ -1069,127 +1081,6 @@ decisions = {
 			}
 		}
 	}	
-	
-	petition_doge_for_tp = {
-		is_high_prio = yes
-		potential = {
-			is_merchant_republic = no
-			is_patrician = yes
-			liege = { is_merchant_republic = yes }
-			NOT = { has_character_flag = petition_doge_for_tp_taken }
-			OR = {
-				liege = {
-					any_vassal = {
-						is_patrician = yes
-						num_of_trade_post_diff = {
-							character = ROOT
-							value = 10
-						}
-					}
-				}
-				AND = {
-					NOT = { num_of_trade_posts = 1 }
-					liege = {
-						any_vassal = {
-							is_patrician = yes
-							num_of_trade_posts = 10
-						}
-					}
-				}
-			}
-		}
-		allow = {
-			liege = {
-				opinion = {
-					who = ROOT
-					value = 25
-				}
-			}
-		}
-		effect = {
-			set_character_flag = petition_doge_for_tp_taken
-			liege = {
-				letter_event = { id = REP.500 days = 5 tooltip = EVTTOOLTIP_REP_500 }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	usurp_tp = {
-		is_high_prio = yes
-		potential = {
-			is_merchant_republic = yes
-			is_patrician = yes
-			NOT = { has_character_flag = usurp_tp_taken }
-			OR = {
-				any_vassal = {
-					is_patrician = yes
-					num_of_trade_post_diff = {
-						character = ROOT
-						value = 10
-					}
-				}
-				AND = {
-					NOT = { num_of_trade_posts = 1 }
-					any_vassal = {
-						is_patrician = yes
-						num_of_trade_posts = 10
-					}
-				}
-			}
-		}
-		allow = {
-			is_merchant_republic = yes
-		}
-		effect = {
-			set_character_flag = usurp_tp_taken
-			if = {
-				limit = {
-					num_of_trade_posts = 1
-					any_vassal = {
-						is_patrician = yes
-						num_of_trade_post_diff = {
-							character = ROOT
-							value = 10
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						is_patrician = yes
-						num_of_trade_post_diff = {
-							character = ROOT
-							value = 10
-						}
-					}
-					set_character_flag = target_patrician_doge
-					letter_event = { id = REP.510 days = 5 tooltip = EVTTOOLTIP_REP_510 }
-				}
-			}
-			if = {
-				limit = {
-					NOT = { num_of_trade_posts = 1 }
-					any_vassal = {
-						is_patrician = yes
-						num_of_trade_posts = 10
-					}
-				}
-				random_vassal = {
-					limit = {
-						is_patrician = yes
-						num_of_trade_posts = 10
-					}
-					set_character_flag = target_patrician_doge
-					letter_event = { id = REP.510 days = 5 tooltip = EVTTOOLTIP_REP_510 }
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
 	
 	organize_varangian_guard = {
 		is_high_prio = yes
@@ -1251,12 +1142,37 @@ decisions = {
 			}
 		}
 		effect = {
+			custom_tooltip = {
+				text = EVTOPTA62910_CUSTOM
+			}
 			narrative_event = { id = 62910 tooltip = EVTTOOLTIP62910 }
 			if = {
 				limit = { has_nickname = no }
 				give_nickname = nick_the_great
 			}
-			prestige = 500
+			prestige = 1000
+			wealth = 1000
+			spawn_unit = {
+				province = 522 # Pest
+				owner = ROOT
+				match_character = ROOT
+				match_mult = 2.0
+				attrition = 0.5
+			}
+			spawn_unit = {
+				province = 522 # Pest
+				owner = ROOT
+				match_character = ROOT
+				match_mult = 2.0
+				attrition = 0.5
+			}
+			spawn_unit = {
+				province = 522 # Pest
+				owner = ROOT
+				match_character = ROOT
+				match_mult = 2.0
+				attrition = 0.5
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -1378,5 +1294,5 @@ decisions = {
 		ai_will_do = {
 			factor = 1
 		}
-	}	
+	}
 }

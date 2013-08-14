@@ -39,20 +39,22 @@ character_event = {
 	
 	option = {
 		name = EVTOPTALoR.800
-		custom_tooltip = introduce_eunuch
-		hidden_tooltip = {
-			random_list = {
-				20 = { character_event = { id = LoR.801 } }
-				20 = { character_event = { id = LoR.802 } }
-				20 = { character_event = { id = LoR.803 } }
-				20 = { character_event = { id = LoR.804 } }
-				20 = { character_event = { id = LoR.805 } }
+		custom_tooltip = {
+			text = introduce_eunuch
+			hidden_tooltip = {
+				random_list = {
+					20 = { character_event = { id = LoR.801 } }
+					20 = { character_event = { id = LoR.802 } }
+					20 = { character_event = { id = LoR.803 } }
+					20 = { character_event = { id = LoR.804 } }
+					20 = { character_event = { id = LoR.805 } }
+				}
 			}
 		}
 	}
 	option = {
 		name = EVTOPTBLoR.800
-		custom_tooltip = no_to_eunuchs
+		custom_tooltip = { text = no_to_eunuchs }
 	}
 }
 
@@ -554,7 +556,7 @@ character_event = {
 				years = 4
 			}
 		}
-		custom_tooltip = punish_varangians
+		custom_tooltip = { text = punish_varangians }
 	}
 	option = {
 		name = EVTOPTBLoR.851
@@ -574,7 +576,7 @@ character_event = {
 			}
 		}
 		piety = -50
-		custom_tooltip = free_varangians
+		custom_tooltip = { text = free_varangians }
 	}
 }
 
@@ -615,7 +617,7 @@ narrative_event = {
 	}
 	option = {
 		name = EVTOPTBLoR.860
-		custom_tooltip = not_interested_in_explosion
+		custom_tooltip = { text = not_interested_in_explosion }
 		set_global_flag = greek_fire
 	}
 }
@@ -650,25 +652,30 @@ narrative_event = {
 	
 	option = { # Naval fleet
 		name = EVTOPTALoR.862
-		hidden_tooltip = {
-			random_list = {
-				33 = { character_event = { id = LoR.863 days = 38 random = 8 } }
-				33 = { character_event = { id = LoR.864 days = 38 random = 8 } }
-				33 = { character_event = { id = LoR.865 days = 38 random = 8 } }
+		
+		custom_tooltip = {
+			text = deploy_fleet
+			hidden_tooltip = {
+				random_list = {
+					33 = { character_event = { id = LoR.863 days = 38 random = 8 } }
+					33 = { character_event = { id = LoR.864 days = 38 random = 8 } }
+					33 = { character_event = { id = LoR.865 days = 38 random = 8 } }
+				}
 			}
 		}
-		custom_tooltip = deploy_fleet
 	}
 	option = { # Spies
 		name = EVTOPTBLoR.862
-		hidden_tooltip = {
-			random_list = {
-				33 = { character_event = { id = LoR.866 days = 38 random = 8 } }
-				33 = { character_event = { id = LoR.867 days = 38 random = 8 } }
-				33 = { character_event = { id = LoR.868 days = 38 random = 8 } }
+		custom_tooltip = { 
+			text = send_in_spies
+			hidden_tooltip = {
+				random_list = {
+					33 = { character_event = { id = LoR.866 days = 38 random = 8 } }
+					33 = { character_event = { id = LoR.867 days = 38 random = 8 } }
+					33 = { character_event = { id = LoR.868 days = 38 random = 8 } }
+				}
 			}
 		}
-		custom_tooltip = send_in_spies
 	}
 }
 
@@ -856,13 +863,15 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTALoR.872
-		hidden_tooltip = {
-			random_list = {
-				30 = { character_event = { id = LoR.880 days = 2 } }
-				70 = { character_event = { id = LoR.878 days = 2 } }
+		custom_tooltip = { 
+			text = ship_hoists_sails
+			hidden_tooltip = {
+				random_list = {
+					30 = { character_event = { id = LoR.880 days = 2 } }
+					70 = { character_event = { id = LoR.878 days = 2 } }
+				}
 			}
 		}
-		custom_tooltip = ship_hoists_sails
 	}
 }
 
@@ -896,14 +905,16 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTALoR.872
-		hidden_tooltip = {
-			random_list = {
-				30 = { character_event = { id = LoR.880 days = 2 } }
-				70 = { character_event = { id = LoR.879 days = 2 } }
+		scaled_wealth = -0.25
+		custom_tooltip = { 
+			text = ship_hoists_sails 
+			hidden_tooltip = {
+				random_list = {
+					30 = { character_event = { id = LoR.880 days = 2 } }
+					70 = { character_event = { id = LoR.879 days = 2 } }
+				}
 			}
 		}
-		scaled_wealth = -0.25
-		custom_tooltip = ship_hoists_sails
 	}
 }
 
@@ -938,14 +949,16 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTALoR.872
-		hidden_tooltip = {
-			random_list = {
-				30 = { character_event = { id = LoR.880 days = 2 } }
-				70 = { character_event = { id = LoR.879 days = 2 } }
+		scaled_wealth = -0.35
+		custom_tooltip = { 
+			text = ship_hoists_sails 
+			hidden_tooltip = {
+				random_list = {
+					30 = { character_event = { id = LoR.880 days = 2 } }
+					70 = { character_event = { id = LoR.879 days = 2 } }
+				}
 			}
 		}
-		scaled_wealth = -0.35
-		custom_tooltip = ship_hoists_sails
 	}
 }
 
@@ -1036,7 +1049,7 @@ narrative_event = {
 		}
 		change_intrigue = 1
 		wealth = 25
-		custom_tooltip = liquid_fire_settled
+		custom_tooltip = { text = liquid_fire_settled }
 	}
 }
 
@@ -1082,7 +1095,7 @@ narrative_event = {
 		}
 		change_intrigue = 1
 		scaled_wealth = 0.35
-		custom_tooltip = liquid_fire_settled
+		custom_tooltip = { text = liquid_fire_settled }
 	}
 }
 
@@ -1100,7 +1113,7 @@ narrative_event = {
 	option = {
 		name = EVTOPTALoR.878
 		prestige = -50
-		custom_tooltip = liquid_fire_settled
+		custom_tooltip = { text = liquid_fire_settled }
 	}
 }
 
@@ -1118,7 +1131,7 @@ narrative_event = {
 	option = {
 		name = EVTOPTALoR.878
 		prestige = -50
-		custom_tooltip = liquid_fire_settled
+		custom_tooltip = { text = liquid_fire_settled }
 	}
 }
 
@@ -1150,7 +1163,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBLoR.885
-		custom_tooltip = send_merchants_away
+		custom_tooltip = { text = send_merchants_away }
 	}
 }
 
@@ -1166,13 +1179,15 @@ character_event = {
 	
 	option = {
 		name = EVTOPTALoR.886
-		custom_tooltip = eunuch_offer
-		hidden_tooltip = {
-			random_list = {
-				25 = { character_event = { id = LoR.887 days = 3 } }
-				25 = { character_event = { id = LoR.888 days = 3 } }
-				25 = { character_event = { id = LoR.889 days = 3 } }
-				25 = { character_event = { id = LoR.890 days = 3 } }
+		custom_tooltip = { 
+			text = eunuch_offer
+			hidden_tooltip = {
+				random_list = {
+					25 = { character_event = { id = LoR.887 days = 3 } }
+					25 = { character_event = { id = LoR.888 days = 3 } }
+					25 = { character_event = { id = LoR.889 days = 3 } }
+					25 = { character_event = { id = LoR.890 days = 3 } }
+				}
 			}
 		}
 	}
@@ -1211,7 +1226,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBLoR.887
-		custom_tooltip = eunuch_declined
+		custom_tooltip = { text = eunuch_declined }
 	}
 }
 
@@ -1248,7 +1263,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBLoR.887
-		custom_tooltip = eunuch_declined
+		custom_tooltip = { text = eunuch_declined }
 	}
 }
 
@@ -1285,7 +1300,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBLoR.887
-		custom_tooltip = eunuch_declined
+		custom_tooltip = { text = eunuch_declined }
 	}
 }
 
@@ -1322,7 +1337,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTBLoR.887
-		custom_tooltip = eunuch_declined
+		custom_tooltip = { text = eunuch_declined }
 	}
 }
 
@@ -1424,31 +1439,33 @@ character_event = {
 	
 	option = {
 		name = EVTOPTALoR.901
-		custom_tooltip = tzykanion_accepted
-		hidden_tooltip = {
-			FROM = { set_character_flag = tzykanion }
-			if = {
-				limit = {
-					NOT = { trait = wroth }
-				}
-				random_list = {
-					50 = {
-						character_event = { id = LoR.902 }
+		custom_tooltip = {
+			text = tzykanion_accepted
+			hidden_tooltip = {
+				FROM = { set_character_flag = tzykanion }
+				if = {
+					limit = {
+						NOT = { trait = wroth }
 					}
-					50 = {
-						character_event = { id = LoR.903 }
+					random_list = {
+						50 = {
+							character_event = { id = LoR.902 }
+						}
+						50 = {
+							character_event = { id = LoR.903 }
+						}
 					}
 				}
-			}
-			if = {
-				limit = { trait = wroth }
-				character_event = { id = LoR.904 }
+				if = {
+					limit = { trait = wroth }
+					character_event = { id = LoR.904 }
+				}
 			}
 		}
 	}
 	option = {
 		name = EVTOPTBLoR.901
-		custom_tooltip = tzykanion_declined
+		custom_tooltip = { text = tzykanion_declined }
 	}
 }
 

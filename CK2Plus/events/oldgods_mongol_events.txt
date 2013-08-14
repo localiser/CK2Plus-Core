@@ -461,7 +461,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_101
-		custom_tooltip = nerge_assemble
+		custom_tooltip = { text = nerge_assemble }
 	}
 }
 
@@ -479,10 +479,12 @@ character_event = {
 	option = {
 		name = EVTOPTA_TOG_102
 		set_character_flag = khagan_holding_nerge
-		custom_tooltip = nerge_starts
-		hidden_tooltip = {
-			character_event = { id = TOG.150 days = 60 random = 10 }
-		}	
+		custom_tooltip = { 
+			text = nerge_starts
+			hidden_tooltip = {
+				character_event = { id = TOG.150 days = 60 random = 10 }
+			}	
+		}
 	}
 }
 
@@ -498,7 +500,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_TOG_102
 		set_character_flag = vassal_holding_nerge
-		custom_tooltip = nerge_starts
+		custom_tooltip = { text = nerge_starts }
 	}
 }
 
@@ -1034,27 +1036,29 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_150
-		custom_tooltip = hunt_animals
-		hidden_tooltip = {
-			any_vassal = {
-				limit = {
-					has_character_flag = vassal_finishing_nerge
+		custom_tooltip = { 
+			text = hunt_animals
+			hidden_tooltip = {
+				any_vassal = {
+					limit = {
+						has_character_flag = vassal_finishing_nerge
+					}
+					character_event = { id = TOG.151 }
 				}
-				character_event = { id = TOG.151 }
-			}
-			if = {
-				limit = { trait = hunter }
-				character_event = { id = TOG.152 days = 2 }
-			}
-			if = {
-				limit = { NOT = { lifestyle_traits = 1 } }
-				random = {
-					chance = 25
-				
+				if = {
+					limit = { trait = hunter }
 					character_event = { id = TOG.152 days = 2 }
 				}
-			}	
-			character_event = { id = TOG.169 days = 10 }
+				if = {
+					limit = { NOT = { lifestyle_traits = 1 } }
+					random = {
+						chance = 25
+					
+						character_event = { id = TOG.152 days = 2 }
+					}
+				}	
+				character_event = { id = TOG.169 days = 10 }
+			}
 		}
 	}
 }
@@ -1070,21 +1074,23 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_151
-		custom_tooltip = hunt_animals
-		hidden_tooltip = {
-			if = {
-				limit = { trait = hunter }
-				character_event = { id = TOG.152 days = 2 }
-			}
-			if = {
-				limit = { NOT = { lifestyle_traits = 1 } }
-				random = {
-					chance = 25
-				
+		custom_tooltip = { 
+			text = hunt_animals
+			hidden_tooltip = {
+				if = {
+					limit = { trait = hunter }
 					character_event = { id = TOG.152 days = 2 }
 				}
+				if = {
+					limit = { NOT = { lifestyle_traits = 1 } }
+					random = {
+						chance = 25
+					
+						character_event = { id = TOG.152 days = 2 }
+					}
+				}
 			}
-		}	
+		}
 	}
 }
 
@@ -1171,11 +1177,11 @@ character_event = {
 	option = { # Keep as pet
 		name = EVTOPTA_TOG_159
 		set_character_flag = pet_bear
-		custom_tooltip = pet_bear
+		custom_tooltip = { text = pet_bear }
 	}
 	option = { # Kill
 		name = EVTOPTB_TOG_159
-		custom_tooltip = dead_bear
+		custom_tooltip = { text = dead_bear }
 	}
 }
 
@@ -1336,7 +1342,7 @@ character_event = {
 	
 	option = { # Release
 		name = EVTOPTA_TOG_165
-		custom_tooltip = bear_released
+		custom_tooltip = { text = bear_released }
 		clr_character_flag = pet_bear
 		prestige = -50
 		if = {
@@ -1361,7 +1367,7 @@ character_event = {
 	}
 	option = { # Keep
 		name = EVTOPTB_TOG_165
-		custom_tooltip = keep_bear
+		custom_tooltip = { text = keep_bear }
 		set_character_flag = pet_bear_depressed
 		random = {
 			chance = 33
@@ -1400,7 +1406,7 @@ character_event = {
 	
 	option = { #
 		name = EVTOPTA_TOG_166
-		custom_tooltip = bear_passes_away
+		custom_tooltip = { text = bear_passes_away }
 		clr_character_flag = pet_bear
 		clr_character_flag = pet_bear_depressed
 		random = {

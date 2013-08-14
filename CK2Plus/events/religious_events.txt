@@ -36,7 +36,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 50000		
+		months = 50000
 		modifier = {
 			factor = 1.25
 			religion_authority = 0.7
@@ -64,11 +64,11 @@ province_event = {
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.2 }
-		}	
+		}
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.1 }
-		}		
+		}
 	}
 	
 	immediate = {
@@ -377,16 +377,16 @@ letter_event = {
 				FROM = {
 					NOT = {
 						has_opinion_modifier = {
-							modifier = pope_heretic_removal_approve
 							who = ROOT
+							modifier = pope_heretic_removal_approve
 						}
 					}
 				}
 			}
 			FROM = {
 				opinion = {
-					modifier = pope_heretic_removal_approve
 					who = ROOT
+					modifier = pope_heretic_removal_approve
 					months = 36
 				}
 			}
@@ -406,8 +406,8 @@ letter_event = {
 		}
 		FROM = {
 			opinion = {
-				modifier = pope_heretic_removal_disapprove
 				who = ROOT
+				modifier = pope_heretic_removal_disapprove
 				months = 36
 			}
 		}
@@ -415,8 +415,8 @@ letter_event = {
 			limit = { has_character_flag = heretic_to_target }
 			clr_character_flag = heretic_to_target
 			opinion = {
-				modifier = opinion_defended_me
 				who = ROOT
+				modifier = opinion_defended_me
 				years = 5
 			}
 		}
@@ -486,8 +486,8 @@ letter_event = {
 		name = "EVTOPTA39446"
 		FROM = {
 			opinion = {
-				modifier = opinion_disappointed
 				who = ROOT
+				modifier = opinion_disappointed
 				years = 5
 			}
 		}
@@ -834,8 +834,8 @@ character_event = {
 		name = "EVTOPTA39022" # Good news!
 		piety = 10
 		opinion = {
-			modifier = opinion_successful_conversion
 			who = FROM
+			modifier = opinion_successful_conversion
 			years = 5
 		}
 	}
@@ -913,8 +913,8 @@ character_event = {
 		name = "EVTOPTA39025"
 		opinion = {
 			who = FROM
-			years = 5
 			modifier = opinion_failed_conversion
+			years = 5
 		}
 	}
 }
@@ -932,8 +932,8 @@ character_event = {
 		name = "EVTOPTA39026"
 		piety = 10
 		opinion = {
-			modifier = opinion_successful_conversion
 			who = FROM
+			modifier = opinion_successful_conversion
 			years = 5
 		}
 	}
@@ -1322,8 +1322,8 @@ character_event = {
 			trait = kinslayer
 			piety = 100
 			reverse_opinion  = { who = ROOT value = 0 }
-			has_character_flag = kinslaying_offered
-		}		
+			NOT = { has_character_flag = kinslaying_offered }
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -1642,8 +1642,8 @@ character_event = {
 		name = "EVTOPTA39225"	#bad news
 		piety = -5
 		opinion = {
-			modifier = opinion_disappointed
 			who = FROM
+			modifier = opinion_disappointed
 			years = 5
 		}		
 	}	
@@ -1700,8 +1700,8 @@ character_event = {
 		}
 		religion_head = {
 			opinion = {
-				modifier = opinion_ignore_papal_demands
 				who = ROOT
+				modifier = opinion_ignore_papal_demands
 				years = 5
 			}
 		}
@@ -1914,8 +1914,8 @@ character_event = {
 		}
 		FROM = {
 			opinion = {
-				modifier = pope_heathen_removal_approve_2
 				who = ROOT
+				modifier = pope_heathen_removal_approve_2
 				months = 36
 			}
 		}
@@ -1938,8 +1938,8 @@ character_event = {
 		}
 		FROM = {
 			opinion = {
-				modifier = opinion_ignore_papal_demands
 				who = ROOT
+				modifier = opinion_ignore_papal_demands
 				months = 60
 			}
 		}
@@ -2221,8 +2221,8 @@ character_event = {
 		
 		FROM = {
 			opinion = {
-				modifier = pope_heathen_removal_approve
 				who = ROOT
+				modifier = pope_heathen_removal_approve
 				years = 5
 			}
 		}
@@ -2246,11 +2246,12 @@ character_event = {
 		}
 		FROM = {
 			opinion = {
-				modifier = pope_heathen_removal_approve_2
 				who = ROOT
+				modifier = pope_heathen_removal_approve_2
 				years = 5
 			}
 		}
+
 		hidden_tooltip = {
 			FROM = {  character_event = { id = 39263 days = 1  } }
 		}	
@@ -2269,20 +2270,19 @@ character_event = {
 		}
 		FROM = {
 			opinion = {
-				modifier = opinion_ignore_patriarch_request
 				who = ROOT
+				modifier = opinion_ignore_patriarch_request
 				years = 5
 			}
 		}
-		
 		
 		random_courtier = {
 			limit = { has_character_flag = heathen_to_target }
 			clr_character_flag = heathen_to_target
 			
 			opinion = {
-				modifier = opinion_defended_me
 				who = ROOT
+				modifier = opinion_defended_me
 				years = 5
 			}
 
@@ -2333,7 +2333,6 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
-	
 	option = {
 		name = "EVTOPTA39264" 
 		prestige = -10
@@ -3048,19 +3047,19 @@ character_event = {
 			liege = {
 				set_character_flag = ai_failed_mission # AI flag - used in the code
 				opinion = {
-					modifier = opinion_imprisoned_missionary
 					who = ROOT
+					modifier = opinion_imprisoned_missionary
 				}
 				hidden_tooltip = {
 					reverse_opinion = {
-						modifier = opinion_sent_preacher
 						who = ROOT
+						modifier = opinion_sent_preacher
 					}
 					character_event = { id = 39605 days = 1 }
 				}
 			}
 		}
-		custom_tooltip = preacher_imprisoned
+		custom_tooltip = { text = preacher_imprisoned }
 	}
 	option = {
 		name = EVTOPTB39600
@@ -3135,15 +3134,15 @@ character_event = {
 		FROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_allowed_missionary
 					who = ROOT
+					modifier = opinion_allowed_missionary
 				}
 			}
 			hidden_tooltip = {
 				character_event = { id = 39612 days = 1 }
 			}
 		}
-		custom_tooltip = preacher_allowed
+		custom_tooltip = { text = preacher_allowed }
 	}
 }
 
@@ -3257,7 +3256,7 @@ character_event = {
 				character_event = { id = 39614 days = 1 }
 			}
 		}
-		custom_tooltip = preacher_convert
+		custom_tooltip = { text = preacher_convert }
 	}
 	option = {
 		name = EVTOPTB39601
@@ -3297,13 +3296,13 @@ character_event = {
 		FROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_banished_missionary
 					who = ROOT
+					modifier = opinion_banished_missionary
 				}
 				hidden_tooltip = {
 					reverse_opinion = {
-						modifier = opinion_sent_preacher
 						who = ROOT
+						modifier = opinion_sent_preacher
 					}
 				}
 			}
@@ -3311,7 +3310,7 @@ character_event = {
 				character_event = { id = 39613 days = 1 }
 			}
 		}
-		custom_tooltip = preacher_banished
+		custom_tooltip = { text = preacher_banished }
 	}
 }
 
@@ -3333,22 +3332,22 @@ character_event = {
 			}
 			liege = {
 				opinion = {
-					modifier = opinion_imprisoned_missionary
 					who = ROOT
+					modifier = opinion_imprisoned_missionary
 				}
 				hidden_tooltip = {
 					reverse_opinion = {
-						modifier = opinion_sent_preacher
 						who = ROOT
+						modifier = opinion_sent_preacher
 					}
 				}
 			}
 		}
-		custom_tooltip = preacher_imprisoned
+		custom_tooltip = { text = preacher_imprisoned }
 	}
 	option = {
 		name = EVTOPTB39602
-		custom_tooltip = preacher_allowed
+		custom_tooltip = { text = preacher_allowed }
 	}
 }
 
@@ -3373,13 +3372,13 @@ character_event = {
 		FROMFROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_banished_missionary
 					who = ROOT
+					modifier = opinion_banished_missionary
 				}
 				hidden_tooltip = {
 					reverse_opinion = {
-						modifier = opinion_sent_preacher
 						who = ROOT
+						modifier = opinion_sent_preacher
 					}
 				}
 			}
@@ -3387,8 +3386,8 @@ character_event = {
 		FROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_supported_preacher
 					who = ROOT
+					modifier = opinion_supported_preacher
 				}
 			}
 		}
@@ -3403,13 +3402,13 @@ character_event = {
 		FROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_banished_missionary
 					who = ROOT
+					modifier = opinion_banished_missionary
 				}
 				hidden_tooltip = {
 					reverse_opinion = {
-						modifier = opinion_sent_preacher
 						who = ROOT
+						modifier = opinion_sent_preacher
 					}
 				}
 			}
@@ -3417,8 +3416,8 @@ character_event = {
 		FROMFROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_supported_preacher
 					who = ROOT
+					modifier = opinion_supported_preacher
 				}
 			}
 		}
@@ -3428,16 +3427,16 @@ character_event = {
 		FROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_did_not_support_preacher
 					who = ROOT
+					modifier = opinion_did_not_support_preacher
 				}
 			}
 		}
 		FROMFROM = {
 			liege = {
 				opinion = {
-					modifier = opinion_did_not_support_preacher
 					who = ROOT
+					modifier = opinion_did_not_support_preacher
 				}
 			}
 		}
@@ -3470,8 +3469,8 @@ character_event = {
 	option = {
 		name = EVTOPTA39605
 		opinion = {
-			modifier = opinion_imprisoned_missionary
 			who = FROM
+			modifier = opinion_imprisoned_missionary
 		}
 	}
 }

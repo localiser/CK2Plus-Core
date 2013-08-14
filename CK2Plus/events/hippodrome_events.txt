@@ -15,9 +15,9 @@ namespace = LoR
 # Approached Sabotage
 narrative_event = {
 	id = LoR.400
-	title = "EVTNAMELoR.400"
-	desc = "EVTDESCLoR.400"
-	picture = "GFX_evt_emissary_byzantine"
+	title = EVTNAMELoR.400
+	desc = EVTDESCLoR.400
+	picture = GFX_evt_emissary_byzantine
 	
 	capable_only = yes
 	prisoner = no
@@ -43,14 +43,14 @@ narrative_event = {
 	}
 	
 	option = { # Agree
-		name = "EVTOPTALoR.400"
+		name = EVTOPTALoR.400
 		narrative_event = { id = LoR.401 days = 32 tooltip = EVTTOOLTIPLoR.401 }
 		set_global_flag = hippodrome_scheme
 		set_global_flag = hippodrome_scheme_ongoing
 	}
 	option = { # Refuse
-		name = "EVTOPTBLoR.400"
-		custom_tooltip = hippodrome_refuse
+		name = EVTOPTBLoR.400
+		custom_tooltip = { text = hippodrome_refuse }
 		set_global_flag = hippodrome_scheme
 	}
 }
@@ -58,28 +58,30 @@ narrative_event = {
 # Sabotage
 narrative_event = {
 	id = LoR.401
-	title = "EVTNAMELoR.401"
-	desc = "EVTDESCLoR.401"
-	picture = "GFX_evt_shadowy_cabal"
+	title = EVTNAMELoR.401
+	desc = EVTDESCLoR.401
+	picture = GFX_evt_shadowy_cabal
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.401"
+		name = EVTOPTALoR.401
 		change_martial = 1
-		custom_tooltip = hippodrome_tooltip
-		hidden_tooltip = {
-			random_list = {
-				40 = {
-					narrative_event = { id = LoR.402 }
-				}
-				40 = {
-					narrative_event = { id = LoR.403 }
-				}
-				20 = {
-					narrative_event = { id = LoR.404 }
+		custom_tooltip = {
+			text = hippodrome_tooltip
+			hidden_tooltip = {
+				random_list = {
+					40 = {
+						narrative_event = { id = LoR.402 }
+					}
+					40 = {
+						narrative_event = { id = LoR.403 }
+					}
+					20 = {
+						narrative_event = { id = LoR.404 }
+					}
 				}
 			}
 		}
@@ -89,16 +91,16 @@ narrative_event = {
 # Sabotage Win
 narrative_event = {
 	id = LoR.402
-	title = "EVTNAMELoR.402"
-	desc = "EVTDESCLoR.402"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.402
+	desc = EVTDESCLoR.402
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.402"
+		name = EVTOPTALoR.402
 		prestige = 100
 		wealth = 25
 		narrative_event = { id = LoR.405 days = 280 random = 50 tooltip = EVTTOOLTIPLoR.405 }
@@ -108,16 +110,16 @@ narrative_event = {
 # Sabotage Lose
 narrative_event = {
 	id = LoR.403
-	title = "EVTNAMELoR.403"
-	desc = "EVTDESCLoR.403"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.403
+	desc = EVTDESCLoR.403
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.403"
+		name = EVTOPTALoR.403
 		prestige = -50
 		narrative_event = { id = LoR.405 days = 280 random = 50 tooltip = EVTTOOLTIPLoR.405 }
 	}
@@ -126,16 +128,16 @@ narrative_event = {
 # Sabotage Riots
 narrative_event = {
 	id = LoR.404
-	title = "EVTNAMELoR.404"
-	desc = "EVTDESCLoR.404"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.404
+	desc = EVTDESCLoR.404
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.404"
+		name = EVTOPTALoR.404
 		narrative_event = { id = LoR.417 tooltip = EVTTOOLTIPLoR.417 }
 		hidden_tooltip = {
 			narrative_event = { id = LoR.405 days = 280 random = 50 }
@@ -146,49 +148,51 @@ narrative_event = {
 # Approached Poison
 narrative_event = {
 	id = LoR.405
-	title = "EVTNAMELoR.405"
-	desc = "EVTDESCLoR.405"
-	picture = "GFX_evt_emissary_byzantine"
+	title = EVTNAMELoR.405
+	desc = EVTDESCLoR.405
+	picture = GFX_evt_emissary_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = { # Agree
-		name = "EVTOPTALoR.405"
+		name = EVTOPTALoR.405
 		narrative_event = { id = LoR.406 days = 32 tooltip = EVTTOOLTIPLoR.406 }
 	}
 	option = { # Refuse
-		name = "EVTOPTBLoR.405"
-		custom_tooltip = hippodrome_refuse_second
+		name = EVTOPTBLoR.405
+		custom_tooltip = { text = hippodrome_refuse_second }
 	}
 }
 
 # Poison
 narrative_event = {
 	id = LoR.406
-	title = "EVTNAMELoR.406"
-	desc = "EVTDESCLoR.406"
-	picture = "GFX_evt_shadowy_cabal"
+	title = EVTNAMELoR.406
+	desc = EVTDESCLoR.406
+	picture = GFX_evt_shadowy_cabal
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.406"
+		name = EVTOPTALoR.406
 		change_intrigue = 1
-		custom_tooltip = hippodrome_tooltip
-		hidden_tooltip = {
-			random_list = {
-				35 = {
-					narrative_event = { id = LoR.407 tooltip = EVTTOOLTIPLoR.407 }
-				}
-				35 = {
-					narrative_event = { id = LoR.408 tooltip = EVTTOOLTIPLoR.408 }
-				}
-				30 = {
-					narrative_event = { id = LoR.409 tooltip = EVTTOOLTIPLoR.409 }
+		custom_tooltip = {
+			text = hippodrome_tooltip
+			hidden_tooltip = {
+				random_list = {
+					35 = {
+						narrative_event = { id = LoR.407 tooltip = EVTTOOLTIPLoR.407 }
+					}
+					35 = {
+						narrative_event = { id = LoR.408 tooltip = EVTTOOLTIPLoR.408 }
+					}
+					30 = {
+						narrative_event = { id = LoR.409 tooltip = EVTTOOLTIPLoR.409 }
+					}
 				}
 			}
 		}
@@ -198,16 +202,16 @@ narrative_event = {
 # Poison Win
 narrative_event = {
 	id = LoR.407
-	title = "EVTNAMELoR.407"
-	desc = "EVTDESCLoR.407"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.407
+	desc = EVTDESCLoR.407
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.407"
+		name = EVTOPTALoR.407
 		prestige = 100
 		wealth = 25
 		narrative_event = { id = LoR.410 days = 280 random = 50 tooltip = EVTTOOLTIPLoR.405 }
@@ -217,16 +221,16 @@ narrative_event = {
 # Poison Lose
 narrative_event = {
 	id = LoR.408
-	title = "EVTNAMELoR.408"
-	desc = "EVTDESCLoR.408"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.408
+	desc = EVTDESCLoR.408
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.408"
+		name = EVTOPTALoR.408
 		prestige = -50
 		narrative_event = { id = LoR.410 days = 280 random = 50 tooltip = EVTTOOLTIPLoR.405 }
 	}
@@ -235,16 +239,16 @@ narrative_event = {
 # Poison Riots
 narrative_event = {
 	id = LoR.409
-	title = "EVTNAMELoR.409"
-	desc = "EVTDESCLoR.409"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.409
+	desc = EVTDESCLoR.409
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.409"
+		name = EVTOPTALoR.409
 		narrative_event = { id = LoR.417 tooltip = EVTTOOLTIPLoR.417 }
 		hidden_tooltip = {
 			narrative_event = { id = LoR.405 days = 280 random = 50 }
@@ -255,37 +259,37 @@ narrative_event = {
 # Approached Weapon
 narrative_event = {
 	id = LoR.410
-	title = "EVTNAMELoR.410"
-	desc = "EVTDESCLoR.410"
-	picture = "GFX_evt_garden"
+	title = EVTNAMELoR.410
+	desc = EVTDESCLoR.410
+	picture = GFX_evt_garden
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = { # Agree
-		name = "EVTOPTALoR.410"
+		name = EVTOPTALoR.410
 		narrative_event = { id = LoR.411 days = 32 tooltip = EVTTOOLTIPLoR.406 }
 	}
 	option = { # Refuse
-		name = "EVTOPTBLoR.410"
-		custom_tooltip = hippodrome_refuse_second
+		name = EVTOPTBLoR.410
+		custom_tooltip = { text = hippodrome_refuse_second }
 	}
 }
 
 # Weapon
 narrative_event = {
 	id = LoR.411
-	title = "EVTNAMELoR.411"
-	desc = "EVTDESCLoR.411"
-	picture = "GFX_evt_market_byzantine"
+	title = EVTNAMELoR.411
+	desc = EVTDESCLoR.411
+	picture = GFX_evt_market_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.411"
+		name = EVTOPTALoR.411
 		change_martial = 1
 		narrative_event = { id = LoR.412 tooltip = hippodrome_tooltip }
 	}
@@ -294,20 +298,20 @@ narrative_event = {
 # Weapon Race
 narrative_event = {
 	id = LoR.412
-	title = "EVTNAMELoR.412"
-	desc = "EVTDESCLoR.412"
-	picture = "GFX_evt_hippodrome_byzantine"
+	title = EVTNAMELoR.412
+	desc = EVTDESCLoR.412
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = { # Give Chase
-		name = "EVTOPTALoR.412"
+		name = EVTOPTALoR.412
 		narrative_event = { id = LoR.414 tooltip = EVTTOOLTIPLoR.414 }
 	}
 	option = { # Stay
-		name = "EVTOPTBLoR.412"
+		name = EVTOPTBLoR.412
 		narrative_event = { id = LoR.413 tooltip = EVTTOOLTIPLoR.413 }
 	}
 }
@@ -315,16 +319,16 @@ narrative_event = {
 # Stay
 narrative_event = {
 	id = LoR.413
-	title = "EVTNAMELoR.413"
-	desc = "EVTDESCLoR.413"
-	picture = "GFX_evt_battle_byzantine"
+	title = EVTNAMELoR.413
+	desc = EVTDESCLoR.413
+	picture = GFX_evt_battle_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.413"
+		name = EVTOPTALoR.413
 		prestige = 100
 		if = {
 			limit = { 
@@ -340,20 +344,20 @@ narrative_event = {
 # The Chase
 narrative_event = {
 	id = LoR.414
-	title = "EVTNAMELoR.414"
-	desc = "EVTDESCLoR.414"
-	picture = "GFX_evt_hagia_sofia"
+	title = EVTNAMELoR.414
+	desc = EVTDESCLoR.414
+	picture = GFX_evt_hagia_sofia
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = { # Kill
-		name = "EVTOPTALoR.414"
+		name = EVTOPTALoR.414
 		narrative_event = { id = LoR.415 tooltip = EVTTOOLTIPLoR.415 }
 	}
 	option = { # Spare
-		name = "EVTOPTBLoR.414"
+		name = EVTOPTBLoR.414
 		narrative_event = { id = LoR.416 tooltip = EVTTOOLTIPLoR.416 }
 	}
 }
@@ -361,16 +365,16 @@ narrative_event = {
 # Killed
 narrative_event = {
 	id = LoR.415
-	title = "EVTNAMELoR.415"
-	desc = "EVTDESCLoR.415"
-	picture = "GFX_evt_market_byzantine"
+	title = EVTNAMELoR.415
+	desc = EVTDESCLoR.415
+	picture = GFX_evt_market_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.415"
+		name = EVTOPTALoR.415
 		prestige = 100
 		piety = -50
 		if = {
@@ -387,16 +391,16 @@ narrative_event = {
 # Spared
 narrative_event = {
 	id = LoR.416
-	title = "EVTNAMELoR.416"
-	desc = "EVTDESCLoR.416"
-	picture = "GFX_evt_market_byzantine"
+	title = EVTNAMELoR.416
+	desc = EVTDESCLoR.416
+	picture = GFX_evt_market_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.416"
+		name = EVTOPTALoR.416
 		piety = 100
 		if = {
 			limit = { 
@@ -430,34 +434,36 @@ narrative_event = {
 # Riots
 narrative_event = {
 	id = LoR.417
-	title = "EVTNAMELoR.417"
-	desc = "EVTDESCLoR.417"
-	picture = "GFX_evt_riots_byzantine"
+	title = EVTNAMELoR.417
+	desc = EVTDESCLoR.417
+	picture = GFX_evt_riots_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.417"
-		custom_tooltip = hippodrome_riots
-		hidden_tooltip = {
-			496 = {
-				create_random_soldier = {
-					random_traits = yes
-					dynasty = random
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 30
-					employer = e_rebels
-				}
-				new_character = {
-					spawn_unit = {
-						province = prev
-						home = prev
-						troops = {
-							light_infantry = { 750 750 }
+		name = EVTOPTALoR.417
+		custom_tooltip = { 
+			text = hippodrome_riots
+			hidden_tooltip = {
+				496 = {
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = random
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 30
+						employer = e_rebels
+					}
+					new_character = {
+						spawn_unit = {
+							province = prev
+							home = prev
+							troops = {
+								light_infantry = { 750 750 }
+							}
 						}
 					}
 				}
@@ -471,8 +477,8 @@ narrative_event = {
 # Hippodrome Race
 character_event = {
 	id = LoR.500
-	desc = "EVTDESCLoR.500"
-	picture = "GFX_evt_hippodrome_byzantine"
+	desc = EVTDESCLoR.500
+	picture = GFX_evt_hippodrome_byzantine
 
 	capable_only = yes
 	prisoner = no
@@ -495,7 +501,7 @@ character_event = {
 	}
 	
 	option = { # Support Blue Team
-		name = "EVTOPTALoR.500"
+		name = EVTOPTALoR.500
 		wealth = -25
 		random_list = {
 			50 = {
@@ -507,7 +513,7 @@ character_event = {
 		}
 	}
 	option = { # Support Green Team
-		name = "EVTOPTBLoR.500"
+		name = EVTOPTBLoR.500
 		wealth = -25
 		random_list = {
 			50 = {
@@ -519,23 +525,23 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTCLoR.500"
-		custom_tooltip = hippodrome_nobet
+		name = EVTOPTCLoR.500
+		custom_tooltip = { text = hippodrome_nobet }
 	}
 }
 
 # Blue Victorious (With Your Support)
 character_event = {
 	id = LoR.501
-	desc = "EVTDESCLoR.501"
-	picture = "GFX_evt_hippodrome_byzantine"
+	desc = EVTDESCLoR.501
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.501"
+		name = EVTOPTALoR.501
 		wealth = 50
 		prestige = 50
 	}
@@ -544,15 +550,15 @@ character_event = {
 # Blue Loses (With Your Support)
 character_event = {
 	id = LoR.502
-	desc = "EVTDESCLoR.502"
-	picture = "GFX_evt_hippodrome_byzantine"
+	desc = EVTDESCLoR.502
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.502"
+		name = EVTOPTALoR.502
 		prestige = -25
 	}
 }
@@ -560,15 +566,15 @@ character_event = {
 # Green Victorious (With Your Support)
 character_event = {
 	id = LoR.503
-	desc = "EVTDESCLoR.503"
-	picture = "GFX_evt_hippodrome_byzantine"
+	desc = EVTDESCLoR.503
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.503"
+		name = EVTOPTALoR.503
 		wealth = 50
 		prestige = 50
 	}
@@ -577,15 +583,15 @@ character_event = {
 # Green Loses (With Your Support)
 character_event = {
 	id = LoR.504
-	desc = "EVTDESCLoR.504"
-	picture = "GFX_evt_hippodrome_byzantine"
+	desc = EVTDESCLoR.504
+	picture = GFX_evt_hippodrome_byzantine
 	
 	hide_from = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTALoR.504"
+		name = EVTOPTALoR.504
 		prestige = -25
 	}
 }

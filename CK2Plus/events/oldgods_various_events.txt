@@ -26,7 +26,7 @@ character_event = {
 		is_alive = yes
 		is_female = no
 		NOT = { trait = berserker }
-		NOT = { year = 1150 }
+		# NOT = { year = 1150 } #moved to modifier
 		OR = {
 			trait = wroth
 			trait = aggressive_leader
@@ -35,6 +35,22 @@ character_event = {
 	
 	mean_time_to_happen = {
 		days = 1
+		modifier = {
+			factor = 0.8
+			year = 1150
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {	religion_group = pagan_group }
+		}
+		modifier = {
+			factor = 0.8
+			is_reformed_religion = yes
+		}
+		modifier = {
+			factor = 1.5
+			trait = brave
+		}
 		modifier = {
 			factor = 1.5
 			trait = brave
@@ -899,7 +915,7 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3101
-		custom_tooltip = varangians_organized
+		custom_tooltip = { text = varangians_organized }
 	}
 }
 
@@ -928,6 +944,10 @@ character_event = {
 	hide_window = yes
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = wants_varangian
+	}
 	
 	immediate = {
 		set_character_flag = serving_varangian
@@ -1497,6 +1517,12 @@ character_event = {
 		has_dlc = "The Old Gods"
 		has_character_flag = serving_varangian
 		is_married = no
+		e_byzantium = {
+			holder_scope = {
+				culture = greek
+				religion = orthodox
+			}
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -1566,6 +1592,11 @@ character_event = {
 			}
 		}
 		NOT = { trait = zealous }
+		e_byzantium = {
+			holder_scope = {
+				religion = orthodox
+			}
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -1935,7 +1966,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB_TOG_3200
-		custom_tooltip = away_witch
+		custom_tooltip = { text = away_witch }
 	}
 }
 
@@ -1989,7 +2020,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB_TOG_3201
-		custom_tooltip = no_witch
+		custom_tooltip = { text = no_witch }
 	}
 }
 
@@ -2043,7 +2074,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB_TOG_3202
-		custom_tooltip = begone_witch
+		custom_tooltip = { text = begone_witch }
 	}
 }
 
@@ -2202,7 +2233,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3211
-		custom_tooltip = child_acts_strange
+		custom_tooltip = { text = child_acts_strange }
 	}
 }
 
@@ -2247,7 +2278,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3213
-		custom_tooltip = child_acts_strange
+		custom_tooltip = { text = child_acts_strange }
 	}
 }
 
@@ -2292,7 +2323,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3215
-		custom_tooltip = child_acts_strange
+		custom_tooltip = { text = child_acts_strange }
 	}
 }
 
@@ -2701,7 +2732,7 @@ character_event = {
 		hidden_tooltip = {
 			character_event = { id = TOG.3253 days = 7 }
 		}
-		custom_tooltip = exorcism_approved
+		custom_tooltip = { text = exorcism_approved }
 	}
 	option = {
 		name = EVTOPTB_TOG_3252
@@ -2712,7 +2743,7 @@ character_event = {
 				who = ROOT
 			}
 		}
-		custom_tooltip = exorcism_denied
+		custom_tooltip = { text = exorcism_denied }
 	}
 }
 
@@ -2729,13 +2760,16 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3253
-		hidden_tooltip = {
-			random_child = {
-				limit = { has_character_flag = child_exorcism }
-				character_event = { id = TOG.3254 days = 3 }
+		
+		custom_tooltip = {
+			text = exorcism_begins
+			hidden_tooltip = {
+				random_child = {
+					limit = { has_character_flag = child_exorcism }
+					character_event = { id = TOG.3254 days = 3 }
+				}
 			}
 		}
-		custom_tooltip = exorcism_begins
 	}
 }
 
@@ -2971,7 +3005,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3301
-		custom_tooltip = found_chest
+		custom_tooltip = { text = found_chest }
 		set_dynasty_flag = strange_chest
 		set_character_flag = found_chest
 	}
@@ -2996,15 +3030,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3302
-		custom_tooltip = opens_chest
-		hidden_tooltip = {
-			random_list = {
-				40 = { character_event = { id = TOG.3306 } }
-				40 = { character_event = { id = TOG.3307 } }
-				40 = { character_event = { id = TOG.3308 } }
-				5 = { character_event = { id = TOG.3309 } }
+		custom_tooltip = {
+			text = opens_chest
+			hidden_tooltip = {
+				random_list = {
+					40 = { character_event = { id = TOG.3306 } }
+					40 = { character_event = { id = TOG.3307 } }
+					40 = { character_event = { id = TOG.3308 } }
+					5 = { character_event = { id = TOG.3309 } }
+				}
 			}
-		}		
+		}
 	}
 }
 
@@ -3032,15 +3068,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3303
-		custom_tooltip = opens_chest
-		hidden_tooltip = {
-			random_list = {
-				40 = { character_event = { id = TOG.3306 } }
-				40 = { character_event = { id = TOG.3307 } }
-				40 = { character_event = { id = TOG.3308 } }
-				5 = { character_event = { id = TOG.3309 } }
+		custom_tooltip = {
+			text = opens_chest
+			hidden_tooltip = {
+				random_list = {
+					40 = { character_event = { id = TOG.3306 } }
+					40 = { character_event = { id = TOG.3307 } }
+					40 = { character_event = { id = TOG.3308 } }
+					5 = { character_event = { id = TOG.3309 } }
+				}
 			}
-		}		
+		}
 	}
 }
 
@@ -3075,7 +3113,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3307
-		custom_tooltip = chest_empty
+		custom_tooltip = { text = chest_empty }
 		clr_dynasty_flag = strange_chest
 	}
 }
@@ -3111,7 +3149,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_TOG_3309
-		custom_tooltip = seraphims
+		custom_tooltip = { text = seraphims }
 		clr_dynasty_flag = strange_chest
 	}
 }
@@ -3346,7 +3384,7 @@ character_event = {
 		wealth = 50
 		prestige = 50
 		add_trait = zealous
-		custom_tooltip = odin_option_a
+		custom_tooltip = { text = odin_option_a }
 	}
 	option = {
 		name = EVTOPTB_TOG_3402
@@ -3359,7 +3397,7 @@ character_event = {
 			}
 			add_trait = hunter
 		}
-		custom_tooltip = odin_option_b
+		custom_tooltip = { text = odin_option_b }
 	}
 	option = {
 		name = EVTOPTC_TOG_3402
@@ -3372,7 +3410,7 @@ character_event = {
 			limit = { NOT = { trait = zealous } }
 			add_trait = cynical
 		}
-		custom_tooltip = odin_option_c
+		custom_tooltip = { text = odin_option_c }
 	}
 }
 

@@ -1032,24 +1032,27 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA86300"
-		custom_tooltip = TOOLTIP_LISTEN_TO_HADITH
+		custom_tooltip = {
+			text = TOOLTIP_LISTEN_TO_HADITH
+			hidden_tooltip = {
+				random_list = {
+					10 = {  character_event = { id = 86320 } }
+					10 = {  character_event = { id = 86330 } }
+					10 = {  character_event = { id = 86340 } }
+					10 = {  character_event = { id = 86350 } }
+					10 = {  character_event = { id = 86360 } }
+					10 = {  character_event = { id = 86380 } }
+					10 = {  character_event = { id = 86390 } }
+					10 = {  character_event = { id = 86400 } }
+					10 = {  character_event = { id = 86410 } }
+				}
+			}		
+		}
 		wealth = -10
-		hidden_tooltip = {
-			random_list = {
-				10 = {  character_event = { id = 86320 } }
-				10 = {  character_event = { id = 86330 } }
-				10 = {  character_event = { id = 86340 } }
-				10 = {  character_event = { id = 86350 } }
-				10 = {  character_event = { id = 86360 } }
-				10 = {  character_event = { id = 86380 } }
-				10 = {  character_event = { id = 86390 } }
-				10 = {  character_event = { id = 86400 } }
-				10 = {  character_event = { id = 86410 } }
-			}
-		}		
 	}
 	option = {
 		name = "EVTOPTB86300"
+		piety = -10
 	}
 }
 
@@ -1479,6 +1482,12 @@ character_event = {
 	option = {
 		name = "EVTOPTA86550"
 		trigger = { NOT = { trait = humble } }
+		if = {
+			limit = {
+				trait = proud
+			}
+			add_trait = ambitious
+		}
 		random = {
 			chance = 33
 			add_trait = proud
@@ -1500,6 +1509,8 @@ character_event = {
 			hidden_tooltip = { character_event = {	id = 38260 } }
 		}
 		piety = 25
+		add_trait = humble
+		
 		hidden_tooltip = {
 			character_event = { id = 86551 days = 1 }
 		}	
@@ -1793,9 +1804,11 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTA86800"
-		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
+		custom_tooltip = {
+			text = RELIGIOUSFACTIONMOODPLUS
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		}
 		change_variable = { which = "faction_mood_religious" value = 2 }
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		remove_trait = on_hajj
 		add_trait = hajjaj
 	}

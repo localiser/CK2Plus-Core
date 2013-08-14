@@ -607,81 +607,1322 @@ character_event = {
 }
 
 ### The Rise of the Hansa
+
+# Hansa formed in Hamburg (AI)
+character_event = {
+	id = REP.40
+	hide_window = yes
+	
+	ai = yes
+	
+	trigger = {
+		has_landed_title = c_hamburg
+		year = 1170
+		top_liege = { 
+			has_landed_title = e_hre
+			religion_group = christian 
+		}
+		261 = {
+			culture = german
+			religion_group = christian
+		}
+		OR = {
+			NOT = { is_merchant_republic = yes }
+			NOT = { liege = { is_merchant_republic = yes } }
+			NOT = { is_patrician = yes }
+		}
+		NOT = { has_global_flag = hansa_formed }
+	}
+	
+	immediate = {
+		top_liege = { character_event = { id = REP.45 } }
+	}
+	
+	mean_time_to_happen = {
+		months = 1020
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Bremen (AI)
+character_event = {
+	id = REP.41
+	hide_window = yes
+	
+	ai = yes
+	
+	trigger = {
+		has_landed_title = c_bremen
+		year = 1170
+		top_liege = { 
+			has_landed_title = e_hre
+			religion_group = christian 
+		}
+		848 = {
+			culture = german
+			religion_group = christian
+		}
+		OR = {
+			NOT = { is_merchant_republic = yes }
+			NOT = { liege = { is_merchant_republic = yes } }
+			NOT = { is_patrician = yes }
+		}
+		NOT = { has_global_flag = hansa_formed }
+	}
+	
+	immediate = {
+		top_liege = { character_event = { id = REP.46 } }
+	}
+	
+	mean_time_to_happen = {
+		months = 1020
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Lübeck (AI)
+character_event = {
+	id = REP.42
+	hide_window = yes
+	
+	ai = yes
+	
+	trigger = {
+		has_landed_title = c_lubeck
+		year = 1170
+		top_liege = { 
+			has_landed_title = e_hre
+			religion_group = christian 
+		}
+		262 = {
+			culture = german
+			religion_group = christian
+		}
+		OR = {
+			NOT = { is_merchant_republic = yes }
+			NOT = { liege = { is_merchant_republic = yes } }
+			NOT = { is_patrician = yes }
+		}
+		NOT = { has_global_flag = hansa_formed }
+	}
+	
+	immediate = {
+		top_liege = { character_event = { id = REP.47 } }
+	}
+	
+	mean_time_to_happen = {
+		months = 1020
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Mecklenburg (AI)
+character_event = {
+	id = REP.43
+	hide_window = yes
+	
+	ai = yes
+	
+	trigger = {
+		has_landed_title = c_mecklemburg
+		year = 1170
+		top_liege = { 
+			has_landed_title = e_hre
+			religion_group = christian 
+		}
+		260 = {
+			culture = german
+			religion_group = christian
+		}
+		OR = {
+			NOT = { is_merchant_republic = yes }
+			NOT = { liege = { is_merchant_republic = yes } }
+			NOT = { is_patrician = yes }
+		}
+		NOT = { has_global_flag = hansa_formed }
+	}
+	
+	immediate = {
+		top_liege = { character_event = { id = REP.48 } }
+	}
+	
+	mean_time_to_happen = {
+		months = 1020
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Rostock (AI)
+character_event = {
+	id = REP.44
+	hide_window = yes
+	
+	ai = yes
+	
+	trigger = {
+		has_landed_title = c_rostock
+		year = 1170
+		top_liege = { 
+			has_landed_title = e_hre
+			religion_group = christian 
+		}
+		306 = {
+			culture = german
+			religion_group = christian
+		}
+		OR = {
+			NOT = { is_merchant_republic = yes }
+			NOT = { liege = { is_merchant_republic = yes } }
+			NOT = { is_patrician = yes }
+		}
+		NOT = { has_global_flag = hansa_formed }
+	}
+	
+	immediate = {
+		top_liege = { character_event = { id = REP.49 } }
+	}
+	
+	mean_time_to_happen = {
+		months = 1020
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Permit Hansa in Hamburg?
+character_event = {
+	id = REP.45
+	desc = EVTDESC_REP_45
+	picture = GFX_evt_busy_trading_dock_republic
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_45
+		ai_chance = { factor = 100 }
+		hidden_tooltip = {
+			FROM = { character_event = { id = REP.50 } }
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = permit_hansa_tooltip }
+	}
+	option = {
+		name = EVTOPTB_REP_45
+		FROM = {
+			opinion = {
+				modifier = opinion_happy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_happy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = deny_hansa_tooltip }
+		set_global_flag = hansa_formed
+	}
+}
+
+# Permit Hansa in Bremen?
+character_event = {
+	id = REP.46
+	desc = EVTDESC_REP_46
+	picture = GFX_evt_busy_trading_dock_republic
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_45
+		ai_chance = { factor = 100 }
+		hidden_tooltip = {
+			FROM = { character_event = { id = REP.51 } }
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = permit_hansa_tooltip }
+	}
+	option = {
+		name = EVTOPTB_REP_45
+		FROM = {
+			opinion = {
+				modifier = opinion_happy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_happy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = deny_hansa_tooltip }
+		set_global_flag = hansa_formed
+	}
+}
+
+# Permit Hansa in Lübeck?
+character_event = {
+	id = REP.47
+	desc = EVTDESC_REP_47
+	picture = GFX_evt_busy_trading_dock_republic
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_45
+		ai_chance = { factor = 100 }
+		hidden_tooltip = {
+			FROM = { character_event = { id = REP.52 } }
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = permit_hansa_tooltip }
+	}
+	option = {
+		name = EVTOPTB_REP_45
+		FROM = {
+			opinion = {
+				modifier = opinion_happy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_happy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = deny_hansa_tooltip }
+		set_global_flag = hansa_formed
+	}
+}
+
+# Permit Hansa in Mecklenburg?
+character_event = {
+	id = REP.48
+	desc = EVTDESC_REP_48
+	picture = GFX_evt_busy_trading_dock_republic
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_45
+		ai_chance = { factor = 100 }
+		hidden_tooltip = {
+			FROM = { character_event = { id = REP.53 } }
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = permit_hansa_tooltip }
+	}
+	option = {
+		name = EVTOPTB_REP_45
+		FROM = {
+			opinion = {
+				modifier = opinion_happy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_happy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = deny_hansa_tooltip }
+		set_global_flag = hansa_formed
+	}
+}
+
+# Permit Hansa in Rostock?
+character_event = {
+	id = REP.49
+	desc = EVTDESC_REP_49
+	picture = GFX_evt_busy_trading_dock_republic
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_45
+		ai_chance = { factor = 100 }
+		hidden_tooltip = {
+			FROM = { character_event = { id = REP.54 } }
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_unhappy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = permit_hansa_tooltip }
+	}
+	option = {
+		name = EVTOPTB_REP_45
+		FROM = {
+			opinion = {
+				modifier = opinion_happy
+				who = ROOT
+				years = 4
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					liege = {
+						NOT = { character = ROOT }
+					}
+				}
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						modifier = opinion_happy
+						who = ROOT
+						years = 4
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = deny_hansa_tooltip }
+		set_global_flag = hansa_formed
+	}
+}
+
+### The Rise of the Hansa
+
+# Hansa formed in Hamburg (AI)
+character_event = {
+	id = REP.50
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = catholic
+			culture = german
+			female = no
+			age = 30
+		}
+		new_character = {
+			b_altona = {
+				grant_title = PREV
+			}
+			c_hamburg = {
+				grant_title = PREV
+			}
+			k_hansa = {
+				grant_title = PREV
+			}
+			character_event = { id = REP.60 }
+			ROOT = {
+				top_liege = {
+					set_defacto_vassal = PREVPREV
+				}
+			}
+			create_character = { # Extra courtiers
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 20
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 25
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 28
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 17
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 20
+			}
+		}
+		set_global_flag = hansa_formed
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Bremen (AI)
+character_event = {
+	id = REP.51
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = catholic
+			culture = german
+			female = no
+			age = 30
+		}
+		new_character = {
+			b_beverstedt = {
+				grant_title = PREV
+			}
+			c_bremen = {
+				grant_title = PREV
+			}
+			k_hansa = {
+				grant_title = PREV
+			}
+			character_event = { id = REP.60 }
+			ROOT = {
+				top_liege = {
+					set_defacto_vassal = PREVPREV
+				}
+			}
+			create_character = { # Extra courtiers
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 20
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 25
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 28
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 17
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 20
+			}
+		}
+		set_global_flag = hansa_formed
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Lübeck (AI)
+character_event = {
+	id = REP.52
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = catholic
+			culture = german
+			female = no
+			age = 30
+		}
+		new_character = {
+			b_beverstedt = {
+				grant_title = PREV
+			}
+			c_lubeck = {
+				grant_title = PREV
+			}
+			k_hansa = {
+				grant_title = PREV
+			}
+			character_event = { id = REP.60 }
+			ROOT = {
+				top_liege = {
+					set_defacto_vassal = PREVPREV
+				}
+			}
+			create_character = { # Extra courtiers
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 20
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 25
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 28
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 17
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 20
+			}
+		}
+		set_global_flag = hansa_formed
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Mecklenburg (AI)
+character_event = {
+	id = REP.53
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = catholic
+			culture = german
+			female = no
+			age = 30
+		}
+		new_character = {
+			b_wismar = {
+				grant_title = PREV
+			}
+			c_mecklemburg = {
+				grant_title = PREV
+			}
+			k_hansa = {
+				grant_title = PREV
+			}
+			character_event = { id = REP.60 }
+			ROOT = {
+				top_liege = {
+					set_defacto_vassal = PREVPREV
+				}
+			}
+			create_character = { # Extra courtiers
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 20
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 25
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 28
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 17
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 20
+			}
+		}
+		set_global_flag = hansa_formed
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Hansa formed in Rostock (AI)
+character_event = {
+	id = REP.54
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = catholic
+			culture = german
+			female = no
+			age = 30
+		}
+		new_character = {
+			b_gustrow = {
+				grant_title = PREV
+			}
+			c_rostock = {
+				grant_title = PREV
+			}
+			k_hansa = {
+				grant_title = PREV
+			}
+			character_event = { id = REP.60 }
+			ROOT = {
+				top_liege = {
+					set_defacto_vassal = PREVPREV
+				}
+			}
+			create_character = { # Extra courtiers
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 20
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 25
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 26
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = no
+				age = 28
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 16
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 17
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 18
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = catholic
+				culture = german
+				female = yes
+				age = 20
+			}
+		}
+		set_global_flag = hansa_formed
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# The Rise of the Hansa (AI)
+character_event = {
+	id = REP.60
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		narrative_event = { id = REP.61 }
+		character_event = { id = REP.65 days = 6 }
+		wealth = 1000
+		location = {
+			if = {
+				limit = { has_trade_post = yes }
+				seize_trade_post = ROOT
+				any_neighbor_province = {
+					seize_trade_post = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# The Rise of the Hansa
 narrative_event = {
 	id = REP.61
 	title = EVTNAME_REP_61
 	desc = EVTDESC_REP_61
-	
 	major = yes
-	only_playable = yes	
-	show_ROOT = yes
-	
 	picture = GFX_evt_busy_trading_dock_republic
 	
-	trigger = {
-		war = no
-		realm_size = 10
-		is_merchant_republic = yes
-		tier = duke
-		k_hansa = { has_holder = no }
-		liege = { war = no has_landed_title = e_hre is_republic = no }
-		OR = {
-			has_landed_title = c_hamburg
-			has_landed_title = c_bremen
-			has_landed_title = c_lubeck
-		}
+	is_triggered_only = yes
+	
+	major_trigger = {
+		ai = no
 	}	
 	
-	immediate = {
-		hidden_tooltip = {
-			if = {
-				limit = { character = ROOT }
-				k_hansa = {		
-					add_law = succ_patrician_elective
-					add_law = agnatic_succession
-					add_law = centralization_0
-					add_law = city_tax_0
-					add_law = temple_tax_0
-					add_law = tax_privileges_1
-					add_law = levy_privileges_1
-					add_law = council_privileges_0	
-					if = {
-						limit = {
-							ROOT = { religion_group = muslim }
-						}
-						add_law = iqta_tax_0
-						add_law = succ_turkish_succession
-						add_law = agnatic_succession									
-					}							
-					if = {
-						limit = {
-							ROOT = { NOT = { religion_group = muslim } }
-						}
-						add_law = feudal_tax_0
-						add_law = succ_primogeniture
-						add_law = cognatic_succession										
-					}								
-					if = {
-						limit = {
-							ROOT = { religion = catholic }
-						}
-						add_law = investiture_law_0
-					}
-					gain_title = ROOT
-				}	
-			}
-			any_demesne_title = {
-				limit = { tier = duke is_titular = yes }
-				destroy_landed_title = yes
-			}
-			e_hre = { holder_scope = { ROOT = { set_defacto_liege = PREV } } }
-		}	
-	}
-	
-	mean_time_to_happen = {
-		months = 6
-	}
-
 	option = {
 		name = EVTOPTA_REP_61
 		trigger = {
@@ -708,7 +1949,368 @@ narrative_event = {
 		trigger = {
 			character = ROOT
 		}
-	}		
+	}
+}
+
+# Set up Patricians
+character_event = {
+	id = REP.65
+	hide_window = yes
+	
+	ai = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		random_vassal = {
+			limit = { 
+				is_patrician = yes
+				NOT = {
+					has_character_flag = patrician_1
+					has_character_flag = patrician_2
+					has_character_flag = patrician_3
+					has_character_flag = patrician_4
+				}
+			}
+			set_character_flag = patrician_1
+		}
+		random_vassal = {
+			limit = { 
+				is_patrician = yes
+				NOT = {
+					has_character_flag = patrician_1
+					has_character_flag = patrician_2
+					has_character_flag = patrician_3
+					has_character_flag = patrician_4
+				}
+			}
+			set_character_flag = patrician_2
+		}
+		random_vassal = {
+			limit = { 
+				is_patrician = yes
+				NOT = {
+					has_character_flag = patrician_1
+					has_character_flag = patrician_2
+					has_character_flag = patrician_3
+					has_character_flag = patrician_4
+				}
+			}
+			set_character_flag = patrician_3
+		}
+		random_vassal = {
+			limit = { 
+				is_patrician = yes
+				NOT = {
+					has_character_flag = patrician_1
+					has_character_flag = patrician_2
+					has_character_flag = patrician_3
+					has_character_flag = patrician_4
+				}
+			}
+			set_character_flag = patrician_4
+		}
+		random_vassal = {
+			limit = { has_character_flag = patrician_1 }
+			character_event = { id = REP.66 }
+		}
+		random_vassal = {
+			limit = { has_character_flag = patrician_2 }
+			character_event = { id = REP.67 }
+		}
+		random_vassal = {
+			limit = { has_character_flag = patrician_3 }
+			character_event = { id = REP.68 }
+		}
+		random_vassal = {
+			limit = { has_character_flag = patrician_4 }
+			character_event = { id = REP.69 }
+		}
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Set up Patrician 1
+character_event = {
+	id = REP.66
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				267 = { has_trade_post = yes }
+			}
+			267 = { 
+				trade_post_owner = { character_event = { id = REP.70 } }
+				seize_trade_post = ROOT 
+			}
+		}
+		if = {
+			limit = { 
+				296 = { has_trade_post = yes }
+			}
+			296 = { 
+				trade_post_owner = { character_event = { id = REP.71 } }
+				seize_trade_post = ROOT
+			}
+		}
+		wealth = 1000
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Set up Patrician 2
+character_event = {
+	id = REP.67
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				84 = { has_trade_post = yes }
+			}
+			84 = { 
+				trade_post_owner = { character_event = { id = REP.72 } }
+				seize_trade_post = ROOT
+			}
+		}
+		if = {
+			limit = { 
+				83 = { has_trade_post = yes }
+			}
+			83 = { 
+				trade_post_owner = { character_event = { id = REP.73 } }
+				seize_trade_post = ROOT				
+			}
+		}
+		wealth = 1000
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Set up Patrician 3
+character_event = {
+	id = REP.68
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				32 = { has_trade_post = yes }
+			}
+			32 = { 
+				trade_post_owner = { character_event = { id = REP.74 } }
+				seize_trade_post = ROOT				
+			}
+		}
+		if = {
+			limit = { 
+				74 = { has_trade_post = yes }
+			}
+			74 = { 
+				trade_post_owner = { character_event = { id = REP.75 } }
+				seize_trade_post = ROOT 
+			}
+		}
+		wealth = 1000
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Set up Patrician 4
+character_event = {
+	id = REP.69
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				368 = { has_trade_post = yes }
+			}
+			368 = { 
+				trade_post_owner = { character_event = { id = REP.76 } }
+				seize_trade_post = ROOT 
+			}
+		}
+		if = {
+			limit = { 
+				370 = { has_trade_post = yes }
+			}
+			370 = { 
+				trade_post_owner = { character_event = { id = REP.77 } }
+				seize_trade_post = ROOT 
+			}
+		}
+		wealth = 1000
+	}
+			
+	option = {
+		name = OK
+	}
+}
+
+# Former Trade Post Owner Informed 267
+character_event = {
+	id = REP.70
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			267 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 296
+character_event = {
+	id = REP.71
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			296 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 84
+character_event = {
+	id = REP.72
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			84 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 83
+character_event = {
+	id = REP.73
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			83 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 32
+character_event = {
+	id = REP.74
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			32 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 74
+character_event = {
+	id = REP.75
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			74 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 368
+character_event = {
+	id = REP.76
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			368 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
+}
+
+# Former Trade Post Owner Informed 370
+character_event = {
+	id = REP.77
+	desc = EVTDESC_REP_070
+	picture = GFX_evt_trade_post_republic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_REP_070
+		tooltip = {
+			370 = { 
+				seize_trade_post = FROM
+			}
+		}
+	}
 }
 
 ### Seize Trade Post Plot
@@ -729,39 +2331,48 @@ character_event = {
 			plot_power = 1.0
 			NOT = { plot_power = 1.5 }
 		}
-		hidden_tooltip = {
-			plot_target_char = {
-				character_event = { id = REP.302 days = 5 }
+		
+		wealth = -250
+		custom_tooltip = {
+			text = EVTOPTA_REP_300_tooltip
+			hidden_tooltip = {
+				plot_target_char = {
+					character_event = { id = REP.302 days = 5 }
+				}
 			}
 		}
-		wealth = -250
-		custom_tooltip = EVTOPTA_REP_300_tooltip
 	}
 	option = {
 		name = EVTOPTB_REP_300
 		trigger = {
 			plot_power = 1.5
 		}
-		hidden_tooltip = {
-			plot_target_char = {
-				character_event = { id = REP.308 days = 5 }
+		
+		wealth = -200
+		custom_tooltip = {
+			text = EVTOPTB_REP_300_tooltip
+			hidden_tooltip = {
+				plot_target_char = {
+					character_event = { id = REP.308 days = 5 }
+				}
 			}
 		}
-		wealth = -200
-		custom_tooltip = EVTOPTB_REP_300_tooltip
 	}
 	option = {
 		name = EVTOPTC_REP_300
 		trigger = {
 			NOT = { plot_power = 1.0 }
 		}
-		hidden_tooltip = {
-			plot_target_char = {
-				character_event = { id = REP.301 days = 5 }
+		
+		wealth = -300
+		custom_tooltip = {
+			text = EVTOPTC_REP_300_tooltip
+			hidden_tooltip = {
+				plot_target_char = {
+					character_event = { id = REP.301 days = 5 }
+				}
 			}
 		}
-		wealth = -300
-		custom_tooltip = EVTOPTC_REP_300_tooltip
 	}
 	option = {
 		name = EVTOPTE_REP_300
@@ -775,16 +2386,18 @@ character_event = {
 				}
 			}
 		}
-		custom_tooltip = EVTOPTE_REP_300_tooltip
-		hidden_tooltip = {
-			liege = {
-				letter_event = { id = REP.310 days = 5 }
+		custom_tooltip = {
+			text = EVTOPTE_REP_300_tooltip
+			hidden_tooltip = {
+				liege = {
+					letter_event = { id = REP.310 days = 5 }
+				}
 			}
 		}
 	}
 	option = {
 		name = EVTOPTD_REP_300
-		custom_tooltip = EVTOPTD_REP_300_tooltip
+		custom_tooltip = { text = EVTOPTD_REP_300_tooltip }
 		cancel_plot = plot_seize_trade_post
 		clr_character_flag = plot_seize_trade_post_decision_taken
 	}
@@ -800,22 +2413,28 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_REP_301
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.303 days = 5 }
+		
+		wealth = -250
+		custom_tooltip = {
+			text = EVTOPTA_REP_301_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.303 days = 5 }
+				}
 			}
 		}
-		wealth = -250
-		custom_tooltip = EVTOPTA_REP_301_tooltip
 	}
 	option = {
 		name = EVTOPTB_REP_301
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.306 days = 5 }
+		
+		custom_tooltip = {
+			text = EVTOPTB_REP_301_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.306 days = 5 }
+				}
 			}
 		}
-		custom_tooltip = EVTOPTB_REP_301_tooltip
 	}
 }
 
@@ -829,22 +2448,28 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_REP_302
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.303 days = 5 }
+		
+		wealth = -250
+		custom_tooltip = {
+			text = EVTOPTA_REP_302_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.303 days = 5 }
+				}
 			}
 		}
-		wealth = -250
-		custom_tooltip = EVTOPTA_REP_302_tooltip
 	}
 	option = {
 		name = EVTOPTB_REP_302
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.306 days = 5 }
+		
+		custom_tooltip = {
+			text = EVTOPTB_REP_302_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.306 days = 5 }
+				}
 			}
 		}
-		custom_tooltip = EVTOPTB_REP_302_tooltip
 	}
 }
 
@@ -858,24 +2483,30 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_REP_303
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.304 days = 5 }
+		
+		wealth = -300
+		custom_tooltip = {
+			text = EVTOPTA_REP_303_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.304 days = 5 }
+				}
 			}
 		}
-		wealth = -300
-		custom_tooltip = EVTOPTA_REP_303_tooltip
 	}
 	option = {
 		name = EVTOPTB_REP_303
 		cancel_plot = plot_seize_trade_post
 		clr_character_flag = plot_seize_trade_post_decision_taken
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.307 days = 5 }
+		
+		custom_tooltip = { 
+			text = EVTOPTB_REP_303_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.307 days = 5 }
+				}
 			}
 		}
-		custom_tooltip = EVTOPTB_REP_303_tooltip
 	}
 }
 
@@ -889,22 +2520,28 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_REP_304
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.305 days = 5 }
+		
+		wealth = -350
+		custom_tooltip = { 
+			text = EVTOPTA_REP_304_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.305 days = 5 }
+				}
 			}
 		}
-		wealth = -350
-		custom_tooltip = EVTOPTA_REP_304_tooltip
 	}
 	option = {
 		name = EVTOPTB_REP_304
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.306 days = 5 }
+		
+		custom_tooltip = { 
+			text = EVTOPTB_REP_304_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.306 days = 5 }
+				}
 			}
 		}
-		custom_tooltip = EVTOPTB_REP_304_tooltip
 	}
 }
 
@@ -920,13 +2557,16 @@ character_event = {
 		name = EVTOPTA_REP_305
 		cancel_plot = plot_seize_trade_post
 		clr_character_flag = plot_seize_trade_post_decision_taken
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.307 days = 5 }
+		
+		prestige = -50
+		custom_tooltip = {
+			text = EVTOPTB_REP_303_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.307 days = 5 }
+				}
 			}
 		}
-		prestige = -50
-		custom_tooltip = EVTOPTB_REP_303_tooltip
 	}
 }
 
@@ -978,12 +2618,15 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_REP_308
-		hidden_tooltip = {
-			FROM = {
-				character_event = { id = REP.306 days = 5 }
+		
+		custom_tooltip = { 
+			text = EVTOPTB_REP_306_tooltip
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = REP.306 days = 5 }
+				}
 			}
 		}
-		custom_tooltip = EVTOPTB_REP_306_tooltip
 	}
 }
 
@@ -2105,7 +3748,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB_REP_601
-		custom_tooltip = tp_spare
+		custom_tooltip = { text = tp_spare }
 	}
 }
 
