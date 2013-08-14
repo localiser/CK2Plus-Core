@@ -3,16 +3,16 @@ decisions = {
 	form_the_great_seljuq = {
 		is_high_prio = yes
     
-		potential = { 
+		potential = {
 			e_seljuk_turks = {
 				has_holder = no
 			}
-			has_global_flag = seljuk_arrival  
-			has_character_flag = horde_invader 
-			NOT = { has_global_flag = seljuk_empire }  
-			culture = turkish     
-			religion_group = muslim 
-			independent = yes 
+			has_global_flag = seljuk_arrival
+			has_character_flag = horde_invader
+			NOT = { has_global_flag = seljuk_empire }
+			culture = turkish
+			religion_group = muslim
+			independent = yes
 			prisoner = no
 		}
     
@@ -24,10 +24,10 @@ decisions = {
 			wealth = 300
 			OR = {
 				has_landed_title = c_baghdad
-				any_vassal = c_baghdad
+				c_baghdad = { is_liege_or_above = ROOT }
 			}
-			has_landed_title = k_persia     
-			}
+			has_landed_title = k_persia
+		}
     
 		effect = {
 			set_global_flag = seljuk_empire
@@ -37,7 +37,7 @@ decisions = {
 			if = {
 				limit = { has_nickname = no }
 				give_nickname = nick_the_great
-			}  
+			}
 		e_seljuk_turks = {
 			grant_title = ROOT
 			copy_title_laws = k_persia
@@ -53,8 +53,9 @@ decisions = {
 					ai = no
 				}
 				narrative_event = { id = 90009010 }
-			}  
-		} 
+			}
+		}
+		
 		create_character = {
 			random_traits = yes
 			dynasty = random
