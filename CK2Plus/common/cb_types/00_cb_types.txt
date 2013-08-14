@@ -958,13 +958,9 @@ other_claim_on_liege = {
 			}
 			FROMFROM = { has_character_flag = faction_claimant_ultimatum_taken } # Faction war. Ignore claim strength.
 		}
-
-		OR = {
-			FROM = {
-				has_landed_title = PREV
-			}
+		FROM = {
+			has_landed_title = PREV
 		}
-		
 		OR = { 
 			ROOT = { has_strong_claim = PREV }
 			FROMFROM = { has_character_flag = faction_claimant_ultimatum_taken } # Faction war. Ignore claim strength.
@@ -1981,19 +1977,15 @@ crusade = {
 	on_add_title = {
 		if = {
 			limit = {
-				AND = {
 					ROOT = { religion = shiite }
 					title = k_sicily
-				}
 			}
 			set_global_flag = sicilian_jihad
 		}
 		if = {
 			limit = {
-				AND = {
 					ROOT = { religion = catholic }
 					title = k_jerusalem
-				}
 			}
 			set_global_flag = crusade_for_jerusalem
 		}		
