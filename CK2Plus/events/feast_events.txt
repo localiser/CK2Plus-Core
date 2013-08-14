@@ -3296,7 +3296,7 @@ character_event = {
 				}
 			}
 		}
-		custom_tooltip = TYRANTTOOLTIP5
+		custom_tooltip = { text = TYRANTTOOLTIP5 }
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -5407,9 +5407,11 @@ character_event = {
 					}
 				}
 			}
-			custom_tooltip = COURTFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_court" value = 0.5 }	
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			custom_tooltip = { 
+				text = COURTFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_court" value = 0.5 }	
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			}
 			set_character_flag = feast_mood_boost			
 		}
 		remove_character_modifier = holding_large_feast

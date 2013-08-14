@@ -469,10 +469,14 @@ character_event = {
 		name = "EVTOPTA2002050"	# This is the happiest day of my life
 		add_trait = crowned_by_pope
 		prestige = 500
-		custom_tooltip = COURTFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_court" value = 4 }
-		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 2 }
+		custom_tooltip = { 
+			text = COURTFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_court" value = 4 }
+		}
+		custom_tooltip = { 
+			text = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 2 }
+		}
 		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		hidden_tooltip = {
 			rightful_religious_head_scope = {

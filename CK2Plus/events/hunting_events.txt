@@ -1183,9 +1183,11 @@ character_event = {
 					}
 				}
 			}
-			custom_tooltip = COURTFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_court" value = 0.5 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			custom_tooltip = { 
+				text = COURTFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_court" value = 0.5 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			}
 			set_character_flag = hunt_mood_boost			
 		}
 		change_variable = { which = "lifestyle_hunter" value = 1 }

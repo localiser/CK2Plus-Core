@@ -199,10 +199,14 @@ province_event = {
 		name = "EVTOPTA70002"
 		clr_province_flag = tournament_60_days
 		owner = {
-			custom_tooltip = FEUDALFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_feudal" value = 3 }	
-			custom_tooltip = COURTFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_court" value = 2 }
+			custom_tooltip = { 
+				text = FEUDALFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_feudal" value = 3 }	
+			}
+			custom_tooltip = { 
+				text = COURTFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_court" value = 2 }
+			}
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			remove_character_modifier = holding_epic_tournament
 			clr_character_flag = tournament_begins

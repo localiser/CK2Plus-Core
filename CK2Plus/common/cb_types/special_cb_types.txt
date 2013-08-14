@@ -220,26 +220,28 @@ liberation_revolt = {
 	}
 
 	on_success_title = {
-		custom_tooltip = tribal_invasion_succ_tip
-		hidden_tooltip = {
-			ROOT = {
-				vassalize_or_take_under_title = {
-					title = PREV
-					enemy = FROM
-				}
-				if = {
-					limit = {
-						num_of_count_titles = 5
-						PREV = { 
-							OR = {
-								has_holder = no 
-								holder_scope = {
-									character = FROM
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+					if = {
+						limit = {
+							num_of_count_titles = 5
+							PREV = { 
+								OR = {
+									has_holder = no 
+									holder_scope = {
+										character = FROM
+									}
 								}
 							}
 						}
+						usurp_title = PREV
 					}
-					usurp_title = PREV
 				}
 			}
 		}
@@ -346,12 +348,14 @@ duchy_adventure = {
 	}
 
 	on_success_title = {
-		custom_tooltip = tribal_invasion_succ_tip
-		hidden_tooltip = {
-			ROOT = {
-				vassalize_or_take_under_title = {
-					title = PREV
-					enemy = FROM
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
 				}
 			}
 		}
@@ -487,43 +491,45 @@ viking_invasion = {
 	}
 	
 	on_success_title = {
-		custom_tooltip = tribal_invasion_succ_tip
-		hidden_tooltip = {
-			FROM = {
-				random_realm_province = {
-					limit = {
-						de_jure_liege_or_above = PREVPREV
-						OR = {
-							NOT = { culture = ROOT }
-							NOT = { religion = ROOT }
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				FROM = {
+					random_realm_province = {
+						limit = {
+							de_jure_liege_or_above = PREVPREV
+							OR = {
+								NOT = { culture = ROOT }
+								NOT = { religion = ROOT }
+							}
 						}
+						culture = ROOT
+						religion = ROOT
 					}
-					culture = ROOT
-					religion = ROOT
 				}
-			}
-			ROOT = {
-				occupy_minors_of_occupied_settlements = FROM
-				gain_all_occupied_titles = FROM
-				vassalize_or_take_under_title_destroy_duchies = {
-					title = PREV
-					enemy = FROM
-				}
+				ROOT = {
+					occupy_minors_of_occupied_settlements = FROM
+					gain_all_occupied_titles = FROM
+					vassalize_or_take_under_title_destroy_duchies = {
+						title = PREV
+						enemy = FROM
+					}
 				
-				# Settle the special invasion forces
-				disband_event_forces = prepared_invasion
-				any_demesne_title = {
-					limit = { tier = BARON }
-					remove_holding_modifier = recently_conquered
-					refill_holding_levy = yes
+					# Settle the special invasion forces
+					disband_event_forces = prepared_invasion
+					any_demesne_title = {
+						limit = { tier = BARON }
+						remove_holding_modifier = recently_conquered
+						refill_holding_levy = yes
+					}
 				}
-			}
 			
-			if = {
-				limit = {
-					FROM = { is_liege_or_above = ROOT }
+				if = {
+					limit = {
+						FROM = { is_liege_or_above = ROOT }
+					}
+					FROM = { imprison = ROOT }
 				}
-				FROM = { imprison = ROOT }
 			}
 		}
 	}
@@ -657,74 +663,76 @@ shia_caliphate_rising = {
 	}
 	
 	on_success_title = {
-		custom_tooltip = tribal_invasion_succ_tip
-		hidden_tooltip = {
-			d_shiite = {
-				usurp_title = ROOT
-			}
-			FROM = {
-				random_realm_province = {
-					limit = {
-						de_jure_liege_or_above = PREVPREV
-						NOT = { religion = ROOT }
-						religion_group = muslim
+		custom_tooltip = {
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				d_shiite = {
+					usurp_title = ROOT
+				}
+				FROM = {
+					random_realm_province = {
+						limit = {
+							de_jure_liege_or_above = PREVPREV
+							NOT = { religion = ROOT }
+							religion_group = muslim
+						}
+						religion = ROOT
 					}
-					religion = ROOT
-				}
-				random_realm_province = {
-					limit = {
-						de_jure_liege_or_above = PREVPREV
-						NOT = { religion = ROOT }
-						religion_group = muslim
+					random_realm_province = {
+						limit = {
+							de_jure_liege_or_above = PREVPREV
+							NOT = { religion = ROOT }
+							religion_group = muslim
+						}
+						religion = ROOT
 					}
-					religion = ROOT
-				}
-				random_realm_province = {
-					limit = {
-						de_jure_liege_or_above = PREVPREV
-						NOT = { religion = ROOT }
-						religion_group = muslim
+					random_realm_province = {
+						limit = {
+							de_jure_liege_or_above = PREVPREV
+							NOT = { religion = ROOT }
+							religion_group = muslim
+						}
+						religion = ROOT
 					}
-					religion = ROOT
-				}
-				random_realm_province = {
-					limit = {
-						de_jure_liege_or_above = PREVPREV
-						NOT = { religion = ROOT }
-						religion_group = muslim
+					random_realm_province = {
+						limit = {
+							de_jure_liege_or_above = PREVPREV
+							NOT = { religion = ROOT }
+							religion_group = muslim
+						}
+						religion = ROOT
 					}
-					religion = ROOT
-				}
-				random_realm_province = {
-					limit = {
-						de_jure_liege_or_above = PREVPREV
-						NOT = { religion = ROOT }
-						religion_group = muslim
+					random_realm_province = {
+						limit = {
+							de_jure_liege_or_above = PREVPREV
+							NOT = { religion = ROOT }
+							religion_group = muslim
+						}
+						religion = ROOT
 					}
-					religion = ROOT
 				}
-			}
-			ROOT = {
-				occupy_minors_of_occupied_settlements = FROM
-				gain_all_occupied_titles = FROM
-				vassalize_or_take_under_title = {
-					title = PREV
-					enemy = FROM
-				}
+				ROOT = {
+					occupy_minors_of_occupied_settlements = FROM
+					gain_all_occupied_titles = FROM
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
 				
-				any_demesne_title = {
-					limit = { tier = BARON }
-					remove_holding_modifier = recently_conquered
-					refill_holding_levy = yes
+					any_demesne_title = {
+						limit = { tier = BARON }
+						remove_holding_modifier = recently_conquered
+						refill_holding_levy = yes
+					}
+					usurp_title = PREV
 				}
-				usurp_title = PREV
-			}
 			
-			if = {
-				limit = {
-					FROM = { is_liege_or_above = ROOT }
+				if = {
+					limit = {
+						FROM = { is_liege_or_above = ROOT }
+					}
+					FROM = { imprison = ROOT }
 				}
-				FROM = { imprison = ROOT }
 			}
 		}
 	}

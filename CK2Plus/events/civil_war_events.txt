@@ -1697,27 +1697,29 @@ character_event = {
 					trait = rebel
 				}
 			}
-			custom_tooltip = CUSTOMTOOLTIP39
-			hidden_tooltip = {
-				remove_trait = loyalist
-				remove_trait = rebel
-				any_playable_ruler = {
-					reverse_remove_opinion = {
-						who = PREV
-						modifier = revolting_against
+			custom_tooltip = {
+				text = CUSTOMTOOLTIP39
+				hidden_tooltip = {
+					remove_trait = loyalist
+					remove_trait = rebel
+					any_playable_ruler = {
+						reverse_remove_opinion = {
+							who = PREV
+							modifier = revolting_against
+						}	
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_pleased
+						months = 120
 					}	
-				}
-				opinion = {
-					who = ROOT
-					modifier = opinion_pleased
-					months = 120
-				}	
-				character_event = { id = 2010032 } #notify
-				any_vassal = {
 					character_event = { id = 2010032 } #notify
 					any_vassal = {
-						character_event = { id = 2010032 } #notify				
-					}					
+						character_event = { id = 2010032 } #notify
+						any_vassal = {
+							character_event = { id = 2010032 } #notify				
+						}					
+					}
 				}
 			}
 		}
@@ -1806,22 +1808,24 @@ character_event = {
 					trait = rebel
 				}
 			}
-			custom_tooltip = CUSTOMTOOLTIP40
-			hidden_tooltip = {			
-				remove_trait = loyalist
-				remove_trait = rebel
-				any_playable_ruler = {
-					reverse_remove_opinion = {
-						who = PREV
-						modifier = revolting_against
+			custom_tooltip = {
+				text = CUSTOMTOOLTIP40
+				hidden_tooltip = {			
+					remove_trait = loyalist
+					remove_trait = rebel
+					any_playable_ruler = {
+						reverse_remove_opinion = {
+							who = PREV
+							modifier = revolting_against
+						}	
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_pleased
+						months = 120
 					}	
+					character_event = { id = 2010034 } #notify
 				}
-				opinion = {
-					who = ROOT
-					modifier = opinion_pleased
-					months = 120
-				}	
-				character_event = { id = 2010034 } #notify
 			}
 		}
 	}
@@ -1859,34 +1863,36 @@ character_event = {
 				trait = possessed
 			}			
 		}
-		custom_tooltip = CUSTOMTOOLTIP27		
-		hidden_tooltip = {		
-			any_vassal = {
-				limit = {	
-					OR = { higher_tier_than = baron is_patrician = yes }
-					OR = {
-						trait = loyalist
-						trait = rebel
+		custom_tooltip = {
+			text = CUSTOMTOOLTIP27		
+			hidden_tooltip = {		
+				any_vassal = {
+					limit = {	
+						OR = { higher_tier_than = baron is_patrician = yes }
+						OR = {
+							trait = loyalist
+							trait = rebel
+						}
 					}
-				}
-				remove_trait = loyalist
-				remove_trait = rebel
-				any_playable_ruler = {
-					reverse_remove_opinion = {
-						who = PREV
-						modifier = revolting_against
+					remove_trait = loyalist
+					remove_trait = rebel
+					any_playable_ruler = {
+						reverse_remove_opinion = {
+							who = PREV
+							modifier = revolting_against
+						}	
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_upset
+						months = 120
+						multiplier = 2
 					}	
+					character_event = { id = 2010035 } #notify
 				}
-				opinion = {
-					who = ROOT
-					modifier = opinion_upset
-					months = 120
-					multiplier = 2
-				}	
-				character_event = { id = 2010035 } #notify
 			}
 		}
-	}	
+	}
 }
 
 #Notify player of tax reduction
@@ -2071,8 +2077,10 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_feudal" value = -4 }
-				custom_tooltip = FEUDALFACTIONMOODMINUS
-				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				custom_tooltip = { 
+					text = FEUDALFACTIONMOODMINUS
+					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				}
 			}
 		}
 		if = {
@@ -2085,8 +2093,10 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_republican" value = -4 }
-				custom_tooltip = REPUBLICANFACTIONMOODMINUS
-				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				custom_tooltip = { 
+					text = REPUBLICANFACTIONMOODMINUS
+					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				}
 			}
 		}
 		if = {
@@ -2099,8 +2109,10 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_religious" value = -4 }
-				custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				custom_tooltip = { 
+					text = RELIGIOUSFACTIONMOODMINUS
+					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				}
 			}
 		}
 		if = {
@@ -2113,8 +2125,10 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_court" value = -4 }
-				custom_tooltip = COURTFACTIONMOODMINUS
-				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				custom_tooltip = { 
+					text = COURTFACTIONMOODMINUS
+					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				}
 			}
 		}		
 	}

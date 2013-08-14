@@ -519,7 +519,7 @@ other_claim = {
 				}
 				# mark as staying in the realm
 				ROOT = { set_character_flag = stay_in_realm }
-				custom_tooltip = CUSTOMTOOLTIP1
+				custom_tooltip = { text = CUSTOMTOOLTIP1 }
 			}
 			if = {
 				limit = {
@@ -587,7 +587,7 @@ other_claim = {
 						}
 					}
 				}
-				custom_tooltip = CUSTOMTOOLTIP2
+				custom_tooltip = { text = CUSTOMTOOLTIP2 }
 			}
 			
 			#determine who is the liege of loser in the war
@@ -2127,18 +2127,22 @@ crusade = {
 			limit = { character = ROOT }
 			participation_scaled_piety = 1000
 			participation_scaled_prestige = 500
-			custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 2 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			custom_tooltip = { 
+				text = RELIGIOUSFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_religious" value = 2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			}
 		}
 		any_attacker = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { 
 				participation_scaled_piety = 1000
 				participation_scaled_prestige = 500	
-				custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-				change_variable = { which = "faction_mood_religious" value = 2 }	
-				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				custom_tooltip = { 
+					text = RELIGIOUSFACTIONMOODPLUS
+					change_variable = { which = "faction_mood_religious" value = 2 }	
+					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+				}
 			}
 		}
 		
@@ -2217,16 +2221,20 @@ crusade = {
 		FROM = {
 			participation_scaled_prestige = 100
 			participation_scaled_piety = 200
-			custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -2 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			custom_tooltip = { 
+				text = RELIGIOUSFACTIONMOODMINUS
+				change_variable = { which = "faction_mood_religious" value = -2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 100 participation_scaled_piety = 200 }
-			custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -2 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			custom_tooltip = { 
+				text = RELIGIOUSFACTIONMOODMINUS
+				change_variable = { which = "faction_mood_religious" value = -2 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			}
 		}	
 	}
 
@@ -2558,8 +2566,8 @@ holy_war = {
 	}
 	
 	on_success = {
-		ROOT = { custom_tooltip = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-		FROM = { custom_tooltip = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } } }
+		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } } }
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }	
 		any_attacker = {
 			limit = { character = ROOT }
@@ -2647,8 +2655,8 @@ holy_war = {
 	}
 
 	on_reverse_demand = {
-		ROOT = { custom_tooltip = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-		FROM = { custom_tooltip = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
+		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } } }
+		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } } }
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			piety = -200
@@ -3427,106 +3435,108 @@ depose_liege = {
 					limit =	{
 						is_primary_holder_title_tier = yes
 					}
-					custom_tooltip = CUSTOMTOOLTIP58
-					if = {
-						limit = { has_law = centralization_1 }
-						add_law_w_cooldown = centralization_0
-					}
-					if = {
-						limit = { has_law = centralization_2 }
-						add_law_w_cooldown = centralization_1
-					}
-					if = {
-						limit = { has_law = centralization_3 }
-						add_law_w_cooldown = centralization_2
-					}
-					if = {
-						limit = { has_law = centralization_4 }
-						add_law_w_cooldown = centralization_3
-					}	
-					hidden_tooltip = {
+					custom_tooltip = {
+						text = CUSTOMTOOLTIP58
 						if = {
-							limit = { is_primary_holder_title = yes }
-							set_global_flag = is_primary_title
-						}						
-						set_global_flag = seeking_usurper
-					
-						#rebel with a claim					
-						random_playable_ruler = {
-							limit = {
-								has_character_flag = rebel_attacker
-								any_claim = { title = PREVPREV }
-								has_global_flag = seeking_usurper
-								OR = {
-									AND = {
-										is_feudal = no
-										FROM = { is_feudal = no }
-									}
-									AND = {
-										is_feudal = yes
-										FROM = { is_feudal = yes }
-									}
-								}	
-							}
-							random_claim = {
-								limit = { title = PREVPREV }
-								if = {
-									limit = {
-										has_global_flag = is_primary_title
-									}
-									PREV = { set_character_flag = primary_title_usurper }
-									set_global_flag = primary_title_usurper_found
-								}
-								if = {
-									limit = {
-										NOT = { has_global_flag = is_primary_title }
-									}
-									usurp_title_plus_barony_if_unlanded = PREV
-								}																
-							}
-							clr_global_flag = seeking_usurper
+							limit = { has_law = centralization_1 }
+							add_law_w_cooldown = centralization_0
+						}
+						if = {
+							limit = { has_law = centralization_2 }
+							add_law_w_cooldown = centralization_1
+						}
+						if = {
+							limit = { has_law = centralization_3 }
+							add_law_w_cooldown = centralization_2
+						}
+						if = {
+							limit = { has_law = centralization_4 }
+							add_law_w_cooldown = centralization_3
 						}	
-						
-						# rebel with a de-jure claim
-						random_playable_ruler = {
-							limit = {
-								has_character_flag = rebel_attacker
-								primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
-								has_global_flag = seeking_usurper
-								OR = {
-									AND = {
-										is_feudal = no
-										FROM = { is_feudal = no }
-									}
-									AND = {
-										is_feudal = yes
-										FROM = { is_feudal = yes }
-									}
+						hidden_tooltip = {
+							if = {
+								limit = { is_primary_holder_title = yes }
+								set_global_flag = is_primary_title
+							}						
+							set_global_flag = seeking_usurper
+					
+							#rebel with a claim					
+							random_playable_ruler = {
+								limit = {
+									has_character_flag = rebel_attacker
+									any_claim = { title = PREVPREV }
+									has_global_flag = seeking_usurper
+									OR = {
+										AND = {
+											is_feudal = no
+											FROM = { is_feudal = no }
+										}
+										AND = {
+											is_feudal = yes
+											FROM = { is_feudal = yes }
+										}
+									}	
 								}
-							}
-							FROM = {
-								random_demesne_title = {
-									limit = { title = PREVPREVPREV }
+								random_claim = {
+									limit = { title = PREVPREV }
 									if = {
 										limit = {
 											has_global_flag = is_primary_title
 										}
-										PREV = { PREV = { set_character_flag = primary_title_usurper } }
+										PREV = { set_character_flag = primary_title_usurper }
 										set_global_flag = primary_title_usurper_found
 									}
 									if = {
 										limit = {
 											NOT = { has_global_flag = is_primary_title }
 										}
-										usurp_title_plus_barony_if_unlanded = PREVPREV
-									}										
+										usurp_title_plus_barony_if_unlanded = PREV
+									}																
 								}
+								clr_global_flag = seeking_usurper
 							}	
-							clr_global_flag = seeking_usurper
-						}						
 						
-						clr_global_flag = seeking_usurper
-						clr_global_flag = is_primary_title
+							# rebel with a de-jure claim
+							random_playable_ruler = {
+								limit = {
+									has_character_flag = rebel_attacker
+									primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
+									has_global_flag = seeking_usurper
+									OR = {
+										AND = {
+											is_feudal = no
+											FROM = { is_feudal = no }
+										}
+										AND = {
+											is_feudal = yes
+											FROM = { is_feudal = yes }
+										}
+									}
+								}
+								FROM = {
+									random_demesne_title = {
+										limit = { title = PREVPREVPREV }
+										if = {
+											limit = {
+												has_global_flag = is_primary_title
+											}
+											PREV = { PREV = { set_character_flag = primary_title_usurper } }
+											set_global_flag = primary_title_usurper_found
+										}
+										if = {
+											limit = {
+												NOT = { has_global_flag = is_primary_title }
+											}
+											usurp_title_plus_barony_if_unlanded = PREVPREV
+										}										
+									}
+								}	
+								clr_global_flag = seeking_usurper
+							}						
+						
+							clr_global_flag = seeking_usurper
+							clr_global_flag = is_primary_title
+						}
 					}
 				}
 				hidden_tooltip = {					
@@ -4196,106 +4206,108 @@ overthrow_ruler = {
 					limit =	{
 						is_primary_holder_title_tier = yes
 					}
-					custom_tooltip = CUSTOMTOOLTIP58
-					if = {
-						limit = { has_law = centralization_1 }
-						add_law_w_cooldown = centralization_0
-					}
-					if = {
-						limit = { has_law = centralization_2 }
-						add_law_w_cooldown = centralization_1
-					}
-					if = {
-						limit = { has_law = centralization_3 }
-						add_law_w_cooldown = centralization_2
-					}
-					if = {
-						limit = { has_law = centralization_4 }
-						add_law_w_cooldown = centralization_3
-					}	
-					hidden_tooltip = {
+					custom_tooltip = {
+						text = CUSTOMTOOLTIP58
 						if = {
-							limit = { is_primary_holder_title = yes }
-							set_global_flag = is_primary_title
-						}						
-						set_global_flag = seeking_usurper
-					
-						#rebel with a claim					
-						random_playable_ruler = {
-							limit = {
-								has_character_flag = rebel_attacker
-								any_claim = { title = PREVPREV }
-								has_global_flag = seeking_usurper
-								OR = {
-									AND = {
-										is_feudal = no
-										FROM = { is_feudal = no }
-									}
-									AND = {
-										is_feudal = yes
-										FROM = { is_feudal = yes }
-									}
-								}	
-							}
-							random_claim = {
-								limit = { title = PREVPREV }
-								if = {
-									limit = {
-										has_global_flag = is_primary_title
-									}
-									PREV = { set_character_flag = primary_title_usurper }
-									set_global_flag = primary_title_usurper_found
-								}
-								if = {
-									limit = {
-										NOT = { has_global_flag = is_primary_title }
-									}
-									usurp_title_plus_barony_if_unlanded = PREV
-								}																
-							}
-							clr_global_flag = seeking_usurper
+							limit = { has_law = centralization_1 }
+							add_law_w_cooldown = centralization_0
+						}
+						if = {
+							limit = { has_law = centralization_2 }
+							add_law_w_cooldown = centralization_1
+						}
+						if = {
+							limit = { has_law = centralization_3 }
+							add_law_w_cooldown = centralization_2
+						}
+						if = {
+							limit = { has_law = centralization_4 }
+							add_law_w_cooldown = centralization_3
 						}	
-						
-						# rebel with a de-jure claim
-						random_playable_ruler = {
-							limit = {
-								has_character_flag = rebel_attacker
-								primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
-								has_global_flag = seeking_usurper
-								OR = {
-									AND = {
-										is_feudal = no
-										FROM = { is_feudal = no }
-									}
-									AND = {
-										is_feudal = yes
-										FROM = { is_feudal = yes }
-									}
+						hidden_tooltip = {
+							if = {
+								limit = { is_primary_holder_title = yes }
+								set_global_flag = is_primary_title
+							}						
+							set_global_flag = seeking_usurper
+					
+							#rebel with a claim					
+							random_playable_ruler = {
+								limit = {
+									has_character_flag = rebel_attacker
+									any_claim = { title = PREVPREV }
+									has_global_flag = seeking_usurper
+									OR = {
+										AND = {
+											is_feudal = no
+											FROM = { is_feudal = no }
+										}
+										AND = {
+											is_feudal = yes
+											FROM = { is_feudal = yes }
+										}
+									}	
 								}
-							}
-							FROM = {
-								random_demesne_title = {
-									limit = { title = PREVPREVPREV }
+								random_claim = {
+									limit = { title = PREVPREV }
 									if = {
 										limit = {
 											has_global_flag = is_primary_title
 										}
-										PREV = { PREV = { set_character_flag = primary_title_usurper } }
+										PREV = { set_character_flag = primary_title_usurper }
 										set_global_flag = primary_title_usurper_found
 									}
 									if = {
 										limit = {
 											NOT = { has_global_flag = is_primary_title }
 										}
-										usurp_title_plus_barony_if_unlanded = PREVPREV
-									}										
+										usurp_title_plus_barony_if_unlanded = PREV
+									}																
 								}
+								clr_global_flag = seeking_usurper
 							}	
-							clr_global_flag = seeking_usurper
-						}						
 						
-						clr_global_flag = seeking_usurper
-						clr_global_flag = is_primary_title
+							# rebel with a de-jure claim
+							random_playable_ruler = {
+								limit = {
+									has_character_flag = rebel_attacker
+									primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
+									has_global_flag = seeking_usurper
+									OR = {
+										AND = {
+											is_feudal = no
+											FROM = { is_feudal = no }
+										}
+										AND = {
+											is_feudal = yes
+											FROM = { is_feudal = yes }
+										}
+									}
+								}
+								FROM = {
+									random_demesne_title = {
+										limit = { title = PREVPREVPREV }
+										if = {
+											limit = {
+												has_global_flag = is_primary_title
+											}
+											PREV = { PREV = { set_character_flag = primary_title_usurper } }
+											set_global_flag = primary_title_usurper_found
+										}
+										if = {
+											limit = {
+												NOT = { has_global_flag = is_primary_title }
+											}
+											usurp_title_plus_barony_if_unlanded = PREVPREV
+										}										
+									}
+								}	
+								clr_global_flag = seeking_usurper
+							}						
+						
+							clr_global_flag = seeking_usurper
+							clr_global_flag = is_primary_title
+						}
 					}
 				}
 				hidden_tooltip = {					
@@ -4966,106 +4978,108 @@ overthrow_ruler_no_calls = {
 					limit =	{
 						is_primary_holder_title_tier = yes
 					}
-					custom_tooltip = CUSTOMTOOLTIP58
-					if = {
-						limit = { has_law = centralization_1 }
-						add_law_w_cooldown = centralization_0
-					}
-					if = {
-						limit = { has_law = centralization_2 }
-						add_law_w_cooldown = centralization_1
-					}
-					if = {
-						limit = { has_law = centralization_3 }
-						add_law_w_cooldown = centralization_2
-					}
-					if = {
-						limit = { has_law = centralization_4 }
-						add_law_w_cooldown = centralization_3
-					}	
-					hidden_tooltip = {
+					custom_tooltip = {
+						text = CUSTOMTOOLTIP58
 						if = {
-							limit = { is_primary_holder_title = yes }
-							set_global_flag = is_primary_title
-						}						
-						set_global_flag = seeking_usurper
-					
-						#rebel with a claim					
-						random_playable_ruler = {
-							limit = {
-								has_character_flag = rebel_attacker
-								any_claim = { title = PREVPREV }
-								has_global_flag = seeking_usurper
-								OR = {
-									AND = {
-										is_feudal = no
-										FROM = { is_feudal = no }
-									}
-									AND = {
-										is_feudal = yes
-										FROM = { is_feudal = yes }
-									}
-								}	
-							}
-							random_claim = {
-								limit = { title = PREVPREV }
-								if = {
-									limit = {
-										has_global_flag = is_primary_title
-									}
-									PREV = { set_character_flag = primary_title_usurper }
-									set_global_flag = primary_title_usurper_found
-								}
-								if = {
-									limit = {
-										NOT = { has_global_flag = is_primary_title }
-									}
-									usurp_title_plus_barony_if_unlanded = PREV
-								}																
-							}
-							clr_global_flag = seeking_usurper
+							limit = { has_law = centralization_1 }
+							add_law_w_cooldown = centralization_0
+						}
+						if = {
+							limit = { has_law = centralization_2 }
+							add_law_w_cooldown = centralization_1
+						}
+						if = {
+							limit = { has_law = centralization_3 }
+							add_law_w_cooldown = centralization_2
+						}
+						if = {
+							limit = { has_law = centralization_4 }
+							add_law_w_cooldown = centralization_3
 						}	
-						
-						# rebel with a de-jure claim
-						random_playable_ruler = {
-							limit = {
-								has_character_flag = rebel_attacker
-								primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
-								has_global_flag = seeking_usurper
-								OR = {
-									AND = {
-										is_feudal = no
-										FROM = { is_feudal = no }
-									}
-									AND = {
-										is_feudal = yes
-										FROM = { is_feudal = yes }
-									}
+						hidden_tooltip = {
+							if = {
+								limit = { is_primary_holder_title = yes }
+								set_global_flag = is_primary_title
+							}						
+							set_global_flag = seeking_usurper
+					
+							#rebel with a claim					
+							random_playable_ruler = {
+								limit = {
+									has_character_flag = rebel_attacker
+									any_claim = { title = PREVPREV }
+									has_global_flag = seeking_usurper
+									OR = {
+										AND = {
+											is_feudal = no
+											FROM = { is_feudal = no }
+										}
+										AND = {
+											is_feudal = yes
+											FROM = { is_feudal = yes }
+										}
+									}	
 								}
-							}
-							FROM = {
-								random_demesne_title = {
-									limit = { title = PREVPREVPREV }
+								random_claim = {
+									limit = { title = PREVPREV }
 									if = {
 										limit = {
 											has_global_flag = is_primary_title
 										}
-										PREV = { PREV = { set_character_flag = primary_title_usurper } }
+										PREV = { set_character_flag = primary_title_usurper }
 										set_global_flag = primary_title_usurper_found
 									}
 									if = {
 										limit = {
 											NOT = { has_global_flag = is_primary_title }
 										}
-										usurp_title_plus_barony_if_unlanded = PREVPREV
-									}										
+										usurp_title_plus_barony_if_unlanded = PREV
+									}																
 								}
+								clr_global_flag = seeking_usurper
 							}	
-							clr_global_flag = seeking_usurper
-						}						
 						
-						clr_global_flag = seeking_usurper
-						clr_global_flag = is_primary_title
+							# rebel with a de-jure claim
+							random_playable_ruler = {
+								limit = {
+									has_character_flag = rebel_attacker
+									primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
+									has_global_flag = seeking_usurper
+									OR = {
+										AND = {
+											is_feudal = no
+											FROM = { is_feudal = no }
+										}
+										AND = {
+											is_feudal = yes
+											FROM = { is_feudal = yes }
+										}
+									}
+								}
+								FROM = {
+									random_demesne_title = {
+										limit = { title = PREVPREVPREV }
+										if = {
+											limit = {
+												has_global_flag = is_primary_title
+											}
+											PREV = { PREV = { set_character_flag = primary_title_usurper } }
+											set_global_flag = primary_title_usurper_found
+										}
+										if = {
+											limit = {
+												NOT = { has_global_flag = is_primary_title }
+											}
+											usurp_title_plus_barony_if_unlanded = PREVPREV
+										}										
+									}
+								}	
+								clr_global_flag = seeking_usurper
+							}						
+						
+							clr_global_flag = seeking_usurper
+							clr_global_flag = is_primary_title
+						}
 					}
 				}
 				hidden_tooltip = {					
@@ -7275,12 +7289,14 @@ imperial_reconquest = {
 	}
 
 	on_success_title = {
-		custom_tooltip = tribal_invasion_succ_tip
-		hidden_tooltip = {
-			ROOT = {
-				vassalize_or_take_under_title = {
-					title = PREV
-					enemy = FROM
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
 				}
 			}
 		}

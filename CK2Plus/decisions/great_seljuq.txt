@@ -7,32 +7,32 @@ decisions = {
 			e_seljuk_turks = {
 				has_holder = no
 			}
-      has_global_flag = seljuk_arrival  
-		  has_character_flag = horde_invader 
+			has_global_flag = seljuk_arrival  
+			has_character_flag = horde_invader 
 			NOT = { has_global_flag = seljuk_empire }  
-      culture = turkish     
+			culture = turkish     
 			religion_group = muslim 
 			independent = yes 
-      prisoner = no
+			prisoner = no
 		}
     
 		allow = {
 			war = no
 			prisoner = no
 			prestige = 1000
-      piety = 100
-      wealth = 300
-      OR = {
-		     has_landed_title = c_baghdad
-         is_liege_or_above = c_baghdad
-      }
-      has_landed_title = k_persia     
-		}
+			piety = 100
+			wealth = 300
+			OR = {
+				has_landed_title = c_baghdad
+				any_vassal = c_baghdad
+			}
+			has_landed_title = k_persia     
+			}
     
 		effect = {
 			set_global_flag = seljuk_empire
 			prestige = 500
-      wealth = -300
+			wealth = -300
       
 			if = {
 				limit = { has_nickname = no }
@@ -46,7 +46,7 @@ decisions = {
 			destroy_landed_title = THIS
 		}
       
-    hidden_tooltip = {
+		hidden_tooltip = {
 			any_playable_ruler = {
 				limit = {
 					NOT = { has_landed_title = e_seljuk_turks }
@@ -54,8 +54,8 @@ decisions = {
 				}
 				narrative_event = { id = 90009010 }
 			}  
-    }  
-    create_character = {
+		} 
+		create_character = {
 			random_traits = yes
 			dynasty = random
 			religion = sunni
@@ -67,7 +67,7 @@ decisions = {
 			}
 			trait = skilled_tactician
 		}
-		spawn_unit = {
+			spawn_unit = {
 				province = 907 #
 				troops =
 				{
@@ -77,8 +77,7 @@ decisions = {
 					heavy_infantry = { 1500 1500 }
 					knights = { 200 200 }
 				}
-		}
-
+			}
 		}
     
 		ai_will_do = {

@@ -73,7 +73,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA38000"	
-		custom_tooltip = EVTTOOLTIP38001
+		custom_tooltip = { text = EVTTOOLTIP38001 }
 	}	
 }
 
@@ -185,7 +185,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}
 	option = {
 		trigger = {
@@ -200,7 +200,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}	
 	option = {
 		trigger = {
@@ -215,7 +215,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}
 	option = {
 		trigger = {
@@ -230,7 +230,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}
 	option = {
 		trigger = {
@@ -245,7 +245,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}	
 	option = {
 		trigger = {
@@ -260,7 +260,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}
 	option = {
 		trigger = {
@@ -275,7 +275,7 @@ character_event = {
 			}		
 		}
 		clr_character_flag = loan_heir
-		custom_tooltip = EVTTOOLTIP38002C
+		custom_tooltip = { text = EVTTOOLTIP38002C }
 	}	
 	option = { 
 		name = "EVTOPTH38001"
@@ -351,9 +351,11 @@ character_event = {
 		set_character_flag = offended_moneylenders
 		clr_character_flag = loan_taken
 		clr_character_flag = loan_heir
-		custom_tooltip = REPUBLICANFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_republican" value = -5 }
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		custom_tooltip = { 
+			text = REPUBLICANFACTIONMOODMINUS
+			change_variable = { which = "faction_mood_republican" value = -5 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		}
 	}	
 }
 
@@ -570,14 +572,16 @@ character_event = {
 			}
 			wealth = -250
 		}		
-		custom_tooltip = EVTTOOLTIP38002B
-		hidden_tooltip = { 
-			remove_character_modifier = loan_timer 
-			add_character_modifier = {
-				name = "loan_timer"
-				duration = 730
-			}		
-		}	
+		custom_tooltip = { 
+			text = EVTTOOLTIP38002B
+			hidden_tooltip = { 
+				remove_character_modifier = loan_timer 
+				add_character_modifier = {
+					name = "loan_timer"
+					duration = 730
+				}
+			}
+		}
 		clr_character_flag = loan_in_progress
 	}	
 	option = {
@@ -665,7 +669,7 @@ character_event = {
 				duration = 730
 			}		
 		}
-		custom_tooltip = EVTTOOLTIP38002B
+		custom_tooltip = { text = EVTTOOLTIP38002B }
 		clr_character_flag = loan_in_progress
 	}
 	option = { 
@@ -742,9 +746,11 @@ character_event = {
 		set_character_flag = offended_moneylenders
 		clr_character_flag = loan_taken
 		clr_character_flag = loan_in_progress
-		custom_tooltip = REPUBLICANFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_republican" value = -5 }	
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		custom_tooltip = {
+			text = REPUBLICANFACTIONMOODMINUS
+			change_variable = { which = "faction_mood_republican" value = -5 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		}
 	}
 }
 
@@ -1055,9 +1061,11 @@ character_event = {
 		wealth = 300
 		add_trait = cruel
 		set_character_flag = stolen_church_properties
-		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_religious" value = -5 }	
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		custom_tooltip = { 
+			text = RELIGIOUSFACTIONMOODMINUS
+			change_variable = { which = "faction_mood_religious" value = -5 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		}
 	}
 	option = {
 		name = "EVTOPTB38020" # Time are harsh, force them to share the costs !
@@ -1072,9 +1080,11 @@ character_event = {
 			}
 		}
 		set_character_flag = stolen_church_properties
-		custom_tooltip = RELIGIOUSFACTIONMOODMINUS
-		change_variable = { which = "faction_mood_religious" value = -2 }
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		custom_tooltip = { 
+			text = RELIGIOUSFACTIONMOODMINUS
+			change_variable = { which = "faction_mood_religious" value = -2 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		}
 	}
 	option = {
 		name = "EVTOPTC38020" # Compromise with them to find money !
@@ -1092,9 +1102,11 @@ character_event = {
 			add_trait = zealous
 		}
 		set_character_flag = stolen_church_properties
-		custom_tooltip = RELIGIOUSFACTIONMOODPLUS
-		change_variable = { which = "faction_mood_religious" value = 2 }
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		custom_tooltip = { 
+			text = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 2 }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+		}
 	}
 }
 

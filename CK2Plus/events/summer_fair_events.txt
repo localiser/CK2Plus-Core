@@ -916,10 +916,12 @@ character_event = {
 					}
 				}
 			}
-			custom_tooltip = REPUBLICANFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_republican" value = 1 }		
+			custom_tooltip = { 
+				text = REPUBLICANFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_republican" value = 1 }
+				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			}
 			set_character_flag = fair_mood_boost	
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}		
 	}
 }
