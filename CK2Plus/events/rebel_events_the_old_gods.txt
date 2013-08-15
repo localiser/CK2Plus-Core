@@ -18,12 +18,12 @@ province_event = {
 	desc = EVTDESC_TOG_1000
 	picture = GFX_evt_peasants
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
-		
+
 		# Heretic revolts have prio
 		OR = {
 			is_heretic = no
@@ -33,7 +33,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		# Nationalist revolts have prio
 		OR = {
 			owner = {
@@ -48,12 +48,12 @@ province_event = {
 				}
 			}
 		}
-		
+
 		NOT = { # Not if there is already an ongoing peasant revolt for this province
 			owner = {
 				top_liege = {
 					war = yes
-					
+
 					any_war = {
 						defender = { character = PREV }
 						OR = {
@@ -81,7 +81,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		create_character = {
 			random_traits = yes
@@ -96,7 +96,7 @@ province_event = {
 			trait = peasant_leader
 			trait = tough_soldier
 		}
-		
+
 		new_character = {
 			create_title = {
 				tier = DUKE
@@ -107,7 +107,7 @@ province_event = {
 				name = "PEASANT_REVOLT"
 				holder = THIS
 			}
-			
+
 			random_list = {
 				17 = {
 					spawn_unit = {
@@ -482,7 +482,7 @@ province_event = {
 					}
 				}
 			}
-			
+
 			# DoW on the province top liege
 			ROOT = {
 				owner = {
@@ -501,7 +501,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		owner = {
 			any_liege = { # Inform the lieges
 				character_event = {
@@ -510,7 +510,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1000"
 	}
@@ -521,9 +521,9 @@ character_event = {
 	desc = EVTDESC_TOG_1001
 	picture = GFX_evt_peasants
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1000"
 	}
@@ -533,20 +533,20 @@ character_event = {
 character_event = {
 	id = TOG.1005
 	picture = GFX_evt_siege
-	
+
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	desc = OK
-	
+
 	trigger = {
 		trait = peasant_leader
 		rebel = yes
-		FROM = { 
+		FROM = {
 			is_capital = yes # The capital holding
 		}
 	}
-	
+
 	immediate = {
 		FROM = {
 			location = {
@@ -562,7 +562,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -575,12 +575,12 @@ province_event = {
 	desc = EVTDESC_TOG_1010
 	picture = GFX_evt_peasants
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
-		
+
 		# There is already an ongoing peasant revolt for this province
 		owner = {
 			top_liege = {
@@ -593,9 +593,9 @@ province_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
-		
+
 		owner = {
 			top_liege = {
 				any_war = {
@@ -1049,7 +1049,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		owner = {
 			any_liege = { # Inform the lieges
 				character_event = {
@@ -1058,7 +1058,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1010"
 	}
@@ -1069,9 +1069,9 @@ character_event = {
 	desc = EVTDESC_TOG_1011
 	picture = GFX_evt_peasants
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1010"
 	}
@@ -1084,20 +1084,20 @@ province_event = {
 	desc = EVTDESC_TOG_1020
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
-		
+
 		is_heretic = yes
-		
+
 		owner = {
 			top_liege = {
 				is_parent_religion = ROOT
 			}
 		}
-		
+
 		NOT = { # Not if there is already an ongoing revolt
 			owner = {
 				top_liege = {
@@ -1119,7 +1119,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		create_character = {
 			random_traits = yes
@@ -1137,10 +1137,10 @@ province_event = {
 			trait = scholar
 			trait = skilled_tactician
 		}
-		
+
 		new_character = {
 			set_character_flag = heretic_revolter
-			
+
 			create_title = {
 				tier = DUKE
 				landless = yes
@@ -1150,7 +1150,7 @@ province_event = {
 				name = "HERETIC_REVOLT"
 				holder = THIS
 			}
-			
+
 			random_list = {
 				34 = {
 					spawn_unit = {
@@ -1339,7 +1339,7 @@ province_event = {
 					}
 				}
 			}
-			
+
 			# DoW on the province top liege
 			ROOT = {
 				owner = {
@@ -1356,7 +1356,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		owner = {
 			any_liege = { # Inform the lieges
 				character_event = {
@@ -1365,7 +1365,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1020"
 	}
@@ -1376,9 +1376,9 @@ character_event = {
 	desc = EVTDESC_TOG_1021
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_1020
 	}
@@ -1388,20 +1388,20 @@ character_event = {
 character_event = {
 	id = TOG.1025
 	picture = GFX_evt_siege
-	
+
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	desc = OK
-	
+
 	trigger = {
 		trait = heresiarch
 		rebel = yes
-		FROM = { 
+		FROM = {
 			is_capital = yes # The capital holding
 		}
 	}
-	
+
 	immediate = {
 		FROM = {
 			location = {
@@ -1426,7 +1426,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -1439,20 +1439,20 @@ province_event = {
 	desc = EVTDESC_TOG_1030
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
-		
+
 		is_heretic = yes
-		
+
 		owner = {
 			top_liege = {
 				is_parent_religion = ROOT
 			}
 		}
-		
+
 		owner = {
 			top_liege = {
 				war = yes
@@ -1464,7 +1464,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		owner = {
 			top_liege = {
@@ -1700,7 +1700,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		owner = {
 			any_liege = { # Inform the lieges
 				character_event = {
@@ -1709,7 +1709,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1030"
 	}
@@ -1720,9 +1720,9 @@ character_event = {
 	desc = EVTDESC_TOG_1031
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1030"
 	}
@@ -1735,18 +1735,18 @@ province_event = {
 	desc = EVTDESC_TOG_1040
 	picture = GFX_evt_siege
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
-		
+
 		owner = {
 			top_liege = {
 				NOT = { culture = ROOT }
 			}
 		}
-		
+
 		kingdom = {
 			has_holder = no
 			culture = ROOT
@@ -1754,9 +1754,9 @@ province_event = {
 				always = yes # Must have had a holder in the past
 			}
 		}
-		
+
 		# Heretic revolts have prio
-		OR = { 
+		OR = {
 			is_heretic = no
 			owner = {
 				top_liege = {
@@ -1764,7 +1764,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		NOT = { # Not if there is already an ongoing revolt
 			owner = {
 				top_liege = {
@@ -1792,7 +1792,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		create_character = {
 			random_traits = yes
@@ -1814,10 +1814,10 @@ province_event = {
 			trait = brilliant_strategist
 			trait = inspiring_leader
 		}
-		
+
 		new_character = {
 			set_character_flag = nationalist_rebel
-			
+
 			create_title = {
 				tier = DUKE
 				landless = yes
@@ -1827,7 +1827,7 @@ province_event = {
 				name = "NATIONALIST_REVOLT"
 				holder = THIS
 			}
-			
+
 			spawn_unit = {
 				province = ROOT
 				home = ROOT
@@ -1843,7 +1843,7 @@ province_event = {
 				}
 				attrition = 1.0
 			}
-			
+
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -1872,7 +1872,7 @@ province_event = {
 					}
 				}
 			}
-			
+
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -1901,7 +1901,7 @@ province_event = {
 					}
 				}
 			}
-			
+
 			# DoW on the province top liege
 			ROOT = {
 				owner = {
@@ -1920,7 +1920,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		owner = {
 			any_liege = { # Inform the lieges
 				character_event = {
@@ -1929,7 +1929,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1040"
 	}
@@ -1940,9 +1940,9 @@ character_event = {
 	desc = EVTDESC_TOG_1041
 	picture = GFX_evt_siege
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_1040
 	}
@@ -1952,15 +1952,15 @@ character_event = {
 character_event = {
 	id = TOG.1045
 	picture = GFX_evt_siege
-	
+
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	desc = OK
-	
+
 	trigger = {
 		rebel = yes
-		FROM = { 
+		FROM = {
 			is_capital = yes # The capital holding
 		}
 		any_war = {
@@ -1968,7 +1968,7 @@ character_event = {
 			using_cb = liberation_revolt
 		}
 	}
-	
+
 	immediate = {
 		FROM = {
 			location = {
@@ -1995,7 +1995,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -2008,12 +2008,12 @@ province_event = {
 	desc = EVTDESC_TOG_1050
 	picture = GFX_evt_siege
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
-		
+
 		# There is already an ongoing nationalist revolt for the same kingdom
 		owner = {
 			top_liege = {
@@ -2032,7 +2032,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		owner = {
 			top_liege = {
@@ -2137,7 +2137,7 @@ province_event = {
 				}
 			}
 		}
-		
+
 		owner = {
 			any_liege = { # Inform the lieges
 				character_event = {
@@ -2146,7 +2146,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA_TOG_1000"
 	}

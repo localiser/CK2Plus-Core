@@ -3,7 +3,7 @@ character_event = {
 	id = 300002
 	desc = "EVTDESC300001"
 	is_triggered_only = yes
-	
+
 	trigger = {
 		NOT = { age = 1 }
 		NOT = { has_character_flag = genetics_check }
@@ -12,9 +12,9 @@ character_event = {
 	option = {
 		name = "EVTOPTA300001"
 		set_character_flag = genetics_check
-		hidden_tooltip = {	
+		hidden_tooltip = {
 			add_trait = young1
-			
+
 			#chance for genius or quick
 			if = {
 				limit = {
@@ -35,9 +35,9 @@ character_event = {
 						}
 						NOT = {
 							mother = { trait = imbecile }
-							mother = { trait = slow }						
+							mother = { trait = slow }
 							father_even_if_dead = { trait = imbecile}
-							father_even_if_dead = { trait = slow }							
+							father_even_if_dead = { trait = slow }
 						}
 					}
 					random_list = {
@@ -45,30 +45,30 @@ character_event = {
 						20 = { add_trait = quick }
 						5 = { add_trait = genius }
 					}
-				}	
+				}
 				if = {
 					limit = {
-						OR = {		
+						OR = {
 							mother = { trait = genius }
 							mother = { trait = quick }
 							father_even_if_dead = { trait = genius }
-							father_even_if_dead = { trait = quick }							
+							father_even_if_dead = { trait = quick }
 						}
 						OR = {
 							NOT = {
 								mother = { trait = genius }
-								mother = { trait = quick }							
+								mother = { trait = quick }
 							}
 							NOT = {
 								father_even_if_dead = { trait = genius }
-								father_even_if_dead = { trait = quick }									
+								father_even_if_dead = { trait = quick }
 							}
 						}
 						NOT = {
 							mother = { trait = imbecile }
-							mother = { trait = slow }						
+							mother = { trait = slow }
 							father_even_if_dead = { trait = imbecile}
-							father_even_if_dead = { trait = slow }							
+							father_even_if_dead = { trait = slow }
 						}
 					}
 					random_list = {
@@ -78,7 +78,7 @@ character_event = {
 					}
 				}
 			}
-			
+
 			#chance for slow or imbecile
 			if = {
 				limit = {
@@ -99,9 +99,9 @@ character_event = {
 						}
 						NOT = {
 							mother = { trait = genius }
-							mother = { trait = quick }						
+							mother = { trait = quick }
 							father_even_if_dead = { trait = genius }
-							father_even_if_dead = { trait = quick }							
+							father_even_if_dead = { trait = quick }
 						}
 					}
 					random_list = {
@@ -109,30 +109,30 @@ character_event = {
 						20 = { add_trait = slow }
 						5 = { add_trait = imbecile }
 					}
-				}	
+				}
 				if = {
 					limit = {
-						OR = {		
+						OR = {
 							mother = { trait = imbecile }
 							mother = { trait = slow }
 							father_even_if_dead = { trait = imbecile }
-							father_even_if_dead = { trait = slow }							
+							father_even_if_dead = { trait = slow }
 						}
 						OR = {
 							NOT = {
 								mother = { trait = imbecile }
-								mother = { trait = slow }							
+								mother = { trait = slow }
 							}
 							NOT = {
 								father_even_if_dead = { trait = imbecile }
-								father_even_if_dead = { trait = slow }									
+								father_even_if_dead = { trait = slow }
 							}
 						}
 						NOT = {
 							mother = { trait = genius }
-							mother = { trait = quick }						
+							mother = { trait = quick }
 							father_even_if_dead = { trait = genius }
-							father_even_if_dead = { trait = quick }							
+							father_even_if_dead = { trait = quick }
 						}
 					}
 					random_list = {
@@ -142,30 +142,30 @@ character_event = {
 					}
 				}
 			}
-	
+
 			if = {
 				limit = {
 					NOT = { trait = divine_blood }
-					father_even_if_dead = { 
-						dynasty = ROOT 
-						trait = divine_blood 
+					father_even_if_dead = {
+						dynasty = ROOT
+						trait = divine_blood
 					}
 				}
-				add_trait = divine_blood				
+				add_trait = divine_blood
 			}
 			if = {
 				limit = {
 					NOT = { trait = divine_blood }
-					mother = { 
-						dynasty = ROOT 
-						trait = divine_blood 
+					mother = {
+						dynasty = ROOT
+						trait = divine_blood
 					}
 				}
-				add_trait = divine_blood				
-			}	
-			
+				add_trait = divine_blood
+			}
+
 			#check for stillbirth
-			character_event = { id = 190000 days = 1 }			
+			character_event = { id = 190000 days = 1 }
 
 			any_child = {
 				if = {
@@ -178,8 +178,8 @@ character_event = {
 						modifier = opinion_father
 						who = ROOT
 						years = 100
-					}					
-				}	
+					}
+				}
 				any_child = {
 					if = {
 						limit = { ROOT = { is_female = no } }
@@ -191,8 +191,8 @@ character_event = {
 							modifier = opinion_grandfather
 							who = ROOT
 							years = 100
-						}					
-					}	
+						}
+					}
 					if = {
 						limit = { ROOT = { is_female = yes } }
 						remove_opinion = {
@@ -203,7 +203,7 @@ character_event = {
 							modifier = opinion_grandmother
 							who = ROOT
 							years = 100
-						}					
+						}
 					}
 					reverse_remove_opinion = {
 						modifier = opinion_grandchild
@@ -213,7 +213,7 @@ character_event = {
 						modifier = opinion_grandchild
 						who = ROOT
 						years = 100
-					}					
+					}
 				}
 			}
 			any_sibling = {		#siblings
@@ -314,7 +314,7 @@ character_event = {
 				reverse_remove_opinion = {
 					modifier = opinion_father
 					who = ROOT
-				}			
+				}
 				reverse_opinion = {
 					modifier = opinion_father
 					who = ROOT
@@ -324,7 +324,7 @@ character_event = {
 					remove_opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
-					}				
+					}
 					opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
@@ -333,7 +333,7 @@ character_event = {
 					reverse_remove_opinion = {
 						modifier = opinion_grandfather
 						who = ROOT
-					}					
+					}
 					reverse_opinion = {
 						modifier = opinion_grandfather
 						who = ROOT
@@ -344,7 +344,7 @@ character_event = {
 					remove_opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
-					}				
+					}
 					opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
@@ -353,7 +353,7 @@ character_event = {
 					reverse_remove_opinion = {
 						modifier = opinion_grandmother
 						who = ROOT
-					}					
+					}
 					reverse_opinion = {
 						modifier = opinion_grandmother
 						who = ROOT
@@ -448,7 +448,7 @@ character_event = {
 					remove_opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
-					}				
+					}
 					opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
@@ -457,7 +457,7 @@ character_event = {
 					reverse_remove_opinion = {
 						modifier = opinion_grandfather
 						who = ROOT
-					}					
+					}
 					reverse_opinion = {
 						modifier = opinion_grandfather
 						who = ROOT
@@ -468,7 +468,7 @@ character_event = {
 					remove_opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
-					}				
+					}
 					opinion = {
 						modifier = opinion_grandchild
 						who = ROOT
@@ -477,7 +477,7 @@ character_event = {
 					reverse_remove_opinion = {
 						modifier = opinion_grandmother
 						who = ROOT
-					}					
+					}
 					reverse_opinion = {
 						modifier = opinion_grandmother
 						who = ROOT
@@ -575,24 +575,24 @@ character_event = {
 character_event = {
 	id = 300003
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
-			age = 50 
+			age = 50
 			NOT = { age = 60 }
 			ai = no
 			NOT = { trait = old50 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -601,22 +601,22 @@ character_event = {
 			add_trait = old50
 			remove_trait = young1
 			remove_trait = young6
-			remove_trait = young16			
+			remove_trait = young16
 		}
-	}	
+	}
 }
 
 character_event = {
 	id = 300004
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			age = 60
 			NOT = { age = 70 }
@@ -624,9 +624,9 @@ character_event = {
 			NOT = { trait = old60 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -636,32 +636,32 @@ character_event = {
 			remove_trait = old50
 			remove_trait = young1
 			remove_trait = young6
-			remove_trait = young16			
+			remove_trait = young16
 		}
-	}	
+	}
 }
 
 character_event = {
 	id = 300005
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
-			age = 70 
+			age = 70
 			NOT = { age = 80 }
 			ai = no
 			NOT = { trait = old70 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -672,22 +672,22 @@ character_event = {
 			remove_trait = old50
 			remove_trait = young1
 			remove_trait = young6
-			remove_trait = young16			
+			remove_trait = young16
 		}
-	}	
+	}
 }
 
 character_event = {
 	id = 300006
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			age = 80
 			NOT = { age = 90 }
@@ -695,9 +695,9 @@ character_event = {
 			NOT = { trait = old80 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -709,31 +709,31 @@ character_event = {
 			remove_trait = old50
 			remove_trait = young1
 			remove_trait = young6
-			remove_trait = young16				
+			remove_trait = young16
 		}
-	}	
+	}
 }
 
 character_event = {
 	id = 300007
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			age = 90
 			ai = no
 			NOT = { trait = old90 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -746,20 +746,20 @@ character_event = {
 			remove_trait = old50
 			remove_trait = young1
 			remove_trait = young6
-			remove_trait = young16			
+			remove_trait = young16
 		}
-	}	
+	}
 }
 
 character_event = {
 	id = 300008
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
 	min_age = 50
 	max_age = 60
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
@@ -767,7 +767,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -775,27 +775,27 @@ character_event = {
 		add_trait = old50
 		remove_trait = young1
 		remove_trait = young6
-		remove_trait = young16		
-	}	
+		remove_trait = young16
+	}
 }
 
 character_event = {
 	id = 300009
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
 	min_age = 60
 	max_age = 70
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
 		NOT = { trait = old60 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -804,28 +804,28 @@ character_event = {
 		remove_trait = old50
 		remove_trait = young1
 		remove_trait = young6
-		remove_trait = young16		
-	}	
+		remove_trait = young16
+	}
 }
 
 
 character_event = {
 	id = 300010
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
 	min_age = 70
 	max_age = 80
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
 		NOT = { trait = old70 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -835,27 +835,27 @@ character_event = {
 		remove_trait = old50
 		remove_trait = young1
 		remove_trait = young6
-		remove_trait = young16		
-	}	
+		remove_trait = young16
+	}
 }
 
 character_event = {
 	id = 300011
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
 	min_age = 80
 	max_age = 90
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
 		NOT = { trait = old80 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -866,26 +866,26 @@ character_event = {
 		remove_trait = old50
 		remove_trait = young1
 		remove_trait = young6
-		remove_trait = young16		
-	}	
+		remove_trait = young16
+	}
 }
 
 character_event = {
 	id = 300012
 	picture = "GFX_evt_illness"
-	
+
 	is_triggered_only = yes
 	hide_from = yes
 	min_age = 90
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
 		NOT = { trait = old90 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -898,7 +898,7 @@ character_event = {
 		remove_trait = young1
 		remove_trait = young6
 		remove_trait = young16
-	}	
+	}
 }
 
 #young characters
@@ -910,15 +910,15 @@ character_event = {
 	hide_from = yes
 	min_age = 15
 	max_age = 30
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
 		NOT = { trait = young16 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -926,20 +926,20 @@ character_event = {
 		add_trait = young16
 		remove_trait = young1
 		remove_trait = young6
-	}	
+	}
 }
 
 
 character_event = {
 	id = 300014
 	picture = "GFX_evt_illness"
-	
+
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			age = 15
 			NOT = { age = 30 }
@@ -947,9 +947,9 @@ character_event = {
 			NOT = { trait = young16 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -959,18 +959,18 @@ character_event = {
 			remove_trait = young1
 			remove_trait = young6
 		}
-	}	
+	}
 }
 character_event = {
 	id = 300015
 	picture = "GFX_evt_illness"
-	
+
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			age = 30
 			ai = no
@@ -981,11 +981,11 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
-	
+
 
 	option = {
 		name = "OK"
@@ -994,17 +994,17 @@ character_event = {
 			remove_trait = young6
 			remove_trait = young1
 		}
-	}	
+	}
 }
 character_event = {
 	id = 300016
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
-	
+
 	min_age = 30
 	max_age = 50
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
@@ -1014,9 +1014,9 @@ character_event = {
 			trait = young16
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -1024,49 +1024,49 @@ character_event = {
 		remove_trait = young16
 		remove_trait = young6
 		remove_trait = young1
-	}	
+	}
 }
 character_event = {
 	id = 300017
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
 		NOT = { trait = young1 }
 		NOT = { age = 6 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
 		name = "OK"
 		add_trait = young1
-	}	
+	}
 }
 character_event = {
 	id = 300018
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			NOT = { age = 6 }
 			ai = no
 			NOT = { trait = young1 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -1074,14 +1074,14 @@ character_event = {
 		liege = {
 			add_trait = young1
 		}
-	}	
+	}
 }
 character_event = {
 	id = 300019
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
@@ -1090,27 +1090,27 @@ character_event = {
 		age = 6
 		NOT = { age = 16 }
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
 		name = "OK"
 		add_trait = young6
 		remove_trait = young1
-	}	
+	}
 }
 character_event = {
 	id = 300020
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = no
-		liege = { 
+		liege = {
 			NOT = { trait = immortal }
 			age = 6
 			NOT = { age = 16 }
@@ -1119,9 +1119,9 @@ character_event = {
 			NOT = { trait = young16 }
 		}
 	}
-	
+
 	mean_time_to_happen = { days = 1 }
-		
+
 	desc = "AI_EVENT"
 
 	option = {
@@ -1130,5 +1130,5 @@ character_event = {
 			add_trait = young6
 			remove_trait = young1
 		}
-	}	
+	}
 }

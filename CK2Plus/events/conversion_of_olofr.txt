@@ -4,26 +4,26 @@ character_event = {
 	desc = EVTDESC90009016
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-	
-  trigger = {
-    year = 1004
-    war = no
-    has_landed_title = k_sweden
-    NOT = { has_global_flag = sigfrid_arrived }
-    NOT = { year = 1030 }
+
+	trigger = {
+		year = 1004
+		war = no
+		has_landed_title = k_sweden
+		NOT = { has_global_flag = sigfrid_arrived }
+		NOT = { year = 1030 }
 		religion_group = pagan_group
-		prisoner = no 
+		prisoner = no
 	}
-  
-  mean_time_to_happen = {
+
+	mean_time_to_happen = {
 		months = 12
-  } 
-	
+	}
+
 	option = {
 		name = EVTOPTA90009016
 		custom_tooltip = { text = preacher_allowed }
-    set_global_flag = sigfrid_arrived
-    create_random_priest = {
+		set_global_flag = sigfrid_arrived
+		create_random_priest = {
 			random_traits = no
 			dynasty = 1050107
 			name = "Siegfried"
@@ -38,16 +38,16 @@ character_event = {
 				martial = 1
 				learning = 10
 			}
-      trait = mastermind_theologian
+			trait = mastermind_theologian
 			trait = patient
 			trait = zealous
 			trait = humble
 			trait = just
-		} 
+		}
 
 		new_character = {
 			set_character_flag = sigfrid_of_sweden
-		}  
+		}
 	}
 }
 
@@ -57,16 +57,16 @@ character_event = {
 	desc = "OK"
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
-		has_character_flag = sigfrid_of_sweden 
-    has_global_flag = sigfrid_arrived
+		has_character_flag = sigfrid_of_sweden
+		has_global_flag = sigfrid_arrived
 		prisoner = no
 	}
-	
+
 	mean_time_to_happen = {
 		months = 40
-	
+
 		modifier = {
 			factor = 1.25
 			NOT = { learning = 2 }
@@ -116,10 +116,10 @@ character_event = {
 			religion_authority = 0.8
 		}
 	}
-	
+
 	option = {
 		name = "OK"
-    clr_character_flag = sigfrid_of_sweden
+		clr_character_flag = sigfrid_of_sweden
 		k_sweden = {
 			holder_scope = {
 				owner = {
@@ -136,9 +136,9 @@ character_event = {
 	desc = EVTDESC90009018
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA90009018
 		ai_chance = {
@@ -152,11 +152,11 @@ character_event = {
 				trait = arbitrary
 			}
 		}
-		
+
 		prestige = -500
 		religion = catholic
 		piety = 250
-		
+
 		any_courtier = {
 			limit = { is_close_relative = ROOT }
 			religion = catholic
@@ -166,11 +166,11 @@ character_event = {
 			religion = catholic
 		}
 		custom_tooltip = { text = preacher_convert }
-    hidden_tooltip = {
-					any_playable_ruler = {
-				      limit = {
-				    	NOT = { has_landed_title = k_sweden }
-				     	ai = no
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = k_sweden }
+					ai = no
 				}
 				narrative_event = { id = 90009019 }
 			}
@@ -193,12 +193,12 @@ character_event = {
 				is_reformed_religion = yes
 			}
 		}
-    prestige = -200
-    piety = -300
+		prestige = -200
+		piety = -300
 		custom_tooltip = { text = preacher_imprisoned }
 		any_courtier = {
 			limit = { religion = catholic }
-      imprison = ROOT          
+			imprison = ROOT
 		}
 	}
 }
@@ -208,12 +208,12 @@ narrative_event = {
 	id = 90009019
 	title = EVTNAME90009019
 	desc = EVTDESC90009019
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA90009019
 	}

@@ -1,13 +1,13 @@
 character_event = {
 	id = 220000
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC220000"
-	
+
 	option = {
-		name = "EVTOPTA220000"	
+		name = "EVTOPTA220000"
 		piety = -10
 		FROM = {
 			if = {
@@ -21,16 +21,16 @@ character_event = {
 					NOT = { dynasty = ROOT }
 				}
 				dynasty = ROOT
-			}	
+			}
 			if = {
 				limit = {
 					NOT = { religion = ROOT }
 				}
 				religion = ROOT
-			}			
+			}
 			hidden_tooltip = {
 				if = {
-					limit = { 
+					limit = {
 						ROOT = {
 							trait = divine_blood
 						}
@@ -38,7 +38,7 @@ character_event = {
 					add_trait = divine_blood
 				}
 				if = {
-					limit = { 
+					limit = {
 						ROOT = {
 							NOT = { trait = divine_blood }
 						}
@@ -68,7 +68,7 @@ character_event = {
 					NOT = {
 						any_child = {
 							character = FROM
-						}	
+						}
 					}
 				}
 				opinion = {
@@ -100,7 +100,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB220000"	
+		name = "EVTOPTB220000"
 		hidden_tooltip = {
 			FROM = {
 				remove_title = legitimize_bastard
@@ -112,13 +112,13 @@ character_event = {
 character_event = {
 	id = 220001
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC220001"
-	
+
 	option = {
-		name = "EVTOPTA220001"	
+		name = "EVTOPTA220001"
 		trigger = {
 			wealth = 50
 			FROM = {
@@ -130,7 +130,7 @@ character_event = {
 			modifier = opinion_granted_minor_estate
 			who = FROM
 			years = 100
-		}		
+		}
 		FROM = {
 			if = {
 				limit = {
@@ -141,7 +141,7 @@ character_event = {
 					name = "estates_5"
 					duration = -1
 				}
-			}			
+			}
 			if = {
 				limit = {
 					has_character_modifier = estates_3
@@ -151,7 +151,7 @@ character_event = {
 					name = "estates_4"
 					duration = -1
 				}
-			}			
+			}
 			if = {
 				limit = {
 					has_character_modifier = estates_2
@@ -161,7 +161,7 @@ character_event = {
 					name = "estates_3"
 					duration = -1
 				}
-			}			
+			}
 			if = {
 				limit = {
 					has_character_modifier = estates_1
@@ -171,7 +171,7 @@ character_event = {
 					name = "estates_2"
 					duration = -1
 				}
-			}			
+			}
 			if = {
 				limit = {
 					NOT = {
@@ -179,7 +179,7 @@ character_event = {
 						has_character_modifier = estates_2
 						has_character_modifier = estates_3
 						has_character_modifier = estates_4
-						has_character_modifier = estates_5					
+						has_character_modifier = estates_5
 					}
 				}
 				add_character_modifier = {
@@ -188,9 +188,9 @@ character_event = {
 				}
 				hidden_tooltip = {
 					give_minor_title = title_lord
-				}				
+				}
 			}
-		}				
+		}
 		hidden_tooltip = {
 			FROM = {
 				remove_title = grant_estate
@@ -198,12 +198,12 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB220001"	
+		name = "EVTOPTB220001"
 		trigger = {
 			wealth = 150
 			FROM = {
-				NOT = { 
-					has_character_modifier = estates_3 
+				NOT = {
+					has_character_modifier = estates_3
 					has_character_modifier = estates_4
 					has_character_modifier = estates_5
 				}
@@ -215,8 +215,8 @@ character_event = {
 			who = FROM
 			years = 100
 			multiplier = 3
-		}		
-		FROM = {			
+		}
+		FROM = {
 			if = {
 				limit = {
 					has_character_modifier = estates_2
@@ -226,7 +226,7 @@ character_event = {
 					name = "estates_5"
 					duration = -1
 				}
-			}			
+			}
 			if = {
 				limit = {
 					has_character_modifier = estates_1
@@ -236,7 +236,7 @@ character_event = {
 					name = "estates_4"
 					duration = -1
 				}
-			}			
+			}
 			if = {
 				limit = {
 					NOT = {
@@ -244,7 +244,7 @@ character_event = {
 						has_character_modifier = estates_2
 						has_character_modifier = estates_3
 						has_character_modifier = estates_4
-						has_character_modifier = estates_5					
+						has_character_modifier = estates_5
 					}
 				}
 				add_character_modifier = {
@@ -253,9 +253,9 @@ character_event = {
 				}
 				hidden_tooltip = {
 					give_minor_title = title_lord
-				}				
+				}
 			}
-		}				
+		}
 		hidden_tooltip = {
 			FROM = {
 				remove_title = grant_estate
@@ -263,14 +263,14 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC220001"	
+		name = "EVTOPTC220001"
 		trigger = {
 			wealth = 250
 			FROM = {
-				NOT = { 
-					has_character_modifier = estates_1 
-					has_character_modifier = estates_2 
-					has_character_modifier = estates_3 
+				NOT = {
+					has_character_modifier = estates_1
+					has_character_modifier = estates_2
+					has_character_modifier = estates_3
 					has_character_modifier = estates_4
 					has_character_modifier = estates_5
 				}
@@ -282,8 +282,8 @@ character_event = {
 			who = FROM
 			years = 100
 			multiplier = 5
-		}		
-		FROM = {			
+		}
+		FROM = {
 			add_character_modifier = {
 				name = "estates_5"
 				duration = -1
@@ -291,15 +291,15 @@ character_event = {
 			hidden_tooltip = {
 				give_minor_title = title_lord
 			}
-		}				
+		}
 		hidden_tooltip = {
 			FROM = {
 				remove_title = grant_estate
 			}
 		}
-	}	
+	}
 	option = {
-		name = "EVTOPTD220001"	
+		name = "EVTOPTD220001"
 		hidden_tooltip = {
 			FROM = {
 				remove_title = grant_estate
@@ -311,33 +311,33 @@ character_event = {
 character_event = {
 	id = 220003
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC220003"
-	
+
 	option = {
 		name = "EVTOPTA220003"
-		FROM = {	
+		FROM = {
 			if = {
 				limit = {
-					NOT = { 
-						has_minor_title = title_food_taster 
+					NOT = {
+						has_minor_title = title_food_taster
 						has_minor_title = title_court_jester
 					}
 				}
 				hidden_tooltip = {
 					remove_opinion = {
 						modifier = opinion_fired_from_office
-						who = ROOT		
-					}		
+						who = ROOT
+					}
 				}
 				opinion = {
 					modifier = opinion_fired_from_office
 					who = ROOT
 					years = 10
-				}				
-			}					
+				}
+			}
 			if = {
 				limit = {
 					has_minor_title = title_food_taster
@@ -445,31 +445,31 @@ character_event = {
 					has_minor_title = title_chief_architect
 				}
 				remove_title = title_chief_architect
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_patrician_heir
 				}
 				remove_title = title_patrician_heir
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_high_judge
 				}
 				remove_title = title_high_judge
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_high_admiral
 				}
 				remove_title = title_high_admiral
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_state_inquisitor
 				}
 				remove_title = title_state_inquisitor
-			}				
+			}
 			if = {
 				limit = {
 					has_minor_title = title_volva
@@ -571,37 +571,37 @@ character_event = {
 					has_minor_title = title_champion
 				}
 				remove_title = title_champion
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_master_of_the_blade
 				}
 				remove_title = title_master_of_the_blade
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_master_of_the_bow
 				}
 				remove_title = title_master_of_the_bow
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_venerable_elder
 				}
 				remove_title = title_venerable_elder
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_yabgu
 				}
 				remove_title = title_yabgu
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_ishad
 				}
 				remove_title = title_ishad
-			}	
+			}
 			if = {
 				limit = {
 					has_minor_title = title_kundur
@@ -634,7 +634,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB220003"	
+		name = "EVTOPTB220003"
 		hidden_tooltip = {
 			FROM = {
 				remove_title = revoke_minor_title
@@ -646,11 +646,11 @@ character_event = {
 character_event = {
 	id = 220004
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC220004"
-	
+
 	option = {
 		name = "EVTOPTA220004"
 		if = {
@@ -662,7 +662,7 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_traitor
-						}					
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = declared_war
@@ -670,7 +670,7 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_dishonorable
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_murder_of_spouse
@@ -682,7 +682,7 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_murder
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_murder_of_child
@@ -690,11 +690,11 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_spouse_slayer
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_murder_attempt
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_killed_close_kin
@@ -702,11 +702,11 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_fatwa_target
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_murder_of_close_kin
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = killed_vassal
@@ -714,11 +714,11 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = opinion_civil_war_loser
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = mad_heretic
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = devious_plotter
@@ -726,19 +726,19 @@ character_event = {
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_kidnapping
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_kidnapping_of_kin
-						}	
+						}
 						reverse_has_opinion_modifier = {
 							who = liege
 							modifier = attempted_kidnapping_of_vassal
-						}				
-					}	
+						}
+					}
 				}
 			}
-			FROM = {	
+			FROM = {
 				custom_tooltip = { text = CUSTOMTOOLTIP37 }
 				opinion = {
 					who = ROOT
@@ -749,7 +749,7 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_traitor
-					}				
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = declared_war
@@ -757,7 +757,7 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_dishonorable
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_murder_of_spouse
@@ -769,7 +769,7 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_murder
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_murder_of_child
@@ -777,11 +777,11 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_spouse_slayer
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_murder_attempt
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_killed_close_kin
@@ -789,11 +789,11 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_fatwa_target
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_murder_of_close_kin
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = killed_vassal
@@ -801,11 +801,11 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = opinion_civil_war_loser
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = mad_heretic
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = devious_plotter
@@ -813,16 +813,16 @@ character_event = {
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_kidnapping
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_kidnapping_of_kin
-					}	
+					}
 					reverse_remove_opinion = {
 						who = liege
 						modifier = attempted_kidnapping_of_vassal
-					}				
-				}			
+					}
+				}
 			}
 		}
 		hidden_tooltip = {
@@ -832,7 +832,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB220004"	
+		name = "EVTOPTB220004"
 		hidden_tooltip = {
 			FROM = {
 				remove_title = pardon
