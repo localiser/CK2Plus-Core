@@ -5,7 +5,7 @@
 ## title scopes ##
 # ROOT = receiver
 # FROM = giver
-# <no scope change> = thirdparty landed title	
+# <no scope change> = thirdparty landed title
 #
 # the following effects/triggers exists (example execution order: on_success->on_success_title->on_success_posttitle):
 # is_valid, is_valid_title, on_add, on_add_title, on_add_posttitle, on_success, on_success_title, on_success_posttitle, on_fail, on_fail_title, on_fail_posttitle, on_reverse_demand, on_reverse_demand_title, on_reverse_demand_posttitle
@@ -39,12 +39,12 @@ seljuk_invasion = {
 			NOT = { realm_size = 200 }
 			has_character_flag = horde_invader
 		}
-		
+
 		ROOT = {
 			NOT = { is_liege_or_above = FROM }
 		}
 	}
-	
+
 	is_valid_title = {
 		FROM = {
 			any_realm_title = {
@@ -54,14 +54,14 @@ seljuk_invasion = {
 		NOT = { title = k_cuman }
 		OR = {
 			ROOT = {
-				has_landed_title = k_persia		
+				has_landed_title = k_persia
 			}
 			title = k_persia
 		}
 		OR = {
 			title = k_persia
 			ROOT = {
-				OR = {	
+				OR = {
 					any_realm_province = {
 						any_neighbor_province = {
 							owner = {
@@ -74,13 +74,13 @@ seljuk_invasion = {
 					}
 					any_realm_province = {
 						kingdom = {
-							FROM = { 
+							FROM = {
 								any_realm_province = {
 									kingdom = { title = PREVPREVPREV }
 								}
 							}
 						}
-					}				
+					}
 				}
 			}
 		}
@@ -106,13 +106,13 @@ seljuk_invasion = {
 			gain_settlements_under_title = {
 				title = PREV
 				enemy = FROM
-			}			
-		}	
+			}
+		}
 		hidden_tooltip = {
 			if = {
-				limit = { 
+				limit = {
 					has_holder = yes
-					holder_scope = { 
+					holder_scope = {
 						OR = {
 							character = FROM
 							is_liege_or_above = FROM
@@ -120,11 +120,11 @@ seljuk_invasion = {
 					}
 				}
 				destroy_landed_title = yes
-				usurp_title = ROOT			
+				usurp_title = ROOT
 			}
 		}
 	}
-	
+
 	on_success_posttitle = {
 		hidden_tooltip = {
 			if = {
@@ -143,7 +143,7 @@ seljuk_invasion = {
 					}
 				}
 			}
-		}	
+		}
 	}
 
 	on_fail = {
@@ -171,9 +171,9 @@ seljuk_invasion = {
 		}
 		FROM = {
 			if = {
-				limit = { 
+				limit = {
 					has_dlc = "Legacy of Rome"
-					OR = { 
+					OR = {
 						has_landed_title = e_byzantium
 						has_landed_title = e_roman_empire
 					}
@@ -187,7 +187,7 @@ seljuk_invasion = {
 	attacker_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-	
+
 	attacker_ai_defeat_worth = {
 		factor = 100
 	}
@@ -195,7 +195,7 @@ seljuk_invasion = {
 	defender_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-	
+
 	defender_ai_defeat_worth = {
 		factor = 100
 	}

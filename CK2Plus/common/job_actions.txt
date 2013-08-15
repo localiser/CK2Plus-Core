@@ -9,7 +9,7 @@
 # Chancellor
 action_improve_relations = {
 	attribute = diplomacy
-	
+
 	trigger = {
 		any_province_lord = {
 			OR = { higher_tier_than = baron is_patrician = yes }
@@ -17,16 +17,16 @@ action_improve_relations = {
 			is_theocracy = no
 		}
 	}
-	
+
 	events = { 910 911 }
 }
 
 action_fabricate_claims = {
 	attribute = diplomacy
-	
+
 	potential = {
-		FROM = { 
-			prestige = 0 
+		FROM = {
+			prestige = 0
 		}
 	}
 	trigger = {
@@ -42,16 +42,16 @@ action_fabricate_claims = {
 				holder_scope = {
 					NOT = { character = FROM }
 				}
-			}			
-		}	
+			}
+		}
 	}
-	
+
 	events = { 913 914 }
 }
 
 action_sow_dissent = {
 	attribute = diplomacy
-	
+
 	trigger = {
 		OR = {
 			any_province_lord = {
@@ -69,7 +69,7 @@ action_sow_dissent = {
 			}
 		}
 	}
-	
+
 	events = { 916 917 }
 }
 
@@ -82,9 +82,9 @@ action_squeeze_peasants = {
 			character = FROM
 		}
 	}
-	
+
 	local_tax_modifier = 0.025
-	
+
 	events = { 920 921 }
 }
 
@@ -96,9 +96,9 @@ action_oversee_construction = {
 			character = FROM
 		}
 	}
-	
+
 	local_build_time_modifier = -0.025
-	
+
 	events = { 923 924 }
 }
 
@@ -110,16 +110,16 @@ action_advance_eco_tech = {
 			character = FROM
 		}
 	}
-	
+
 	tech_growth_modifier_economy = 0.05
-	
+
 	events = { 320500 320502 }
 }
 
 # Spymaster
 action_uncover_plots = {
 	attribute = intrigue
-	
+
 	trigger = {
 		any_province_lord = {
 			OR = {
@@ -129,15 +129,15 @@ action_uncover_plots = {
 			}
 		}
 	}
-	
+
 	plot_discovery_chance = 0.005
-	
+
 	events = { }
 }
 
 action_study_technology = {
 	attribute = intrigue
-	
+
 	trigger = {
 		has_higher_tech_than = FROM
 		any_province_lord = {
@@ -145,21 +145,21 @@ action_study_technology = {
 			NOT = { character = FROM }
 		}
 	}
-	
+
 	events = { 932 933 }
 }
 
 action_organize_spies = {
 	attribute = intrigue
-	
+
 	trigger = {
 		any_province_lord = {
 			NOT = { character = FROM }
 		}
 	}
-	
+
 	assassinate_chance_modifier = 0.004
-	
+
 	events = { 935 936 }
 }
 
@@ -172,9 +172,9 @@ action_advance_mil_tech = {
 			character = FROM
 		}
 	}
-	
+
 	tech_growth_modifier_military = 0.05
-	
+
 	events = { 938 939 }
 }
 
@@ -189,16 +189,16 @@ action_train_troops = {
 			}
 		}
 	}
-	
+
 	levy_size = 0.025
 	levy_reinforce_rate = 0.05
-	
+
 	events = { 941 942 }
 }
 
 action_assist_arrest = {
 	attribute = martial
-	
+
 	trigger = {
 		any_province_lord = {
 			OR = {
@@ -207,17 +207,17 @@ action_assist_arrest = {
 			}
 		}
 	}
-	
+
 	arrest_chance_modifier = 0.005
 	local_revolt_risk = -0.002
-	
+
 	events = { }
 }
 
 # Lord Spiritual
 action_inquisition = {
 	attribute = learning
-	
+
 	potential = {
 		FROM = {
 			OR = {
@@ -238,10 +238,10 @@ action_inquisition = {
 					OR = {
 						has_landed_title = e_il-khanate
 						has_landed_title = e_golden_horde
-					}				
+					}
 				}
 			}
-		}	
+		}
 	}
 	trigger = {
 		FROM = {
@@ -263,7 +263,7 @@ action_inquisition = {
 					OR = {
 						has_landed_title = e_il-khanate
 						has_landed_title = e_golden_horde
-					}				
+					}
 				}
 			}
 		}
@@ -297,32 +297,32 @@ action_inquisition = {
 			}
 		}
 	}
-	
+
 	events = { 900 901 902 903 39651 39652 39653 }
 }
 
 action_improve_rel_relations = {
 	attribute = learning
-	
+
 	potential = {
 		FROM = {
 			NOT = { religion_group = muslim }
 		}
 	}
-	
+
 	trigger = {
 		any_province_lord = {
 			religion = FROM
 			is_theocracy = yes
 		}
 	}
-	
+
 	events = { 906 907 }
 }
 
 action_advance_cul_tech = {
 	attribute = learning
-	
+
 	trigger = {
 		any_province_lord = {
 			OR = {
@@ -331,27 +331,27 @@ action_advance_cul_tech = {
 			}
 		}
 	}
-	
+
 	tech_growth_modifier_culture = 0.05
-	
+
 	events = { 926 927 }
 }
 
 # Lord Spiritual (Muslim only)
 action_charity = {
 	attribute = learning
-	
+
 	potential = {
 		FROM = { religion_group = muslim }
 	}
-	
+
 	trigger = {
 		any_province_lord = {
 			character = FROM
 		}
 	}
-	
+
 	local_revolt_risk = -0.002
-	
+
 	events = { 20040 20043 20048 20050 }
 }

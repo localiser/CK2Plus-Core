@@ -17,7 +17,7 @@
 
 pardon = {
 	grant_limit = 1
-	
+
 	allow = {
 		OR = {
 			reverse_has_opinion_modifier = {
@@ -31,7 +31,7 @@ pardon = {
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = opinion_dishonorable
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_murder_of_spouse
@@ -43,7 +43,7 @@ pardon = {
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_murder
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_murder_of_child
@@ -51,11 +51,11 @@ pardon = {
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = opinion_spouse_slayer
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = opinion_murder_attempt
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = opinion_killed_close_kin
@@ -63,11 +63,11 @@ pardon = {
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = opinion_fatwa_target
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_murder_of_close_kin
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = killed_vassal
@@ -75,11 +75,11 @@ pardon = {
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = opinion_civil_war_loser
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = mad_heretic
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = devious_plotter
@@ -87,29 +87,29 @@ pardon = {
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_kidnapping
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_kidnapping_of_kin
-			}	
+			}
 			reverse_has_opinion_modifier = {
 				who = liege
 				modifier = attempted_kidnapping_of_vassal
-			}				
+			}
 		}
 	}
-	
+
 	gain_effect = {
 		FROM = { character_event = { id = 220004 } }
 	}
 	lose_effect = { }
-	
-	message = no	
+
+	message = no
 }
 
 legitimize_bastard = {
 	grant_limit = 1
-	
+
 	allow = {
 		trait = bastard
 		OR = {
@@ -118,18 +118,18 @@ legitimize_bastard = {
 		}
 		is_liege_or_above = FROM
 	}
-	
+
 	gain_effect = {
 		FROM = { character_event = { id = 220000 } }
 	}
 	lose_effect = { }
-	
+
 	message = no
 }
 
 grant_estate = {
 	grant_limit = 1
-	
+
 	allow = {
 		FROM = { ai = no wealth = 50 }
 		is_ruler = no
@@ -137,18 +137,18 @@ grant_estate = {
 			has_character_modifier = estates_5
 		}
 	}
-	
+
 	gain_effect = {
-		FROM = { character_event = { id = 220001 } }			
+		FROM = { character_event = { id = 220001 } }
 	}
 	lose_effect = { }
-	
+
 	message = no
 }
 
 revoke_minor_title = {
 	grant_limit = 1
-	
+
 	allow = {
 		FROM = { ai = no }
 		OR = {
@@ -159,10 +159,10 @@ revoke_minor_title = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
 			has_minor_title = title_despot
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -173,7 +173,7 @@ revoke_minor_title = {
 			has_minor_title = title_imperial_eunuch
 			has_minor_title = title_high_judge
 			has_minor_title = title_high_admiral
-			has_minor_title = title_state_inquisitor	
+			has_minor_title = title_state_inquisitor
 			has_minor_title = title_patrician_heir
 			has_minor_title = title_volva
 			has_minor_title = title_lawspeaker
@@ -202,12 +202,12 @@ revoke_minor_title = {
 			has_minor_title = title_chief_qadi
 		}
 	}
-	
+
 	gain_effect = {
 		FROM = { character_event = { id = 220003 } }
 	}
 	lose_effect = { }
-	
+
 	message = no
 }
 
@@ -216,11 +216,11 @@ title_lord = {
 	realm_in_name = yes
 	grant_limit = 1000
 	opinion_effect = 0
-	
+
 	allow = {
 		has_minor_title = title_lord
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -236,10 +236,10 @@ title_lord = {
 title_regent = {
 	realm_in_name = yes
 	dignity = 0.9
-	
+
 	monthly_salary = 0.1
 	monthly_prestige = 0.025
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -253,13 +253,13 @@ title_ruler_consort = {
 	show_as_title = yes
 	realm_in_name = yes
 	spouse_context = yes
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.025
-	
+
 	gain_effect = {
 	}
-	
+
 	lose_effect = {
 	}
 
@@ -270,10 +270,10 @@ title_tanist = {
 	dignity = 0.86
 	show_as_title = yes
 	realm_in_name = yes
-	
+
 	monthly_salary = 0.07
 	monthly_prestige = 0.02
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -286,10 +286,10 @@ title_queen_mother = {
 	dignity = 0.85
 	show_as_title = yes
 	realm_in_name = yes
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -302,13 +302,13 @@ title_prince = {
 	dignity = 0.8
 	show_as_title = yes
 	realm_in_name = yes
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
-	
+
 	allow = {
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -321,9 +321,9 @@ title_prince = {
 title_courtesan = {
 	dignity = 0.05
 	realm_in_name = yes
-	
+
 	monthly_salary = 0.01
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -340,10 +340,10 @@ title_court_dwarf = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -362,7 +362,7 @@ title_court_dwarf = {
 			OR = {
 				religion_group = christian
 				religion_group = muslim
-			}			
+			}
 		}
 		NOT = {
 			has_minor_title = title_keeper_of_swans
@@ -372,19 +372,19 @@ title_court_dwarf = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -398,10 +398,10 @@ title_court_jester = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = -10
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = -0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -426,19 +426,19 @@ title_court_jester = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -453,10 +453,10 @@ title_keeper_of_swans = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -482,9 +482,9 @@ title_keeper_of_swans = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -492,10 +492,10 @@ title_keeper_of_swans = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
-		}		
+			has_minor_title = title_imperial_eunuch
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -509,10 +509,10 @@ title_master_of_the_horse = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -533,9 +533,9 @@ title_master_of_the_horse = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -543,10 +543,10 @@ title_master_of_the_horse = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
-		}		
+			has_minor_title = title_imperial_eunuch
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -560,10 +560,10 @@ title_master_of_the_hunt = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -584,9 +584,9 @@ title_master_of_the_hunt = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -594,10 +594,10 @@ title_master_of_the_hunt = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
-		}	
+			has_minor_title = title_imperial_eunuch
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -611,10 +611,10 @@ title_high_almoner = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -634,9 +634,9 @@ title_high_almoner = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -644,10 +644,10 @@ title_high_almoner = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
-		}		
+			has_minor_title = title_imperial_eunuch
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -661,10 +661,10 @@ title_cupbearer = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -686,9 +686,9 @@ title_cupbearer = {
 			has_minor_title = title_high_almoner
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -696,10 +696,10 @@ title_cupbearer = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
-		}		
+			has_minor_title = title_imperial_eunuch
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -713,10 +713,10 @@ title_seneschal = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.03
 	monthly_prestige = 0.015
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -743,9 +743,9 @@ title_seneschal = {
 			has_minor_title = title_high_almoner
 			has_minor_title = title_cupbearer
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -753,10 +753,10 @@ title_seneschal = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
-		}		
+			has_minor_title = title_imperial_eunuch
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -771,12 +771,12 @@ title_despot = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 25
-	
+
 	counts_as_purple_born = yes
-	
+
 	monthly_salary = 0.1
 	monthly_prestige = 0.05
-	
+
 	allow = {
 		is_female = no
 		is_close_relative = FROM
@@ -789,7 +789,7 @@ title_despot = {
 			religion_group = christian
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -803,10 +803,10 @@ title_sebastokrator = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 20
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.025
-	
+
 	allow = {
 		is_close_relative = FROM
 		FROM = {
@@ -825,9 +825,9 @@ title_sebastokrator = {
 			has_minor_title = title_high_almoner
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -835,10 +835,10 @@ title_sebastokrator = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -852,10 +852,10 @@ title_caesar = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.025
-	
+
 	allow = {
 		FROM = {
 			is_female = no
@@ -874,8 +874,8 @@ title_caesar = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_kouropalates
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -883,10 +883,10 @@ title_caesar = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -900,10 +900,10 @@ title_kouropalates = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.05
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -926,9 +926,9 @@ title_kouropalates = {
 			has_minor_title = title_high_almoner
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
-			has_minor_title = title_sebastokrator	
+			has_minor_title = title_sebastokrator
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -936,10 +936,10 @@ title_kouropalates = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -953,17 +953,17 @@ title_anthypatos = {
 	dignity = 0.075
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
 		}
-		is_female = no		
+		is_female = no
 		FROM = {
 			is_feudal = yes
 			OR = {
@@ -980,8 +980,8 @@ title_anthypatos = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
-			has_minor_title = title_caesar	
+			has_minor_title = title_kouropalates
+			has_minor_title = title_caesar
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
@@ -989,10 +989,10 @@ title_anthypatos = {
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch		
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1005,10 +1005,10 @@ title_imperial_eunuch = {
 	dignity = 0.050
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		is_female = no
@@ -1029,19 +1029,19 @@ title_imperial_eunuch = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
-			has_minor_title = title_caesar	
+			has_minor_title = title_kouropalates
+			has_minor_title = title_caesar
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
-			has_minor_title = title_chief_architect	
+			has_minor_title = title_chief_architect
 			has_minor_title = title_anthypatos
-		}		
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1057,10 +1057,10 @@ title_food_taster = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = -10
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = -0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -1086,19 +1086,19 @@ title_food_taster = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch				
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1112,10 +1112,10 @@ title_court_calligrapher = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -1141,19 +1141,19 @@ title_court_calligrapher = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch				
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1167,10 +1167,10 @@ title_court_musician = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -1189,19 +1189,19 @@ title_court_musician = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_poet
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1215,10 +1215,10 @@ title_court_poet = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
@@ -1238,19 +1238,19 @@ title_court_poet = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
 			has_minor_title = title_chief_architect
-			has_minor_title = title_imperial_eunuch			
+			has_minor_title = title_imperial_eunuch
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1264,16 +1264,16 @@ title_chief_architect = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
-		}		
+		}
 		is_female = no
 		FROM = {
 			is_feudal = yes
@@ -1287,18 +1287,18 @@ title_chief_architect = {
 			has_minor_title = title_cupbearer
 			has_minor_title = title_seneschal
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
-			has_minor_title = title_court_poet			
-		}	
+			has_minor_title = title_court_poet
+		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1312,10 +1312,10 @@ title_chief_qadi = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_marriage_adult = yes
 		is_female = no
@@ -1343,7 +1343,7 @@ title_chief_qadi = {
 		NOT = { has_minor_title = title_cupbearer }
 		NOT = { has_minor_title = title_chief_architect }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1361,10 +1361,10 @@ title_state_inquisitor = {
 	realm_in_name = yes
 	grant_limit = 3
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.005
-	
+
 	allow = {
 		is_adult = yes
 		is_female = no
@@ -1375,7 +1375,7 @@ title_state_inquisitor = {
 		NOT = { has_minor_title = title_high_admiral }
 		NOT = { has_minor_title = title_high_judge }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1389,10 +1389,10 @@ title_high_admiral = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_adult = yes
 		is_female = no
@@ -1403,7 +1403,7 @@ title_high_admiral = {
 		NOT = { has_minor_title = title_state_inquisitor }
 		NOT = { has_minor_title = title_high_judge }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1417,10 +1417,10 @@ title_high_judge = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_adult = yes
 		is_female = no
@@ -1431,7 +1431,7 @@ title_high_judge = {
 		NOT = { has_minor_title = title_state_inquisitor }
 		NOT = { has_minor_title = title_high_admiral }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1446,12 +1446,12 @@ title_patrician_heir = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 50
-	
+
 	patrician_heir = yes
-	
+
 	monthly_salary = 0.025
 	monthly_prestige = 0.005
-	
+
 	allow = {
 		is_female = no
 		dynasty = FROM
@@ -1460,7 +1460,7 @@ title_patrician_heir = {
 			is_patrician = yes
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1475,10 +1475,10 @@ title_volva = {
 	dignity = 0.050
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1495,7 +1495,7 @@ title_volva = {
 			}
 		}
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1509,10 +1509,10 @@ title_lawspeaker = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1533,7 +1533,7 @@ title_lawspeaker = {
 		NOT = { has_minor_title = title_marksman }
 		NOT = { has_minor_title = title_hirdman }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1547,10 +1547,10 @@ title_drottseti = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.015
 	monthly_prestige = 0.03
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1568,7 +1568,7 @@ title_drottseti = {
 		NOT = { has_minor_title = title_marksman }
 		NOT = { has_minor_title = title_hirdman }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1582,10 +1582,10 @@ title_court_skald = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1603,7 +1603,7 @@ title_court_skald = {
 		NOT = { has_minor_title = title_marksman }
 		NOT = { has_minor_title = title_hirdman }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1617,10 +1617,10 @@ title_marksman = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1638,7 +1638,7 @@ title_marksman = {
 		NOT = { has_minor_title = title_court_skald }
 		NOT = { has_minor_title = title_hirdman }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1651,10 +1651,10 @@ title_hirdman = {
 	dignity = 0.075
 	grant_limit = 4
 	opinion_effect = 5
-	
+
 	monthly_salary = 0.005
 	monthly_prestige = 0.005
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1672,7 +1672,7 @@ title_hirdman = {
 		NOT = { has_minor_title = title_court_skald }
 		NOT = { has_minor_title = title_marksman }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1688,10 +1688,10 @@ title_baghatur = {
 	realm_in_name = yes
 	grant_limit = 2
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1709,7 +1709,7 @@ title_baghatur = {
 		NOT = { has_minor_title = title_darkhan }
 		NOT = { has_minor_title = title_noyan }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1723,10 +1723,10 @@ title_cherbi = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1744,7 +1744,7 @@ title_cherbi = {
 		NOT = { has_minor_title = title_darkhan }
 		NOT = { has_minor_title = title_noyan }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1758,10 +1758,10 @@ title_darkhan = {
 	realm_in_name = yes
 	grant_limit = 2
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1779,7 +1779,7 @@ title_darkhan = {
 		NOT = { has_minor_title = title_cherbi }
 		NOT = { has_minor_title = title_noyan }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1792,10 +1792,10 @@ title_noyan = {
 	dignity = 0.075
 	grant_limit = 4
 	opinion_effect = 5
-	
+
 	monthly_salary = 0.005
 	monthly_prestige = 0.005
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1814,7 +1814,7 @@ title_noyan = {
 		NOT = { has_minor_title = title_cherbi }
 		NOT = { has_minor_title = title_darkhan }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1830,10 +1830,10 @@ title_shahrwaraz = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1844,12 +1844,12 @@ title_shahrwaraz = {
 			religion_group = zoroastrian_group
 		}
 		NOT = { has_minor_title = title_shahin }
-		NOT = { has_minor_title = title_kardarigan }	
-		NOT = { has_minor_title = title_spahbod }		
+		NOT = { has_minor_title = title_kardarigan }
+		NOT = { has_minor_title = title_spahbod }
 		NOT = { has_minor_title = title_pushtigban_salar }
 		NOT = { has_minor_title = title_eran_ambaragbed }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1863,10 +1863,10 @@ title_kardarigan = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1878,11 +1878,11 @@ title_kardarigan = {
 		}
 		NOT = { has_minor_title = title_shahin }
 		NOT = { has_minor_title = title_shahrwaraz }
-		NOT = { has_minor_title = title_spahbod }		
+		NOT = { has_minor_title = title_spahbod }
 		NOT = { has_minor_title = title_pushtigban_salar }
 		NOT = { has_minor_title = title_eran_ambaragbed }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1896,10 +1896,10 @@ title_shahin = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1910,12 +1910,12 @@ title_shahin = {
 			religion_group = zoroastrian_group
 		}
 		NOT = { has_minor_title = title_shahrwaraz }
-		NOT = { has_minor_title = title_kardarigan }	
-		NOT = { has_minor_title = title_spahbod }		
+		NOT = { has_minor_title = title_kardarigan }
+		NOT = { has_minor_title = title_spahbod }
 		NOT = { has_minor_title = title_pushtigban_salar }
 		NOT = { has_minor_title = title_eran_ambaragbed }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1929,10 +1929,10 @@ title_pushtigban_salar = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1943,11 +1943,11 @@ title_pushtigban_salar = {
 		}
 		NOT = { has_minor_title = title_shahin }
 		NOT = { has_minor_title = title_shahrwaraz }
-		NOT = { has_minor_title = title_kardarigan }	
-		NOT = { has_minor_title = title_spahbod }		
+		NOT = { has_minor_title = title_kardarigan }
+		NOT = { has_minor_title = title_spahbod }
 		NOT = { has_minor_title = title_eran_ambaragbed }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1961,10 +1961,10 @@ title_spahbod = {
 	realm_in_name = yes
 	grant_limit = 4
 	opinion_effect = 5
-	
+
 	monthly_salary = 0.005
 	monthly_prestige = 0.005
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -1976,11 +1976,11 @@ title_spahbod = {
 		}
 		NOT = { has_minor_title = title_shahin }
 		NOT = { has_minor_title = title_shahrwaraz }
-		NOT = { has_minor_title = title_kardarigan }		
+		NOT = { has_minor_title = title_kardarigan }
 		NOT = { has_minor_title = title_pushtigban_salar }
 		NOT = { has_minor_title = title_eran_ambaragbed }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -1993,10 +1993,10 @@ title_eran_ambaragbed = {
 	dignity = 0.075
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2007,7 +2007,7 @@ title_eran_ambaragbed = {
 		NOT = { has_minor_title = title_pushtigban_salar }
 		NOT = { has_minor_title = title_spahbod }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2023,10 +2023,10 @@ title_champion = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 20
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.05
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2035,11 +2035,11 @@ title_champion = {
 			is_feudal = yes
 			religion_group = pagan_group
 		}
-		NOT = { has_minor_title = title_master_of_the_bow }		
+		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
-		NOT = { has_minor_title = title_venerable_elder }		
+		NOT = { has_minor_title = title_venerable_elder }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2053,10 +2053,10 @@ title_master_of_the_blade = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2087,10 +2087,10 @@ title_master_of_the_blade = {
 			}
 		}
 		NOT = { has_minor_title = title_champion }
-		NOT = { has_minor_title = title_master_of_the_bow }	
+		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_venerable_elder }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2104,10 +2104,10 @@ title_master_of_the_bow = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2137,11 +2137,11 @@ title_master_of_the_bow = {
 				religion_group = judaism_group
 			}
 		}
-		NOT = { has_minor_title = title_champion }	
+		NOT = { has_minor_title = title_champion }
 		NOT = { has_minor_title = title_master_of_the_blade }
 		NOT = { has_minor_title = title_venerable_elder }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2155,10 +2155,10 @@ title_venerable_elder = {
 	realm_in_name = yes
 	grant_limit = 4
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.015
 	monthly_prestige = 0.03
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_female = no
@@ -2189,10 +2189,10 @@ title_venerable_elder = {
 			}
 		}
 		NOT = { has_minor_title = title_champion }
-		NOT = { has_minor_title = title_master_of_the_bow }		
-		NOT = { has_minor_title = title_master_of_the_blade }		
+		NOT = { has_minor_title = title_master_of_the_bow }
+		NOT = { has_minor_title = title_master_of_the_blade }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2208,10 +2208,10 @@ title_yabgu = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 20
-	
+
 	monthly_salary = 0.05
 	monthly_prestige = 0.05
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2234,11 +2234,11 @@ title_yabgu = {
 		NOT = { has_minor_title = title_ishad }
 		NOT = { has_minor_title = title_kundur }
 		NOT = { has_minor_title = title_champion }
-		NOT = { has_minor_title = title_master_of_the_bow }		
+		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
-		NOT = { has_minor_title = title_venerable_elder }	
+		NOT = { has_minor_title = title_venerable_elder }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2252,10 +2252,10 @@ title_ishad = {
 	realm_in_name = yes
 	grant_limit = 4
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.02
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2277,11 +2277,11 @@ title_ishad = {
 		NOT = { has_minor_title = title_yabgu }
 		NOT = { has_minor_title = title_kundur }
 		NOT = { has_minor_title = title_champion }
-		NOT = { has_minor_title = title_master_of_the_bow }		
+		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
-		NOT = { has_minor_title = title_venerable_elder }		
+		NOT = { has_minor_title = title_venerable_elder }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {
@@ -2295,10 +2295,10 @@ title_kundur = {
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 10
-	
+
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
-	
+
 	allow = {
 		is_merchant_republic = no
 		is_adult = yes
@@ -2319,11 +2319,11 @@ title_kundur = {
 		NOT = { has_minor_title = title_yabgu }
 		NOT = { has_minor_title = title_ishad }
 		NOT = { has_minor_title = title_champion }
-		NOT = { has_minor_title = title_master_of_the_bow }		
+		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
-		NOT = { has_minor_title = title_venerable_elder }		
+		NOT = { has_minor_title = title_venerable_elder }
 	}
-	
+
 	gain_effect = {
 	}
 	lose_effect = {

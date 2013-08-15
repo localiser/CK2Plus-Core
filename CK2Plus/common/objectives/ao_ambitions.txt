@@ -20,7 +20,7 @@
 
 obj_make_a_friend = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -30,77 +30,77 @@ obj_make_a_friend = {
 		NOT = { trait = shy }
 		NOT = { num_of_friends = 1 }
 	}
-	
+
 	chance = {
 		factor = 10
-		
+
 		modifier = {
 			factor = 2.0
 			trait = gregarious
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = kind
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = just
 		}
-		
+
 		modifier = {
 			factor = 0.1
 			is_married = no
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = envious
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			trait = cruel
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			trait = deceitful
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			age = 50
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			age = 55
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			age = 60
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			is_female = yes
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			is_ruler = no
 		}
-		
+
 	}
-	
+
 	success = {
 		OR = {
 			any_courtier = {
@@ -116,7 +116,7 @@ obj_make_a_friend = {
 			}
 		}
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
@@ -124,10 +124,10 @@ obj_make_a_friend = {
 			age = 70
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		change_diplomacy = 1
 	}
@@ -136,7 +136,7 @@ obj_make_a_friend = {
 
 obj_get_nick = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		is_ruler = yes
@@ -148,17 +148,17 @@ obj_get_nick = {
 	}
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 2.0
 			prestige = 1000
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			prestige = 2000
 		}
-		
+
 	}
 	success = {
 		has_nickname = yes
@@ -169,10 +169,10 @@ obj_get_nick = {
 			trait = incapable
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		change_diplomacy = 1
 		prestige = 50
@@ -182,7 +182,7 @@ obj_get_nick = {
 
 obj_change_nick = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		is_ruler = yes
@@ -210,7 +210,7 @@ obj_change_nick = {
 
 obj_spouse_councillor = {
 	type = character
-	
+
 	allow = {
 		is_female = yes
 		prisoner = no
@@ -218,7 +218,7 @@ obj_spouse_councillor = {
 		is_married = yes
 		independent = no
 		NOT = { trait = incapable }
-		spouse = { 
+		spouse = {
 			prisoner = no
 			age = 16
 			is_councillor = no
@@ -239,22 +239,22 @@ obj_spouse_councillor = {
 	}
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 2.0
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = envious
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			trait = content
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			spouse = {
@@ -267,7 +267,7 @@ obj_spouse_councillor = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			spouse = {
@@ -277,15 +277,15 @@ obj_spouse_councillor = {
 				}
 			}
 		}
-		
+
 	}
-	
+
 	success = {
 		spouse = {
 			is_councillor = yes
 		}
 	}
-	
+
 	abort = {
 		OR = {
 			is_married = no
@@ -297,10 +297,10 @@ obj_spouse_councillor = {
 			}
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 20
 	}
@@ -308,7 +308,7 @@ obj_spouse_councillor = {
 
 obj_ward_liege_child = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -329,20 +329,20 @@ obj_ward_liege_child = {
 			}
 		}
 	}
-	
+
 	chance = {
 		factor = 25
-	
+
 		modifier = {
 			factor = 0.2
 			trait = shy
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			is_female = no
 		}
-		
+
 		modifier = {
 			factor = 0.1
 			OR = {
@@ -351,37 +351,37 @@ obj_ward_liege_child = {
 				trait = envious
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			is_ruler = yes
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			diplomacy = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			martial = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			stewardship = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			intrigue = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			learning = 10
 		}
-		
+
 		modifier = {
 			factor = 2.5
 			OR = {
@@ -392,7 +392,7 @@ obj_ward_liege_child = {
 				trait = scholarly_theologian
 			}
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			OR = {
@@ -403,9 +403,9 @@ obj_ward_liege_child = {
 				trait = mastermind_theologian
 			}
 		}
-		
+
 	}
-	
+
 	success = {
 		liege = {
 				any_child = {
@@ -415,7 +415,7 @@ obj_ward_liege_child = {
 				}
 		}
 	}
-	
+
 	abort = {
 		OR = {
 			liege = {
@@ -429,21 +429,21 @@ obj_ward_liege_child = {
 			independent = yes
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 20
 		set_character_flag = teacher_1
-		
+
 	}
-	
+
 }
 
 obj_mentor_liege_child = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -458,35 +458,35 @@ obj_mentor_liege_child = {
 				}
 			}
 	}
-	
+
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 1.25
 			diplomacy = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			martial = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			stewardship = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			intrigue = 10
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			learning = 10
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			OR = {
@@ -497,7 +497,7 @@ obj_mentor_liege_child = {
 				trait = scholarly_theologian
 			}
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			OR = {
@@ -508,14 +508,14 @@ obj_mentor_liege_child = {
 				trait = mastermind_theologian
 			}
 		}
-		
+
 		modifier = {
 			factor = 4.0
 			any_ward = {
 				age = 10
 				OR = {
 					father = {
-						character = liege 
+						character = liege
 					}
 					mother = {
 						character = liege
@@ -523,14 +523,14 @@ obj_mentor_liege_child = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			any_ward = {
 				age = 15
 				OR = {
 					father = {
-						character = liege 
+						character = liege
 					}
 					mother = {
 						character = liege
@@ -538,9 +538,9 @@ obj_mentor_liege_child = {
 				}
 			}
 		}
-		
+
 	}
-	
+
 	success = {
 		liege = {
 			any_child = {
@@ -548,7 +548,7 @@ obj_mentor_liege_child = {
 			}
 		}
 	}
-	
+
 	abort = {
 		OR = {
 			liege = {
@@ -562,7 +562,7 @@ obj_mentor_liege_child = {
 			independent = yes
 		}
 	}
-	
+
 	abort_effect = {
 	}
 	effect = {
@@ -575,12 +575,12 @@ obj_mentor_liege_child = {
 			months = 24
 		}
 	}
-	
+
 }
 
 obj_become_regent = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prisoner = no
@@ -592,9 +592,9 @@ obj_become_regent = {
 			has_minor_title = title_queen_mother
 		}
 		host = { character = liege }
-		
+
 		NOT = { has_minor_title = title_regent }
-		
+
 		liege = {
 			OR = {
 				NOT = { age = 15 }
@@ -605,57 +605,57 @@ obj_become_regent = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 2.0
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			dynasty = liege
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = diligent
 		}
-		
+
 		modifier = {
 			factor = 1.25
 			trait = greedy
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = envious
 		}
-		
+
 		modifier = {
 			factor = 0.25
 			trait = slothful
 		}
-		
+
 		modifier = {
 			factor = 0.25
 			trait = craven
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			trait = shy
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			trait = content
 		}
-		
+
 	}
 	success = {
-		has_minor_title = title_regent 
+		has_minor_title = title_regent
 	}
-	
+
 	abort = {
 		liege = {
 				age = 15
@@ -663,12 +663,12 @@ obj_become_regent = {
 			    NOT = { trait = incapable }
 			}
 		}
-		
+
 	abort_effect = {
 	}
-	
+
 	effect = {
-		
+
 		change_intrigue = 1
 		prestige = 25
 	}
@@ -676,7 +676,7 @@ obj_become_regent = {
 
 obj_church_career = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_female = no
@@ -687,45 +687,45 @@ obj_church_career = {
 		NOT = { trait = incapable }
 		NOT = { trait = envious }
 		religion = catholic
-		liege = { 
+		liege = {
 			NOT = { is_close_relative = ROOT }
 		}
-		
+
 	}
-	
+
 	chance = {
 		factor = 15
-		
+
 		modifier = {
 			factor = 5.0
 			trait = content
 		}
-		
+
 		modifier = {
 			factor = 0.1
 			trait = cynical
 		}
-		
+
 		modifier = {
 			factor = 0.25
 			trait = slothful
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = zealous
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = detached_priest
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = martial_cleric
 		}
-		
+
 		modifier = {
 			factor = 10.0
 			any_heir_title = {
@@ -734,7 +734,7 @@ obj_church_career = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			OR = {
@@ -742,7 +742,7 @@ obj_church_career = {
 				trait = mastermind_theologian
 			}
 		}
-		
+
 	}
 	success = {
 		is_priest = yes
@@ -753,14 +753,14 @@ obj_church_career = {
 			trait = envious
 			AND = {
 				is_ruler = yes
-				is_priest = no 
+				is_priest = no
 			}
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		change_learning = 1
 		piety = 25
@@ -774,7 +774,7 @@ obj_church_career = {
 
 obj_lead_troops = {
 	type = character
-	
+
 	allow = {
 		is_female = no
 		age = 16
@@ -788,57 +788,57 @@ obj_lead_troops = {
 	}
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 2.0
 			trait = zealous
 		}
-		
+
 		modifier = {
 			factor = 4.0
 			trait = brave
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = just
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = lunatic
 		}
-		
+
 		modifier = {
 			factor = 3.0
 			in_command = yes
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			war = no
 		}
-		
+
 		modifier = {
 			factor = 0.25
 			trait = slothful
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			is_councillor = yes
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = misguided_warrior
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = tough_soldier
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			OR = {
@@ -846,45 +846,45 @@ obj_lead_troops = {
 				trait = brilliant_strategist
 			}
 		}
-		
+
 		modifier = {
 			factor = 10.0
 			mercenary = yes
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = deceitful
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = envious
 		}
-		
+
 	}
 	success = {
 		in_command = yes
-		trait = veteran 
+		trait = veteran
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
-			trait = craven 
+			trait = craven
 			trait = maimed
 			trait = infirm
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 10
 	}
@@ -892,7 +892,7 @@ obj_lead_troops = {
 
 obj_lead_troops_infidel = {
 	type = character
-	
+
 	allow = {
 		is_female = no
 		age = 16
@@ -909,64 +909,64 @@ obj_lead_troops_infidel = {
 	}
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 4.0
 			trait = zealous
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = brave
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = just
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			religion_head = {
 				has_called_crusade = yes
 			}
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = possessed
 		}
-		
+
 		modifier = {
 			factor = 3.0
 			in_command = yes
 		}
-		
+
 		modifier = {
 			factor = 0.25
 			trait = slothful
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			war = no
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			is_councillor = yes
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = misguided_warrior
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = tough_soldier
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			OR = {
@@ -974,32 +974,32 @@ obj_lead_troops_infidel = {
 				trait = brilliant_strategist
 			}
 		}
-		
+
 		modifier = {
 			factor = 10.0
 			mercenary = yes
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = deceitful
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = envious
 		}
-		
+
 	}
-	
+
 	success = {
 		in_command = yes
-		OR = { 
+		OR = {
 			war = yes
 			any_liege = {
 				war = yes
@@ -1015,23 +1015,23 @@ obj_lead_troops_infidel = {
 				}
 			}
 		}
-	trait = champion 
+	trait = champion
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
-			trait = craven 
+			trait = craven
 			trait = cynical
 			trait = maimed
 			trait = infirm
 			religion_group = muslim
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		piety = 10
 	}
@@ -1039,7 +1039,7 @@ obj_lead_troops_infidel = {
 
 obj_lead_troops_muslim = {
 	type = character
-	
+
 	allow = {
 		is_female = no
 		age = 16
@@ -1052,68 +1052,68 @@ obj_lead_troops_muslim = {
 		NOT = { trait = maimed }
 		NOT = { trait = infirm }
 		NOT = { trait = champion }
-		
+
 	}
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 4.0
 			trait = zealous
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = brave
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = just
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			religion_head = {
 				has_called_crusade = yes
 			}
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = possessed
 		}
-		
+
 		modifier = {
 			factor = 3.0
 			in_command = yes
 		}
-		
+
 		modifier = {
 			factor = 0.25
 			trait = slothful
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			war = no
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			is_councillor = yes
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = misguided_warrior
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			trait = tough_soldier
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			OR = {
@@ -1121,32 +1121,32 @@ obj_lead_troops_muslim = {
 				trait = brilliant_strategist
 			}
 		}
-		
+
 		modifier = {
 			factor = 10.0
 			mercenary = yes
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = deceitful
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			trait = envious
 		}
-		
+
 	}
-	
+
 	success = {
 		in_command = yes
-		OR = { 
+		OR = {
 			war = yes
 			any_liege = {
 				war = yes
@@ -1164,21 +1164,21 @@ obj_lead_troops_muslim = {
 		}
 		trait = champion
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
-			trait = craven 
+			trait = craven
 			trait = cynical
 			trait = maimed
 			trait = infirm
 			NOT = { religion_group = muslim }
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		decadence = -1
 		piety = 10
@@ -1187,7 +1187,7 @@ obj_lead_troops_muslim = {
 
 obj_uncover_plot = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prisoner = no
@@ -1204,40 +1204,40 @@ obj_uncover_plot = {
 			}
 		}
 	}
-	
+
 	chance = {
 		factor = 2
-		
+
 		modifier = {
 			factor = 2.0
 			trait = honest
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = kind
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = just
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			intrigue = 10
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			is_ruler = yes
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			independent = yes
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			liege = {
@@ -1247,20 +1247,20 @@ obj_uncover_plot = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			any_pretender_title = {
 				always = yes
 			}
 		}
-		
+
 	}
-	
+
 	success = {
 		trait = counterspy
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
@@ -1268,10 +1268,10 @@ obj_uncover_plot = {
 			prisoner = yes
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 5
 	}
@@ -1279,7 +1279,7 @@ obj_uncover_plot = {
 
 obj_bastard_legit = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_female = yes
@@ -1302,20 +1302,20 @@ obj_bastard_legit = {
 			}
 		}
 	}
-	
+
 	chance = {
 		factor = 25
-		
+
 		modifier = {
 			factor = 2.0
 			trait = ambitious
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = envious
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			any_child = {
@@ -1323,7 +1323,7 @@ obj_bastard_legit = {
 				trait = bastard
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.1
 			any_child = {
@@ -1331,7 +1331,7 @@ obj_bastard_legit = {
 				trait = bastard
 			}
 		}
-		
+
 	}
 	success = {
 			any_child = {
@@ -1339,7 +1339,7 @@ obj_bastard_legit = {
 				trait = legit_bastard
 			}
 	}
-	
+
 	abort = {
 		NOT = {
 			any_child = {
@@ -1349,10 +1349,10 @@ obj_bastard_legit = {
 			}
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 25
 	}
@@ -1361,12 +1361,12 @@ obj_bastard_legit = {
 #################################################################
 obj_amass_fortune = {
 	type = character
-	
+
 	potential = {
 		NOT = { has_character_flag = amassed_hoard }
 		NOT = { has_character_flag = amassed_fortune }
 	}
-	
+
 	allow = {
 		is_adult=yes
 		is_ruler = yes
@@ -1387,7 +1387,7 @@ obj_amass_fortune = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1446,11 +1446,11 @@ obj_amass_fortune = {
 }
 obj_amass_hoard = {
 	type = character
-	
+
 	potential = {
 		NOT = { has_character_flag = amassed_hoard }
 	}
-	
+
 	allow = {
 		is_adult=yes
 		is_ruler = yes
@@ -1476,7 +1476,7 @@ obj_amass_hoard = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1536,7 +1536,7 @@ obj_amass_hoard = {
 
 obj_publicly_pious = {
 	type = character
-	
+
 	allow = {
 		is_adult=yes
 		is_ruler = yes
@@ -1550,7 +1550,7 @@ obj_publicly_pious = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1601,7 +1601,7 @@ obj_publicly_pious = {
 }
 obj_known_for_virtue = {
 	type = character
-	
+
 	allow = {
 		is_adult=yes
 		is_ruler = yes
@@ -1623,7 +1623,7 @@ obj_known_for_virtue = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1697,7 +1697,7 @@ obj_known_for_virtue = {
 
 obj_become_distinguished = {
 	type = character
-	
+
 	allow = {
 		is_adult=yes
 		is_ruler = yes
@@ -1710,7 +1710,7 @@ obj_become_distinguished = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1746,7 +1746,7 @@ obj_become_distinguished = {
 }
 obj_seek_fame_glory = {
 	type = character
-	
+
 	allow = {
 		is_adult=yes
 		is_ruler = yes
@@ -1768,7 +1768,7 @@ obj_seek_fame_glory = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1855,7 +1855,7 @@ obj_raise_worthy_son={
 		OR={
 			NOT = {any_child = { trait = favored_son }}
 			any_child = { trait = favored_son is_alive = no }
-			any_child = { 
+			any_child = {
 				trait = favored_son
 				is_adult = yes
 				OR = {
@@ -1876,7 +1876,7 @@ obj_raise_worthy_son={
 		}
 	}
 	abort_effect = {
-		any_child = { 
+		any_child = {
 			if = {
 				limit = { trait = favored_son}
 				remove_title = title_favored_son
@@ -1886,7 +1886,7 @@ obj_raise_worthy_son={
 	}
 	effect = {
 		prestige = 100
-		any_child = { 
+		any_child = {
 			if = {
 				limit = { trait = favored_son}
 				prestige = 100

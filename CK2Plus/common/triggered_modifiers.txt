@@ -6,28 +6,28 @@
 #
 # Icons:
 #
-# Good 			<=> 		Bad
+# Good			<=>			Bad
 #
-#  1 - Martial 				- 19
-#  2 - Learning 			- 20
-#  3 - Diplomacy 			- 21
-#  4 - Stewardship 			- 22
-#  5 - Intrigue 			- 23
-#  6 - Money 				- 24
-#  7 - Prestige 			- 25
-#  8 - Piety 				- 26
-#  9 - Titles 				- 27
-# 10 - Council 				- 28 
-# 11 - Laws 				- 29
-# 12 - Tech 				- 30 
-# 13 - Military 			- 31
-# 14 - Plots 				- 32
-# 15 - Messages 			- 33
-# 16 - Diplomatic actions 	- 34
-# 17 - Church 				- 35
-# 18 - Characters 			- 36
-# 37 - Prison 				- 38
-# 39 - Love				- 40
+#  1 - Martial				- 19
+#  2 - Learning				- 20
+#  3 - Diplomacy			- 21
+#  4 - Stewardship			- 22
+#  5 - Intrigue				- 23
+#  6 - Money				- 24
+#  7 - Prestige				- 25
+#  8 - Piety				- 26
+#  9 - Titles				- 27
+# 10 - Council				- 28
+# 11 - Laws					- 29
+# 12 - Tech					- 30
+# 13 - Military				- 31
+# 14 - Plots				- 32
+# 15 - Messages				- 33
+# 16 - Diplomatic actions	- 34
+# 17 - Church				- 35
+# 18 - Characters			- 36
+# 37 - Prison				- 38
+# 39 - Love					- 40
 # 41 - Transparent
 # 42 - Rich
 # 43 - Prosperous
@@ -42,13 +42,13 @@ negative_money = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		NOT = { wealth = 0 }
 	}
-	
+
 	icon = 24
-	
+
 	land_morale = -1
 	monthly_character_prestige = -1
 	general_opinion = -20
@@ -59,18 +59,18 @@ wrong_religion_group_capital = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
-		is_ruler = yes	
+		is_ruler = yes
 		ai = no
 		capital_scope = {
 			NOT = { religion_group = ROOT }
 		}
 		NOT = { religion_group = muslim }
 	}
-	
+
 	icon = 24
-	
+
 	global_tax_modifier = -0.2
 }
 
@@ -78,18 +78,18 @@ wrong_religion_capital = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
-		is_ruler = yes	
+		is_ruler = yes
 		ai = no
 		capital_scope = {
 			religion_group = ROOT
 			NOT = { religion = ROOT }
 		}
 	}
-	
+
 	icon = 24
-	
+
 	global_tax_modifier = -0.1
 }
 
@@ -106,9 +106,9 @@ small_demesne = {
 		}
 		NOT = { demesne_size = 2 }
 	}
-	
+
 	icon = 6
-	
+
 	global_tax_modifier = 1
 }
 
@@ -125,9 +125,9 @@ small_demesne = {
 		demesne_size = 2
 		NOT = { demesne_size = 3 }
 	}
-	
+
 	icon = 6
-	
+
 	global_tax_modifier = 0.5
 }
 
@@ -144,9 +144,9 @@ small_demesne = {
 		demesne_size = 3
 		NOT = { demesne_size = 4 }
 	}
-	
+
 	icon = 6
-	
+
 	global_tax_modifier = 0.15
 }
 
@@ -165,13 +165,13 @@ mongol_tribute = {
 	vassal_opinion = -10
 	icon = 6
 }
-	
+
 #Player isn't picking an ambition
 player_no_ambition = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		OR = {
@@ -218,13 +218,13 @@ player_no_ambition = {
 			has_ambition = obj_increase_demesne_5
 			has_ambition = obj_increase_demesne_6
 			has_ambition = obj_increase_demesne_7
-			has_ambition = obj_increase_demesne_8				
+			has_ambition = obj_increase_demesne_8
 			has_ambition = obj_increase_demesne_9
 			has_ambition = obj_go_crusade
 			has_ambition = obj_go_jihad
 			has_ambition = obj_find_lover
 			has_ambition = obj_become_independent
-			has_ambition = obj_become_duke				
+			has_ambition = obj_become_duke
 			has_ambition = obj_become_king
 			has_ambition = obj_become_emperor
 			has_ambition = obj_adopt_a_lifestyle
@@ -260,9 +260,9 @@ player_no_ambition = {
 			has_ambition = obj_raise_worthy_son
 		}
 	}
-	
+
 	icon = 25
-	
+
 	monthly_character_prestige = -1
 }
 
@@ -271,16 +271,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 1
 		NOT = { realm_size = 10 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 1
 	city_vassal_max_levy = 1
 	temple_vassal_max_levy = 1
@@ -290,16 +290,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 10
 		NOT = { realm_size = 15 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.9
 	city_vassal_max_levy = 0.9
 	temple_vassal_max_levy = 0.9
@@ -309,16 +309,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 15
 		NOT = { realm_size = 20 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.85
 	city_vassal_max_levy = 0.85
 	temple_vassal_max_levy = 0.85
@@ -328,16 +328,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 20
 		NOT = { realm_size = 25 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.8
 	city_vassal_max_levy = 0.8
 	temple_vassal_max_levy = 0.8
@@ -348,16 +348,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 25
 		NOT = { realm_size = 30 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.75
 	city_vassal_max_levy = 0.75
 	temple_vassal_max_levy = 0.75
@@ -367,16 +367,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 30
 		NOT = { realm_size = 40 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.7
 	city_vassal_max_levy = 0.7
 	temple_vassal_max_levy = 0.7
@@ -386,16 +386,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 40
 		NOT = { realm_size = 50 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.65
 	city_vassal_max_levy = 0.65
 	temple_vassal_max_levy = 0.65
@@ -405,16 +405,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 50
 		NOT = { realm_size = 60 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.6
 	city_vassal_max_levy = 0.6
 	temple_vassal_max_levy = 0.6
@@ -424,16 +424,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 60
 		NOT = { realm_size = 70 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.55
 	city_vassal_max_levy = 0.55
 	temple_vassal_max_levy = 0.55
@@ -443,16 +443,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 70
 		NOT = { realm_size = 80 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.525
 	city_vassal_max_levy = 0.525
 	temple_vassal_max_levy = 0.525
@@ -462,16 +462,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 80
 		NOT = { realm_size = 90 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.5
 	city_vassal_max_levy = 0.5
 	temple_vassal_max_levy = 0.5
@@ -481,16 +481,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 90
 		NOT = { realm_size = 100 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.475
 	city_vassal_max_levy = 0.475
 	temple_vassal_max_levy = 0.475
@@ -500,16 +500,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 100
 		NOT = { realm_size = 110 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.45
 	city_vassal_max_levy = 0.45
 	temple_vassal_max_levy = 0.45
@@ -519,16 +519,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 110
 		NOT = { realm_size = 120 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.425
 	city_vassal_max_levy = 0.425
 	temple_vassal_max_levy = 0.425
@@ -538,16 +538,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 120
 		NOT = { realm_size = 130 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.4
 	city_vassal_max_levy = 0.4
 	temple_vassal_max_levy = 0.4
@@ -557,16 +557,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 130
 		NOT = { realm_size = 140 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.375
 	city_vassal_max_levy = 0.375
 	temple_vassal_max_levy = 0.375
@@ -576,16 +576,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 140
 		NOT = { realm_size = 150 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.35
 	city_vassal_max_levy = 0.35
 	temple_vassal_max_levy = 0.35
@@ -595,16 +595,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 150
 		NOT = { realm_size = 160 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.325
 	city_vassal_max_levy = 0.325
 	temple_vassal_max_levy = 0.325
@@ -614,16 +614,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 160
 		NOT = { realm_size = 170 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.3
 	city_vassal_max_levy = 0.3
 	temple_vassal_max_levy = 0.3
@@ -633,16 +633,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 170
 		NOT = { realm_size = 180 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.275
 	city_vassal_max_levy = 0.275
 	temple_vassal_max_levy = 0.275
@@ -652,16 +652,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 180
 		NOT = { realm_size = 190 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.25
 	city_vassal_max_levy = 0.25
 	temple_vassal_max_levy = 0.25
@@ -671,16 +671,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 190
 		NOT = { realm_size = 200 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.225
 	city_vassal_max_levy = 0.225
 	temple_vassal_max_levy = 0.225
@@ -690,16 +690,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 200
 		NOT = { realm_size = 250 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.2
 	city_vassal_max_levy = 0.2
 	temple_vassal_max_levy = 0.2
@@ -709,16 +709,16 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 250
 		NOT = { realm_size = 300 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.175
 	city_vassal_max_levy = 0.175
 	temple_vassal_max_levy = 0.175
@@ -728,15 +728,15 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		NOT = { has_character_flag = max_levies }
 		realm_size = 300
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.15
 	city_vassal_max_levy = 0.15
 	temple_vassal_max_levy = 0.15
@@ -747,88 +747,88 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 1
 		NOT = { realm_size = 10 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 1
 	city_vassal_max_levy = 1
 	temple_vassal_max_levy = 1
 	castle_vassal_min_levy = 1
 	city_vassal_min_levy = 1
-	temple_vassal_min_levy = 1	
+	temple_vassal_min_levy = 1
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 10
 		NOT = { realm_size = 15 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.9
 	city_vassal_max_levy = 0.9
 	temple_vassal_max_levy = 0.9
 	castle_vassal_min_levy = 0.9
 	city_vassal_min_levy = 0.9
-	temple_vassal_min_levy = 0.9		
+	temple_vassal_min_levy = 0.9
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 15
 		NOT = { realm_size = 20 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.85
 	city_vassal_max_levy = 0.85
 	temple_vassal_max_levy = 0.85
 	castle_vassal_min_levy = 0.85
 	city_vassal_min_levy = 0.85
-	temple_vassal_min_levy = 0.85		
+	temple_vassal_min_levy = 0.85
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 20
 		NOT = { realm_size = 25 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.8
 	city_vassal_max_levy = 0.8
 	temple_vassal_max_levy = 0.8
 	castle_vassal_min_levy = 0.8
 	city_vassal_min_levy = 0.8
-	temple_vassal_min_levy = 0.8		
+	temple_vassal_min_levy = 0.8
 }
 
 
@@ -836,468 +836,468 @@ base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 25
 		NOT = { realm_size = 30 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.75
 	city_vassal_max_levy = 0.75
 	temple_vassal_max_levy = 0.75
 	castle_vassal_min_levy = 0.75
 	city_vassal_min_levy = 0.75
-	temple_vassal_min_levy = 0.75		
+	temple_vassal_min_levy = 0.75
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 30
 		NOT = { realm_size = 40 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.7
 	city_vassal_max_levy = 0.7
 	temple_vassal_max_levy = 0.7
 	castle_vassal_min_levy = 0.7
 	city_vassal_min_levy = 0.7
-	temple_vassal_min_levy = 0.7		
+	temple_vassal_min_levy = 0.7
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 40
 		NOT = { realm_size = 50 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.65
 	city_vassal_max_levy = 0.65
 	temple_vassal_max_levy = 0.65
 	castle_vassal_min_levy = 0.65
 	city_vassal_min_levy = 0.65
-	temple_vassal_min_levy = 0.65		
+	temple_vassal_min_levy = 0.65
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 50
 		NOT = { realm_size = 60 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.6
 	city_vassal_max_levy = 0.6
 	temple_vassal_max_levy = 0.6
 	castle_vassal_min_levy = 0.6
 	city_vassal_min_levy = 0.6
-	temple_vassal_min_levy = 0.6		
+	temple_vassal_min_levy = 0.6
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 60
 		NOT = { realm_size = 70 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.55
 	city_vassal_max_levy = 0.55
 	temple_vassal_max_levy = 0.55
 	castle_vassal_min_levy = 0.55
 	city_vassal_min_levy = 0.55
-	temple_vassal_min_levy = 0.55		
+	temple_vassal_min_levy = 0.55
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 70
 		NOT = { realm_size = 80 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.525
 	city_vassal_max_levy = 0.525
 	temple_vassal_max_levy = 0.525
 	castle_vassal_min_levy = 0.525
 	city_vassal_min_levy = 0.525
-	temple_vassal_min_levy = 0.525	
+	temple_vassal_min_levy = 0.525
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 80
 		NOT = { realm_size = 90 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.5
 	city_vassal_max_levy = 0.5
 	temple_vassal_max_levy = 0.5
 	castle_vassal_min_levy = 0.5
 	city_vassal_min_levy = 0.5
-	temple_vassal_min_levy = 0.5		
+	temple_vassal_min_levy = 0.5
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 90
 		NOT = { realm_size = 100 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.475
 	city_vassal_max_levy = 0.475
 	temple_vassal_max_levy = 0.475
 	castle_vassal_min_levy = 0.475
 	city_vassal_min_levy = 0.475
-	temple_vassal_min_levy = 0.475		
+	temple_vassal_min_levy = 0.475
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 100
 		NOT = { realm_size = 110 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.45
 	city_vassal_max_levy = 0.45
 	temple_vassal_max_levy = 0.45
 	castle_vassal_min_levy = 0.45
 	city_vassal_min_levy = 0.45
-	temple_vassal_min_levy = 0.45		
+	temple_vassal_min_levy = 0.45
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 110
 		NOT = { realm_size = 120 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.425
 	city_vassal_max_levy = 0.425
 	temple_vassal_max_levy = 0.425
 	castle_vassal_min_levy = 0.425
 	city_vassal_min_levy = 0.425
-	temple_vassal_min_levy = 0.425	
+	temple_vassal_min_levy = 0.425
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 120
 		NOT = { realm_size = 130 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.4
 	city_vassal_max_levy = 0.4
 	temple_vassal_max_levy = 0.4
 	castle_vassal_min_levy = 0.4
 	city_vassal_min_levy = 0.4
-	temple_vassal_min_levy = 0.4		
+	temple_vassal_min_levy = 0.4
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 130
 		NOT = { realm_size = 140 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.375
 	city_vassal_max_levy = 0.375
 	temple_vassal_max_levy = 0.375
 	castle_vassal_min_levy = 0.375
 	city_vassal_min_levy = 0.375
-	temple_vassal_min_levy = 0.375	
+	temple_vassal_min_levy = 0.375
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 140
 		NOT = { realm_size = 150 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.35
 	city_vassal_max_levy = 0.35
 	temple_vassal_max_levy = 0.35
 	castle_vassal_min_levy = 0.35
 	city_vassal_min_levy = 0.35
-	temple_vassal_min_levy = 0.35	
+	temple_vassal_min_levy = 0.35
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 150
 		NOT = { realm_size = 160 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.325
 	city_vassal_max_levy = 0.325
 	temple_vassal_max_levy = 0.325
 	castle_vassal_min_levy = 0.325
 	city_vassal_min_levy = 0.325
-	temple_vassal_min_levy = 0.325		
+	temple_vassal_min_levy = 0.325
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 160
 		NOT = { realm_size = 170 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.3
 	city_vassal_max_levy = 0.3
 	temple_vassal_max_levy = 0.3
 	castle_vassal_min_levy = 0.3
 	city_vassal_min_levy = 0.3
-	temple_vassal_min_levy = 0.3		
+	temple_vassal_min_levy = 0.3
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 170
 		NOT = { realm_size = 180 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.275
 	city_vassal_max_levy = 0.275
 	temple_vassal_max_levy = 0.275
 	castle_vassal_min_levy = 0.275
 	city_vassal_min_levy = 0.275
-	temple_vassal_min_levy = 0.275		
+	temple_vassal_min_levy = 0.275
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 180
 		NOT = { realm_size = 190 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.25
 	city_vassal_max_levy = 0.25
 	temple_vassal_max_levy = 0.25
 	castle_vassal_min_levy = 0.25
 	city_vassal_min_levy = 0.25
-	temple_vassal_min_levy = 0.25	
+	temple_vassal_min_levy = 0.25
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 190
 		NOT = { realm_size = 200 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.225
 	city_vassal_max_levy = 0.225
 	temple_vassal_max_levy = 0.225
 	castle_vassal_min_levy = 0.225
 	city_vassal_min_levy = 0.225
-	temple_vassal_min_levy = 0.225		
+	temple_vassal_min_levy = 0.225
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 200
 		NOT = { realm_size = 250 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.2
 	city_vassal_max_levy = 0.2
 	temple_vassal_max_levy = 0.2
 	castle_vassal_min_levy = 0.2
 	city_vassal_min_levy = 0.2
-	temple_vassal_min_levy = 0.2		
+	temple_vassal_min_levy = 0.2
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 250
 		NOT = { realm_size = 300 }
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.175
 	city_vassal_max_levy = 0.175
 	temple_vassal_max_levy = 0.175
 	castle_vassal_min_levy = 0.175
 	city_vassal_min_levy = 0.175
-	temple_vassal_min_levy = 0.175	
+	temple_vassal_min_levy = 0.175
 }
 
 base_levies = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		has_character_flag = max_levies
 		realm_size = 300
 	}
-	
+
 	icon = 13
-	
+
 	castle_vassal_max_levy = 0.15
 	city_vassal_max_levy = 0.15
 	temple_vassal_max_levy = 0.15
 	castle_vassal_min_levy = 0.15
 	city_vassal_min_levy = 0.15
-	temple_vassal_min_levy = 0.15	
+	temple_vassal_min_levy = 0.15
 }
 #Faction moods
 faction_mood_happy = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		OR = {
@@ -1308,7 +1308,7 @@ faction_mood_happy = {
 					leads_faction = faction_court_duke
 				}
 				liege = { has_character_flag = faction_court_happy	}
-			}		
+			}
 			AND = {
 				OR = {
 					leads_faction = faction_feudal_emperor
@@ -1332,10 +1332,10 @@ faction_mood_happy = {
 					leads_faction = faction_religious_duke
 				}
 				liege = { has_character_flag = faction_religious_happy	}
-			}			
+			}
 		}
 	}
-	
+
 	icon = 52
 }
 
@@ -1343,7 +1343,7 @@ faction_mood_content = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		OR = {
@@ -1354,13 +1354,13 @@ faction_mood_content = {
 					leads_faction = faction_court_duke
 				}
 				liege = {
-					NOT = { 
+					NOT = {
 						has_character_flag = faction_court_happy
 						has_character_flag = faction_court_unhappy
-						has_character_flag = faction_court_angry 
+						has_character_flag = faction_court_angry
 					}
 				}
-			}		
+			}
 			AND = {
 				OR = {
 					leads_faction = faction_feudal_emperor
@@ -1368,10 +1368,10 @@ faction_mood_content = {
 					leads_faction = faction_feudal_duke
 				}
 				liege = {
-					NOT = { 
+					NOT = {
 						has_character_flag = faction_feudal_happy
 						has_character_flag = faction_feudal_unhappy
-						has_character_flag = faction_feudal_angry 
+						has_character_flag = faction_feudal_angry
 					}
 				}
 			}
@@ -1382,10 +1382,10 @@ faction_mood_content = {
 					leads_faction = faction_republican_duke
 				}
 				liege = {
-					NOT = { 
+					NOT = {
 						has_character_flag = faction_republican_happy
 						has_character_flag = faction_republican_unhappy
-						has_character_flag = faction_republican_angry 
+						has_character_flag = faction_republican_angry
 					}
 				}
 			}
@@ -1396,16 +1396,16 @@ faction_mood_content = {
 					leads_faction = faction_religious_duke
 				}
 				liege = {
-					NOT = { 
+					NOT = {
 						has_character_flag = faction_religious_happy
 						has_character_flag = faction_religious_unhappy
-						has_character_flag = faction_religious_angry 
+						has_character_flag = faction_religious_angry
 					}
 				}
-			}			
-		}		
+			}
+		}
 	}
-	
+
 	icon = 55
 }
 
@@ -1413,7 +1413,7 @@ faction_mood_unhappy = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		OR = {
@@ -1424,7 +1424,7 @@ faction_mood_unhappy = {
 					leads_faction = faction_court_duke
 				}
 				liege = { has_character_flag = faction_court_unhappy }
-			}		
+			}
 			AND = {
 				OR = {
 					leads_faction = faction_feudal_emperor
@@ -1448,10 +1448,10 @@ faction_mood_unhappy = {
 					leads_faction = faction_religious_duke
 				}
 				liege = { has_character_flag = faction_religious_unhappy }
-			}			
+			}
 		}
 	}
-	
+
 	icon = 53
 }
 
@@ -1459,7 +1459,7 @@ faction_mood_angry = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		OR = {
@@ -1470,7 +1470,7 @@ faction_mood_angry = {
 					leads_faction = faction_court_duke
 				}
 				liege = { has_character_flag = faction_court_angry }
-			}		
+			}
 			AND = {
 				OR = {
 					leads_faction = faction_feudal_emperor
@@ -1494,10 +1494,10 @@ faction_mood_angry = {
 					leads_faction = faction_religious_duke
 				}
 				liege = { has_character_flag = faction_religious_angry }
-			}			
+			}
 		}
 	}
-	
+
 	icon = 54
 }
 
@@ -1505,7 +1505,7 @@ flip_flopper = {
 	potential = {
 		is_ruler = yes
 	}
-	
+
 	trigger = {
 		is_ruler = yes
 		ai = no
@@ -1593,12 +1593,12 @@ flip_flopper = {
 					in_faction = faction_court_king
 					in_faction = faction_court_duke
 				}
-			}			
+			}
 		}
 	}
-	
+
 	general_opinion = -50
 	monthly_character_prestige = -5
-	
+
 	icon = 20
 }

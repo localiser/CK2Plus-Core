@@ -14,12 +14,12 @@ job_chancellor = {
 	attribute = diplomacy
 	dignity = 0.25
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.2
 	monthly_prestige = 0.025
-	
+
 	allow = {
-		NOT = { liege = { spouse = { character = FROM } } }	
+		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
 			is_female = no
 			has_global_flag = gender_equality
@@ -29,7 +29,7 @@ job_chancellor = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
@@ -38,7 +38,7 @@ job_chancellor = {
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
-	
+
 	action = action_improve_relations
 	action = action_fabricate_claims
 	action = action_sow_dissent
@@ -51,10 +51,10 @@ job_marshal = {
 	attribute = martial
 	dignity = 0.25
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.2
 	monthly_prestige = 0.025
-	
+
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
@@ -74,16 +74,16 @@ job_marshal = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
 		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
-	}	
+	}
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
-	
+
 	action = action_assist_arrest
 	action = action_train_troops
 	action = action_advance_mil_tech
@@ -96,10 +96,10 @@ job_treasurer = {
 	attribute = stewardship
 	dignity = 0.25
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.2
 	monthly_prestige = 0.025
-	
+
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
@@ -111,7 +111,7 @@ job_treasurer = {
 			is_female = no
 			has_global_flag = gender_equality
 			is_ruler = yes
-			liege = { dynasty = FROM }	
+			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
 		}
 		age = 16
@@ -119,16 +119,16 @@ job_treasurer = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
 		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
-	}	
+	}
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
-	
+
 	action = action_squeeze_peasants
 	action = action_oversee_construction
 	action = action_advance_eco_tech
@@ -141,10 +141,10 @@ job_spymaster = {
 	attribute = intrigue
 	dignity = 0.25
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.2
 	monthly_prestige = 0.025
-	
+
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
@@ -156,7 +156,7 @@ job_spymaster = {
 			is_female = no
 			has_global_flag = gender_equality
 			is_ruler = yes
-			liege = { dynasty = FROM }		
+			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
 		}
 		age = 16
@@ -164,16 +164,16 @@ job_spymaster = {
 		NOT = { trait = incapable }
 	}
 	gain_effect = {
-		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
 		hidden_tooltip = { OR = { trait = incapable FROM = { NOT = { has_character_flag = lifetime_appointments } } } }
-	}	
+	}
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
-	
+
 	action = action_uncover_plots
 	action = action_organize_spies
 	action = action_study_technology
@@ -186,10 +186,10 @@ job_spiritual = {
 	attribute = learning
 	dignity = 0.25
 	opinion_effect = 15
-	
+
 	monthly_salary = 0.2
 	monthly_piety = 0.025
-	
+
 	allow = {
 		OR = {
 			is_female = no
@@ -219,7 +219,7 @@ job_spiritual = {
 		}
 	}
 	gain_effect = {
-		remove_opinion = { who = FROM modifier = opinion_fired_from_council }		
+		remove_opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
 	dismiss_trigger = {
 		tooltip = { FROM = { primary_title = { NOT = { has_law = council_privileges_1 } } } }
@@ -230,11 +230,11 @@ job_spiritual = {
 				trait = incapable
 			}
 		}
-	}	
+	}
 	lose_effect = {
 		opinion = { who = FROM modifier = opinion_fired_from_council }
 	}
-	
+
 	action = action_inquisition
 	action = action_advance_cul_tech
 	action = action_improve_rel_relations

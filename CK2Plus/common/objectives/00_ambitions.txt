@@ -7,7 +7,7 @@
 
 obj_become_chancellor = {
 	type = character
-	
+
 	expectation_of_liege = yes
 
 	allow = {
@@ -33,7 +33,7 @@ obj_become_chancellor = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 0.01
 			trait = content
@@ -112,7 +112,7 @@ obj_become_chancellor = {
 			AND = {
 				is_councillor = yes
 				NOT = { has_job_title = job_chancellor }
-			}	
+			}
 			liege = { spouse = { character = FROM } }
 		}
 	}
@@ -134,7 +134,7 @@ obj_become_chancellor = {
 
 obj_become_marshal = {
 	type = character
-	
+
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
@@ -143,7 +143,7 @@ obj_become_marshal = {
 		independent = no
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality		
+			has_global_flag = gender_equality
 		}
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_become_councillor }
@@ -151,7 +151,7 @@ obj_become_marshal = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 0.01
 			trait = content
@@ -252,7 +252,7 @@ obj_become_marshal = {
 
 obj_become_treasurer = {
 	type = character
-	
+
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
@@ -268,8 +268,8 @@ obj_become_treasurer = {
 			is_female = no
 			has_global_flag = gender_equality
 			is_ruler = yes
-			liege = { dynasty = FROM }	
-			liege = { spouse = { character = FROM } }	
+			liege = { dynasty = FROM }
+			liege = { spouse = { character = FROM } }
 			liege = { mother = { character = FROM } }
 		}
 		NOT = { trait = incapable }
@@ -278,7 +278,7 @@ obj_become_treasurer = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 0.01
 			trait = content
@@ -378,7 +378,7 @@ obj_become_treasurer = {
 				NOT = { liege = { dynasty = FROM } }
 				NOT = { liege = { mother = { character = FROM } } }
 				NOT = { has_global_flag = gender_equality }
-			}			
+			}
 		}
 	}
 	abort_effect = {
@@ -414,7 +414,7 @@ obj_become_spymaster = {
 			is_female = no
 			has_global_flag = gender_equality
 			is_ruler = yes
-			liege = { dynasty = FROM }		
+			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
 		}
 		NOT = { trait = incapable }
@@ -423,7 +423,7 @@ obj_become_spymaster = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 0.01
 			trait = content
@@ -520,10 +520,10 @@ obj_become_spymaster = {
 			AND = {
 				is_female = yes
 				is_ruler = yes
-				NOT = { liege = { dynasty = FROM } }	
+				NOT = { liege = { dynasty = FROM } }
 				NOT = { liege = { mother = { character = FROM } } }
 				NOT = { has_global_flag = gender_equality }
-			}			
+			}
 		}
 	}
 	abort_effect = {
@@ -544,7 +544,7 @@ obj_become_spymaster = {
 
 obj_become_spiritual = {
 	type = character
-	
+
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
@@ -562,7 +562,7 @@ obj_become_spiritual = {
 			}
 		}
 		learning = 10
-		
+
 		OR = {
 			NOT = { religion_group = muslim }
 			trait = detached_priest
@@ -571,7 +571,7 @@ obj_become_spiritual = {
 			trait = mastermind_theologian
 			NOT = { liege = { religion_group = muslim } }
 		}
-		
+
 		OR = {
 			is_theocracy = yes
 			liege = { religion_group = muslim }
@@ -584,11 +584,11 @@ obj_become_spiritual = {
 				NOT = { is_heresy_of = miaphysite }
 			}
 		}
-		
+
 		liege = {
 			religion = ROOT
 		}
-		
+
 		OR = {
 			is_ruler = no
 			is_theocracy = yes
@@ -597,7 +597,7 @@ obj_become_spiritual = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 0.01
 			trait = content
@@ -692,13 +692,13 @@ obj_become_spiritual = {
 
 obj_amass_wealth_1 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		NOT = { wealth = 250 }
 		is_ruler = yes
 		NOT = { trait = incapable }
-		NOT = { has_character_flag = obj_amass_wealth }	
+		NOT = { has_character_flag = obj_amass_wealth }
 		NOT = { has_character_modifier = loan_timer }
 		NOT = { has_character_flag = loan_taken }
 		lower_tier_than = DUKE
@@ -706,7 +706,7 @@ obj_amass_wealth_1 = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -726,7 +726,7 @@ obj_amass_wealth_1 = {
 		modifier = {
 			factor = 0
 			trait = charitable
-		}		
+		}
 		modifier = {
 			factor = 0
 			trait = content
@@ -750,7 +750,7 @@ obj_amass_wealth_1 = {
 	effect = {
 		change_stewardship = 1
 		set_character_flag = obj_amass_wealth
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = REPUBLICANFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_republican" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -760,7 +760,7 @@ obj_amass_wealth_1 = {
 
 obj_amass_wealth_2 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		NOT = { wealth = 500 }
@@ -778,7 +778,7 @@ obj_amass_wealth_2 = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -798,7 +798,7 @@ obj_amass_wealth_2 = {
 		modifier = {
 			factor = 0
 			trait = charitable
-		}		
+		}
 		modifier = {
 			factor = 0
 			trait = content
@@ -822,7 +822,7 @@ obj_amass_wealth_2 = {
 	effect = {
 		change_stewardship = 1
 		set_character_flag = obj_amass_wealth
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = REPUBLICANFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_republican" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -832,13 +832,13 @@ obj_amass_wealth_2 = {
 
 obj_amass_wealth_3 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		NOT = { wealth = 750 }
 		is_ruler = yes
 		NOT = { trait = incapable }
-		NOT = { has_character_flag = obj_amass_wealth }	
+		NOT = { has_character_flag = obj_amass_wealth }
 		NOT = { has_character_modifier = loan_timer }
 		NOT = { has_character_flag = loan_taken }
 		lower_tier_than = EMPEROR
@@ -850,7 +850,7 @@ obj_amass_wealth_3 = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -870,7 +870,7 @@ obj_amass_wealth_3 = {
 		modifier = {
 			factor = 0
 			trait = charitable
-		}		
+		}
 		modifier = {
 			factor = 0
 			trait = content
@@ -894,7 +894,7 @@ obj_amass_wealth_3 = {
 	effect = {
 		change_stewardship = 1
 		set_character_flag = obj_amass_wealth
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = REPUBLICANFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_republican" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -904,13 +904,13 @@ obj_amass_wealth_3 = {
 
 obj_amass_wealth_4 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		NOT = { wealth = 1000 }
 		is_ruler = yes
 		NOT = { trait = incapable }
-		NOT = { has_character_flag = obj_amass_wealth }	
+		NOT = { has_character_flag = obj_amass_wealth }
 		NOT = { has_character_modifier = loan_timer }
 		NOT = { has_character_flag = loan_taken }
 		OR = {
@@ -920,7 +920,7 @@ obj_amass_wealth_4 = {
 	}
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -940,7 +940,7 @@ obj_amass_wealth_4 = {
 		modifier = {
 			factor = 0
 			trait = charitable
-		}		
+		}
 		modifier = {
 			factor = 0
 			trait = content
@@ -964,7 +964,7 @@ obj_amass_wealth_4 = {
 	effect = {
 		change_stewardship = 1
 		set_character_flag = obj_amass_wealth
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = REPUBLICANFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_republican" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -974,7 +974,7 @@ obj_amass_wealth_4 = {
 
 obj_become_paragon_of_virtue = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		piety = 0
@@ -985,7 +985,7 @@ obj_become_paragon_of_virtue = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1027,7 +1027,7 @@ obj_become_paragon_of_virtue = {
 	}
 	effect = {
 		piety = 100
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -1073,7 +1073,7 @@ obj_become_paragon_of_virtue = {
 
 obj_become_exalted_1 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prestige = 0
@@ -1094,7 +1094,7 @@ obj_become_exalted_1 = {
 		modifier = {
 			factor = 0
 			trait = content
-		}			
+		}
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1127,11 +1127,11 @@ obj_become_exalted_1 = {
 	}
 	effect = {
 		prestige = 100
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 2 }
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 2 }
 		}
@@ -1162,7 +1162,7 @@ obj_become_exalted_1 = {
 
 obj_become_exalted_2 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prestige = 0
@@ -1187,7 +1187,7 @@ obj_become_exalted_2 = {
 		modifier = {
 			factor = 0
 			trait = content
-		}			
+		}
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1228,7 +1228,7 @@ obj_become_exalted_2 = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 2 }
 		}
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				has_nickname = no
@@ -1255,7 +1255,7 @@ obj_become_exalted_2 = {
 
 obj_become_exalted_3 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prestige = 0
@@ -1272,7 +1272,7 @@ obj_become_exalted_3 = {
 	}
 	chance = {
 		factor = 50
-	
+
 		modifier = {
 			factor = 0
 			trait = humble
@@ -1280,7 +1280,7 @@ obj_become_exalted_3 = {
 		modifier = {
 			factor = 0
 			trait = content
-		}	
+		}
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1320,8 +1320,8 @@ obj_become_exalted_3 = {
 		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 2 }
-		}		
-		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
+		}
+		hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		if = {
 			limit = {
 				has_nickname = no
@@ -1348,7 +1348,7 @@ obj_become_exalted_3 = {
 
 obj_become_exalted_4 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prestige = 0
@@ -1371,7 +1371,7 @@ obj_become_exalted_4 = {
 		modifier = {
 			factor = 0
 			trait = content
-		}		
+		}
 		modifier = {
 			factor = 1.25
 			trait = patient
@@ -1439,7 +1439,7 @@ obj_become_exalted_4 = {
 
 obj_get_married = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -1464,7 +1464,7 @@ obj_get_married = {
 		modifier = {
 			factor = 0.1
 			trait = homosexual
-		}		
+		}
 		modifier = {
 			factor = 0.1
 			trait = chaste
@@ -1482,7 +1482,7 @@ obj_get_married = {
 			trait = ambitious
 		}
 		modifier = {
-			factor = 2.0 
+			factor = 2.0
 			age = 25
 		}
 		modifier = {
@@ -1524,7 +1524,7 @@ obj_get_married = {
 		}
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -1556,7 +1556,7 @@ obj_get_married = {
 
 obj_marry_ruler = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -1587,7 +1587,7 @@ obj_marry_ruler = {
 		modifier = {
 			factor = 0.1
 			trait = homosexual
-		}		
+		}
 		modifier = {
 			factor = 0.1
 			trait = chaste
@@ -1661,9 +1661,9 @@ obj_marry_ruler = {
 
 obj_have_a_daughter = {
 	type = character
-	
+
 	fertility = 0.1
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -1700,7 +1700,7 @@ obj_have_a_daughter = {
 		modifier = {
 			factor = 2.0
 			is_female = yes
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 3
@@ -1736,7 +1736,7 @@ obj_have_a_daughter = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -1756,9 +1756,9 @@ obj_have_a_daughter = {
 
 obj_have_a_son = {
 	type = character
-	
+
 	fertility = 0.1
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -1782,7 +1782,7 @@ obj_have_a_son = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 0.5
 			is_female = yes
@@ -1818,7 +1818,7 @@ obj_have_a_son = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -1830,7 +1830,7 @@ obj_have_a_son = {
 		if = {
 			limit = { has_character_flag = obj_have_child_2 }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_have_child_2
 	}
 }
@@ -1838,7 +1838,7 @@ obj_have_a_son = {
 
 obj_wants_landed_title = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -1848,7 +1848,7 @@ obj_wants_landed_title = {
 		}
 		is_ruler = no
 		NOT = { trait = incapable }
-		liege = { 
+		liege = {
 			is_close_relative = ROOT
 			num_of_extra_landed_titles = 1
 		}
@@ -1862,7 +1862,7 @@ obj_wants_landed_title = {
 			liege = {
 				primary_title = {
 					has_law = succ_gavelkind
-				}			
+				}
 			}
 		}
 		modifier = {
@@ -1874,7 +1874,7 @@ obj_wants_landed_title = {
 					}
 				}
 			}
-		}		
+		}
 		modifier = {
 			factor = 0.85
 			has_character_modifier = estates_1
@@ -1894,7 +1894,7 @@ obj_wants_landed_title = {
 		modifier = {
 			factor = 0.25
 			has_character_modifier = estates_5
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			is_primary_heir = no
@@ -1910,9 +1910,9 @@ obj_wants_landed_title = {
 				}
 				mother = {
 					is_liege_of = ROOT
-				}				
-			}			
-		}		
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			trait = content
@@ -1948,16 +1948,16 @@ obj_wants_landed_title = {
 	abort = {
 		OR = {
 			prisoner = yes
-			liege = { 
+			liege = {
 				OR = {
 					NOT = { is_close_relative = ROOT }
 					NOT = { num_of_extra_landed_titles = 1 }
 				}
 			}
 			has_opinion_modifier = { who = liege modifier = opinion_denied_title }
-			has_opinion_modifier = { who = liege modifier = opinion_broken_title_promise }			
+			has_opinion_modifier = { who = liege modifier = opinion_broken_title_promise }
 		}
-	}	
+	}
 	abort_effect = {
 		set_character_flag = obj_aborted
 		clr_character_flag = obj_check
@@ -1988,7 +1988,7 @@ obj_wants_landed_title = {
 
 obj_become_heir = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -2016,7 +2016,7 @@ obj_become_heir = {
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 4.0
 			trait = ambitious
@@ -2051,7 +2051,7 @@ obj_become_heir = {
 			NOT = { liege = { any_child = { character = ROOT } } }
 			trait = incapable
 		}
-	}	
+	}
 	abort_effect = {
 		set_character_flag = obj_aborted
 		clr_character_flag = obj_check
@@ -2064,7 +2064,7 @@ obj_become_heir = {
 
 obj_find_lover = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -2098,13 +2098,13 @@ obj_find_lover = {
 			spouse = {
 				age = 40
 			}
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			spouse = {
 				NOT = { age = 30 }
 			}
-		}			
+		}
 		modifier = {
 			factor = 0.5
 			spouse = {
@@ -2113,7 +2113,7 @@ obj_find_lover = {
 					value = 25
 				}
 			}
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			spouse = {
@@ -2131,11 +2131,11 @@ obj_find_lover = {
 					value = 75
 				}
 			}
-		}		
+		}
 		modifier = {
 			factor = 0.1
 			trait = chaste
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = shy
@@ -2174,14 +2174,14 @@ obj_find_lover = {
 		if = {
 			limit = { has_character_flag = obj_find_lover }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_find_lover
 	}
 }
 
 obj_become_independent = {
 	type = character
-	
+
 	allow = {
 		ai = no
 		prisoner = no
@@ -2228,16 +2228,16 @@ obj_become_independent = {
 		if = {
 			limit = { has_character_flag = obj_independence }
 			prestige = 50
-		}				
+		}
 		set_character_flag = obj_independence
 	}
 }
 
 obj_five_children = {
 	type = character
-	
+
 	fertility = 0.1
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -2271,7 +2271,7 @@ obj_five_children = {
 		modifier = {
 			factor = 1.5
 			num_of_children = 2
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 3
@@ -2317,16 +2317,16 @@ obj_five_children = {
 				NOT = { religion_group = muslim }
 			}
 			prestige = 100
-		}		
+		}
 		set_character_flag = obj_have_child_3
 	}
 }
 
 obj_ten_children = {
 	type = character
-	
+
 	fertility = 0.1
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -2360,7 +2360,7 @@ obj_ten_children = {
 		modifier = {
 			factor = 1.5
 			num_of_children = 6
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 7
@@ -2390,7 +2390,7 @@ obj_ten_children = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -2406,16 +2406,16 @@ obj_ten_children = {
 				NOT = { religion_group = muslim }
 			}
 			prestige = 100
-		}	
+		}
 		set_character_flag = obj_have_child_4
 	}
 }
 
 obj_fifteen_children = {
 	type = character
-	
+
 	fertility = 0.1
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -2449,7 +2449,7 @@ obj_fifteen_children = {
 		modifier = {
 			factor = 1.5
 			num_of_children = 6
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 7
@@ -2479,7 +2479,7 @@ obj_fifteen_children = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -2495,16 +2495,16 @@ obj_fifteen_children = {
 				NOT = { religion_group = muslim }
 			}
 			prestige = 100
-		}	
+		}
 		set_character_flag = obj_have_child_5
 	}
 }
 
 obj_twenty_children = {
 	type = character
-	
+
 	fertility = 0.1
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -2538,7 +2538,7 @@ obj_twenty_children = {
 		modifier = {
 			factor = 1.5
 			num_of_children = 6
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 7
@@ -2568,7 +2568,7 @@ obj_twenty_children = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -2579,7 +2579,7 @@ obj_twenty_children = {
 				religion_group = christian
 			}
 			give_nickname = nick_the_quiverfull
-		}	
+		}
 		if = {
 			limit = {
 				religion_group = muslim
@@ -2591,14 +2591,14 @@ obj_twenty_children = {
 				NOT = { religion_group = muslim }
 			}
 			prestige = 100
-		}	
+		}
 		set_character_flag = obj_have_child_6
 	}
 }
 
 obj_increase_demesne_1 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -2606,7 +2606,7 @@ obj_increase_demesne_1 = {
 		num_of_count_titles = 1
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
-		NOT = { demesne_size = 2 }		
+		NOT = { demesne_size = 2 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -2626,7 +2626,7 @@ obj_increase_demesne_1 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -2668,19 +2668,19 @@ obj_increase_demesne_1 = {
 					modifier = opinion_happy
 					months = 120
 				}
-			}			
+			}
 		}
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}			
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_2 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -2689,7 +2689,7 @@ obj_increase_demesne_2 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 2
-		NOT = { demesne_size = 3 }		
+		NOT = { demesne_size = 3 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -2709,7 +2709,7 @@ obj_increase_demesne_2 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -2756,14 +2756,14 @@ obj_increase_demesne_2 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_3 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -2772,7 +2772,7 @@ obj_increase_demesne_3 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 3
-		NOT = { demesne_size = 4 }		
+		NOT = { demesne_size = 4 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -2792,7 +2792,7 @@ obj_increase_demesne_3 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -2839,14 +2839,14 @@ obj_increase_demesne_3 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_4 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -2855,7 +2855,7 @@ obj_increase_demesne_4 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 4
-		NOT = { demesne_size = 5 }		
+		NOT = { demesne_size = 5 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -2875,7 +2875,7 @@ obj_increase_demesne_4 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -2922,14 +2922,14 @@ obj_increase_demesne_4 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_5 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -2938,7 +2938,7 @@ obj_increase_demesne_5 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 5
-		NOT = { demesne_size = 6 }		
+		NOT = { demesne_size = 6 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -2958,7 +2958,7 @@ obj_increase_demesne_5 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -3005,14 +3005,14 @@ obj_increase_demesne_5 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_6 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -3021,7 +3021,7 @@ obj_increase_demesne_6 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 6
-		NOT = { demesne_size = 7 }		
+		NOT = { demesne_size = 7 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -3041,7 +3041,7 @@ obj_increase_demesne_6 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -3088,14 +3088,14 @@ obj_increase_demesne_6 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_7 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -3104,7 +3104,7 @@ obj_increase_demesne_7 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 7
-		NOT = { demesne_size = 8 }		
+		NOT = { demesne_size = 8 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -3124,7 +3124,7 @@ obj_increase_demesne_7 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -3171,14 +3171,14 @@ obj_increase_demesne_7 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_8 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -3187,7 +3187,7 @@ obj_increase_demesne_8 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 8
-		NOT = { demesne_size = 9 }		
+		NOT = { demesne_size = 9 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -3207,7 +3207,7 @@ obj_increase_demesne_8 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -3254,14 +3254,14 @@ obj_increase_demesne_8 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
 
 obj_increase_demesne_9 = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -3270,7 +3270,7 @@ obj_increase_demesne_9 = {
 		NOT = { trait = incapable }
 		demesne_efficiency = 1.01
 		demesne_size = 9
-		NOT = { demesne_size = 10 }	
+		NOT = { demesne_size = 10 }
 		OR = {
 			ai = no
 			NOT = { has_character_flag = obj_demesne }
@@ -3290,7 +3290,7 @@ obj_increase_demesne_9 = {
 		modifier = {
 			factor = 1.5
 			prestige = 400
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = envious
@@ -3337,7 +3337,7 @@ obj_increase_demesne_9 = {
 		if = {
 			limit = { has_character_flag = obj_demesne }
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_demesne
 	}
 }
@@ -3371,7 +3371,7 @@ obj_become_duke = {
 		modifier = {
 			factor = 10
 			any_claim = { tier = DUKE }
-		}		
+		}
 	}
 	success = {
 		higher_tier_than = count
@@ -3442,11 +3442,11 @@ obj_become_multiduke = {
 # Become King
 obj_become_king = {
 	type = character
-	
+
 	can_cancel = no
-	
+
 	ai_capital_kingdom_focus = yes # AI characters with this ambition will actually focus on taking the kingdom
-	
+
 	potential = {
 		is_adult = yes
 		is_playable = yes
@@ -3459,14 +3459,14 @@ obj_become_king = {
 			}
 		}
 	}
-	
+
 	allow = {
 		NOT = { trait = incapable }
 	}
-	
+
 	chance = {
 		factor = 100
-		
+
 		modifier = {
 			factor = 0
 			NOT = { religion_group = pagan_group }
@@ -3534,7 +3534,7 @@ obj_become_king = {
 			}
 		}
 	}
-	
+
 	success = {
 		custom_tooltip = {
 			text = obj_become_king_tip
@@ -3549,7 +3549,7 @@ obj_become_king = {
 			}
 		}
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
@@ -3561,10 +3561,10 @@ obj_become_king = {
 			}
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 1000
 	}
@@ -3572,7 +3572,7 @@ obj_become_king = {
 
 obj_become_emperor = {
 	type = character
-	
+
 	allow = {
 		ai = no
 		age = 16
@@ -3584,7 +3584,7 @@ obj_become_emperor = {
 			primary_title = { tier = KING }
 			any_claim = { tier = EMPEROR }
 			liege = { primary_title = { tier = EMPEROR has_law = succ_feudal_elective } }
-		}	
+		}
 		NOT = { has_character_flag = obj_increase_title_3 }
 	}
 	chance = {
@@ -3604,14 +3604,14 @@ obj_become_emperor = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		prestige = 500	
+		prestige = 500
 		set_character_flag = obj_increase_title_3
 	}
 }
 
 obj_go_crusade = {
 	type = character
-	
+
 	allow = {
 		ai = no
 		prisoner = no
@@ -3625,13 +3625,13 @@ obj_go_crusade = {
 		religion_head = {
 			has_called_crusade = yes
 		}
-		NOT = { trait = incapable }		
+		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_go_crusade }
 		NOT = { trait = crusader }
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 0.1
 			NOT = { piety = 100 }
@@ -3639,7 +3639,7 @@ obj_go_crusade = {
 		modifier = {
 			factor = 0.1
 			NOT = { martial = 10 }
-		}		
+		}
 		modifier = {
 			factor = 3.0
 			trait = crusader
@@ -3672,7 +3672,7 @@ obj_go_crusade = {
 		modifier = {
 			factor = 0
 			trait = craven
-		}		
+		}
 	}
 	success = {
 		trait = crusader
@@ -3694,9 +3694,9 @@ obj_go_crusade = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 1 }	
+			change_variable = { which = "faction_mood_religious" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		piety = 100
@@ -3706,7 +3706,7 @@ obj_go_crusade = {
 
 obj_go_jihad = {
 	type = character
-	
+
 	allow = {
 		ai = no
 		prisoner = no
@@ -3720,13 +3720,13 @@ obj_go_jihad = {
 		religion_head = {
 			has_called_crusade = yes
 		}
-		NOT = { trait = incapable }		
+		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_go_crusade }
 		NOT = { trait = mujahid }
 	}
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 0.1
 			NOT = { piety = 100 }
@@ -3767,7 +3767,7 @@ obj_go_jihad = {
 		modifier = {
 			factor = 0
 			trait = craven
-		}		
+		}
 	}
 	success = {
 		trait = mujahid
@@ -3789,7 +3789,7 @@ obj_go_jihad = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -3801,16 +3801,16 @@ obj_go_jihad = {
 
 obj_break_out_of_prison = {
 	type = character
-	
+
 	allow = {
 		prisoner = yes
 		not = { trait = incapable }
 	}
-	
+
 	chance = {
 		factor = 10000
 	}
-	
+
 	success = {
 		prisoner = no
 	}
@@ -3829,7 +3829,7 @@ obj_break_out_of_prison = {
 
 obj_win_a_war = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -3842,7 +3842,7 @@ obj_win_a_war = {
 		}
 		NOT = { has_character_modifier = victory_timer }
 	}
-	
+
 	chance = {
 		factor = 100
 		modifier = {
@@ -3852,7 +3852,7 @@ obj_win_a_war = {
 		modifier = {
 			factor = 10.0
 			war = yes
-		}		
+		}
 		modifier = {
 			factor = 0.25
 			is_female = yes
@@ -3860,7 +3860,7 @@ obj_win_a_war = {
 		modifier = {
 			factor = 0
 			trait = craven
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			trait = brave
@@ -3892,9 +3892,9 @@ obj_win_a_war = {
 		modifier = {
 			factor = 0.5
 			NOT = { martial = 3 }
-		}	
+		}
 	}
-	
+
 	success = {
 		has_character_modifier = victory_timer
 	}
@@ -3909,7 +3909,7 @@ obj_win_a_war = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -3922,14 +3922,14 @@ obj_win_a_war = {
 		if = {
 			limit = { has_character_flag = obj_win_a_war }
 			prestige = 25
-		}	
+		}
 		set_character_flag = obj_win_a_war
 	}
 }
 
 obj_convert_a_province = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		is_ruler = yes
@@ -3950,7 +3950,7 @@ obj_convert_a_province = {
 		}
 		NOT = { has_character_modifier = convert_province_timer }
 	}
-	
+
 	chance = {
 		factor = 100
 
@@ -3987,7 +3987,7 @@ obj_convert_a_province = {
 			NOT = { learning = 3 }
 		}
 	}
-	
+
 	success = {
 		has_character_modifier = convert_province_timer
 	}
@@ -3999,7 +3999,7 @@ obj_convert_a_province = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -4012,14 +4012,14 @@ obj_convert_a_province = {
 		if = {
 			limit = { has_character_flag = obj_convert_a_province }
 			piety = 25
-		}			
+		}
 		set_character_flag = obj_convert_a_province
 	}
 }
 
 obj_adopt_a_lifestyle = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 25
@@ -4035,10 +4035,10 @@ obj_adopt_a_lifestyle = {
 		NOT = { has_character_flag = obj_adopt_a_lifestyle }
 		NOT = { has_character_flag = lifestyle_pick }
 	}
-	
+
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			factor = 1.5
 			trait = diligent
@@ -4050,9 +4050,9 @@ obj_adopt_a_lifestyle = {
 		modifier = {
 			factor = 0.5
 			is_ruler = yes
-		}		
+		}
 	}
-	
+
 	success = {
 		lifestyle_traits = 1
 	}
@@ -4067,9 +4067,9 @@ obj_adopt_a_lifestyle = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_court" value = 0.5 }	
+			change_variable = { which = "faction_mood_court" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		prestige = 50
@@ -4079,7 +4079,7 @@ obj_adopt_a_lifestyle = {
 
 obj_gain_honorary_title = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -4099,20 +4099,20 @@ obj_gain_honorary_title = {
 			has_minor_title = title_seneschal
 			has_minor_title = title_despot
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_jester
 			has_minor_title = title_food_taster
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
 			has_minor_title = title_court_poet
-			has_minor_title = title_chief_architect		
+			has_minor_title = title_chief_architect
 			has_minor_title = title_imperial_eunuch
 			has_minor_title = title_high_judge
 			has_minor_title = title_high_admiral
-			has_minor_title = title_state_inquisitor	
+			has_minor_title = title_state_inquisitor
 			has_minor_title = title_volva
 			has_minor_title = title_lawspeaker
 			has_minor_title = title_drottseti
@@ -4135,10 +4135,10 @@ obj_gain_honorary_title = {
 			has_minor_title = title_venerable_elder
 			has_minor_title = title_yabgu
 			has_minor_title = title_ishad
-			has_minor_title = title_kundur		
-		}	
+			has_minor_title = title_kundur
+		}
 	}
-	
+
 	chance = {
 		factor = 50
 
@@ -4165,9 +4165,9 @@ obj_gain_honorary_title = {
 		modifier = {
 			factor = 0.5
 			is_ruler = yes
-		}		
+		}
 	}
-	
+
 	success = {
 		OR = {
 			has_minor_title = title_keeper_of_swans
@@ -4178,9 +4178,9 @@ obj_gain_honorary_title = {
 			has_minor_title = title_seneschal
 			has_minor_title = title_despot
 			has_minor_title = title_sebastokrator
-			has_minor_title = title_kouropalates	
+			has_minor_title = title_kouropalates
 			has_minor_title = title_caesar
-			has_minor_title = title_anthypatos	
+			has_minor_title = title_anthypatos
 			has_minor_title = title_court_dwarf
 			has_minor_title = title_court_calligrapher
 			has_minor_title = title_court_musician
@@ -4212,7 +4212,7 @@ obj_gain_honorary_title = {
 			has_minor_title = title_venerable_elder
 			has_minor_title = title_yabgu
 			has_minor_title = title_ishad
-			has_minor_title = title_kundur			
+			has_minor_title = title_kundur
 		}
 	}
 	abort = {
@@ -4237,7 +4237,7 @@ obj_gain_honorary_title = {
 		if = {
 			limit = { has_character_flag = obj_gain_honorary_title }
 			prestige = 25
-		}	
+		}
 		opinion = {
 			modifier = opinion_honorary_title
 			who = liege
@@ -4249,7 +4249,7 @@ obj_gain_honorary_title = {
 
 obj_gain_estates_1 = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
@@ -4266,17 +4266,17 @@ obj_gain_estates_1 = {
 			has_character_modifier = estates_5
 		}
 	}
-	
+
 	chance = {
 		factor = 100
 
 		modifier = {
 			factor = 0.1
-			NOT = { 
-				num_of_children = 1 
+			NOT = {
+				num_of_children = 1
 				liege = {
 					is_close_relative = ROOT
-				}				
+				}
 			}
 		}
 		modifier = {
@@ -4286,7 +4286,7 @@ obj_gain_estates_1 = {
 		modifier = {
 			factor = 0
 			is_primary_heir = yes
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			liege = {
@@ -4298,7 +4298,7 @@ obj_gain_estates_1 = {
 			liege = {
 				is_close_relative = ROOT
 			}
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			trait = ambitious
@@ -4310,7 +4310,7 @@ obj_gain_estates_1 = {
 		modifier = {
 			factor = 2.0
 			trait = greedy
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = content
@@ -4322,16 +4322,16 @@ obj_gain_estates_1 = {
 		modifier = {
 			factor = 0.5
 			trait = charitable
-		}				
+		}
 	}
-	
+
 	success = {
 		OR = {
 			has_character_modifier = estates_1
 			has_character_modifier = estates_2
 			has_character_modifier = estates_3
 			has_character_modifier = estates_4
-			has_character_modifier = estates_5		
+			has_character_modifier = estates_5
 		}
 	}
 	abort = {
@@ -4348,7 +4348,7 @@ obj_gain_estates_1 = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		prestige = 50	
+		prestige = 50
 		opinion = {
 			modifier = opinion_estates_obj
 			who = liege
@@ -4360,27 +4360,27 @@ obj_gain_estates_1 = {
 
 obj_gain_estates_2 = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
 		is_ruler = no
 		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
-		has_character_modifier = estates_1	
+		has_character_modifier = estates_1
 	}
-	
+
 	chance = {
 		factor = 50
 
 		modifier = {
 			has_character_flag = obj_gain_estates
 			factor = 0.5
-		}		
+		}
 		modifier = {
 			factor = 0
 			is_primary_heir = yes
-		}			
+		}
 		modifier = {
 			factor = 2.0
 			trait = ambitious
@@ -4392,7 +4392,7 @@ obj_gain_estates_2 = {
 		modifier = {
 			factor = 2.0
 			trait = greedy
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = content
@@ -4404,15 +4404,15 @@ obj_gain_estates_2 = {
 		modifier = {
 			factor = 0.5
 			trait = charitable
-		}				
+		}
 	}
-	
+
 	success = {
 		OR = {
 			has_character_modifier = estates_2
 			has_character_modifier = estates_3
 			has_character_modifier = estates_4
-			has_character_modifier = estates_5		
+			has_character_modifier = estates_5
 		}
 	}
 	abort = {
@@ -4428,7 +4428,7 @@ obj_gain_estates_2 = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		prestige = 50	
+		prestige = 50
 		opinion = {
 			modifier = opinion_estates_obj
 			who = liege
@@ -4440,27 +4440,27 @@ obj_gain_estates_2 = {
 
 obj_gain_estates_3 = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
 		is_ruler = no
 		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
-		has_character_modifier = estates_2	
+		has_character_modifier = estates_2
 	}
-	
+
 	chance = {
 		factor = 50
 
 		modifier = {
 			has_character_flag = obj_gain_estates
 			factor = 0.5
-		}		
+		}
 		modifier = {
 			factor = 0
 			is_primary_heir = yes
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			trait = ambitious
@@ -4472,7 +4472,7 @@ obj_gain_estates_3 = {
 		modifier = {
 			factor = 2.0
 			trait = greedy
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = content
@@ -4484,14 +4484,14 @@ obj_gain_estates_3 = {
 		modifier = {
 			factor = 0.5
 			trait = charitable
-		}				
+		}
 	}
-	
+
 	success = {
 		OR = {
 			has_character_modifier = estates_3
 			has_character_modifier = estates_4
-			has_character_modifier = estates_5		
+			has_character_modifier = estates_5
 		}
 	}
 	abort = {
@@ -4507,7 +4507,7 @@ obj_gain_estates_3 = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		prestige = 50	
+		prestige = 50
 		opinion = {
 			modifier = opinion_estates_obj
 			who = liege
@@ -4519,27 +4519,27 @@ obj_gain_estates_3 = {
 
 obj_gain_estates_4 = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
 		is_ruler = no
 		NOT = { spouse = { is_ruler = yes } }
 		NOT = { trait = incapable }
-		has_character_modifier = estates_3	
+		has_character_modifier = estates_3
 	}
-	
+
 	chance = {
 		factor = 50
 
 		modifier = {
 			has_character_flag = obj_gain_estates
 			factor = 0.5
-		}		
+		}
 		modifier = {
 			factor = 0
 			is_primary_heir = yes
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			trait = ambitious
@@ -4551,7 +4551,7 @@ obj_gain_estates_4 = {
 		modifier = {
 			factor = 2.0
 			trait = greedy
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = content
@@ -4563,13 +4563,13 @@ obj_gain_estates_4 = {
 		modifier = {
 			factor = 0.5
 			trait = charitable
-		}				
+		}
 	}
-	
+
 	success = {
 		OR = {
 			has_character_modifier = estates_4
-			has_character_modifier = estates_5		
+			has_character_modifier = estates_5
 		}
 	}
 	abort = {
@@ -4585,7 +4585,7 @@ obj_gain_estates_4 = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		prestige = 50	
+		prestige = 50
 		opinion = {
 			modifier = opinion_estates_obj
 			who = liege
@@ -4597,18 +4597,18 @@ obj_gain_estates_4 = {
 
 obj_gain_estates_5 = {
 	type = character
-	
+
 	allow = {
 		prisoner = no
 		age = 16
 		is_ruler = no
 		NOT = { trait = incapable }
-		has_character_modifier = estates_4	
+		has_character_modifier = estates_4
 	}
-	
+
 	chance = {
 		factor = 50
-		
+
 		modifier = {
 			has_character_flag = obj_gain_estates
 			factor = 0.5
@@ -4616,7 +4616,7 @@ obj_gain_estates_5 = {
 		modifier = {
 			factor = 0
 			is_primary_heir = yes
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			trait = ambitious
@@ -4628,7 +4628,7 @@ obj_gain_estates_5 = {
 		modifier = {
 			factor = 2.0
 			trait = greedy
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = content
@@ -4640,9 +4640,9 @@ obj_gain_estates_5 = {
 		modifier = {
 			factor = 0.5
 			trait = charitable
-		}				
+		}
 	}
-	
+
 	success = {
 		has_character_modifier = estates_5
 	}
@@ -4658,7 +4658,7 @@ obj_gain_estates_5 = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		prestige = 50	
+		prestige = 50
 		opinion = {
 			modifier = opinion_estates_obj
 			who = liege
@@ -4670,7 +4670,7 @@ obj_gain_estates_5 = {
 
 obj_befriend_liege = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		ai = no
@@ -4695,16 +4695,16 @@ obj_befriend_liege = {
 				opinion = {
 					who = ROOT
 					value = 75
-				}			
-			}			
+				}
+			}
 			NOT = { war_with = ROOT }
-		}		
+		}
 	}
-	
+
 	chance = {
-		factor = 0	
+		factor = 0
 	}
-	
+
 	success = {
 		liege = {
 			opinion = {
@@ -4719,7 +4719,7 @@ obj_befriend_liege = {
 			independent = yes
 			liege = { war_with = ROOT }
 			liege = { has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
-			liege = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }			
+			liege = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
 			NOT = {
 				liege = {
 					opinion = {
@@ -4735,15 +4735,15 @@ obj_befriend_liege = {
 						value = -50
 					}
 				}
-			}			
+			}
 		}
 	}
 	abort_effect = {
 		set_character_flag = obj_aborted
 		clr_character_flag = obj_check
 	}
-	effect = { 
-		liege = {	
+	effect = {
+		liege = {
 			hidden_tooltip = {
 				remove_opinion = {
 					who = ROOT
@@ -4752,7 +4752,7 @@ obj_befriend_liege = {
 				reverse_remove_opinion = {
 					who = ROOT
 					modifier = opinion_friend
-				}			
+				}
 			}
 			hidden_tooltip = {
 				opinion = {
@@ -4764,37 +4764,37 @@ obj_befriend_liege = {
 					who = ROOT
 					modifier = opinion_friend
 					years = 100
-				}	
+				}
 			}
 			custom_tooltip = { text = CUSTOMTOOLTIP28 }
 		}
 		if = {
-			limit = { 
+			limit = {
 				NOT = { has_character_flag = obj_befriend_liege }
 			}
 			prestige = 100
 		}
 		if = {
-			limit = { 
+			limit = {
 				has_character_flag = obj_befriend_liege
 			}
 			prestige = 25
-		}		
+		}
 		set_character_flag = obj_befriend_liege
 	}
 }
 
 obj_befriend_top_liege = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		ai = no
 		independent = no
 		NOT = { trait = incapable }
 		top_liege = {
-			NOT = { 
-				is_liege_of = ROOT 
+			NOT = {
+				is_liege_of = ROOT
 			}
 			opinion = {
 				who = ROOT
@@ -4814,16 +4814,16 @@ obj_befriend_top_liege = {
 				opinion = {
 					who = ROOT
 					value = 75
-				}			
-			}			
+				}
+			}
 			NOT = { war_with = ROOT }
-		}		
+		}
 	}
-	
+
 	chance = {
-		factor = 0	
+		factor = 0
 	}
-	
+
 	success = {
 		top_liege = {
 			opinion = {
@@ -4838,7 +4838,7 @@ obj_befriend_top_liege = {
 			independent = yes
 			top_liege = { war_with = ROOT }
 			top_liege = { has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
-			top_liege = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }			
+			top_liege = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
 			NOT = {
 				top_liege = {
 					opinion = {
@@ -4854,15 +4854,15 @@ obj_befriend_top_liege = {
 						value = -50
 					}
 				}
-			}			
+			}
 		}
 	}
 	abort_effect = {
 		set_character_flag = obj_aborted
 		clr_character_flag = obj_check
 	}
-	effect = { 
-		top_liege = {	
+	effect = {
+		top_liege = {
 			hidden_tooltip = {
 				remove_opinion = {
 					who = ROOT
@@ -4871,7 +4871,7 @@ obj_befriend_top_liege = {
 				reverse_remove_opinion = {
 					who = ROOT
 					modifier = opinion_friend
-				}			
+				}
 			}
 			hidden_tooltip = {
 				opinion = {
@@ -4883,30 +4883,30 @@ obj_befriend_top_liege = {
 					who = ROOT
 					modifier = opinion_friend
 					years = 100
-				}	
+				}
 			}
 			custom_tooltip = { text = CUSTOMTOOLTIP28 }
 		}
 		if = {
-			limit = { 
+			limit = {
 				NOT = { has_character_flag = obj_befriend_liege }
 			}
 			prestige = 100
 		}
 		if = {
-			limit = { 
+			limit = {
 				has_character_flag = obj_befriend_liege
 			}
 			prestige = 25
-		}		
-		set_character_flag = obj_befriend_liege		
+		}
+		set_character_flag = obj_befriend_liege
 	}
 }
 
 
 obj_befriend_relhead = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		ai = no
@@ -4920,7 +4920,7 @@ obj_befriend_relhead = {
 						character = PREVPREV
 					}
 				}
-			}		
+			}
 			opinion = {
 				who = ROOT
 				value = -25
@@ -4939,16 +4939,16 @@ obj_befriend_relhead = {
 				opinion = {
 					who = ROOT
 					value = 75
-				}			
+				}
 			}
 			NOT = { war_with = ROOT }
 		}
 	}
-	
+
 	chance = {
-		factor = 0	
+		factor = 0
 	}
-	
+
 	success = {
 		religion_head = {
 			opinion = {
@@ -4966,7 +4966,7 @@ obj_befriend_relhead = {
 			religion_head = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
 			religion_head = {
 				is_liege_of = ROOT
-			}			
+			}
 			NOT = {
 				religion_head = {
 					opinion = {
@@ -4982,7 +4982,7 @@ obj_befriend_relhead = {
 						value = -50
 					}
 				}
-			}			
+			}
 		}
 	}
 	abort_effect = {
@@ -4990,7 +4990,7 @@ obj_befriend_relhead = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -5004,8 +5004,8 @@ obj_befriend_relhead = {
 				reverse_remove_opinion = {
 					who = ROOT
 					modifier = opinion_friend
-				}			
-			}		
+				}
+			}
 			hidden_tooltip = {
 				opinion = {
 					who = ROOT
@@ -5016,23 +5016,23 @@ obj_befriend_relhead = {
 					who = ROOT
 					modifier = opinion_friend
 					years = 100
-				}	
+				}
 			}
 			custom_tooltip = { text = CUSTOMTOOLTIP28 }
 		}
 		if = {
-			limit = { 
+			limit = {
 				NOT = { has_character_flag = obj_befriend_relhead }
 			}
 			piety = 100
 		}
 		if = {
-			limit = { 
+			limit = {
 				has_character_flag = obj_befriend_relhead
 			}
 			piety = 25
-		}		
-		set_character_flag = obj_befriend_relhead		
+		}
+		set_character_flag = obj_befriend_relhead
 	}
 }
 
@@ -5041,20 +5041,20 @@ obj_befriend_relhead = {
 # Martial
 obj_improve_martial = {
 	type = character
-	
+
 	potential = {
 		age = 16
 		is_ruler = yes
 		prisoner = no
 	}
-	
+
 	allow = {
 		NOT = { martial = 8 }
 		NOT = { trait = incapable }
 	}
 	chance = {
 		factor = 20
-		
+
 		modifier = {
 			factor = 1.25
 			trait = diligent
@@ -5105,7 +5105,7 @@ obj_improve_martial = {
 				has_character_flag = obj_improve_attribute
 			}
 			prestige = 25
-		}		
+		}
 		clr_character_flag = improve_martial_success
 		clr_character_flag = toy_army_prepare
 		clr_character_flag = toy_army
@@ -5116,20 +5116,20 @@ obj_improve_martial = {
 # Stewardship
 obj_improve_stewardship = {
 	type = character
-	
+
 	potential = {
 		age = 16
 		is_ruler = yes
 		prisoner = no
 	}
-	
+
 	allow = {
 		NOT = { stewardship = 8 }
 		NOT = { trait = incapable }
 	}
 	chance = {
 		factor = 20
-		
+
 		modifier = {
 			factor = 1.25
 			trait = diligent
@@ -5176,7 +5176,7 @@ obj_improve_stewardship = {
 				has_character_flag = obj_improve_attribute
 			}
 			prestige = 25
-		}	
+		}
 		if = {
 			limit = {
 				NOT = { has_character_flag = obj_improve_attribute }
@@ -5194,20 +5194,20 @@ obj_improve_stewardship = {
 # Learning
 obj_improve_learning = {
 	type = character
-	
+
 	potential = {
 		age = 16
 		is_ruler = yes
 		prisoner = no
 	}
-	
+
 	allow = {
 		NOT = { learning = 8 }
 		NOT = { trait = incapable }
 	}
 	chance = {
 		factor = 20
-		
+
 		modifier = {
 			factor = 1.25
 			trait = diligent
@@ -5250,7 +5250,7 @@ obj_improve_learning = {
 				has_character_flag = obj_improve_attribute
 			}
 			prestige = 25
-		}	
+		}
 		if = {
 			limit = {
 				NOT = { has_character_flag = obj_improve_attribute }
@@ -5268,20 +5268,20 @@ obj_improve_learning = {
 # Diplomacy
 obj_improve_diplomacy = {
 	type = character
-	
+
 	potential = {
 		age = 16
 		is_ruler = yes
 		prisoner = no
 	}
-	
+
 	allow = {
 		NOT = { diplomacy = 8 }
 		NOT = { trait = incapable }
 	}
 	chance = {
 		factor = 20
-		
+
 		modifier = {
 			factor = 1.25
 			trait = diligent
@@ -5324,7 +5324,7 @@ obj_improve_diplomacy = {
 				has_character_flag = obj_improve_attribute
 			}
 			prestige = 25
-		}	
+		}
 		if = {
 			limit = {
 				NOT = { has_character_flag = obj_improve_attribute }
@@ -5342,20 +5342,20 @@ obj_improve_diplomacy = {
 # Intrigue
 obj_improve_intrigue = {
 	type = character
-	
+
 	potential = {
 		age = 16
 		is_ruler = yes
 		prisoner = no
 	}
-	
+
 	allow = {
 		NOT = { intrigue = 8 }
 		NOT = { trait = incapable }
 	}
 	chance = {
 		factor = 20
-		
+
 		modifier = {
 			factor = 1.25
 			trait = diligent
@@ -5398,7 +5398,7 @@ obj_improve_intrigue = {
 				has_character_flag = obj_improve_attribute
 			}
 			prestige = 25
-		}	
+		}
 		if = {
 			limit = {
 				NOT = { has_character_flag = obj_improve_attribute }

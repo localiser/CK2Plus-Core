@@ -1,6 +1,6 @@
 obj_reign_20_years = {
 	type = character
-	
+
 	allow = {
 		NOT = { ruled_years = 20 }
 		is_ruler = yes
@@ -11,22 +11,22 @@ obj_reign_20_years = {
 	}
 	chance = {
 		factor = 5
-		
+
 		modifier = {
 			factor = 2.0
 			ruled_years = 10
 		}
-		
+
 		modifier = {
 			factor = 2.0
 			ruled_years = 15
 		}
-		
+
 		modifier = {
 			factor = 5.0
 			ruled_years = 18
 		}
-		
+
 	}
 	success = {
 		ruled_years = 20
@@ -39,10 +39,10 @@ obj_reign_20_years = {
 			prisoner = yes
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		change_stewardship = 1
 		prestige = 50
@@ -52,34 +52,34 @@ obj_reign_20_years = {
 
 obj_peace_10_year = {
 	type = character
-	
+
 	creation_effect = {
 		add_character_modifier = {
 			name = "peace_declared_10_timer"
 			duration = 3650
 		}
 	}
-	
+
 	allow = {
 		independent = yes
 		is_ruler = yes
 		age = 16
 		prisoner = no
 		NOT = { trait = incapable }
-		NOT = { trait = ambitious } 
+		NOT = { trait = ambitious }
 		NOT = { has_character_modifier = peace_declared_10_timer }
 		war = no
 		mercenary = no
 	}
 	chance = {
 		factor = 0
-		
+
 	}
-	
+
 	success = {
 		NOT = { has_character_modifier = peace_declared_10_timer }
 	}
-	
+
 	abort = {
 		OR = {
 			trait = incapable
@@ -88,11 +88,11 @@ obj_peace_10_year = {
 			prisoner = yes
 		}
 	}
-	
+
 	abort_effect = {
 		remove_character_modifier = peace_declared_10_timer
 	}
-	
+
 	effect = {
 		change_stewardship = 1
 		piety = 50
@@ -101,7 +101,7 @@ obj_peace_10_year = {
 
 obj_great_council = {
 	type = character
-	
+
 	allow = {
 		age = 16
 		prisoner = no
@@ -125,7 +125,7 @@ obj_great_council = {
 				learning = 20
 			}
 		}
-		
+
 		NOT = {
 			AND = {
 				job_chancellor = {
@@ -146,10 +146,10 @@ obj_great_council = {
 			}
 		}
 	}
-	
+
 	chance = {
 		factor = 1
-		
+
 		modifier = {
 			factor = 2.0
 			ruled_years = 20
@@ -180,10 +180,10 @@ obj_great_council = {
 			prisoner = yes
 		}
 	}
-	
+
 	abort_effect = {
 	}
-	
+
 	effect = {
 		prestige = 200
 		hidden_tooltip = {
@@ -191,17 +191,17 @@ obj_great_council = {
 		}
 	}
 }
-	
+
 obj_civilize_province = {
 	type = character
 	allow = {
 		any_realm_lord = {any_demesne_province = {NOT = {culture = ROOT culture = PREV}}}
 	}
-	
+
 	chance = {
 		factor = 5
 	}
-	
+
 	success = {
 		has_character_flag = civilized_province
 	}

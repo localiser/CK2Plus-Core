@@ -2,7 +2,7 @@
 plot_seduce_liege = {
 	type = realm_characters
 	intrigue_plot = yes
-	
+
 	# Plotter scope
 	potential = {
 		prisoner = no
@@ -23,9 +23,9 @@ plot_seduce_liege = {
 		NOT = { trait = chaste }
 		NOT = { trait = celibate }
 		NOT = { health_traits = 1 }
-		
+
 	}
-	
+
 	# Target allow trigger for when players target a specific character in the GUI
 	player_allow = {
 		age = 16
@@ -36,11 +36,11 @@ plot_seduce_liege = {
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
 		NOT = { trait = eunuch }
-		FROM = { 
+		FROM = {
 			NOT = { has_opinion_modifier = { who = ROOT modifier = love_scorned } }
 		}
 	}
-	
+
 	# Target character scope
 	allow = {
 		# Must be male liege with no lover already
@@ -52,7 +52,7 @@ plot_seduce_liege = {
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
 		NOT = { trait = eunuch }
-		FROM = { 
+		FROM = {
 			NOT = { has_opinion_modifier = { who = ROOT modifier = love_scorned } }
 		}
 		OR = {
@@ -62,7 +62,7 @@ plot_seduce_liege = {
 			}
 		}
 	}
-	
+
 	chance = {
 		factor = 1.0
 		modifier = {
@@ -75,19 +75,19 @@ plot_seduce_liege = {
 		}
 		modifier = {
 			factor = 0.3
-			opinion = { who = FROM value = 20 } 
+			opinion = { who = FROM value = 20 }
 		}
 		modifier = {
 			factor = 0.4
-			opinion = { who = FROM value = 40 } 
+			opinion = { who = FROM value = 40 }
 		}
 		modifier = {
 			factor = 0.5
-			opinion = { who = FROM value = 60 } 
+			opinion = { who = FROM value = 60 }
 		}
 		modifier = {
 			factor = 0.6
-			opinion = { who = FROM value = 80 } 
+			opinion = { who = FROM value = 80 }
 		}
 		modifier = {
 			factor = 1.5
@@ -99,9 +99,9 @@ plot_seduce_liege = {
 		}
 		modifier = {
 			factor = 4.0
-			FROM = { 
+			FROM = {
 				OR = {
-					trait = lustful 
+					trait = lustful
 					trait = hedonist
 				}
 			}
@@ -134,7 +134,7 @@ plot_seduce_liege = {
 			factor = 1.10
 			tier = duke
 		}
-		
+
 		modifier = {
 			factor = 1.20
 			OR = {
@@ -160,14 +160,14 @@ plot_seduce_liege = {
 			factor = 0.1
 			FROM = { num_of_children = 2 }
 		}
-		
+
 		modifier = {
 			factor = 0.01
 			FROM = { num_of_children = 3 }
 		}
 		modifier = {
 			factor = 0.2
-			FROM = { 
+			FROM = {
 				any_child = {
 					trait = bastard
 				}
@@ -183,16 +183,16 @@ plot_seduce_liege = {
 		}
 		modifier = {
 			factor = 0.15
-			FROM = { 
+			FROM = {
 				spouse = {
 					is_ruler = yes
 				}
 			}
 		}
 	}
-	
+
 	success = {
-		has_opinion_modifier = { who = FROM modifier = opinion_lover } 
+		has_opinion_modifier = { who = FROM modifier = opinion_lover }
 	}
 	abort = {
 		OR = {
@@ -230,9 +230,9 @@ plot_seduce_liege = {
 				clr_character_flag = plot_seduce_liege_decision_100_taken
 				clr_character_flag = seduce_in_motion
 				clr_character_flag = plot_seduce_failed
-				clr_character_flag = plot_seducer 
+				clr_character_flag = plot_seducer
 			}
-			
+
 		}
 	}
 }
@@ -241,7 +241,7 @@ plot_seduce_liege = {
 plot_seduce_for_men = {
 	type = realm_characters
 	intrigue_plot = yes
-	
+
 	# Plotter scope
 	potential = {
 		prisoner = no
@@ -268,9 +268,9 @@ plot_seduce_for_men = {
 			trait = possessed
 		}
 		NOT = { health_traits = 2 }
-		
+
 	}
-	
+
 	# Target allow trigger for when players target a specific character in the GUI
 	player_allow = {
 		is_female = yes
@@ -281,11 +281,11 @@ plot_seduce_for_men = {
 		NOT = { is_close_relative = FROM }
 		NOT = { spouse = { character = FROM } }
 		has_lover = no
-		FROM = { 
+		FROM = {
 			NOT = { has_opinion_modifier = { who = ROOT modifier = love_scorned } }
 		}
 	}
-	
+
 	# Target character scope
 	allow = {
 		# Some basic rules regardless of target
@@ -297,14 +297,14 @@ plot_seduce_for_men = {
 		NOT = { trait = homosexual }
 		is_female = yes
 		has_lover = no
-		FROM = { 
+		FROM = {
 			NOT = { has_opinion_modifier = { who = ROOT modifier = love_scorned } }
 		}
-	
+
 		OR = {
 			# female liege
 				is_liege_of = FROM
-		
+
 			# landed female vassal
 			AND = {
 				FROM = {
@@ -312,7 +312,7 @@ plot_seduce_for_men = {
 				}
 				is_ruler = yes
 			}
-			
+
 			# female courtier with claim, or heir or pretender
 			AND = {
 				FROM = {
@@ -325,7 +325,7 @@ plot_seduce_for_men = {
 					any_heir_title = {always = yes}
 				}
 			}
-			
+
 			# crazy and wants to sleep with vassal's wife
 			FROM = {
 				OR = { trait = lunatic trait = possessed }
@@ -333,10 +333,10 @@ plot_seduce_for_men = {
 			}
 		}
 	}
-	
+
 	chance = {
 		factor = 1
-		
+
 		modifier = {
 			factor = 0
 			FROM = { trait = content }
@@ -347,19 +347,19 @@ plot_seduce_for_men = {
 		}
 		modifier = {
 			factor = 0.3
-			opinion = { who = FROM value = 20 } 
+			opinion = { who = FROM value = 20 }
 		}
 		modifier = {
 			factor = 0.4
-			opinion = { who = FROM value = 40 } 
+			opinion = { who = FROM value = 40 }
 		}
 		modifier = {
 			factor = 0.5
-			opinion = { who = FROM value = 60 } 
+			opinion = { who = FROM value = 60 }
 		}
 		modifier = {
 			factor = 0.6
-			opinion = { who = FROM value = 80 } 
+			opinion = { who = FROM value = 80 }
 		}
 		modifier = {
 			factor = 0.25
@@ -367,7 +367,7 @@ plot_seduce_for_men = {
 		}
 		modifier = {
 			factor = 1.1
-			FROM = { trait = arbitrary } 
+			FROM = { trait = arbitrary }
 		}
 		modifier = {
 			factor = 1.5
@@ -379,9 +379,9 @@ plot_seduce_for_men = {
 		}
 		modifier = {
 			factor = 4.0
-			FROM = { 
+			FROM = {
 				OR = {
-					trait = lustful 
+					trait = lustful
 					trait = hedonist
 				}
 			}
@@ -400,11 +400,11 @@ plot_seduce_for_men = {
 		}
 		modifier = {
 			factor = 0.5
-			FROM = { trait = honest } 
+			FROM = { trait = honest }
 		}
 		modifier = {
 			factor = 0.5
-			FROM = { trait = slow } 
+			FROM = { trait = slow }
 		}
 		modifier = {
 			factor = 0.01
@@ -435,7 +435,7 @@ plot_seduce_for_men = {
 		}
 		modifier = {
 			factor = 0.20
-			FROM = { 
+			FROM = {
 				any_child = {
 					trait = bastard
 				}
@@ -457,7 +457,7 @@ plot_seduce_for_men = {
 			factor = 1.10
 			tier = duke
 		}
-		
+
 		modifier = {
 			factor = 1.20
 			OR = {
@@ -475,16 +475,16 @@ plot_seduce_for_men = {
 		}
 		modifier = {
 			factor = 0.35
-			FROM = { 
+			FROM = {
 				spouse = {
 					is_ruler = yes
 				}
 			}
 		}
 	}
-	
+
 	success = {
-		has_opinion_modifier = { who = FROM modifier = opinion_lover } 
+		has_opinion_modifier = { who = FROM modifier = opinion_lover }
 	}
 	abort = {
 		OR = {
@@ -496,7 +496,7 @@ plot_seduce_for_men = {
 			FROM = { has_lover = yes }
 			FROM = { age = 55 }
 			FROM = { has_character_flag = plot_seduce_failed }
-			FROM = { 
+			FROM = {
 				health_traits = 1
 				NOT = { trait = lunatic }
 				NOT = { trait = possessed }
@@ -528,13 +528,13 @@ plot_seduce_for_men = {
 				clr_character_flag = plot_seduce_for_men_decision_100_taken
 				clr_character_flag = seduce_in_motion
 				clr_character_flag = plot_seduce_failed
-				clr_character_flag = plot_seducer 
+				clr_character_flag = plot_seducer
 			}
-			
+
 		}
 	}
 }
-		
+
 plot_fabricate_evidence_betrayal_same_realm = {
 	type = realm_characters_plus
 	vassal_intrigue_plot = yes
@@ -590,11 +590,11 @@ plot_fabricate_evidence_betrayal_same_realm = {
 		modifier = {
 			factor = 0
 			FROM = { ai = yes opinion = { who = ROOT value = 50 } }
-		}	
+		}
 		modifier = {
 			factor = 0
 			FROM = { opinion = { who = ROOT value = 25 } }
-		}	
+		}
 		modifier = {
 			factor = 0
 			FROM = { opinion = { who = ROOT value = -25 } }
@@ -681,7 +681,7 @@ plot_fabricate_evidence_betrayal = { # Outside Realm
 	#intrigue_plot = yes
 	potential = {
 		NOT = { OR = {trait = incapable trait = imbecile} }
-		is_adult = yes	
+		is_adult = yes
 		is_ruler = yes
 		independent = yes
 	}
@@ -700,7 +700,7 @@ plot_fabricate_evidence_betrayal = { # Outside Realm
 		modifier = {
 			factor = 100.0
 			FROM = { ai = no }
-		}	
+		}
 		modifier = {
 			factor = 0
 			FROM = {
@@ -723,11 +723,11 @@ plot_fabricate_evidence_betrayal = { # Outside Realm
 		modifier = {
 			factor = 0
 			FROM = { ai = yes opinion = { who = ROOT value = 50 } }
-		}	
+		}
 		modifier = {
 			factor = 0.25
 			FROM = { opinion = { who = ROOT value = 25 } }
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
