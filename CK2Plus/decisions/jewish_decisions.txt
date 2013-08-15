@@ -1,6 +1,6 @@
 decisions = {
 	pogrom = {
-		potential = {	
+		potential = {
 			is_ruler = yes
 			NOT = { has_character_flag = pogrom	}
 			OR = { higher_tier_than = baron is_patrician = yes }
@@ -8,7 +8,7 @@ decisions = {
 			OR = {
 				any_demesne_title = {
 					has_building = ct_jewish_community_1
-				}			
+				}
 				any_realm_lord = {
 					lower_tier_than = king
 					any_liege = { character = ROOT }
@@ -18,7 +18,7 @@ decisions = {
 							liege = { character = ROOT }
 						}
 						primary_title = {
-							crownlaw_title = { 
+							crownlaw_title = {
 								OR = {
 									has_law = centralization_3
 									has_law = centralization_4
@@ -32,36 +32,36 @@ decisions = {
 				}
 			}
 		}
-		allow = { 
+		allow = {
 			age = 16
 			OR = {
 				tier = king
 				independent = yes
-				primary_title = {	
+				primary_title = {
 					OR = {
 						has_crown_law_title = no
-						crownlaw_title = { 
-							NOT = { 
+						crownlaw_title = {
+							NOT = {
 								has_law = centralization_3
 								has_law = centralization_4
 							}
 						}
 					}
 				}
-			}		
+			}
 		}
 		effect = {
-			set_character_flag = pogrom		
+			set_character_flag = pogrom
 			if = {
 				limit = { trait = just }
 				remove_trait = just
-			}		
+			}
 			if = {
 				limit = { trait = charitable }
 				remove_trait = charitable
 			}
-			if = { 
-				limit = { 
+			if = {
+				limit = {
 					NOT = { trait = greedy }
 					trait = arbitrary
 				}
@@ -72,13 +72,13 @@ decisions = {
 							character_event = {
 								id = 38252 #Notify Greedy
 							}
-						}	 	
+						}
 					}
 					50 = { }
 				}
-			}			
-			if = { 
-				limit = { 
+			}
+			if = {
+				limit = {
 					NOT = { trait = arbitrary }
 					trait = greedy
 				}
@@ -89,13 +89,13 @@ decisions = {
 							character_event = {
 								id = 38266 #Notify Arbitrary
 							}
-						}		 	
+						}
 					}
 					50 = { }
 				}
 			}
-			if = { 
-				limit = { 
+			if = {
+				limit = {
 					NOT = { trait = arbitrary }
 					NOT = { trait = greedy }
 				}
@@ -106,7 +106,7 @@ decisions = {
 							character_event = {
 								id = 38266 #Notify Arbitrary
 							}
-						}		 	
+						}
 					}
 					25 = {
 						add_trait = greedy
@@ -119,11 +119,11 @@ decisions = {
 					50 = { }
 				}
 			}
-			custom_tooltip = { 
+			custom_tooltip = {
 				text = REPUBLICANFACTIONMOODMINUS
 				change_variable = { which = "faction_mood_republican" value = -2 }
 			}
-			custom_tooltip = { 
+			custom_tooltip = {
 				text = RELIGIOUSFACTIONMOODPLUS
 				change_variable = { which = "faction_mood_religious" value = 2 }
 			}
@@ -138,7 +138,7 @@ decisions = {
 					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 					}
-				}				
+				}
 			}
 			any_demesne_title = {
 				limit = {
@@ -151,7 +151,7 @@ decisions = {
 					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 					}
-				}				
+				}
 			}
 			any_demesne_title = {
 				limit = {
@@ -165,7 +165,7 @@ decisions = {
 					k_papal_state = {
 						holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 					}
-				}				
+				}
 			}
 			any_courtier = {
 				limit = { religion_group = judaism_group }
@@ -183,7 +183,7 @@ decisions = {
 							liege = { character = ROOT }
 						}
 						primary_title = {
-							crownlaw_title = { 
+							crownlaw_title = {
 								OR = {
 									has_law = centralization_3
 									has_law = centralization_4
@@ -194,7 +194,7 @@ decisions = {
 					any_demesne_title = {
 						has_building = ct_jewish_community_1
 					}
-				}				
+				}
 				any_demesne_title = {
 					limit = {
 						has_building = ct_jewish_community_3
@@ -205,7 +205,7 @@ decisions = {
 						k_papal_state = {
 							holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 						}
-					}				
+					}
 				}
 				any_demesne_title = {
 					limit = {
@@ -218,7 +218,7 @@ decisions = {
 						k_papal_state = {
 							holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 						}
-					}								
+					}
 				}
 				any_demesne_title = {
 					limit = {
@@ -232,7 +232,7 @@ decisions = {
 						k_papal_state = {
 							holder_scope = { change_variable = { which = "jewish_refugees" value = 2 } }
 						}
-					}								
+					}
 				}
 				any_courtier = {
 					limit = { religion_group = judaism_group }
@@ -250,18 +250,18 @@ decisions = {
 							liege = { character = ROOT }
 						}
 						primary_title = {
-							crownlaw_title = { 
+							crownlaw_title = {
 								OR = {
 									has_law = centralization_3
 									has_law = centralization_4
 								}
 							}
 						}
-					}					
+					}
 					OR = {
 						any_demesne_title = {
 							has_building = ct_jewish_community_1
-						}			
+						}
 						any_realm_lord = {
 							any_liege = { character = PREVPREV }
 							any_demesne_title = {
@@ -271,7 +271,7 @@ decisions = {
 					}
 				}
 				character_event = { id = 710005 tooltip = EVTTOOLTIP710005 }
-			}			
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -292,15 +292,15 @@ decisions = {
 						AND = {
 							trait = cruel
 							trait = greedy
-						}							
+						}
 					}
-				}				
+				}
 			}
 			modifier = {
 				factor = 0
 				wealth = 0
 				war = no
-			}					
+			}
 			modifier = {
 				factor = 0
 				OR = {

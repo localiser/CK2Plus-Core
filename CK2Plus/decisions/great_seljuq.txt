@@ -2,7 +2,7 @@ decisions = {
 
 	form_the_great_seljuq = {
 		is_high_prio = yes
-    
+
 		potential = {
 			e_seljuk_turks = {
 				has_holder = no
@@ -15,7 +15,7 @@ decisions = {
 			independent = yes
 			prisoner = no
 		}
-    
+
 		allow = {
 			war = no
 			prisoner = no
@@ -28,50 +28,49 @@ decisions = {
 			}
 			has_landed_title = k_persia
 		}
-    
+
 		effect = {
 			set_global_flag = seljuk_empire
 			prestige = 500
 			wealth = -300
-      
+
 			if = {
 				limit = { has_nickname = no }
 				give_nickname = nick_the_great
 			}
-		e_seljuk_turks = {
-			grant_title = ROOT
-			copy_title_laws = k_persia
-		} 
-		k_persia = {
-			destroy_landed_title = THIS
-		}
-      
-		hidden_tooltip = {
-			any_playable_ruler = {
-				limit = {
-					NOT = { has_landed_title = e_seljuk_turks }
-					ai = no
+			e_seljuk_turks = {
+				grant_title = ROOT
+				copy_title_laws = k_persia
+			}
+			k_persia = {
+				destroy_landed_title = THIS
+			}
+
+			hidden_tooltip = {
+				any_playable_ruler = {
+					limit = {
+						NOT = { has_landed_title = e_seljuk_turks }
+						ai = no
+					}
+					narrative_event = { id = 90009010 }
 				}
-				narrative_event = { id = 90009010 }
 			}
-		}
-		
-		create_character = {
-			random_traits = yes
-			dynasty = random
-			religion = sunni
-			culture = turkish
-			female = no
-			age = 35
-			attributes = {
-				martial = 10
+
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = sunni
+				culture = turkish
+				female = no
+				age = 35
+				attributes = {
+					martial = 10
+				}
+				trait = skilled_tactician
 			}
-			trait = skilled_tactician
-		}
 			spawn_unit = {
 				province = 907 #
-				troops =
-				{
+				troops = {
 					horse_archers = { 7500 7500 }
 					light_cavalry = { 4000 4000 }
 					light_infantry = { 3000 3000 }
@@ -80,10 +79,9 @@ decisions = {
 				}
 			}
 		}
-    
+
 		ai_will_do = {
 			factor = 1
-			
 		}
 	}
 }

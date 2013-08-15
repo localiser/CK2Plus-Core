@@ -2,86 +2,82 @@ decisions = {
 
 	extend_claims_boleslaw = {
 		is_high_prio = yes
-    
-		potential = {   
-      has_character_flag = boleslaw_the_brave
+
+		potential = {
+		has_character_flag = boleslaw_the_brave
 			NOT = {
 				has_character_flag = extend_claim_boleslaw
 			}
 			independent = yes
 			has_landed_title = d_moravia
-      NOT = { has_landed_title = d_bohemia }  
+			NOT = { has_landed_title = d_bohemia }
 		}
-    
-		allow = { 
+
+		allow = {
 			war = no
 			prisoner = no
 			prestige = 500
-      piety = 0
-      wealth = 0
+		piety = 0
+		wealth = 0
 		}
-    
+
 		effect = {
 			set_character_flag = extend_claim_boleslaw
 			prestige = 50
-      add_claim = c_lausitz
-      add_claim = d_bohemia
-      hidden_tooltip = {
-        random_independent_ruler = {
-          limit = {
-              has_landed_title = d_bohemia
-          }
-          character_event = { id = 90009009 }
-        }
-      }  
+			add_claim = c_lausitz
+			add_claim = d_bohemia
+			hidden_tooltip = {
+				random_independent_ruler = {
+					limit = {
+						has_landed_title = d_bohemia
+					}
+				character_event = { id = 90009009 }
+				}
+			}
 		}
-    
+
 		ai_will_do = {
 			factor = 1
-			
 		}
-	}  
-   
+	}
+
 	become_king_of_poland_boleslaw = {
 		is_high_prio = yes
-    
-		potential = {  
-      has_character_flag = boleslaw_the_brave 
+
+		potential = {
+			has_character_flag = boleslaw_the_brave
 			has_character_flag = extend_claim_boleslaw
-      piety = 0
-      wealth = 0 
-      has_landed_title = d_silesia  
-      has_landed_title = d_greater_poland 
-      has_landed_title = d_lesser_poland
-      
+			piety = 0
+			wealth = 0
+			has_landed_title = d_silesia
+			has_landed_title = d_greater_poland
+			has_landed_title = d_lesser_poland
 			NOT = {
 				has_character_flag = k_poland_boleslaw
-			} 
-      
+			}
 			k_poland = {
 				has_holder = no
 			}
 		}
-    
-		allow = { 
+
+		allow = {
 			war = no
-			prisoner = no 
+			prisoner = no
 			independent = yes
-			has_landed_title = d_moravia    
+			has_landed_title = d_moravia
 			prestige = 1000
 		}
-    
+
 		effect = {
 			set_character_flag = k_poland_boleslaw
 			prestige = 200
-      k_poland = {
-		    grant_title = ROOT
-	   	}
+			k_poland = {
+				grant_title = ROOT
+			}
 		}
-    
+
 		ai_will_do = {
-			factor = 1			
+			factor = 1
 		}
-    
 	}
 }

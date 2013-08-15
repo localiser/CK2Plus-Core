@@ -45,8 +45,8 @@ decisions = {
 		ai_will_do = {
 			factor = 0
 		}
-	}	
-	
+	}
+
 	convert_to_liege_religion = {
 		potential = {
 			ai = no
@@ -88,7 +88,7 @@ decisions = {
 			factor = 0
 		}
 	}
-	
+
 	convert_to_capital_culture = {
 		potential = {
 			ai = no
@@ -100,7 +100,7 @@ decisions = {
 							culture = PREVPREV
 						}
 					}
-				}				
+				}
 			}
 			NOT = { has_character_flag = converted_culture }
 		}
@@ -120,8 +120,8 @@ decisions = {
 		ai_will_do = {
 			factor = 0
 		}
-	}	
-	
+	}
+
 	convert_to_liege_culture = {
 		potential = {
 			ai = no
@@ -148,7 +148,7 @@ decisions = {
 			factor = 0
 		}
 	}
-	
+
 	convert_to_parent_religion = {
 		potential = {
 			ai = no
@@ -166,7 +166,7 @@ decisions = {
 					modifier = ruler_converted_from
 				}
 			}
-			
+
 			abandon_heresy = yes
 			set_character_flag = converted_religion
 			if = {
@@ -189,7 +189,7 @@ decisions = {
 	# Pagans are allowed to convert to the attacker's religion when under holy war
 	convert_to_attacker_religion = {
 		is_high_prio = yes
-		
+
 		potential = {
 			is_playable = yes
 			OR = {
@@ -212,11 +212,11 @@ decisions = {
 				}
 			}
 		}
-		
+
 		allow = {
 			NOT = { trait = zealous }
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
@@ -264,23 +264,23 @@ decisions = {
 							}
 						}
 					}
-					reverse_religion = ROOT 
+					reverse_religion = ROOT
 				}
 			}
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
 				}
 			}
-			
+
 			piety = 100
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -338,7 +338,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	convert_to_swedish = {
 		potential = {
 			culture = norse
@@ -369,11 +369,11 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0.2 # Slow it down a bit
 			}
-			
+
 			modifier = { # Do not flip if we're in a huge Norse empire
 				factor = 0
 				top_liege = { culture = norse }
@@ -393,7 +393,7 @@ decisions = {
 					}
 				}
 			}
-			
+
 			modifier = {
 				factor = 0.01
 				capital_scope = {
@@ -471,11 +471,11 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0.2 # Slow it down a bit
 			}
-			
+
 			modifier = { # Do not flip if we're in a huge Norse empire
 				factor = 0
 				top_liege = { culture = norse }
@@ -495,7 +495,7 @@ decisions = {
 					}
 				}
 			}
-			
+
 			modifier = {
 				factor = 0.01
 				capital_scope = {
@@ -506,7 +506,7 @@ decisions = {
 				factor = 2.0
 				liege = { culture = norwegian }
 			}
-			
+
 			modifier = {
 				factor = 1.1
 				num_culture_realm_provs = {
@@ -574,11 +574,11 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0.2 # Slow it down a bit
 			}
-			
+
 			modifier = { # Do not flip if we're in a huge Norse empire
 				factor = 0
 				top_liege = { culture = norse }
@@ -598,7 +598,7 @@ decisions = {
 					}
 				}
 			}
-			
+
 			modifier = {
 				factor = 0.01
 				capital_scope = {
@@ -673,11 +673,11 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0.2 # Slow it down a bit
 			}
-			
+
 			modifier = { # Do not flip if we're in a huge Norse empire
 				factor = 0
 				top_liege = { culture = norse }
@@ -697,7 +697,7 @@ decisions = {
 					}
 				}
 			}
-			
+
 			modifier = {
 				factor = 1.2
 				liege = { culture = norman }
@@ -739,7 +739,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	convert_to_reformed = {
 		potential = {
 			is_playable = yes
@@ -788,7 +788,7 @@ decisions = {
 				limit = { religion = west_african_pagan }
 				religion = west_african_pagan_reformed
 			}
-			
+
 			hidden_tooltip = {
 				any_courtier = {
 					limit = {
@@ -857,7 +857,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	# Pagans can convert to the Catholic faith if their wife or a concubine is Catholic
 	convert_to_spouse_catholic = {
 		potential = {
@@ -880,15 +880,15 @@ decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
 				modifier = ruler_converted_from
 			}
-			
+
 			religion = catholic
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
@@ -896,16 +896,16 @@ decisions = {
 			}
 			piety = 200
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
+
 	# Pagans can convert to the Orthodox faith if their wife or a concubine is Orthodox
 	convert_to_spouse_orthodox = {
 		potential = {
@@ -928,15 +928,15 @@ decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
 				modifier = ruler_converted_from
 			}
-			
+
 			religion = orthodox
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
@@ -944,16 +944,16 @@ decisions = {
 			}
 			piety = 200
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
+
 	# Pagans can convert to the Sunni faith if their wife or a concubine is Sunni
 	convert_to_spouse_sunni = {
 		potential = {
@@ -976,15 +976,15 @@ decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
 				modifier = ruler_converted_from
 			}
-			
+
 			religion = sunni
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
@@ -992,16 +992,16 @@ decisions = {
 			}
 			piety = 200
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
+
 	# Pagans can convert to the Shiite faith if their wife or a concubine is Shiite
 	convert_to_spouse_shiite = {
 		potential = {
@@ -1024,15 +1024,15 @@ decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
 				modifier = ruler_converted_from
 			}
-			
+
 			religion = shiite
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
@@ -1040,16 +1040,16 @@ decisions = {
 			}
 			piety = 200
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
+
 	# Pagans can convert to the Zoroatrian faith if their wife or a concubine is a believer
 	convert_to_spouse_zoroastrian = {
 		potential = {
@@ -1072,15 +1072,15 @@ decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
 				modifier = ruler_converted_from
 			}
-			
+
 			religion = zoroastrian
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
@@ -1088,16 +1088,16 @@ decisions = {
 			}
 			piety = 200
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
+
 	# Pagans can convert to the Miaphysite faith if their wife or a concubine is a believer
 	convert_to_spouse_miaphysite = {
 		potential = {
@@ -1120,15 +1120,15 @@ decisions = {
 				}
 			}
 		}
-		
+
 		effect = {
 			prestige = -500
 			religion_authority = {
 				modifier = ruler_converted_from
 			}
-			
+
 			religion = miaphysite
-			
+
 			hidden_tooltip = {
 				religion_authority = {
 					modifier = ruler_converted_to
@@ -1136,11 +1136,11 @@ decisions = {
 			}
 			piety = 200
 		}
-		
+
 		revoke_allowed = {
 			always = no
 		}
-		
+
 		ai_will_do = {
 			factor = 0
 		}

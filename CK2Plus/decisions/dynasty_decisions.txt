@@ -1,4 +1,4 @@
-decisions = {	
+decisions = {
 	bring_children_to_court = {
 		is_high_prio = yes
 		potential = {
@@ -8,23 +8,23 @@ decisions = {
 				is_married = no
 				is_ruler = no
 				prisoner = no
-				liege = { 
+				liege = {
 					NOT = { character = ROOT }
 				}
 			}
 		}
-		allow = { 
+		allow = {
 			any_child = {
 				NOT = { age = 16 }
 				is_married = no
 				is_ruler = no
 				prisoner = no
 				opinion = { who = ROOT value = -50 }
-				liege = { 
+				liege = {
 					NOT = { character = ROOT }
 					lower_tier_than = ROOT
 				}
-			}			 		
+			}
 		}
 		effect = {
 			any_child = {
@@ -34,12 +34,12 @@ decisions = {
 					is_ruler = no
 					prisoner = no
 					opinion = { who = ROOT value = -50 }
-					liege = { 
+					liege = {
 						NOT = { character = ROOT }
 						lower_tier_than = ROOT
-					}		
+					}
 				}
-				custom_tooltip = { 
+				custom_tooltip = {
 					text = CUSTOMTOOLTIP38
 					hidden_tooltip = { banish = ROOT }
 				}

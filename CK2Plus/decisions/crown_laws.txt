@@ -8,10 +8,10 @@ de_jure_laws = {
 	centralization_0 = {
 		show_as_title = yes
 		group = centralization
-		default = yes		
-		
-		allow = {	
-			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }		
+		default = yes
+
+		allow = {
+			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			has_law = centralization_1
 		}
 		revoke_allowed = {
@@ -25,7 +25,7 @@ de_jure_laws = {
 		}
 		pass_effect = {
 			hidden_tooltip = {
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_4
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -45,9 +45,9 @@ de_jure_laws = {
 						}
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-				}			
+				}
 			}
-		}		
+		}
 		effect = {
 			hidden_tooltip = {
 				revoke_law = centralization_0
@@ -55,7 +55,7 @@ de_jure_laws = {
 				revoke_law = centralization_2
 				revoke_law = centralization_3
 				revoke_law = centralization_4
-			}		
+			}
 			set_appoint_generals = yes
 			set_appoint_regents = no
 			set_the_kings_peace = no
@@ -64,14 +64,14 @@ de_jure_laws = {
 			set_allow_title_revokation = yes
 			set_allow_free_infidel_revokation = no
 			#set_allow_free_revokation = no
-		}		
+		}
 	}
-	
+
 	centralization_1 = {
 		show_as_title = yes
 		group = centralization
-		
-		allow = {	
+
+		allow = {
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			OR = {
 				has_law = centralization_0
@@ -90,20 +90,20 @@ de_jure_laws = {
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0
 				NOT = { has_law = centralization_0 }
-			}			
+			}
 		}
 		ai_will_revoke = {
 			factor = 0
 		}
 		pass_effect = {
 			hidden_tooltip = {
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_0
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -124,7 +124,7 @@ de_jure_laws = {
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 				}
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_2
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -144,7 +144,7 @@ de_jure_laws = {
 						}
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-				}				
+				}
 			}
 		}
 		effect = {
@@ -154,7 +154,7 @@ de_jure_laws = {
 				revoke_law = centralization_2
 				revoke_law = centralization_3
 				revoke_law = centralization_4
-			}		
+			}
 			set_appoint_generals = yes
 			set_appoint_regents = no
 			set_the_kings_peace = no
@@ -164,25 +164,25 @@ de_jure_laws = {
 			set_allow_free_infidel_revokation = no
 			#set_allow_free_revokation = no
 		}
-		
-		castle_vassal_max_levy = 0.05		
+
+		castle_vassal_max_levy = 0.05
 		city_vassal_max_levy = 0.05
 		temple_vassal_max_levy = 0.05
-		
+
 		castle_vassal_min_levy = 0.05
 		city_vassal_min_levy = 0.05
 		temple_vassal_min_levy = 0.05
 	}
-	
+
 	centralization_2 = {
 		show_as_title = yes
 		group = centralization
-		
+
 		allow = {
-			holder_scope = { 
-				is_republic = no 
-				
-				custom_tooltip = { 
+			holder_scope = {
+				is_republic = no
+
+				custom_tooltip = {
 					text = TT_NOT_UNREFORMED_PAGAN
 					hidden_tooltip = {
 						NOT = { religion = norse_pagan }
@@ -193,7 +193,7 @@ de_jure_laws = {
 						NOT = { religion = slavic_pagan }
 					}
 				}
-			}		
+			}
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			OR = {
 				has_law = centralization_1
@@ -208,24 +208,24 @@ de_jure_laws = {
 				NOT = { title = e_hre }
 				holder_scope = { NOT = { religion = catholic } }
 				holder_scope = { trait = crowned_by_pope }
-			}			
+			}
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0
 				NOT = { has_law = centralization_1 }
-			}			
+			}
 		}
 		ai_will_revoke = {
 			factor = 0
 		}
 		pass_effect = {
 			hidden_tooltip = {
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_1
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -246,7 +246,7 @@ de_jure_laws = {
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 				}
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_3
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -266,8 +266,8 @@ de_jure_laws = {
 						}
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-				}				
-			}		
+				}
+			}
 		}
 		effect = {
 			hidden_tooltip = {
@@ -276,7 +276,7 @@ de_jure_laws = {
 				revoke_law = centralization_2
 				revoke_law = centralization_3
 				revoke_law = centralization_4
-			}			
+			}
 			set_appoint_generals = yes
 			set_appoint_regents = yes
 			set_the_kings_peace = yes
@@ -286,23 +286,23 @@ de_jure_laws = {
 			set_allow_free_infidel_revokation = yes
 			#set_allow_free_revokation = no
 		}
-		
-		castle_vassal_max_levy = 0.1		
+
+		castle_vassal_max_levy = 0.1
 		city_vassal_max_levy = 0.1
 		temple_vassal_max_levy = 0.1
-		
+
 		castle_vassal_min_levy = 0.1
 		city_vassal_min_levy = 0.1
-		temple_vassal_min_levy = 0.1			
+		temple_vassal_min_levy = 0.1
 	}
-	
+
 	centralization_3 = {
 		show_as_title = yes
 		group = centralization
-		
-		allow = {	
-			holder_scope = { 
-				is_republic = no 
+
+		allow = {
+			holder_scope = {
+				is_republic = no
 				custom_tooltip = {
 					text = TT_NOT_UNREFORMED_PAGAN
 					hidden_tooltip = {
@@ -324,13 +324,13 @@ de_jure_laws = {
 			OR = {
 				has_law = centralization_4
 				holder_scope = { prestige = 2500 }
-			}			
+			}
 			OR = {
 				has_law = centralization_4
 				NOT = { title = e_hre }
 				holder_scope = { NOT = { religion = catholic } }
 				holder_scope = { trait = crowned_by_pope }
-			}				
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -340,14 +340,14 @@ de_jure_laws = {
 			modifier = {
 				factor = 0
 				NOT = { has_law = centralization_2 }
-			}			
+			}
 		}
 		ai_will_revoke = {
 			factor = 0
 		}
 		pass_effect = {
 			hidden_tooltip = {
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_2
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -368,7 +368,7 @@ de_jure_laws = {
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 				}
-				if = { 
+				if = {
 					limit = {
 						has_law = centralization_4
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -388,9 +388,9 @@ de_jure_laws = {
 						}
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-				}				
-			}		
-		}		
+				}
+			}
+		}
 		effect = {
 			hidden_tooltip = {
 				revoke_law = centralization_0
@@ -408,23 +408,23 @@ de_jure_laws = {
 			set_allow_free_infidel_revokation = yes
 			#set_allow_free_revokation = no
 		}
-		
-		castle_vassal_max_levy = 0.15		
+
+		castle_vassal_max_levy = 0.15
 		city_vassal_max_levy = 0.15
 		temple_vassal_max_levy = 0.15
-		
+
 		castle_vassal_min_levy = 0.15
 		city_vassal_min_levy = 0.15
-		temple_vassal_min_levy = 0.15			
+		temple_vassal_min_levy = 0.15
 	}
-	
+
 	centralization_4 = {
 		show_as_title = yes
 		group = centralization
-		
+
 		allow = {
-			holder_scope = { 
-				is_republic = no 
+			holder_scope = {
+				is_republic = no
 				custom_tooltip = {
 					text = TT_NOT_UNREFORMED_PAGAN
 					hidden_tooltip = {
@@ -440,29 +440,29 @@ de_jure_laws = {
 
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
 			has_law = centralization_3
-			holder_scope = { prestige = 5000 }			
+			holder_scope = { prestige = 5000 }
 			OR = {
 				NOT = { title = e_hre }
 				holder_scope = { NOT = { religion = catholic } }
 				holder_scope = { trait = crowned_by_pope }
-			}			
+			}
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0
 				NOT = { has_law = centralization_3 }
-			}			
+			}
 		}
 		ai_will_revoke = {
 			factor = 0
 		}
 		pass_effect = {
-			hidden_tooltip = {	
-				if = { 
+			hidden_tooltip = {
+				if = {
 					limit = {
 						has_law = centralization_3
 						holder_scope = { NOT = { has_character_flag = centralize_without_penalties } }
@@ -482,9 +482,9 @@ de_jure_laws = {
 						}
 					}
 					holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
-				}			
+				}
 			}
-		}		
+		}
 		effect = {
 			hidden_tooltip = {
 				revoke_law = centralization_0
@@ -502,16 +502,16 @@ de_jure_laws = {
 			set_allow_free_infidel_revokation = yes
 			#set_allow_free_revokation = yes
 		}
-		
-		castle_vassal_max_levy = 0.2		
+
+		castle_vassal_max_levy = 0.2
 		city_vassal_max_levy = 0.2
 		temple_vassal_max_levy = 0.2
-		
+
 		castle_vassal_min_levy = 0.2
 		city_vassal_min_levy = 0.2
-		temple_vassal_min_levy = 0.2		
+		temple_vassal_min_levy = 0.2
 	}
-	
+
 # INVESTITURE
 
 	investiture_law_0 = {
@@ -522,12 +522,12 @@ de_jure_laws = {
 			NOT = { has_law = investiture_law_0 }
 			holder_scope = { religion = catholic }
 		}
-		allow = {	
+		allow = {
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
-		}		
+		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -546,7 +546,7 @@ de_jure_laws = {
 			set_investiture = head
 		}
 	}
-	
+
 	investiture_law_1 = {
 		show_as_title = yes
 		rel_head_opinion = -20
@@ -557,13 +557,13 @@ de_jure_laws = {
 			NOT = { has_law = investiture_law_1 }
 			holder_scope = { religion = catholic }
 		}
-		allow = {	
+		allow = {
 			NOT = { title = k_papal_state }
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
-		}		
+		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -581,6 +581,6 @@ de_jure_laws = {
 			revoke_law = investiture_law_0
 			set_investiture = any
 		}
-	}	
-	
+	}
+
 }

@@ -15,11 +15,11 @@ decisions = {
 			OR = {
 				is_patrician = no
 				independent = yes
-			}		
+			}
 		}
 		allow = {
 			war = no
-			religion_authority = 0.2	
+			religion_authority = 0.2
 			piety = 0
 			prestige = 0
 			NOT = { has_character_modifier = sanction_timer }
@@ -34,7 +34,7 @@ decisions = {
 							who = ROOT
 							value = 100
 						}
-					}	
+					}
 				}
 				#< 100 piety
 				if = {
@@ -85,8 +85,8 @@ decisions = {
 						piety = 1000
 					}
 					character_event = { id = 110051 days = 5 random = 12 tooltip = "war_sanction_granted" }
-				}				
-			}			
+				}
+			}
 			#75+ relations
 			if = {
 				limit = {
@@ -99,9 +99,9 @@ decisions = {
 							opinion = {
 								who = ROOT
 								value = 100
-							}						
+							}
 						}
-					}	
+					}
 				}
 				#< 100 piety
 				if = {
@@ -155,7 +155,7 @@ decisions = {
 						90 = { character_event = { id = 110051 days = 5 random = 12 tooltip = "war_sanction_granted" } }
 						10 = { character_event = { id = 110052 days = 5 random = 12 tooltip = "war_sanction_not_granted" } }
 					}
-				}				
+				}
 			}
 			#50-75 relations
 			if = {
@@ -169,9 +169,9 @@ decisions = {
 							opinion = {
 								who = ROOT
 								value = 75
-							}						
+							}
 						}
-					}	
+					}
 				}
 				#< 100 piety
 				if = {
@@ -225,7 +225,7 @@ decisions = {
 						80 = { character_event = { id = 110051 days = 5 random = 12 tooltip = "war_sanction_granted" } }
 						20 = { character_event = { id = 110052 days = 5 random = 12 tooltip = "war_sanction_not_granted" } }
 					}
-				}				
+				}
 			}
 			#25-50 relations
 			if = {
@@ -239,9 +239,9 @@ decisions = {
 							opinion = {
 								who = ROOT
 								value = 50
-							}						
+							}
 						}
-					}	
+					}
 				}
 				#< 100 piety
 				if = {
@@ -295,7 +295,7 @@ decisions = {
 						70 = { character_event = { id = 110051 days = 5 random = 12 tooltip = "war_sanction_granted" } }
 						30 = { character_event = { id = 110052 days = 5 random = 12 tooltip = "war_sanction_not_granted" } }
 					}
-				}				
+				}
 			}
 			#0-25 relations
 			if = {
@@ -309,9 +309,9 @@ decisions = {
 							opinion = {
 								who = ROOT
 								value = 25
-							}						
+							}
 						}
-					}	
+					}
 				}
 				#< 100 piety
 				if = {
@@ -365,7 +365,7 @@ decisions = {
 						60 = { character_event = { id = 110051 days = 5 random = 12 tooltip = "war_sanction_granted" } }
 						40 = { character_event = { id = 110052 days = 5 random = 12 tooltip = "war_sanction_not_granted" } }
 					}
-				}				
+				}
 			}
 			#< 0 relations
 			if = {
@@ -375,9 +375,9 @@ decisions = {
 							opinion = {
 								who = ROOT
 								value = 0
-							}						
+							}
 						}
-					}	
+					}
 				}
 				#< 100 piety
 				if = {
@@ -431,20 +431,20 @@ decisions = {
 						50 = { character_event = { id = 110051 days = 5 random = 12 tooltip = "war_sanction_granted" } }
 						50 = { character_event = { id = 110052 days = 5 random = 12 tooltip = "war_sanction_not_granted" } }
 					}
-				}				
-			}			
+				}
+			}
 			add_character_modifier = {
 				name = sanction_timer
 				duration = 1825
 				hidden = yes
-			}			
+			}
 		}
 		ai_will_do = {
 			factor = 0
 		}
-	}	
+	}
 	fourth_crusade = {
-		potential = {	
+		potential = {
 			ai = yes
 			religion = catholic
 			has_global_flag = catholic_crusade_failed
@@ -454,10 +454,10 @@ decisions = {
 				trait = loyalist
 				trait = rebel
 			}
-			NOT = { piety = 50 }	
+			NOT = { piety = 50 }
 			NOT = {
 				has_character_modifier = crusade_timer
-			}			
+			}
 			can_call_crusade = yes
 			has_called_crusade = no
 			religion_authority = 0.4
@@ -466,7 +466,7 @@ decisions = {
 				trait = lunatic
 				trait = possessed
 				trait = greedy
-			}	
+			}
 			496 = {
 				kingdom = {
 					any_independent_ruler = {
@@ -478,26 +478,26 @@ decisions = {
 								}
 							}
 						}
-						NOT = { has_character_modifier = holy_truce_timer } 
-						prisoner = no					
+						NOT = { has_character_modifier = holy_truce_timer }
+						prisoner = no
 						NOT = { religion = ROOT }
 						num_of_realm_counties = {
 							value = 6
 							title = PREV
-						}							
+						}
 					}
 				}
-			}		
+			}
 		}
 		allow = { }
 		effect = {
 			set_global_flag = fourth_crusade_begin
-			496 = { 
+			496 = {
 				kingdom = {
 					ROOT = {
 						war = {
 							casus_belli = crusade
-							target = PREVPREV 
+							target = PREVPREV
 							thirdparty_title = PREV
 						}
 					}
@@ -509,5 +509,5 @@ decisions = {
 		ai_will_do = {
 			factor = 1
 		}
-	}		
+	}
 }

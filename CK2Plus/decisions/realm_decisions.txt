@@ -10,9 +10,9 @@ decisions = {
 			NOT = { is_female = yes	}
 			OR = {
 				tier = king
-				tier = emperor 
+				tier = emperor
 			}
-			NOT = { has_character_modifier = holding_epic_tournament }			
+			NOT = { has_character_modifier = holding_epic_tournament }
 		}
 		allow = {
 			war = no
@@ -22,7 +22,7 @@ decisions = {
 			wealth = 200
 			NOT = { has_character_modifier = holding_large_feast }
 			NOT = { has_character_modifier = holding_summer_fair }
-			NOT = { has_character_modifier = holding_grand_hunt }	
+			NOT = { has_character_modifier = holding_grand_hunt }
 		}
 		effect = {
 			set_character_flag = epic_tournament
@@ -42,7 +42,7 @@ decisions = {
 						NOT = { has_job_title = job_spiritual }
 						age = 16
 						NOT = { health_traits = 1 }
-						prisoner = no	
+						prisoner = no
 						NOT = { is_female = yes	}
 					}
 					character_event = { id = 70000 }
@@ -62,7 +62,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	buy_indulgence_for_sins = {
 		potential = {
 			religion = catholic
@@ -74,16 +74,16 @@ decisions = {
 				NOT = {
 					character = ROOT
 				}
-			}			
+			}
 		}
 		allow = {
 			NOT = { has_character_modifier = indulgence_timer }
 			treasury = 50
 		}
-		effect = {	
+		effect = {
 			treasury = -50
 			piety = 25
-			custom_tooltip = { 
+			custom_tooltip = {
 				text = RELIGIOUSFACTIONMOODPLUS
 				change_variable = { which = "faction_mood_religious" value = 1 }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -103,7 +103,7 @@ decisions = {
 					name = indulgence_timer
 					duration = 1095
 					hidden = yes
-				}	
+				}
 			}
 			if = {
 				limit = {
@@ -113,8 +113,8 @@ decisions = {
 					name = indulgence_timer
 					duration = 3650
 					hidden = yes
-				}	
-			}			
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -129,7 +129,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				lower_tier_than = duke
-			}			
+			}
 			modifier = {
 				factor = 0
 				trait = cynical
@@ -141,10 +141,10 @@ decisions = {
 			modifier = {
 				factor = 0
 				trait = greedy
-			}			
+			}
 		}
 	}
-	
+
 	give_to_charity = {
 		potential = {
 			OR = {
@@ -159,7 +159,7 @@ decisions = {
 						NOT = {
 							character = ROOT
 						}
-					}				
+					}
 				}
 			}
 			age = 16
@@ -172,7 +172,7 @@ decisions = {
 		effect = {
 			treasury = -50
 			piety = 25
-			custom_tooltip = { 
+			custom_tooltip = {
 				text = RELIGIOUSFACTIONMOODPLUS
 				change_variable = { which = "faction_mood_religious" value = 1 }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -183,7 +183,7 @@ decisions = {
 					modifier = opinion_sadaqah
 					years = 3
 				}
-			}			
+			}
 			if = {
 				limit = {
 					ai = no
@@ -192,7 +192,7 @@ decisions = {
 					name = charity_timer
 					duration = 1095
 					hidden = yes
-				}	
+				}
 			}
 			if = {
 				limit = {
@@ -202,8 +202,8 @@ decisions = {
 					name = charity_timer
 					duration = 3650
 					hidden = yes
-				}	
-			}			
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -214,7 +214,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				piety = 100
-			}	
+			}
 			modifier = {
 				factor = 0
 				lower_tier_than = duke
@@ -230,7 +230,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				trait = greedy
-			}			
+			}
 		}
 	}
 
@@ -272,7 +272,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	demand_liege_title = {
 		is_high_prio = yes
 		potential = {
@@ -296,8 +296,8 @@ decisions = {
 								duchy = { title = PREVPREVPREV }
 							}
 						}
-					}					
-				}				
+					}
+				}
 			}
 			age = 16
 			prisoner = no
@@ -344,7 +344,7 @@ decisions = {
 		effect = {
 			treasury = -50
 			piety = 25
-			custom_tooltip = { 
+			custom_tooltip = {
 				text = RELIGIOUSFACTIONMOODPLUS
 				change_variable = { which = "faction_mood_religious" value = 1 }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -364,7 +364,7 @@ decisions = {
 					name = charity_timer
 					duration = 1095
 					hidden = yes
-				}	
+				}
 			}
 			if = {
 				limit = {
@@ -374,8 +374,8 @@ decisions = {
 					name = charity_timer
 					duration = 3650
 					hidden = yes
-				}	
-			}			
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -390,7 +390,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				lower_tier_than = duke
-			}			
+			}
 			modifier = {
 				factor = 0
 				trait = cynical
@@ -402,7 +402,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				trait = greedy
-			}			
+			}
 		}
 	}
 
@@ -416,9 +416,9 @@ decisions = {
 			NOT = { is_female = yes	}
 			OR = {
 				tier = king
-				tier = emperor 
+				tier = emperor
 			}
-			NOT = { has_character_modifier = holding_epic_tournament }			
+			NOT = { has_character_modifier = holding_epic_tournament }
 		}
 		allow = {
 			war = no
@@ -426,7 +426,7 @@ decisions = {
 			ruled_years = 5
 			prestige = 500
 			wealth = 200
-			NOT = { has_character_modifier = holding_grand_hunt }	
+			NOT = { has_character_modifier = holding_grand_hunt }
 		}
 		effect = {
 			set_character_flag = epic_tournament_furusiyya
@@ -434,7 +434,7 @@ decisions = {
 			add_character_modifier = {
 				name = "holding_epic_tournament"
 				duration = -1
-			}			
+			}
 			wealth = -200
 			prestige = 100
 			decadence = -2
@@ -448,14 +448,14 @@ decisions = {
 						NOT = { has_job_title = job_spiritual }
 						age = 16
 						NOT = { trait = incapable }
-						prisoner = no	
+						prisoner = no
 						is_female = no
 					}
 					clr_character_flag = tournament_has_ended_furusiyya
 					character_event = { id = 88250 }
 				}
 				any_dynasty_member = {
-					limit = { 
+					limit = {
 						ai = no
 						NOT = { character = ROOT }
 					}
@@ -476,7 +476,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	restore_roman_empire = {
 		is_high_prio = yes
 		potential = {
@@ -511,7 +511,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	mend_great_schism = {
 		is_high_prio = yes
 		potential = {
@@ -548,24 +548,24 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	claim_constantinople = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
 			NOT = { has_landed_title = c_byzantion }
 			has_landed_title = e_byzantium
-			any_realm_lord = { 
+			any_realm_lord = {
 				AND = {
 					ai = yes
-					has_landed_title = c_byzantion 
+					has_landed_title = c_byzantion
 				}
 			}
 		}
 		allow = {
 			NOT = { has_landed_title = c_byzantion }
-			any_realm_lord = { 
-				has_landed_title = c_byzantion 
+			any_realm_lord = {
+				has_landed_title = c_byzantion
 			}
 		}
 		effect = {
@@ -579,7 +579,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	make_rome_capital = {
 		is_high_prio = yes
 		potential = {
@@ -588,13 +588,13 @@ decisions = {
 			capital_scope = {
 				NOT = { province_id = 333 }
 			}
-			any_realm_lord = { 
+			any_realm_lord = {
 				AND = {
 					ai = yes
-					has_landed_title = c_roma 
+					has_landed_title = c_roma
 				}
 			}
-			any_realm_lord = { 
+			any_realm_lord = {
 				AND = {
 					ai = yes
 					has_landed_title = b_tivoli
@@ -616,8 +616,8 @@ decisions = {
 						}
 					}
 					#b_roma = { set_name = Lateran }
-					b_tivoli = { 
-						set_name = Rome 
+					b_tivoli = {
+						set_name = Rome
 						ROOT = { capital = PREV }
 					}
 				}
@@ -627,7 +627,7 @@ decisions = {
 			factor = 0
 		}
 	}
-	
+
 	petition_doge_for_tp = {
 		is_high_prio = yes
 		potential = {
@@ -674,7 +674,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	usurp_tp = {
 		is_high_prio = yes
 		potential = {
@@ -748,7 +748,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	commission_runestone = {
 		potential = {
 			has_dlc = "The Old Gods"
@@ -770,7 +770,7 @@ decisions = {
 		effect = {
 			wealth = -100
 			set_character_flag = commissioned_runestone
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				character_event = { id = TOG.500 }
 			}
 		}
@@ -780,8 +780,8 @@ decisions = {
 		ai_will_do = {
 			factor = 1
 		}
-	}	
-	
+	}
+
 	hold_nerge = {
 		potential = {
 			has_dlc = "The Old Gods"
@@ -813,8 +813,8 @@ decisions = {
 			set_character_flag = holding_nerge
 			custom_tooltip = {
 				text = prepare_nerge
-				hidden_tooltip = { 
-					character_event = { id = TOG.100 } 
+				hidden_tooltip = {
+					character_event = { id = TOG.100 }
 				}
 			}
 		}
@@ -823,7 +823,7 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0
 				NOT = {
@@ -842,8 +842,8 @@ decisions = {
 
 			}
 		}
-	}	
-	
+	}
+
 	hold_blot = {
 		potential = {
 			has_dlc = "The Old Gods"
@@ -874,8 +874,8 @@ decisions = {
 			set_character_flag = holding_blot
 			custom_tooltip = {
 				text = prepare_blot
-				hidden_tooltip = { 
-					character_event = { id = TOG.600 } 
+				hidden_tooltip = {
+					character_event = { id = TOG.600 }
 				}
 			}
 		}
@@ -884,7 +884,7 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0
 				NOT = {
@@ -903,8 +903,8 @@ decisions = {
 
 			}
 		}
-	}	
-	
+	}
+
 	hold_ukon_juhla = {
 		potential = {
 			has_dlc = "The Old Gods"
@@ -935,8 +935,8 @@ decisions = {
 			set_character_flag = holding_ukon_juhla
 			custom_tooltip = {
 				text = prepare_ukon_juhla
-				hidden_tooltip = { 
-					character_event = { id = TOG.700 } 
+				hidden_tooltip = {
+					character_event = { id = TOG.700 }
 				}
 			}
 		}
@@ -945,7 +945,7 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0
 				NOT = {
@@ -965,7 +965,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	hold_uzgavenes = {
 		potential = {
 			has_dlc = "The Old Gods"
@@ -996,8 +996,8 @@ decisions = {
 			set_character_flag = holding_uzgavenes
 			custom_tooltip = {
 				text = prepare_uzgavenes
-				hidden_tooltip = { 
-					character_event = { id = TOG.750 } 
+				hidden_tooltip = {
+					character_event = { id = TOG.750 }
 				}
 			}
 		}
@@ -1006,7 +1006,7 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0
 				NOT = {
@@ -1026,7 +1026,7 @@ decisions = {
 			}
 		}
 	}
-	
+
 	hold_jarilo = {
 		potential = {
 			has_dlc = "The Old Gods"
@@ -1057,8 +1057,8 @@ decisions = {
 			set_character_flag = holding_jarilo
 			custom_tooltip = {
 				text = prepare_jarilo
-				hidden_tooltip = { 
-					character_event = { id = TOG.800 } 
+				hidden_tooltip = {
+					character_event = { id = TOG.800 }
 				}
 			}
 		}
@@ -1067,7 +1067,7 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 0
 				NOT = {
@@ -1086,8 +1086,8 @@ decisions = {
 
 			}
 		}
-	}	
-	
+	}
+
 	organize_varangian_guard = {
 		is_high_prio = yes
 		potential = {
@@ -1129,7 +1129,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	create_hungary = {
 		is_high_prio = yes
 		potential = {
@@ -1184,7 +1184,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	become_saoshyant = {
 		is_high_prio = yes
 		potential = {
@@ -1227,7 +1227,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	create_leon = {
 		is_high_prio = yes
 		potential = {
@@ -1255,7 +1255,7 @@ decisions = {
 			factor = 1
 		}
 	}
-	
+
 	restore_priesthood = {
 		is_high_prio = yes
 		potential = {

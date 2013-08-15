@@ -2,9 +2,9 @@ decisions = {
 
 	invade_england_sveinn = {
 		is_high_prio = yes
-    
+
 		potential = {
-      has_character_flag = sveinn_forkbeard
+			has_character_flag = sveinn_forkbeard
 			NOT = {
 				has_character_flag = millenium_england_invasion
 			}
@@ -14,36 +14,35 @@ decisions = {
 			}
 			independent = yes
 			has_landed_title = k_denmark
-      NOT = { has_landed_title = k_england }
-      k_england = { 
-          has_holder = yes
-      }    
+			NOT = { has_landed_title = k_england }
+			k_england = {
+				has_holder = yes
+			}
 		}
-    
+
 		allow = {
 			war = no
 			prisoner = no
 			prestige = 800
-      piety = 0
-      wealth = 0      
+			piety = 0
+			wealth = 0
 		}
-    
+
 		effect = {
 			set_character_flag = millenium_england_invasion
 			prestige = 50
-      
-      k_england = {
-		  	holder_scope = {
-			       	owner = {
-				      	character_event = { id = 90009021 days = 1 }
-				      }
-		    }
-		  }
+
+			k_england = {
+				holder_scope = {
+					owner = {
+						character_event = { id = 90009021 days = 1 }
+					}
+				}
+			}
 		}
-    
+
 		ai_will_do = {
 			factor = 1
-			
 		}
 	}
 }

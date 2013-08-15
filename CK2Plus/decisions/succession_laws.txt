@@ -7,7 +7,7 @@ succession_laws = {
 		child_opinion = 30
 		dynasty_opinion = 10
 		vassal_opinion = 5
-	
+
 		potential = {
 			holder_scope = {
 				NOT = { religion_group = muslim }
@@ -30,11 +30,11 @@ succession_laws = {
 			OR = {
 				NOT = { has_global_flag = startup }
 				has_holder = no
-			}			
+			}
 		}
 		allow = {
-		}		
-		effect = {	
+		}
+		effect = {
 			succession = gavelkind
 		}
 		revoke_allowed = {
@@ -45,30 +45,30 @@ succession_laws = {
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
-	
+
 	succ_seniority = {
 		oldest_child_opinion = -30
 		child_opinion = -20
 		dynasty_opinion = 20
-	
-		potential = {	
-			holder_scope = { 
+
+		potential = {
+			holder_scope = {
 				NOT = { religion = norse_pagan }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = baltic_pagan }
 				NOT = { religion = finnish_pagan }
 				NOT = { religion = aztec }
 				NOT = { religion = slavic_pagan }
-			}		
+			}
 			holder_scope = {
 				OR = {
 					NOT = { religion_group = muslim }
 					is_patrician = yes
 				}
 				is_merchant_republic = no
-				
+
 				OR = {
 					is_republic = no
 					is_patrician = yes
@@ -90,36 +90,36 @@ succession_laws = {
 					}
 				}
 			}
-			
+
 			is_primary_type_title = no
 			OR = {
 				NOT = { has_global_flag = startup }
 				has_holder = no
 			}
 		}
-		allow = {		
+		allow = {
 		}
-		
-		effect = {	
+
+		effect = {
 			succession = seniority
 		}
 		revoke_allowed = {
 			always = no
-		}	
+		}
 	}
-	
+
 	succ_primogeniture = {
 		oldest_child_opinion = 30
 		child_opinion = -20
-		potential = {	
-			holder_scope = { 
+		potential = {
+			holder_scope = {
 				NOT = { religion = norse_pagan }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = baltic_pagan }
 				NOT = { religion = finnish_pagan }
 				NOT = { religion = aztec }
 				NOT = { religion = slavic_pagan }
-			}		
+			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -143,14 +143,14 @@ succession_laws = {
 			}
 		}
 		allow = {
-		}		
-		
-		effect = {	
+		}
+
+		effect = {
 			succession = primogeniture
 		}
 		revoke_allowed = {
 			always = no
-		}	
+		}
 	}
 
 	succ_feudal_elective = {
@@ -158,16 +158,16 @@ succession_laws = {
 		child_opinion = -20
 		dynasty_opinion = -10
 		vassal_opinion = 10
-		
+
 		potential = {
-			holder_scope = { 
+			holder_scope = {
 				NOT = { religion = norse_pagan }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = baltic_pagan }
 				NOT = { religion = finnish_pagan }
 				NOT = { religion = aztec }
 				NOT = { religion = slavic_pagan }
-			}		
+			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -189,17 +189,17 @@ succession_laws = {
 			OR = {
 				NOT = { has_global_flag = startup }
 				has_holder = no
-			}		
+			}
 		}
-		allow = {		
+		allow = {
 		}
-		effect = {		
+		effect = {
 			succession = feudal_elective
 		}
 		revoke_allowed = {
 			always = no
-		}	
-	}	
+		}
+	}
 
 	succ_turkish_succession = {
 		oldest_child_opinion = -20
@@ -221,11 +221,11 @@ succession_laws = {
 			OR = {
 				NOT = { has_global_flag = startup }
 				has_holder = no
-			}		
+			}
 		}
-		allow = {	
+		allow = {
 		}
-		effect = {			
+		effect = {
 			succession = turkish_succession
 		}
 		revoke_allowed = {
@@ -236,10 +236,10 @@ succession_laws = {
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
 	succ_open_elective = {
-		potential = {	
+		potential = {
 			OR = {
 				is_primary_type_title = yes
 				AND = {
@@ -256,7 +256,7 @@ succession_laws = {
 						}
 					}
 				}
-				holder_scope = { 
+				holder_scope = {
 					OR = {
 						is_republic = yes
 						AND = {
@@ -272,26 +272,26 @@ succession_laws = {
 					is_tribal_type_title = no
 				}
 				holder_scope = { is_theocracy = no }
-				holder_scope = { 
-					NOT = { religion = catholic } 
+				holder_scope = {
+					NOT = { religion = catholic }
 				}
 			}
-			holder_scope = { 
+			holder_scope = {
 				is_patrician = no
 				is_merchant_republic = no
-			}			
+			}
 		}
 		effect = {
 			succession = open_elective
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 	}
 	succ_catholic_bishopric = {
 		potential = {
 			is_landless_type_title = no
-			
+
 			OR = {
 				AND = {
 					tier = baron
@@ -299,9 +299,9 @@ succession_laws = {
 				}
 				holder_scope = { is_theocracy = yes }
 			}
-			
-			holder_scope = { 
-				religion = catholic 
+
+			holder_scope = {
+				religion = catholic
 				is_merchant_republic = no
 				is_patrician = no
 			}
@@ -312,7 +312,7 @@ succession_laws = {
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 	}
 
 	succ_patrician_elective = {
@@ -325,7 +325,7 @@ succession_laws = {
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 	}
 
 	succ_tanistry = {
@@ -334,14 +334,14 @@ succession_laws = {
 		dynasty_opinion = 10
 		vassal_opinion = 5
 		potential = {
-			holder_scope = { 
+			holder_scope = {
 				NOT = { religion = norse_pagan }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = baltic_pagan }
 				NOT = { religion = finnish_pagan }
 				NOT = { religion = aztec }
 				NOT = { religion = slavic_pagan }
-			}		
+			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
 				is_merchant_republic = no
@@ -367,30 +367,30 @@ succession_laws = {
 			OR = {
 				NOT = { has_global_flag = startup }
 				has_holder = no
-			}				
+			}
 		}
 		effect = {
 			succession = tanistry
 		}
 		revoke_allowed = {
 			always = no
-		}			
+		}
 	}
-	
+
 	succ_ultimogeniture = {
 		youngest_child_opinion = 20
 		oldest_child_opinion = -30
 		child_opinion = -20
 		dynasty_opinion = -5
 		potential = {
-			holder_scope = { 
+			holder_scope = {
 				NOT = { religion = norse_pagan }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = baltic_pagan }
 				NOT = { religion = finnish_pagan }
 				NOT = { religion = aztec }
 				NOT = { religion = slavic_pagan }
-			}		
+			}
 			holder_scope = {
 				OR = {
 					NOT = { religion_group = muslim }
@@ -414,7 +414,7 @@ succession_laws = {
 			OR = {
 				NOT = { has_global_flag = startup }
 				has_holder = no
-			}			
+			}
 		}
 		allow = {
 			OR = {
@@ -426,7 +426,7 @@ succession_laws = {
 				}
 			}
 		}
-		
+
 		effect = {
 			succession = ultimogeniture
 		}

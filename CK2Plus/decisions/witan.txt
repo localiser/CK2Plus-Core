@@ -2,7 +2,7 @@ decisions = {
 
 	abolish_witan = {
 		is_high_prio = yes
-    
+
 		potential = {
 			NOT = {
 				has_global_flag = witan_abolished
@@ -10,116 +10,114 @@ decisions = {
 			NOT = {
 				culture = saxon
 			}
-      k_england = {
-        has_law = succ_feudal_elective
-      }  
 			has_landed_title = k_england
+			k_england = {
+				has_law = succ_feudal_elective
+			}  
 		}
-    
+
 		allow = {
 			war = no
 			prisoner = no
 			prestige = 1000
-      piety = 0
-      wealth = 0      
+			  piety = 0
+			  wealth = 0      
 		}
-    
+
 		effect = {
 			set_global_flag = witan_abolished
-      
-      prestige = -100
-      
-      k_england = {
-		  	add_law = succ_primogeniture
-		  }
-      
-      any_vassal = {
-						limit = {
-              culture = saxon
-							NOT = {
-								has_opinion_modifier = {
-									who = PREV
-									modifier = opinion_succ_law_change
-								}
-								has_opinion_modifier = {
-									who = PREV
-									modifier = opinion_good_succ_law_change
-								}
-								has_opinion_modifier = {
-									who = PREV
-									modifier = opinion_bad_succ_law_change
-								}
-							}							
+			prestige = -100
+
+			k_england = {
+				add_law = succ_primogeniture
+			}
+
+			any_vassal = {
+				limit = {
+					culture = saxon
+					NOT = {
+						has_opinion_modifier = {
+							who = PREV
+							modifier = opinion_succ_law_change
 						}
-						opinion = {
+						has_opinion_modifier = {
+							who = PREV
+							modifier = opinion_good_succ_law_change
+						}
+						has_opinion_modifier = {
 							who = PREV
 							modifier = opinion_bad_succ_law_change
-							months = 240
-						}							
+						}
 					}
+				}
+				opinion = {
+					who = PREV
+					modifier = opinion_bad_succ_law_change
+					months = 240
+				}
+			}
 		}
-    
+
 		ai_will_do = {
 			factor = 1
 			
 		}
 	}
-  
-  reinstitute_witan = {
+
+	reinstitute_witan = {
 		is_high_prio = yes
-    
+
 		potential = {
 			has_global_flag = witan_abolished
 			culture = saxon
-      k_england = {
-        NOT = { has_law = succ_feudal_elective }
-      }  
 			has_landed_title = k_england
+			k_england = {
+				NOT = { has_law = succ_feudal_elective }
+			}  
 		}
-    
+
 		allow = {
 			war = no
 			prisoner = no
 			prestige = 500
-      piety = 0
-      wealth = 0      
+			piety = 0
+			wealth = 0      
 		}
-    
+
 		effect = {
 			clr_global_flag = witan_abolished
-      
-      prestige = 200
-      
-      k_england = {
-		  	add_law = succ_feudal_elective
-		  }
-      
-      any_vassal = {
-						limit = {
-              culture = saxon
-							NOT = {
-								has_opinion_modifier = {
-									who = PREV
-									modifier = opinion_succ_law_change
-								}
-								has_opinion_modifier = {
-									who = PREV
-									modifier = opinion_good_succ_law_change
-								}
-								has_opinion_modifier = {
-									who = PREV
-									modifier = opinion_bad_succ_law_change
-								}
-							}							
+			prestige = 200
+
+			k_england = {
+				add_law = succ_feudal_elective
+			}
+
+			any_vassal = {
+				limit = {
+					culture = saxon
+					NOT = {
+						has_opinion_modifier = {
+							who = PREV
+							modifier = opinion_succ_law_change
 						}
-						opinion = {
+						has_opinion_modifier = {
 							who = PREV
 							modifier = opinion_good_succ_law_change
-							months = 240
-						}							
+						}
+						has_opinion_modifier = {
+							who = PREV
+							modifier = opinion_bad_succ_law_change
+						}
 					}
+				}
+				opinion = {
+					who = PREV
+					modifier = opinion_good_succ_law_change
+					months = 240
+				}
+			}
 		}
-    
+
 		ai_will_do = {
 			factor = 1
 			

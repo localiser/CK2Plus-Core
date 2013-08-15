@@ -2,15 +2,15 @@ gender_laws = {
 	institute_cognatic_succession = {
 		potential = {
 			is_primary_holder_title = yes
-			holder_scope = { 
+			holder_scope = {
 				NOT = { religion_group = muslim }
 				has_horde_culture = no
 				is_merchant_republic = no
 				is_patrician = no
 			}
-			
+
 			is_landless_type_title = no
-			
+
 			OR = {
 				AND = {
 					tier = baron
@@ -18,20 +18,20 @@ gender_laws = {
 				}
 				holder_scope = { is_feudal = yes }
 			}
-			
+
 			is_primary_type_title = no
 			OR = {
 				has_law = agnatic_succession
-				has_law = true_cognatic_succession			
+				has_law = true_cognatic_succession
 			}
 			NOT = { has_law = cognatic_succession }
 			OR = {
 				holder_scope = { ai = no }
 				AND = {
 					has_law = agnatic_succession
-					holder_scope = { 
+					holder_scope = {
 						age = 40
-						is_female = yes 
+						is_female = yes
 						OR = {
 							trait = proud
 							trait = ambitious
@@ -46,25 +46,25 @@ gender_laws = {
 							trait = content
 						}
 					}
-				}				
+				}
 				AND = {
 					has_law = true_cognatic_succession
-					holder_scope = { 
+					holder_scope = {
 						age = 40
-						is_female = no 
+						is_female = no
 						OR = {
 							trait = proud
 							trait = ambitious
 						}
 					}
 				}
-			}	
+			}
 			OR = {
 				holder_scope = { ai = no }
 				NOT = { has_global_flag = gender_equality }
 				has_law = agnatic_succession
 			}
-			has_global_flag = startup		
+			has_global_flag = startup
 		}
 		allow = {
 			OR = {
@@ -75,7 +75,7 @@ gender_laws = {
 				AND = {
 					tier = BARON
 					holder_scope = { prestige = 125 }
-				}			
+				}
 				AND = {
 					tier = COUNT
 					holder_scope = { prestige = 250 }
@@ -91,10 +91,10 @@ gender_laws = {
 				AND = {
 					tier = EMPEROR
 					holder_scope = { prestige = 1000 }
-				}				
+				}
 			}
-		}		
-		effect = {	
+		}
+		effect = {
 			if = {
 				limit = {
 					tier = BARON
@@ -124,10 +124,10 @@ gender_laws = {
 					tier = EMPEROR
 				}
 				holder_scope = { prestige = -1000 custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } } }
-			}	
+			}
 			holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 			ROOT = { custom_tooltip = { text = CUSTOMTOOLTIP12 } }
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				add_law = cognatic_succession
 				holder_scope = {
 					any_demesne_title = {
@@ -142,7 +142,7 @@ gender_laws = {
 					}
 				}
 			}
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				holder_scope = {
 					#vassals are slightly upset
 					any_vassal = {
@@ -160,16 +160,16 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_succ_law_change
 							months = 240
-						}							
+						}
 					}
 				}
-			}			
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -179,21 +179,21 @@ gender_laws = {
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
 	institute_agnatic_succession = {
 		female_dynasty_opinion = -10
 		male_dynasty_opinion = 10
-	
+
 		potential = {
 			is_primary_holder_title = yes
 			has_law = cognatic_succession
 			NOT = { has_law = agnatic_succession }
 			OR = {
-				holder_scope = { ai = no }			
-				holder_scope = { 
+				holder_scope = { ai = no }
+				holder_scope = {
 					age = 40
-					is_female = no 
+					is_female = no
 					OR = {
 						trait = proud
 						trait = ambitious
@@ -215,7 +215,7 @@ gender_laws = {
 				AND = {
 					tier = BARON
 					holder_scope = { prestige = 125 }
-				}			
+				}
 				AND = {
 					tier = COUNT
 					holder_scope = { prestige = 250 }
@@ -231,10 +231,10 @@ gender_laws = {
 				AND = {
 					tier = EMPEROR
 					holder_scope = { prestige = 1000 }
-				}				
+				}
 			}
-		}		
-		effect = {	
+		}
+		effect = {
 			if = {
 				limit = {
 					tier = BARON
@@ -264,10 +264,10 @@ gender_laws = {
 					tier = EMPEROR
 				}
 				holder_scope = { prestige = -1000 custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -2 } } }
-			}		
+			}
 			holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 			ROOT = { custom_tooltip = { text = CUSTOMTOOLTIP11 } }
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				add_law = agnatic_succession
 				holder_scope = {
 					any_demesne_title = {
@@ -282,11 +282,11 @@ gender_laws = {
 					}
 				}
 			}
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				holder_scope = {
 					#dynasty members angry/happy according to gender
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = no
 							NOT = {
@@ -302,7 +302,7 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
@@ -311,7 +311,7 @@ gender_laws = {
 						}
 					}
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = yes
 							NOT = {
@@ -327,14 +327,14 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_bad_succ_law_change
 							months = 240
 						}
-					}					
+					}
 					#vassals are slightly upset
 					any_vassal = {
 						limit = {
@@ -351,42 +351,42 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_succ_law_change
 							months = 240
-						}							
+						}
 					}
 				}
-			}			
+			}
 		}
 		revoke_allowed = {
 			always = no
-		}	
+		}
 		ai_will_do = {
-			factor = 1			
+			factor = 1
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
 	institute_true_cognatic_succession = {
 		male_dynasty_opinion = -10
 		female_dynasty_opinion = 10
-		
+
 		potential = {
 			is_primary_holder_title = yes
-			holder_scope = { 
+			holder_scope = {
 				NOT = { religion_group = muslim }
 				has_horde_culture = no
 				is_merchant_republic = no
 				is_patrician = no
 			}
-			
+
 			is_landless_type_title = no
-			
+
 			OR = {
 				AND = {
 					tier = baron
@@ -394,18 +394,18 @@ gender_laws = {
 				}
 				holder_scope = { is_feudal = yes }
 			}
-			
+
 			is_primary_type_title = no
 			OR = {
 				has_law = cognatic_succession
-				has_law = enatic_cognatic_succession	
+				has_law = enatic_cognatic_succession
 			}
 			NOT = { has_law = true_cognatic_succession }
 			OR = {
-				holder_scope = { ai = no }			
-				holder_scope = { 
+				holder_scope = { ai = no }
+				holder_scope = {
 					age = 40
-					is_female = yes 
+					is_female = yes
 					OR = {
 						trait = proud
 						trait = ambitious
@@ -417,8 +417,8 @@ gender_laws = {
 					}
 				}
 				has_global_flag = gender_equality
-			}			
-			has_global_flag = startup		
+			}
+			has_global_flag = startup
 		}
 		allow = {
 			OR = {
@@ -429,7 +429,7 @@ gender_laws = {
 				AND = {
 					tier = BARON
 					holder_scope = { prestige = 125 }
-				}			
+				}
 				AND = {
 					tier = COUNT
 					holder_scope = { prestige = 250 }
@@ -445,10 +445,10 @@ gender_laws = {
 				AND = {
 					tier = EMPEROR
 					holder_scope = { prestige = 1000 }
-				}				
+				}
 			}
-		}		
-		effect = {	
+		}
+		effect = {
 			if = {
 				limit = {
 					tier = BARON
@@ -481,7 +481,7 @@ gender_laws = {
 			}
 			holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 			ROOT = { custom_tooltip = { text = CUSTOMTOOLTIP13 } }
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				add_law = true_cognatic_succession
 				holder_scope = {
 					any_demesne_title = {
@@ -496,11 +496,11 @@ gender_laws = {
 					}
 				}
 			}
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				holder_scope = {
 					#dynasty members angry/happy according to gender
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = yes
 							NOT = {
@@ -516,7 +516,7 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
@@ -525,7 +525,7 @@ gender_laws = {
 						}
 					}
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = no
 							NOT = {
@@ -541,14 +541,14 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_bad_succ_law_change
 							months = 240
 						}
-					}					
+					}
 					#vassals are slightly upset
 					any_vassal = {
 						limit = {
@@ -565,15 +565,15 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_succ_law_change
 							months = 240
-						}							
+						}
 					}
-				}	
+				}
 			}
 		}
 		revoke_allowed = {
@@ -584,24 +584,24 @@ gender_laws = {
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
 	institute_enatic_succession = {
 		male_dynasty_opinion = -20
 		female_dynasty_opinion = 20
-		
+
 		potential = {
 			is_primary_holder_title = yes
-			holder_scope = { 
+			holder_scope = {
 				ai = no
 				NOT = { religion_group = muslim }
 				has_horde_culture = no
 				is_merchant_republic = no
 				is_patrician = no
 			}
-			
+
 			is_landless_type_title = no
-			
+
 			OR = {
 				AND = {
 					tier = baron
@@ -609,11 +609,11 @@ gender_laws = {
 				}
 				holder_scope = { is_feudal = yes }
 			}
-			
+
 			is_primary_type_title = no
-			has_law = enatic_cognatic_succession	
+			has_law = enatic_cognatic_succession
 			NOT = { has_law = enatic_succession }
-			has_global_flag = startup		
+			has_global_flag = startup
 		}
 		allow = {
 			has_law = enatic_cognatic_succession
@@ -621,7 +621,7 @@ gender_laws = {
 				AND = {
 					tier = BARON
 					holder_scope = { prestige = 125 }
-				}			
+				}
 				AND = {
 					tier = COUNT
 					holder_scope = { prestige = 250 }
@@ -637,10 +637,10 @@ gender_laws = {
 				AND = {
 					tier = EMPEROR
 					holder_scope = { prestige = 1000 }
-				}				
+				}
 			}
-		}		
-		effect = {	
+		}
+		effect = {
 			if = {
 				limit = {
 					tier = BARON
@@ -673,7 +673,7 @@ gender_laws = {
 			}
 			holder_scope = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } }
 			ROOT = { custom_tooltip = { text = CUSTOMTOOLTIP15 } }
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				add_law = enatic_succession
 				holder_scope = {
 					any_demesne_title = {
@@ -688,11 +688,11 @@ gender_laws = {
 					}
 				}
 			}
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				holder_scope = {
 					#dynasty members angry/happy according to gender
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = yes
 							NOT = {
@@ -708,7 +708,7 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
@@ -717,7 +717,7 @@ gender_laws = {
 						}
 					}
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = no
 							NOT = {
@@ -733,14 +733,14 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_bad_succ_law_change
 							months = 240
 						}
-					}					
+					}
 					#vassals are slightly upset
 					any_vassal = {
 						limit = {
@@ -757,15 +757,15 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_succ_law_change
 							months = 240
-						}							
+						}
 					}
-				}	
+				}
 			}
 		}
 		revoke_allowed = {
@@ -776,24 +776,24 @@ gender_laws = {
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
 	institute_enatic_cognatic_succession = {
 		male_dynasty_opinion = -15
 		female_dynasty_opinion = 10
-		
+
 		potential = {
 			is_primary_holder_title = yes
-			holder_scope = { 
+			holder_scope = {
 				ai = no
 				NOT = { religion_group = muslim }
 				has_horde_culture = no
 				is_merchant_republic = no
 				is_patrician = no
 			}
-			
+
 			is_landless_type_title = no
-			
+
 			OR = {
 				AND = {
 					tier = baron
@@ -801,14 +801,14 @@ gender_laws = {
 				}
 				holder_scope = { is_feudal = yes }
 			}
-			
+
 			is_primary_type_title = no
 			OR = {
 				has_law = true_cognatic_succession
-				has_law = enatic_succession	
+				has_law = enatic_succession
 			}
 			NOT = { has_law = enatic_cognatic_succession }
-			has_global_flag = startup		
+			has_global_flag = startup
 		}
 		allow = {
 			OR = {
@@ -819,7 +819,7 @@ gender_laws = {
 				AND = {
 					tier = BARON
 					holder_scope = { prestige = 125 }
-				}			
+				}
 				AND = {
 					tier = COUNT
 					holder_scope = { prestige = 250 }
@@ -835,10 +835,10 @@ gender_laws = {
 				AND = {
 					tier = EMPEROR
 					holder_scope = { prestige = 1000 }
-				}				
+				}
 			}
-		}		
-		effect = {	
+		}
+		effect = {
 			if = {
 				limit = {
 					tier = BARON
@@ -886,11 +886,11 @@ gender_laws = {
 					}
 				}
 			}
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				holder_scope = {
 					#dynasty members angry/happy according to gender
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = yes
 							NOT = {
@@ -906,7 +906,7 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
@@ -915,7 +915,7 @@ gender_laws = {
 						}
 					}
 					any_realm_character = {
-						limit = { 
+						limit = {
 							dynasty = PREV
 							is_female = no
 							NOT = {
@@ -931,14 +931,14 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_bad_succ_law_change
 							months = 240
 						}
-					}					
+					}
 					#vassals are slightly upset
 					any_vassal = {
 						limit = {
@@ -955,15 +955,15 @@ gender_laws = {
 									who = PREV
 									modifier = opinion_bad_succ_law_change
 								}
-							}							
+							}
 						}
 						opinion = {
 							who = PREV
 							modifier = opinion_succ_law_change
 							months = 240
-						}							
+						}
 					}
-				}	
+				}
 			}
 		}
 		revoke_allowed = {
@@ -974,6 +974,6 @@ gender_laws = {
 		}
 		ai_will_revoke = {
 			factor = 0
-		}		
+		}
 	}
 }
