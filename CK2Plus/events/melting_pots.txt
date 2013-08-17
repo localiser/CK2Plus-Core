@@ -2194,35 +2194,20 @@ character_event = {
 	picture = GFX_evt_throne_room
 
 	trigger = {
-		year = 950
+		year = 1100
 		OR = {
 			independent = yes
 			top_liege = { culture = gallawa }
 		}
 		capital_scope = {
-			kingdom = {
-				OR = {
-					title = k_scotland
-					title = k_ireland
-					title = k_wales
-					title = k_brittany
-				}
-			}
+			kingdom = { OR = { title = k_scotland title = k_ireland } }
 		}
 		culture_group = north_germanic
 		any_demesne_province = {
 			kingdom = {
-				OR = {
-					title = k_scotland
-					title = k_ireland
-					title = k_wales
-					title = k_brittany
-				}
+				OR = { title = k_scotland title = k_ireland }
 			}
-			OR = {
-				culture_group = north_germanic
-				culture_group = celtic
-			}
+			culture_group = celtic
 		}
 	}
 
@@ -2344,17 +2329,9 @@ character_event = {
 		random_demesne_province = {
 			limit = {
 				kingdom = {
-					OR = {
-						title = k_scotland
-						title = k_ireland
-						title = k_wales
-						title = k_brittany
-					}
+					OR = { title = k_scotland title = k_ireland }
 				}
-				OR = {
-					culture_group = north_germanic
-					culture_group = celtic
-				}
+				culture_group = celtic
 			}
 			culture = gallawa
 			set_province_flag = melting_pot
@@ -2371,18 +2348,8 @@ character_event = {
 	trigger = {
 		year = 1100
 		any_demesne_province = {
-			kingdom = {
-				OR = {
-					title = k_scotland
-					title = k_ireland
-					title = k_wales
-					title = k_brittany
-				}
-			}
-			OR = {
-				culture_group = north_germanic
-				culture_group = celtic
-			}
+			kingdom = { OR = { title = k_scotland title = k_ireland } }
+			culture_group = celtic
 			OR = {
 				AND = {
 					any_neighbor_province = { has_owner = yes culture = gallawa }
@@ -2394,14 +2361,7 @@ character_event = {
 						top_liege = { culture = gallawa }
 					}
 					capital_scope = {
-						kingdom = {
-							OR = {
-								title = k_scotland
-								title = k_ireland
-								title = k_wales
-								title = k_brittany
-							}
-						}
+						kingdom = { OR = { title = k_scotland title = k_ireland } }
 					}
 					culture = gallawa
 				}
@@ -2426,18 +2386,8 @@ character_event = {
 		name = "EVTOPTA100009061"
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					OR = {
-						title = k_scotland
-						title = k_ireland
-						title = k_wales
-						title = k_brittany
-					}
-				}
-				OR = {
-					culture_group = north_germanic
-					culture_group = celtic
-				}
+				kingdom = { OR = { title = k_scotland title = k_ireland } }
+				culture_group = celtic
 				OR = {
 					AND = {
 						any_neighbor_province = { has_owner = yes  culture = gallawa }
@@ -2449,14 +2399,7 @@ character_event = {
 							top_liege = { culture = gallawa }
 						}
 						capital_scope = {
-							kingdom = {
-								OR = {
-									title = k_scotland
-									title = k_ireland
-									title = k_wales
-									title = k_brittany
-								}
-							}
+							kingdom = { OR = { title = k_scotland title = k_ireland } }
 						}
 						culture = gallawa
 					}
@@ -2482,14 +2425,7 @@ character_event = {
 			top_liege = { culture = gallawa }
 		}
 		capital_scope = {
-			kingdom = {
-				OR = {
-					title = k_scotland
-					title = k_ireland
-					title = k_wales
-					title = k_brittany
-				}
-			}
+			kingdom = { OR = { title = k_scotland title = k_ireland } }
 		}
 		culture = gallawa
 		any_courtier = {
