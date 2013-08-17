@@ -3,7 +3,7 @@ character_event = {
 	id = 1400000
 	picture = "GFX_evt_pope"
 	is_triggered_only = yes
-
+	
 	trigger = {
 		has_landed_title = c_roma
 		religion = catholic
@@ -13,15 +13,15 @@ character_event = {
 		NOT = { has_global_flag = excommunicated_rome }
 		NOT = { has_global_flag = shattered_world }
 	}
-
+		
 	desc = "EVTDESC1400000"
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
 			factor = 1.25
 			religion_head = { NOT = { opinion = { who = ROOT value = 25 } } }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			religion_head = { NOT = { opinion = { who = ROOT value = 0 } } }
@@ -41,7 +41,7 @@ character_event = {
 		modifier = {
 			factor = 1.25
 			religion_head = { NOT = { opinion = { who = ROOT value = -100 } } }
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			piety = 200
@@ -49,7 +49,7 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			piety = 100
-		}
+		}		
 		modifier = {
 			factor = 2.0
 			NOT = { piety = 0 }
@@ -65,14 +65,14 @@ character_event = {
 		modifier = {
 			factor = 100.0
 			religion_head = { NOT = { demesne_size = 1 } }
-		}
+		}		
 	}
-
+	
 
 	option = {
 		name = "EVTOPTA1400000"
 		ai_chance = { factor = 75 }
-		piety = 50
+		piety = 50	
 		if = {
 			limit = {
 				OR = {
@@ -83,8 +83,8 @@ character_event = {
 			religion_head = {
 				c_roma = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -96,8 +96,8 @@ character_event = {
 			religion_head = {
 				b_roma = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -109,8 +109,8 @@ character_event = {
 			religion_head = {
 				b_viterbo = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -122,8 +122,8 @@ character_event = {
 			religion_head = {
 				b_tusculum = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -135,9 +135,9 @@ character_event = {
 			religion_head = {
 				b_tivoli = {
 					gain_title = PREV
-				}
-			}
-		}
+				}			
+			}			
+		}		
 		if = {
 			limit = {
 				OR = {
@@ -148,8 +148,8 @@ character_event = {
 			religion_head = {
 				b_ostia = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -161,8 +161,8 @@ character_event = {
 			religion_head = {
 				b_sutri = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -174,8 +174,8 @@ character_event = {
 			religion_head = {
 				b_aragni = {
 					gain_title = PREV
-				}
-			}
+				}			
+			}			
 		}
 		if = {
 			limit = {
@@ -187,19 +187,19 @@ character_event = {
 			religion_head = {
 				b_terracina = {
 					gain_title = PREV
-				}
-			}
-		}
+				}			
+			}			
+		}		
 		opinion = {
 			modifier = opinion_happy
 			who = ROOT
 			years = 10
-		}
+		}		
 	}
 	option = {
 		name = "EVTOPTB1400000"
-		ai_chance = {
-			factor = 25
+		ai_chance = { 
+			factor = 25 
 			modifier = {
 				factor = 2.0
 				trait = cynical
@@ -231,7 +231,7 @@ character_event = {
 			modifier = {
 				factor = 0.5
 				trait = kind
-			}
+			}			
 		}
 		piety = -50
 		add_trait = excommunicated
@@ -241,26 +241,26 @@ character_event = {
 				modifier = opinion_hate
 				who = ROOT
 				years = 100
-			}
-		}
-	}
+			}			
+		}	
+	}	
 }
 
 character_event = {
 	id = 1400001
-	desc = "AI_EVENT"
+	desc = "AI_EVENT"	
 	picture = GFX_evt_pope
-
+	
 	trigger = {
 		has_landed_title = k_papal_state
 		has_landed_title = c_roma
 		has_global_flag = excommunicated_rome
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
 		name = "OK"
 		clr_global_flag = excommunicated_rome

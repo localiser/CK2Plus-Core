@@ -16,7 +16,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_ambition = obj_uncover_plot
 		in_command = no
@@ -39,44 +39,45 @@ character_event = {
 					has_plot = plot_fabricate_evidence_treason_vassal
 					has_plot = plot_kidnapping
 					has_plot = plot_kidnap_liege
+					
 				}
 				NOT = { has_character_flag = event7040 }    # Paradox event uses this to mark a plot as already exposed
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 180
-
+		
 		modifier = {
 			factor = 0.95
 			intrigue = 10
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			intrigue = 12
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			intrigue = 14
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			intrigue = 16
 		}
-
+		
 	}
 
 	option = {
 		name = uncoverevents.0.a # Will investigate
-
+		
 		ai_chance = {
 			factor = 100
 		}
-
+		
 		location = {
 			random_province_character = {
 				limit = {
@@ -100,13 +101,13 @@ character_event = {
 					}
 					NOT = { has_character_flag = event7040 }
 				}
-
+					
 				hidden_tooltip = {
 					character_event = { id = uncoverevents.1 days = 7 }
 				}
 			}
 		}
-
+		
 	}
 }
 
@@ -117,15 +118,15 @@ character_event = {
 	id = uncoverevents.1
 	desc = uncoverevents.1.desc
 	picture = "GFX_evt_spymaster"
-
+	
 	hide_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = uncoverevents.1.a # oh no...
 		hidden_tooltip = {
-			FROM = {
+			FROM = { 
 				character_event = { id = uncoverevents.2 days = 1 }
 			}
 		}
@@ -137,41 +138,41 @@ character_event = {
 	id = uncoverevents.2
 	desc = uncoverevents.2.desc
 	picture = "GFX_evt_recieve_letter"
-
+	
 	is_triggered_only = yes
 
 	option = {
 		name = uncoverevents.2.a # Will reveal
-
+		
 		ai_chance = {
 			factor = 80
 			modifier = {
 				factor = 0
-				opinion = { who = FROM value = 40 }
+				opinion = { who = FROM value = 40 } 
 			}
 		}
-
-		FROM = {
+			
+		FROM = {			
 			opinion = {
 				who = ROOT
 				modifier = revealed_plot
 				months = 120
 			}
-
+			
 			set_character_flag = event7040  # Marked a plotter as having his plot revealed
-
+			
 			character_event = { id = uncoverevents.3 days = 1 tooltip = uncovered_tooltip }
 			plot_target_char = {
 				character_event = { id = uncoverevents.4 days = 1 tooltip = tipped_off_tooltip }
 			}
 		}
-
-		add_trait = counterspy  # Completes ambition
+		
+		add_trait = counterspy  # Completes ambition 
 	}
-
+	
 	option = {
 		name = uncoverevents.2.b # Will not reveal
-
+		
 		ai_chance = {
 			factor = 20
 			modifier = {
@@ -179,7 +180,7 @@ character_event = {
 				NOT = { opinion = { who = FROM value = -40 } }
 			}
 		}
-
+		
 	}
 }
 
@@ -188,9 +189,9 @@ character_event = {
 	id = uncoverevents.3
 	desc = uncoverevents.3.desc
 	picture = "GFX_evt_spymaster"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "CURSES"
 		if = {
@@ -230,17 +231,17 @@ character_event = {
 	id = uncoverevents.4
 	desc = uncoverevents.4.desc
 	picture = "GFX_evt_whispers"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = uncoverevents.4.a
-
+		
 		opinion = {
 			who = FROM
 			modifier = opinion_uncovered_plot
 			months = 60
 		}
-
+		
 	}
 }

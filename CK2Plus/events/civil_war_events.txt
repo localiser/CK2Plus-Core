@@ -3,10 +3,10 @@ character_event = {
 	id = 2000000
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000000"
-
+	
 	option = {
 		name = "EVTOPTA2000000"
 		ai_chance = {
@@ -18,8 +18,8 @@ character_event = {
 			modifier = {
 				factor = 0
 				liege = {
-					NOT = { has_character_flag = faction_feudal_angry }
-					NOT = { has_character_flag = faction_feudal_unhappy }
+					NOT = { has_character_flag = faction_feudal_angry } 
+					NOT = { has_character_flag = faction_feudal_unhappy } 
 				}
 			}
 			modifier = {
@@ -38,7 +38,7 @@ character_event = {
 						value = 0
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -56,7 +56,7 @@ character_event = {
 						value = -50
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -65,7 +65,7 @@ character_event = {
 						value = -75
 					}
 				}
-			}
+			}				
 		}
 		hidden_tooltip = { liege = { set_character_flag = faction_feudal_war } }
 		hidden_tooltip = {
@@ -83,23 +83,23 @@ character_event = {
 				}
 			}
 		}
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }		
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -111,9 +111,9 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
-		join_attacker_wars = FROM
+		join_attacker_wars = FROM		
 		clr_character_flag = do_not_join_civil_war
 	}
 	option = {
@@ -143,7 +143,7 @@ character_event = {
 					who = liege
 					value = 25
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
@@ -157,14 +157,14 @@ character_event = {
 					who = liege
 					value = 75
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
 					who = liege
 					value = 100
 				}
-			}
+			}				
 		}
 		add_trait = loyalist
 		hidden_tooltip = {
@@ -202,8 +202,8 @@ character_event = {
 					character_event = { id = 2000005 }
 				}
 			}
-		}
-		clr_character_flag = do_not_join_civil_war
+		}	
+		clr_character_flag = do_not_join_civil_war	
 	}
 }
 
@@ -212,10 +212,10 @@ character_event = {
 	id = 2000001
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000001"
-
+	
 	option = {
 		name = "EVTOPTA2000001"
 	}
@@ -226,10 +226,10 @@ character_event = {
 	id = 2000002
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000002"
-
+	
 	option = {
 		name = "EVTOPTA2000002"
 	}
@@ -240,29 +240,29 @@ character_event = {
 	id = 2000003
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000001"
-
+	
 	option = {
 		name = "TOARMS"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -274,7 +274,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -285,10 +285,10 @@ character_event = {
 	id = 2000004
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000002"
-
+	
 	option = {
 		name = "TOARMS"
 		add_trait = loyalist
@@ -300,33 +300,33 @@ character_event = {
 	id = 2000005
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	desc = "EVTDESC2000005"
-
+	
 	option = {
 		name = "EVTOPTA2000005"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -338,7 +338,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -356,10 +356,10 @@ character_event = {
 	id = 2000010
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000010"
-
+	
 	option = {
 		name = "EVTOPTA2000010"
 		ai_chance = {
@@ -371,10 +371,10 @@ character_event = {
 			modifier = {
 				factor = 0
 				liege = {
-					NOT = { has_character_flag = faction_court_angry }
-					NOT = { has_character_flag = faction_court_unhappy }
+					NOT = { has_character_flag = faction_court_angry } 
+					NOT = { has_character_flag = faction_court_unhappy } 
 				}
-			}
+			}		
 			modifier = {
 				factor = 100
 				liege = { has_character_flag = faction_court_angry }
@@ -391,7 +391,7 @@ character_event = {
 						value = 0
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -409,7 +409,7 @@ character_event = {
 						value = -50
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -418,7 +418,7 @@ character_event = {
 						value = -75
 					}
 				}
-			}
+			}				
 		}
 		hidden_tooltip = { liege = { set_character_flag = faction_court_war } }
 		hidden_tooltip = {
@@ -436,23 +436,23 @@ character_event = {
 				}
 			}
 		}
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -464,9 +464,9 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
-		join_attacker_wars = FROM
+		join_attacker_wars = FROM		
 		clr_character_flag = do_not_join_civil_war
 	}
 	option = {
@@ -496,7 +496,7 @@ character_event = {
 					who = liege
 					value = 25
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
@@ -510,14 +510,14 @@ character_event = {
 					who = liege
 					value = 75
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
 					who = liege
 					value = 100
 				}
-			}
+			}				
 		}
 		add_trait = loyalist
 		hidden_tooltip = {
@@ -556,7 +556,7 @@ character_event = {
 				}
 			}
 		}
-		clr_character_flag = do_not_join_civil_war
+		clr_character_flag = do_not_join_civil_war	
 	}
 }
 
@@ -565,10 +565,10 @@ character_event = {
 	id = 2000011
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000011"
-
+	
 	option = {
 		name = "EVTOPTA2000011"
 	}
@@ -579,10 +579,10 @@ character_event = {
 	id = 2000012
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000012"
-
+	
 	option = {
 		name = "EVTOPTA2000012"
 	}
@@ -593,29 +593,29 @@ character_event = {
 	id = 2000013
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000011"
-
+	
 	option = {
 		name = "TOARMS"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -627,7 +627,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -638,10 +638,10 @@ character_event = {
 	id = 2000014
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000012"
-
+	
 	option = {
 		name = "TOARMS"
 		add_trait = loyalist
@@ -653,33 +653,33 @@ character_event = {
 	id = 2000015
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	desc = "EVTDESC2000015"
-
+	
 	option = {
 		name = "EVTOPTA2000015"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -691,7 +691,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -709,10 +709,10 @@ character_event = {
 	id = 2000020
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000020"
-
+	
 	option = {
 		name = "EVTOPTA2000020"
 		ai_chance = {
@@ -724,8 +724,8 @@ character_event = {
 			modifier = {
 				factor = 0
 				liege = {
-					NOT = { has_character_flag = faction_religious_angry }
-					NOT = { has_character_flag = faction_religious_unhappy }
+					NOT = { has_character_flag = faction_religious_angry } 
+					NOT = { has_character_flag = faction_religious_unhappy } 
 				}
 			}
 			modifier = {
@@ -744,7 +744,7 @@ character_event = {
 						value = 0
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -762,7 +762,7 @@ character_event = {
 						value = -50
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -771,9 +771,9 @@ character_event = {
 						value = -75
 					}
 				}
-			}
+			}				
 		}
-		hidden_tooltip = { liege = { set_character_flag = faction_religious_war } }
+		hidden_tooltip = { liege = { set_character_flag = faction_religious_war } }		
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = 2000021 }
@@ -789,23 +789,23 @@ character_event = {
 				}
 			}
 		}
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -817,9 +817,9 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
-		join_attacker_wars = FROM
+		join_attacker_wars = FROM		
 		clr_character_flag = do_not_join_civil_war
 	}
 	option = {
@@ -849,7 +849,7 @@ character_event = {
 					who = liege
 					value = 25
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
@@ -863,14 +863,14 @@ character_event = {
 					who = liege
 					value = 75
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
 					who = liege
 					value = 100
 				}
-			}
+			}				
 		}
 		add_trait = loyalist
 		hidden_tooltip = {
@@ -909,7 +909,7 @@ character_event = {
 				}
 			}
 		}
-		clr_character_flag = do_not_join_civil_war
+		clr_character_flag = do_not_join_civil_war	
 	}
 }
 
@@ -918,10 +918,10 @@ character_event = {
 	id = 2000021
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000021"
-
+	
 	option = {
 		name = "EVTOPTA2000021"
 	}
@@ -932,10 +932,10 @@ character_event = {
 	id = 2000022
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000022"
-
+	
 	option = {
 		name = "EVTOPTA2000022"
 	}
@@ -946,29 +946,29 @@ character_event = {
 	id = 2000023
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000021"
-
+	
 	option = {
 		name = "TOARMS"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -980,7 +980,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -991,10 +991,10 @@ character_event = {
 	id = 2000024
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000022"
-
+	
 	option = {
 		name = "TOARMS"
 		add_trait = loyalist
@@ -1006,33 +1006,33 @@ character_event = {
 	id = 2000025
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	desc = "EVTDESC2000025"
-
+	
 	option = {
 		name = "EVTOPTA2000025"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -1044,7 +1044,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -1063,10 +1063,10 @@ character_event = {
 	id = 2000030
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000030"
-
+	
 	option = {
 		name = "EVTOPTA2000030"
 		ai_chance = {
@@ -1078,8 +1078,8 @@ character_event = {
 			modifier = {
 				factor = 0
 				liege = {
-					NOT = { has_character_flag = faction_republican_angry }
-					NOT = { has_character_flag = faction_republican_unhappy }
+					NOT = { has_character_flag = faction_republican_angry } 
+					NOT = { has_character_flag = faction_republican_unhappy } 
 				}
 			}
 			modifier = {
@@ -1098,7 +1098,7 @@ character_event = {
 						value = 0
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -1116,7 +1116,7 @@ character_event = {
 						value = -50
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				NOT = {
@@ -1125,9 +1125,9 @@ character_event = {
 						value = -75
 					}
 				}
-			}
+			}				
 		}
-		hidden_tooltip = { liege = { set_character_flag = faction_republican_war } }
+		hidden_tooltip = { liege = { set_character_flag = faction_republican_war } }		
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = 2000031 }
@@ -1143,23 +1143,23 @@ character_event = {
 				}
 			}
 		}
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -1171,9 +1171,9 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
-		join_attacker_wars = FROM
+		join_attacker_wars = FROM		
 		clr_character_flag = do_not_join_civil_war
 	}
 	option = {
@@ -1203,7 +1203,7 @@ character_event = {
 					who = liege
 					value = 25
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
@@ -1217,14 +1217,14 @@ character_event = {
 					who = liege
 					value = 75
 				}
-			}
+			}	
 			modifier = {
 				factor = 1.25
 				opinion = {
 					who = liege
 					value = 100
 				}
-			}
+			}				
 		}
 		add_trait = loyalist
 		hidden_tooltip = {
@@ -1262,8 +1262,8 @@ character_event = {
 					character_event = { id = 2000035 }
 				}
 			}
-		}
-		clr_character_flag = do_not_join_civil_war
+		}	
+		clr_character_flag = do_not_join_civil_war	
 	}
 }
 
@@ -1272,10 +1272,10 @@ character_event = {
 	id = 2000031
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000031"
-
+	
 	option = {
 		name = "EVTOPTA2000031"
 	}
@@ -1286,10 +1286,10 @@ character_event = {
 	id = 2000032
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000032"
-
+	
 	option = {
 		name = "EVTOPTA2000032"
 	}
@@ -1300,29 +1300,29 @@ character_event = {
 	id = 2000033
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000031"
-
+	
 	option = {
 		name = "TOARMS"
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -1334,7 +1334,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -1345,10 +1345,10 @@ character_event = {
 	id = 2000034
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	desc = "EVTDESC2000032"
-
+	
 	option = {
 		name = "TOARMS"
 		add_trait = loyalist
@@ -1360,33 +1360,33 @@ character_event = {
 	id = 2000035
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
-	border = "GFX_event_normal_frame_war"
-
+	border = "GFX_event_normal_frame_war"	
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	desc = "EVTDESC2000035"
-
+	
 	option = {
 		name = "EVTOPTA2000035"
-		add_trait = rebel
+		add_trait = rebel 
 		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -1398,7 +1398,7 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
 		join_attacker_wars = FROMFROM
 	}
@@ -1418,7 +1418,7 @@ character_event = {
 	is_triggered_only = yes
 	picture = "GFX_evt_battle"
 	border = "GFX_event_normal_frame_war"
-
+	
 	trigger = {
 		prisoner = no
 		is_patrician = no
@@ -1436,30 +1436,30 @@ character_event = {
 			leads_faction = faction_feudal_duke
 			leads_faction = faction_court_emperor
 			leads_faction = faction_court_king
-			leads_faction = faction_court_duke
+			leads_faction = faction_court_duke								
 			leads_faction = faction_religious_emperor
 			leads_faction = faction_religious_king
-			leads_faction = faction_religious_duke
+			leads_faction = faction_religious_duke	
 			leads_faction = faction_republican_emperor
 			leads_faction = faction_republican_king
-			leads_faction = faction_republican_duke
+			leads_faction = faction_republican_duke	
 			in_faction = faction_feudal_emperor
 			in_faction = faction_feudal_king
 			in_faction = faction_feudal_duke
 			in_faction = faction_court_emperor
 			in_faction = faction_court_king
-			in_faction = faction_court_duke
+			in_faction = faction_court_duke								
 			in_faction = faction_religious_emperor
 			in_faction = faction_religious_king
-			in_faction = faction_religious_duke
+			in_faction = faction_religious_duke	
 			in_faction = faction_republican_emperor
 			in_faction = faction_republican_king
-			in_faction = faction_republican_duke
-		}
+			in_faction = faction_republican_duke							
+		}	
 	}
-
+	
 	desc = "EVTDESC2000040"
-
+	
 	option = {
 		name = "EVTOPTA2000000"
 		ai_chance = {
@@ -1467,7 +1467,7 @@ character_event = {
 			modifier = {
 				factor = 0
 				has_character_flag = do_not_join_civil_war
-			}
+			}			
 			modifier = {
 				factor = 1.5
 				trait = ambitious
@@ -1478,7 +1478,7 @@ character_event = {
 					who = liege
 					value = 0
 				}
-			}
+			}			
 			modifier = {
 				factor = 3
 				NOT = {
@@ -1487,7 +1487,7 @@ character_event = {
 						value = 0
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 3
 				NOT = {
@@ -1505,7 +1505,7 @@ character_event = {
 						value = -50
 					}
 				}
-			}
+			}	
 			modifier = {
 				factor = 3
 				NOT = {
@@ -1514,25 +1514,25 @@ character_event = {
 						value = -75
 					}
 				}
-			}
+			}				
 		}
-		add_trait = rebel
-		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } }
-		hidden_tooltip = {
+		add_trait = rebel 
+		hidden_tooltip = { opinion = { who = liege modifier = revolting_against years = 100 } } 
+		hidden_tooltip = { 
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						OR = {
 							independent = yes
 							liege = { character = PREV }
 						}
 					}
 				}
-				set_defacto_liege = ROOT
+				set_defacto_liege = ROOT 
 			}
 			if = {
 				limit = {
-					liege = {
+					liege = { 
 						independent = no
 						liege = { NOT = { character = PREV } }
 					}
@@ -1544,10 +1544,10 @@ character_event = {
 						}
 					}
 				}
-			}
+			}			
 		}
-		join_attacker_wars = FROM
-		clr_character_flag = do_not_join_civil_war
+		join_attacker_wars = FROM	
+		clr_character_flag = do_not_join_civil_war		
 	}
 	option = {
 		name = "EVTOPTB2000040"
@@ -1572,7 +1572,7 @@ character_event = {
 					who = liege
 					value = 25
 				}
-			}
+			}	
 			modifier = {
 				factor = 3
 				opinion = {
@@ -1586,14 +1586,14 @@ character_event = {
 					who = liege
 					value = 75
 				}
-			}
+			}	
 			modifier = {
 				factor = 3
 				opinion = {
 					who = liege
 					value = 100
 				}
-			}
+			}				
 		}
 		add_trait = loyalist
 		clr_character_flag = do_not_join_civil_war
@@ -1602,7 +1602,7 @@ character_event = {
 		name = "EVTOPTC2000040"
 		ai_chance = {
 			factor = 100
-		}
+		}	
 		clr_character_flag = do_not_join_civil_war
 	}
 }
@@ -1610,22 +1610,22 @@ character_event = {
 #End of civil war
 character_event = {
 	id = 2010030
-	picture = GFX_evt_council
+	picture = GFX_evt_council		
 	is_triggered_only = yes
 	hide_from = yes
-
+		
 	desc = "EVTDESC2010030" #How do I reward my supporters?
-
+	
 	trigger = {
 		any_vassal = {
 			OR = { higher_tier_than = baron is_patrician = yes }
 			OR = {
 				trait = loyalist
 				trait = rebel
-			}
+			}			
 		}
 	}
-
+	
 	immediate = {
 		any_vassal = {
 			limit = {
@@ -1638,7 +1638,7 @@ character_event = {
 			prisoner = no
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA2010030" #Tax Privileges
 		ai_chance = {
@@ -1659,19 +1659,19 @@ character_event = {
 			hidden_tooltip = {
 				location = {
 					remove_province_modifier = tax_privileges
-					remove_province_modifier = tax_reduction
+					remove_province_modifier = tax_reduction	
 				}
 			}
 			location = {
 				add_province_modifier = {
 					name = "tax_reduction"
 					duration = 3650
-				}
+				}	
 			}
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = {
+				limit = {	
 					OR = { higher_tier_than = baron is_patrician = yes }
 					NOT = {
 						OR = {
@@ -1684,13 +1684,13 @@ character_event = {
 				any_vassal = {
 					character_event = { id = 2010031 } #notify
 					any_vassal = {
-						character_event = { id = 2010031 } #notify
-					}
+						character_event = { id = 2010031 } #notify				
+					}					
 				}
-			}
-		}
+			}	
+		}		
 		any_vassal = {
-			limit = {
+			limit = {	
 				OR = { higher_tier_than = baron is_patrician = yes }
 				OR = {
 					trait = loyalist
@@ -1706,19 +1706,19 @@ character_event = {
 						reverse_remove_opinion = {
 							who = PREV
 							modifier = revolting_against
-						}
+						}	
 					}
 					opinion = {
 						who = ROOT
 						modifier = opinion_pleased
 						months = 120
-					}
+					}	
 					character_event = { id = 2010032 } #notify
 					any_vassal = {
 						character_event = { id = 2010032 } #notify
 						any_vassal = {
-							character_event = { id = 2010032 } #notify
-						}
+							character_event = { id = 2010032 } #notify				
+						}					
 					}
 				}
 			}
@@ -1726,7 +1726,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB2010030" #Glory and Honor
-		ai_chance = {
+		ai_chance = { 
 			factor = 100
 			modifier = {
 				factor = 0.5
@@ -1735,7 +1735,7 @@ character_event = {
 			modifier = {
 				factor = 2.0
 				trait = ambitious
-			}
+			}				
 			modifier = {
 				factor = 0.5
 				trait = proud
@@ -1743,7 +1743,7 @@ character_event = {
 			modifier = {
 				factor = 2.0
 				trait = humble
-			}
+			}			
 			modifier = {
 				factor = 0
 				OR = {
@@ -1758,9 +1758,9 @@ character_event = {
 					AND = {
 						tier = emperor
 						NOT = { prestige = 1000 }
-					}
+					}					
 				}
-			}
+			}	
 		}
 		if = {
 			limit = {
@@ -1779,16 +1779,16 @@ character_event = {
 				tier = king
 			}
 			prestige = -750
-		}
+		}	
 		if = {
 			limit = {
 				tier = emperor
 			}
 			prestige = -1000
-		}
+		}		
 		hidden_tooltip = {
 			any_vassal = {
-				limit = {
+				limit = {	
 					OR = { higher_tier_than = baron is_patrician = yes }
 					NOT = {
 						OR = {
@@ -1801,7 +1801,7 @@ character_event = {
 			}
 		}
 		any_vassal = {
-			limit = {
+			limit = {	
 				OR = { higher_tier_than = baron is_patrician = yes }
 				OR = {
 					trait = loyalist
@@ -1810,20 +1810,20 @@ character_event = {
 			}
 			custom_tooltip = {
 				text = CUSTOMTOOLTIP40
-				hidden_tooltip = {
+				hidden_tooltip = {			
 					remove_trait = loyalist
 					remove_trait = rebel
 					any_playable_ruler = {
 						reverse_remove_opinion = {
 							who = PREV
 							modifier = revolting_against
-						}
+						}	
 					}
 					opinion = {
 						who = ROOT
 						modifier = opinion_pleased
 						months = 120
-					}
+					}	
 					character_event = { id = 2010034 } #notify
 				}
 			}
@@ -1831,7 +1831,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTC2010030" #Nothing
-		ai_chance = {
+		ai_chance = { 
 			factor = 10
 			modifier = {
 				factor = 0.1
@@ -1840,20 +1840,20 @@ character_event = {
 					trait = content
 					trait = charitable
 					trait = just
-				}
+				}	
 			}
 			modifier = {
 				factor = 1.5
 				trait = arbitrary
-			}
+			}			
 			modifier = {
 				factor = 1.5
 				trait = wroth
-			}
+			}			
 			modifier = {
 				factor = 2.0
 				trait = cruel
-			}
+			}	
 			modifier = {
 				factor = 5.0
 				trait = lunatic
@@ -1861,13 +1861,13 @@ character_event = {
 			modifier = {
 				factor = 5.0
 				trait = possessed
-			}
+			}			
 		}
 		custom_tooltip = {
-			text = CUSTOMTOOLTIP27
-			hidden_tooltip = {
+			text = CUSTOMTOOLTIP27		
+			hidden_tooltip = {		
 				any_vassal = {
-					limit = {
+					limit = {	
 						OR = { higher_tier_than = baron is_patrician = yes }
 						OR = {
 							trait = loyalist
@@ -1880,14 +1880,14 @@ character_event = {
 						reverse_remove_opinion = {
 							who = PREV
 							modifier = revolting_against
-						}
+						}	
 					}
 					opinion = {
 						who = ROOT
 						modifier = opinion_upset
 						months = 120
 						multiplier = 2
-					}
+					}	
 					character_event = { id = 2010035 } #notify
 				}
 			}
@@ -1898,15 +1898,15 @@ character_event = {
 #Notify player of tax reduction
 character_event = {
 	id = 2010031
-	picture = GFX_evt_council
+	picture = GFX_evt_council		
 	is_triggered_only = yes
-
+		
 	desc = "EVTDESC2010031"
-
+	
 	trigger = {
 		independent = no
 	}
-
+	
 	immediate = {
 		any_demesne_title = {
 			limit = {
@@ -1915,10 +1915,10 @@ character_event = {
 			location = {
 				remove_province_modifier = tax_privileges
 				remove_province_modifier = tax_reduction
-			}
+			}	
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA2010031"
 		any_demesne_title = {
@@ -1929,7 +1929,7 @@ character_event = {
 				add_province_modifier = {
 					name = "tax_reduction"
 					duration = 3650
-				}
+				}	
 			}
 		}
 	}
@@ -1938,15 +1938,15 @@ character_event = {
 #Notify of tax increase
 character_event = {
 	id = 2010032
-	picture = GFX_evt_council
+	picture = GFX_evt_council		
 	is_triggered_only = yes
-
+		
 	desc = "EVTDESC2010032"
-
+	
 	trigger = {
 		independent = no
-	}
-
+	}	
+	
 	immediate = {
 		any_demesne_title = {
 			limit = {
@@ -1955,10 +1955,10 @@ character_event = {
 			location = {
 				remove_province_modifier = tax_privileges
 				remove_province_modifier = tax_reduction
-			}
+			}	
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA2010032"
 		any_demesne_title = {
@@ -1969,24 +1969,24 @@ character_event = {
 				add_province_modifier = {
 					name = "tax_privileges"
 					duration = 3650
-				}
+				}	
 			}
-		}
+		}		
 	}
 }
 
 #Notify of prestige reduction
 character_event = {
 	id = 2010033
-	picture = GFX_evt_council
+	picture = GFX_evt_council		
 	is_triggered_only = yes
-
+		
 	desc = "EVTDESC2010033"
-
+	
 	trigger = {
 		independent = no
-	}
-
+	}	
+	
 	option = {
 		name = "EVTOPTA2010033"
 		if = {
@@ -2000,28 +2000,28 @@ character_event = {
 				tier = duke
 			}
 			prestige = -500
-		}
+		}	
 		if = {
 			limit = {
 				tier = king
 			}
 			prestige = -750
-		}
+		}		
 	}
 }
 
 #Notify of prestige increase
 character_event = {
 	id = 2010034
-	picture = GFX_evt_council
+	picture = GFX_evt_council		
 	is_triggered_only = yes
-
+		
 	desc = "EVTDESC2010034"
-
+	
 	trigger = {
 		independent = no
-	}
-
+	}	
+	
 	option = {
 		name = "EVTOPTA2010034"
 		if = {
@@ -2035,28 +2035,28 @@ character_event = {
 				tier = duke
 			}
 			prestige = 500
-		}
+		}	
 		if = {
 			limit = {
 				tier = king
 			}
 			prestige = 750
-		}
+		}	
 	}
 }
 
 #Notify of no reward
 character_event = {
 	id = 2010035
-	picture = GFX_evt_council
+	picture = GFX_evt_council		
 	is_triggered_only = yes
-
+		
 	desc = "EVTDESC2010035"
 
 	trigger = {
 		independent = no
 	}
-
+	
 	option = {
 		name = "EVTOPTA2010035"
 		tooltip = {
@@ -2065,8 +2065,8 @@ character_event = {
 				modifier = opinion_upset
 				months = 120
 				multiplier = 2
-			}
-		}
+			}		
+		}	
 		if = {
 			limit = {
 				OR = {
@@ -2077,7 +2077,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_feudal" value = -4 }
-				custom_tooltip = {
+				custom_tooltip = { 
 					text = FEUDALFACTIONMOODMINUS
 					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				}
@@ -2093,7 +2093,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_republican" value = -4 }
-				custom_tooltip = {
+				custom_tooltip = { 
 					text = REPUBLICANFACTIONMOODMINUS
 					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				}
@@ -2109,7 +2109,7 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_religious" value = -4 }
-				custom_tooltip = {
+				custom_tooltip = { 
 					text = RELIGIOUSFACTIONMOODMINUS
 					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				}
@@ -2125,11 +2125,11 @@ character_event = {
 			}
 			liege = {
 				change_variable = { which = "faction_mood_court" value = -4 }
-				custom_tooltip = {
+				custom_tooltip = { 
 					text = COURTFACTIONMOODMINUS
 					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 				}
 			}
-		}
+		}		
 	}
 }

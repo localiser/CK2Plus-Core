@@ -15,7 +15,7 @@ character_event = {
 	id = LoR.200
 	desc = "EVTDESCLoR.200"
 	picture = "GFX_evt_bishop_byzantine"
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
@@ -25,7 +25,7 @@ character_event = {
 		NOT = { has_global_flag = pat_antioch }
 		completely_controls = c_antiocheia
 	}
-
+	
 	option = {
 		name = "EVTOPTALoR.200"
 		set_global_flag = pat_antioch
@@ -38,7 +38,7 @@ character_event = {
 	id = LoR.201
 	desc = "EVTDESCLoR.201"
 	picture = "GFX_evt_bishop_byzantine"
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
@@ -48,7 +48,7 @@ character_event = {
 		NOT = { has_global_flag = pat_jerusalem }
 		completely_controls = c_jerusalem
 	}
-
+	
 	option = {
 		name = "EVTOPTALoR.200"
 		set_global_flag = pat_jerusalem
@@ -61,7 +61,7 @@ character_event = {
 	id = LoR.202
 	desc = "EVTDESCLoR.202"
 	picture = "GFX_evt_bishop_byzantine"
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
@@ -71,7 +71,7 @@ character_event = {
 		NOT = { has_global_flag = pat_alexandria }
 		completely_controls = c_alexandria
 	}
-
+	
 	option = {
 		name = "EVTOPTALoR.200"
 		set_global_flag = pat_alexandria
@@ -84,7 +84,7 @@ character_event = {
 	id = LoR.203
 	desc = "EVTDESCLoR.203"
 	picture = "GFX_evt_bishop_byzantine"
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
@@ -94,7 +94,7 @@ character_event = {
 		NOT = { has_global_flag = pat_rome }
 		completely_controls = c_roma
 	}
-
+	
 	option = {
 		name = "EVTOPTALoR.200"
 		set_global_flag = pat_rome
@@ -109,11 +109,11 @@ narrative_event = {
 	id = LoR.210
 	title = "EVTNAMELoR.210"
 	desc = "EVTDESCLoR.210"
-
+	
 	picture = "GFX_evt_icon"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTALoR.200"
 		set_parent_religion = { religion = catholic parent = orthodox }
@@ -121,7 +121,7 @@ narrative_event = {
 		give_nickname = nick_the_saint
 		hidden_tooltip = {
 			any_playable_ruler = {
-				limit = {
+				limit = { 
 					religion = catholic
 					controls_religion = no
 				}
@@ -136,14 +136,14 @@ narrative_event = {
 	id = LoR.211
 	title = "EVTNAMELoR.210"
 	desc = "EVTDESCLoR.210"
-
+	
 	picture = "GFX_evt_icon"
-
+	
 	is_triggered_only = yes
-
+	
 	option = { # Yes
 		name = "EVTOPTALoR.211"
-		ai_chance = {
+		ai_chance = { 
 			factor = 20
 			modifier = {
 				factor = 3
@@ -200,17 +200,17 @@ narrative_event = {
 		}
 		religion = orthodox
 		any_courtier = {
-			limit = {
+			limit = { 
 				is_ruler = no
 			}
 			religion = orthodox
 		}
 		any_vassal = {
-			limit = {
+			limit = { 
 				tier = baron
 			}
 			religion = orthodox
-		}
+		}		
 		capital_scope = {
 			religion = orthodox
 		}

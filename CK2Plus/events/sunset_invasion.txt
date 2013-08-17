@@ -13,10 +13,10 @@ namespace = SSI
 province_event = {
 	id = SSI.1
 	desc = "EVTDESC_SSI_001"
-
+	
 	picture = "GFX_evt_aztec_explorers"
 	border = "GFX_event_normal_frame_war"
-
+	
 	trigger = {
 		has_dlc = "Sunset Invasion"
 		year = 1250
@@ -35,7 +35,7 @@ province_event = {
 			province_id = 845 # Anti-Atlas
 		}
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_explorers
 		set_province_flag = aztec_explorers
@@ -48,7 +48,7 @@ province_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 720
 		modifier = {
@@ -61,7 +61,7 @@ province_event = {
 			NOT = { has_global_flag = vanilla_aztecs }
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_001"
 	}
@@ -73,16 +73,16 @@ narrative_event = {
 	title = "EVTNAME_SSI_002"
 	desc = "EVTDESC_SSI_002"
 	major = yes
-
+	
 	picture = "GFX_evt_aztec_explorers"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	is_triggered_only = yes
-
+	
 	major_trigger = {
 		FROM = { owner = { NOT = { character = PREVPREV } } }
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_002"
 	}
@@ -92,16 +92,16 @@ narrative_event = {
 province_event = {
 	id = SSI.3
 	desc = "EVTDESC_SSI_003"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	trigger = {
 		year = 1250
 		NOT = { has_global_flag = aztec_arrival }
 		had_province_flag = { flag = aztec_explorers days = 730 }
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_arrival
 		culture = nahuatl
@@ -122,7 +122,7 @@ province_event = {
 			ROOT = {
 				county = {
 					gain_title = PREVPREV
-					any_de_jure_vassal_title = {
+					any_de_jure_vassal_title = {	
 						gain_title = PREVPREVPREV
 					}
 				}
@@ -133,11 +133,11 @@ province_event = {
 			narrative_event = { id = SSI.4 }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 6
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_003"
 	}
@@ -150,19 +150,19 @@ narrative_event = {
 	desc = "EVTDESC_SSI_004"
 	major = yes
 	hide_new = yes
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	is_triggered_only = yes
-
+	
 	major_trigger = {
 		FROM = { owner = { NOT = { character = PREVPREV } } }
 	}
-
+	
 	immediate = {
 		wealth = 1000
-
+		
 		create_character = {
 			random_traits = yes
 			dynasty = random
@@ -187,7 +187,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		create_character = {
 			random_traits = yes
 			dynasty = random
@@ -212,7 +212,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		create_character = {
 			random_traits = yes
 			dynasty = random
@@ -237,7 +237,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		random = {
 			chance = 50
 			create_character = {
@@ -265,7 +265,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		random = {
 			chance = 50
 			create_character = {
@@ -293,7 +293,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		random = {
 			chance = 50
 			create_character = {
@@ -321,11 +321,11 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		# Ships
 		if = {
 			limit = {
-				FROM = {
+				FROM = { 
 					OR = {
 						province_id = 1 # Vestisland
 						province_id = 9 # Connacht
@@ -351,7 +351,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		# Some extra courtiers
 		create_character = {
 			random_traits = yes
@@ -498,7 +498,7 @@ narrative_event = {
 			age = 16
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_004"
 	}
@@ -508,10 +508,10 @@ narrative_event = {
 province_event = {
 	id = SSI.5
 	desc = "EVTDESC_SSI_005"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	trigger = {
 		year = 1250
 		has_global_flag = aztec_arrival
@@ -529,7 +529,7 @@ province_event = {
 			province_id = 845 # Anti-Atlas
 		}
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_arrival_2
 		culture = nahuatl
@@ -539,7 +539,7 @@ province_event = {
 				ROOT = {
 					county = {
 						gain_title = PREVPREV
-						any_de_jure_vassal_title = {
+						any_de_jure_vassal_title = {	
 							gain_title = PREVPREVPREV
 						}
 					}
@@ -548,11 +548,11 @@ province_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 12
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_005"
 	}
@@ -565,17 +565,17 @@ narrative_event = {
 	desc = "EVTDESC_SSI_006"
 	major = yes
 	hide_new = yes
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	is_triggered_only = yes
-
+	
 	major_trigger = {
 		FROM = { owner = { NOT = { character = PREVPREV } } }
 	}
-
-	immediate = {
+	
+	immediate = {		
 		create_character = {
 			random_traits = yes
 			dynasty = random
@@ -600,7 +600,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		create_character = {
 			random_traits = yes
 			dynasty = random
@@ -625,7 +625,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		create_character = {
 			random_traits = yes
 			dynasty = random
@@ -650,7 +650,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		random = {
 			chance = 50
 			create_character = {
@@ -678,7 +678,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		random = {
 			chance = 50
 			create_character = {
@@ -706,7 +706,7 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		random = {
 			chance = 50
 			create_character = {
@@ -734,11 +734,11 @@ narrative_event = {
 				}
 			}
 		}
-
+		
 		# Ships
 		if = {
 			limit = {
-				FROM = {
+				FROM = { 
 					OR = {
 						province_id = 1 # Vestisland
 						province_id = 9 # Connacht
@@ -765,7 +765,7 @@ narrative_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_006"
 	}
@@ -775,22 +775,22 @@ narrative_event = {
 character_event = {
 	id = SSI.100
 	hide_window = yes
-
+	
 	trigger = {
 		has_landed_title = e_mexikha
 		NOT = { has_global_flag = aztec_invasion_fleet_disbanded }
 		had_global_flag = { flag = aztec_arrival days = 18250 }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1
 	}
-
+	
 	immediate = {
 		disband_event_forces = aztec_invasion_fleet
 		set_global_flag = aztec_invasion_fleet_disbanded
 	}
-
+	
 	option = {
 		name = "OK"
 	}
@@ -801,32 +801,32 @@ narrative_event = {
 	id = SSI.105
 	title = "EVTNAME_SSI_105"
 	desc = "EVTDESC_SSI_105"
-
+	
 	hide_from = yes
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival_2
-		has_landed_title = k_papal_state
+		has_landed_title = k_papal_state 
 		e_mexikha = { has_holder = no }
 		NOT = { has_global_flag = aztecs_defeated }
 	}
-
+	
 	major_trigger = {
 		OR = {
-			has_landed_title = k_papal_state
+			has_landed_title = k_papal_state 
 			ai = no
 		}
 	}
-
+	
 	immediate = {
 		set_global_flag = aztecs_defeated
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_105"
 	}
@@ -837,31 +837,31 @@ narrative_event = {
 	id = SSI.30
 	title = "EVTNAME_SSI_030"
 	desc = "EVTDESC_SSI_030"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		NOT = { has_global_flag = aztec_incas }
 		NOT = { has_global_flag = aztecs_defeated }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+	
 	mean_time_to_happen = {
 		months = 220
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_incas
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_030"
 	}
@@ -872,31 +872,31 @@ narrative_event = {
 	id = SSI.31
 	title = "EVTNAME_SSI_031"
 	desc = "EVTDESC_SSI_031"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		NOT = { has_global_flag = aztec_plains }
 		NOT = { has_global_flag = aztecs_defeated }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+	
 	mean_time_to_happen = {
 		months = 220
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_plains
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_031"
 	}
@@ -907,31 +907,31 @@ narrative_event = {
 	id = SSI.35
 	title = "EVTNAME_SSI_035"
 	desc = "EVTDESC_SSI_035"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		NOT = { has_global_flag = aztec_food }
 		NOT = { has_global_flag = aztecs_defeated }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+	
 	mean_time_to_happen = {
 		months = 220
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_food
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_035"
 	}
@@ -941,27 +941,27 @@ narrative_event = {
 character_event = {
 	id = SSI.40
 	desc = "EVTDESC_SSI_040"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = d_iceland
 		NOT = { has_global_flag = aztec_iceland }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_iceland
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_040"
 	}
@@ -971,12 +971,12 @@ character_event = {
 character_event = {
 	id = SSI.41
 	desc = "EVTDESC_SSI_041"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
@@ -987,15 +987,15 @@ character_event = {
 		completely_controls = d_munster
 		NOT = { has_global_flag = aztec_ireland }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_ireland
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_041"
 	}
@@ -1005,12 +1005,12 @@ character_event = {
 character_event = {
 	id = SSI.42
 	desc = "EVTDESC_SSI_042"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
@@ -1032,15 +1032,15 @@ character_event = {
 		completely_controls = d_albany
 		NOT = { has_global_flag = aztec_britain }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_britain
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_042"
 	}
@@ -1050,27 +1050,27 @@ character_event = {
 character_event = {
 	id = SSI.43
 	desc = "EVTDESC_SSI_043"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = c_middlesex
 		NOT = { has_global_flag = aztec_london }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_london
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_043"
 	}
@@ -1080,27 +1080,27 @@ character_event = {
 character_event = {
 	id = SSI.44
 	desc = "EVTDESC_SSI_044"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = c_ile_de_france
 		NOT = { has_global_flag = aztec_paris }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_paris
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_043"
 	}
@@ -1110,27 +1110,27 @@ character_event = {
 character_event = {
 	id = SSI.45
 	desc = "EVTDESC_SSI_045"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = c_roma
 		NOT = { has_global_flag = aztec_rome }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_rome
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_043"
 	}
@@ -1140,27 +1140,27 @@ character_event = {
 character_event = {
 	id = SSI.46
 	desc = "EVTDESC_SSI_046"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = c_byzantion
 		NOT = { has_global_flag = aztec_constantinople }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_constantinople
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_043"
 	}
@@ -1170,27 +1170,27 @@ character_event = {
 character_event = {
 	id = SSI.47
 	desc = "EVTDESC_SSI_047"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = c_cordoba
 		NOT = { has_global_flag = aztec_cordoba }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_cordoba
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_043"
 	}
@@ -1200,27 +1200,27 @@ character_event = {
 character_event = {
 	id = SSI.48
 	desc = "EVTDESC_SSI_048"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		completely_controls = c_cairo
 		NOT = { has_global_flag = aztec_cairo }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+		
 	immediate = {
 		set_global_flag = aztec_cairo
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_043"
 	}
@@ -1230,12 +1230,12 @@ character_event = {
 character_event = {
 	id = SSI.60
 	desc = "EVTDESC_SSI_060"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_SSI_060"
 	}
@@ -1245,11 +1245,11 @@ character_event = {
 character_event = {
 	id = SSI.61
 	hide_window = yes
-
+	
 	ai = yes
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		in_command = no
 		prisoner = no
@@ -1269,14 +1269,14 @@ character_event = {
 			}
 		}
 	}
-
+	
 	immediate = {
 		liege = {
 			character_event = { id = SSI.62 }
 		}
 		death = { death_reason = death_sacrificed }
 	}
-
+	
 	option = {
 		name = "OK"
 	}
@@ -1286,12 +1286,12 @@ character_event = {
 character_event = {
 	id = SSI.62
 	desc = "EVTDESC_SSI_060"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_normal_frame_war"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_SSI_060"
 	}
@@ -1302,30 +1302,30 @@ narrative_event = {
 	id = SSI.70
 	title = "EVTNAME_SSI_070"
 	desc = "EVTDESC_SSI_070"
-
+	
 	picture = "GFX_evt_aztec_explorers"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
 		NOT = { has_global_flag = aztec_syphilis }
 		NOT = { has_global_flag = aztecs_defeated }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+	
 	mean_time_to_happen = {
 		months = 150
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_syphilis
 		activate_disease = syphilis
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_070"
 	}
@@ -1336,12 +1336,12 @@ narrative_event = {
 	id = SSI.71
 	title = "EVTNAME_SSI_071"
 	desc = "EVTDESC_SSI_071"
-
+	
 	picture = "GFX_evt_aztec_arrival"
 	border = "GFX_event_narrative_frame_war"
-
+	
 	major = yes
-
+	
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_global_flag = aztec_syphilis
@@ -1349,19 +1349,19 @@ narrative_event = {
 		NOT = { has_global_flag = aztecs_defeated }
 		NOT = { has_global_flag = aztec_smallpox }
 	}
-
+	
 	major_trigger = {
 		ai = no
-	}
-
+	}	
+	
 	mean_time_to_happen = {
 		months = 150
 	}
-
+	
 	immediate = {
 		set_global_flag = aztec_smallpox
 	}
-
+	
 	option = {
 		name = "EVTOPTA_SSI_071"
 	}

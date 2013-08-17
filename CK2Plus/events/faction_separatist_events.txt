@@ -3,11 +3,11 @@ character_event = {
 	id = 1909520
 	picture = "GFX_evt_battle"
 	border = GFX_event_normal_frame_war
-
+	
 	trigger = {
 		ai = yes
 		leads_faction = faction_separatist
-		faction_power =
+		faction_power = 
 		{
 			faction = faction_separatist
 			power = 0.75
@@ -15,24 +15,24 @@ character_event = {
 		any_faction_backer = {
 			faction = faction_separatist
 			NOT = { character = ROOT }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		months = 60
 		modifier = {
 			factor = 10.0
 			NOT = {
-				faction_power =
+				faction_power = 
 				{
 					faction = faction_separatist
 					power = 1.25
 				}
 			}
-		}
+		}			
 		modifier = {
 			factor = 0.5
-			faction_power =
+			faction_power = 
 			{
 				faction = faction_separatist
 				power = 1.5
@@ -40,7 +40,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			faction_power =
+			faction_power = 
 			{
 				faction = faction_separatist
 				power = 2.0
@@ -48,7 +48,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			faction_power =
+			faction_power = 
 			{
 				faction = faction_separatist
 				power = 3.0
@@ -56,34 +56,34 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			faction_power =
+			faction_power = 
 			{
 				faction = faction_separatist
 				power = 4.0
 			}
-		}
+		}		
 	}
-
+	
 	desc = "EVTDESC1909520"
-
+	
 	option = {
 		name = "EVTOPTA1909520"
 		hidden_tooltip = {
-			add_trait = rebel
-			opinion = { who = LIEGE modifier = revolting_against years = 100 }
+			add_trait = rebel 
+			opinion = { who = LIEGE modifier = revolting_against years = 100 }		
 			any_faction_backer = {
 				faction = faction_separatist
-				add_trait = rebel
-				opinion = { who = LIEGE modifier = revolting_against years = 100 }
+				add_trait = rebel 
+				opinion = { who = LIEGE modifier = revolting_against years = 100 }				
 			}
-		}
+		}				
 		liege = {
 			set_character_flag = faction_separatist_war
 			reverse_war = {
 				target = ROOT
 				casus_belli = cb_faction_independence
 				faction = faction_separatist
-			}
+			}			
 		}
 	}
 }

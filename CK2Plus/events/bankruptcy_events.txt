@@ -11,14 +11,14 @@ character_event = {
 	id = 38000
 	desc = "EVTDESC38000"
 	picture = GFX_evt_death
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		has_character_flag = loan_taken
 		ai = no
 	}
-
+	
 	immediate = {
 		hidden_tooltip = {
 			if = {
@@ -67,14 +67,14 @@ character_event = {
 				set_character_flag = loan_taken
 				set_character_flag = loan_heir
 				character_event = { id = 38001 days = 7 }
-			}
-		}
+			}			
+		}	
 	}
-
+	
 	option = {
-		name = "EVTOPTA38000"
+		name = "EVTOPTA38000"	
 		custom_tooltip = { text = EVTTOOLTIP38001 }
-	}
+	}	
 }
 
 
@@ -83,9 +83,9 @@ character_event = {
 	id = 38001
 	desc = "EVTDESC38001"
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA38002"
 		trigger = {
@@ -93,7 +93,7 @@ character_event = {
 				AND = {
 					has_character_flag = loan_50
 					wealth = 62.5
-				}
+				}			
 				AND = {
 					has_character_flag = loan_100
 					wealth = 125
@@ -113,76 +113,76 @@ character_event = {
 				AND = {
 					has_character_flag = loan_800
 					wealth = 1000
-				}
+				}						
 				AND = {
 					has_character_flag = loan_1000
 					wealth = 1250
-				}
-			}
+				}				
+			}		
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_50
+				has_character_flag = loan_50			
 			}
 			wealth = -62.5
 			clr_character_flag = loan_50
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_100
+				has_character_flag = loan_100			
 			}
 			wealth = -125
 			clr_character_flag = loan_100
-		}
+		}	
 		if = {
 			limit = {
-				has_character_flag = loan_200
+				has_character_flag = loan_200			
 			}
 			wealth = -250
 			clr_character_flag = loan_200
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_400
+				has_character_flag = loan_400			
 			}
 			wealth = -500
 			clr_character_flag = loan_400
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_600
+				has_character_flag = loan_600			
 			}
 			wealth = -750
 			clr_character_flag = loan_600
-		}
+		}		
 		if = {
 			limit = {
-				has_character_flag = loan_800
+				has_character_flag = loan_800			
 			}
 			wealth = -1000
 			clr_character_flag = loan_800
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_1000
+				has_character_flag = loan_1000			
 			}
 			wealth = -1250
 			clr_character_flag = loan_1000
-		}
-		clr_character_flag = loan_taken
+		}		
+		clr_character_flag = loan_taken	
 		clr_character_flag = loan_heir
 	}
 	option = {
 		trigger = {
 			has_character_flag = loan_50
 		}
-		name = "EVTOPTA38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTA38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
@@ -191,28 +191,28 @@ character_event = {
 		trigger = {
 			has_character_flag = loan_100
 		}
-		name = "EVTOPTB38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTB38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
-	}
+	}	
 	option = {
 		trigger = {
 			has_character_flag = loan_200
 		}
-		name = "EVTOPTC38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTC38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
@@ -221,13 +221,13 @@ character_event = {
 		trigger = {
 			has_character_flag = loan_400
 		}
-		name = "EVTOPTD38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTD38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
@@ -236,28 +236,28 @@ character_event = {
 		trigger = {
 			has_character_flag = loan_600
 		}
-		name = "EVTOPTE38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTE38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
-	}
+	}	
 	option = {
 		trigger = {
 			has_character_flag = loan_800
 		}
-		name = "EVTOPTF38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTF38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
@@ -266,18 +266,18 @@ character_event = {
 		trigger = {
 			has_character_flag = loan_1000
 		}
-		name = "EVTOPTG38001"
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		name = "EVTOPTG38001"	
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 1825
-			}
+			}		
 		}
 		clr_character_flag = loan_heir
 		custom_tooltip = { text = EVTTOOLTIP38002C }
-	}
-	option = {
+	}	
+	option = { 
 		name = "EVTOPTH38001"
 		ai_chance = {
 			factor = 1
@@ -286,55 +286,55 @@ character_event = {
 				NOT = {
 					trait = wroth
 					trait = lunatic
-					trait = possessed
+					trait = possessed		
 				}
 			}
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_50
+				has_character_flag = loan_50			
 			}
 			prestige = -100
 			clr_character_flag = loan_50
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_100
+				has_character_flag = loan_100			
 			}
 			prestige = -200
 			clr_character_flag = loan_100
-		}
+		}	
 		if = {
 			limit = {
-				has_character_flag = loan_200
+				has_character_flag = loan_200			
 			}
 			prestige = -400
 			clr_character_flag = loan_200
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_400
+				has_character_flag = loan_400			
 			}
 			prestige = -800
 			clr_character_flag = loan_400
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_600
+				has_character_flag = loan_600			
 			}
 			prestige = -1200
 			clr_character_flag = loan_600
-		}
+		}		
 		if = {
 			limit = {
-				has_character_flag = loan_800
+				has_character_flag = loan_800			
 			}
 			prestige = -1600
 			clr_character_flag = loan_800
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_1000
+				has_character_flag = loan_1000			
 			}
 			prestige = -2000
 			clr_character_flag = loan_1000
@@ -351,12 +351,12 @@ character_event = {
 		set_character_flag = offended_moneylenders
 		clr_character_flag = loan_taken
 		clr_character_flag = loan_heir
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = REPUBLICANFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_republican" value = -5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
-	}
+	}	
 }
 
 # A loan is due
@@ -364,20 +364,20 @@ character_event = {
 	id = 38002
 	desc = "EVTDESC38002"
 	picture = GFX_evt_council
-
+	
 	trigger = {
 		has_character_flag = loan_taken
 		NOT = { has_character_flag = loan_heir }
 		NOT = { has_character_modifier = loan_timer }
 		NOT = { has_character_flag = loan_in_progress }
 	}
-
+	
 	immediate = {
 		set_character_flag = loan_in_progress
 	}
-
+	
 	mean_time_to_happen = { days = 1 }
-
+	
 	option = {
 		name = "EVTOPTA38002" # Return the money
 		trigger = {
@@ -385,7 +385,7 @@ character_event = {
 				AND = {
 					has_character_flag = loan_50
 					wealth = 62.5
-				}
+				}			
 				AND = {
 					has_character_flag = loan_100
 					wealth = 125
@@ -405,62 +405,62 @@ character_event = {
 				AND = {
 					has_character_flag = loan_800
 					wealth = 1000
-				}
+				}						
 				AND = {
 					has_character_flag = loan_1000
 					wealth = 1250
-				}
+				}				
 			}
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_50
+				has_character_flag = loan_50			
 			}
 			wealth = -62.5
 			clr_character_flag = loan_50
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_100
+				has_character_flag = loan_100			
 			}
 			wealth = -125
 			clr_character_flag = loan_100
-		}
+		}	
 		if = {
 			limit = {
-				has_character_flag = loan_200
+				has_character_flag = loan_200			
 			}
 			wealth = -250
 			clr_character_flag = loan_200
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_400
+				has_character_flag = loan_400			
 			}
 			wealth = -500
 			clr_character_flag = loan_400
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_600
+				has_character_flag = loan_600			
 			}
 			wealth = -750
 			clr_character_flag = loan_600
-		}
+		}		
 		if = {
 			limit = {
-				has_character_flag = loan_800
+				has_character_flag = loan_800			
 			}
 			wealth = -1000
 			clr_character_flag = loan_800
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_1000
+				has_character_flag = loan_1000			
 			}
 			wealth = -1250
 			clr_character_flag = loan_1000
-		}
+		}		
 		clr_character_flag = loan_taken
 		clr_character_flag = loan_in_progress
 	}
@@ -472,7 +472,7 @@ character_event = {
 					AND = {
 						has_character_flag = loan_50
 						wealth = 62.5
-					}
+					}			
 					AND = {
 						has_character_flag = loan_100
 						wealth = 125
@@ -492,18 +492,18 @@ character_event = {
 					AND = {
 						has_character_flag = loan_800
 						wealth = 1000
-					}
+					}						
 					AND = {
 						has_character_flag = loan_1000
 						wealth = 1250
-					}
-				}
+					}				
+				}			
 			}
 			OR = {
 				AND = {
 					has_character_flag = loan_50
 					wealth = 12
-				}
+				}			
 				AND = {
 					has_character_flag = loan_100
 					wealth = 25
@@ -523,59 +523,59 @@ character_event = {
 				AND = {
 					has_character_flag = loan_800
 					wealth = 200
-				}
+				}						
 				AND = {
 					has_character_flag = loan_1000
 					wealth = 250
-				}
-			}
+				}				
+			}						
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_50
+				has_character_flag = loan_50			
 			}
 			wealth = -12
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_100
+				has_character_flag = loan_100			
 			}
 			wealth = -25
-		}
+		}	
 		if = {
 			limit = {
-				has_character_flag = loan_200
+				has_character_flag = loan_200			
 			}
 			wealth = -50
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_400
+				has_character_flag = loan_400			
 			}
 			wealth = -100
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_600
+				has_character_flag = loan_600			
 			}
 			wealth = -150
-		}
+		}		
 		if = {
 			limit = {
-				has_character_flag = loan_800
+				has_character_flag = loan_800			
 			}
 			wealth = -200
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_1000
+				has_character_flag = loan_1000			
 			}
 			wealth = -250
-		}
-		custom_tooltip = {
+		}		
+		custom_tooltip = { 
 			text = EVTTOOLTIP38002B
-			hidden_tooltip = {
-				remove_character_modifier = loan_timer
+			hidden_tooltip = { 
+				remove_character_modifier = loan_timer 
 				add_character_modifier = {
 					name = "loan_timer"
 					duration = 730
@@ -583,7 +583,7 @@ character_event = {
 			}
 		}
 		clr_character_flag = loan_in_progress
-	}
+	}	
 	option = {
 		name = "EVTOPTC38002" # Cannot afford it
 		trigger = {
@@ -592,7 +592,7 @@ character_event = {
 					AND = {
 						has_character_flag = loan_50
 						wealth = 62.5
-					}
+					}			
 					AND = {
 						has_character_flag = loan_100
 						wealth = 125
@@ -612,67 +612,67 @@ character_event = {
 					AND = {
 						has_character_flag = loan_800
 						wealth = 1000
-					}
+					}						
 					AND = {
 						has_character_flag = loan_1000
 						wealth = 1250
-					}
-				}
+					}				
+				}			
 			}
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_50
+				has_character_flag = loan_50			
 			}
 			prestige = -25
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_100
+				has_character_flag = loan_100			
 			}
 			prestige = -50
-		}
+		}	
 		if = {
 			limit = {
-				has_character_flag = loan_200
+				has_character_flag = loan_200			
 			}
 			prestige = -100
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_400
+				has_character_flag = loan_400			
 			}
 			prestige = -200
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_600
+				has_character_flag = loan_600			
 			}
 			prestige = -300
-		}
+		}		
 		if = {
 			limit = {
-				has_character_flag = loan_800
+				has_character_flag = loan_800			
 			}
 			prestige = -400
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_1000
+				has_character_flag = loan_1000			
 			}
 			prestige = -500
 		}
-		hidden_tooltip = {
-			remove_character_modifier = loan_timer
+		hidden_tooltip = { 
+			remove_character_modifier = loan_timer 
 			add_character_modifier = {
 				name = "loan_timer"
 				duration = 730
-			}
+			}		
 		}
 		custom_tooltip = { text = EVTTOOLTIP38002B }
 		clr_character_flag = loan_in_progress
 	}
-	option = {
+	option = { 
 		name = "EVTOPTD38002" # Get rid of them!
 		ai_chance = {
 			factor = 1
@@ -681,55 +681,55 @@ character_event = {
 				NOT = {
 					trait = wroth
 					trait = lunatic
-					trait = possessed
+					trait = possessed		
 				}
 			}
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_50
+				has_character_flag = loan_50			
 			}
 			prestige = -100
 			clr_character_flag = loan_50
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_100
+				has_character_flag = loan_100			
 			}
 			prestige = -200
 			clr_character_flag = loan_100
-		}
+		}	
 		if = {
 			limit = {
-				has_character_flag = loan_200
+				has_character_flag = loan_200			
 			}
 			prestige = -400
 			clr_character_flag = loan_200
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_400
+				has_character_flag = loan_400			
 			}
 			prestige = -800
 			clr_character_flag = loan_400
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_600
+				has_character_flag = loan_600			
 			}
 			prestige = -1200
 			clr_character_flag = loan_600
-		}
+		}		
 		if = {
 			limit = {
-				has_character_flag = loan_800
+				has_character_flag = loan_800			
 			}
 			prestige = -1600
 			clr_character_flag = loan_800
 		}
 		if = {
 			limit = {
-				has_character_flag = loan_1000
+				has_character_flag = loan_1000			
 			}
 			prestige = -2000
 			clr_character_flag = loan_1000
@@ -748,7 +748,7 @@ character_event = {
 		clr_character_flag = loan_in_progress
 		custom_tooltip = {
 			text = REPUBLICANFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_republican" value = -5 }
+			change_variable = { which = "faction_mood_republican" value = -5 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 	}
@@ -759,9 +759,9 @@ character_event = {
 	id = 38010
 	desc = "EVTDESC38010"
 	picture = GFX_evt_council
-
+	
 	only_playable = yes
-
+	
 	trigger = {
 		NOT = { wealth = -50 }
 		any_vassal = {
@@ -770,7 +770,7 @@ character_event = {
 			opinion = { who = ROOT value =  0 }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 60
 		modifier = {
@@ -778,7 +778,7 @@ character_event = {
 			has_character_flag = loan_taken
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA38010" # Ask one vassal for large
 		ai_chance = {
@@ -791,7 +791,7 @@ character_event = {
 				opinion = { who = ROOT value =  0 }
 			}
 		}
-
+		
 		random_vassal = {
 			limit = {
 				wealth = 200
@@ -807,7 +807,7 @@ character_event = {
 			character_event = { id = 38011 days = 1 tooltip = EVTTOOLTIP38013 }
 			set_character_flag = took_extra_tax
 		}
-
+		
 	}
 	option = {
 		name = "EVTOPTC38010" # ask all vassals for medium
@@ -857,7 +857,7 @@ character_event = {
 			limit = {
 				NOT = { has_character_flag = took_extra_tax }
 			}
-
+			
 			opinion = {
 				modifier = got_money_request
 				who = ROOT
@@ -874,9 +874,9 @@ character_event = {
 	id = 38011
 	desc = "EVTDESC38011"
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "ACCEPT"
 		ai_chance = {
@@ -936,12 +936,12 @@ character_event = {
 		clr_character_flag = small_payment_from_vassal
 		clr_character_flag = medium_payment_from_vassal
 		clr_character_flag = large_payment_from_vassal
-
+		
 		reverse_opinion = {
 			modifier = refused_money_request
 			who = FROM
 			years = 10
-		}
+		}		
 		hidden_tooltip = {
 			FROM = { character_event = { id = 38014 days = 1 } }
 		}
@@ -954,9 +954,9 @@ character_event = {
 	id = 38014
 	desc = "EVTDESC38014"
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "OK"
 		prestige = -25
@@ -968,9 +968,9 @@ character_event = {
 	id = 38015
 	desc = "EVTDESC38015"
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "OK"
 		if = {
@@ -997,7 +997,7 @@ character_event = {
 			clr_character_flag = large_payment_from_vassal
 		}
 	}
-
+	
 }
 
 #Ruler is in the red. Seize Church Properties
@@ -1005,9 +1005,9 @@ character_event = {
 	id = 38020
 	desc = "EVTDESC38020"
 	picture = GFX_evt_council
-
+	
 	only_playable = yes
-
+	
 	trigger = {
 		religion = catholic
 		NOT = { wealth = -50 }
@@ -1017,11 +1017,11 @@ character_event = {
 			is_theocracy = yes
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 48
 	}
-
+	
 	option = {
 		name = "EVTOPTA38020" # There are fat bishop, seize them !
 		ai_chance = {
@@ -1040,7 +1040,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		random_vassal = {
 			limit = {
 				is_theocracy = yes
@@ -1049,7 +1049,7 @@ character_event = {
 					num_of_buildings = 1
 				}
 			}
-
+			
 			character_event = { id = 38021 days = 1 tooltip = EVTTOOLTIP38021 }
 			opinion = {
 				who = ROOT
@@ -1061,9 +1061,9 @@ character_event = {
 		wealth = 300
 		add_trait = cruel
 		set_character_flag = stolen_church_properties
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -5 }
+			change_variable = { which = "faction_mood_religious" value = -5 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 	}
@@ -1080,7 +1080,7 @@ character_event = {
 			}
 		}
 		set_character_flag = stolen_church_properties
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_religious" value = -2 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -1102,7 +1102,7 @@ character_event = {
 			add_trait = zealous
 		}
 		set_character_flag = stolen_church_properties
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 2 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -1115,19 +1115,19 @@ character_event = {
 	id = 38021
 	desc = "EVTDESC38021"
 	picture = GFX_evt_lunatic
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		random_demesne_title = {
 			limit = {
 				tier = baron
 			}
-			destroy_random_building = yes
+			destroy_random_building = yes	
 		}
 		wealth = -100
 	}
-
+	
 	option = {
 		name = "EVTOPTA38021" # They are cursed in the eyes of God!
 		ai_chance = {
@@ -1162,7 +1162,7 @@ character_event = {
 			modifier = {
 				factor = 0
 				prisoner = yes
-			}
+			}			
 		}
 		opinion = {
 			modifier = grudge_from_sin
@@ -1176,27 +1176,27 @@ character_event = {
 	id = 38022
 	desc = "EVTDESC38022"
 	picture = GFX_evt_lunatic
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "EVTOPTA38022"
+		name = "EVTOPTA38022" 
 		add_trait = excommunicated
 		piety = -50
 	}
 }
-
+	
 #On-Action: Mercs go on a rampage
 letter_event = {
 	id = 38050
 	desc = "EVTDESC38050"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		#ai = no
 	}
-
+	
 	option = {
 		name = "EVTOPTA38050"
 		hidden_tooltip = {
@@ -1234,7 +1234,7 @@ letter_event = {
 								archers = { 300 300 }
 								galleys = { 10 10 }
 							}
-						}
+						}						
 					}
 					15 = {
 						spawn_unit = {
@@ -1266,8 +1266,8 @@ letter_event = {
 								archers = { 300 300 }
 								galleys = { 10 10 }
 							}
-						}
-					}
+						}						
+					}	
 					10 = {
 						spawn_unit = {
 							troops =
@@ -1308,8 +1308,8 @@ letter_event = {
 								archers = { 300 300 }
 								galleys = { 10 10 }
 							}
-						}
-					}
+						}							
+					}						
 				}
 			}
 		}
@@ -1320,13 +1320,13 @@ letter_event = {
 letter_event = {
 	id = 38051
 	desc = "EVTDESC38051"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	option = {
 		name = "EVTOPTA38051"
 	}
@@ -1336,13 +1336,13 @@ letter_event = {
 letter_event = {
 	id = 38052
 	desc = "EVTDESC38052"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	option = {
 		name = "EVTOPTA38052"
 	}
@@ -1352,13 +1352,13 @@ letter_event = {
 letter_event = {
 	id = 38053
 	desc = "EVTDESC38053"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	option = {
 		name = "EVTOPTA38053"
 	}
@@ -1369,13 +1369,13 @@ letter_event = {
 	id = 38054
 	desc = "EVTDESC38054"
 	border = "GFX_event_letter_frame_war"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	option = {
 		name = "EVTOPTA38054"
 	}
@@ -1387,9 +1387,9 @@ character_event = {
 	id = 38060
 	desc = "EVTDESC38060"
 	picture = GFX_evt_council
-
+	
 	only_playable = yes
-
+	
 	trigger = {
 		liege = {
 			NOT = { character = ROOT }
@@ -1405,17 +1405,17 @@ character_event = {
 						tier = count
 						location = {
 							is_capital = yes
-						}
+						}						
 					}
 				}
 			}
 		}
 		wealth = 500
 	}
-
+	
 	mean_time_to_happen = {
 		months = 60
-
+		
 		modifier = {
 			factor = 0.75
 			liege = { NOT = { wealth = -75 } }
@@ -1449,7 +1449,7 @@ character_event = {
 			wealth = 900
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA38060"
 		ai_chance = { factor = 100 }
@@ -1466,7 +1466,7 @@ character_event = {
 								tier = count
 								location = {
 									is_capital = yes
-								}
+								}						
 							}
 						}
 					}
@@ -1486,9 +1486,9 @@ character_event = {
 	id = 38061
 	desc = "EVTDESC38061"
 	picture = GFX_evt_council
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA38061"
 		ai_chance = { factor = 100 }
@@ -1504,7 +1504,7 @@ character_event = {
 						tier = count
 						location = {
 							is_capital = yes
-						}
+						}						
 					}
 				}
 			}

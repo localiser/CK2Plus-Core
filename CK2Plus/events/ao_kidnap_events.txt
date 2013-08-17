@@ -13,10 +13,10 @@ character_event = {
 	desc = "ao_kidnap.1.desc"
 	picture = GFX_evt_carriage
 	border = GFX_event_normal_frame_intrigue
-
+	
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		any_backed_character = {
 			has_plot = plot_kidnapping
@@ -32,10 +32,10 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 2400
-
+		
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
@@ -99,7 +99,7 @@ character_event = {
 				ROOT = {plot_power_contribution = {plotter = PREV power = 0.9}}
 			}
 		}
-
+		
 		modifier = {
 			factor = 0.66
 			any_backed_character = {
@@ -136,7 +136,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "ao_kidnap.1.a" # Tell Plotter
 		trigger = {
@@ -160,7 +160,7 @@ letter_event = {
 	picture = GFX_evt_carriage
 	#border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "ao_kidnap.2.a"
 		ai_chance = {
@@ -178,7 +178,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				20 = { character_event = { id = ao_kidnap.3 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				30 = { character_event = { id = ao_kidnap.4 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -207,7 +207,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				33 = { character_event = { id = ao_kidnap.3 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				33 = { character_event = { id = ao_kidnap.4 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -232,7 +232,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				50 = { character_event = { id = ao_kidnap.3 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				25 = { character_event = { id = ao_kidnap.4 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -253,7 +253,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				60 = { character_event = { id = ao_kidnap.3 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				20 = { character_event = { id = ao_kidnap.4 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -273,7 +273,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				75 = { character_event = { id = ao_kidnap.3 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				15 = { character_event = { id = ao_kidnap.4 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -297,9 +297,9 @@ character_event = {
 	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "ao_kidnap.3.a"
+		name = "ao_kidnap.3.a" 
 		imprison = FROM
 		FROM = {character_event = { id = ao_kidnap.6}}
 		opinion = {
@@ -339,7 +339,7 @@ character_event = {
 	is_triggered_only = yes
 	hide_from = yes
 	option = {name = "ao_kidnap.4.a" FROM = {character_event = { id = ao_kidnap.7}}}
-
+	
 }
 #Discovered failure - notify target
 character_event = {
@@ -349,7 +349,7 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_kidnap.5.a"
+		name = "ao_kidnap.5.a" 
 		FROM = {character_event = { id = ao_kidnap.8}}
 		opinion = {
 			who = FROM
@@ -385,12 +385,12 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_kidnap.8.a"
+		name = "ao_kidnap.8.a" 
 		clr_character_flag = kidnap_in_motion
 		cancel_plot = plot_kidnapping
 		piety = -50
 		if = {
-			limit = {
+			limit = { 
 				#NOT = { FROM = { employer = { character = FROM } } }
 				NOT = { FROM = { employer = { character = ROOT } } }
 			}
@@ -405,7 +405,7 @@ character_event = {
 			}
 		}
 		if = {
-			limit = {
+			limit = { 
 				NOT = { FROM = { liege = { character = FROM } } }
 				NOT = { FROM = { liege = { character = ROOT } } }
 				NOT = { FROM = { liege = { employer = { character = FROM } } } }
@@ -421,7 +421,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 	}
 }
 
@@ -431,10 +431,10 @@ character_event = {
 	desc = "ao_kidnap.11.desc"
 	picture = GFX_evt_recovery
 	border = GFX_event_normal_frame_intrigue
-
+	
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		any_backed_character = {
 			has_plot = plot_kidnapping
@@ -450,10 +450,10 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 2400
-
+		
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
@@ -517,7 +517,7 @@ character_event = {
 				ROOT = {plot_power_contribution = {plotter = PREV power = 0.9}}
 			}
 		}
-
+		
 		modifier = {
 			factor = 0.66
 			any_backed_character = {
@@ -554,7 +554,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "ao_kidnap.11.a" # Tell Plotter
 		trigger = {
@@ -578,7 +578,7 @@ letter_event = {
 	picture = GFX_evt_recovery
 	#border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "ao_kidnap.12.a"
 		ai_chance = {
@@ -596,7 +596,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				20 = { character_event = { id = ao_kidnap.13 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				30 = { character_event = { id = ao_kidnap.14 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -625,7 +625,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				33 = { character_event = { id = ao_kidnap.13 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				33 = { character_event = { id = ao_kidnap.14 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -650,7 +650,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				50 = { character_event = { id = ao_kidnap.13 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				25 = { character_event = { id = ao_kidnap.14 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -671,7 +671,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				60 = { character_event = { id = ao_kidnap.13 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				20 = { character_event = { id = ao_kidnap.14 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -691,7 +691,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {
+		plot_target_char = {		
 			random_list = {
 				75 = { character_event = { id = ao_kidnap.13 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
 				15 = { character_event = { id = ao_kidnap.14 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
@@ -715,9 +715,9 @@ character_event = {
 	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "ao_kidnap.13.a"
+		name = "ao_kidnap.13.a" 
 		imprison = FROM
 		FROM = {character_event = { id = ao_kidnap.16}}
 		opinion = {
@@ -757,7 +757,7 @@ character_event = {
 	is_triggered_only = yes
 	hide_from = yes
 	option = {name = "ao_kidnap.14.a" FROM = {character_event = { id = ao_kidnap.17}}}
-
+	
 }
 #Discovered failure - notify target
 character_event = {
@@ -767,7 +767,7 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_kidnap.15.a"
+		name = "ao_kidnap.15.a" 
 		FROM = {character_event = { id = ao_kidnap.18}}
 		opinion = {
 			who = FROM
@@ -803,12 +803,12 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_kidnap.18.a"
+		name = "ao_kidnap.18.a" 
 		clr_character_flag = kidnap_in_motion
 		cancel_plot = plot_kidnapping
 		piety = -50
 		if = {
-			limit = {
+			limit = { 
 				#NOT = { FROM = { employer = { character = FROM } } }
 				NOT = { FROM = { employer = { character = ROOT } } }
 			}
@@ -823,7 +823,7 @@ character_event = {
 			}
 		}
 		if = {
-			limit = {
+			limit = { 
 				NOT = { FROM = { liege = { character = FROM } } }
 				NOT = { FROM = { liege = { character = ROOT } } }
 				NOT = { FROM = { liege = { employer = { character = FROM } } } }
@@ -839,6 +839,6 @@ character_event = {
 				}
 			}
 		}
-
+		
 	}
 }

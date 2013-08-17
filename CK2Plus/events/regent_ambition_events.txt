@@ -8,12 +8,12 @@ character_event = {
 	id = regentevents.0
 	desc = regentevents.0.desc
 	picture = GFX_evt_emissary
-
+	
 	min_age = 16
 	prisoner = no
 	capable_only = yes
 	only_men = yes
-
+	
 	trigger = {
 		has_ambition = obj_become_regent
 		war = no
@@ -29,7 +29,7 @@ character_event = {
 		host = { character = liege }
 		NOT = { has_minor_title = title_regent }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 220
 		modifier = {
@@ -61,7 +61,7 @@ character_event = {
 			host = { character = liege }
 		}
 	}
-
+	
 	option = { # Challenge to duel
 		name = "EVTOPTA61215"
 		ai_chance = { factor = 60 }
@@ -69,8 +69,8 @@ character_event = {
 		liege = {
 			random_courtier = {
 				limit = { has_minor_title = title_regent }
-				character_event = {
-					id = 61221
+				character_event = {	
+					id = 61221 
 					tooltip = "EVTTOOLTIP61221"
 					days = 2
 				}

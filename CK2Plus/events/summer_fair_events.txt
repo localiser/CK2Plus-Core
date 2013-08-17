@@ -17,22 +17,22 @@ character_event = {
 	id = 74000
 	desc = "EVTDESC74000"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
-
+		
 		modifier = {
 			factor = 0.5
 			trait = charitable
@@ -42,7 +42,7 @@ character_event = {
 			trait = greedy
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74000"
 		trigger = {
@@ -59,17 +59,17 @@ character_event = {
 				character_event = {
 					id = 38282 #Notify Stressed
 				}
-			}
+			}			
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTB74000"
 		trigger = {
 			OR = {
 				trait = kind
 				trait = charitable
-				trait = honest
+				trait = honest			
 			}
 			any_vassal = {
 				OR = {
@@ -77,7 +77,7 @@ character_event = {
 					trait = charitable
 					trait = honest
 				}
-			}
+			}			
 		}
 		random_vassal = {
 			limit = {
@@ -94,7 +94,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTC74000"
 		trigger = {
@@ -107,7 +107,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTE74000"
 		treasury = -5
@@ -119,12 +119,12 @@ character_event = {
 	id = 74005
 	desc = "EVTDESC74005"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = {
@@ -135,7 +135,7 @@ character_event = {
 		}
 		NOT = { trait = paranoid }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
 
@@ -143,13 +143,13 @@ character_event = {
 			factor = 0.75
 			trait = arbitrary
 		}
-
+		
 		modifier = {
 			factor = 2.5
 			trait = gregarious
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74005"
 		trigger = {
@@ -158,12 +158,12 @@ character_event = {
 		}
 		add_trait = paranoid
 	}
-
+	
 	option = {
 		name = "EVTOPTC74005"
 		trigger = {
 			NOT = { trait = charitable }
-		}
+		}		
 		capital_scope = {
 			add_province_modifier = {
 				name = peasants_upset
@@ -171,7 +171,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTD74005"
 		trigger = {
@@ -196,49 +196,49 @@ character_event = {
 	id = 74010
 	desc = "EVTDESC74010"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
-
+		
 		modifier = {
 			factor = 3
 			trait = wroth
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			trait = kind
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = gregarious
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74010"
 		trigger = {
-			NOT = {
-				trait = wroth
-				trait = cruel
+			NOT = { 
+				trait = wroth 
+				trait = cruel 
 			}
-		}
+		}		
 		prestige = 5
 	}
-
+	
 	option = {
 		name = "EVTOPTE74010"
 		trigger = {
@@ -254,15 +254,15 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTG74010"
 		trigger = {
 			trait = charitable
-			NOT = {
-				trait = wroth
-				trait = cruel
-			}
+			NOT = { 
+				trait = wroth 
+				trait = cruel 
+			}			
 		}
 		treasury = -10
 		prestige = 10
@@ -274,12 +274,12 @@ character_event = {
 	id = 74015
 	desc = "EVTDESC74015"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = { reverse_opinion = { who = ROOT value = 10 } }
@@ -287,10 +287,10 @@ character_event = {
 			NOT = { has_province_modifier = peasants_upset }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
-
+		
 		modifier = {
 			factor = 5
 			trait = cynical
@@ -299,7 +299,7 @@ character_event = {
 			factor = 3
 			trait = wroth
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			trait = kind
@@ -309,12 +309,12 @@ character_event = {
 			trait = gregarious
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74015"
 		trigger = {
 			NOT = { trait = gregarious }
-		}
+		}		
 		capital_scope = {
 			add_province_modifier = {
 				name = peasants_upset
@@ -322,11 +322,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTD74015"
 		piety = 5
-		random_vassal = {
+		random_vassal = { 
 			limit = { reverse_opinion = { who = ROOT value = 10 } }
 			opinion = {
 				modifier = gregarious_neg
@@ -335,7 +335,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTE74015"
 		trigger = {
@@ -349,7 +349,7 @@ character_event = {
 				character_event = {
 					id = 38265 #Notify Gregarious
 				}
-			}
+			}				
 		}
 	}
 }
@@ -359,12 +359,12 @@ character_event = {
 	id = 74020
 	desc = "EVTDESC74020"
 	picture = "GFX_evt_market"
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = {
@@ -374,33 +374,33 @@ character_event = {
 		}
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
-
+		
 		modifier = {
 			factor = 5
 			trait = cynical
 		}
-
+		
 		modifier = {
 			factor = 3
 			trait = wroth
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = gregarious
 		}
-
+		
 		modifier = {
 			factor = 2.5
 			trait = charitable
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74020"
 		random_vassal = {
@@ -416,7 +416,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTC74020"
 		capital_scope = {
@@ -424,7 +424,7 @@ character_event = {
 				name = peasants_upset
 				duration = 365
 			}
-		}
+		}		
 	}
 }
 
@@ -433,12 +433,12 @@ character_event = {
 	id = 74025
 	desc = "EVTDESC74025"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		is_married = yes
@@ -449,23 +449,23 @@ character_event = {
 		}
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
-
+	
 		modifier = {
 			factor = 0.75
 			trait = gregarious
 		}
-
+		
 		modifier = {
 			factor = 2.5
 			trait = charitable
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74025"
 		random_vassal = {
@@ -480,7 +480,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTB74025"
 		trigger = {
@@ -489,7 +489,7 @@ character_event = {
 		change_learning = 1
 		set_character_flag = learning_boost_fair
 	}
-
+	
 	option = {
 		name = "EVTOPTD74025"
 		spouse = {
@@ -507,39 +507,39 @@ character_event = {
 	id = 74030
 	desc = "EVTDESC74030"
 	picture = "GFX_evt_jugglers"
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = {
 			is_priest = yes
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
-
+		
 		modifier = {
 			factor = 0.75
 			trait = cynical
 		}
-
+		
 		modifier = {
 			factor = 5
 			trait = honest
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74030"
 		prestige = 10
 		piety = -10
 	}
-
+	
 	option = {
 		name = "EVTOPTB74030"
 		piety = -5
@@ -552,7 +552,7 @@ character_event = {
 				who = ROOT
 				years = 5
 			}
-		}
+		}		
 	}
 
 	option = {
@@ -577,12 +577,12 @@ character_event = {
 	id = 74035
 	desc = "EVTDESC74035"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		religion = catholic
@@ -591,23 +591,23 @@ character_event = {
 		}
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 360
-
+		
 		modifier = {
 			factor = 0.5
 			trait = gregarious
 		}
-
+		
 		modifier = {
 			factor = 1.5
 			trait = shy
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA74035"
 		trigger = {
@@ -625,7 +625,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTB74035"
 		trigger = {
@@ -642,7 +642,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTC74035"
 		if = {
@@ -656,7 +656,7 @@ character_event = {
 					character_event = {
 						id = 38265 #Notify Gregarious
 					}
-				}
+				}				
 			}
 		}
 		random_vassal = {
@@ -677,12 +677,12 @@ character_event = {
 	id = 74040
 	desc = "EVTDESC74040"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = {
@@ -690,13 +690,13 @@ character_event = {
 		}
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 240
 	}
-
+	
 	option = {
 		name = "EVTOPTA74040" #Allow them
 		trigger = {
@@ -726,17 +726,17 @@ character_event = {
 	}
 }
 
-#Errant monk disturbing the fair
+#Errant monk disturbing the fair 
 character_event = {
 	id = 74042
 	desc = "EVTDESC74042"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = {
@@ -744,18 +744,18 @@ character_event = {
 		}
 		capital_scope = {
 			NOT = { has_province_modifier = peasants_upset }
-		}
+		}		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 240
 	}
-
+	
 	option = {
 		name = "EVTOPTA74042" #Allow him
 		trigger = {
 			NOT = { trait = zealous }
-		}
+		}		
 		piety = -5
 		random_vassal = {
 			limit = {
@@ -780,17 +780,17 @@ character_event = {
 	}
 }
 
-#Peddler are arrested by Marshal for selling stolen goods
+#Peddler are arrested by Marshal for selling stolen goods 
 character_event = {
 	id = 74044
 	desc = "EVTDESC74044"
 	picture = GFX_evt_market
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		job_marshal = {
@@ -803,11 +803,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
 	}
-
+	
 	option = {
 		name = "EVTOPTA74044"
 		random_demesne_province = {
@@ -821,7 +821,7 @@ character_event = {
 		}
 		random = {
 			chance = 25
-
+			
 			add_trait = cruel
 			hidden_tooltip = {
 				character_event = {
@@ -841,23 +841,23 @@ character_event = {
 	id = 74045
 	desc = "EVTDESC74045"
 	picture = GFX_evt_jugglers
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		has_character_modifier = holding_summer_fair
 		any_vassal = {
 			tier = baron
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 180
 	}
-
+	
 	option = {
 		name = "EVTOPTA74045" #Tell him to accept the peasants
 		ai_chance = {
@@ -896,9 +896,9 @@ character_event = {
 	id = 74047
 	desc = "EVTDESC74047"
 	picture = GFX_evt_market
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA74047"
 		clr_character_flag = prosperity_increase
@@ -916,13 +916,13 @@ character_event = {
 					}
 				}
 			}
-			custom_tooltip = {
+			custom_tooltip = { 
 				text = REPUBLICANFACTIONMOODPLUS
 				change_variable = { which = "faction_mood_republican" value = 1 }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 			}
-			set_character_flag = fair_mood_boost
-		}
+			set_character_flag = fair_mood_boost	
+		}		
 	}
 }
 
@@ -930,7 +930,7 @@ character_event = {
 	id = 74050
 	desc = "EVTDESC74050"
 	picture = GFX_evt_jugglers
-
+	
 	trigger = {
 		has_character_flag = planning_summer_fair
 		OR = {
@@ -939,7 +939,7 @@ character_event = {
 				flag = recent_summer_fair
 				days = 100
 			}
-		}
+		}		
 		war = no
 		treasury = 10
 		prisoner = no
@@ -949,10 +949,10 @@ character_event = {
 		}
 		NOT = { has_character_modifier = holding_large_feast }
 		NOT = { has_character_modifier = holding_summer_fair }
-		NOT = { has_character_modifier = holding_grand_hunt }
-		NOT = { has_character_modifier = holding_epic_tournament }
+		NOT = { has_character_modifier = holding_grand_hunt }	
+		NOT = { has_character_modifier = holding_epic_tournament }	
 	}
-
+	
 	immediate = {
 		add_character_modifier = {
 			name = holding_summer_fair
@@ -966,13 +966,13 @@ character_event = {
 		}
 		clr_character_flag = planning_summer_fair
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
-		name = "EVTOPTA74050"
+		name = "EVTOPTA74050"		
 	}
 }
 
@@ -985,38 +985,38 @@ character_event = {
 	only_playable = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		war = no
 		in_command = no
 		has_character_modifier = holding_summer_fair
-		any_vassal = {
+		any_vassal = { 
 			war = no
 			prisoner = no
 			age = 20
-			reverse_opinion = { who = ROOT value = 20 }
+			reverse_opinion = { who = ROOT value = 20 } 
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 200
 	}
-
+	
 	option = {
 		name = "EVTOPTA4105"
 		trigger = {
 			NOT = { trait = kind }
 			NOT = { trait = gregarious }
-		}
-		random_vassal = {
+		}		
+		random_vassal = { 
 			limit = {
 				war = no
 				prisoner = no
 				age = 16
-				reverse_opinion = {
-					who = ROOT
-					value = 20
-				}
+				reverse_opinion = { 
+					who = ROOT 
+					value = 20 
+				} 
 			}
 			opinion = {
 				modifier = opinion_disgruntled
@@ -1025,22 +1025,22 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTC4105"
 		trigger = {
 			trait = kind
 			NOT = { trait = gregarious }
 		}
-		random_vassal = {
+		random_vassal = { 
 			limit = {
 				war = no
 				prisoner = no
 				age = 16
-				reverse_opinion = {
-					who = ROOT
-					value = 20
-				}
+				reverse_opinion = { 
+					who = ROOT 
+					value = 20 
+				} 
 			}
 			opinion = {
 				modifier = opinion_relieved
@@ -1049,7 +1049,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTD4105"
 		trigger = {
@@ -1057,10 +1057,10 @@ character_event = {
 		}
 		random_vassal = {
 			limit = {
-				reverse_opinion = {
-					who = ROOT
-					value = 20
-				}
+				reverse_opinion = { 
+					who = ROOT 
+					value = 20 
+				} 
 			}
 			opinion = {
 				modifier = gregarious_pos
@@ -1076,11 +1076,11 @@ character_event = {
 	id = 4170
 	desc = "EVTDESC4170"
 	picture = "GFX_evt_jugglers"
-
+	
 	only_playable = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		war = no
 		in_command = no
@@ -1090,11 +1090,11 @@ character_event = {
 			is_female = no
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 200
 	}
-
+	
 	option = {
 		name = "EVTOPTA4170"
 		trigger = {
@@ -1114,7 +1114,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTC4170"
 		trigger = {
@@ -1122,14 +1122,14 @@ character_event = {
 		}
 		prestige = -5
 	}
-
+	
 	option = {
 		name = "EVTOPTD4170"
 		trigger = {
 			trait = proud
 			NOT = { trait = craven }
 			NOT = { trait = brave }
-		}
+		}		
 		random_courtier = {
 			limit = {
 				prisoner = no
@@ -1142,14 +1142,14 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTE4170"
 		trigger = {
 			trait = brave
 		}
 		prestige = 5
-	}
+	}	
 }
 
 #Capital Prospers
@@ -1157,11 +1157,11 @@ character_event = {
 	id = 4300
 	desc = "EVTDESC4300"
 	picture = GFX_evt_market
-
+	
 	only_playable = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		war = no
 		in_command = no
@@ -1173,7 +1173,7 @@ character_event = {
 			NOT = { has_province_modifier = province_prosperity_2 }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 250
 		modifier = {
@@ -1183,13 +1183,13 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			capital_scope = { has_province_modifier = province_poverty_1 }
-		}
+		}	
 		modifier = {
 			factor = 0.5
 			capital_scope = { has_province_modifier = province_poverty_2 }
-		}
+		}			
 	}
-
+	
 	option = {
 		name = "EXCELLENT"
 		set_character_flag = prosperity_increase
@@ -1206,7 +1206,7 @@ character_event = {
 				limit = {
 					NOT = { has_province_modifier = province_prosperity_2 }
 					NOT = { has_province_modifier = province_prosperity_1 }
-					NOT = { has_province_modifier = province_poverty_1 }
+					NOT = { has_province_modifier = province_poverty_1 }	
 					NOT = { has_province_modifier = province_poverty_2 }
 				}
 				add_province_modifier = { name = "province_prosperity_1" duration = -1 }
@@ -1223,7 +1223,7 @@ character_event = {
 				}
 				remove_province_modifier = province_poverty_2
 				add_province_modifier = { name = "province_poverty_1" duration = -1 }
-			}
+			}			
 		}
 	}
 }

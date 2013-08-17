@@ -27,7 +27,7 @@ character_event = {
 	option = {
 		name = "EVTOPTB70000"
 	}
-}
+}	
 
 # Start of tournament
 character_event = {
@@ -77,9 +77,9 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70037"
 	picture = "GFX_evt_joust"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA70037"
 		prestige = -50
@@ -93,14 +93,14 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70038"
 	picture = "GFX_evt_death"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		NOT = { has_character_flag = no_msg_death }
 		NOT = { has_character_flag = tournament_has_ended }
 	}
-
+	
 	option = {
 		name = "EVTOPTA70038"
 	}
@@ -116,14 +116,14 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70039"
 	picture = "GFX_evt_emissary"
-
+	
 	is_triggered_only = yes
 
 	trigger = {
 		NOT = { has_character_flag = no_msg_maimed }
 		NOT = { has_character_flag = tournament_has_ended }
 	}
-
+	
 	option = {
 		name = "EVTOPTA70038"
 	}
@@ -144,9 +144,9 @@ character_event = {
 		NOT = { has_character_flag = no_msg_wounded }
 		NOT = { has_character_flag = tournament_has_ended }
 	}
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA70038"
 	}
@@ -170,7 +170,7 @@ province_event = {
 					flag = tournament_begins
 					days = 365
 				}
-			}
+			}	
 			had_province_flag = {
 				flag = tournament_60_days
 				days = 60
@@ -182,7 +182,7 @@ province_event = {
 					flag = tournament_begins
 					days = 365
 				}
-			}
+			}	
 			owner = {
 				has_character_flag = winner
 				has_character_flag = second_place
@@ -190,20 +190,20 @@ province_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA70002"
 		clr_province_flag = tournament_60_days
 		owner = {
-			custom_tooltip = {
+			custom_tooltip = { 
 				text = FEUDALFACTIONMOODPLUS
-				change_variable = { which = "faction_mood_feudal" value = 3 }
+				change_variable = { which = "faction_mood_feudal" value = 3 }	
 			}
-			custom_tooltip = {
+			custom_tooltip = { 
 				text = COURTFACTIONMOODPLUS
 				change_variable = { which = "faction_mood_court" value = 2 }
 			}
@@ -236,7 +236,7 @@ province_event = {
 					modifier = opinion_tournament_participant
 					who = PREV
 					years = 2
-				}
+				}				
 				clr_character_flag = attending_tournament
 				clr_character_flag = attending_tournament_event
 			}
@@ -282,7 +282,7 @@ province_event = {
 					modifier = opinion_tournament_participant
 					who = PREV
 					years = 2
-				}
+				}				
 				set_character_flag = tournament_has_ended
 				clr_character_flag = attending_tournament
 				clr_character_flag = attending_tournament_event
@@ -379,7 +379,7 @@ character_event = {
 		name = "EVTOPTA70008"
 		change_martial = -1
 	}
-}
+}			
 
 # Character is killed
 character_event = {
@@ -392,7 +392,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -411,35 +411,35 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 12
@@ -475,15 +475,15 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 1 }
@@ -505,7 +505,7 @@ character_event = {
 	immediate = {
 		clr_character_flag = attending_tournament
 	}
-
+	
 	option = {
 		name = "EVTOPTA70009"
 		death = {
@@ -537,7 +537,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -559,35 +559,35 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 12
@@ -623,15 +623,15 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 1 }
@@ -649,7 +649,7 @@ character_event = {
 			trait = wounded
 		}
 	}
-
+	
 	immediate = {
 		clr_character_flag = attending_tournament
 	}
@@ -683,7 +683,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
@@ -709,35 +709,35 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 12
@@ -773,15 +773,15 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 1 }
@@ -799,7 +799,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70011"
 		add_trait = wounded
@@ -816,7 +816,7 @@ character_event = {
 			}
 		}
 	}
-}
+}	
 
 # Character becomes craven
 character_event = {
@@ -829,7 +829,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
@@ -852,35 +852,35 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			martial = 12
@@ -916,15 +916,15 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			NOT = { martial = 1 }
@@ -934,7 +934,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70012"
 		add_trait = craven
@@ -952,7 +952,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
@@ -975,35 +975,35 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			martial = 12
@@ -1039,15 +1039,15 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			NOT = { martial = 1 }
@@ -1056,7 +1056,7 @@ character_event = {
 
 	immediate = {
 		set_character_flag = attending_tournament_event
-	}
+	}	
 
 	option = {
 		name = "EVTOPTA70013"
@@ -1075,7 +1075,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
@@ -1090,7 +1090,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 	}
@@ -1102,7 +1102,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA70014"
 		remove_trait = misguided_warrior
-		add_trait = tough_soldier
+		add_trait = tough_soldier 
 	}
 }
 
@@ -1117,14 +1117,14 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
 		NOT = {
 			has_character_flag = tournament_has_ended
 		}
-		trait = tough_soldier
+		trait = tough_soldier 
 		top_liege = {
 			has_character_flag = tournament_begins
 			NOT = {
@@ -1143,8 +1143,8 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA70015"
-		remove_trait = tough_soldier
-		add_trait = skilled_tactician
+		remove_trait = tough_soldier 
+		add_trait = skilled_tactician 
 	}
 }
 
@@ -1159,14 +1159,14 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
 		NOT = {
 			has_character_flag = tournament_has_ended
 		}
-		trait = skilled_tactician
+		trait = skilled_tactician 
 		top_liege = {
 			has_character_flag = tournament_begins
 			NOT = {
@@ -1185,8 +1185,8 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA70016"
-		remove_trait = skilled_tactician
-		add_trait = brilliant_strategist
+		remove_trait = skilled_tactician 
+		add_trait = brilliant_strategist 
 	}
 }
 
@@ -1201,14 +1201,14 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
 		NOT = {
 			has_character_flag = tournament_has_ended
 		}
-		trait = brilliant_strategist
+		trait = brilliant_strategist 
 		top_liege = {
 			has_character_flag = tournament_begins
 			NOT = {
@@ -1220,7 +1220,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 250
 	}
-
+	
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
@@ -1228,7 +1228,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA70017"
 		remove_trait = brilliant_strategist
-		add_trait = skilled_tactician
+		add_trait = skilled_tactician  
 	}
 }
 
@@ -1243,14 +1243,14 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
 		NOT = {
 			has_character_flag = tournament_has_ended
 		}
-		trait = skilled_tactician
+		trait = skilled_tactician 
 		top_liege = {
 			has_character_flag = tournament_begins
 			NOT = {
@@ -1262,7 +1262,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 250
 	}
-
+	
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
@@ -1285,7 +1285,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = { has_character_flag = attending_tournament_event }
@@ -1304,7 +1304,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 250
 	}
-
+	
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
@@ -1327,7 +1327,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -1363,51 +1363,51 @@ character_event = {
 			top_liege = {
 				had_character_flag = { flag = tournament_begins days = 80 }
 			}
-		}
+		}	
 		modifier = {
 			factor = 0.5
 			top_liege = {
 				had_character_flag = { flag = tournament_begins days = 90 }
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			top_liege = {
 				had_character_flag = { flag = tournament_begins days = 100 }
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 12
@@ -1443,15 +1443,15 @@ character_event = {
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 1 }
@@ -1465,7 +1465,7 @@ character_event = {
 			set_character_flag = winner
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA70020"
 		wealth = 100
@@ -1491,9 +1491,9 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70034"
 	picture = "GFX_evt_joust"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA70034"
 		opinion = {
@@ -1515,7 +1515,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		NOT = { has_character_flag = tournament_winner }
 		has_character_flag = attending_tournament
@@ -1551,51 +1551,51 @@ character_event = {
 			top_liege = {
 				had_character_flag = { flag = winner days = 30 }
 			}
-		}
+		}	
 		modifier = {
 			factor = 0.5
 			top_liege = {
 				had_character_flag = { flag = winner days = 40 }
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			top_liege = {
 				had_character_flag = { flag = winner days = 50 }
 			}
-		}
+		}	
 		modifier = {
 			factor = 0.75
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 12
@@ -1631,15 +1631,15 @@ character_event = {
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 1 }
@@ -1653,7 +1653,7 @@ character_event = {
 			set_character_flag = second_place
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA70021"
 		wealth = 75
@@ -1679,9 +1679,9 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70035"
 	picture = "GFX_evt_joust"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA70035"
 		opinion = {
@@ -1703,7 +1703,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		NOT = { has_character_flag = tournament_winner }
 		NOT = { has_character_flag = tournament_second_place }
@@ -1740,51 +1740,51 @@ character_event = {
 			top_liege = {
 				had_character_flag = { flag = second_place days = 30 }
 			}
-		}
+		}	
 		modifier = {
 			factor = 0.5
 			top_liege = {
 				had_character_flag = { flag = second_place days = 40 }
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			top_liege = {
 				had_character_flag = { flag = second_place days = 50 }
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 20
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 19
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 18
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 17
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 16
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 14
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 13
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 12
@@ -1820,19 +1820,19 @@ character_event = {
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 4 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 3 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 2 }
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			NOT = { martial = 1 }
-		}
+		}		
 	}
 
 	immediate = {
@@ -1842,7 +1842,7 @@ character_event = {
 			set_character_flag = third_place
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA70022"
 		wealth = 50
@@ -1868,9 +1868,9 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70036"
 	picture = "GFX_evt_joust"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA70036"
 		opinion = {
@@ -1892,7 +1892,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -1923,7 +1923,7 @@ character_event = {
 		modifier = {
 			factor = 2
 			trait = temperate
-		}
+		}		
 		modifier = {
 			factor = 3
 			trait = chaste
@@ -1937,7 +1937,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70023"
 		add_trait = homosexual
@@ -1955,7 +1955,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -1986,7 +1986,7 @@ character_event = {
 		modifier = {
 			factor = 2
 			trait = temperate
-		}
+		}		
 		modifier = {
 			factor = 3
 			trait = chaste
@@ -1996,7 +1996,7 @@ character_event = {
 			trait = zealous
 		}
 	}
-
+	
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
@@ -2013,12 +2013,12 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70025"
 	picture = "GFX_evt_drunk"
-
+	
 	min_age = 16
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2049,7 +2049,7 @@ character_event = {
 			trait = chaste
 		}
 	}
-
+	
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
@@ -2066,12 +2066,12 @@ character_event = {
 	title = "TOURNAMENTTITLE"
 	desc = "EVTDESC70026"
 	picture = "GFX_evt_melee"
-
+	
 	min_age = 16
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2079,7 +2079,7 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 		martial = 5
-		NOT = {
+		NOT = { 
 			trait = content
 			trait = kind
 			trait = craven
@@ -2087,7 +2087,7 @@ character_event = {
 			lifestyle_traits = 1
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 500
 		modifier = {
@@ -2097,15 +2097,15 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			trait = wroth
-		}
+		}	
 		modifier = {
 			factor = 0.75
 			trait = brave
-		}
+		}	
 		modifier = {
 			factor = 0.75
 			trait = strong
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 10
@@ -2113,7 +2113,7 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			martial = 15
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			martial = 20
@@ -2123,7 +2123,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70026"
 		add_trait = duelist
@@ -2141,7 +2141,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2149,7 +2149,7 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 		modifier = {
@@ -2198,7 +2198,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
@@ -2220,7 +2220,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2228,7 +2228,7 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 		modifier = {
@@ -2281,7 +2281,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70028"
 		change_intrigue = -1
@@ -2299,7 +2299,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2307,7 +2307,7 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 		modifier = {
@@ -2320,7 +2320,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = thrifty_clerk
+			trait = thrifty_clerk 
 		}
 		modifier = {
 			factor = 1.5
@@ -2330,16 +2330,16 @@ character_event = {
 			factor = 1.5
 			NOT = {
 				OR = {
-					trait = midas_touched
+					trait = midas_touched 
 					trait = fortune_builder
-					trait = thrifty_clerk
+					trait = thrifty_clerk 
 					trait = indulgent_wastrel
 				}
 			}
 		}
 		modifier = {
 			factor = 0.9
-			trait = diligent
+			trait = diligent 
 		}
 		modifier = {
 			factor = 1.5
@@ -2360,7 +2360,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70029"
 		change_stewardship = 1
@@ -2378,7 +2378,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2386,12 +2386,12 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 		modifier = {
 			factor = 1.5
-			trait = midas_touched
+			trait = midas_touched 
 		}
 		modifier = {
 			factor = 1.1
@@ -2399,7 +2399,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = thrifty_clerk
+			trait = thrifty_clerk 
 		}
 		modifier = {
 			factor = 0.8
@@ -2411,14 +2411,14 @@ character_event = {
 				OR = {
 					trait = midas_touched
 					trait = fortune_builder
-					trait = thrifty_clerk
+					trait = thrifty_clerk 
 					trait = indulgent_wastrel
 				}
 			}
 		}
 		modifier = {
 			factor = 1.5
-			trait = diligent
+			trait = diligent 
 		}
 		modifier = {
 			factor = 0.9
@@ -2439,7 +2439,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70030"
 		change_stewardship = -1
@@ -2457,7 +2457,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2465,12 +2465,12 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 		modifier = {
 			factor = 0.8
-			trait = grey_eminence
+			trait = grey_eminence 
 		}
 		modifier = {
 			factor = 0.9
@@ -2488,7 +2488,7 @@ character_event = {
 			factor = 1.5
 			NOT = {
 				OR = {
-					trait = grey_eminence
+					trait = grey_eminence 
 					trait = charismatic_negotiator
 					trait = underhanded_rogue
 					trait = naive_appeaser
@@ -2518,7 +2518,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70031"
 		change_diplomacy = 1
@@ -2536,7 +2536,7 @@ character_event = {
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_character_flag = attending_tournament
 		NOT = {
@@ -2544,12 +2544,12 @@ character_event = {
 		}
 		NOT = { has_character_flag = attending_tournament_event }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 250
 		modifier = {
 			factor = 1.5
-			trait = grey_eminence
+			trait = grey_eminence 
 		}
 		modifier = {
 			factor = 1.1
@@ -2567,7 +2567,7 @@ character_event = {
 			factor = 1.5
 			NOT = {
 				OR = {
-					trait = grey_eminence
+					trait = grey_eminence 
 					trait = charismatic_negotiator
 					trait = underhanded_rogue
 					trait = naive_appeaser
@@ -2597,7 +2597,7 @@ character_event = {
 	immediate = {
 		set_character_flag = attending_tournament_event
 	}
-
+	
 	option = {
 		name = "EVTOPTA70032"
 		change_diplomacy = -1
@@ -2626,11 +2626,11 @@ character_event = {
 	picture = GFX_evt_death
 
 	is_triggered_only = yes
-
+	
 	trigger = {
 		has_character_flag = tournament_begins
 	}
-
+	
 	option = {
 		name = EVTOPTA70041
 		clr_character_flag = tournament_begins
@@ -2699,9 +2699,9 @@ letter_event = {
 	title = TOURNAMENTTITLE
 	desc = EVTDESC70042
 	picture = GFX_evt_death
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA70042
 	}

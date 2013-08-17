@@ -4,8 +4,8 @@ character_event = {
 	picture = GFX_evt_emissary
 	only_rulers = yes
 	is_triggered_only = yes
-
-	trigger = {
+	
+	trigger = {	
 		OR = {
 			is_feudal = yes
 			has_global_flag = shattered_world
@@ -19,36 +19,36 @@ character_event = {
 			any_demesne_title = {
 				location = {
 					duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
-					county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
+					county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 					any_neighbor_province = {
 						owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
 						has_province_flag = contingent_territory
 					}
 				}
-			}
+			}		
 		}
 	}
-
+	
 	immediate = {
 		random = {
 			chance = 20
 			set_character_flag = duchy_claim
-		}
+		}	
 		set_character_flag = claim_by_event
 	}
-
+		
 	desc = "EVTDESC1500000"
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
 			factor = 0.5
 			ai = no
-		}
+		}			
 		modifier = {
 			factor = 0.5
 			independent = no
-		}
+		}		
 		modifier = {
 			factor = 2
 			has_global_flag = shattered_world
@@ -58,7 +58,7 @@ character_event = {
 			factor = 2
 			has_global_flag = shattered_world
 			NOT = { year = 1100 }
-		}
+		}		
 		modifier = {
 			factor = 2
 			has_global_flag = shattered_world_no_dukes
@@ -68,13 +68,13 @@ character_event = {
 			factor = 2
 			has_global_flag = shattered_world_no_dukes
 			NOT = { year = 1100 }
-		}
+		}	
 		modifier = {
 			factor = 100.0
 			has_global_flag = shattered_world_no_dukes
 			NOT = { year = 1070 }
 			NOT = { has_character_flag = claim_by_event }
-		}
+		}			
 		modifier = {
 			factor = 1.1
 			realm_diplomacy = 20
@@ -82,7 +82,7 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			realm_diplomacy = 30
-		}
+		}	
 		modifier = {
 			factor = 1.1
 			realm_diplomacy = 40
@@ -90,7 +90,7 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			realm_diplomacy = 50
-		}
+		}		
 	}
 
 	option = {
@@ -104,24 +104,24 @@ character_event = {
 				any_demesne_title = {
 					location = {
 						duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
-						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
+						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
 							owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
 							has_province_flag = contingent_territory
 						}
 					}
-				}
+				}	
 			}
 			random_demesne_title = {
 				limit = {
 					location = {
 						duchy = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
-						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }
+						county = { OR = { has_holder = no holder_scope = { religion_group = ROOT OR = { ROOT = { independent = yes } same_realm = ROOT } } } NOT = { holder_scope = { OR = { character = ROOT is_liege_or_above = ROOT is_vassal_or_below = ROOT } } ROOT = { has_claim = PREV } } }				
 						any_neighbor_province = {
 							owner = { OR = { character = ROOT is_liege_or_above = ROOT } }
 							has_province_flag = contingent_territory
 						}
-					}
+					}				
 				}
 				location = {
 					if = {
@@ -129,20 +129,20 @@ character_event = {
 							OR = {
 								ROOT = { NOT = { has_character_flag = duchy_claim } }
 								duchy = { has_holder = no }
-							}
+							}						
 						}
 						county = { add_claim = ROOT hidden_tooltip = { holder_scope = { character_event = { id = 1500051 } } } }
 					}
 					if = {
 						limit = {
 							ROOT = { has_character_flag = duchy_claim }
-							duchy = { has_holder = yes }
+							duchy = { has_holder = yes }						
 						}
 						duchy = { add_claim = ROOT hidden_tooltip = { holder_scope = { character_event = { id = 1500051 } } } }
-					}
+					}			
 				}
-			}
-		}
+			}			
+		}		
 		clr_character_flag = duchy_claim
 	}
 }
@@ -150,15 +150,15 @@ character_event = {
 character_event = {
 	id = 1500051
 	picture = GFX_evt_emissary
-
+	
 	trigger = {
 		ai = no
 	}
-
+	
 	is_triggered_only = yes
-
+	
 	desc = "EVTDESC1500051"
-
+	
 	option = {
 		name = "EVTOPTA1500051"
 	}

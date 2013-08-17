@@ -17,24 +17,24 @@ character_event = {
 	id = 91200
 	desc = "EVTDESC91200"
 	picture = "GFX_evt_drunk"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
 		trait = drunkard
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
 		}
 		NOT = { has_character_flag = decadence_drunkard }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -43,13 +43,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -64,17 +64,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91200"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_drunkard
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change	
 	}
 }
 
@@ -83,16 +83,16 @@ character_event = {
 	id = 91201
 	desc = "EVTDESC91201"
 	picture = "GFX_evt_carriage_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -100,7 +100,7 @@ character_event = {
 		trait = homosexual
 		NOT = { has_character_flag = decadence_homosexual }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -109,13 +109,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -130,17 +130,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91201"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_religious" value = -1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_homosexual
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -149,16 +149,16 @@ character_event = {
 	id = 91202
 	desc = "EVTDESC91202"
 	picture = "GFX_evt_lunatic_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -166,7 +166,7 @@ character_event = {
 		trait = hedonist
 		NOT = { has_character_flag = decadence_hedonist }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -175,13 +175,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -196,17 +196,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91202"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_religious" value = -1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_hedonist
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -215,16 +215,16 @@ character_event = {
 	id = 91203
 	desc = "EVTDESC91203"
 	picture = "GFX_evt_torture"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -232,7 +232,7 @@ character_event = {
 		trait = impaler
 		NOT = { has_character_flag = decadence_impaler }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -241,13 +241,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -262,17 +262,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91203"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_impaler
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -281,16 +281,16 @@ character_event = {
 	id = 91204
 	desc = "EVTDESC91204"
 	picture = "GFX_evt_sultan"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -298,7 +298,7 @@ character_event = {
 		trait = lustful
 		NOT = { has_character_flag = decadence_lustful }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -307,13 +307,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -328,17 +328,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91204"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_lustful
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -347,16 +347,16 @@ character_event = {
 	id = 91205
 	desc = "EVTDESC91205"
 	picture = "GFX_evt_feast_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -364,7 +364,7 @@ character_event = {
 		trait = gluttonous
 		NOT = { has_character_flag = decadence_gluttonous }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -373,13 +373,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -394,17 +394,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91205"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_gluttonous
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -413,16 +413,16 @@ character_event = {
 	id = 91206
 	desc = "EVTDESC91206"
 	picture = "GFX_evt_jugglers_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -430,7 +430,7 @@ character_event = {
 		trait = greedy
 		NOT = { has_character_flag = decadence_greedy }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -439,13 +439,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -460,17 +460,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91206"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_greedy
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -479,16 +479,16 @@ character_event = {
 	id = 91207
 	desc = "EVTDESC91207"
 	picture = "GFX_evt_carriage_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -496,7 +496,7 @@ character_event = {
 		trait = slothful
 		NOT = { has_character_flag = decadence_slothful }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -505,13 +505,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -526,17 +526,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91207"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_slothful
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -545,16 +545,16 @@ character_event = {
 	id = 91208
 	desc = "EVTDESC91208"
 	picture = "GFX_evt_throne_room_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -562,7 +562,7 @@ character_event = {
 		trait = envious
 		NOT = { has_character_flag = decadence_envious }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -571,13 +571,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -592,17 +592,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91208"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_envious
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -611,16 +611,16 @@ character_event = {
 	id = 91209
 	desc = "EVTDESC91209"
 	picture = "GFX_evt_burning_house_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -628,7 +628,7 @@ character_event = {
 		trait = wroth
 		NOT = { has_character_flag = decadence_wroth }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -637,13 +637,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -658,17 +658,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91209"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_wroth
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -677,16 +677,16 @@ character_event = {
 	id = 91210
 	desc = "EVTDESC91210"
 	picture = "GFX_evt_market_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -694,7 +694,7 @@ character_event = {
 		trait = drunkard
 		NOT = { has_character_flag = decadence_proud }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -703,13 +703,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -724,17 +724,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91210"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_proud
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -743,16 +743,16 @@ character_event = {
 	id = 91211
 	desc = "EVTDESC91211"
 	picture = "GFX_evt_lunatic_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -760,7 +760,7 @@ character_event = {
 		trait = deceitful
 		NOT = { has_character_flag = decadence_deceitful }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -769,13 +769,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -790,17 +790,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91211"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_deceitful
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -809,16 +809,16 @@ character_event = {
 	id = 91212
 	desc = "EVTDESC91212"
 	picture = "GFX_evt_throne_room_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -826,7 +826,7 @@ character_event = {
 		trait = craven
 		NOT = { has_character_flag = decadence_craven }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -835,13 +835,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -856,17 +856,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91212"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_craven
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -875,16 +875,16 @@ character_event = {
 	id = 91213
 	desc = "EVTDESC91213"
 	picture = "GFX_evt_child_talking_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -892,7 +892,7 @@ character_event = {
 		trait = content
 		NOT = { has_character_flag = decadence_content }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -901,13 +901,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -922,17 +922,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91213"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_content
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -941,16 +941,16 @@ character_event = {
 	id = 91214
 	desc = "EVTDESC91214"
 	picture = "GFX_evt_throne_room_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -958,7 +958,7 @@ character_event = {
 		trait = arbitrary
 		NOT = { has_character_flag = decadence_arbitrary }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -967,13 +967,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -988,17 +988,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91214"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_arbitrary
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1007,16 +1007,16 @@ character_event = {
 	id = 91215
 	desc = "EVTDESC91215"
 	picture = "GFX_evt_bishop_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1024,7 +1024,7 @@ character_event = {
 		trait = cynical
 		NOT = { has_character_flag = decadence_cynical }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1033,13 +1033,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1054,17 +1054,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91215"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_cynical
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1073,16 +1073,16 @@ character_event = {
 	id = 91216
 	desc = "EVTDESC91216"
 	picture = "GFX_evt_carriage_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1090,7 +1090,7 @@ character_event = {
 		trait = paranoid
 		NOT = { has_character_flag = decadence_paranoid }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1099,13 +1099,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1120,17 +1120,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91216"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_paranoid
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1139,16 +1139,16 @@ character_event = {
 	id = 91217
 	desc = "EVTDESC91217"
 	picture = "GFX_evt_lunatic_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1156,7 +1156,7 @@ character_event = {
 		trait = cruel
 		NOT = { has_character_flag = decadence_cruel }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1165,13 +1165,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1186,17 +1186,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91217"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_cruel
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1207,16 +1207,16 @@ character_event = {
 	id = 91218
 	desc = "EVTDESC91218"
 	picture = "GFX_evt_monk_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1224,7 +1224,7 @@ character_event = {
 		trait = genius
 		NOT = { has_character_flag = decadence_genius }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1233,13 +1233,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1254,17 +1254,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91218"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }	
 		}
 		set_character_flag = decadence_genius
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1273,16 +1273,16 @@ character_event = {
 	id = 91219
 	desc = "EVTDESC91219"
 	picture = "GFX_evt_bishop_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1290,7 +1290,7 @@ character_event = {
 		trait = celibate
 		NOT = { has_character_flag = decadence_celibate }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1299,13 +1299,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1320,17 +1320,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91219"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_celibate
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1339,16 +1339,16 @@ character_event = {
 	id = 91220
 	desc = "EVTDESC91220"
 	picture = "GFX_evt_monk_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1356,7 +1356,7 @@ character_event = {
 		trait = scholar
 		NOT = { has_character_flag = decadence_scholar }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1365,13 +1365,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1386,17 +1386,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91220"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_scholar
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1405,16 +1405,16 @@ character_event = {
 	id = 91221
 	desc = "EVTDESC91221"
 	picture = "GFX_evt_birth_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1422,7 +1422,7 @@ character_event = {
 		trait = chaste
 		NOT = { has_character_flag = decadence_chaste }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1431,13 +1431,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1452,17 +1452,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91221"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_chaste
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1471,16 +1471,16 @@ character_event = {
 	id = 91222
 	desc = "EVTDESC91222"
 	picture = "GFX_evt_emissary_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1488,7 +1488,7 @@ character_event = {
 		trait = temperate
 		NOT = { has_character_flag = decadence_temperate }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1497,13 +1497,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1518,17 +1518,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91222"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_temperate
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1537,16 +1537,16 @@ character_event = {
 	id = 91223
 	desc = "EVTDESC91223"
 	picture = "GFX_evt_burning_house_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1554,7 +1554,7 @@ character_event = {
 		trait = drunkard
 		NOT = { has_character_flag = decadence_charitable }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1563,13 +1563,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1584,17 +1584,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91223"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_charitable
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1603,16 +1603,16 @@ character_event = {
 	id = 91224
 	desc = "EVTDESC91224"
 	picture = "GFX_evt_monk_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1620,7 +1620,7 @@ character_event = {
 		trait = drunkard
 		NOT = { has_character_flag = decadence_diligent }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1629,13 +1629,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1650,17 +1650,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91224"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_diligent
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1669,16 +1669,16 @@ character_event = {
 	id = 91225
 	desc = "EVTDESC91225"
 	picture = "GFX_evt_emissary_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1686,7 +1686,7 @@ character_event = {
 		trait = kind
 		NOT = { has_character_flag = decadence_kind }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1695,13 +1695,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1716,17 +1716,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91225"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_kind
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1735,16 +1735,16 @@ character_event = {
 	id = 91226
 	desc = "EVTDESC91226"
 	picture = "GFX_evt_throne_room_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1752,7 +1752,7 @@ character_event = {
 		trait = patient
 		NOT = { has_character_flag = decadence_patient }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1761,13 +1761,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1782,17 +1782,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91226"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_patient
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1801,16 +1801,16 @@ character_event = {
 	id = 91227
 	desc = "EVTDESC91227"
 	picture = "GFX_evt_desert"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1818,7 +1818,7 @@ character_event = {
 		trait = humble
 		NOT = { has_character_flag = decadence_humble }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1827,13 +1827,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1848,17 +1848,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91227"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_humble
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1867,16 +1867,16 @@ character_event = {
 	id = 91228
 	desc = "EVTDESC91228"
 	picture = "GFX_evt_emissary_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1884,7 +1884,7 @@ character_event = {
 		trait = honest
 		NOT = { has_character_flag = decadence_honest }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1893,13 +1893,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1914,17 +1914,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91228"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_honest
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1933,16 +1933,16 @@ character_event = {
 	id = 91229
 	desc = "EVTDESC91229"
 	picture = "GFX_evt_moors"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -1950,7 +1950,7 @@ character_event = {
 		trait = brave
 		NOT = { has_character_flag = decadence_brave }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -1959,13 +1959,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -1980,17 +1980,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91229"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_brave
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -1999,16 +1999,16 @@ character_event = {
 	id = 91230
 	desc = "EVTDESC91230"
 	picture = "GFX_evt_throne_room_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2016,7 +2016,7 @@ character_event = {
 		trait = ambitious
 		NOT = { has_character_flag = decadence_ambitious }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -2025,13 +2025,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -2046,17 +2046,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91230"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_ambitious
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -2065,16 +2065,16 @@ character_event = {
 	id = 91231
 	desc = "EVTDESC91231"
 	picture = "GFX_evt_bishop_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2082,7 +2082,7 @@ character_event = {
 		trait = just
 		NOT = { has_character_flag = decadence_just }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -2091,13 +2091,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -2112,17 +2112,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91231"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_just
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -2131,16 +2131,16 @@ character_event = {
 	id = 91232
 	desc = "EVTDESC91232"
 	picture = "GFX_evt_bishop_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2148,7 +2148,7 @@ character_event = {
 		trait = zealous
 		NOT = { has_character_flag = decadence_zealous }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -2157,13 +2157,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -2178,17 +2178,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91232"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_zealous
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -2197,16 +2197,16 @@ character_event = {
 	id = 91233
 	desc = "EVTDESC91233"
 	picture = "GFX_evt_battle"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2214,7 +2214,7 @@ character_event = {
 		trait = mujahid
 		NOT = { has_character_flag = decadence_mujahid }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -2223,13 +2223,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -2244,17 +2244,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91233"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_mujahid
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -2263,16 +2263,16 @@ character_event = {
 	id = 91234
 	desc = "EVTDESC91234"
 	picture = "GFX_evt_monk_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2280,7 +2280,7 @@ character_event = {
 		trait = hafiz
 		NOT = { has_character_flag = decadence_hafiz }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -2289,13 +2289,13 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
+			}	
 		}
 		modifier = {
 			factor = 0.75
@@ -2310,17 +2310,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91234"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_hafiz
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -2329,16 +2329,16 @@ character_event = {
 	id = 91235
 	desc = "EVTDESC91235"
 	picture = "GFX_evt_kaaba"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2346,7 +2346,7 @@ character_event = {
 		trait = hajjaj
 		NOT = { has_character_flag = decadence_hajjaj }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -2355,14 +2355,14 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			has_character_flag = decadence_change
+			has_character_flag = decadence_change 
 			NOT = {
 				had_character_flag = {
 					flag = decadence_change
 					days = 1825
 				}
-			}
-		}
+			}	
+		}		
 		modifier = {
 			factor = 0.75
 			tier = emperor
@@ -2376,17 +2376,17 @@ character_event = {
 			tier = count
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA91235"
 		decadence = -2
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 0.5 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		set_character_flag = decadence_hajjaj
-		set_character_flag = decadence_change
+		set_character_flag = decadence_change		
 	}
 }
 
@@ -2395,16 +2395,16 @@ character_event = {
 	id = 92000
 	desc = "EVTDESC92000"
 	picture = "GFX_evt_carriage_muslim"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-
+	
 	trigger = {
 		religion_group = muslim
 		OR = { higher_tier_than = baron is_patrician = yes }
-		NOT = {
+		NOT = { 
 			any_liege = {
 				dynasty = ROOT
 			}
@@ -2412,13 +2412,13 @@ character_event = {
 		check_variable = { which = "years_of_peace" value = 9.5 }
 		war = no
 	}
-
+	
 	mean_time_to_happen = {
 		months = 600
 		modifier = {
 			factor = 2.0
 			always = no
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			check_variable = { which = "years_of_peace" value = 14.5 }
@@ -2438,15 +2438,15 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			tier = count
-		}
+		}		
 	}
-
+	
 	option = {
 		name = "EVTOPTA92000"
 		decadence = 5
-		custom_tooltip = {
+		custom_tooltip = { 
 			text = RELIGIOUSFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_religious" value = -1 }
+			change_variable = { which = "faction_mood_religious" value = -1 }	
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 	}

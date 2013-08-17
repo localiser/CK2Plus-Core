@@ -1,6 +1,6 @@
 ###################################
 #
-# THE OLD GODS
+# THE OLD GODS 
 # - Culture Conversion Events
 #
 ###################################
@@ -15,7 +15,7 @@ province_event = {
 	desc = EVTDESC_TOG_2000
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_diplomacy
-
+	
 	trigger = {
 		year = 950
 		culture = norse
@@ -29,7 +29,7 @@ province_event = {
 			owner = { top_liege = { culture = swedish } }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 2800
 	}
@@ -58,7 +58,7 @@ province_event = {
 	desc = EVTDESC_TOG_2001
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_diplomacy
-
+	
 	trigger = {
 		year = 950
 		culture = norse
@@ -72,7 +72,7 @@ province_event = {
 			owner = { top_liege = { culture = norwegian } }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 2800
 	}
@@ -101,7 +101,7 @@ province_event = {
 	desc = EVTDESC_TOG_2002
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_diplomacy
-
+	
 	trigger = {
 		year = 950
 		culture = norse
@@ -115,7 +115,7 @@ province_event = {
 			owner = { top_liege = { culture = danish } }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 2800
 	}
@@ -144,7 +144,7 @@ province_event = {
 	desc = EVTDESC_TOG_2003
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_diplomacy
-
+	
 	trigger = {
 		OR = {
 			culture = frankish
@@ -157,7 +157,7 @@ province_event = {
 					culture = norse
 					top_liege = { OR = { culture = norse culture = norman } }
 				}
-				AND = {
+				AND = { 
 					OR = { culture = norse culture = norman }
 					top_liege = { culture = norse }
 				}
@@ -177,7 +177,7 @@ province_event = {
 		}
 		NOT = { year = 1150 }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1200
 	}
@@ -204,60 +204,17 @@ province_event = {
 character_event = {
 	id = TOG.2004
 	hide_window = yes
-
+	
 	trigger = {
 		year = 1150
 		NOT = {	has_global_flag = norse_culture_flipping }
 	}
-
+	
 	immediate = {
 		set_global_flag = norse_culture_flipping
 	}
 
 	option = {
 		name = OK
-	}
-}
-
-# Province culture changes from Norse to Icelandic
-province_event = {
-	id = TOG.2005
-	desc = EVTDESC_TOG_2005
-	picture = GFX_evt_viking_throneroom_oldgods
-	border = GFX_event_normal_frame_diplomacy
-
-	trigger = {
-		year = 950
-		culture = norse
-		duchy = { title = d_iceland }
-		NOT = { year = 1150 }
-		OR = {
-			AND = {
-				owner = { top_liege = { culture = norse } }
-				duchy = { title = d_iceland }
-			}
-			owner = { top_liege = { culture = icelandic } }
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 2800
-	}
-
-	option = {
-		name = EVTOPTA_TOG_2005
-		trigger = {
-			NOT = {
-				owner = { culture = icelandic }
-			}
-		}
-		culture = icelandic
-	}
-	option = {
-		name = EVTOPTB_TOG_2005
-		trigger = {
-			owner = { culture = icelandic }
-		}
-		culture = icelandic
 	}
 }

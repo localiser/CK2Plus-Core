@@ -18,7 +18,7 @@ province_event = {
 	desc = "EVTDESC39000"
 	picture = "GFX_evt_burning_house"
 	border = "GFX_event_normal_frame_religion"
-
+	
 	trigger = {
 		OR = {
 			religion_group = christian
@@ -34,7 +34,7 @@ province_event = {
 		NOT = { province_id = 719 } # Mecca
 		NOT = { province_id = 718 } # Medina
 	}
-
+	
 	mean_time_to_happen = {
 		months = 50000
 		modifier = {
@@ -44,7 +44,7 @@ province_event = {
 		modifier = {
 			factor = 1.25
 			religion_authority = 0.8
-		}
+		}	
 		modifier = {
 			factor = 1.25
 			religion_authority = 0.9
@@ -52,7 +52,7 @@ province_event = {
 		modifier = {
 			factor = 1.25
 			religion_authority = 1.0
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.4 }
@@ -60,7 +60,7 @@ province_event = {
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.3 }
-		}
+		}	
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.2 }
@@ -70,7 +70,7 @@ province_event = {
 			NOT = { religion_authority = 0.1 }
 		}
 	}
-
+	
 	immediate = {
 		become_heretic = yes
 		set_province_flag = heresy_in_province
@@ -80,12 +80,12 @@ province_event = {
 			hidden = yes
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39000"
 		trigger = { owner = { NOT = { religion = ROOT } } }
 		if = {
-			limit = {
+			limit = { 
 				ruler = { is_parent_religion = ROOT }
 			}
 			ruler = { piety = -10 }
@@ -135,7 +135,7 @@ province_event = {
 		name = "EVTOPTB39000"
 		trigger = { owner = { religion = ROOT } }
 		if = {
-			limit = {
+			limit = { 
 				ruler = { is_parent_religion = ROOT }
 			}
 			ruler = { piety = -10 }
@@ -171,9 +171,9 @@ character_event = {
 	desc = "EVTDESC39400"
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39400"
 		trigger = {
@@ -194,7 +194,7 @@ character_event = {
 	desc = "EVTDESC39403"
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	trigger = {
 		controls_religion = yes
 		religion = catholic
@@ -219,11 +219,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 12
 	}
-
+	
 	option = {
 		name = "EVTOPTA39403"
 		random_playable_ruler = {
@@ -253,9 +253,9 @@ province_event = {
 	desc = "EVTDESC39404"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39404"
 		add_province_modifier = {
@@ -294,11 +294,11 @@ character_event = {
 					has_job_title = job_treasurer
 					has_job_title = job_spymaster
 					has_job_title = job_spiritual
-				}
+				} 
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 500
 		modifier = {
@@ -336,9 +336,9 @@ letter_event = {
 	id = 39441
 	desc = "EVTDESC39441"
 	border = GFX_event_letter_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		random_courtier = {
 			limit = {
@@ -351,7 +351,7 @@ letter_event = {
 					has_job_title = job_treasurer
 					has_job_title = job_spymaster
 					has_job_title = job_spiritual
-				}
+				} 
 			}
 			set_character_flag = heretic_to_target
 		}
@@ -369,7 +369,7 @@ letter_event = {
 				who = ROOT
 				modifier = opinion_arrest_attempt
 				months = 240
-			}
+			}			
 			imprison = yes
 		}
 		if = {
@@ -432,11 +432,11 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 
 	only_rulers = yes
-
+	
 	trigger = {
 		independent = no
 		is_heretic = no
-
+		
 		liege = {
 			any_courtier = {
 				is_heretic = yes
@@ -450,7 +450,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1200
 		modifier = {
@@ -462,7 +462,7 @@ character_event = {
 			trait = cynical
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39445"
 		hidden_tooltip = {
@@ -479,9 +479,9 @@ letter_event = {
 	id = 39446
 	desc = "EVTDESC39446"
 	border = GFX_event_letter_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39446"
 		FROM = {
@@ -500,21 +500,21 @@ province_event = {
 	desc = "EVTDESC39001"
 	picture = "GFX_evt_burning_house"
 	border = "GFX_event_normal_frame_religion"
-
+	
 	trigger = {
 		is_heretic = no
 		NOT = { province_id = 333 } # Rome
 		NOT = { province_id = 497 } # Thrace
 		NOT = { province_id = 719 } # Mecca
-
+		
 		any_neighbor_province = {
 			has_owner = yes
 			is_heresy_of = ROOT
 		}
 	}
-
+	
 	mean_time_to_happen = {
-		months = 1000
+		months = 1000	
 		modifier = {
 			factor = 1.25
 			religion_authority = 0.7
@@ -522,7 +522,7 @@ province_event = {
 		modifier = {
 			factor = 1.25
 			religion_authority = 0.8
-		}
+		}	
 		modifier = {
 			factor = 1.25
 			religion_authority = 0.9
@@ -530,7 +530,7 @@ province_event = {
 		modifier = {
 			factor = 1.25
 			religion_authority = 1.0
-		}
+		}		
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.4 }
@@ -538,11 +538,11 @@ province_event = {
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.3 }
-		}
+		}	
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.2 }
-		}
+		}	
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.1 }
@@ -568,7 +568,7 @@ province_event = {
 				is_heresy_of = ROOT
 				owner = { is_heresy_of = ROOT }
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			any_neighbor_province = {
@@ -578,7 +578,7 @@ province_event = {
 			}
 		}
 	}
-
+	
 	immediate = {
 		random_neighbor_province = {
 			limit = {
@@ -587,11 +587,11 @@ province_event = {
 			reverse_religion = ROOT
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39001"
 		if = {
-			limit = {
+			limit = { 
 				ruler = { is_parent_religion = ROOT }
 			}
 			ruler = { piety = -10 }
@@ -605,11 +605,11 @@ character_event = {
 	desc = "EVTDESC39010"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		is_heretic = no
 		OR = {
@@ -619,10 +619,10 @@ character_event = {
 		location = {
 			is_heresy_of = ROOT
 		}
-
+		
 		can_change_religion = yes
 	}
-
+	
 	mean_time_to_happen = {
 		months = 360
 		modifier = {
@@ -650,7 +650,7 @@ character_event = {
 			NOT = { religion_authority = 0.4 }
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39010"
 		ai_chance = { factor = 100 }
@@ -670,11 +670,11 @@ character_event = {
 	desc = "EVTDESC39020"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		is_heretic = yes
 		any_courtier = {
@@ -686,7 +686,7 @@ character_event = {
 			reverse_opinion = { who = ROOT value = 25 }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 120
 		modifier = {
@@ -722,7 +722,7 @@ character_event = {
 			religion_authority = 0.8
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39020"
 		random_courtier = {
@@ -745,9 +745,9 @@ character_event = {
 	desc = "EVTDESC39021"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39021" # Embrace the heresy
 		ai_chance = {
@@ -827,9 +827,9 @@ character_event = {
 	desc = "EVTDESC39022"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39022" # Good news!
 		piety = 10
@@ -847,9 +847,9 @@ character_event = {
 	desc = "EVTDESC39023"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39023" # Never!
 		hidden_tooltip = {
@@ -871,9 +871,9 @@ character_event = {
 	desc = "EVTDESC39024"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39024" # Accept judgement
 		opinion = {
@@ -906,9 +906,9 @@ character_event = {
 	desc = "EVTDESC39025"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39025"
 		opinion = {
@@ -925,9 +925,9 @@ character_event = {
 	desc = "EVTDESC39026"
 	picture = GFX_evt_heretic
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39026"
 		piety = 10
@@ -951,22 +951,22 @@ narrative_event = {
 	desc = "EVTDESC39100"
 	picture = "GFX_evt_crusaders"
 	border = "GFX_event_narrative_frame_religion"
-
+	
 	major = yes
-
+	
 	only_playable = yes
-
+	
 	trigger = {
 		year = 1113		# Papal recognition
 		NOT = { is_title_active = d_knights_hospitaler }
 		religion = catholic
 		controls_religion = yes
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA39100"
 		trigger = {
@@ -1003,7 +1003,7 @@ narrative_event = {
 				set_defacto_liege = THIS
 			}
 		}
-
+		
 		religion_authority = {
 			modifier = religious_order_formed
 			years = 10
@@ -1038,10 +1038,10 @@ narrative_event = {
 	desc = "EVTDESC39101"
 	picture = "GFX_evt_crusaders"
 	border = "GFX_event_narrative_frame_religion"
-
+	
 	major = yes
 	only_playable = yes
-
+	
 	trigger = {
 		year = 1118		# Papal recognition
 		NOT = { year = 1312 }
@@ -1049,11 +1049,11 @@ narrative_event = {
 		religion = catholic
 		controls_religion = yes
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA39101"
 		trigger = {
@@ -1090,7 +1090,7 @@ narrative_event = {
 				set_defacto_liege = THIS
 			}
 		}
-
+		
 		religion_authority = {
 			modifier = religious_order_formed
 			years = 10
@@ -1125,21 +1125,21 @@ narrative_event = {
 	desc = "EVTDESC39102"
 	picture = "GFX_evt_crusaders"
 	border = "GFX_event_narrative_frame_religion"
-
+	
 	major = yes
 	only_playable = yes
-
+	
 	trigger = {
 		year = 1192		# Papal recognition
 		NOT = { is_title_active = d_teutonic_order }
 		religion = catholic
 		controls_religion = yes
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA39102"
 		trigger = {
@@ -1157,7 +1157,7 @@ narrative_event = {
 			}
 			set_defacto_liege = THIS
 		}
-
+		
 		religion_authority = {
 			modifier = religious_order_formed
 			years = 10
@@ -1195,9 +1195,9 @@ character_event = {
 	desc = "EVTDESC39200"
 	picture = "GFX_evt_battle"
 	border = "GFX_event_normal_frame_religion"
-
+	
 	only_rulers = yes
-
+	
 	trigger = {
 		religion = catholic
 		controls_religion = yes
@@ -1240,7 +1240,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 60
 		modifier = {
@@ -1252,12 +1252,12 @@ character_event = {
 			wealth = 2000
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39200"
 		ai_chance = { factor = 100 }
 		wealth = -100
-
+		
 		random_playable_ruler = {
 			limit = {
 				religion = catholic
@@ -1275,11 +1275,11 @@ character_event = {
 					value = 0
 				}
 			}
-
+			
 			letter_event = { id = 39201 tooltip = EVTTOOLTIP39201 }
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTB39200"
 		ai_chance = { factor = 0 }
@@ -1290,9 +1290,9 @@ letter_event = {
 	id = 39201
 	desc = "EVTDESC39201"
 	border = "GFX_event_letter_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39201"
 		wealth = 100
@@ -1308,14 +1308,14 @@ character_event = {
 	desc = "EVTDESC39210"
 	picture = GFX_evt_pope
 	border = "GFX_event_normal_frame_religion"
-
+	
 	only_rulers = yes
-
+	
 	trigger = {
 		religion = catholic
 		controls_religion = yes
 		war = no
-
+		
 		any_independent_ruler = {
 			religion = catholic
 			rightful_religious_head = ROOT
@@ -1325,7 +1325,7 @@ character_event = {
 			NOT = { has_character_flag = kinslaying_offered }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 24
 	}
@@ -1341,11 +1341,11 @@ character_event = {
 			set_character_flag = kinslaying_offered
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39210"
 		ai_chance = { factor = 100 }
-
+		
 		random_independent_ruler = {
 			limit = {
 				religion = catholic
@@ -1354,11 +1354,11 @@ character_event = {
 				piety = 100
 				reverse_opinion  = { who = ROOT value = 0 }
 			}
-
+			
 			character_event = { id = 39211 tooltip = EVTTOOLTIP39211 }
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTB39210"	#incase someone plays the pope.. players will mod it in, so might as well give them a fun option here..
 		ai_chance = { factor = 0 }
@@ -1371,9 +1371,9 @@ character_event = {
 	desc = "EVTDESC39211"
 	picture = GFX_evt_pope
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39211"
 		ai_chance = { factor = 100 }
@@ -1382,7 +1382,7 @@ character_event = {
 		remove_trait = kinslayer
 		FROM = { character_event = { id = 39212 days = 1 tooltip = EVTTOOLTIP39212 } }
 	}
-
+	
 	option = {
 		name = "EVTOPTB39211"
 		ai_chance = { factor = 0 }
@@ -1397,7 +1397,7 @@ character_event = {
 	desc = "EVTDESC39212"
 	picture = GFX_evt_knight_kneeling
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
 	option = {
 		name = "EVTOPTA39212"
@@ -1411,9 +1411,9 @@ character_event = {
 	desc = "EVTDESC39213"
 	picture = GFX_evt_torture
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39213"
 		prestige = -10
@@ -1428,13 +1428,13 @@ character_event = {
 #CATHOLIC CHAIN
 character_event = {
 	id = 39220
-	desc = "EVTDESC39220"	#Bishops in prison whine to pope..
+	desc = "EVTDESC39220"	#Bishops in prison whine to pope..		
 	picture = GFX_evt_into_the_dungeon
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	only_playable = yes
-
+	
 	trigger = {
 		prisoner = yes
 		is_theocracy = yes
@@ -1467,16 +1467,16 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			religion_head = {
-				reverse_opinion = { who = ROOT value = 25 }
+				reverse_opinion = { who = ROOT value = 25 }		
 			}
 		}
-	}
+	}	
 
 	immediate = {
 		set_character_flag = nag_pope_to_help_me
 	}
 
-
+	
 	option = {
 		name = "EVTOPTA39220" # Write a letter to the pope.
 		religion_head = { character_event = { id = 39221 days = 5 random = 10 tooltip = EVTTOOLTIP39221 } }
@@ -1489,16 +1489,16 @@ character_event = {
 				host = { character_event = { id = 39222 days = 3 tooltip = EVTTOOLTIP39222 }  }
 			}
 		}
-
-	}
+		
+	}	
 	option = {
 		name = "EVTOPTB39220" # Pray for Divine Help
 		piety = 10
-		hidden_tooltip = {
+		hidden_tooltip = {	
 			host = { character_event = { id = 39223 days = 5 } 	}
 		}
-	}
-}
+	}	
+}	
 
 #Pope gets letter.
 character_event = {
@@ -1506,9 +1506,9 @@ character_event = {
 	desc = "EVTDESC39221"
 	picture = GFX_evt_into_the_dungeon
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39221"	#try to help bishop
 		from = {
@@ -1539,12 +1539,12 @@ character_event = {
 	desc = "EVTDESC39222"
 	picture = GFX_evt_recieve_letter
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39222" #kill
-		#tooltip_info =
+		#tooltip_info = 
 		trigger = {
 			OR = {
 				trait = cruel
@@ -1559,16 +1559,16 @@ character_event = {
 				killer = ROOT
 			}
 		}
-	}
+	}	
 	option = {
 		name = "EVTOPTB39222" #this is bad news
 		trigger = {
 			NOT = { trait = cruel }
 			NOT = { trait = impaler }
-			NOT = { trait = wroth }
+			NOT = { trait = wroth }				
 		}
 		piety = -5
-	}
+	}	
 }
 
 #pious bishop praying for it..
@@ -1577,17 +1577,17 @@ character_event = {
 	desc = "EVTDESC39223"
 	picture = GFX_evt_into_the_dungeon
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39223" #kind and release him
 		trigger = {
 			NOT = { trait = cruel }
 			NOT = { trait = impaler }
-			NOT = { trait = wroth }
-			NOT = { trait = cynical }
-
+			NOT = { trait = wroth }				
+			NOT = { trait = cynical }				
+			
 		}
 		ai_chance = {
 			factor = 1
@@ -1597,18 +1597,18 @@ character_event = {
 			}
 		}
 		piety = 10
-		FROM = {
-			prisoner = no
+		FROM = { 
+			prisoner = no 
 			clr_character_flag = nag_pope_to_help_me
 		}
-	}
+	}	
 	option = {
 		name = "EVTOPTB39223" #nopes
 		ai_chance = {
 			factor = 10
 		}
 		piety = -5
-	}
+	}	
 }
 
 #bishop hears pope is helping him.
@@ -1617,16 +1617,16 @@ character_event = {
 	desc = "EVTDESC39224"
 	picture = GFX_evt_pope
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		host = { character_event = { id = 39226 days = 1 random = 2 tooltip = EVTTOOLTIP39226 } }
 	}
 	option = {
 		name = "EVTOPTA39224"	#good news
 		piety = 1
-	}
+	}	
 }
 
 #bad news, pope tells you no
@@ -1635,9 +1635,9 @@ character_event = {
 	desc = "EVTDESC39225"
 	picture = GFX_evt_knight_kneeling
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39225"	#bad news
 		piety = -5
@@ -1645,8 +1645,8 @@ character_event = {
 			who = FROM
 			modifier = opinion_disappointed
 			years = 5
-		}
-	}
+		}		
+	}	
 }
 
 #deal with papal demands
@@ -1655,9 +1655,9 @@ character_event = {
 	desc = "EVTDESC39226"
 	picture = GFX_evt_pope
 	border = "GFX_event_normal_frame_religion"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39226"	#let him go
 		ai_chance = {
@@ -1667,8 +1667,8 @@ character_event = {
 				trait = kind
 			}
 		}
-		FROM = {
-			prisoner = no
+		FROM = { 
+			prisoner = no 
 			clr_character_flag = nag_pope_to_help_me
 		}
 		piety = 10
@@ -1676,12 +1676,12 @@ character_event = {
 			modifier = ruler_bowed_to_pope
 			years = 10
 		}
-	}
+	}	
 	option = {
 		name = "EVTOPTB39226"	#no
 		trigger = {
 			NOT = {
-				trait = zealous
+				trait = zealous 
 			}
 		}
 		ai_chance = {
@@ -1705,8 +1705,8 @@ character_event = {
 				years = 5
 			}
 		}
-
-	}
+		
+	}	
 }
 
 #ORTHODOX
@@ -1715,9 +1715,9 @@ character_event = {
 	desc = "EVTDESC39230"	#Orthodox & We got a bishop in jail.
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		religion = orthodox
 		in_command = no
@@ -1729,10 +1729,10 @@ character_event = {
 			is_theocracy = yes
 			religion = orthodox
 			imprisoned_days = 100
-			host = { character = ROOT }
+			host = { character = ROOT }		
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -1752,18 +1752,18 @@ character_event = {
 			religion_authority = 0.50
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39230"	#let him go
-
+		
 		random_courtier = {
 			limit = {
 				prisoner = yes
 				religion = orthodox
 				imprisoned_days = 100
-				host = { character = ROOT }
+				host = { character = ROOT }		
 			}
-			prisoner = no
+			prisoner = no 
 		}
 		religion_authority = {
 			modifier = ruler_bowed_to_patriarch
@@ -1771,7 +1771,7 @@ character_event = {
 		}
 		piety = 10
 	}
-
+	
 	option = {
 		name = "EVTOPTB39230"	#refuse
 		piety = -50
@@ -1780,8 +1780,8 @@ character_event = {
 			years = 10
 		}
 	}
-
-
+	
+	
 }
 
 
@@ -1794,9 +1794,9 @@ character_event = {
 	desc = "EVTDESC39240"	#Pope asks a ruler that they should not have heathens employed.
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	only_playable = yes
-
+	
 	trigger = {
 		religion = catholic
 		controls_religion = yes
@@ -1819,11 +1819,11 @@ character_event = {
 					has_job_title = job_treasurer
 					has_job_title = job_spymaster
 					has_job_title = job_spiritual
-				}
+				} 
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 500
 		modifier = {
@@ -1853,7 +1853,7 @@ character_event = {
 						has_job_title = job_treasurer
 						has_job_title = job_spymaster
 						has_job_title = job_spiritual
-					}
+					} 
 				}
 			}
 			character_event = { id = 39241 days = 14 tooltip = EVTTOOLTIP392401 }
@@ -1874,12 +1874,12 @@ character_event = {
 #Demands is coming on us about
 character_event = {
 	id = 39241
-	desc = "EVTDESC39241"
+	desc = "EVTDESC39241"	
 	picture = GFX_evt_emissary
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		random_courtier = {
 			limit = {
@@ -1894,12 +1894,12 @@ character_event = {
 					has_job_title = job_treasurer
 					has_job_title = job_spymaster
 					has_job_title = job_spiritual
-				}
+				} 
 			}
 			set_character_flag = heathen_to_target
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTB39241" #imprison
 		random_courtier = {
@@ -1909,7 +1909,7 @@ character_event = {
 				who = ROOT
 				modifier = opinion_arrest_attempt
 				months = 240
-			}
+			}			
 			imprison = yes
 		}
 		FROM = {
@@ -1921,7 +1921,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			FROM = {  character_event = { id = 39243 days = 1  } }
-		}
+		}	
 		clr_character_flag = pope_dislikes_heathen_employed
 	}
 	option = {
@@ -1946,7 +1946,7 @@ character_event = {
 		random_courtier = {
 			limit = { has_character_flag = heathen_to_target }
 			clr_character_flag = heathen_to_target
-
+			
 			opinion = {
 				who = ROOT
 				years = 5
@@ -1966,11 +1966,11 @@ character_event = {
 	desc = "EVTDESC39243"
 	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "EVTOPTA39243"
+		name = "EVTOPTA39243" 
 		prestige = 5
 	}
 }
@@ -1981,11 +1981,11 @@ character_event = {
 	desc = "EVTDESC39244"
 	picture = GFX_evt_emissary
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "EVTOPTA39244"
+		name = "EVTOPTA39244" 
 		prestige = -10
 	}
 }
@@ -1993,20 +1993,20 @@ character_event = {
 #Character purchases lift of excommunication
 character_event = {
 	id = 39252
-	desc = "EVTDESC39252"
+	desc = "EVTDESC39252"	
 	picture = GFX_evt_emissary
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39252"
-		ai_chance = {
-			factor = 50
+		ai_chance = { 
+			factor = 50 
 			modifier = {
 				factor = 1.5
 				trait = greedy
-			}
+			}			
 			modifier = {
 				factor = 2
 				opinion = {
@@ -2021,8 +2021,8 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB39252"
-		ai_chance = {
-			factor = 50
+		ai_chance = { 
+			factor = 50 
 			modifier = {
 				factor = 1.5
 				trait = zealous
@@ -2035,7 +2035,7 @@ character_event = {
 						value = -50
 					}
 				}
-			}
+			}		
 		}
 		FROM = {
 			character_event = { id = 39254 days = 3 random = 7 }
@@ -2049,9 +2049,9 @@ character_event = {
 	desc = "EVTDESC39253"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39253"
 		scaled_wealth = -2.0
@@ -2063,7 +2063,7 @@ character_event = {
 				years = 10
 			}
 		}
-		clr_character_flag  = ask_for_repentance
+		clr_character_flag  = ask_for_repentance	
 	}
 	option = {
 		name = "EVTOPTB39253"
@@ -2075,7 +2075,7 @@ character_event = {
 				years = 5
 			}
 		}
-		clr_character_flag  = ask_for_repentance
+		clr_character_flag  = ask_for_repentance	
 	}
 }
 
@@ -2085,9 +2085,9 @@ character_event = {
 	desc = "EVTDESC39254"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39254"
 	}
@@ -2098,12 +2098,12 @@ character_event = {
 #The Patriarch asks a ruler that they should not have heathens employed
 character_event = {
 	id = 39260
-	desc = "EVTDESC39260"
+	desc = "EVTDESC39260"	
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
 
 	only_playable = yes
-
+	
 	trigger = {
 		religion = orthodox
 		controls_religion = yes
@@ -2126,11 +2126,11 @@ character_event = {
 					has_job_title = job_treasurer
 					has_job_title = job_spymaster
 					has_job_title = job_spiritual
-				}
+				} 
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 500
 		modifier = {
@@ -2160,7 +2160,7 @@ character_event = {
 						has_job_title = job_treasurer
 						has_job_title = job_spymaster
 						has_job_title = job_spiritual
-					}
+					} 
 				}
 			}
 			character_event = { id = 39261 days = 14 tooltip = EVTTOOLTIP39261 }
@@ -2184,9 +2184,9 @@ character_event = {
 	desc = "EVTDESC39261"
 	picture = GFX_evt_throne_room
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		random_courtier = {
 			limit = {
@@ -2201,13 +2201,13 @@ character_event = {
 					has_job_title = job_treasurer
 					has_job_title = job_spymaster
 					has_job_title = job_spiritual
-				}
+				} 
 			}
 			set_character_flag = heathen_to_target
 		}
 	}
-
-
+	
+	
 	option = {
 		name = "EVTOPTA39261" #banish
 		ai_chance = {
@@ -2218,7 +2218,7 @@ character_event = {
 			clr_character_flag = heathen_to_target
 			banish = yes
 		}
-
+		
 		FROM = {
 			opinion = {
 				who = ROOT
@@ -2229,7 +2229,7 @@ character_event = {
 
 		hidden_tooltip = {
 			FROM = {  character_event = { id = 39262 days = 1   } }
-		}
+		}	
 		clr_character_flag = patriarch_dislikes_heathen_employed
 	}
 	option = {
@@ -2241,7 +2241,7 @@ character_event = {
 				who = ROOT
 				modifier = opinion_arrest_attempt
 				months = 240
-			}
+			}			
 			imprison = yes
 		}
 		FROM = {
@@ -2254,7 +2254,7 @@ character_event = {
 
 		hidden_tooltip = {
 			FROM = {  character_event = { id = 39263 days = 1  } }
-		}
+		}	
 		clr_character_flag = patriarch_dislikes_heathen_employed
 	}
 	option = {
@@ -2275,11 +2275,11 @@ character_event = {
 				years = 5
 			}
 		}
-
+		
 		random_courtier = {
 			limit = { has_character_flag = heathen_to_target }
 			clr_character_flag = heathen_to_target
-
+			
 			opinion = {
 				who = ROOT
 				modifier = opinion_defended_me
@@ -2288,7 +2288,7 @@ character_event = {
 
 		}
 		piety = -50
-
+		
 		hidden_tooltip = {
 			FROM = {  character_event = { id = 39264 days = 1 } }
 		}
@@ -2301,11 +2301,11 @@ character_event = {
 	desc = "EVTDESC39262"
 	picture = GFX_evt_emissary
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "EVTOPTA39262"
+		name = "EVTOPTA39262" 
 		prestige = 10
 	}
 }
@@ -2316,11 +2316,11 @@ character_event = {
 	desc = "EVTDESC39263"
 	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
-		name = "EVTOPTA39263"
+		name = "EVTOPTA39263" 
 		prestige = 5
 	}
 }
@@ -2328,13 +2328,13 @@ character_event = {
 #they ignored us
 character_event = {
 	id = 39264
-	desc = "EVTDESC39264"
+	desc = "EVTDESC39264"	
 	picture = GFX_evt_spymaster
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
 	option = {
-		name = "EVTOPTA39264"
+		name = "EVTOPTA39264" 
 		prestige = -10
 	}
 }
@@ -2344,11 +2344,11 @@ character_event = {
 ###############################################################
 character_event = {
 	id = 39300
-	desc = "EVTDESC39300"	# Icon of Mary, Mother of God
+	desc = "EVTDESC39300"	# Icon of Mary, Mother of God  
 	picture = "GFX_evt_icon"
 	border = "GFX_event_normal_frame_religion"
 
-
+	
 	min_age = 16
 	only_playable = yes
 	prisoner = no
@@ -2361,9 +2361,9 @@ character_event = {
 		}
 		NOT = { trait = cynical }
 	}
-
+	
 	mean_time_to_happen = {
-		months = 600
+		months = 600	
 		modifier = {
 			factor = 0.8
 			trait = zealous
@@ -2382,7 +2382,7 @@ character_event = {
 		scaled_wealth = -0.25
 		change_intrigue = 1
 		set_character_flag = commisioned_icon
-	}
+	} 
 	option = {
 		name = "EVTOPTB39300"	#No.
 		piety = -25
@@ -2390,13 +2390,13 @@ character_event = {
 			limit = { trait = zealous }
 			remove_trait = zealous
 		}
-	}
+	} 
 }
 
 #Icon of Christ Pantocrator
 character_event = {
 	id = 39301
-	desc = "EVTDESC39301"
+	desc = "EVTDESC39301"	
 	picture = "GFX_evt_icon"
 	border = "GFX_event_normal_frame_religion"
 
@@ -2412,9 +2412,9 @@ character_event = {
 		}
 		NOT = { trait = cynical }
 	}
-
+	
 	mean_time_to_happen = {
-		months = 600
+		months = 600	
 		modifier = {
 			factor = 0.8
 			trait = zealous
@@ -2427,14 +2427,14 @@ character_event = {
 			factor = 0.8
 			trait = gregarious
 		}
-
+		
 	}
 	option = {
 		name = "EVTOPTA39301"	#Yes Please
 		scaled_wealth = -0.25
 		change_diplomacy = 1
 		set_character_flag = commisioned_icon
-	}
+	} 
 	option = {
 		name = "EVTOPTB39301"	#No.
 		piety = -25
@@ -2442,16 +2442,16 @@ character_event = {
 			limit = { trait = zealous }
 			remove_trait = zealous
 		}
-	}
+	} 
 }
 
 #Icon of St.Peter
 character_event = {
 	id = 39302
-	desc = "EVTDESC39302"
+	desc = "EVTDESC39302"	
 	picture = "GFX_evt_icon"
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	only_playable = yes
 	prisoner = no
@@ -2464,9 +2464,9 @@ character_event = {
 		}
 		NOT = { trait = cynical }
 	}
-
+	
 	mean_time_to_happen = {
-		months = 600
+		months = 600	
 		modifier = {
 			factor = 0.8
 			trait = zealous
@@ -2479,14 +2479,14 @@ character_event = {
 			factor = 0.8
 			trait = just
 		}
-
+		
 	}
 	option = {
 		name = "EVTOPTA39302"	#Yes Please
 		scaled_wealth = -0.25
 		change_stewardship = 1
 		set_character_flag = commisioned_icon
-	}
+	} 
 	option = {
 		name = "EVTOPTB39302"	#No.
 		piety = -25
@@ -2494,13 +2494,13 @@ character_event = {
 			limit = { trait = zealous }
 			remove_trait = zealous
 		}
-	}
+	} 
 }
 
 #Icon of John the Baptist
 character_event = {
 	id = 39303
-	desc = "EVTDESC39303"
+	desc = "EVTDESC39303"	
 	picture = "GFX_evt_icon"
 	border = "GFX_event_normal_frame_religion"
 
@@ -2516,9 +2516,9 @@ character_event = {
 		}
 		NOT = { trait = cynical }
 	}
-
+	
 	mean_time_to_happen = {
-		months = 600
+		months = 600	
 		modifier = {
 			factor = 0.8
 			trait = zealous
@@ -2531,14 +2531,14 @@ character_event = {
 			factor = 0.8
 			trait = patient
 		}
-
+		
 	}
 	option = {
 		name = "EVTOPTA39303"	#Yes Please
 		scaled_wealth = -0.25
 		change_learning = 1
 		set_character_flag = commisioned_icon
-	}
+	} 
 	option = {
 		name = "EVTOPTB39303"	#No.
 		piety = -25
@@ -2546,7 +2546,7 @@ character_event = {
 			limit = { trait = zealous }
 			remove_trait = zealous
 		}
-	}
+	} 
 }
 
 #Icon of Saint George
@@ -2555,7 +2555,7 @@ character_event = {
 	desc = "EVTDESC39304"
 	picture = "GFX_evt_icon"
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	only_playable = yes
 	prisoner = no
@@ -2568,9 +2568,9 @@ character_event = {
 		}
 		NOT = { trait = cynical }
 	}
-
+	
 	mean_time_to_happen = {
-		months = 600
+		months = 600	
 		modifier = {
 			factor = 0.8
 			trait = zealous
@@ -2585,7 +2585,7 @@ character_event = {
 		scaled_wealth = -0.25
 		change_martial = 1
 		set_character_flag = commisioned_icon
-	}
+	} 
 	option = {
 		name = "EVTOPTB39304"	#No.
 		piety = -25
@@ -2593,7 +2593,7 @@ character_event = {
 			limit = { trait = zealous }
 			remove_trait = zealous
 		}
-	}
+	} 
 }
 
 
@@ -2608,7 +2608,7 @@ character_event = {
 	desc = "EVTDESC39310"
 	picture = GFX_evt_melee
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	only_men = yes
 
@@ -2625,16 +2625,16 @@ character_event = {
 		NOT = { trait = wroth }
 		NOT = { trait = proud }
 		NOT = { trait = cruel }
-
+		
 		martial = 8
 		trait = humble
 		trait = diligent
 		trait = brave
-
+		
 		piety = 25
-
+		
 	}
-
+	
 	mean_time_to_happen = {
 		months = 36
 		modifier = {
@@ -2654,7 +2654,7 @@ character_event = {
 		name = "EVTOPTA39310"	#
 		add_character_modifier = { name = true_christian_knight duration = -1 }
 		prestige = 50
-	}
+	} 
 
 }
 
@@ -2664,7 +2664,7 @@ character_event = {
 	desc = "EVTDESC39311"
 	picture = GFX_evt_knight_kneeling
 	border = "GFX_event_normal_frame_religion"
-
+	
 	min_age = 16
 	only_men = yes
 
@@ -2672,7 +2672,7 @@ character_event = {
 		has_character_modifier = true_christian_knight
 		OR = {
 			NOT = { religion_group = christian }
-			is_heretic = yes
+			is_heretic = yes 
 			trait = cynical
 			trait = lustful
 			trait = gluttonous
@@ -2684,9 +2684,9 @@ character_event = {
 			trait = cruel
 			trait = craven
 		}
-
+		
 	}
-
+	
 	mean_time_to_happen = {
 		days = 5
 	}
@@ -2703,25 +2703,25 @@ province_event = {
 	desc = "EVTDESC39500"
 	picture = "GFX_evt_bishop"
 	border = "GFX_event_normal_frame_religion"
-
+	
 	trigger = {
 		NOT = { religion_group = muslim }
 		owner = {
 			religion_group = muslim
-			top_liege = { religion_group = muslim }
+			top_liege = { religion_group = muslim } 
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1200
 		modifier = {
 			factor = 0.5
 			owner = { trait = zealous }
-		}
+		}		
 		modifier = {
 			factor = 1.05
 			NOT = { owner = { learning = 1 } }
-		}
+		}		
 		modifier = {
 			factor = 1.05
 			NOT = { owner = { learning = 2 } }
@@ -2757,19 +2757,19 @@ province_event = {
 		modifier = {
 			factor = 0.95
 			owner = { learning = 11 }
-		}
+		}		
 		modifier = {
 			factor = 0.95
 			owner = { learning = 12 }
-		}
+		}	
 		modifier = {
 			factor = 0.95
 			owner = { learning = 13 }
-		}
+		}	
 		modifier = {
 			factor = 0.95
 			owner = { learning = 14 }
-		}
+		}	
 		modifier = {
 			factor = 0.95
 			owner = { learning = 15 }
@@ -2781,7 +2781,7 @@ province_event = {
 		modifier = {
 			factor = 0.95
 			owner = { learning = 17 }
-		}
+		}	
 		modifier = {
 			factor = 0.95
 			owner = { learning = 18 }
@@ -2813,7 +2813,7 @@ province_event = {
 		modifier = {
 			factor = 0.95
 			owner = { learning = 25 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			owner = { demesne_size = 2 }
@@ -2825,7 +2825,7 @@ province_event = {
 		modifier = {
 			factor = 0.9
 			owner = { demesne_size = 4 }
-		}
+		}	
 		modifier = {
 			factor = 0.9
 			owner = { demesne_size = 5 }
@@ -2841,7 +2841,7 @@ province_event = {
 		modifier = {
 			factor = 0.9
 			owner = { demesne_size = 8 }
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			religion_authority = 0.6
@@ -2888,39 +2888,39 @@ province_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39500"
 		owner = {
 			piety = 25
-			add_character_modifier = { name = "convert_province_timer" duration = 3 hidden = yes }
+			add_character_modifier = { name = "convert_province_timer" duration = 3 hidden = yes }			
 		}
-
+		
 		if = {
 			limit = {
-				owner = {
-					is_heretic = no
+				owner = { 
+					is_heretic = no 
 					ROOT = {
 						NOT = { is_heresy_of = PREV }
-					}
+					}				
 				}
 			}
 			owner = {
 				religion_authority = {
-					modifier = converted_province_to
+					modifier = converted_province_to			
 				}
 			}
 			religion_authority = {
-				modifier = converted_province_from
-			}
-		}
-
+				modifier = converted_province_from		
+			}			
+		}	
+		
 		owner = {
 			ROOT = {
 				religion = PREV
 			}
-		}
-
+		}		
+		
 		hidden_tooltip = {
 			owner = {
 				top_liege = {
@@ -2949,9 +2949,9 @@ character_event = {
 	desc = "EVTDESC39501"
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA39501"
 		trigger = {
@@ -2976,9 +2976,9 @@ character_event = {
 	desc = EVTDESC39600
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39600
 		ai_chance = {
@@ -2991,7 +2991,7 @@ character_event = {
 				factor = 5
 				any_vassal = { controls_religion = yes }
 			}
-
+			
 			modifier = {
 				factor = 5
 				NOT = { year = 930 }
@@ -3104,7 +3104,7 @@ character_event = {
 			modifier = {
 				factor = 1.2
 				NOT = { religion_authority = 0.2 }
-			}
+			} 
 			modifier = {
 				factor = 3
 				culture_group = east_slavic # Historical outcome
@@ -3152,9 +3152,9 @@ character_event = {
 	desc = EVTDESC39601
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39601
 		ai_chance = {
@@ -3189,7 +3189,7 @@ character_event = {
 			modifier = {
 				factor = 1.5
 				NOT = { religion_authority = 0.2 }
-			}
+			} 
 			modifier = {
 				factor = 1.1
 				year = 925
@@ -3224,11 +3224,11 @@ character_event = {
 			}
 				#End tweaks
 		}
-
+		
 		prestige = -500
 		religion = FROM
 		piety = 250
-
+		
 		any_courtier = {
 			limit = { is_close_relative = ROOT }
 			religion = FROM
@@ -3320,9 +3320,9 @@ character_event = {
 	desc = EVTDESC39602
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39602
 		FROMFROM = {
@@ -3357,11 +3357,11 @@ character_event = {
 	desc = EVTDESC39603
 	picture = GFX_evt_child_sword
 	border = GFX_event_normal_frame_religion
-
+	
 	hide_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39603
 		hidden_tooltip = {
@@ -3448,9 +3448,9 @@ letter_event = {
 	id = 39604
 	desc = EVTDESC39604
 	border = GFX_event_letter_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39604
 		piety = 20
@@ -3463,9 +3463,9 @@ character_event = {
 	desc = EVTDESC39605
 	picture = GFX_evt_torture
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39605
 		opinion = {
@@ -3480,9 +3480,9 @@ letter_event = {
 	id = 39606
 	desc = EVTDESC39606
 	border = GFX_event_letter_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39606
 		tooltip = {
@@ -3500,9 +3500,9 @@ letter_event = {
 	id = 39607
 	desc = EVTDESC39607
 	border = GFX_event_letter_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39607
 		FROM = { cancel_job_action = action_inquisition }
@@ -3515,9 +3515,9 @@ character_event = {
 	desc = EVTDESC39608
 	picture = GFX_evt_torture
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39608
 	}
@@ -3528,9 +3528,9 @@ letter_event = {
 	id = 39609
 	desc = EVTDESC39609
 	border = GFX_event_letter_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39609
 		FROM = { cancel_job_action = action_inquisition }
@@ -3541,16 +3541,16 @@ letter_event = {
 character_event = {
 	id = 39610
 	hide_window = yes
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		religion = FROM
 		liege = {
 			character_event = { id = 39602 }
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -3562,9 +3562,9 @@ character_event = {
 	desc = EVTDESC39653
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA39653
 		hidden_tooltip = {
@@ -3581,15 +3581,15 @@ character_event = {
 character_event = {
 	id = 39612
 	hide_window = yes
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		liege = {
 			letter_event = { id = 39604 }
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -3599,15 +3599,15 @@ character_event = {
 character_event = {
 	id = 39613
 	hide_window = yes
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		liege = {
 			letter_event = { id = 39607 }
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -3617,15 +3617,15 @@ character_event = {
 character_event = {
 	id = 39614
 	hide_window = yes
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		liege = {
 			letter_event = { id = 39606 }
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -3635,15 +3635,15 @@ character_event = {
 character_event = {
 	id = 39615
 	hide_window = yes
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		liege = {
 			character_event = { id = 39608 }
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -3653,15 +3653,15 @@ character_event = {
 character_event = {
 	id = 39616
 	hide_window = yes
-
+	
 	is_triggered_only = yes
-
+	
 	immediate = {
 		liege = {
 			letter_event = { id = 39609 }
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -3674,12 +3674,12 @@ narrative_event = {
 	desc = EVTDESC39640
 	picture = GFX_evt_bishop_muslim
 	border = GFX_event_narrative_frame_religion
-
+	
 	major = yes
-
+	
 	only_independent = yes
 	only_playable = yes
-
+	
 	trigger = {
 		is_landed = yes
 		religion_group = muslim
@@ -3705,7 +3705,7 @@ narrative_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1800
 		modifier = {
@@ -3757,13 +3757,13 @@ narrative_event = {
 			ai = no
 		}
 	}
-
+	
 	immediate = {
 		set_character_flag = shia_caliphate_revolt
 		set_global_flag = shia_caliphate_revolt_ongoing
-
+		
 		decadence = -30 # Do not want to be hit with a decadence revolt as well!
-
+		
 		random_realm_province = {
 			limit = {
 				kingdom = {
@@ -3799,7 +3799,7 @@ narrative_event = {
 						intrigue = 1
 					}
 				}
-
+				
 				new_character = {
 					set_character_flag = shia_caliphate_pretender
 					create_title = {
@@ -4012,15 +4012,15 @@ narrative_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA39640"
 		trigger = {
-			has_character_flag = shia_caliphate_revolt
+			has_character_flag = shia_caliphate_revolt 
 		}
 		clr_character_flag = shia_caliphate_revolt
 	}
-
+	
 	option = {
 		name = "EVTOPTB39640"
 		trigger = {
@@ -4042,5 +4042,5 @@ narrative_event = {
 			NOT = { has_character_flag = shia_caliphate_revolt }
 		}
 	}
-
+	
 }

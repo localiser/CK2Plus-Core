@@ -16,20 +16,20 @@ character_event = {
 	desc = OK
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	min_age = 16
 	max_age = 50
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_dlc = "The Old Gods"
-
+		
 		is_ruler = no
-
+		
 		any_claim = {
 			has_holder = yes
 			holder_scope = {
@@ -40,22 +40,22 @@ character_event = {
 				holder_scope = { tier = PREV }
 			}
 		}
-
+		
 		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
-
+		
 		diplomacy = 7
-
+		
 		health = 4
 		NOT = { trait = content }
 		NOT = { trait = craven }
-
+		
 		NOT = { has_character_modifier = planning_claimant_adventure }
 	}
-
+	
 	mean_time_to_happen = {
 		years = 34
 		modifier = {
@@ -103,7 +103,7 @@ character_event = {
 			trait = kind
 		}
 	}
-
+	
 	immediate = {
 		random_claim = {
 			limit = {
@@ -112,7 +112,7 @@ character_event = {
 					independent = yes # Only do this vs independent rulers
 				}
 			}
-
+			
 			holder_scope = {
 				reverse_opinion = {
 					who = ROOT
@@ -136,7 +136,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -147,9 +147,9 @@ character_event = {
 	desc = EVTDESC_TOG_1201
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1201"
 	}
@@ -162,14 +162,14 @@ character_event = {
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		is_ruler = no
 		prisoner = no
 		NOT = { trait = incapable }
-
+		
 		any_claim = {
 			has_holder = yes
 			holder_scope = {
@@ -180,25 +180,25 @@ character_event = {
 				holder_scope = { tier = PREV }
 			}
 		}
-
+		
 		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
 	}
-
+	
 	immediate = {
-
+		
 		wealth = 500
-
+		
 		liege = {
 			character_event = {
 				id = TOG.1203
 				days = 1
 			}
 		}
-
+		
 		liege = {
 			capital_scope = {
 				ROOT = {
@@ -211,7 +211,7 @@ character_event = {
 						name = "CLAIMANT_ADVENTURE"
 						holder = ROOT
 					}
-
+					
 					random_claim = {
 						limit = {
 							has_holder = yes
@@ -445,7 +445,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		# Create some decent commander characters
 		create_random_soldier = {
 			random_traits = yes
@@ -479,7 +479,7 @@ character_event = {
 			female = no
 			age = 29
 		}
-
+		
 		# Create a fleet, just to be sure
 		spawn_fleet = {
 			province = closest # closest sea zone
@@ -491,7 +491,7 @@ character_event = {
 			}
 			earmark = claimant_adventure
 		}
-
+		
 		random_claim = {
 			limit = {
 				has_holder = yes
@@ -503,7 +503,7 @@ character_event = {
 					}
 				}
 			}
-
+			
 			holder_scope = {
 				reverse_war = {
 					target = ROOT
@@ -517,7 +517,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -528,13 +528,13 @@ character_event = {
 	desc = EVTDESC_TOG_1203
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
 	}
-
+	
 	immediate = {
 			any_liege = {
 				character_event = {
@@ -542,7 +542,7 @@ character_event = {
 				}
 			}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
@@ -553,11 +553,11 @@ character_event = {
 	desc = EVTDESC_TOG_1204
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	show_from_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
@@ -569,27 +569,27 @@ character_event = {
 	desc = OK
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	min_age = 16
 	max_age = 50
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_dlc = "The Old Gods"
-
+		
 		is_ruler = no
-
+		
 		diplomacy = 7
 		martial = 7
 		health = 4
-
+		
 		NOT = { trait = content }
 		NOT = { trait = craven }
-
+		
 		OR = { # Only these for now
 			culture_group = north_germanic
 			culture_group = west_germanic
@@ -603,13 +603,13 @@ character_event = {
 				NOT = { year = 1066 }
 			}
 		}
-
+		
 		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
-
+		
 		NOT = { # Handled by event 1200
 			any_claim = {
 				has_holder = yes
@@ -622,7 +622,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		OR = {
 			father_even_if_dead = {
 				OR = {
@@ -647,10 +647,10 @@ character_event = {
 				}
 			}
 		}
-
+		
 		NOT = { has_character_modifier = planning_duchy_adventure }
 	}
-
+	
 	mean_time_to_happen = {
 		years = 70
 		modifier = {
@@ -703,7 +703,7 @@ character_event = {
 			trait = kind
 		}
 	}
-
+	
 	immediate = {
 		random_independent_ruler = {
 			limit = {
@@ -738,7 +738,7 @@ character_event = {
 					}
 				}
 			}
-
+			
 			random_realm_province = {
 				limit = {
 					OR = {
@@ -766,7 +766,7 @@ character_event = {
 						}
 					}
 				}
-
+				
 				ROOT = {
 					opinion = {
 						who = PREVPREV
@@ -791,7 +791,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -802,9 +802,9 @@ character_event = {
 	desc = EVTDESC_TOG_1211
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1211"
 	}
@@ -817,24 +817,24 @@ character_event = {
 	desc = OK
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		has_dlc = "The Old Gods"
-
+		
 		is_ruler = no
 		prisoner = no
 		NOT = { trait = incapable }
-
+		
 		NOT = {
 			any_heir_title = {
 				always = yes
 			}
 		}
-
+		
 		any_independent_ruler = {
 			NOT = { culture = ROOT }
 			is_landed = yes
@@ -872,17 +872,17 @@ character_event = {
 			}
 		}
 	}
-
+	
 	immediate = {
 		wealth = 500
-
+		
 		liege = {
 			character_event = {
 				id = TOG.1213
 				days = 1
 			}
 		}
-
+		
 		liege = {
 			capital_scope = {
 				random_independent_ruler = {
@@ -949,7 +949,7 @@ character_event = {
 								}
 							}
 						}
-
+						
 						ROOT = {
 							set_defacto_liege = ROOT
 							create_title = {
@@ -960,9 +960,9 @@ character_event = {
 								name = "CLAIMANT_ADVENTURE"
 								holder = ROOT
 							}
-
+							
 							set_character_flag = duchy_adventurer
-
+						
 							spawn_unit = {
 								province = PREVPREVPREV
 								home = PREVPREVPREV
@@ -1009,7 +1009,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		# Create some decent commander characters
 		create_random_soldier = {
 			random_traits = yes
@@ -1027,13 +1027,13 @@ character_event = {
 			female = no
 			age = 25
 		}
-
+		
 		if  = {
 			limit = {
 				NOT = { culture_group = altaic }
 				NOT = { culture = hungarian }
 			}
-
+			
 			# Create a fleet, just to be sure
 			spawn_fleet = {
 				province = closest # closest sea zone
@@ -1046,7 +1046,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -1057,13 +1057,13 @@ character_event = {
 	desc = EVTDESC_TOG_1213
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
 	}
-
+	
 	immediate = {
 			any_liege = {
 				character_event = {
@@ -1071,7 +1071,7 @@ character_event = {
 				}
 			}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
@@ -1082,11 +1082,11 @@ character_event = {
 	desc = EVTDESC_TOG_1214
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	show_from_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}

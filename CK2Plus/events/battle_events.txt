@@ -1,12 +1,12 @@
 #On-action combat event: Killed in action
 character_event = {
 	id = 242
-	desc = EVTDESC242
+	desc = EVTDESC242	
 	picture = GFX_evt_death
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		NOT = { trait = berserker }
 	}
@@ -16,7 +16,7 @@ character_event = {
 		modifier = {
 			factor = 0.1
 			trait = immortal
-		}
+		}		
 		modifier = {
 			factor = 1.5
 			trait = brave
@@ -44,7 +44,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -52,12 +52,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -73,7 +73,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			trait = stressed
@@ -145,13 +145,13 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
+		}		
 	}
-
+	
 	immediate = {
 		death = {
 			death_reason = death_battle
@@ -171,10 +171,10 @@ character_event = {
 			clr_character_flag = temp_battle_kill_242
 		}
 	}
-
+	
 	option = {
 		name = ALAS
-	}
+	}	
 }
 
 #On-action combat event: Wounded in action
@@ -183,7 +183,7 @@ character_event = {
 	desc = EVTDESC243
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -193,10 +193,10 @@ character_event = {
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -228,7 +228,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -236,12 +236,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -257,8 +257,8 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
-
+		}		
+		
 		modifier = {
 			factor = 1.25
 			trait = stressed
@@ -326,29 +326,29 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
-
+		}		
+		
 	}
-
+	
 	option = {
 		name = CURSES
 		add_trait = wounded
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = -1
-		}
+		}	
 	}
 }
 
@@ -360,18 +360,18 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-
-
+	
+	
 	trigger = {
 		NOT = { trait = maimed }
 		NOT = { trait = berserker }
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -403,7 +403,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -411,12 +411,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -432,7 +432,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 
 		modifier = {
 			factor = 1.25
@@ -501,29 +501,29 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
+		}		
 
 	}
-
+	
 	option = {
 		name = CURSES
 		add_trait = maimed
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = -1
-		}
+		}		
 	}
 }
 
@@ -535,17 +535,17 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-
-
+	
+	
 	trigger = {
 		NOT = { trait = incapable }
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -556,7 +556,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-
+		
 			trait = craven
 		}
 		modifier = {
@@ -578,7 +578,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -586,12 +586,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -607,7 +607,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 				modifier = {
 			factor = 1.25
 			trait = stressed
@@ -675,11 +675,11 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
+		}		
 
 	}
 
@@ -687,17 +687,17 @@ character_event = {
 		name = CURSES
 		add_trait = incapable
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = -1
-		}
+		}		
 	}
 }
 
@@ -707,10 +707,10 @@ character_event = {
 	desc = EVTDESC246
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
-
+	
 	trigger = {
 		is_alive = yes
 		OR = {
@@ -719,7 +719,7 @@ character_event = {
 			trait = skilled_tactician
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -737,12 +737,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.1
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.9
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 0.2
@@ -758,7 +758,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}	
 		modifier = {
 			factor = 0.9
 			trait = stressed
@@ -830,12 +830,12 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
 		}
-
+		
 	}
 
 	option = {
@@ -862,17 +862,17 @@ character_event = {
 			add_trait = tough_soldier
 		}
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = -1
-		}
+		}		
 	}
 }
 
@@ -882,14 +882,14 @@ character_event = {
 	desc = EVTDESC247
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
 		is_alive = yes
 		NOT = { martial = 20 }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -907,12 +907,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.1
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.9
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 0.2
@@ -928,7 +928,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}			
 		modifier = {
 			factor = 0.9
 			trait = stressed
@@ -1000,7 +1000,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
@@ -1011,17 +1011,17 @@ character_event = {
 		name = EXCELLENT
 		change_martial = 1
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = -1
-		}
+		}		
 	}
 }
 
@@ -1031,7 +1031,7 @@ character_event = {
 	desc = EVTDESC248
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -1042,7 +1042,7 @@ character_event = {
 			trait = skilled_tactician
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -1060,7 +1060,7 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 2.0
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.1
@@ -1145,7 +1145,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
@@ -1159,7 +1159,7 @@ character_event = {
 				name = war_knowledge
 				duration = 365
 			}
-		}
+		}		
 	}
 }
 
@@ -1169,7 +1169,7 @@ character_event = {
 	desc = EVTDESC249
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -1187,7 +1187,7 @@ character_event = {
 	desc = EVTDESC270
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -1196,10 +1196,10 @@ character_event = {
 		NOT = { trait = craven }
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -1211,12 +1211,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.1
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.9
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 0.2
@@ -1232,7 +1232,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}		
 		modifier = {
 			factor = 0.9
 			trait = stressed
@@ -1304,7 +1304,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
@@ -1316,17 +1316,17 @@ character_event = {
 		name = EXCELLENT
 		add_trait = brave
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = -1
-		}
+		}		
 	}
 }
 
@@ -1336,7 +1336,7 @@ character_event = {
 	desc = EVTDESC271
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -1345,7 +1345,7 @@ character_event = {
 		NOT = { trait = craven }
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -1367,7 +1367,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -1375,12 +1375,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -1396,7 +1396,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			trait = stressed
@@ -1468,28 +1468,28 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
+		}		
 	}
 
 	option = {
 		name = CURSES
 		add_trait = craven
 		if = {
-			limit = {
+			limit = {	
 				is_ruler = yes
 				religion_group = muslim
-				NOT = {
+				NOT = { 
 					any_liege = {
 						dynasty = ROOT
 					}
 				}
 			}
 			decadence = 2
-		}
+		}		
 	}
 }
 
@@ -1499,7 +1499,7 @@ character_event = {
 	desc = EVTDESC272
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -1508,7 +1508,7 @@ character_event = {
 		NOT = { trait = patient }
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}
@@ -1527,14 +1527,14 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-
+	
 	trigger = {
 		is_alive = yes
 		NOT = { trait = wroth }
 		NOT = { trait = patient }
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}
@@ -1549,24 +1549,24 @@ character_event = {
 character_event = {
 	id = 260
 	hide_window = yes
-
+	
 	is_triggered_only = yes
 
 	trigger = {
 		is_alive = yes
 		NOT = { trait = craven }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
 			factor = 2.0
 			trait = brave
-		}
+		}		
 		modifier = {
 			factor = 1.5
 			martial = 10
-		}
+		}		
 
 		modifier = {
 			trait = genius
@@ -1575,12 +1575,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.1
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.9
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 0.2
@@ -1596,7 +1596,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}	
 		modifier = {
 			factor = 0.9
 			trait = stressed
@@ -1668,14 +1668,14 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
 		}
 
 	}
-
+	
 	immediate = {
 		random_list = {
 			16 = { character_event = { id = 262 } }
@@ -1699,35 +1699,35 @@ character_event = {
 	desc = EVTDESC261
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		is_alive = yes
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
 			factor = 1.5
 			trait = patient
-		}
+		}		
 		modifier = {
 			factor = 1.5
 			trait = just
-		}
+		}		
 		modifier = {
 			factor = 1.5
 			trait = diligent
-		}
+		}		
 		modifier = {
 			factor = 0.2
 			trait = deceitful
-		}
+		}		
 		modifier = {
 			factor = 0.2
 			trait = arbitrary
-		}
+		}		
 	}
 
 	option = {
@@ -1738,7 +1738,7 @@ character_event = {
 			female = no
 			religion = ROOT
 			culture = ROOT
-		}
+		}		
 	}
 }
 
@@ -1748,7 +1748,7 @@ character_event = {
 	desc = EVTDESC262
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -1763,7 +1763,7 @@ character_event = {
 	desc = EVTDESC263
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -1778,7 +1778,7 @@ character_event = {
 	desc = EVTDESC264
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -1793,7 +1793,7 @@ character_event = {
 	desc = EVTDESC265
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -1808,7 +1808,7 @@ character_event = {
 	desc = EVTDESC266
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -1823,7 +1823,7 @@ character_event = {
 	desc = EVTDESC267
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -1839,7 +1839,7 @@ character_event = {
 	desc = EVTDESC250
 	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -1849,18 +1849,18 @@ character_event = {
 			character = FROM
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 2.0
 			is_ruler = yes
-		}
+		}	
 		modifier = {
 			factor = 2.0
 			OR = { higher_tier_than = baron is_patrician = yes }
-		}
+		}			
 		modifier = {
 			factor = 1.25
 			trait = brave
@@ -1945,12 +1945,12 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
 		}
-
+		
 	}
 
 	option = {
@@ -1958,7 +1958,7 @@ character_event = {
 		imprison = FROM
 		hidden_tooltip = {
 			FROM = {
-				character_event = {
+				character_event = { 
 					id = 50020 # imprisoned_events.txt
 				}
 			}
@@ -1971,7 +1971,7 @@ letter_event = {
 	id = 251
 	is_triggered_only = yes
 	border = GFX_event_letter_frame_war
-
+	
 	trigger = {
 		ai = no
 	}
@@ -1988,13 +1988,13 @@ letter_event = {
 	id = 252
 	desc = EVTDESC251
 	border = GFX_event_letter_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
 		ai = no
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -2006,23 +2006,23 @@ character_event = {
 	desc = EVTDESC255
 	picture = GFX_evt_torture
 	border = GFX_event_normal_frame_war
-
+	
 	capable_only = yes
 	only_men = yes
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		war = yes
 		in_command = yes
 		has_job_title = job_marshal
 		trait = cruel
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
 		name = EVTOPTA255
 		prestige = -20
@@ -2043,7 +2043,7 @@ character_event = {
 	desc = EVTDESC256
 	picture = GFX_evt_torture
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	option = {
@@ -2068,7 +2068,7 @@ character_event = {
 		piety = -25
 		random = {
 			chance = 33
-
+			
 			add_trait = cruel
 			hidden_tooltip = {
 				character_event ={
@@ -2087,10 +2087,10 @@ character_event = {
 	desc = EVTDESC96500
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
-	trigger = {
+	
+	trigger = { 
 		can_have_more_leadership_traits = yes
 		is_alive = yes
 		OR = {
@@ -2123,7 +2123,7 @@ character_event = {
 			trait = incapable
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -2133,7 +2133,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			martial = 14
-		}
+		}	
 		modifier = {
 			factor = 1.5
 			trait = brave
@@ -2149,7 +2149,7 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.2
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.5
@@ -2169,7 +2169,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}		
 		modifier = {
 			factor = 0.85
 			trait = stressed
@@ -2207,7 +2207,7 @@ character_event = {
 				location = { terrain = forest }
 				location = { terrain = hills }
 			}
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2223,7 +2223,7 @@ character_event = {
 				location = { terrain = plains }
 				location = { terrain = farmlands }
 			}
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2236,7 +2236,7 @@ character_event = {
 		name = EVTOPTC96500 # Mountain Terrain Specialization
 		trigger = {
 			location = { terrain = mountain }
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2249,7 +2249,7 @@ character_event = {
 		name = EVTOPTD96500 # Desert Terrain Leader
 		trigger = {
 			location = { terrain = desert }
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2261,7 +2261,7 @@ character_event = {
 	option = {
 		name = EVTOPTE96500 # Cavalry
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = cavalry_leader
 				trait = heavy_infantry_leader
 				trait = light_foot_leader
@@ -2272,7 +2272,7 @@ character_event = {
 	option = {
 		name = EVTOPTF96500 # Light Infantry
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = cavalry_leader
 				trait = heavy_infantry_leader
 				trait = light_foot_leader
@@ -2283,7 +2283,7 @@ character_event = {
 	option = {
 		name = EVTOPTG96500 # Heavy Infantry
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = cavalry_leader
 				trait = heavy_infantry_leader
 				trait = light_foot_leader
@@ -2294,7 +2294,7 @@ character_event = {
 	option = {
 		name = EVTOPTH96500 # Aggressive
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = defensive_leader
 				trait = aggressive_leader
 			}
@@ -2304,7 +2304,7 @@ character_event = {
 	option = {
 		name = EVTOPTI96500 # Defensive
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = defensive_leader
 				trait = aggressive_leader
 			}
@@ -2314,7 +2314,7 @@ character_event = {
 	option = {
 		name = EVTOPTJ96500 # Inspiring
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = inspiring_leader
 			}
 		}
@@ -2328,10 +2328,10 @@ character_event = {
 	desc = EVTDESC96500
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
-	trigger = {
+	
+	trigger = { 
 		can_have_more_leadership_traits = yes
 		is_alive = yes
 		OR = {
@@ -2361,7 +2361,7 @@ character_event = {
 			trait = incapable
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -2379,7 +2379,7 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.2
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.5
@@ -2399,7 +2399,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}		
 		modifier = {
 			factor = 0.85
 			trait = stressed
@@ -2437,7 +2437,7 @@ character_event = {
 				location = { terrain = forest }
 				location = { terrain = hills }
 			}
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2453,7 +2453,7 @@ character_event = {
 				location = { terrain = plains }
 				location = { terrain = farmlands }
 			}
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2466,7 +2466,7 @@ character_event = {
 		name = EVTOPTC96500 # Mountain Terrain Specialization
 		trigger = {
 			location = { terrain = mountain }
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2479,7 +2479,7 @@ character_event = {
 		name = EVTOPTD96500 # Desert Terrain Leader
 		trigger = {
 			location = { terrain = desert }
-			NOT = {
+			NOT = { 
 				trait = rough_terrain_leader
 				trait = flat_terrain_leader
 				trait = mountain_terrain_leader
@@ -2491,7 +2491,7 @@ character_event = {
 	option = {
 		name = EVTOPTE96500 # Cavalry
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = cavalry_leader
 				trait = heavy_infantry_leader
 				trait = light_foot_leader
@@ -2502,7 +2502,7 @@ character_event = {
 	option = {
 		name = EVTOPTF96500 # Light Infantry
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = cavalry_leader
 				trait = heavy_infantry_leader
 				trait = light_foot_leader
@@ -2513,7 +2513,7 @@ character_event = {
 	option = {
 		name = EVTOPTG96500 # Heavy Infantry
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = cavalry_leader
 				trait = heavy_infantry_leader
 				trait = light_foot_leader
@@ -2524,7 +2524,7 @@ character_event = {
 	option = { # Trickster
 		name = EVTOPTH96501
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = trickster
 			}
 		}
@@ -2533,7 +2533,7 @@ character_event = {
 	option = { # Flanker
 		name = EVTOPTI96501
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = flanker
 			}
 		}
@@ -2547,10 +2547,10 @@ character_event = {
 	desc = EVTDESC96500
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
-	trigger = {
+	
+	trigger = { 
 		can_have_more_leadership_traits = yes
 		is_alive = yes
 		OR = {
@@ -2572,7 +2572,7 @@ character_event = {
 			trait = incapable
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -2590,7 +2590,7 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 1.2
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 0.5
@@ -2610,7 +2610,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 0.8
-		}
+		}		
 		modifier = {
 			factor = 0.85
 			trait = stressed
@@ -2644,7 +2644,7 @@ character_event = {
 	option = { # Organizer
 		name = EVTOPTA96502
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = organizer
 			}
 		}
@@ -2653,7 +2653,7 @@ character_event = {
 	option = { # Experimenter
 		name = EVTOPTB96502
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = experimenter
 			}
 		}
@@ -2663,7 +2663,7 @@ character_event = {
 		name = EVTOPTC96502
 		trigger = {
 			trait = zealous
-			NOT = {
+			NOT = { 
 				trait = holy_warrior
 				trait = cynical
 			}
@@ -2673,7 +2673,7 @@ character_event = {
 	option = { # Unyielding
 		name = EVTOPTD96502
 		trigger = {
-			NOT = {
+			NOT = { 
 				trait = unyielding_leader
 			}
 		}

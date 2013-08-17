@@ -15,12 +15,12 @@ character_event = {
 	id = 37000
 	desc = EVTDESC37000
 	picture = GFX_evt_emissary
-
+	
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_ambition = obj_wants_landed_title
 		is_ruler = no
@@ -37,7 +37,7 @@ character_event = {
 						tier = count
 						location = {
 							is_capital = yes
-						}
+						}						
 					}
 				}
 			}
@@ -45,10 +45,10 @@ character_event = {
 		NOT = { has_character_flag = flag_denied_title }
 		NOT = { has_character_flag = flag_promised_title }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 12
-
+		
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -66,7 +66,7 @@ character_event = {
 			trait = content
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37000 # Ask liege for a title
 		liege = { character_event = { id = 37001 days = 3 tooltip = EVTTOOLTIP37001 } }
@@ -78,9 +78,9 @@ character_event = {
 	id = 37001
 	desc = EVTDESC37001
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37001 # Promise that you'll arrange it
 		ai_chance = {
@@ -92,30 +92,30 @@ character_event = {
 			modifier = {
 				factor = 0.25
 				demesne_efficiency = 2.0
-			}
+			}			
 			modifier = {
 				factor = 5
 				NOT = { demesne_efficiency = 1.1 }
-			}
+			}			
 			modifier = {
 				factor = 0.1
 				primary_title = {
 					has_law = succ_gavelkind
 				}
-			}
+			}			
 			modifier = {
 				factor = 10
 				FROM = { is_primary_heir = yes }
-			}
+			}			
 		}
 		FROM = { character_event = { id = 37002 tooltip = EVTTOOLTIP37002 } }
 	}
-
+	
 	option = {
 		name = EVTOPTC37001 # Say he's not ready yet
 		ai_chance = {
 			factor = 90
-		}
+		}			
 		FROM = { character_event = { id = 37004 tooltip = EVTTOOLTIP37003 } }
 	}
 }
@@ -125,9 +125,9 @@ character_event = {
 	id = 37002
 	desc = EVTDESC37002
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37002 # It had better not be hollow words...
 		opinion = {
@@ -145,9 +145,9 @@ character_event = {
 	id = 37003
 	desc = EVTDESC37003
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37003 # This will not stand!
 		opinion = {
@@ -155,7 +155,7 @@ character_event = {
 			modifier = opinion_denied_title
 			years = 10
 		}
-
+		
 		set_character_flag = obj_landed_title
 		cancel_ambition = yes
 	}
@@ -166,9 +166,9 @@ character_event = {
 	id = 37004
 	desc = EVTDESC37004
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37004 # I can accept this.
 		ai_chance = {
@@ -188,10 +188,10 @@ character_event = {
 			modifier = {
 				factor = 2.0
 				trait = kind
-			}
-		}
+			}				
+		}	
 		set_character_flag = obj_landed_title
-		cancel_ambition = yes
+		cancel_ambition = yes		
 	}
 	option = {
 		name = EVTOPTB37004 # I am mad about this!
@@ -200,11 +200,11 @@ character_event = {
 			modifier = {
 				factor = 2.0
 				trait = greedy
-			}
+			}			
 			modifier = {
 				factor = 2.0
 				trait = proud
-			}
+			}			
 			modifier = {
 				factor = 5.0
 				trait = ambitious
@@ -212,14 +212,14 @@ character_event = {
 			modifier = {
 				factor = 5.0
 				trait = envious
-			}
-		}
+			}			
+		}		
 		opinion = {
 			who = FROM
 			modifier = opinion_denied_title
 			years = 10
 		}
-		set_character_flag = obj_landed_title
+		set_character_flag = obj_landed_title	
 		cancel_ambition = yes
 	}
 }
@@ -229,12 +229,12 @@ character_event = {
 	id = 37005
 	desc = EVTDESC37005
 	picture = GFX_evt_emissary
-
+	
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		is_ruler = no
 		has_ambition = obj_wants_landed_title
@@ -251,16 +251,16 @@ character_event = {
 						tier = count
 						location = {
 							is_capital = yes
-						}
+						}						
 					}
 				}
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 4
-
+		
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -278,7 +278,7 @@ character_event = {
 			trait = content
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37005 # Ask liege for a title
 		liege = { character_event = { id = 37006 days = 3 tooltip = EVTTOOLTIP37006 } }
@@ -290,15 +290,15 @@ character_event = {
 	id = 37006
 	desc = EVTDESC37006
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = {
 			is_alive = yes
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37006 # Oh, very well!
 		random_demesne_title = {
@@ -312,14 +312,14 @@ character_event = {
 						tier = count
 						location = {
 							is_capital = yes
-						}
+						}						
 					}
 				}
 			}
 			grant_title = FROM
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTB37006 # I've had it with his whining!
 		FROM = { character_event = { id = 37007 tooltip = EVTTOOLTIP37007 } }
@@ -331,9 +331,9 @@ character_event = {
 	id = 37007
 	desc = EVTDESC37007
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37007 # This is an outrage!
 		opinion = {
@@ -358,11 +358,11 @@ character_event = {
 	id = 37050
 	desc = EVTDESC37050
 	picture = GFX_evt_marriage
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		is_ruler = no
 		NOT = {
@@ -378,19 +378,19 @@ character_event = {
 				always = yes
 			}
 		}
-
+		
 		liege = {
 			NOT = { religion_group = muslim }
 			is_close_relative = ROOT
 		}
-
+		
 		NOT = { has_character_flag = flag_denied_marriage }
 		NOT = { has_character_flag = flag_promised_marriage }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 24
-
+		
 		modifier = {
 			factor = 0.25
 			is_female = yes
@@ -409,12 +409,12 @@ character_event = {
 			trait = content
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37050 # Ask liege
 		liege = { character_event = { id = 37051 days = 3 tooltip = EVTTOOLTIP37051 } }
 	}
-
+	
 }
 
 # Liege responds to marriage request
@@ -422,14 +422,14 @@ character_event = {
 	id = 37051
 	desc = EVTDESC37051
 	picture = GFX_evt_marriage
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37051 # Promise that you'll arrange it
 		FROM = { character_event = { id = 37052 tooltip = EVTTOOLTIP37052 } }
 	}
-
+	
 	option = {
 		name = EVTOPTB37051 # Mention a Church career...
 		FROM = { character_event = { id = 37053 tooltip = EVTTOOLTIP37053 } }
@@ -441,9 +441,9 @@ character_event = {
 	id = 37052
 	desc = EVTDESC37052
 	picture = GFX_evt_marriage
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = OK # Great news!
 		set_character_flag = flag_promised_marriage
@@ -461,9 +461,9 @@ character_event = {
 	id = 37053
 	desc = EVTDESC37053
 	picture = GFX_evt_marriage
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = OK # Bleak news
 		set_character_flag = flag_denied_marriage
@@ -480,11 +480,11 @@ character_event = {
 	id = 37054
 	desc = EVTDESC37054
 	picture = GFX_evt_marriage
-
+	
 	min_age = 20
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		is_ruler = no
 		is_betrothed = no
@@ -501,10 +501,10 @@ character_event = {
 		}
 		had_character_flag = { flag = flag_promised_marriage days = 365 }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 4
-
+		
 		modifier = {
 			factor = 0.25
 			is_female = yes
@@ -523,7 +523,7 @@ character_event = {
 			trait = content
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37054 # Ask dad
 		liege = { character_event = { id = 37055 days = 3 tooltip = EVTTOOLTIP37055 } }
@@ -535,9 +535,9 @@ character_event = {
 	id = 37055
 	desc = EVTDESC37055
 	picture = GFX_evt_marriage
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37055 # Alright, alright!
 		trigger = {
@@ -565,7 +565,7 @@ character_event = {
 			add_spouse = FROM
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTB37055 # You're off to the monastery!
 		trigger = {
@@ -582,7 +582,7 @@ character_event = {
 			}
 			reverse_banish = FROM
 		}
-		FROM = {
+		FROM = { 
 			cancel_ambition = yes
 			remove_character_modifier = promised_a_marriage
 			clr_character_flag = flag_promised_marriage
@@ -593,7 +593,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTC37055 # I haven't found anyone for you...
 		trigger = {
@@ -601,9 +601,9 @@ character_event = {
 				is_married = no
 			}
 		}
-		FROM = {
-			set_character_flag = flag_denied_marriage
-			clr_character_flag = flag_promised_marriage
+		FROM = { 
+			set_character_flag = flag_denied_marriage 
+			clr_character_flag = flag_promised_marriage 
 			remove_character_modifier = promised_a_marriage
 		}
 	}
@@ -625,12 +625,12 @@ character_event = {
 	id = 37056
 	desc = EVTDESC37056
 	picture = GFX_evt_marriage
-
+	
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		is_ruler = no
 		is_betrothed = no
@@ -642,10 +642,10 @@ character_event = {
 			can_marry = ROOT
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 120
-
+		
 		modifier = {
 			factor = 0.25
 			trait = lustful
@@ -663,7 +663,7 @@ character_event = {
 			trait = content
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA37056 # I'm getting married right now
 		random_courtier = {
@@ -683,9 +683,9 @@ character_event = {
 	id = 37057
 	desc = EVTDESC37057
 	picture = GFX_evt_marriage
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37057 # Ah well
 		tooltip_info = kind
@@ -693,7 +693,7 @@ character_event = {
 			trait = kind
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTB37057 # The insolence!
 		trigger = {
@@ -705,7 +705,7 @@ character_event = {
 			years = 10
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTC37057 # They will both pay for this!
 		trigger = {
@@ -713,23 +713,23 @@ character_event = {
 				trait = wroth
 				trait = envious
 			}
-		}
-		FROM = {
+		}	
+		FROM = { 
 			opinion = {
 				who = ROOT
 				modifier = opinion_arrest_attempt
 				months = 240
-			}
-			imprison = ROOT
+			}			
+			imprison = ROOT 
 		}
-		FROM = {
+		FROM = { 
 			spouse = {
 				opinion = {
 					who = ROOT
 					modifier = opinion_arrest_attempt
 					months = 240
-				}
-				imprison = ROOT
+				}				
+				imprison = ROOT 
 			}
 		}
 	}
@@ -742,12 +742,12 @@ character_event = {
 	id = 37500
 	desc = AI_EVENT
 	picture = GFX_evt_emissary
-
+	
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_ambition = obj_gain_estates_1
 		is_ruler = no
@@ -760,7 +760,7 @@ character_event = {
 			wealth = 50
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 12
 
@@ -781,11 +781,11 @@ character_event = {
 			liege = {
 				wealth = 500
 			}
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = greedy
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -805,9 +805,9 @@ character_event = {
 		modifier = {
 			factor = 5.0
 			trait = charitable
-		}
+		}		
 	}
-
+	
 	option = {
 		name = OK # Ask liege for estates
 		liege = { character_event = { id = 37501 days = 3 } }
@@ -819,9 +819,9 @@ character_event = {
 	id = 37501
 	desc = EVTDESC37501
 	picture = GFX_evt_emissary
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTA37501 # Give him what he wants
 		ai_chance = {
@@ -829,19 +829,19 @@ character_event = {
 			modifier = {
 				factor = 0.1
 				trait = greedy
-			}
+			}			
 			modifier = {
 				factor = 10
 				trait = charitable
-			}
+			}			
 			modifier = {
 				factor = 2
 				wealth = 100
-			}
+			}			
 			modifier = {
 				factor = 2
 				wealth = 200
-			}
+			}	
 			modifier = {
 				factor = 2
 				wealth = 300
@@ -849,38 +849,38 @@ character_event = {
 			modifier = {
 				factor = 2
 				wealth = 400
-			}
+			}	
 			modifier = {
 				factor = 2
 				wealth = 500
-			}
+			}			
 			modifier = {
 				factor = 10
 				FROM = { is_primary_heir = yes }
-			}
+			}			
 		}
 		wealth = -50
 		reverse_opinion = {
 			modifier = opinion_granted_minor_estate
 			who = FROM
 			years = 100
-		}
-		FROM = {
+		}			
+		FROM = { 
 			add_character_modifier = {
-				name = estates_1
+				name = estates_1 
 				duration = -1
 			}
 			hidden_tooltip = {
 				give_minor_title = title_lord
-			}
+			}			
 		}
-	}
-
+	}	
+	
 	option = {
 		name = EVTOPTB37501 # Say you can't afford it
 		ai_chance = {
 			factor = 90
-		}
+		}			
 		FROM = {
 			opinion = {
 				modifier = opinion_denied_estates

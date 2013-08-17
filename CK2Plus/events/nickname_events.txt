@@ -28,12 +28,12 @@ character_event = {
 	id = nickevents.0
 	desc = nickevents.0.desc
 	picture = "GFX_evt_comet"
-
+	
 	only_rulers = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -51,86 +51,86 @@ character_event = {
 		NOT = { trait = wroth }
 		NOT = { trait = greedy }
 		NOT = { trait = slothful }
-
+		
 		OR = {
 			trait = kind
 			trait = just
 			trait = patient
 			trait = charitable
 		}
-
+		
 		OR = {
-			diplomacy = 12
-			martial = 12
+			diplomacy = 12 
+			martial = 12 
 			stewardship = 12
-			intrigue = 12
-			learning = 12
+			intrigue = 12 
+			learning = 12	
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 130
-
+		
 		modifier = {
 			factor = 1.25
 			is_female = yes
 		}
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 1.2
 			tier = baron
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = diligent
 		}
-
+		
 		modifier = {
 			factor = 10.0
 			any_vassal = {
 				has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
 			}
 		}
-
+		
 	}
-
+	
 	option = {
 		name = nickevents.0.a # The Good!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_good
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.0.b # The Just!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_just
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.0.c # The Able!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_able
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.0.d # The Wise!
 		trigger = {
@@ -152,12 +152,12 @@ character_event = {
 	id = nickevents.1
 	desc = nickevents.1.desc
 	picture = "GFX_evt_family"
-
+	
 	only_rulers = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -179,42 +179,42 @@ character_event = {
 		NOT = { stewardship = 12 }
 		NOT = { intrigue = 12 }
 		NOT = { learning = 12 }
-
+		
 		OR = {
 			trait = kind
 			trait = gregarious
 		}
-
+		
 	}
-
+	
 	mean_time_to_happen = {
 		months = 130
-
+		
 		modifier = {
 			factor = 1.25
 			is_female = yes
 		}
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 1.2
 			tier = baron
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 10.0
 			any_vassal = {
@@ -222,21 +222,21 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = nickevents.1.a # The Gentle!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_gentle
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.1.b # The Merry!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_merry
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.1.c # The Simple!
 		trigger = {
@@ -250,7 +250,7 @@ character_event = {
 		give_nickname = nick_the_simple
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.1.d # The clueless!
 		trigger = {
@@ -277,12 +277,12 @@ character_event = {
 	id = nickevents.2
 	desc = nickevents.2.desc
 	picture = "GFX_evt_beheading"
-
+	
 	only_rulers = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -298,7 +298,7 @@ character_event = {
 		NOT = { trait = lunatic }
 		NOT = { trait = possessed }
 		NOT = { trait = arbitrary }
-
+		
 		OR = {
 			trait = cruel
 			trait = deceitful
@@ -309,57 +309,57 @@ character_event = {
 			}
 		}
 		OR = {
-			diplomacy = 12
-			martial = 12
+			diplomacy = 12 
+			martial = 12 
 			stewardship = 12
-			intrigue = 12
-			learning = 12
+			intrigue = 12 
+			learning = 12	
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 130
-
+		
 		modifier = {
 			factor = 1.25
 			is_female = yes
 		}
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 1.2
 			tier = baron
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.2.a # The Dragon!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_dragon
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.2.b # The Terrible!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_terrible
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.2.c # The Cruel!
 		trigger = {
@@ -373,7 +373,7 @@ character_event = {
 		give_nickname = nick_the_cruel
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		trigger = {
 			NOT = { piety = 50 }
@@ -390,12 +390,12 @@ character_event = {
 	id = nickevents.3
 	desc = nickevents.3.desc
 	picture = GFX_evt_lunatic
-
+	
 	only_rulers = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -413,14 +413,14 @@ character_event = {
 		NOT = { learning = 12 }
 			OR = {
 				trait = slothful
-				trait = arbitrary
+				trait = arbitrary 				
 				trait = slow
 				trait = imbecile
 				trait = inbred
 				trait = lunatic
 				trait = possessed
 			}
-
+		
 		OR = {
 			trait = kinslayer
 			trait = impaler
@@ -430,45 +430,45 @@ character_event = {
 				has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
 			}
 		}
-
+		
 	}
-
+	
 	mean_time_to_happen = {
 		months = 130
-
+		
 		modifier = {
 			factor = 1.25
 			is_female = yes
 		}
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 1.2
 			tier = baron
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.3.a # The accursed!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_accursed
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		trigger = {
 			is_ruler = yes
@@ -478,14 +478,14 @@ character_event = {
 		give_nickname = nick_the_unready
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.3.c # The Ill-Ruler!
 		give_nickname = nick_the_ill_ruler
 		ai_chance = {factor = 10}
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.3.d # The Wicked!
 		give_nickname = nick_the_wicked
@@ -500,14 +500,14 @@ character_event = {
 	id = nickevents.4
 	desc = nickevents.4.desc
 	picture = "GFX_evt_brothel"
-
+	
 	only_rulers = yes
 	min_age = 16
 	max_age = 60
 	capable_only = yes
 	prisoner = no
 	only_men = yes
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -518,42 +518,42 @@ character_event = {
 			trait = legit_bastard
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 180
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.80
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.4.a # The bastard!
 		give_nickname = nick_the_bastard
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 # old nickname
@@ -561,61 +561,61 @@ character_event = {
 	id = nickevents.5
 	desc = nickevents.5.desc
 	picture = "GFX_evt_death"
-
+	
 	only_rulers = yes
 	min_age = 60
 	capable_only = yes
 	prisoner = no
 	only_men = yes
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
 			has_ambition = obj_change_nick
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 180
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.7
 			trait = infirm
 		}
 	}
-
+	
 	option = {
 		name = nickevents.5.a # The old!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_old
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.5.b # The gouty!
 		trigger = {
@@ -625,7 +625,7 @@ character_event = {
 		give_nickname = nick_the_gouty
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -634,14 +634,14 @@ character_event = {
 	id = nickevents.6
 	desc = nickevents.6.desc
 	picture = "GFX_evt_shadow"
-
+	
 	only_rulers = yes
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
-
+	
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -652,43 +652,43 @@ character_event = {
 			trait = patient
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 180
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.6.a # The silent!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_silent
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -697,13 +697,13 @@ character_event = {
 	id = nickevents.7
 	desc = nickevents.7.desc
 	picture = "GFX_evt_drunk"
-
+	
 	only_rulers = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
-
+	
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -715,50 +715,50 @@ character_event = {
 			trait = drunkard
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 150
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.7.a # The fat!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_fat
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.7.b # The drunkard!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_drunkard
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -767,13 +767,13 @@ character_event = {
 	id = nickevents.8
 	desc = nickevents.8.desc
 	picture = "GFX_evt_scandal"
-
+	
 	only_rulers = yes
 	min_age = 16
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -781,43 +781,43 @@ character_event = {
 		}
 		trait = homosexual
 	}
-
+	
 	mean_time_to_happen = {
 		months = 145
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.8.a # The effeminate!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_effeminate
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 # attractive nicknames
@@ -825,13 +825,13 @@ character_event = {
 	id = nickevents.9
 	desc = nickevents.9.desc
 	picture = "GFX_evt_lovers"
-
+	
 	only_rulers = yes
 	min_age = 16
 	max_age = 50
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -842,33 +842,33 @@ character_event = {
 		NOT = { trait = inbred }
 		NOT = { trait = harelip }
 		NOT = { trait = hunchback }
-
+		
 	}
-
+	
 	mean_time_to_happen = {
 		months = 120
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.4
 			is_female = yes
 		}
 	}
-
+	
 	option = {
 		name = nickevents.9.a # The fair!
 		ai_chance = {factor = 10}
@@ -879,7 +879,7 @@ character_event = {
 			give_nickname = nick_the_fair
 			set_character_flag = changed_nick
 		}
-
+		
 		if = {
 			limit = {
 				is_female = no
@@ -887,9 +887,9 @@ character_event = {
 			give_nickname = nick_the_handsome
 			set_character_flag = changed_nick
 		}
-
+		
 	}
-
+	
 }
 
 
@@ -898,13 +898,13 @@ character_event = {
 	id = nickevents.10
 	desc = nickevents.10.desc
 	picture = "GFX_evt_bloody_man"
-
+	
 	only_rulers = yes
 	min_age = 16
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -915,39 +915,39 @@ character_event = {
 			trait = envious
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 175
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 	}
-
+	
 	option = {
 		name = nickevents.10.a # The proud!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_proud
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -956,14 +956,14 @@ character_event = {
 	id = nickevents.11
 	desc = nickevents.11.desc
 	picture = "GFX_evt_large_army"
-
+	
 	only_rulers = yes
 	min_age = 16
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
-
+	
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -978,63 +978,63 @@ character_event = {
 			trait = champion
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 170
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			trait = veteran
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			trait = champion
 		}
-
+		
 		modifier = {
 			factor = 0.55
 			trait = brilliant_strategist
 		}
-
+		
 		modifier = {
 			factor = 0.7
 			trait = skilled_tactician
 		}
 	}
-
+	
 	option = {
 		name = nickevents.11.a # The Bold!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_bold
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.11.b # The lion!
 		trigger = {
@@ -1052,7 +1052,7 @@ character_event = {
 		give_nickname = nick_the_lion
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.11.c # The brave!
 		trigger = {
@@ -1062,7 +1062,7 @@ character_event = {
 		give_nickname = nick_the_brave
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.11.d # The ironside!
 		trigger = {
@@ -1076,7 +1076,7 @@ character_event = {
 		give_nickname = nick_the_ironside
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -1085,12 +1085,12 @@ character_event = {
 	id = nickevents.12
 	desc = nickevents.12.desc
 	picture = "GFX_evt_pope"
-
+	
 	only_rulers = yes
 	min_age = 25
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1106,60 +1106,60 @@ character_event = {
 		NOT = { trait = envious }
 		NOT = { trait = wroth }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 140
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			piety = 750
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			piety = 1000
 		}
 	}
-
+	
 	option = {
 		name = nickevents.12.a # The pious!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_pious
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.12.b # The blessed!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_blessed
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.12.c # The chaste!
 		trigger = {
@@ -1172,7 +1172,7 @@ character_event = {
 		give_nickname = nick_the_chaste
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.12.d # The confessor!
 		trigger = {
@@ -1182,7 +1182,7 @@ character_event = {
 		give_nickname = nick_the_confessor
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -1191,13 +1191,13 @@ character_event = {
 	id = nickevents.13
 	desc = nickevents.13.desc
 	picture = "GFX_evt_joust"
-
+	
 	only_rulers = yes
 	min_age = 16
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1210,56 +1210,56 @@ character_event = {
 		}
 
 	}
-
+	
 	mean_time_to_happen = {
 		months = 120
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			trait = maimed
 		}
-
+		
 	}
-
+	
 	option = {
 		name = nickevents.13.a # The unlucky!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_unlucky
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.13.b # The lame!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_lame
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.13.c # The blind!
 		trigger = {
@@ -1274,7 +1274,7 @@ character_event = {
 		give_nickname = nick_the_blind
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.13.d # The halfhand!
 		trigger = {
@@ -1284,7 +1284,7 @@ character_event = {
 		give_nickname = nick_half_hand
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -1293,13 +1293,13 @@ character_event = {
 	id = nickevents.14
 	desc = nickevents.14.desc
 	picture = "GFX_evt_courier"
-
+	
 	only_rulers = yes
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1319,43 +1319,43 @@ character_event = {
 			trait = skilled_tactician
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 165
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.14.a # The noble!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_noble
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 # kind nickname
@@ -1363,12 +1363,12 @@ character_event = {
 	id = nickevents.15
 	desc = nickevents.15.desc
 	picture = "GFX_evt_guardian"
-
+	
 	only_rulers = yes
 	min_age = 20
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1377,35 +1377,35 @@ character_event = {
 		trait = kind
 		trait = charitable
 	}
-
+	
 	mean_time_to_happen = {
 		months = 160
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 10.0
 			any_vassal = {
@@ -1413,14 +1413,14 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = nickevents.15.a # The kind!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_kind
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 
@@ -1429,14 +1429,14 @@ character_event = {
 	id = nickevents.16
 	desc = nickevents.16.desc
 	picture = "GFX_evt_hunt"
-
+	
 	only_rulers = yes
 	min_age = 20
 	max_age = 60
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1448,43 +1448,43 @@ character_event = {
 		}
 		NOT = { trait = infirm }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 160
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
 	}
-
+	
 	option = {
 		name = nickevents.16.a # The hunter!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_hunter
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.16.b # The fowler!
 		ai_chance = {factor = 10}
@@ -1498,12 +1498,12 @@ character_event = {
 	id = nickevents.17
 	desc = nickevents.17.desc
 	picture = "GFX_evt_lunatic_muslim"
-
+	
 	only_rulers = yes
 	min_age = 20
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1514,35 +1514,35 @@ character_event = {
 			trait = possessed
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 165
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.5
 			any_vassal = {
@@ -1550,14 +1550,14 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = nickevents.17.a # The mad!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_mad
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 # heathen nickname
@@ -1565,12 +1565,12 @@ character_event = {
 	id = nickevents.18
 	desc = nickevents.18.desc
 	picture = "GFX_evt_pagan"
-
+	
 	only_rulers = yes
 	min_age = 20
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1581,53 +1581,53 @@ character_event = {
 			NOT = { religion_group = pagan_group }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 125
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 1.75
 			trait = cynical
 		}
-
+		
 		modifier = {
 			factor = 0.45
 			trait = zealous
 		}
 	}
-
+	
 	option = {
 		name = nickevents.18.a # The heathen!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_heathen
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 # monk nickname
@@ -1635,12 +1635,12 @@ character_event = {
 	id = nickevents.19
 	desc = nickevents.19.desc
 	picture = "GFX_evt_jugglers_muslim"
-
+	
 	only_rulers = yes
 	min_age = 20
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1654,68 +1654,68 @@ character_event = {
 		}
 		piety = 250
 	}
-
+	
 	mean_time_to_happen = {
 		months = 80
-
+		
 		modifier = {
 			factor = 0.85
 			prestige = 1000
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.9
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.5
 			piety = 500
 		}
-
+		
 		modifier = {
 			factor = 0.5
 			piety = 1000
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = crusader
 		}
-
+		
 		modifier = {
 			factor = 1.25
 			trait = gluttonous
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = temperate
 		}
-
+		
 		modifier = {
 			factor = 1.25
 			trait = greedy
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = charitable
 		}
 	}
-
+	
 	option = {
 		name = nickevents.19.a # The monk!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_monk
 		set_character_flag = changed_nick
 	}
-
+	
 }
 
 # religous soldier nicknames
@@ -1723,13 +1723,13 @@ character_event = {
 	id = nickevents.20
 	desc = nickevents.20.desc
 	picture = "GFX_evt_desert"
-
+	
 	only_rulers = yes
 	min_age = 20
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		OR={
 			AND={has_ambition = obj_get_nick independent = no}
@@ -1742,81 +1742,81 @@ character_event = {
 			trait = champion
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 650
-
+		
 		modifier = {
 			factor = 1.1
 			NOT = { prestige = 1000 }
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			prestige = 1500
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			prestige = 2000
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			tier = duke
 		}
-
+		
 		modifier = {
 			factor = 0.7
 			tier = king
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			martial = 16
 		}
-
+		
 		modifier = {
 			factor = 0.95
 			martial = 18
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			trait = veteran
 		}
-
+		
 		modifier = {
 			factor = 0.85
 			trait = zealous
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			trait = brave
 		}
-
+		
 		modifier = {
 			factor = 0.8
 			trait = cruel
 		}
-
+		
 		modifier = {
 			factor = 0.5
 			trait = champion
 		}
-
+		
 		modifier = {
 			factor = 0.65
 			trait = brilliant_strategist
 		}
-
+		
 		modifier = {
 			factor = 0.75
 			trait = skilled_tactician
 		}
 	}
-
+	
 	option = {
 		name = nickevents.20.a # The crusader!
 		trigger = {
@@ -1826,7 +1826,7 @@ character_event = {
 		give_nickname = nick_the_crusader
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.20.b # The hammmer!
 		trigger = {
@@ -1841,19 +1841,19 @@ character_event = {
 		give_nickname = nick_the_hammer
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.20.c # The victorious!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_victorious
 		set_character_flag = changed_nick
 	}
-
+	
 	option = {
 		name = nickevents.20.d # The avenger!
 		ai_chance = {factor = 10}
 		give_nickname = nick_the_avenger
 		set_character_flag = changed_nick
 	}
-
+	
 }

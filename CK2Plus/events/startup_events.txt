@@ -1,16 +1,16 @@
 character_event = {
 	id = 7110000
-	picture = "GFX_evt_council"
+	picture = "GFX_evt_council"	
 	is_triggered_only = yes
 
 	hide_from = yes
-
+	
 	trigger = {
 		NOT = { has_global_flag = startup }
 	}
-
+		
 	desc = "AI_EVENT"
-
+	
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -18,23 +18,23 @@ character_event = {
 			always = yes
 		}
 	}
-
+	
 	option = {
 		name = "OK"
 		set_global_flag = startup
 		character_event = { id = 1000046500 } #family relations
 		character_event = { id = 110050 } #remove undesirable claims
-		any_independent_ruler = {
+		any_independent_ruler = {	
 			set_character_flag = start_of_game_character
 			remove_trait = placeholder
 			character_event = { id = 1000046500 } #family relations
 			character_event = { id = 110050 } #remove undesirable claims
 			any_realm_character = {
-				set_character_flag = start_of_game_character
-				remove_trait = placeholder
+				set_character_flag = start_of_game_character			
+				remove_trait = placeholder		
 				character_event = { id = 1000046500 } #family relations
 				character_event = { id = 110050 } #remove undesirable claims
-			}
+			}				
 		}
 		#set some historical variables
 		any_independent_ruler = {
@@ -42,6 +42,6 @@ character_event = {
 			any_vassal = {
 				change_variable = { which = "separatist_sentiment" value = 3 }
 			}
-		}
+		}	
 	}
 }
