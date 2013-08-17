@@ -1094,180 +1094,211 @@ narrative_event = {
 			}
 		}
 
-		custom_tooltip = EVTOPTA62910_CUSTOM
-		
-		hidden_tooltip = {
-			any_playable_ruler = {
-				limit = {
-					NOT = { has_landed_title = k_hungary }
-					ai = no
+		custom_tooltip = {
+			text = EVTOPTA62910_CUSTOM
+			hidden_tooltip = {
+				any_playable_ruler = {
+					limit = {
+						NOT = { has_landed_title = k_hungary }
+						ai = no
+					}
+					narrative_event = { id = 62911 }
 				}
-				narrative_event = { id = 62911 }
-			}
 
-			any_realm_province = {
-				limit = {
-					kingdom = {
-						title = k_hungary
+				any_realm_province = {
+					limit = {
+						kingdom = {
+							title = k_hungary
+						}
 					}
+					culture = hungarian
+					religion = ROOT
 				}
-				culture = hungarian
-				religion = ROOT
-			}
 
-			# The Hungarian culture in the Ukraine is lost
-			random_realm_province = {
-				limit = {
-					culture = hungarian
-					kingdom = {
-						NOT = { title = k_hungary }
-					}
-					any_neighbor_province = {
-						NOT = { culture = hungarian }
-					}
-				}
-				random_neighbor_province = {
+				# The Hungarian culture in the Ukraine is lost
+				random_realm_province = {
 					limit = {
-						NOT = { culture = hungarian }
-					}
-					reverse_culture = PREV
-					reverse_religion = PREV
-				}
-			}
-			random_realm_province = {
-				limit = {
-					culture = hungarian
-					kingdom = {
-						NOT = { title = k_hungary }
-					}
-					any_neighbor_province = {
-						NOT = { culture = hungarian }
-					}
-				}
-				random_neighbor_province = {
-					limit = {
-						NOT = { culture = hungarian }
-					}
-					reverse_culture = PREV
-					reverse_religion = PREV
-				}
-			}
-			random_realm_province = {
-				limit = {
-					culture = hungarian
-					kingdom = {
-						NOT = { title = k_hungary }
-					}
-					any_neighbor_province = {
-						NOT = { culture = hungarian }
-					}
-				}
-				random_neighbor_province = {
-					limit = {
-						NOT = { culture = hungarian }
-					}
-					reverse_culture = PREV
-					reverse_religion = PREV
-				}
-			}
-			random_realm_province = {
-				limit = {
-					culture = hungarian
-					kingdom = {
-						NOT = { title = k_hungary }
-					}
-					any_neighbor_province = {
-						NOT = { culture = hungarian }
-					}
-				}
-				random_neighbor_province = {
-					limit = {
-						NOT = { culture = hungarian }
-					}
-					reverse_culture = PREV
-					reverse_religion = PREV
-				}
-			}
-			random_realm_province = {
-				limit = {
-					culture = hungarian
-					kingdom = {
-						NOT = { title = k_hungary }
-					}
-					any_neighbor_province = {
-						NOT = { culture = hungarian }
-					}
-				}
-				random_neighbor_province = {
-					limit = {
-						NOT = { culture = hungarian }
-					}
-					reverse_culture = PREV
-					reverse_religion = PREV
-				}
-			}
-			random_realm_province = {
-				limit = {
-					culture = hungarian
-					kingdom = {
-						NOT = { title = k_hungary }
-					}
-					any_neighbor_province = {
-						NOT = { culture = hungarian }
-					}
-				}
-				random_neighbor_province = {
-					limit = {
-						NOT = { culture = hungarian }
-					}
-					reverse_culture = PREV
-					reverse_religion = PREV
-				}
-			}
-
-			# Lose control of the Ukraininan lands
-			any_realm_province = {
-				limit = {
-					OR = {
+						culture = hungarian
 						kingdom = {
 							OR = {
-								title = k_crimea
-								title = k_rus
+								title = k_taurica
+								title = k_ruthenia
 								title = k_cuman
 								title = k_alania
 							}
 						}
-						duchy = {
-							title = d_moldau
+						any_neighbor_province = {
+							NOT = { culture = hungarian }
 						}
 					}
-					owner = {
-						# Human vassals get to keep their stuff
-						OR = {
-							ai = yes
-							character = ROOT
+					random_neighbor_province = {
+						limit = {
+							NOT = { culture = hungarian }
+						}
+						reverse_culture = PREV
+						reverse_religion = PREV
+					}
+				}
+				random_realm_province = {
+					limit = {
+						culture = hungarian
+						kingdom = {
+							OR = {
+								title = k_taurica
+								title = k_ruthenia
+								title = k_cuman
+								title = k_alania
+							}
+						}
+						any_neighbor_province = {
+							NOT = { culture = hungarian }
 						}
 					}
-				}
-				county = {
-					create_character = {
-						random_traits = yes
-						dynasty = none
-						religion = PREV
-						culture = PREV
-						female = no
-						age = 25
-						trait = peasant_leader
-					}
-					new_character = {
-						usurp_title_plus_barony_if_unlanded = PREV
-						set_defacto_liege = THIS
+					random_neighbor_province = {
+						limit = {
+							NOT = { culture = hungarian }
+						}
+						reverse_culture = PREV
+						reverse_religion = PREV
 					}
 				}
-			}
+				random_realm_province = {
+					limit = {
+						culture = hungarian
+						kingdom = {
+							OR = {
+								title = k_taurica
+								title = k_ruthenia
+								title = k_cuman
+								title = k_alania
+							}
+						}
+						any_neighbor_province = {
+							NOT = { culture = hungarian }
+						}
+					}
+					random_neighbor_province = {
+						limit = {
+							NOT = { culture = hungarian }
+						}
+						reverse_culture = PREV
+						reverse_religion = PREV
+					}
+				}
+				random_realm_province = {
+					limit = {
+						culture = hungarian
+						kingdom = {
+							OR = {
+								title = k_taurica
+								title = k_ruthenia
+								title = k_cuman
+								title = k_alania
+							}
+						}
+						any_neighbor_province = {
+							NOT = { culture = hungarian }
+						}
+					}
+					random_neighbor_province = {
+						limit = {
+							NOT = { culture = hungarian }
+						}
+						reverse_culture = PREV
+						reverse_religion = PREV
+					}
+				}
+				random_realm_province = {
+					limit = {
+						culture = hungarian
+						kingdom = {
+							OR = {
+								title = k_taurica
+								title = k_ruthenia
+								title = k_cuman
+								title = k_alania
+							}
+						}
+						any_neighbor_province = {
+							NOT = { culture = hungarian }
+						}
+					}
+					random_neighbor_province = {
+						limit = {
+							NOT = { culture = hungarian }
+						}
+						reverse_culture = PREV
+						reverse_religion = PREV
+					}
+				}
+				random_realm_province = {
+					limit = {
+						culture = hungarian
+						kingdom = {
+							OR = {
+								title = k_taurica
+								title = k_ruthenia
+								title = k_cuman
+								title = k_alania
+							}
+						}
+						any_neighbor_province = {
+							NOT = { culture = hungarian }
+						}
+					}
+					random_neighbor_province = {
+						limit = {
+							NOT = { culture = hungarian }
+						}
+						reverse_culture = PREV
+						reverse_religion = PREV
+					}
+				}
 
-			any_claim = {
-				remove_claim = ROOT
+				# Lose control of the Ukraininan lands
+				any_realm_province = {
+					limit = {
+						OR = {
+							kingdom = {
+								OR = {
+									title = k_taurica
+									title = k_ruthenia
+									title = k_cuman
+									title = k_alania
+								}
+							}
+							duchy = {
+								title = d_moldau
+							}
+						}
+						owner = {
+							# Human vassals get to keep their stuff
+							OR = {
+								ai = yes
+								character = ROOT
+							}
+						}
+					}
+					county = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = PREV
+							culture = PREV
+							female = no
+							age = 25
+							trait = peasant_leader
+						}
+						new_character = {
+							usurp_title_plus_barony_if_unlanded = PREV
+							set_defacto_liege = THIS
+						}
+					}
+				}
+
+				any_claim = {
+					remove_claim = ROOT
+				}
 			}
 		}
 	}
