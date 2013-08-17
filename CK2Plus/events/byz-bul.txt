@@ -4,23 +4,23 @@ character_event = {
 	picture = GFX_evt_throne_room
 
 	trigger = {
-    NOT = {    
-	      has_global_flag = byz_bul
-    }  
-	  has_global_flag = byz_bul_prev
-		has_landed_title = e_byzantium  
+		NOT = {
+			has_global_flag = byz_bul
+		}
+		has_global_flag = byz_bul_prev
+		has_landed_title = e_byzantium
 		has_landed_title = k_bulgaria
 	}
 
-	immediate = {  
-	      set_global_flag = byz_bul
+	immediate = {
+		set_global_flag = byz_bul
 	}
 
 	option = {
 		name = "EVTOPTA90009007"
 		give_nickname = nick_the_bulgar_slayer
-    prestige = 100
-    k_bulgaria = {
+		prestige = 100
+		k_bulgaria = {
 			destroy_landed_title = THIS
 		}
 	}
@@ -32,144 +32,137 @@ character_event = {
 	picture = GFX_evt_throne_room
 
 	trigger = {
-    independent = yes
-    war = no    
-	  has_global_flag = byz_bul_prev
-    NOT = {    
-	      has_global_flag = byz_bul
-    } 
-		has_landed_title = k_bulgaria  
-		NOT = { has_landed_title = e_byzantium }  
+		independent = yes
+		war = no
+		has_global_flag = byz_bul_prev
+		NOT = {
+			has_global_flag = byz_bul
+		}
+		has_landed_title = k_bulgaria
+		NOT = { has_landed_title = e_byzantium }
 	}
 
-	immediate = {  
-	      set_global_flag = byz_bul 
-        add_claim = e_byzantium   
-	}                             
+	immediate = {
+		set_global_flag = byz_bul
+		add_claim = e_byzantium
+	}
 
 	option = {
 		name = "EVTOPTA90009008"
 		give_nickname = nick_the_victorious
-    prestige = 300
-    add_claim = d_thrace
-    random_claim = {
-						limit = {
-							title = e_byzantium
-						}
-						holder_scope = {
-                prestige = -500
-			          reverse_war = {
-				                	target = ROOT
-				                	casus_belli = claim_all
-				                 	thirdparty_title = PREV 
-			            	}
-            }
-    }               
-    spawn_unit = {
-				province = 507 #Nikopolis
-				owner = ROOT  
-			  disband_on_peace = yes
-				troops =
-				{
-					light_cavalry = { 1000 1000 }
-					light_infantry = { 300 300 }
-					heavy_infantry = { 200 200 }
-				}
-			} 
-      spawn_unit = {
-				province = 507 #Nikopolis
-				owner = ROOT
-			  disband_on_peace = yes
-				troops =
-				{
-					light_cavalry = { 1000 1000 }
-					light_infantry = { 300 300 }
-					heavy_infantry = { 200 200 }
+		prestige = 300
+		add_claim = d_thrace
+		random_claim = {
+			limit = {
+				title = e_byzantium
+			}
+			holder_scope = {
+				prestige = -500
+				reverse_war = {
+					target = ROOT
+					casus_belli = claim_all
+					thirdparty_title = PREV
 				}
 			}
-      spawn_unit = {
-				province = 507 #Nikopolis
-				owner = ROOT 
-		  	disband_on_peace = yes
-				troops =
-				{
-					knights = { 1000 1000 }
-				}
+		}
+		spawn_unit = {
+			province = 507 #Nikopolis
+			owner = ROOT
+			disband_on_peace = yes
+			troops = {
+				light_cavalry = { 1000 1000 }
+				light_infantry = { 300 300 }
+				heavy_infantry = { 200 200 }
 			}
-      
-    ai_chance = {
-			factor = 20              
-      modifier = {
+		}
+		spawn_unit = {
+			province = 507 #Nikopolis
+			owner = ROOT
+			disband_on_peace = yes
+			troops = {
+				light_cavalry = { 1000 1000 }
+				light_infantry = { 300 300 }
+				heavy_infantry = { 200 200 }
+			}
+		}
+		spawn_unit = {
+			province = 507 #Nikopolis
+			owner = ROOT
+			disband_on_peace = yes
+			troops = {
+				knights = { 1000 1000 }
+			}
+		}
+
+		ai_chance = {
+			factor = 20
+			modifier = {
 				factor = 0
-        NOT = { trait = ambitious }
+				NOT = { trait = ambitious }
 			}
 		}
-	} 
-  option = {
-		name = "EVTOPTB90009008"  
-    add_claim = d_adrianopolis
-    add_claim = d_epirus
-    add_claim = d_thessalonika
-         
-    remove_claim = e_byzantium
-    e_byzantium = {
-						holder_scope = {
-			          reverse_war = {
-				                	target = ROOT
-				                	casus_belli = claim_all
-				                 	thirdparty_title = PREV   
-			            	}
-            }
-    }                
-    spawn_unit = {
-				province = 471 #Ohrid
-				owner = ROOT  
-			  disband_on_peace = yes
-				troops =
-				{
-					light_cavalry = { 1000 1000 }
-					light_infantry = { 300 300 }
-					heavy_infantry = { 200 200 }
-				}
-			} 
-      spawn_unit = {
-				province = 471 #Ohrid
-				owner = ROOT
-			  disband_on_peace = yes
-				troops =
-				{
-					light_cavalry = { 1000 1000 }
-					light_infantry = { 300 300 }
-					heavy_infantry = { 200 200 }
-				}
-			}
-      spawn_unit = {
-				province = 471 #Ohrid
-				owner = ROOT 
-		  	disband_on_peace = yes
-				troops =
-				{
-					knights = { 1000 1000 }
-				}
-			}
-      
-    ai_chance = {
-			factor = 30
-		}      
-      
 	}
-  option = {
-		name = "EVTOPTC90009008"
-    remove_claim = e_byzantium
-    prestige = -100
-              
-    ai_chance = {
-			factor = 50
-      
-      modifier = {
-				factor = 2
-        NOT = { trait = ambitious }
+	option = {
+		name = "EVTOPTB90009008"
+		add_claim = d_adrianopolis
+		add_claim = d_epirus
+		add_claim = d_thessalonika
+
+		remove_claim = e_byzantium
+		e_byzantium = {
+			holder_scope = {
+				reverse_war = {
+					target = ROOT
+					casus_belli = claim_all
+					thirdparty_title = PREV
+				}
 			}
 		}
-  }
+		spawn_unit = {
+			province = 471 #Ohrid
+			owner = ROOT
+			disband_on_peace = yes
+			troops = {
+				light_cavalry = { 1000 1000 }
+				light_infantry = { 300 300 }
+				heavy_infantry = { 200 200 }
+			}
+		}
+		spawn_unit = {
+			province = 471 #Ohrid
+			owner = ROOT
+			disband_on_peace = yes
+			troops = {
+				light_cavalry = { 1000 1000 }
+				light_infantry = { 300 300 }
+				heavy_infantry = { 200 200 }
+			}
+		}
+		spawn_unit = {
+			province = 471 #Ohrid
+			owner = ROOT
+			disband_on_peace = yes
+			troops = {
+				knights = { 1000 1000 }
+			}
+		}
+
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {
+		name = "EVTOPTC90009008"
+		remove_claim = e_byzantium
+		prestige = -100
+
+		ai_chance = {
+			factor = 50
+
+			modifier = {
+				factor = 2
+				NOT = { trait = ambitious }
+			}
+		}
+	}
 }

@@ -1,6 +1,6 @@
 ###################################
 #
-# THE OLD GODS 
+# THE OLD GODS
 # - Pagan Feasts
 #
 ###################################
@@ -17,11 +17,11 @@ character_event = {
 	desc = EVTDESC_TOG_700
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_700
 		any_vassal = {
@@ -43,9 +43,9 @@ character_event = {
 	desc = EVTDESC_TOG_701
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_701
 		trigger = {
@@ -80,9 +80,9 @@ character_event = {
 	desc = EVTDESC_TOG_702
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_702
 		tooltip = {
@@ -100,11 +100,11 @@ character_event = {
 	desc = EVTDESC_TOG_703
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_703
 		custom_tooltip = {
@@ -126,9 +126,9 @@ character_event = {
 	desc = EVTDESC_TOG_704
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_703
 		custom_tooltip = { text = ukon_juhla_begins }
@@ -141,14 +141,14 @@ character_event = {
 	desc = EVTDESC_TOG_705
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_705
-		
+
 		custom_tooltip = {
 			text = feast_begins
 			hidden_tooltip = {
@@ -168,9 +168,9 @@ character_event = {
 	desc = EVTDESC_TOG_706
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_705
 		set_character_flag = ukon_juhla_feast_vassal
@@ -184,11 +184,11 @@ character_event = {
 	desc = EVTDESC_TOG_707
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_707
 		hidden_tooltip = {
@@ -226,9 +226,9 @@ character_event = {
 	desc = EVTDESC_TOG_708
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_707
 		clr_character_flag = attending_ukon_juhla
@@ -250,21 +250,21 @@ character_event = {
 	desc = EVTDESC_TOG_650
 	picture = GFX_evt_drunk
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
 		NOT = { has_character_flag = feast_drunkard }
-		liege = { 
+		liege = {
 			has_character_flag = holding_ukon_juhla
 			NOT = { has_character_flag = feast_drunkard }
 		}
 		trait = drunkard
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -290,7 +290,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_650
 		tooltip_info = drunkard
@@ -357,13 +357,13 @@ character_event = {
 	desc = EVTDESC_TOG_651
 	picture = GFX_evt_drunk
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_651
-		trigger = { 
-			NOT = { trait = drunkard } 
+		trigger = {
+			NOT = { trait = drunkard }
 		}
 		opinion = {
 			modifier = opinion_feast_scandal
@@ -373,7 +373,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_TOG_651
 		tooltip_info = drunkard
-		trigger = { 
+		trigger = {
 			trait = drunkard
 		}
 		opinion = {
@@ -387,7 +387,7 @@ character_event = {
 character_event = {
 	id = TOG.722
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
@@ -402,10 +402,10 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -431,7 +431,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		liege = {
 			set_character_flag = feast_gluttonous
@@ -446,7 +446,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -458,23 +458,23 @@ character_event = {
 	desc = EVTDESC_TOG_653
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_653
 		tooltip_info = gluttonous
 		FROM = {
 			character_event = { id = TOG.724 tooltip = EVTTOOLTIP_TOG_654 }
-		}	
+		}
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = TOG.725 }
 				any_vassal = {
 					limit = {
 						has_character_flag = ukon_juhla_feast_vassal
-						NOT = { 
-							character = ROOT 
+						NOT = {
+							character = ROOT
 							character = FROM
 						}
 					}
@@ -497,8 +497,8 @@ character_event = {
 				any_vassal = {
 					limit = {
 						has_character_flag = ukon_juhla_feast_vassal
-						NOT = { 
-							character = ROOT 
+						NOT = {
+							character = ROOT
 							character = FROM
 						}
 					}
@@ -518,9 +518,9 @@ character_event = {
 	desc = EVTDESC_TOG_654
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_654
 		opinion = {
@@ -536,9 +536,9 @@ character_event = {
 	desc = EVTDESC_TOG_655
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_655
 		opinion = {
@@ -554,21 +554,21 @@ character_event = {
 	desc = EVTDESC_TOG_656
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
 		NOT = { has_character_flag = feast_lunatic }
-		liege = { 
-			has_character_flag = holding_ukon_juhla 
+		liege = {
+			has_character_flag = holding_ukon_juhla
 			NOT = { has_character_flag = feast_lunatic }
 		}
 		trait = lunatic
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -594,7 +594,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_656
 		tooltip_info = lunatic
@@ -651,7 +651,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -661,9 +661,9 @@ character_event = {
 	desc = EVTDESC_TOG_657
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_657
 		trigger = {
@@ -693,22 +693,22 @@ character_event = {
 	desc = EVTDESC_TOG_658
 	picture = GFX_evt_brothel
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
 		NOT = { has_character_flag = feast_lustful }
-		liege = { 
-			has_character_flag = holding_ukon_juhla 
+		liege = {
+			has_character_flag = holding_ukon_juhla
 			NOT = { has_character_flag = feast_lustful }
 		}
 		trait = lustful
 		is_female = no
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -734,7 +734,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_658
 		tooltip_info = lustful
@@ -794,7 +794,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 	option = {
 		name = EVTOPTB_TOG_658
@@ -862,7 +862,7 @@ character_event = {
 					years = 1
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -872,9 +872,9 @@ character_event = {
 	desc = EVTDESC_TOG_659
 	picture = GFX_evt_brothel
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_659
 		trigger = {
@@ -915,25 +915,25 @@ character_event = {
 character_event = {
 	id = TOG.730
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
 		NOT = { has_character_flag = feast_friendship }
-		liege = { 
+		liege = {
 			has_character_flag = holding_ukon_juhla
 			any_vassal = {
 				has_character_flag = ukon_juhla_feast_vassal
 				NOT = { has_character_flag = feast_friendship }
 				NOT = { character = ROOT }
 				opinion = { who = ROOT value =  20 }
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -959,10 +959,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_friendship
-		liege = { 
+		liege = {
 			random_vassal = {
 				limit = {
 					has_character_flag = ukon_juhla_feast_vassal
@@ -979,10 +979,10 @@ character_event = {
 					modifier = opinion_feast_friend
 					who = ROOT
 				}
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -994,9 +994,9 @@ character_event = {
 	desc = EVTDESC_TOG_661
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_661
 		hidden_tooltip = {
@@ -1025,9 +1025,9 @@ character_event = {
 	desc = EVTDESC_TOG_661
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_661
 		tooltip = {
@@ -1049,7 +1049,7 @@ character_event = {
 character_event = {
 	id = TOG.733
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
@@ -1057,7 +1057,7 @@ character_event = {
 		trait = homosexual
 		is_female = no
 		has_lover = no
-		liege = { 
+		liege = {
 			has_character_flag = holding_ukon_juhla
 			NOT = { has_character_flag = feast_homosexual }
 			any_vassal = {
@@ -1068,13 +1068,13 @@ character_event = {
 				trait = homosexual
 				is_female = no
 				has_lover = no
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 40
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -1100,10 +1100,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_homosexual
-		liege = { 
+		liege = {
 			set_character_flag = feast_homosexual
 			random_vassal = {
 				limit = {
@@ -1117,10 +1117,10 @@ character_event = {
 				character_event = { id = TOG.734 }
 				add_lover = FROM
 				set_character_flag = feast_homosexual
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -1132,9 +1132,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -1172,9 +1172,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -1197,7 +1197,7 @@ character_event = {
 character_event = {
 	id = TOG.736
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = ukon_juhla_feast_vassal
@@ -1205,7 +1205,7 @@ character_event = {
 		trait = homosexual
 		is_female = yes
 		has_lover = no
-		liege = { 
+		liege = {
 			has_character_flag = holding_ukon_juhla
 			NOT = { has_character_flag = feast_homosexual }
 			any_vassal = {
@@ -1216,13 +1216,13 @@ character_event = {
 				trait = homosexual
 				is_female = yes
 				has_lover = no
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 40
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -1248,10 +1248,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_homosexual
-		liege = { 
+		liege = {
 			set_character_flag = feast_homosexual
 			random_vassal = {
 				limit = {
@@ -1265,10 +1265,10 @@ character_event = {
 				character_event = { id = TOG.737 }
 				set_character_flag = feast_homosexual
 				add_lover = FROM
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -1280,9 +1280,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -1302,7 +1302,7 @@ character_event = {
 					}
 					character_event = { id = TOG.740 }
 				}
-			}			
+			}
 		}
 		tooltip = {
 			random = {
@@ -1320,9 +1320,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -1347,9 +1347,9 @@ character_event = {
 	desc = EVTDESC_TOG_669
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_669
 		tooltip = {
@@ -1391,7 +1391,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -1401,9 +1401,9 @@ character_event = {
 	desc = EVTDESC_TOG_670
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_670
 		trigger = {
@@ -1435,11 +1435,11 @@ character_event = {
 	desc = EVTDESC_TOG_750
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_700
 		any_vassal = {
@@ -1461,9 +1461,9 @@ character_event = {
 	desc = EVTDESC_TOG_751
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_701
 		trigger = {
@@ -1498,9 +1498,9 @@ character_event = {
 	desc = EVTDESC_TOG_752
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_702
 		tooltip = {
@@ -1518,11 +1518,11 @@ character_event = {
 	desc = EVTDESC_TOG_753
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_753
 		custom_tooltip = {
@@ -1544,9 +1544,9 @@ character_event = {
 	desc = EVTDESC_TOG_754
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_753
 		custom_tooltip = { text = uzgavenes_begins }
@@ -1559,14 +1559,14 @@ character_event = {
 	desc = EVTDESC_TOG_755
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_705
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = feast_begins
 			hidden_tooltip = {
 				any_vassal = {
@@ -1585,9 +1585,9 @@ character_event = {
 	desc = EVTDESC_TOG_756
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_705
 		set_character_flag = uzgavenes_feast_vassal
@@ -1601,11 +1601,11 @@ character_event = {
 	desc = EVTDESC_TOG_757
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_707
 		hidden_tooltip = {
@@ -1643,9 +1643,9 @@ character_event = {
 	desc = EVTDESC_TOG_758
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_707
 		clr_character_flag = attending_uzgavenes
@@ -1667,21 +1667,21 @@ character_event = {
 	desc = EVTDESC_TOG_650
 	picture = GFX_evt_drunk
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
 		NOT = { has_character_flag = feast_drunkard }
-		liege = { 
-			has_character_flag = holding_uzgavenes 
+		liege = {
+			has_character_flag = holding_uzgavenes
 			NOT = { has_character_flag = feast_drunkard }
 		}
 		trait = drunkard
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -1707,7 +1707,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_650
 		tooltip_info = drunkard
@@ -1774,13 +1774,13 @@ character_event = {
 	desc = EVTDESC_TOG_651
 	picture = GFX_evt_drunk
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_651
-		trigger = { 
-			NOT = { trait = drunkard } 
+		trigger = {
+			NOT = { trait = drunkard }
 		}
 		opinion = {
 			modifier = opinion_feast_scandal
@@ -1790,7 +1790,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_TOG_651
 		tooltip_info = drunkard
-		trigger = { 
+		trigger = {
 			trait = drunkard
 		}
 		opinion = {
@@ -1804,7 +1804,7 @@ character_event = {
 character_event = {
 	id = TOG.772
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
@@ -1819,10 +1819,10 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -1848,7 +1848,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		liege = {
 			set_character_flag = feast_gluttonous
@@ -1863,7 +1863,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -1875,23 +1875,23 @@ character_event = {
 	desc = EVTDESC_TOG_653
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_653
 		tooltip_info = gluttonous
 		FROM = {
 			character_event = { id = TOG.774 tooltip = EVTTOOLTIP_TOG_654 }
-		}	
+		}
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = TOG.775 }
 				any_vassal = {
 					limit = {
 						has_character_flag = uzgavenes_feast_vassal
-						NOT = { 
-							character = ROOT 
+						NOT = {
+							character = ROOT
 							character = FROM
 						}
 					}
@@ -1914,8 +1914,8 @@ character_event = {
 				any_vassal = {
 					limit = {
 						has_character_flag = uzgavenes_feast_vassal
-						NOT = { 
-							character = ROOT 
+						NOT = {
+							character = ROOT
 							character = FROM
 						}
 					}
@@ -1935,9 +1935,9 @@ character_event = {
 	desc = EVTDESC_TOG_654
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_654
 		opinion = {
@@ -1953,9 +1953,9 @@ character_event = {
 	desc = EVTDESC_TOG_655
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_655
 		opinion = {
@@ -1971,21 +1971,21 @@ character_event = {
 	desc = EVTDESC_TOG_656
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
 		NOT = { has_character_flag = feast_lunatic }
-		liege = { 
+		liege = {
 			has_character_flag = holding_uzgavenes
 			NOT = { has_character_flag = feast_lunatic }
 		}
 		trait = lunatic
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -2011,7 +2011,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_656
 		tooltip_info = lunatic
@@ -2068,7 +2068,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -2078,9 +2078,9 @@ character_event = {
 	desc = EVTDESC_TOG_657
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_657
 		trigger = {
@@ -2110,22 +2110,22 @@ character_event = {
 	desc = EVTDESC_TOG_658
 	picture = GFX_evt_brothel
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
 		NOT = { has_character_flag = feast_lustful }
-		liege = { 
-			has_character_flag = holding_uzgavenes 
+		liege = {
+			has_character_flag = holding_uzgavenes
 			NOT = { has_character_flag = feast_lustful }
 		}
 		trait = lustful
 		is_female = no
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -2151,7 +2151,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_658
 		tooltip_info = lustful
@@ -2211,7 +2211,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 	option = {
 		name = EVTOPTB_TOG_658
@@ -2279,7 +2279,7 @@ character_event = {
 					years = 1
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -2289,9 +2289,9 @@ character_event = {
 	desc = EVTDESC_TOG_659
 	picture = GFX_evt_brothel
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_659
 		trigger = {
@@ -2332,25 +2332,25 @@ character_event = {
 character_event = {
 	id = TOG.780
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
 		NOT = { has_character_flag = feast_friendship }
-		liege = { 
+		liege = {
 			has_character_flag = holding_uzgavenes
 			any_vassal = {
 				has_character_flag = uzgavenes_feast_vassal
 				NOT = { has_character_flag = feast_friendship }
 				NOT = { character = ROOT }
 				opinion = { who = ROOT value =  20 }
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -2376,10 +2376,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_friendship
-		liege = { 
+		liege = {
 			random_vassal = {
 				limit = {
 					has_character_flag = uzgavenes_feast_vassal
@@ -2396,10 +2396,10 @@ character_event = {
 					modifier = opinion_feast_friend
 					who = ROOT
 				}
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -2411,9 +2411,9 @@ character_event = {
 	desc = EVTDESC_TOG_661
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_661
 		hidden_tooltip = {
@@ -2442,9 +2442,9 @@ character_event = {
 	desc = EVTDESC_TOG_661
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_661
 		tooltip = {
@@ -2466,7 +2466,7 @@ character_event = {
 character_event = {
 	id = TOG.783
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
@@ -2474,7 +2474,7 @@ character_event = {
 		trait = homosexual
 		is_female = no
 		has_lover = no
-		liege = { 
+		liege = {
 			has_character_flag = holding_uzgavenes
 			NOT = { has_character_flag = feast_homosexual }
 			any_vassal = {
@@ -2485,13 +2485,13 @@ character_event = {
 				trait = homosexual
 				is_female = no
 				has_lover = no
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 40
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -2517,10 +2517,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_homosexual
-		liege = { 
+		liege = {
 			set_character_flag = feast_homosexual
 			random_vassal = {
 				limit = {
@@ -2534,10 +2534,10 @@ character_event = {
 				character_event = { id = TOG.784 }
 				add_lover = FROM
 				set_character_flag = feast_homosexual
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -2549,9 +2549,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -2589,9 +2589,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -2614,7 +2614,7 @@ character_event = {
 character_event = {
 	id = TOG.786
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = uzgavenes_feast_vassal
@@ -2622,7 +2622,7 @@ character_event = {
 		trait = homosexual
 		is_female = yes
 		has_lover = no
-		liege = { 
+		liege = {
 			has_character_flag = holding_uzgavenes
 			NOT = { has_character_flag = feast_homosexual }
 			any_vassal = {
@@ -2633,13 +2633,13 @@ character_event = {
 				trait = homosexual
 				is_female = yes
 				has_lover = no
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 40
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -2665,10 +2665,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_homosexual
-		liege = { 
+		liege = {
 			set_character_flag = feast_homosexual
 			random_vassal = {
 				limit = {
@@ -2682,10 +2682,10 @@ character_event = {
 				character_event = { id = TOG.787 }
 				set_character_flag = feast_homosexual
 				add_lover = FROM
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -2697,9 +2697,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -2719,7 +2719,7 @@ character_event = {
 					}
 					character_event = { id = TOG.790 }
 				}
-			}			
+			}
 		}
 		tooltip = {
 			random = {
@@ -2737,9 +2737,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -2764,9 +2764,9 @@ character_event = {
 	desc = EVTDESC_TOG_669
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_669
 		tooltip = {
@@ -2808,7 +2808,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -2818,9 +2818,9 @@ character_event = {
 	desc = EVTDESC_TOG_670
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_670
 		trigger = {
@@ -2852,11 +2852,11 @@ character_event = {
 	desc = EVTDESC_TOG_800
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_700
 		any_vassal = {
@@ -2878,9 +2878,9 @@ character_event = {
 	desc = EVTDESC_TOG_801
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_701
 		trigger = {
@@ -2915,9 +2915,9 @@ character_event = {
 	desc = EVTDESC_TOG_802
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_702
 		tooltip = {
@@ -2935,16 +2935,16 @@ character_event = {
 	desc = EVTDESC_TOG_803
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_803
 		hidden_tooltip = {
 			random_vassal = {
-				limit = { 
+				limit = {
 					has_character_flag = attending_jarilo
 					is_female = no
 					OR = {
@@ -2973,8 +2973,8 @@ character_event = {
 				character_event = { id = TOG.848 days = 2 }
 			}
 		}
-		
-		custom_tooltip = { 
+
+		custom_tooltip = {
 			text = jarilo_deliberations
 			hidden_tooltip = {
 				any_vassal = {
@@ -2992,9 +2992,9 @@ character_event = {
 	desc = EVTDESC_TOG_845
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_845
 		trigger = {
@@ -3011,8 +3011,8 @@ character_event = {
 				}
 			}
 			any_vassal = {
-				limit = { 
-					has_character_flag = attending_jarilo 
+				limit = {
+					has_character_flag = attending_jarilo
 					NOT = { character = ROOT }
 					NOT = { trait = cynical }
 				}
@@ -3026,14 +3026,14 @@ character_event = {
 			FROM = {
 				character_event = { id = TOG.846 }
 				any_vassal = {
-					limit = { 
-						has_character_flag = attending_jarilo 
+					limit = {
+						has_character_flag = attending_jarilo
 						NOT = { character = ROOT }
 					}
 					character_event = { id = TOG.847 }
 				}
 			}
-		}	
+		}
 	}
 	option = {
 		name = EVTOPTB_TOG_845
@@ -3052,8 +3052,8 @@ character_event = {
 				}
 			}
 			any_vassal = {
-				limit = { 
-					has_character_flag = attending_jarilo 
+				limit = {
+					has_character_flag = attending_jarilo
 					NOT = { character = ROOT }
 					NOT = { trait = cynical }
 				}
@@ -3067,8 +3067,8 @@ character_event = {
 			FROM = {
 				character_event = { id = TOG.846 }
 				any_vassal = {
-					limit = { 
-						has_character_flag = attending_jarilo 
+					limit = {
+						has_character_flag = attending_jarilo
 						NOT = { character = ROOT }
 					}
 					character_event = { id = TOG.847 }
@@ -3084,9 +3084,9 @@ character_event = {
 	desc = EVTDESC_TOG_846
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_846
 		trigger = {
@@ -3097,7 +3097,7 @@ character_event = {
 				modifier = opinion_represented_jarilo
 				who = FROM
 			}
-		}	
+		}
 	}
 	option = {
 		name = EVTOPTB_TOG_846
@@ -3114,9 +3114,9 @@ character_event = {
 	desc = EVTDESC_TOG_846
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_846
 		trigger = {
@@ -3127,7 +3127,7 @@ character_event = {
 				modifier = opinion_represented_jarilo
 				who = FROM
 			}
-		}	
+		}
 	}
 	option = {
 		name = EVTOPTB_TOG_846
@@ -3144,11 +3144,11 @@ character_event = {
 	desc = EVTDESC_TOG_848
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_845
 		trigger = {
@@ -3170,9 +3170,9 @@ character_event = {
 	desc = EVTDESC_TOG_804
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_803
 		custom_tooltip = { text = jarilo_deliberations }
@@ -3185,11 +3185,11 @@ character_event = {
 	desc = EVTDESC_TOG_805
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_705
 		hidden_tooltip = {
@@ -3209,9 +3209,9 @@ character_event = {
 	desc = EVTDESC_TOG_806
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_705
 		set_character_flag = jarilo_feast_vassal
@@ -3225,11 +3225,11 @@ character_event = {
 	desc = EVTDESC_TOG_807
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_707
 		hidden_tooltip = {
@@ -3267,9 +3267,9 @@ character_event = {
 	desc = EVTDESC_TOG_808
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_707
 		clr_character_flag = attending_jarilo
@@ -3291,21 +3291,21 @@ character_event = {
 	desc = EVTDESC_TOG_650
 	picture = GFX_evt_drunk
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
 		NOT = { has_character_flag = feast_drunkard }
-		liege = { 
+		liege = {
 			has_character_flag = holding_jarilo
 			NOT = { has_character_flag = feast_drunkard }
 		}
 		trait = drunkard
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -3331,7 +3331,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_650
 		tooltip_info = drunkard
@@ -3398,13 +3398,13 @@ character_event = {
 	desc = EVTDESC_TOG_651
 	picture = GFX_evt_drunk
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_651
-		trigger = { 
-			NOT = { trait = drunkard } 
+		trigger = {
+			NOT = { trait = drunkard }
 		}
 		opinion = {
 			modifier = opinion_feast_scandal
@@ -3414,7 +3414,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_TOG_651
 		tooltip_info = drunkard
-		trigger = { 
+		trigger = {
 			trait = drunkard
 		}
 		opinion = {
@@ -3428,7 +3428,7 @@ character_event = {
 character_event = {
 	id = TOG.822
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
@@ -3443,10 +3443,10 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -3472,7 +3472,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		liege = {
 			set_character_flag = feast_gluttonous
@@ -3487,7 +3487,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -3499,23 +3499,23 @@ character_event = {
 	desc = EVTDESC_TOG_653
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_653
 		tooltip_info = gluttonous
 		FROM = {
 			character_event = { id = TOG.824 tooltip = EVTTOOLTIP_TOG_654 }
-		}	
+		}
 		hidden_tooltip = {
 			liege = {
 				character_event = { id = TOG.825 }
 				any_vassal = {
 					limit = {
 						has_character_flag = jarilo_feast_vassal
-						NOT = { 
-							character = ROOT 
+						NOT = {
+							character = ROOT
 							character = FROM
 						}
 					}
@@ -3538,8 +3538,8 @@ character_event = {
 				any_vassal = {
 					limit = {
 						has_character_flag = jarilo_feast_vassal
-						NOT = { 
-							character = ROOT 
+						NOT = {
+							character = ROOT
 							character = FROM
 						}
 					}
@@ -3559,9 +3559,9 @@ character_event = {
 	desc = EVTDESC_TOG_654
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_654
 		opinion = {
@@ -3577,9 +3577,9 @@ character_event = {
 	desc = EVTDESC_TOG_655
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_655
 		opinion = {
@@ -3595,21 +3595,21 @@ character_event = {
 	desc = EVTDESC_TOG_656
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
 		NOT = { has_character_flag = feast_lunatic }
-		liege = { 
-			has_character_flag = holding_jarilo 
+		liege = {
+			has_character_flag = holding_jarilo
 			NOT = { has_character_flag = feast_lunatic }
 		}
 		trait = lunatic
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -3635,7 +3635,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_656
 		tooltip_info = lunatic
@@ -3692,7 +3692,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -3702,9 +3702,9 @@ character_event = {
 	desc = EVTDESC_TOG_657
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_657
 		trigger = {
@@ -3734,22 +3734,22 @@ character_event = {
 	desc = EVTDESC_TOG_658
 	picture = GFX_evt_brothel
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
 		NOT = { has_character_flag = feast_lustful }
-		liege = { 
-			has_character_flag = holding_jarilo 
+		liege = {
+			has_character_flag = holding_jarilo
 			NOT = { has_character_flag = feast_lustful }
 		}
 		trait = lustful
 		is_female = no
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -3775,7 +3775,7 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_658
 		tooltip_info = lustful
@@ -3835,7 +3835,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 	option = {
 		name = EVTOPTB_TOG_658
@@ -3903,7 +3903,7 @@ character_event = {
 					years = 1
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -3913,9 +3913,9 @@ character_event = {
 	desc = EVTDESC_TOG_659
 	picture = GFX_evt_brothel
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_659
 		trigger = {
@@ -3956,25 +3956,25 @@ character_event = {
 character_event = {
 	id = TOG.830
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
 		NOT = { has_character_flag = feast_friendship }
-		liege = { 
+		liege = {
 			has_character_flag = holding_jarilo
 			any_vassal = {
 				has_character_flag = jarilo_feast_vassal
 				NOT = { has_character_flag = feast_friendship }
 				NOT = { character = ROOT }
 				opinion = { who = ROOT value =  20 }
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 60
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -4000,10 +4000,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_friendship
-		liege = { 
+		liege = {
 			random_vassal = {
 				limit = {
 					has_character_flag = jarilo_feast_vassal
@@ -4020,10 +4020,10 @@ character_event = {
 					modifier = opinion_feast_friend
 					who = ROOT
 				}
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -4035,9 +4035,9 @@ character_event = {
 	desc = EVTDESC_TOG_661
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_661
 		hidden_tooltip = {
@@ -4066,9 +4066,9 @@ character_event = {
 	desc = EVTDESC_TOG_661
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_661
 		tooltip = {
@@ -4090,7 +4090,7 @@ character_event = {
 character_event = {
 	id = TOG.833
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
@@ -4098,7 +4098,7 @@ character_event = {
 		trait = homosexual
 		is_female = no
 		has_lover = no
-		liege = { 
+		liege = {
 			has_character_flag = holding_jarilo
 			NOT = { has_character_flag = feast_homosexual }
 			any_vassal = {
@@ -4109,13 +4109,13 @@ character_event = {
 				trait = homosexual
 				is_female = no
 				has_lover = no
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 40
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -4141,10 +4141,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_homosexual
-		liege = { 
+		liege = {
 			set_character_flag = feast_homosexual
 			random_vassal = {
 				limit = {
@@ -4158,10 +4158,10 @@ character_event = {
 				character_event = { id = TOG.834 }
 				add_lover = FROM
 				set_character_flag = feast_homosexual
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -4173,9 +4173,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -4213,9 +4213,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -4238,7 +4238,7 @@ character_event = {
 character_event = {
 	id = TOG.836
 	hide_window = yes
-	
+
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = jarilo_feast_vassal
@@ -4246,7 +4246,7 @@ character_event = {
 		trait = homosexual
 		is_female = yes
 		has_lover = no
-		liege = { 
+		liege = {
 			has_character_flag = holding_jarilo
 			NOT = { has_character_flag = feast_homosexual }
 			any_vassal = {
@@ -4257,13 +4257,13 @@ character_event = {
 				trait = homosexual
 				is_female = yes
 				has_lover = no
-			}		
+			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 40
-		
+
 		modifier = {
 			factor = 1.1
 			liege = { num_of_vassals = 10 }
@@ -4289,10 +4289,10 @@ character_event = {
 			liege = { num_of_vassals = 100 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_homosexual
-		liege = { 
+		liege = {
 			set_character_flag = feast_homosexual
 			random_vassal = {
 				limit = {
@@ -4306,10 +4306,10 @@ character_event = {
 				character_event = { id = TOG.837 }
 				set_character_flag = feast_homosexual
 				add_lover = FROM
-			}		
+			}
 		}
 	}
-	
+
 	option = {
 		name = OK
 	}
@@ -4321,9 +4321,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -4343,7 +4343,7 @@ character_event = {
 					}
 					character_event = { id = TOG.840 }
 				}
-			}			
+			}
 		}
 		tooltip = {
 			random = {
@@ -4361,9 +4361,9 @@ character_event = {
 	desc = EVTDESC_TOG_664
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_664
 		tooltip_info = homosexual
@@ -4388,9 +4388,9 @@ character_event = {
 	desc = EVTDESC_TOG_669
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_669
 		tooltip = {
@@ -4432,7 +4432,7 @@ character_event = {
 					}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -4442,9 +4442,9 @@ character_event = {
 	desc = EVTDESC_TOG_670
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_670
 		trigger = {

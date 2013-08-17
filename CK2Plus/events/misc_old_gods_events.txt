@@ -8,7 +8,7 @@ character_event = {
 
 	id = 62300
 	desc = EVTDESC62300
-	
+
 	picture = GFX_evt_viking_battle_oldgods
 	border = GFX_event_normal_frame_war
 
@@ -39,7 +39,7 @@ character_event = {
 
 	id = 62310
 	desc = EVTDESC62310
-	
+
 	picture = GFX_evt_viking_battle_oldgods
 	border = GFX_event_normal_frame_war
 
@@ -60,7 +60,7 @@ character_event = {
 			limit = {
 				NOT = {
 					any_war = {
-						any_attacker = { character = FROM } 
+						any_attacker = { character = FROM }
 					}
 				}
 			}
@@ -74,7 +74,7 @@ character_event = {
 			limit = {
 				NOT = {
 					any_war = {
-						any_attacker = { character = FROM } 
+						any_attacker = { character = FROM }
 					}
 				}
 			}
@@ -99,12 +99,12 @@ character_event = {
 character_event = {
 	id = 62320
 	desc = EVTDESC62320
-	
+
 	picture = GFX_evt_vikings_arriving_oldgods
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-	
+
 	# On_action, so BIG is MORE OFTEN!
 	mean_time_to_happen = {
 		days = 1
@@ -305,14 +305,14 @@ character_event = {
 character_event = {
 	id = 62321
 	desc = EVTDESC62321
-	
+
 	hide_from = yes
-	
+
 	picture = GFX_evt_vikings_arriving_oldgods
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-	
+
 	# On_action, so BIG is MORE OFTEN
 	mean_time_to_happen = {
 		days = 1
@@ -512,7 +512,7 @@ character_event = {
 				}
 			}
 		}
-		
+
 		spawn_fleet = {
 			province = closest
 			owner = ROOT
@@ -529,12 +529,12 @@ character_event = {
 character_event = {
 	id = 62322
 	desc = EVTDESC62320
-	
+
 	picture = GFX_evt_vikings_arriving_oldgods
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-	
+
 	# On_action, so BIG is MORE OFTEN
 	mean_time_to_happen = {
 		days = 1
@@ -733,11 +733,11 @@ character_event = {
 letter_event = {
 	id = 62800
 	desc = EVTDESC62800
-	
+
 	border = GFX_event_letter_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA62800
 		if = {
@@ -771,13 +771,13 @@ letter_event = {
 character_event = {
 	id = 62900
 	desc = EVTDESC62900
-	
+
 	picture = GFX_evt_viking_battle_oldgods
 	border = GFX_event_normal_frame_war
-	
+
 	only_playable = yes
 	only_men = yes
-	
+
 	trigger = {
 		character = 163113 # Bagsecg
 		war = no
@@ -792,18 +792,18 @@ character_event = {
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	immediate = {
 		set_character_flag = bagsecgs_invasion
 	}
 
 	option = {
 		name = EVTOPTA62900 # Invade Mercia
-		
+
 		ai_chance = {
 			factor = 70
 		}
-		
+
 		custom_tooltip = {
 			text = EVTOPTA62900_TT
 			# Prepare the invasion (these opinions control the mechanic)
@@ -821,14 +821,14 @@ character_event = {
 						letter_event = { id = 62901 }
 					}
 				}
-				add_character_modifier = { 
+				add_character_modifier = {
 					name = launched_prepared_invasion
 					hidden = yes
-					days = -1 
+					days = -1
 				}
 			}
 		}
-		
+
 		capital_scope = {
 			ROOT = {
 				spawn_unit = {
@@ -867,10 +867,10 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTB62900 # Invade Wessex
-		
+
 		trigger = {
 			d_somerset = { # Wessex
 				holder_scope = {
@@ -878,11 +878,11 @@ character_event = {
 				}
 			}
 		}
-		
+
 		ai_chance = {
 			factor = 10
 		}
-		
+
 		custom_tooltip = {
 			text = EVTOPTB62900_TT
 			# Prepare the invasion
@@ -900,14 +900,14 @@ character_event = {
 						letter_event = { id = 62901 }
 					}
 				}
-				add_character_modifier = { 
+				add_character_modifier = {
 					name = launched_prepared_invasion
 					hidden = yes
-					days = -1 
+					days = -1
 				}
 			}
 		}
-		
+
 		capital_scope = {
 			ROOT = {
 				spawn_unit = {
@@ -946,10 +946,10 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTC62900 # Invade Scotland
-		
+
 		trigger = {
 			k_scotland = {
 				holder_scope = {
@@ -957,11 +957,11 @@ character_event = {
 				}
 			}
 		}
-		
+
 		ai_chance = {
 			factor = 10
 		}
-		
+
 		custom_tooltip = {
 			text = EVTOPTC62900_TT
 			# Prepare the invasion
@@ -979,14 +979,14 @@ character_event = {
 						letter_event = { id = 62901 }
 					}
 				}
-				add_character_modifier = { 
+				add_character_modifier = {
 					name = launched_prepared_invasion
 					hidden = yes
-					days = -1 
+					days = -1
 				}
 			}
 		}
-		
+
 		capital_scope = {
 			ROOT = {
 				spawn_unit = {
@@ -1025,14 +1025,14 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = EVTOPTD62900
-		
+
 		ai_chance = {
 			factor = 10
 		}
-		
+
 		prestige = -100
 	}
 }
@@ -1040,11 +1040,11 @@ character_event = {
 letter_event = {
 	id = 62901
 	desc = EVTDESC62901
-	
+
 	border = GFX_event_letter_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA62901
 	}
@@ -1056,12 +1056,12 @@ narrative_event = {
 	id = 62910
 	title = EVTNAME62910
 	desc = EVTDESC62910
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA62910
 		hidden_tooltip = {
@@ -1079,7 +1079,7 @@ narrative_event = {
 		k_magyar = {
 			destroy_landed_title = THIS
 		}
-		
+
 		if = {
 			limit = {
 				NOT = { has_landed_title = c_pest }
@@ -1088,217 +1088,186 @@ narrative_event = {
 				usurp_title = ROOT
 				location = {
 					ROOT = {
-						capital = PREV 
+						capital = PREV
 					}
 				}
 			}
 		}
+
+		custom_tooltip = EVTOPTA62910_CUSTOM
 		
-		custom_tooltip = {
-			text = EVTOPTA62910_CUSTOM
-			hidden_tooltip = {
-				any_playable_ruler = {
-					limit = {
-						NOT = { has_landed_title = k_hungary }
-						ai = no
-					}
-					narrative_event = { id = 62911 }
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = k_hungary }
+					ai = no
 				}
-				
-				any_realm_province = {
-					limit = {
-						kingdom = {
-							title = k_hungary
-						}
+				narrative_event = { id = 62911 }
+			}
+
+			any_realm_province = {
+				limit = {
+					kingdom = {
+						title = k_hungary
 					}
+				}
+				culture = hungarian
+				religion = ROOT
+			}
+
+			# The Hungarian culture in the Ukraine is lost
+			random_realm_province = {
+				limit = {
 					culture = hungarian
-					religion = ROOT
+					kingdom = {
+						NOT = { title = k_hungary }
+					}
+					any_neighbor_province = {
+						NOT = { culture = hungarian }
+					}
 				}
-				
-				# The Hungarian culture in the Ukraine is lost
-				random_realm_province = {
+				random_neighbor_province = {
 					limit = {
-						culture = hungarian
+						NOT = { culture = hungarian }
+					}
+					reverse_culture = PREV
+					reverse_religion = PREV
+				}
+			}
+			random_realm_province = {
+				limit = {
+					culture = hungarian
+					kingdom = {
+						NOT = { title = k_hungary }
+					}
+					any_neighbor_province = {
+						NOT = { culture = hungarian }
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						NOT = { culture = hungarian }
+					}
+					reverse_culture = PREV
+					reverse_religion = PREV
+				}
+			}
+			random_realm_province = {
+				limit = {
+					culture = hungarian
+					kingdom = {
+						NOT = { title = k_hungary }
+					}
+					any_neighbor_province = {
+						NOT = { culture = hungarian }
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						NOT = { culture = hungarian }
+					}
+					reverse_culture = PREV
+					reverse_religion = PREV
+				}
+			}
+			random_realm_province = {
+				limit = {
+					culture = hungarian
+					kingdom = {
+						NOT = { title = k_hungary }
+					}
+					any_neighbor_province = {
+						NOT = { culture = hungarian }
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						NOT = { culture = hungarian }
+					}
+					reverse_culture = PREV
+					reverse_religion = PREV
+				}
+			}
+			random_realm_province = {
+				limit = {
+					culture = hungarian
+					kingdom = {
+						NOT = { title = k_hungary }
+					}
+					any_neighbor_province = {
+						NOT = { culture = hungarian }
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						NOT = { culture = hungarian }
+					}
+					reverse_culture = PREV
+					reverse_religion = PREV
+				}
+			}
+			random_realm_province = {
+				limit = {
+					culture = hungarian
+					kingdom = {
+						NOT = { title = k_hungary }
+					}
+					any_neighbor_province = {
+						NOT = { culture = hungarian }
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						NOT = { culture = hungarian }
+					}
+					reverse_culture = PREV
+					reverse_religion = PREV
+				}
+			}
+
+			# Lose control of the Ukraininan lands
+			any_realm_province = {
+				limit = {
+					OR = {
 						kingdom = {
 							OR = {
-								title = k_taurica
-								title = k_ruthenia
+								title = k_crimea
+								title = k_rus
 								title = k_cuman
 								title = k_alania
 							}
 						}
-						any_neighbor_province = {
-							NOT = { culture = hungarian }
+						duchy = {
+							title = d_moldau
 						}
 					}
-					random_neighbor_province = {
-						limit = {
-							NOT = { culture = hungarian }
-						}
-						reverse_culture = PREV
-						reverse_religion = PREV
-					}
-				}
-				random_realm_province = {
-					limit = {
-						culture = hungarian
-						kingdom = {
-							OR = {
-								title = k_taurica
-								title = k_ruthenia
-								title = k_cuman
-								title = k_alania
-							}
-						}
-						any_neighbor_province = {
-							NOT = { culture = hungarian }
-						}
-					}
-					random_neighbor_province = {
-						limit = {
-							NOT = { culture = hungarian }
-						}
-						reverse_culture = PREV
-						reverse_religion = PREV
-					}
-				}
-				random_realm_province = {
-					limit = {
-						culture = hungarian
-						kingdom = {
-							OR = {
-								title = k_taurica
-								title = k_ruthenia
-								title = k_cuman
-								title = k_alania
-							}
-						}
-						any_neighbor_province = {
-							NOT = { culture = hungarian }
-						}
-					}
-					random_neighbor_province = {
-						limit = {
-							NOT = { culture = hungarian }
-						}
-						reverse_culture = PREV
-						reverse_religion = PREV
-					}
-				}
-				random_realm_province = {
-					limit = {
-						culture = hungarian
-						kingdom = {
-							OR = {
-								title = k_taurica
-								title = k_ruthenia
-								title = k_cuman
-								title = k_alania
-							}
-						}
-						any_neighbor_province = {
-							NOT = { culture = hungarian }
-						}
-					}
-					random_neighbor_province = {
-						limit = {
-							NOT = { culture = hungarian }
-						}
-						reverse_culture = PREV
-						reverse_religion = PREV
-					}
-				}
-				random_realm_province = {
-					limit = {
-						culture = hungarian
-						kingdom = {
-							OR = {
-								title = k_taurica
-								title = k_ruthenia
-								title = k_cuman
-								title = k_alania
-							}
-						}
-						any_neighbor_province = {
-							NOT = { culture = hungarian }
-						}
-					}
-					random_neighbor_province = {
-						limit = {
-							NOT = { culture = hungarian }
-						}
-						reverse_culture = PREV
-						reverse_religion = PREV
-					}
-				}
-				random_realm_province = {
-					limit = {
-						culture = hungarian
-						kingdom = {
-							OR = {
-								title = k_taurica
-								title = k_ruthenia
-								title = k_cuman
-								title = k_alania
-							}
-						}
-						any_neighbor_province = {
-							NOT = { culture = hungarian }
-						}
-					}
-					random_neighbor_province = {
-						limit = {
-							NOT = { culture = hungarian }
-						}
-						reverse_culture = PREV
-						reverse_religion = PREV
-					}
-				}
-				
-				# Lose control of the Ukraininan lands
-				any_realm_province = {
-					limit = {
+					owner = {
+						# Human vassals get to keep their stuff
 						OR = {
-							kingdom = {
-								OR = {
-									title = k_taurica
-									title = k_ruthenia
-									title = k_cuman
-									title = k_alania
-								}
-							}
-							duchy = {
-								title = d_moldau
-							}
-						}
-						owner = {
-							# Human vassals get to keep their stuff
-							OR = {
-								ai = yes
-								character = ROOT
-							}
-						}
-					}
-					county = {
-						create_character = {
-							random_traits = yes
-							dynasty = none
-							religion = PREV
-							culture = PREV
-							female = no
-							age = 25
-							trait = peasant_leader
-						}
-						new_character = {
-							usurp_title_plus_barony_if_unlanded = PREV
-							set_defacto_liege = THIS
+							ai = yes
+							character = ROOT
 						}
 					}
 				}
-				
-				any_claim = {
-					remove_claim = ROOT
+				county = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = PREV
+						culture = PREV
+						female = no
+						age = 25
+						trait = peasant_leader
+					}
+					new_character = {
+						usurp_title_plus_barony_if_unlanded = PREV
+						set_defacto_liege = THIS
+					}
 				}
+			}
+
+			any_claim = {
+				remove_claim = ROOT
 			}
 		}
 	}
@@ -1309,12 +1278,12 @@ narrative_event = {
 	id = 62911
 	title = EVTNAME62911
 	desc = EVTDESC62911
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA62911
 	}
@@ -1326,12 +1295,12 @@ character_event = {
 	id = 62920
 	title = EVTNAME62920
 	desc = EVTDESC62920
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_normal_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA62920
 		hidden_tooltip = {
@@ -1349,7 +1318,7 @@ character_event = {
 		k_asturias = {
 			destroy_landed_title = THIS
 		}
-		
+
 		hidden_tooltip = {
 			k_leon = { make_primary_title = yes }
 			any_playable_ruler = {
@@ -1368,12 +1337,12 @@ narrative_event = {
 	id = 62921
 	title = EVTNAME62921
 	desc = EVTDESC62921
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EVTOPTA62921
 	}
@@ -1384,22 +1353,22 @@ character_event = {
 	id = 62930
 	title = EVTNAME62930
 	desc = EVTDESC62930
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_normal_frame_diplomacy
-	
+
 	only_playable = yes
-	
+
 	trigger = {
 		has_landed_title = k_france
 		NOT = { dynasty = 25061 } # Karling dynasty
 		NOT = { has_global_flag = west_francia_renamed }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = EVTOPTA62930
 		set_global_flag = west_francia_renamed
@@ -1415,22 +1384,22 @@ character_event = {
 	id = 62931
 	title = EVTNAME62931
 	desc = EVTDESC62931
-	
+
 	picture = GFX_evt_council
 	border = GFX_event_normal_frame_diplomacy
-	
+
 	only_playable = yes
-	
+
 	trigger = {
 		has_landed_title = k_germany
 		NOT = { dynasty = 25061 } # Karling dynasty
 		NOT = { has_global_flag = east_francia_renamed }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = EVTOPTA62931
 		set_global_flag = east_francia_renamed

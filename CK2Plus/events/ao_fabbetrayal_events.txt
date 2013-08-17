@@ -6,7 +6,7 @@ character_event = {
 	desc = "ao_fabbetrayal.1.desc"
 	picture = GFX_evt_whispers
 	border = GFX_event_normal_frame_intrigue
-	
+
 	capable_only = yes
 	prisoner = no
 	trigger = {
@@ -26,7 +26,7 @@ character_event = {
 	}
 	mean_time_to_happen = {
 		months = 600
-		
+
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
@@ -90,7 +90,7 @@ character_event = {
 				ROOT = {plot_power_contribution = {plotter = PREV power = 0.9}}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.66
 			any_backed_character = {
@@ -127,7 +127,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "ao_fabbetrayal.1.a" # Tell Plotter
 		trigger = {
@@ -151,7 +151,7 @@ letter_event = {
 	picture = GFX_evt_whispers
 	#border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "ao_fabbetrayal.2.a"
 		ai_chance = {
@@ -169,7 +169,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {		
+		plot_target_char = {
 			random_list = {
 				20 = { character_event = { id = ao_fabbetrayal.3 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
 				30 = { character_event = { id = ao_fabbetrayal.4 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
@@ -198,7 +198,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {		
+		plot_target_char = {
 			random_list = {
 				33 = { character_event = { id = ao_fabbetrayal.3 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
 				33 = { character_event = { id = ao_fabbetrayal.4 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
@@ -223,7 +223,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {		
+		plot_target_char = {
 			random_list = {
 				50 = { character_event = { id = ao_fabbetrayal.3 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
 				25 = { character_event = { id = ao_fabbetrayal.4 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
@@ -244,7 +244,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {		
+		plot_target_char = {
 			random_list = {
 				60 = { character_event = { id = ao_fabbetrayal.3 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
 				20 = { character_event = { id = ao_fabbetrayal.4 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
@@ -264,7 +264,7 @@ letter_event = {
 			limit = { trait = honest }
 			remove_trait = honest
 		}
-		plot_target_char = {		
+		plot_target_char = {
 			random_list = {
 				75 = { character_event = { id = ao_fabbetrayal.3 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
 				15 = { character_event = { id = ao_fabbetrayal.4 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
@@ -288,9 +288,9 @@ character_event = {
 	picture = GFX_evt_whispers
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
-	
+
 	option = {
-		name = "ao_fabbetrayal.3.a" 
+		name = "ao_fabbetrayal.3.a"
 		FROM = {character_event = { id = ao_fabbetrayal.6}}
 		opinion = {
 			who = FROM
@@ -309,7 +309,7 @@ character_event = {
 	is_triggered_only = yes
 	hide_from = yes
 	option = {name = "ao_fabbetrayal.4.a" FROM = {character_event = { id = ao_fabbetrayal.7}}}
-	
+
 }
 #Discovered failure - notify target
 character_event = {
@@ -319,7 +319,7 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_fabbetrayal.5.a" 
+		name = "ao_fabbetrayal.5.a"
 		FROM = {character_event = { id = ao_fabbetrayal.8}}
 		if={
 			limit = {FROM = {independent = no}}
@@ -345,8 +345,8 @@ character_event = {
 				}
 			}
 		}
-		any_dynasty_member = {limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = ao_fabbetrayal.13} set_character_flag = infbetrayalfail } 
-			any_sibling = { 
+		any_dynasty_member = {limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = ao_fabbetrayal.13} set_character_flag = infbetrayalfail }
+			any_sibling = {
 				if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = ao_fabbetrayal.13} set_character_flag = infbetrayalfail}
 				any_spouse = {
 					if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = ao_fabbetrayal.13} set_character_flag = infbetrayalfail }
@@ -389,11 +389,11 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_fabbetrayal.6.a" 
-		clr_character_flag = fabricate_in_motion 
+		name = "ao_fabbetrayal.6.a"
+		clr_character_flag = fabricate_in_motion
 		FROM = {
-			any_dynasty_member = {limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = ao_fabbetrayal.9} set_character_flag = infbetrayal } 
-			any_sibling = { 
+			any_dynasty_member = {limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = ao_fabbetrayal.9} set_character_flag = infbetrayal }
+			any_sibling = {
 				if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = ao_fabbetrayal.9} set_character_flag = infbetrayal}
 				any_spouse = {
 					if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = ao_fabbetrayal.9} set_character_flag = infbetrayal }
@@ -440,7 +440,7 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
 	option = {
-		name = "ao_fabbetrayal.8.a" 
+		name = "ao_fabbetrayal.8.a"
 		clr_character_flag = fabricate_in_motion
 		if = { limit = {has_plot = plot_fabricate_evidence_betrayal}
 			cancel_plot = plot_fabricate_evidence_betrayal

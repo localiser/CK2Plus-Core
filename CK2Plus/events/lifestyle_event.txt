@@ -17,10 +17,10 @@ character_event = {
 			trait = incapable
 		}
 		martial = 5
-		NOT = { 
-			trait = craven 
+		NOT = {
+			trait = craven
 			trait = weak
-		}		
+		}
 		OR = {
 			trait = brave
 			trait = strong
@@ -28,29 +28,29 @@ character_event = {
 			check_variable = { which = "lifestyle_hunter" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = diligent
-		}			
+		}
 		modifier = {
 			factor = 1.5
 			trait = brave
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = strong
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			martial = 10
@@ -58,7 +58,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			martial = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			martial = 20
@@ -66,7 +66,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 1.9 }
@@ -78,7 +78,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 4.9 }
@@ -90,7 +90,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 7.9 }
@@ -102,18 +102,18 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hunter" value = 9.9 }
-		}		
+		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200000"
 		add_trait = hunter
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_hunter_no
-	}	
+	}
 }
 
 #Falconer
@@ -121,7 +121,7 @@ character_event = {
 	id = 200001
 	desc = "EVTDESC200001"
 	picture = "GFX_evt_falconing"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -135,23 +135,23 @@ character_event = {
 			trait = incapable
 		}
 		diplomacy = 5
-		NOT = { 
+		NOT = {
 			trait = shy
 			trait = slothful
-		}		
+		}
 		OR = {
 			trait = diligent
 			trait = gregarious
 			check_variable = { which = "lifestyle_falconer" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -159,11 +159,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = diligent
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			trait = gregarious
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			diplomacy = 10
@@ -171,7 +171,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			diplomacy = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			diplomacy = 20
@@ -179,7 +179,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_falconer" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_falconer" value = 1.9 }
@@ -191,7 +191,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_falconer" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_falconer" value = 4.9 }
@@ -203,7 +203,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_falconer" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_falconer" value = 7.9 }
@@ -217,16 +217,16 @@ character_event = {
 			check_variable = { which = "lifestyle_falconer" value = 9.9 }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200001"
 		add_trait = falconer
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_falconer_no
-	}	
+	}
 }
 
 #Scholar
@@ -248,11 +248,11 @@ character_event = {
 			trait = incapable
 		}
 		learning = 5
-		NOT = { 
+		NOT = {
 			trait = gregarious
 			trait = slow
 			trait = imbecile
-		}		
+		}
 		OR = {
 			trait = shy
 			trait = quick
@@ -260,13 +260,13 @@ character_event = {
 			check_variable = { which = "lifestyle_scholar" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -278,15 +278,15 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = quick
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = genius
-		}			
+		}
 		modifier = {
 			factor = 1.5
 			trait = shy
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			learning = 10
@@ -294,7 +294,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			learning = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			learning = 20
@@ -302,11 +302,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			always = yes #for lifestyles you can't get points in yet
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_scholar" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_scholar" value = 1.9 }
@@ -318,7 +318,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_scholar" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_scholar" value = 4.9 }
@@ -330,7 +330,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_scholar" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_scholar" value = 7.9 }
@@ -344,16 +344,16 @@ character_event = {
 			check_variable = { which = "lifestyle_scholar" value = 9.9 }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200002"
 		add_trait = scholar
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_scholar_no
-	}	
+	}
 }
 
 #Mystic
@@ -375,23 +375,23 @@ character_event = {
 			trait = incapable
 		}
 		intrigue = 5
-		NOT = { 
+		NOT = {
 			trait = honest
 			trait = trusting
-		}		
+		}
 		OR = {
 			trait = paranoid
 			trait = deceitful
 			check_variable = { which = "lifestyle_mystic" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -403,11 +403,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = deceitful
-		}			
+		}
 		modifier = {
 			factor = 1.5
 			trait = paranoid
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			intrigue = 10
@@ -415,7 +415,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			intrigue = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			intrigue = 20
@@ -427,7 +427,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_mystic" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_mystic" value = 1.9 }
@@ -439,7 +439,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_mystic" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_mystic" value = 4.9 }
@@ -451,7 +451,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_mystic" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_mystic" value = 7.9 }
@@ -465,16 +465,16 @@ character_event = {
 			check_variable = { which = "lifestyle_mystic" value = 9.9 }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200003"
 		add_trait = mystic
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_mystic_no
-	}	
+	}
 }
 
 #Impaler
@@ -482,7 +482,7 @@ character_event = {
 	id = 200004
 	desc = "EVTDESC200004"
 	picture = "GFX_evt_pale_rider"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -496,23 +496,23 @@ character_event = {
 			trait = incapable
 		}
 		intrigue = 5
-		NOT = { 
+		NOT = {
 			trait = kind
 			trait = charitable
-		}		
+		}
 		OR = {
 			trait = cruel
 			trait = wroth
 			check_variable = { which = "lifestyle_impaler" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -524,11 +524,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = cruel
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = wroth
-		}					
+		}
 		modifier = {
 			factor = 1.5
 			intrigue = 10
@@ -536,7 +536,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			intrigue = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			intrigue = 20
@@ -544,7 +544,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_impaler" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_impaler" value = 1.9 }
@@ -556,7 +556,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_impaler" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_impaler" value = 4.9 }
@@ -568,7 +568,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_impaler" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_impaler" value = 7.9 }
@@ -589,9 +589,9 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_impaler_no
-	}		
+	}
 }
 
 #Gardener
@@ -599,7 +599,7 @@ character_event = {
 	id = 200005
 	desc = "EVTDESC200005"
 	picture = "GFX_evt_garden"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -613,10 +613,10 @@ character_event = {
 			trait = incapable
 		}
 		stewardship = 5
-		NOT = { 
+		NOT = {
 			trait = greedy
 			trait = wroth
-		}		
+		}
 		OR = {
 			trait = temperate
 			trait = patient
@@ -624,13 +624,13 @@ character_event = {
 			check_variable = { which = "lifestyle_gardener" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -642,11 +642,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = patient
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = temperate
-		}					
+		}
 		modifier = {
 			factor = 1.5
 			stewardship = 10
@@ -654,7 +654,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			stewardship = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			stewardship = 20
@@ -662,7 +662,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_gardener" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_gardener" value = 1.9 }
@@ -674,7 +674,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_gardener" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_gardener" value = 4.9 }
@@ -686,7 +686,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_gardener" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_gardener" value = 7.9 }
@@ -700,16 +700,16 @@ character_event = {
 			check_variable = { which = "lifestyle_gardener" value = 9.9 }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200005"
 		add_trait = gardener
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_gardener_no
-	}		
+	}
 }
 
 #Poet
@@ -717,7 +717,7 @@ character_event = {
 	id = 200006
 	desc = "EVTDESC200006"
 	picture = "GFX_evt_library"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -731,11 +731,11 @@ character_event = {
 			trait = incapable
 		}
 		diplomacy = 5
-		NOT = { 
+		NOT = {
 			trait = cruel
 			trait = greedy
 			trait = shy
-		}		
+		}
 		OR = {
 			trait = kind
 			trait = charitable
@@ -743,13 +743,13 @@ character_event = {
 			check_variable = { which = "lifestyle_poet" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -761,15 +761,15 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = kind
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = charitable
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = gregarious
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			diplomacy = 10
@@ -777,7 +777,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			diplomacy = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			diplomacy = 20
@@ -785,11 +785,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			always = yes #for lifestyles you can't get points in yet
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_poet" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_poet" value = 1.9 }
@@ -801,7 +801,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_poet" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_poet" value = 4.9 }
@@ -813,7 +813,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_poet" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_poet" value = 7.9 }
@@ -827,16 +827,16 @@ character_event = {
 			check_variable = { which = "lifestyle_poet" value = 9.9 }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200006"
 		add_trait = poet
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_poet_no
-	}	
+	}
 }
 
 #Celibate
@@ -844,7 +844,7 @@ character_event = {
 	id = 200007
 	desc = "EVTDESC200007"
 	picture = "GFX_evt_heretic"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -860,7 +860,7 @@ character_event = {
 		trait = chaste
 		OR = {
 			trait = temperate
-			trait = shy		
+			trait = shy
 			check_variable = { which = "lifestyle_celibate" value = 0.9 }
 		}
 		NOT = {
@@ -868,13 +868,13 @@ character_event = {
 			trait = gluttonous
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -882,7 +882,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = temperate
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = shy
@@ -890,7 +890,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 1.9 }
@@ -902,7 +902,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 4.9 }
@@ -914,7 +914,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 7.9 }
@@ -927,17 +927,17 @@ character_event = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_celibate" value = 9.9 }
 		}
-	}	
-	
+	}
+
 	option = {
 		name = "EVTOPTA200007"
 		add_trait = celibate
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_celibate_no
-	}	
+	}
 }
 
 #Hedonist
@@ -945,7 +945,7 @@ character_event = {
 	id = 200008
 	desc = "EVTDESC200008"
 	picture = "GFX_evt_brothel"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -969,13 +969,13 @@ character_event = {
 			trait = chaste
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -983,7 +983,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = drunkard
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = gluttonous
@@ -991,7 +991,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 1.9 }
@@ -1003,7 +1003,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 4.9 }
@@ -1015,7 +1015,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 7.9 }
@@ -1028,17 +1028,17 @@ character_event = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_hedonist" value = 9.9 }
 		}
-	}	
-	
+	}
+
 	option = {
 		name = "EVTOPTA200008"
 		add_trait = hedonist
-	}	
+	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_hedonist_no
-	}	
+	}
 }
 
 #Duelist
@@ -1046,7 +1046,7 @@ character_event = {
 	id = 200009
 	desc = "EVTDESC200009"
 	picture = "GFX_evt_joust"
-	
+
 	is_triggered_only = yes
 	min_age = 25
 	prisoner = no
@@ -1061,12 +1061,12 @@ character_event = {
 			trait = incapable
 		}
 		martial = 5
-		NOT = { 
+		NOT = {
 			trait = content
 			trait = kind
 			trait = craven
 			trait = weak
-		}		
+		}
 		OR = {
 			trait = wroth
 			trait = brave
@@ -1075,13 +1075,13 @@ character_event = {
 			check_variable = { which = "lifestyle_duelist" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -1093,15 +1093,15 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = wroth
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = brave
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = strong
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			martial = 10
@@ -1109,7 +1109,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			martial = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			martial = 20
@@ -1117,11 +1117,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			always = yes #for lifestyles you can't get points in yet
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 1.9 }
@@ -1133,7 +1133,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 4.9 }
@@ -1145,7 +1145,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 7.9 }
@@ -1158,7 +1158,7 @@ character_event = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_duelist" value = 9.9 }
 		}
-	}	
+	}
 
 	option = {
 		name = "EVTOPTA200009"
@@ -1166,9 +1166,9 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_duelist_no
-	}	
+	}
 }
 
 #Faqih
@@ -1190,24 +1190,24 @@ character_event = {
 			trait = incapable
 		}
 		learning = 5
-		NOT = { 
+		NOT = {
 			trait = cynical
 			trait = slothful
 			trait = hafiz
-		}		
+		}
 		OR = {
 			trait = just
 			trait = zealous
 			check_variable = { which = "lifestyle_faqih" value = 0.9 }
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lifestyle_pick
 	}
-	
+
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 		modifier = {
 			factor = 2.0
 			has_ambition = obj_adopt_a_lifestyle
@@ -1219,11 +1219,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = just
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = zealous
-		}					
+		}
 		modifier = {
 			factor = 1.5
 			learning = 10
@@ -1231,7 +1231,7 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			learning = 15
-		}		
+		}
 		modifier = {
 			factor = 1.5
 			learning = 20
@@ -1239,11 +1239,11 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			always = yes #for lifestyles you can't get points in yet
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_faqih" value = 0.9 }
-		}		
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_faqih" value = 1.9 }
@@ -1255,7 +1255,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_faqih" value = 3.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_faqih" value = 4.9 }
@@ -1267,7 +1267,7 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_faqih" value = 6.9 }
-		}	
+		}
 		modifier = {
 			factor = 2.0
 			check_variable = { which = "lifestyle_faqih" value = 7.9 }
@@ -1281,14 +1281,14 @@ character_event = {
 			check_variable = { which = "lifestyle_faqih" value = 9.9 }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA200010"
 		add_trait = faqih
 	}
 	option = {
 		name = "EVTOPTB200000"
-		clr_character_flag = lifestyle_pick		
+		clr_character_flag = lifestyle_pick
 		set_character_flag = lifestyle_faqih_no
-	}	
+	}
 }

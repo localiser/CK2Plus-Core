@@ -3,7 +3,7 @@ character_event = {
 	id = 1600000
 	desc = "EVTDESC1600000"
 	picture = "GFX_evt_kraken"
-	
+
 	trigger = {
 		always = no
 		is_ruler = yes
@@ -19,21 +19,21 @@ character_event = {
 				character = ROOT
 			}
 			NOT = {
-				any_liege = { 
-					ai = no 
+				any_liege = {
+					ai = no
 					NOT = { character = ROOT }
 				}
 			}
 			OR = {
 				ROOT = { ai = no }
 				NOT = { any_liege = { ai = no } }
-			}	
+			}
 			in_command = yes
 			location = {
 				NOT = {
 					county = { has_holder = yes }
 				}
-			}	
+			}
 		}
 		OR = {
 			NOT = { has_character_flag = recent_storm }
@@ -42,12 +42,12 @@ character_event = {
 				days = 30
 			}
 		}
-	}	
-	
+	}
+
 	mean_time_to_happen = {
 		months = 36
 	}
-	
+
 	immediate = {
 		set_character_flag = recent_storm
 		hidden_tooltip = {
@@ -55,7 +55,7 @@ character_event = {
 				33 = { }
 				33 = { set_global_flag = two_victims }
 				33 = { set_global_flag = three_victims }
-			}		
+			}
 			random_realm_character = {
 				limit = {
 					OR = {
@@ -69,13 +69,13 @@ character_event = {
 					OR = {
 						ROOT = { ai = no }
 						NOT = { any_liege = { ai = no } }
-					}				
+					}
 					in_command = yes
 					location = {
 						NOT = {
 							county = { has_holder = yes }
 						}
-					}			
+					}
 				}
 				location = {
 					ROOT = {
@@ -87,13 +87,13 @@ character_event = {
 								}
 							}
 							troops = -0.33
-						}				
+						}
 						any_realm_character = {
 							limit = {
 								OR = {
 									is_ruler = no
 									tier = baron
-								}							
+								}
 								ai = yes
 								any_liege = {
 									character = ROOT
@@ -101,7 +101,7 @@ character_event = {
 								OR = {
 									ROOT = { ai = no }
 									NOT = { any_liege = { ai = no } }
-								}							
+								}
 								in_command = yes
 								location = {
 									province_id = PREVPREVPREV
@@ -110,7 +110,7 @@ character_event = {
 							troops = -0.33
 							set_character_flag = possible_storm_victim
 						}
-					}				
+					}
 				}
 				troops = -0.33
 				set_character_flag = storm_victim
@@ -126,7 +126,7 @@ character_event = {
 					limit = {
 						has_character_flag = possible_storm_victim
 						NOT = { has_character_flag = storm_victim }
-					}	
+					}
 					set_character_flag = storm_victim
 				}
 			}
@@ -136,26 +136,26 @@ character_event = {
 				}
 				random_realm_character = {
 					limit = {
-						has_character_flag = possible_storm_victim	
+						has_character_flag = possible_storm_victim
 						NOT = { has_character_flag = storm_victim }
-					}	
+					}
 					set_character_flag = storm_victim
 				}
 			}
 			any_realm_character = {
 				limit = { has_character_flag = possible_storm_victim }
 				clr_character_flag = possible_storm_victim
-			}			
+			}
 			clr_global_flag = two_victims
 			clr_global_flag = three_victims
 		}
 	}
 
 	option = {
-		name = "EVTOPTA1600000"	
+		name = "EVTOPTA1600000"
 		any_realm_character = {
 			limit = {
-				has_character_flag = storm_victim			
+				has_character_flag = storm_victim
 			}
 			location = {
 				custom_tooltip = { text = CUSTOMTOOLTIP6 }

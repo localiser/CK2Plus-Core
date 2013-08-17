@@ -14,14 +14,14 @@ character_event = {
 	id = 76000
 	desc = "EVTDESC76000"
 	picture = GFX_evt_lovers
-	
+
 	max_age = 25
 	only_men = yes
 	only_rulers = yes
 	capable_only = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_marriage_adult = yes
 		is_married = no
@@ -42,10 +42,10 @@ character_event = {
 			has_lover = yes
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
-		
+
 		modifier = {
 			factor = 2
 			trait = lustful
@@ -54,13 +54,13 @@ character_event = {
 			factor = 2
 			trait = gregarious
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			trait = shy
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA76000"
 		piety = -10
@@ -72,7 +72,7 @@ character_event = {
 			}
 			random = {
 				chance = 50
-				
+
 				add_trait = lustful
 				hidden_tooltip = {
 					character_event = {
@@ -106,12 +106,12 @@ character_event = {
 	id = 76005
 	desc = "EVTDESC76005"
 	picture = GFX_evt_pregnancy
-	
+
 	only_rulers = yes
 	capable_only = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		any_child = {
 			is_female = yes
@@ -134,17 +134,17 @@ character_event = {
 			has_job_title = job_spymaster
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76005"
 		treasury = -25
 		random = {
 			chance = 10
-			
+
 			add_trait = kinslayer
 			hidden_tooltip = {
 				character_event = {
@@ -223,7 +223,7 @@ character_event = {
 		}
 		random = {
 			chance = 25
-			
+
 			add_trait = cruel
 			hidden_tooltip = {
 				character_event = {
@@ -233,21 +233,21 @@ character_event = {
 		}
 	}
 }
- 
+
 #Spymaster advice you
 character_event = {
 	id = 76006
 	desc = "EVTDESC76006"
 	picture = GFX_evt_council
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76006"
 		scaled_wealth = -0.33
 		random = {
 			chance = 10
-			
+
 			add_trait = kinslayer
 			hidden_tooltip = {
 				character_event = {
@@ -262,7 +262,7 @@ character_event = {
 		piety = -10
 		random = {
 			chance = 33
-			
+
 			add_trait = arbitrary
 			hidden_tooltip = {
 				character_event = {
@@ -287,16 +287,16 @@ character_event = {
 	id = 76007
 	desc = "EVTDESC76007"
 	picture = GFX_evt_spymaster
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76007"
 		prestige = 50
 		add_trait = proud
 		random = {
 			chance = 15
-			
+
 			FROM = {
 				character_event = {
 					id = 76008
@@ -351,9 +351,9 @@ character_event = {
 	id = 76008
 	desc = "EVTDESC76008"
 	picture = GFX_evt_spymaster
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76008"
 		add_trait = deceitful
@@ -400,9 +400,9 @@ character_event = {
 	id = 76009
 	desc = "EVTDESC76009"
 	picture = GFX_evt_spymaster
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76009"
 		prestige = -5
@@ -414,12 +414,12 @@ character_event = {
 	id = 76010
 	desc = "EVTDESC76010"
 	picture = GFX_evt_beheading
-	
+
 	only_rulers = yes
 	capable_only = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		OR = {
 			trait = paranoid
@@ -430,7 +430,7 @@ character_event = {
 			trait = possessed
 			trait = impaler
 			trait = cruel
-		}	
+		}
 		job_spymaster = {
 			NOT = {
 				trait = bastard
@@ -444,16 +444,16 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76010"
 		ai_chance = {
 			factor = 1
-			
+
 			modifier = {
 				factor = 100
 				num_of_children = 5
@@ -474,7 +474,7 @@ character_event = {
 			set_character_flag = ruler_wants_me_dead
 			random = {
 				chance = 15
-				
+
 				clr_character_flag = ruler_wants_me_dead
 				death = {
 					death_reason = death_execution
@@ -493,9 +493,9 @@ character_event = {
 	id = 76015
 	desc = "EVTDESC76015"
 	picture = GFX_evt_guardian
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		war = no
 		in_command = no
@@ -507,11 +507,11 @@ character_event = {
 			is_abroad = no
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76015"
 		random_child = {
@@ -529,7 +529,7 @@ character_event = {
 			}
 			random = {
 				chance = 33
-				
+
 				add_trait = wroth
 				hidden_tooltip = {
 					character_event = {
@@ -551,7 +551,7 @@ character_event = {
 			}
 			random = {
 				chance = 33
-				
+
 				add_trait = stressed
 				hidden_tooltip = {
 					character_event = {
@@ -582,9 +582,9 @@ character_event = {
 	id = 76020
 	desc = "EVTDESC76020"
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_marriage_adult = yes
 		trait = bastard
@@ -622,18 +622,18 @@ character_event = {
 			at_location = ROOT
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76020"
 		father = {
 			set_character_flag = legitimise_bastard_son
 			character_event = {
 				id = 76021
-				tooltip = "EVTTOOLTIP76021"				
+				tooltip = "EVTTOOLTIP76021"
 			}
 		}
 	}
@@ -649,7 +649,7 @@ character_event = {
 	id = 76021
 	desc = "EVTDESC76021"
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
 
 	option = {
@@ -668,7 +668,7 @@ character_event = {
 			}
 			random = {
 				chance = 33
-				
+
 				add_trait = wroth
 				hidden_tooltip = {
 					character_event = {
@@ -699,9 +699,9 @@ character_event = {
 	id = 76022
 	desc = "EVTDESC76022"
 	picture = GFX_evt_emissary
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76022"
 		trigger = {
@@ -733,10 +733,10 @@ character_event = {
 	id = 76025
 	desc = "EVTDESC76025"
 	picture = GFX_evt_birth
-	
+
 	only_women = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_marriage_adult = yes
 		NOT = {
@@ -759,11 +759,11 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76025"
 		set_character_flag = raising_bastard
@@ -786,9 +786,9 @@ character_event = {
 	id = 76026
 	desc = "EVTDESC76026"
 	picture = GFX_evt_birth
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76026"
 		prestige = -20
@@ -871,9 +871,9 @@ character_event = {
 	id = 76027
 	desc = "EVTDESC76027"
 	picture = GFX_evt_birth
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76027"
 		piety = 10
@@ -900,9 +900,9 @@ character_event = {
 	id = 76028
 	desc = "EVTDESC76028"
 	picture = GFX_evt_birth
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76028"
 		piety = 10
@@ -929,9 +929,9 @@ character_event = {
 	id = 76030
 	desc = "EVTDESC76030"
 	picture = GFX_evt_child_sword
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		trait = bastard
 		NOT = {
@@ -945,11 +945,11 @@ character_event = {
 			martial = 6
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76030"
 		add_trait = ambitious
@@ -961,11 +961,11 @@ character_event = {
 	id = 76035
 	desc = "EVTDESC76035"
 	picture = GFX_evt_child_bully
-	
+
 	min_age = 6
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_marriage_adult = no
 		trait = bastard
@@ -983,11 +983,11 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76035"
 		any_courtier = {
@@ -1005,7 +1005,7 @@ character_event = {
 		}
 		random = {
 			chance = 30
-			
+
 			add_trait = wroth
 			hidden_tooltip = {
 				character_event = {
@@ -1015,7 +1015,7 @@ character_event = {
 		}
 		random = {
 			chance = 10
-			
+
 			change_martial = 1
 		}
 	}
@@ -1077,7 +1077,7 @@ character_event = {
 						who = ROOT
 						years = 2
 					}
-				}	
+				}
 			}
 		}
 	}
@@ -1119,11 +1119,11 @@ character_event = {
 	id = 76040
 	desc = "EVTDESC76040"
 	picture = GFX_evt_guardian
-	
+
 	min_age = 11
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		trait = bastard
 		has_guardian = yes
@@ -1131,11 +1131,11 @@ character_event = {
 			has_character_flag = asked_about_bastard
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA76040"
 		set_character_flag = asked_about_bastard
@@ -1153,9 +1153,9 @@ character_event = {
 	id = 76041
 	desc = "EVTDESC76041"
 	picture = GFX_evt_guardian
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA76041"
 		trigger = {

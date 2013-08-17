@@ -12,12 +12,12 @@ character_event = {
 	desc = "EVTDESC8300"
 	picture = "GFX_evt_crusaders"
 	border = GFX_event_normal_frame_war
-	
+
 	#only_men = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		has_called_crusade = yes
 		OR = {
@@ -41,13 +41,13 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA8300"
 		add_trait = crusader
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_religious" value = 1 }	
+			change_variable = { which = "faction_mood_religious" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 	}
@@ -59,12 +59,12 @@ character_event = {
 	desc = "EVTDESC8300"
 	picture = "GFX_evt_moors"
 	border = GFX_event_normal_frame_war
-	
+
 	only_men = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		has_called_crusade = yes
 		OR = {
@@ -87,11 +87,11 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA8301"
 		add_trait = mujahid
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
@@ -110,7 +110,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		has_called_crusade = yes
 		OR = {
@@ -133,13 +133,13 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+
 	immediate = {
 		hidden_tooltip = {
 			set_character_flag = arrived_at_crusade_target
 		}
 	}
-	
+
 	option = {
 		name = "EXCELLENT"
 		prestige = 25
@@ -158,12 +158,12 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
-		
+
 		OR = {
 			any_independent_ruler = {
 				ai = yes
@@ -186,11 +186,11 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA8306"
 		any_independent_ruler = {
@@ -236,14 +236,14 @@ character_event = {
 	desc = "EVTDESC8310"
 	picture = "GFX_evt_knight_kneeling"
 	border = GFX_event_normal_frame_religion
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		religion = catholic
 		NOT = { trait = zealous }
 		NOT = { trait = cynical }
-		
+
 		has_called_crusade = yes
 		OR = {
 			any_war = {
@@ -276,12 +276,12 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-	
+
 	trigger = {
 		religion = catholic
 		NOT = { trait = cynical }
 		NOT = { trait = zealous }
-		
+
 		has_called_crusade = yes
 		OR = {
 			any_war = {
@@ -297,7 +297,7 @@ character_event = {
 			is_located_in = ROOT
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8320"
 		add_trait = cynical
@@ -313,13 +313,13 @@ character_event = {
 	desc = "EVTDESC8330"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		FROM = { is_capital = yes }
 		religion = catholic
-		
+
 		has_called_crusade = yes
 		OR = {
 			any_war = {
@@ -335,7 +335,7 @@ character_event = {
 			de_jure_vassal_or_below = FROM
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8330"
 		prestige = 100
@@ -413,9 +413,9 @@ character_event = {
 letter_event = {
 	id = 8331
 	desc = "EVTDESC8331"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EXCELLENT"
 		if = {
@@ -436,9 +436,9 @@ character_event = {
 	desc = "EVTDESC8340"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-		
+
 	trigger = {
 		religion = catholic
 		FROM = { title = b_jerusalem }
@@ -454,13 +454,13 @@ character_event = {
 		}
 		NOT = { has_global_flag = found_the_holy_lance }
 	}
-	
+
 	immediate = {
 		hidden_tooltip = {
 			set_global_flag = found_the_holy_lance
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8340"
 		prestige = 100
@@ -476,9 +476,9 @@ character_event = {
 	desc = "EVTDESC8342"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-		
+
 	trigger = {
 		religion = catholic
 		FROM = { title = b_syrcaesarea }
@@ -494,13 +494,13 @@ character_event = {
 		}
 		NOT = { has_global_flag = found_the_holy_grail }
 	}
-	
+
 	immediate = {
 		hidden_tooltip = {
 			set_global_flag = found_the_holy_grail
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8342"
 		prestige = 200
@@ -516,9 +516,9 @@ character_event = {
 	desc = "EVTDESC8345"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-		
+
 	trigger = {
 		religion = catholic
 		FROM = { title = b_jerusalem }
@@ -533,7 +533,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8345"
 		prestige = 50
@@ -549,9 +549,9 @@ character_event = {
 	desc = "EVTDESC8350"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		FROM = { is_capital = yes }
 		religion = catholic
@@ -569,7 +569,7 @@ character_event = {
 			de_jure_vassal_or_below = FROM
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8350"
 		prestige = -50
@@ -646,9 +646,9 @@ character_event = {
 letter_event = {
 	id = 8351
 	desc = "EVTDESC8351"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8351"
 		prestige = -25
@@ -669,13 +669,13 @@ character_event = {
 	desc = "EVTDESC8400"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
 		had_global_flag = { flag = crusade_called days = 180 }
-		
+
 		any_independent_ruler = {
 			religion = catholic
 			NOT = {
@@ -714,23 +714,23 @@ character_event = {
 				any_realm_province = {
 					any_neighbor_province = {
 						has_owner = yes
-						NOT = { religion_group = christian } 
+						NOT = { religion_group = christian }
 					}
 				}
 			}
 			NOT = { mercenary = yes }
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 6
-		
+
 		modifier = {
 			factor = 0.5
 			trait = zealous
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8400"
 		random_independent_ruler = {
@@ -772,14 +772,14 @@ character_event = {
 					any_realm_province = {
 						any_neighbor_province = {
 							has_owner = yes
-							NOT = { religion_group = christian } 
+							NOT = { religion_group = christian }
 						}
 					}
 				}
 				NOT = { mercenary = yes }
 			}
 			letter_event = { id = 8405 days = 1 }
-		}		
+		}
 	}
 }
 
@@ -787,9 +787,9 @@ character_event = {
 letter_event = {
 	id = 8405
 	desc = "EVTDESC8405"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8405"
 		trigger = { primary_title = { tier = EMPEROR } }
@@ -846,13 +846,13 @@ character_event = {
 	desc = "EVTDESC8410"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
 		had_global_flag = { flag = crusade_called days = 180 }
-		
+
 		any_independent_ruler = {
 			had_character_flag = { flag = reminded_about_crusade days = 30 }
 			religion = catholic
@@ -872,16 +872,16 @@ character_event = {
 			NOT = { excommunicated_for = ROOT }
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 6
-		
+
 		modifier = {
 			factor = 0.5
 			trait = zealous
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8410"
 		random_independent_ruler = {
@@ -905,7 +905,7 @@ character_event = {
 			}
 			clr_character_flag = reminded_about_crusade
 			letter_event = { id = 8415 days = 1 }
-		}		
+		}
 	}
 }
 
@@ -913,9 +913,9 @@ character_event = {
 letter_event = {
 	id = 8415
 	desc = "EVTDESC8415"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8415"
 		trigger = { primary_title = { tier = EMPEROR } }
@@ -976,7 +976,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		has_called_crusade = yes
 		had_global_flag = { flag = crusade_called days = 180 }
@@ -986,7 +986,7 @@ character_event = {
 		independent = no
 		religion = catholic
 		controls_religion = no
-		
+
 		liege = {
 			independent = yes
 			religion = catholic
@@ -1020,16 +1020,16 @@ character_event = {
 				any_realm_province = {
 					any_neighbor_province = {
 						has_owner = yes
-						NOT = { religion_group = christian } 
+						NOT = { religion_group = christian }
 					}
 				}
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 120
-		
+
 		modifier = {
 			factor = 0.90
 			trait = detached_priest
@@ -1079,12 +1079,12 @@ character_event = {
 			trait = cynical
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8420"
 		ai_chance = { factor = 100 }
 		set_character_flag = bishop_complains_about_not_crusading
-		liege = { letter_event = { id = 8425 days = 1 } }		
+		liege = { letter_event = { id = 8425 days = 1 } }
 	}
 	option = {
 		name = "EVTOPTB8420"
@@ -1096,9 +1096,9 @@ character_event = {
 letter_event = {
 	id = 8425
 	desc = "EVTDESC8425"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8425"
 		FROM = {
@@ -1122,7 +1122,7 @@ character_event = {
 	desc = "EVTDESC8430"
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		has_character_flag = bishop_complains_about_not_crusading
 		had_character_flag = { flag = reminded_about_crusade days = 30 }
@@ -1147,16 +1147,16 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 3
 	}
-	
+
 	option = {
 		name = "EVTOPTA8430"
 		clr_character_flag = bishop_complains_about_not_crusading
 		clr_character_flag = reminded_about_crusade
-		liege = { letter_event = { id = 8435 days = 1 } }		
+		liege = { letter_event = { id = 8435 days = 1 } }
 	}
 }
 
@@ -1164,9 +1164,9 @@ character_event = {
 letter_event = {
 	id = 8435
 	desc = "EVTDESC8435"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8435"
 		FROM = {
@@ -1192,7 +1192,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		has_called_crusade = yes
 		had_global_flag = { flag = crusade_called days = 180 }
@@ -1200,7 +1200,7 @@ character_event = {
 		independent = no
 		religion = catholic
 		controls_religion = no
-		
+
 		liege = {
 			independent = yes
 			religion = catholic
@@ -1234,7 +1234,7 @@ character_event = {
 				any_realm_province = {
 					any_neighbor_province = {
 						has_owner = yes
-						NOT = { religion_group = christian } 
+						NOT = { religion_group = christian }
 					}
 				}
 			}
@@ -1243,7 +1243,7 @@ character_event = {
 
 	mean_time_to_happen = {
 		months = 120
-		
+
 		modifier = {
 			factor = 0.90
 			trait = misguided_warrior
@@ -1289,16 +1289,16 @@ character_event = {
 			trait = craven
 		}
 		modifier = {
-			factor = 1.25 
+			factor = 1.25
 			trait = cynical
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA8440"
 		ai_chance = { factor = 100 }
 		set_character_flag = vassal_complains_about_not_crusading
-		liege = { letter_event = { id = 8445 days = 1 } }		
+		liege = { letter_event = { id = 8445 days = 1 } }
 	}
 	option = {
 		name = "EVTOPTB8440"
@@ -1310,9 +1310,9 @@ character_event = {
 letter_event = {
 	id = 8445
 	desc = "EVTDESC8445"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8445"
 		FROM = {
@@ -1335,7 +1335,7 @@ character_event = {
 	id = 8450
 	desc = "EVTDESC8450"
 	picture = GFX_evt_emissary
-	
+
 	trigger = {
 		has_character_flag = vassal_complains_about_not_crusading
 		had_character_flag = { flag = reminded_about_crusade days = 30 }
@@ -1360,16 +1360,16 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 3
 	}
-	
+
 	option = {
 		name = "EVTOPTA8450"
 		clr_character_flag = vassal_complains_about_not_crusading
 		clr_character_flag = reminded_about_crusade
-		liege = { letter_event = { id = 8455 days = 1 } }		
+		liege = { letter_event = { id = 8455 days = 1 } }
 	}
 }
 
@@ -1377,9 +1377,9 @@ character_event = {
 letter_event = {
 	id = 8455
 	desc = "EVTDESC8455"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8455"
 		FROM = {
@@ -1406,12 +1406,12 @@ character_event = {
 	desc = "EVTDESC8460"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
-		
+
 		OR = {
 			any_independent_ruler = {
 				ai = no	# Only for players
@@ -1433,7 +1433,7 @@ character_event = {
 					any_realm_province = {
 						any_neighbor_province = {
 							has_owner = yes
-							NOT = { religion = catholic } 
+							NOT = { religion = catholic }
 						}
 					}
 				}
@@ -1460,7 +1460,7 @@ character_event = {
 						any_realm_province = {
 							any_neighbor_province = {
 								has_owner = yes
-								NOT = { religion_group = christian } 
+								NOT = { religion_group = christian }
 							}
 						}
 					}
@@ -1468,11 +1468,11 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 3
 	}
-	
+
 	option = {
 		name = "EVTOPTA8460"
 		any_independent_ruler = {
@@ -1496,7 +1496,7 @@ character_event = {
 					any_realm_province = {
 						any_neighbor_province = {
 							has_owner = yes
-							NOT = { religion_group = christian } 
+							NOT = { religion_group = christian }
 						}
 					}
 				}
@@ -1529,7 +1529,7 @@ character_event = {
 						any_realm_province = {
 							any_neighbor_province = {
 								has_owner = yes
-								NOT = { religion_group = christian } 
+								NOT = { religion_group = christian }
 							}
 						}
 					}
@@ -1545,9 +1545,9 @@ character_event = {
 letter_event = {
 	id = 8465
 	desc = "EVTDESC8465"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA8465"
 		ai_chance = { factor = 100 }
@@ -1564,12 +1564,12 @@ character_event = {
 	desc = "EVTDESC8466"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-	
+
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
-		
+
 		OR = {
 			any_independent_ruler = {
 				ai = no
@@ -1606,11 +1606,11 @@ character_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+
 	option = {
 		name = "EVTOPTA8466"
 		any_independent_ruler = {
@@ -1661,9 +1661,9 @@ character_event = {
 letter_event = {
 	id = 8467
 	desc = "EVTDESC8467"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EXCELLENT"
 		excommunicate = no
@@ -1676,9 +1676,9 @@ character_event = {
 	id = 1008900
 	picture = "GFX_evt_crusaders"
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC1008900"
-	
+
 	# A younger son
 	option = {
 		name = "EVTOPTA1008900"
@@ -1689,7 +1689,7 @@ character_event = {
 			OR = {
 				ai = no
 				NOT = { religion_group = muslim }
-			}		
+			}
 			any_child = {
 				age = 16
 				OR = {
@@ -1698,13 +1698,13 @@ character_event = {
 				}
 				NOT = { trait = incapable }
 				piety = 0
-				NOT = { spouse = { is_ruler = yes } }				
+				NOT = { spouse = { is_ruler = yes } }
 				is_ruler = no
 				is_female = no
 				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
-			}	
+			}
 		}
 		prestige = 500
 		random_child = {
@@ -1719,10 +1719,10 @@ character_event = {
 				NOT = { spouse = { is_ruler = yes } }
 				is_ruler = no
 				is_female = no
-				is_primary_heir = no	
+				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
-			}		
+			}
 			tooltip = {
 				character_event = { id = 1008900 tooltip = CUSTOMTOOLTIP3 }
 			}
@@ -1746,7 +1746,7 @@ character_event = {
 						religion = sunni
 					}
 					add_trait = mujahid
-				}			
+				}
 				ROOT = {
 					random_demesne_title = {
 						limit = {
@@ -1762,7 +1762,7 @@ character_event = {
 								ROOT = { religion = catholic }
 								e_latin_empire = { has_holder = no }
 							}
-							e_latin_empire = { 
+							e_latin_empire = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -1778,23 +1778,23 @@ character_event = {
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
+								}
+							}
 						}
 						if = {
 							limit = {
@@ -1802,7 +1802,7 @@ character_event = {
 								ROOT = { religion_group = muslim }
 								k_rum = { has_holder = no }
 							}
-							k_rum = { 
+							k_rum = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -1818,25 +1818,25 @@ character_event = {
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}														
-							}							
-						}						
-						kingdom = { 
+								}
+							}
+						}
+						kingdom = {
 							destroy_landed_title = yes
 							revoke_law = investiture_law_0
 							revoke_law = investiture_law_1
@@ -1846,30 +1846,30 @@ character_event = {
 							add_law = tax_privileges_1
 							add_law = levy_privileges_1
 							add_law = council_privileges_0
-							gain_title = PREVPREVPREV								
+							gain_title = PREVPREVPREV
 							if = {
 								limit = {
 									ROOT = { religion_group = muslim }
 								}
 								add_law = iqta_tax_0
 								add_law = succ_turkish_succession
-								add_law = agnatic_succession									
-							}							
+								add_law = agnatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { NOT = { religion_group = muslim } }
 								}
 								add_law = feudal_tax_0
 								add_law = succ_primogeniture
-								add_law = cognatic_succession										
-							}								
+								add_law = cognatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { religion = catholic }
 								}
 								add_law = investiture_law_0
-							}										
-						}						
+							}
+						}
 					}
 					any_demesne_title = {
 						limit = {
@@ -1881,7 +1881,7 @@ character_event = {
 						}
 						gain_title = PREVPREV
 					}
-				}	
+				}
 				treasury = 500
 				prestige = 500
 				piety = 100
@@ -1889,11 +1889,11 @@ character_event = {
 				hidden_tooltip = { character_event = { id = 1008902 } }
 				clr_character_flag = centralize_without_penalties
 				set_defacto_liege = THIS
-			}			
+			}
 		}
 		any_demesne_title = {
 			location = { clr_province_flag = previous_holding }
-		}		
+		}
 	}
 	# A landless brother
 	option = {
@@ -1922,7 +1922,7 @@ character_event = {
 				is_alive = yes
 			}
 		}
-		prestige = 500		
+		prestige = 500
 		random_sibling = {
 			limit = {
 				age = 16
@@ -1935,10 +1935,10 @@ character_event = {
 				NOT = { spouse = { is_ruler = yes } }
 				is_ruler = no
 				is_female = no
-				is_primary_heir = no	
+				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
-			}		
+			}
 			tooltip = {
 				character_event = { id = 1008900 tooltip = CUSTOMTOOLTIP3 }
 			}
@@ -1962,7 +1962,7 @@ character_event = {
 						religion = sunni
 					}
 					add_trait = mujahid
-				}			
+				}
 				ROOT = {
 					random_demesne_title = {
 						limit = {
@@ -1978,7 +1978,7 @@ character_event = {
 								ROOT = { religion = catholic }
 								e_latin_empire = { has_holder = no }
 							}
-							e_latin_empire = { 
+							e_latin_empire = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -1987,38 +1987,38 @@ character_event = {
 								add_law = tax_privileges_1
 								add_law = levy_privileges_1
 								add_law = council_privileges_0
-								gain_title = PREVPREVPREV								
+								gain_title = PREVPREVPREV
 								if = {
 									limit = {
 										ROOT = { religion_group = muslim }
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
-						}	
+								}
+							}
+						}
 						if = {
 							limit = {
 								kingdom = { title = k_nikaea }
 								ROOT = { religion_group = muslim }
 								k_rum = { has_holder = no }
 							}
-							k_rum = { 
+							k_rum = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -2027,32 +2027,32 @@ character_event = {
 								add_law = tax_privileges_1
 								add_law = levy_privileges_1
 								add_law = council_privileges_0
-								gain_title = PREVPREVPREV								
+								gain_title = PREVPREVPREV
 								if = {
 									limit = {
 										ROOT = { religion_group = muslim }
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
-						}						
-						kingdom = { 
+								}
+							}
+						}
+						kingdom = {
 							destroy_landed_title = yes
 							revoke_law = investiture_law_0
 							revoke_law = investiture_law_1
@@ -2062,30 +2062,30 @@ character_event = {
 							add_law = tax_privileges_1
 							add_law = levy_privileges_1
 							add_law = council_privileges_0
-							gain_title = PREVPREVPREV							
+							gain_title = PREVPREVPREV
 							if = {
 								limit = {
 									ROOT = { religion_group = muslim }
 								}
 								add_law = iqta_tax_0
 								add_law = succ_turkish_succession
-								add_law = agnatic_succession									
-							}							
+								add_law = agnatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { NOT = { religion_group = muslim } }
 								}
 								add_law = feudal_tax_0
 								add_law = succ_primogeniture
-								add_law = cognatic_succession										
-							}								
+								add_law = cognatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { religion = catholic }
 								}
 								add_law = investiture_law_0
-							}							
-						}						
+							}
+						}
 					}
 					any_demesne_title = {
 						limit = {
@@ -2097,31 +2097,31 @@ character_event = {
 						}
 						gain_title = PREVPREV
 					}
-				}	
+				}
 				treasury = 500
 				prestige = 500
 				piety = 100
 				add_character_modifier = { name = "holy_truce_timer" duration = 3650 }
-				character_event = { id = 1008902 } 
+				character_event = { id = 1008902 }
 				clr_character_flag = centralize_without_penalties
 				set_defacto_liege = THIS
-			}			
+			}
 		}
 		any_demesne_title = {
 			location = { clr_province_flag = previous_holding }
-		}		
+		}
 	}
 	# A distant relative
 	option = {
 		name = "EVTOPTC1008900"
 		ai_chance = {
-			factor = 10		
-		}	
+			factor = 10
+		}
 		trigger = {
 			OR = {
 				ai = no
 				NOT = { religion_group = muslim }
-			}		
+			}
 			any_realm_character = {
 				age = 16
 				dynasty = ROOT
@@ -2158,7 +2158,7 @@ character_event = {
 				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
-			}	
+			}
 			tooltip = {
 				character_event = { id = 1008900 tooltip = CUSTOMTOOLTIP3 }
 			}
@@ -2182,7 +2182,7 @@ character_event = {
 						religion = sunni
 					}
 					add_trait = mujahid
-				}			
+				}
 				ROOT = {
 					random_demesne_title = {
 						limit = {
@@ -2198,7 +2198,7 @@ character_event = {
 								ROOT = { religion = catholic }
 								e_latin_empire = { has_holder = no }
 							}
-							e_latin_empire = { 
+							e_latin_empire = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -2207,30 +2207,30 @@ character_event = {
 								add_law = tax_privileges_1
 								add_law = levy_privileges_1
 								add_law = council_privileges_0
-								gain_title = PREVPREVPREV								
+								gain_title = PREVPREVPREV
 								if = {
 									limit = {
 										ROOT = { religion_group = muslim }
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
+								}
+							}
 						}
 						if = {
 							limit = {
@@ -2238,7 +2238,7 @@ character_event = {
 								ROOT = { religion_group = muslim }
 								k_rum = { has_holder = no }
 							}
-							k_rum = { 
+							k_rum = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -2247,32 +2247,32 @@ character_event = {
 								add_law = tax_privileges_1
 								add_law = levy_privileges_1
 								add_law = council_privileges_0
-								gain_title = PREVPREVPREV								
+								gain_title = PREVPREVPREV
 								if = {
 									limit = {
 										ROOT = { religion_group = muslim }
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
-						}						
-						kingdom = { 
+								}
+							}
+						}
+						kingdom = {
 							destroy_landed_title = yes
 							revoke_law = investiture_law_0
 							revoke_law = investiture_law_1
@@ -2282,30 +2282,30 @@ character_event = {
 							add_law = tax_privileges_1
 							add_law = levy_privileges_1
 							add_law = council_privileges_0
-							gain_title = PREVPREVPREV								
+							gain_title = PREVPREVPREV
 							if = {
 								limit = {
 									ROOT = { religion_group = muslim }
 								}
 								add_law = iqta_tax_0
 								add_law = succ_turkish_succession
-								add_law = agnatic_succession									
-							}							
+								add_law = agnatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { NOT = { religion_group = muslim } }
 								}
 								add_law = feudal_tax_0
 								add_law = succ_primogeniture
-								add_law = cognatic_succession										
-							}								
+								add_law = cognatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { religion = catholic }
 								}
 								add_law = investiture_law_0
-							}												
-						}						
+							}
+						}
 					}
 					any_demesne_title = {
 						limit = {
@@ -2317,20 +2317,20 @@ character_event = {
 						}
 						gain_title = PREVPREV
 					}
-				}	
+				}
 				treasury = 500
 				prestige = 500
 				piety = 100
 				add_character_modifier = { name = "holy_truce_timer" duration = 3650 }
-				character_event = { id = 1008902 } 
+				character_event = { id = 1008902 }
 				clr_character_flag = centralize_without_penalties
 				set_defacto_liege = THIS
-			}			
+			}
 		}
 		any_demesne_title = {
 			location = { clr_province_flag = previous_holding }
-		}		
-	}	
+		}
+	}
 	# A valiant retainer
 	option = {
 		name = "EVTOPTF1008900"
@@ -2341,7 +2341,7 @@ character_event = {
 			OR = {
 				ai = no
 				NOT = { religion_group = muslim }
-			}		
+			}
 			NOT = {
 				any_realm_character = {
 					age = 16
@@ -2375,7 +2375,7 @@ character_event = {
 				attributes = {
 					martial = 10
 				}
-			}		
+			}
 			new_character = {
 				set_character_flag = centralize_without_penalties
 				fertility = 0.5
@@ -2396,7 +2396,7 @@ character_event = {
 						religion = sunni
 					}
 					add_trait = mujahid
-				}		
+				}
 				ROOT = {
 					random_demesne_title = {
 						limit = {
@@ -2412,7 +2412,7 @@ character_event = {
 								ROOT = { religion = catholic }
 								e_latin_empire = { has_holder = no }
 							}
-							e_latin_empire = { 
+							e_latin_empire = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -2421,30 +2421,30 @@ character_event = {
 								add_law = tax_privileges_1
 								add_law = levy_privileges_1
 								add_law = council_privileges_0
-								gain_title = PREVPREVPREV								
+								gain_title = PREVPREVPREV
 								if = {
 									limit = {
 										ROOT = { religion_group = muslim }
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
+								}
+							}
 						}
 						if = {
 							limit = {
@@ -2452,7 +2452,7 @@ character_event = {
 								ROOT = { religion_group = muslim }
 								k_rum = { has_holder = no }
 							}
-							k_rum = { 
+							k_rum = {
 								revoke_law = investiture_law_0
 								revoke_law = investiture_law_1
 								add_law = centralization_3
@@ -2461,32 +2461,32 @@ character_event = {
 								add_law = tax_privileges_1
 								add_law = levy_privileges_1
 								add_law = council_privileges_0
-								gain_title = PREVPREVPREV								
+								gain_title = PREVPREVPREV
 								if = {
 									limit = {
 										ROOT = { religion_group = muslim }
 									}
 									add_law = iqta_tax_0
 									add_law = succ_turkish_succession
-									add_law = agnatic_succession									
-								}							
+									add_law = agnatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { NOT = { religion_group = muslim } }
 									}
 									add_law = feudal_tax_0
 									add_law = succ_primogeniture
-									add_law = cognatic_succession										
-								}								
+									add_law = cognatic_succession
+								}
 								if = {
 									limit = {
 										ROOT = { religion = catholic }
 									}
 									add_law = investiture_law_0
-								}							
-							}							
-						}						
-						kingdom = { 
+								}
+							}
+						}
+						kingdom = {
 							destroy_landed_title = yes
 							revoke_law = investiture_law_0
 							revoke_law = investiture_law_1
@@ -2496,31 +2496,31 @@ character_event = {
 							add_law = tax_privileges_1
 							add_law = levy_privileges_1
 							add_law = council_privileges_0
-							gain_title = PREVPREVPREV							
+							gain_title = PREVPREVPREV
 							if = {
 								limit = {
 									ROOT = { religion_group = muslim }
 								}
 								add_law = iqta_tax_0
 								add_law = succ_turkish_succession
-								add_law = agnatic_succession									
-							}							
+								add_law = agnatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { NOT = { religion_group = muslim } }
 								}
 								add_law = feudal_tax_0
 								add_law = succ_primogeniture
-								add_law = cognatic_succession										
-							}								
+								add_law = cognatic_succession
+							}
 							if = {
 								limit = {
 									ROOT = { religion = catholic }
 								}
 								add_law = investiture_law_0
-							}							
-						}						
-					}				
+							}
+						}
+					}
 					any_demesne_title = {
 						limit = {
 							OR = {
@@ -2530,42 +2530,42 @@ character_event = {
 							location = { NOT = { has_province_flag = previous_holding } }
 						}
 						gain_title = PREVPREV
-					}				
+					}
 				}
 				treasury = 500
 				prestige = 500
 				piety = 100
-				add_character_modifier = { name = "holy_truce_timer" duration = 3650 }	
-				character_event = { id = 1008902 } 
+				add_character_modifier = { name = "holy_truce_timer" duration = 3650 }
+				character_event = { id = 1008902 }
 				clr_character_flag = centralize_without_penalties
 				set_defacto_liege = THIS
 			}
 		}
 		any_demesne_title = {
 			location = { clr_province_flag = previous_holding }
-		}		
+		}
 	}
 	# Myself
 	option = {
 		name = "EVTOPTD1008900"
 		ai_chance = {
 			factor = 100000
-		}		
+		}
 		trigger = {
 			OR = {
 				ai = no
 				AND = {
 					independent = no
 					lower_tier_than = king
-				}				
+				}
 				any_demesne_title = {
-					location = { 
+					location = {
 						NOT = { has_province_flag = previous_holding }
 						any_neighbor_province = {
 							has_province_flag = previous_holding
 						}
 					}
-				}	
+				}
 			}
 		}
 		if = {
@@ -2590,11 +2590,11 @@ character_event = {
 					ROOT = {
 						any_demesne_title = {
 							limit = {
-								is_titular = no		
+								is_titular = no
 								is_landless_type_title = no
 								OR = {
 									higher_tier_than = count
-									location = { 
+									location = {
 										has_province_flag = previous_holding
 									}
 								}
@@ -2604,8 +2604,8 @@ character_event = {
 					}
 					any_demesne_title = {
 						location = { clr_province_flag = previous_holding }
-					}					
-				}				
+					}
+				}
 				set_defacto_liege = ROOT
 			}
 			set_character_flag = centralize_without_penalties
@@ -2641,7 +2641,7 @@ character_event = {
 						ROOT = { religion = catholic }
 						e_latin_empire = { has_holder = no }
 					}
-					e_latin_empire = { 
+					e_latin_empire = {
 						revoke_law = investiture_law_0
 						revoke_law = investiture_law_1
 						add_law = centralization_3
@@ -2657,23 +2657,23 @@ character_event = {
 							}
 							add_law = iqta_tax_0
 							add_law = succ_turkish_succession
-							add_law = agnatic_succession									
-						}							
+							add_law = agnatic_succession
+						}
 						if = {
 							limit = {
 								ROOT = { NOT = { religion_group = muslim } }
 							}
 							add_law = feudal_tax_0
 							add_law = succ_primogeniture
-							add_law = cognatic_succession										
-						}								
+							add_law = cognatic_succession
+						}
 						if = {
 							limit = {
 								ROOT = { religion = catholic }
 							}
 							add_law = investiture_law_0
-						}							
-					}							
+						}
+					}
 				}
 				if = {
 					limit = {
@@ -2681,7 +2681,7 @@ character_event = {
 						ROOT = { religion_group = muslim }
 						k_rum = { has_holder = no }
 					}
-					k_rum = { 
+					k_rum = {
 						revoke_law = investiture_law_0
 						revoke_law = investiture_law_1
 						add_law = centralization_3
@@ -2697,25 +2697,25 @@ character_event = {
 							}
 							add_law = iqta_tax_0
 							add_law = succ_turkish_succession
-							add_law = agnatic_succession									
-						}							
+							add_law = agnatic_succession
+						}
 						if = {
 							limit = {
 								ROOT = { NOT = { religion_group = muslim } }
 							}
 							add_law = feudal_tax_0
 							add_law = succ_primogeniture
-							add_law = cognatic_succession										
-						}								
+							add_law = cognatic_succession
+						}
 						if = {
 							limit = {
 								ROOT = { religion = catholic }
 							}
 							add_law = investiture_law_0
-						}							
-					}							
-				}						
-				kingdom = { 
+						}
+					}
+				}
+				kingdom = {
 					destroy_landed_title = yes
 					revoke_law = investiture_law_0
 					revoke_law = investiture_law_1
@@ -2732,30 +2732,30 @@ character_event = {
 						}
 						add_law = iqta_tax_0
 						add_law = succ_turkish_succession
-						add_law = agnatic_succession									
-					}							
+						add_law = agnatic_succession
+					}
 					if = {
 						limit = {
 							ROOT = { NOT = { religion_group = muslim } }
 						}
 						add_law = feudal_tax_0
 						add_law = succ_primogeniture
-						add_law = cognatic_succession										
-					}								
+						add_law = cognatic_succession
+					}
 					if = {
 						limit = {
 							ROOT = { religion = catholic }
 						}
 						add_law = investiture_law_0
-					}							
+					}
 				}
 			}
 			treasury = 500
-			add_character_modifier = { name = "holy_truce_timer" duration = 3650 }	
-			character_event = { id = 1008902 } 
-			clr_character_flag = centralize_without_penalties	
-		}	
-	}	
+			add_character_modifier = { name = "holy_truce_timer" duration = 3650 }
+			character_event = { id = 1008902 }
+			clr_character_flag = centralize_without_penalties
+		}
+	}
 }
 
 # Crusade participant requests a fief for relative
@@ -2763,9 +2763,9 @@ character_event = {
 	id = 1008901
 	picture = "GFX_evt_crusaders"
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC1008901"
-	
+
 	# A younger son
 	option = {
 		name = "EVTOPTA1008901"
@@ -2778,10 +2778,10 @@ character_event = {
 			modifier = {
 				factor = 2
 				trait = proud
-			}				
+			}
 		}
 		prestige = 50
-		trigger = {		
+		trigger = {
 			any_child = {
 				age = 16
 				NOT = { trait = incapable }
@@ -2792,7 +2792,7 @@ character_event = {
 				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
-			}	
+			}
 		}
 		random_child = {
 			limit = {
@@ -2802,7 +2802,7 @@ character_event = {
 				NOT = { spouse = { is_ruler = yes } }
 				is_ruler = no
 				is_female = no
-				is_primary_heir = no	
+				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
 			}
@@ -2844,9 +2844,9 @@ character_event = {
 											}
 										}
 									}
-								}								
+								}
 							}
-							grant_title = PREVPREV								
+							grant_title = PREVPREV
 							PREV = {
 								PREV = {
 									if = {
@@ -2874,8 +2874,8 @@ character_event = {
 									}
 								}
 							}
-						}						
-					}					
+						}
+					}
 				}
 			}
 		}
@@ -2888,9 +2888,9 @@ character_event = {
 			modifier = {
 				factor = 2
 				trait = proud
-			}				
-		}		
-		trigger = {	
+			}
+		}
+		trigger = {
 			any_sibling = {
 				age = 16
 				NOT = { trait = incapable }
@@ -2901,9 +2901,9 @@ character_event = {
 				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
-			}	
+			}
 		}
-		prestige = 50		
+		prestige = 50
 		random_sibling = {
 			limit = {
 				age = 16
@@ -2912,7 +2912,7 @@ character_event = {
 				NOT = { spouse = { is_ruler = yes } }
 				is_ruler = no
 				is_female = no
-				is_primary_heir = no	
+				is_primary_heir = no
 				religion = ROOT
 				is_alive = yes
 			}
@@ -2954,9 +2954,9 @@ character_event = {
 											}
 										}
 									}
-								}								
+								}
 							}
-							grant_title = PREVPREV								
+							grant_title = PREVPREV
 							PREV = {
 								PREV = {
 									if = {
@@ -2984,11 +2984,11 @@ character_event = {
 									}
 								}
 							}
-						}						
-					}					
+						}
+					}
 				}
 			}
-		}	
+		}
 	}
 	# A distant relative
 	option = {
@@ -2998,9 +2998,9 @@ character_event = {
 			modifier = {
 				factor = 2
 				trait = proud
-			}				
-		}	
-		trigger = {	
+			}
+		}
+		trigger = {
 			any_realm_character = {
 				age = 16
 				dynasty = ROOT
@@ -3015,7 +3015,7 @@ character_event = {
 				is_alive = yes
 			}
 		}
-		prestige = 25		
+		prestige = 25
 		random_realm_character = {
 			limit = {
 				age = 16
@@ -3068,9 +3068,9 @@ character_event = {
 											}
 										}
 									}
-								}								
+								}
 							}
-							grant_title = PREVPREV								
+							grant_title = PREVPREV
 							PREV = {
 								PREV = {
 									if = {
@@ -3098,11 +3098,11 @@ character_event = {
 									}
 								}
 							}
-						}						
-					}					
+						}
+					}
 				}
 			}
-		}		
+		}
 	}
 	# Nobody
 	option = {
@@ -3116,8 +3116,8 @@ character_event = {
 			modifier = {
 				factor = 10
 				trait = content
-			}			
-		}			
+			}
+		}
 		piety = 25
 	}
 }
@@ -3127,9 +3127,9 @@ character_event = {
 	id = 1008902
 	picture = "GFX_evt_crusaders"
 	is_triggered_only = yes
-		
+
 	desc = "EVTDESC1008902"
-	
+
 	immediate = {
 		set_character_flag = crusader_king
 		any_independent_ruler = {
@@ -3159,8 +3159,8 @@ character_event = {
 											ROOT = {
 												capital_scope = {
 													duchy = { title = PREVPREVPREV }
-												}									
-											}										
+												}
+											}
 										}
 									}
 								}
@@ -3174,19 +3174,19 @@ character_event = {
 								NOT = {
 									location = { province_id = 774 }
 									location = { province_id = 802 }
-									location = { province_id = 796 }								
+									location = { province_id = 796 }
 									location = {
 										duchy = {
 											ROOT = {
 												capital_scope = {
 													duchy = { title = PREVPREVPREV }
-												}									
-											}										
+												}
+											}
 										}
 									}
-								}								
+								}
 							}
-							grant_title = PREVPREV								
+							grant_title = PREVPREV
 							PREV = {
 								PREV = {
 									if = {
@@ -3214,7 +3214,7 @@ character_event = {
 									}
 								}
 							}
-						}	
+						}
 					}
 				}
 				clr_character_flag = wants_crusade_fief
@@ -3222,10 +3222,10 @@ character_event = {
 		}
 		any_demesne_title = {
 			location = { clr_province_flag = previous_holding }
-		}		
+		}
 	}
-	
+
 	option = {
-		name = "OK"		
+		name = "OK"
 	}
 }

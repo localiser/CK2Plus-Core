@@ -1,6 +1,6 @@
 ###################################
 #
-# THE OLD GODS 
+# THE OLD GODS
 # - Runestone Events
 #
 ###################################
@@ -15,17 +15,17 @@ character_event = {
 	desc = EVTDESC_TOG_500
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_normal_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = { # Based on one of your traits
 		name = EVTOPTA_TOG_500
-		
+
 		custom_tooltip = {
 			text = runestone_traits
-			hidden_tooltip = { 
+			hidden_tooltip = {
 				character_event = { id = TOG.501 }
 			}
 		}
@@ -46,17 +46,17 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.511 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
+			limit = {
 				father_even_if_dead = {
-					death_reason = death_execution 
+					death_reason = death_execution
 					NOT = { killer = { character = ROOT } }
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.512 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				father_even_if_dead = { 
+			limit = {
+				father_even_if_dead = {
 					death_reason = death_murder
 					NOT = { killer = { character = ROOT } }
 				}
@@ -64,31 +64,31 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.513 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				father_even_if_dead = { 
+			limit = {
+				father_even_if_dead = {
 					OR = {
-						death_reason = death_accident 
+						death_reason = death_accident
 						death_reason = death_murder_unknown
-					} 
+					}
 				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.515 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
+			limit = {
 				father_even_if_dead = {
 					death_reason = death_dungeon
 					NOT = { killer = { character = ROOT } }
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.516 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
+			limit = {
 				father_even_if_dead = {
 					death_reason = death_sacrificed
 					NOT = { killer = { character = ROOT } }
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.517 days = 60 random = 10 } }
 		}
@@ -101,19 +101,19 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.519 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				father_even_if_dead = { 
+			limit = {
+				father_even_if_dead = {
 					OR = {
 						and = {
 							death_reason = death_murder
 							killer = { character = ROOT }
 						}
 						and = {
-							death_reason = death_execution 
+							death_reason = death_execution
 							killer = { character = ROOT }
 						}
 						and = {
-							death_reason = death_dungeon 
+							death_reason = death_dungeon
 							killer = { character = ROOT }
 						}
 						and = {
@@ -121,7 +121,7 @@ character_event = {
 							killer = { character = ROOT }
 						}
 					}
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.520 days = 60 random = 10 } }
 		}
@@ -160,17 +160,17 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.530 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
+			limit = {
 				mother_even_if_dead = {
-					death_reason = death_execution 
+					death_reason = death_execution
 					NOT = { killer = { character = ROOT } }
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.531 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				mother_even_if_dead = { 
+			limit = {
+				mother_even_if_dead = {
 					death_reason = death_murder
 					NOT = { killer = { character = ROOT } }
 				}
@@ -178,10 +178,10 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.532 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				mother_even_if_dead = { 
+			limit = {
+				mother_even_if_dead = {
 					OR = {
-						death_reason = death_accident 
+						death_reason = death_accident
 						death_reason = death_murder_unknown
 					}
 				}
@@ -189,20 +189,20 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.534 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				mother_even_if_dead = { 
+			limit = {
+				mother_even_if_dead = {
 					death_reason = death_dungeon
 					NOT = { killer = { character = ROOT } }
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.535 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
+			limit = {
 				mother_even_if_dead = {
 					death_reason = death_sacrificed
 					NOT = { killer = { character = ROOT } }
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.536 days = 60 random = 10 } }
 		}
@@ -211,19 +211,19 @@ character_event = {
 			hidden_tooltip = { character_event = { id = TOG.537 days = 60 random = 10 } }
 		}
 		if = {
-			limit = { 
-				mother_even_if_dead = { 
+			limit = {
+				mother_even_if_dead = {
 					OR = {
 						and = {
-							death_reason = death_murder 
+							death_reason = death_murder
 							killer = { character = ROOT }
 						}
 						and = {
-							death_reason = death_execution 
+							death_reason = death_execution
 							killer = { character = ROOT }
 						}
 						and = {
-							death_reason = death_dungeon 
+							death_reason = death_dungeon
 							killer = { character = ROOT }
 						}
 						and = {
@@ -231,14 +231,14 @@ character_event = {
 							killer = { character = ROOT }
 						}
 					}
-				} 
+				}
 			}
 			hidden_tooltip = { character_event = { id = TOG.538 days = 60 random = 10 } }
 		}
 		if = {
 			limit = {
 				NOT = {
-					mother_even_if_dead = { 
+					mother_even_if_dead = {
 						OR = {
 							death_reason = death_natural
 							death_reason = death_execution
@@ -264,11 +264,11 @@ character_event = {
 	desc = EVTDESC_TOG_501
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_normal_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = { # Generic
 		name = EVTOPTA_TOG_501
 		trigger = {
@@ -296,7 +296,7 @@ character_event = {
 				trait = possessed
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.550 days = 60 random = 10 } }
@@ -308,7 +308,7 @@ character_event = {
 		trigger = {
 			trait = lunatic
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.551 days = 60 random = 10 } }
@@ -325,8 +325,8 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
-		custom_tooltip = { 
+
+		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.552 days = 60 random = 10 } }
 		}
@@ -342,7 +342,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.553 days = 60 random = 10 } }
@@ -359,7 +359,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.554 days = 60 random = 10 } }
@@ -376,7 +376,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.555 days = 60 random = 10 } }
@@ -388,8 +388,8 @@ character_event = {
 		trigger = {
 			trait = imbecile
 		}
-		
-		custom_tooltip = { 
+
+		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.556 days = 60 random = 10 } }
 		}
@@ -405,7 +405,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.557 days = 60 random = 10 } }
@@ -422,7 +422,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.558 days = 60 random = 10 } }
@@ -439,7 +439,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.559 days = 60 random = 10 } }
@@ -456,7 +456,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.560 days = 60 random = 10 } }
@@ -473,7 +473,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.561 days = 60 random = 10 } }
@@ -490,7 +490,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.562 days = 60 random = 10 } }
@@ -507,7 +507,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.563 days = 60 random = 10 } }
@@ -524,7 +524,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.564 days = 60 random = 10 } }
@@ -541,7 +541,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.565 days = 60 random = 10 } }
@@ -558,8 +558,8 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
-		custom_tooltip = { 
+
+		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.566 days = 60 random = 10 } }
 		}
@@ -575,7 +575,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.567 days = 60 random = 10 } }
@@ -592,8 +592,8 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
-		custom_tooltip = { 
+
+		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.568 days = 60 random = 10 } }
 		}
@@ -630,7 +630,7 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.571 days = 60 random = 10 } }
 		}
@@ -642,7 +642,7 @@ character_event = {
 			trait = possessed
 		}
 
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.572 days = 60 random = 10 } }
 		}
@@ -659,12 +659,12 @@ character_event = {
 				trait = imbecile
 			}
 		}
-		
+
 		custom_tooltip = {
 			text = runestone_carved
 			hidden_tooltip = { character_event = { id = TOG.570 days = 60 random = 10 } }
 		}
-			
+
 	}
 }
 
@@ -675,11 +675,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_510
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -697,11 +697,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_511
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 300
@@ -719,11 +719,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_512
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -741,11 +741,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_513
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -763,11 +763,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_515
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -785,11 +785,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_516
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -807,11 +807,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_517
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -829,11 +829,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_518
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 250
@@ -851,11 +851,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_519
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -873,11 +873,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_520
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -895,11 +895,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_521
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -917,11 +917,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_530
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -939,11 +939,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_531
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -961,11 +961,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_532
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -983,11 +983,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_534
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1005,11 +1005,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_535
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1027,11 +1027,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_536
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1049,11 +1049,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_537
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -1071,11 +1071,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_538
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -1093,11 +1093,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_539
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1115,11 +1115,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_550
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1137,11 +1137,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_551
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -1159,11 +1159,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_552
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1181,11 +1181,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_553
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 300
@@ -1203,11 +1203,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_554
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1225,11 +1225,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_555
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 300
@@ -1247,11 +1247,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_556
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -1269,11 +1269,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_557
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 300
@@ -1291,11 +1291,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_558
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1313,11 +1313,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_559
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1335,11 +1335,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_560
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1357,11 +1357,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_561
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1379,11 +1379,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_562
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1401,11 +1401,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_563
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1423,11 +1423,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_564
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1445,11 +1445,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_565
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 300
@@ -1467,11 +1467,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_566
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1489,11 +1489,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_567
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 300
@@ -1511,11 +1511,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_568
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1533,11 +1533,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_569
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1555,11 +1555,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_570
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1577,11 +1577,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_571
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 200
@@ -1599,11 +1599,11 @@ narrative_event = {
 	desc = EVTDESC_TOG_572
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_narrative_frame_diplomacy
-	
+
 	is_triggered_only = yes
-	
+
 	hide_from = yes
-	
+
 	option = {
 		name = EVTOPTA_TOG_550
 		prestige = 100
@@ -1620,9 +1620,9 @@ character_event = {
 	desc = EVTDESC_TOG_580
 	picture = GFX_evt_runestone_raising_oldgods
 	border = GFX_event_normal_frame_diplomacy
-	
+
 	ai = no
-	
+
 	trigger = {
 		OR = {
 			culture = norse
@@ -1631,7 +1631,7 @@ character_event = {
 		year = 1250
 		NOT = { has_character_flag = runestones_halted }
 	}
-	
+
 	option = {
 		name = EVTOPTA_TOG_580
 		custom_tooltip = { text = no_more_runestones }

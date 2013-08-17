@@ -1,7 +1,7 @@
 #Join/leave faction events
 character_event = {
 	id = 1910000
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = yes
@@ -17,14 +17,14 @@ character_event = {
 				current_heir = { character = ROOT }
 			}
 		}
-		liege = { higher_tier_than = duke }	
+		liege = { higher_tier_than = duke }
 		is_feudal = yes
 	}
-	
+
 	desc = "AI_EVENT"
-	
+
 	mean_time_to_happen = {
-		months = 6	
+		months = 6
 		modifier = {
 			factor = 0.95
 			always = yes
@@ -32,7 +32,7 @@ character_event = {
 		modifier = {
 			factor = 1.25
 			religion_group = muslim
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -48,15 +48,15 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = greedy
-		}			
+		}
 		modifier = {
 			factor = 2
 			trait = humble
-		}			
+		}
 		modifier = {
 			factor = 2
 			trait = content
-		}	
+		}
 		modifier = {
 			factor = 0.9
 			trait = hunter
@@ -64,7 +64,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = diligent
-		}			
+		}
 		modifier = {
 			factor = 0.9
 			trait = duelist
@@ -88,13 +88,13 @@ character_event = {
 		modifier = {
 			factor = 2.0
 			trait = craven
-		}		
+		}
 		modifier = {
 			factor = 0.9
 			trait = cruel
 		}
 	}
-	
+
 	option = {
 		name = "OK"
 		set_character_flag = faction_feudal_supporter
@@ -103,7 +103,7 @@ character_event = {
 
 character_event = {
 	id = 1910001
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = yes
@@ -118,7 +118,7 @@ character_event = {
 			liege = {
 				current_heir = { character = ROOT }
 			}
-		}		
+		}
 		liege = { higher_tier_than = count }
 		OR = {
 			is_patrician = yes
@@ -126,9 +126,9 @@ character_event = {
 			is_merchant_republic = yes
 		}
 	}
-	
+
 	desc = "AI_EVENT"
-	
+
 	mean_time_to_happen = {
 		months = 6
 		modifier = {
@@ -137,12 +137,12 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.25
-			liege = { 
+			liege = {
 				NOT = {
 					is_patrician = yes
 					is_republic = yes
 					is_merchant_republic = yes
-				}			
+				}
 			}
 		}
 		modifier = {
@@ -156,7 +156,7 @@ character_event = {
 		modifier = {
 			factor = 2
 			trait = charitable
-		}		
+		}
 		modifier = {
 			factor = 2
 			trait = humble
@@ -164,7 +164,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = diligent
-		}			
+		}
 		modifier = {
 			factor = 0.9
 			trait = envious
@@ -172,9 +172,9 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			trait = kind
-		}		
+		}
 	}
-	
+
 	option = {
 		name = "OK"
 		set_character_flag = faction_republican_supporter
@@ -183,7 +183,7 @@ character_event = {
 
 character_event = {
 	id = 1910002
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = yes
@@ -198,12 +198,12 @@ character_event = {
 			liege = {
 				current_heir = { character = ROOT }
 			}
-		}		
-		liege = { higher_tier_than = count }		
+		}
+		liege = { higher_tier_than = count }
 	}
-	
+
 	desc = "AI_EVENT"
-	
+
 	mean_time_to_happen = {
 		months = 6
 		modifier = {
@@ -221,7 +221,7 @@ character_event = {
 							NOT = {
 								leads_faction = faction_feudal_emperor
 								leads_faction = faction_feudal_king
-								leads_faction = faction_feudal_duke					
+								leads_faction = faction_feudal_duke
 							}
 							OR = {
 								in_faction = faction_feudal_emperor
@@ -237,17 +237,17 @@ character_event = {
 						NOT = {
 							leads_faction = faction_court_emperor
 							leads_faction = faction_court_king
-							leads_faction = faction_court_duke			
-						}			
+							leads_faction = faction_court_duke
+						}
 						OR = {
 							in_faction = faction_court_emperor
 							in_faction = faction_court_king
 							in_faction = faction_court_duke
 						}
 					}
-				}				
+				}
 			}
-		}	
+		}
 		modifier = {
 			factor = 0.9
 			rightful_religious_head_scope = {
@@ -268,28 +268,28 @@ character_event = {
 				is_alive = yes
 				reverse_opinion = { who = ROOT value = 25 }
 			}
-		}		
+		}
 		modifier = {
 			factor = 1.25
 			rightful_religious_head_scope = {
 				is_alive = yes
 				NOT = { reverse_opinion = { who = ROOT value = 0 } }
 			}
-		}		
+		}
 		modifier = {
 			factor = 1.25
 			rightful_religious_head_scope = {
 				is_alive = yes
 				NOT = { reverse_opinion = { who = ROOT value = -25 } }
 			}
-		}	
+		}
 		modifier = {
 			factor = 1.25
 			rightful_religious_head_scope = {
 				is_alive = yes
 				NOT = { reverse_opinion = { who = ROOT value = -50 } }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			NOT = {
@@ -314,7 +314,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = celibate
-		}		
+		}
 		modifier = {
 			factor = 4
 			trait = kinslayer
@@ -322,15 +322,15 @@ character_event = {
 		modifier = {
 			factor = 4
 			trait = impaler
-		}	
+		}
 		modifier = {
 			factor = 4
 			trait = homosexual
-		}		
+		}
 		modifier = {
 			factor = 2
 			trait = lustful
-		}			
+		}
 		modifier = {
 			factor = 0.9
 			trait = shy
@@ -338,11 +338,11 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = chaste
-		}	
+		}
 		modifier = {
 			factor = 0.9
 			trait = scholar
-		}	
+		}
 		modifier = {
 			factor = 0.9
 			trait = faqih
@@ -350,7 +350,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = hafiz
-		}		
+		}
 		modifier = {
 			factor = 0.9
 			trait = temperate
@@ -358,7 +358,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = charitable
-		}			
+		}
 		modifier = {
 			factor = 0.33
 			OR = {
@@ -407,8 +407,8 @@ character_event = {
 					title = d_guardians_of_the_sacred_flame
 					title = d_disciples_of_the_old_gods
 				}
-			}	
-		}		
+			}
+		}
 		modifier = {
 			factor = 0.75
 			religion_group = muslim
@@ -416,19 +416,19 @@ character_event = {
 		modifier = {
 			factor = 100
 			NOT = { piety = 0 }
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			piety = 100
-		}			
+		}
 		modifier = {
 			factor = 0.5
 			piety = 250
-		}	
+		}
 		modifier = {
 			factor = 0.5
 			piety = 500
-		}	
+		}
 		modifier = {
 			factor = 0.5
 			piety = 750
@@ -436,9 +436,9 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			piety = 1000
-		}			
+		}
 	}
-	
+
 	option = {
 		name = "OK"
 		set_character_flag = faction_religious_supporter
@@ -447,7 +447,7 @@ character_event = {
 
 character_event = {
 	id = 1910003
-	
+
 	trigger = {
 		ai = yes
 		is_ruler = yes
@@ -462,14 +462,14 @@ character_event = {
 			liege = {
 				current_heir = { character = ROOT }
 			}
-		}		
+		}
 		liege = { higher_tier_than = count }
 	}
-	
+
 	desc = "AI_EVENT"
-	
+
 	mean_time_to_happen = {
-		months = 6	
+		months = 6
 		modifier = {
 			factor = 1.33
 			always = yes
@@ -485,7 +485,7 @@ character_event = {
 							NOT = {
 								leads_faction = faction_feudal_emperor
 								leads_faction = faction_feudal_king
-								leads_faction = faction_feudal_duke					
+								leads_faction = faction_feudal_duke
 							}
 							OR = {
 								in_faction = faction_feudal_emperor
@@ -494,17 +494,17 @@ character_event = {
 							}
 						}
 					}
-				}				
+				}
 			}
-		}		
+		}
 		modifier = {
 			factor = 0.75
 			trait = humble
-		}	
+		}
 		modifier = {
 			factor = 0.75
 			trait = eunuch
-		}			
+		}
 		modifier = {
 			factor = 0.5
 			trait = content
@@ -524,15 +524,15 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = craven
-		}				
+		}
 		modifier = {
 			factor = 2.0
 			trait = proud
-		}	
+		}
 		modifier = {
 			factor = 1.5
 			trait = ugly
-		}		
+		}
 		modifier = {
 			factor = 0.75
 			trait = fair
@@ -540,7 +540,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = falconer
-		}			
+		}
 		modifier = {
 			factor = 0.9
 			trait = poet
@@ -560,7 +560,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			trait = slothful
-		}				
+		}
 		modifier = {
 			factor = 0.9
 			OR = {
@@ -570,7 +570,7 @@ character_event = {
 				trait = skilled_tactician
 				trait = intricate_webweaver
 			}
-		}			
+		}
 		modifier = {
 			factor = 0.75
 			OR = {
@@ -580,7 +580,7 @@ character_event = {
 				trait = brilliant_strategist
 				trait = elusive_shadow
 			}
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			OR = {
@@ -590,9 +590,9 @@ character_event = {
 				has_job_title = job_marshal
 				has_job_title = job_spiritual
 			}
-		}		
+		}
 	}
-	
+
 	option = {
 		name = "OK"
 		set_character_flag = faction_court_supporter
@@ -601,7 +601,7 @@ character_event = {
 
 character_event = {
 	id = 1910010
-	
+
 	trigger = {
 		ai = yes
 		war = no
@@ -620,44 +620,44 @@ character_event = {
 			leads_faction = faction_religious_duke
 			leads_faction = faction_court_emperor
 			leads_faction = faction_court_king
-			leads_faction = faction_court_duke			
+			leads_faction = faction_court_duke
 		}
 		OR = {
 			liege = {
 				current_heir = { character = ROOT }
-			}		
+			}
 			AND = {
 				has_character_flag = faction_feudal_supporter
 				OR = {
 					is_feudal = no
 					is_patrician = yes
 					liege = { lower_tier_than = king }
-				}			
+				}
 			}
 			AND = {
 				has_character_flag = faction_republican_supporter
 				is_patrician = no
 				is_republic = no
-				is_merchant_republic = no		
+				is_merchant_republic = no
 			}
 			AND = {
 				has_character_flag = faction_religious_supporter
 				OR = {
 					trait = cynical
 					NOT = { piety = 0 }
-				}			
+				}
 			}
 		}
 	}
-		
+
 	desc = "AI_EVENT"
 
 	mean_time_to_happen = {
-		days = 1	
+		days = 1
 	}
-	
+
 	option = {
-		name = "OK"		
+		name = "OK"
 		clr_character_flag = faction_feudal_supporter
 		clr_character_flag = faction_court_supporter
 		clr_character_flag = faction_republican_supporter

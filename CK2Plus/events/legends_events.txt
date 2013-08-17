@@ -14,12 +14,12 @@ narrative_event = {
 	title = "EVTNAME10000"
 	desc = "EVTDESC10000"
 	picture = GFX_evt_throne_room
-	
+
 	min_age = 20
 	prisoner = no
 	only_playable = yes
 	capable_only = yes
-	
+
 	trigger = {
 		war = no
 		in_command = no
@@ -41,43 +41,43 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 9000
-		
+
 		modifier = {
 			factor = 1.2
 			trait = just
 		}
-		
+
 		modifier = {
 			factor = 0.2
 			trait = arbitrary
 		}
-		
+
 		modifier = {
 			factor = 1.3
 			trait = charismatic_negotiator
 		}
-		
+
 		modifier = {
 			factor = 0.3
 			trait = midas_touched
 		}
 	}
-	
+
 	immediate = {
 		set_character_flag = lure_robin
 		set_character_flag = robin_hood
 	}
-	
+
 	option = {
 		name = "EVTOPTA10000"
 		prestige = 10
 		random = {
 			chance = 60
-			
-			narrative_event = { 
+
+			narrative_event = {
 				id = 10001 #Noble woman
 				days = 5
 				random = 10
@@ -96,7 +96,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = diligent
 				hidden_tooltip = {
 					character_event = {
@@ -114,7 +114,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = deceitful
 				hidden_tooltip = {
 					character_event = {
@@ -125,7 +125,7 @@ narrative_event = {
 		}
 		random = {
 			chance = 40
-			
+
 			narrative_event = {
 				id = 10002 #Noble man
 				days = 5
@@ -134,7 +134,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTC10000"
 		if = {
@@ -145,7 +145,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-			
+
 				add_trait = content
 				hidden_tooltip = {
 					character_event = {
@@ -163,15 +163,15 @@ narrative_event = {
 	title = "EVTNAME10001"
 	desc = "EVTDESC10001"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10001" #Give her gold and send her away
 		scaled_wealth = -0.02
 		set_character_flag = ignore_robin
 	}
-	
+
 	option = {
 		name = "EVTOPTB10001" #Something must be done! Set a trap
 		if = {
@@ -182,7 +182,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = diligent
 				hidden_tooltip = {
 					character_event = {
@@ -200,7 +200,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = ambitious
 				hidden_tooltip = {
 					character_event = {
@@ -219,15 +219,15 @@ narrative_event = {
 	title = "EVTNAME10002"
 	desc = "EVTDESC10002"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10002" #Give him gold and send him awy
 		scaled_wealth = -0.02
 		set_character_flag = ignore_robin
 	}
-	
+
 	option = {
 		name = "EVTOPTB10002" #Something must be done! Set a trap
 		if = {
@@ -238,7 +238,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = diligent
 				hidden_tooltip = {
 					character_event = {
@@ -256,7 +256,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = ambitious
 				hidden_tooltip = {
 					character_event = {
@@ -275,37 +275,37 @@ narrative_event = {
 	title = "EVTNAME10003"
 	desc = "EVTDESC10003"
 	picture = GFX_evt_council
-	
+
 	min_age = 20
 	prisoner = no
 	capable_only = yes
 	only_playable = yes
-	
+
 	trigger = {
 		war = no
 		in_command = no
 		has_character_flag = lure_robin
 	}
-	
+
 	mean_time_to_happen = {
 		months = 12
-		
+
 		modifier = {
 			factor = 1.7
 			has_character_flag = ignore_robin
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			has_character_flag = do_something
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA10003" #Too risky
 		prestige = -10
 		if = {
-			limit = {	
+			limit = {
 				NOT = {
 					trait = craven
 				}
@@ -313,7 +313,7 @@ narrative_event = {
 			add_trait = craven
 		}
 		if = {
-			limit = {	
+			limit = {
 				trait = craven
 				NOT = {
 					trait = slothful
@@ -322,7 +322,7 @@ narrative_event = {
 			add_trait = craven
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10003" #Archery Contest
 		random_courtier = {
@@ -332,16 +332,16 @@ narrative_event = {
 				years = 5
 			}
 		}
-		narrative_event = { 
+		narrative_event = {
 			id = 10010
 			days = 5
 			random = 10
 			tooltip = "EVTTOOLTIP10010"
 		}
 	}
-	
-	option = {	
-		name = "EVTOPTC10003" 
+
+	option = {
+		name = "EVTOPTC10003"
 		prestige = 10
 		if = {
 			limit = {
@@ -375,9 +375,9 @@ narrative_event = {
 	title = "EVTNAME10010"
 	desc = "EVTDESC10010"
 	picture = GFX_evt_longbowman
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10010" #Let the game begin!
 		prestige = 15
@@ -408,9 +408,9 @@ narrative_event = {
 	title = "EVTNAME10011"
 	desc = "EVTDESC10011"
 	picture = GFX_evt_large_army
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10011" #Hang him!
 		set_character_flag = killed_robin_hood
@@ -448,7 +448,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10011" #Hire him and his merry men as gamekeepers
 		piety = 10
@@ -488,7 +488,7 @@ narrative_event = {
 			}
 		}
 		new_character = {
-			set_character_flag = robin_marion		
+			set_character_flag = robin_marion
 		}
 		narrative_event = {
 			id = 10042
@@ -505,12 +505,12 @@ narrative_event = {
 	title = "EVTNAME10012"
 	desc = "EVTDESC10012"
 	picture = GFX_evt_longbowman
-	
+
 	is_triggered_only = yes
-	
-	option = { 
+
+	option = {
 		name = "EVTOPTA10012" #What happened?
-		narrative_event = { 
+		narrative_event = {
 			id = 10013 #That didn't work
 			days = 5
 			random = 10
@@ -525,10 +525,10 @@ narrative_event = {
 	title = "EVTNAME10013"
 	desc = "EVTDESC10013"
 	picture = GFX_evt_council
-	
+
 	is_triggered_only = yes
-	
-	option = { 
+
+	option = {
 		name = "EVTOPTA10013" #Leave them alone
 		prestige = -10
 		any_courtier = {
@@ -548,10 +548,10 @@ narrative_event = {
 		clr_character_flag = lure_robin
 		clr_character_flag = ignore_robin
 		clr_character_flag = do_something
-		
+
 	}
-	
-	option = { 
+
+	option = {
 		name = "EVTOPTB10013" #Let's try something else
 		narrative_event = {
 			id = 10020
@@ -568,9 +568,9 @@ narrative_event = {
 	title = "EVTNAME10020"
 	desc = "EVTDESC10020"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10020" #Let's see how this works...
 		random_list = {
@@ -620,7 +620,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = slothful
 				hidden_tooltip = {
 					character_event = {
@@ -632,7 +632,7 @@ narrative_event = {
 		hidden_tooltip = {
 			random = {
 				chance = 10
-			
+
 				narrative_event = {
 					id = 10021
 					days = 10
@@ -649,9 +649,9 @@ narrative_event = {
 	title = "EVTNAME10021"
 	desc = "EVTDESC10021"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10021"
 		clr_character_flag = lure_robin
@@ -682,9 +682,9 @@ narrative_event = {
 	title = "EVTNAME10022"
 	desc = "EVTDESC10022"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10022"
 		prestige = 10
@@ -725,9 +725,9 @@ narrative_event = {
 	title = "EVTNAME10023"
 	desc = "EVTDESC10023"
 	picture = GFX_evt_melee
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10023"
 		random_list = {
@@ -804,9 +804,9 @@ narrative_event = {
 	title = "EVTNAME10024"
 	desc = "EVTDESC10024"
 	picture = GFX_evt_melee
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10024"
 		prestige = 10
@@ -824,9 +824,9 @@ narrative_event = {
 	title = "EVTNAME10025"
 	desc = "EVTDESC10025"
 	picture = GFX_evt_melee
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10025"
 		prestige = -10
@@ -844,15 +844,15 @@ narrative_event = {
 	title = "EVTNAME10026"
 	desc = "EVTDESC10026"
 	picture = GFX_evt_bloody_man
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10026"
 		scaled_wealth = -0.02
 		random = {
 			chance = 10
-			
+
 			add_trait = wounded
 			hidden_tooltip = {
 				character_event = {
@@ -888,9 +888,9 @@ narrative_event = {
 	title = "EVTNAME10030"
 	desc = "EVTDESC10030"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10030"
 		narrative_event = { #S.F.T.R.G.T.T.P
@@ -900,7 +900,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10031"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10030"
 		narrative_event = { #Adventure!
@@ -910,7 +910,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10032"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTC10030"
 		any_courtier = {
@@ -932,8 +932,8 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10040"
 		}
 	}
-	
-	
+
+
 	option = {
 		name = "EVTOPTD10026"
 		scaled_wealth = -0.02
@@ -965,9 +965,9 @@ narrative_event = {
 	title = "EVTNAME10031"
 	desc = "EVTDESC10031"
 	picture = GFX_evt_carriage
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10031" #This has gone too far!
 		narrative_event = { #Arrest leader
@@ -977,7 +977,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10040"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10031" #Time to leave and leave them alone
 		scaled_wealth = -0.02
@@ -998,7 +998,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTC10031" #Now I know where to find them
 		narrative_event = {
@@ -1016,9 +1016,9 @@ narrative_event = {
 	title = "EVTNAME10032"
 	desc = "EVTDESC10032"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10032" #Arrest him!
 		narrative_event = {
@@ -1028,7 +1028,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10040"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10032" #This is wrong!
 		narrative_event = {
@@ -1038,7 +1038,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10041"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTC10032" #This was fun!
 		narrative_event = {
@@ -1048,7 +1048,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10033"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTD10032" #Time to leave and leave them alone
 		scaled_wealth = -0.02
@@ -1077,9 +1077,9 @@ narrative_event = {
 	title = "EVTNAME10033"
 	desc = "EVTDESC10033"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10033" #Leave
 		clr_character_flag = lure_robin
@@ -1107,9 +1107,9 @@ narrative_event = {
 	title = "EVTNAME10040"
 	desc = "EVTDESC10040"
 	picture = GFX_evt_bandits
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10040" #Hang him!
 		set_character_flag = killed_robin_hood
@@ -1147,7 +1147,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10040" #Hire him and his merry men as gamekeepers
 		piety = 10
@@ -1204,15 +1204,15 @@ narrative_event = {
 	title = "EVTNAME10041"
 	desc = "EVTDESC10041"
 	picture = GFX_evt_battle
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10041" #Kill them all!
 		set_character_flag = killed_robin_hood
 		random = {
 			chance = 30
-			
+
 			add_trait = wounded
 			hidden_tooltip = {
 				character_event = {
@@ -1269,7 +1269,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10041" #Hire him and his merry men as gamekeepers
 		piety = 10
@@ -1326,7 +1326,7 @@ narrative_event = {
 	title = "EVTNAME10042"
 	desc = "EVTDESC10042"
 	picture = GFX_evt_marriage
-	
+
 	is_triggered_only = yes
 
 	option = {
@@ -1357,13 +1357,13 @@ narrative_event = {
 	title = "EVTNAME10100"
 	desc = "EVTDESC10100"
 	picture = GFX_evt_pagan
-	
+
 	min_age = 20
 	max_age = 100
 	capable_only = yes
 	only_rulers = yes
 	prisoner = no
-	
+
 	trigger = {
 		higher_tier_than = baron
 		war = no
@@ -1383,21 +1383,21 @@ narrative_event = {
 			has_character_modifier = sacrifice_gateshell
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 10000
-		
+
 		modifier = {
 			factor = 0.5
 			trait = wroth
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = chaste
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA10100" #Ignore it
 		add_character_modifier = {
@@ -1412,7 +1412,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = slothful
 				hidden_tooltip = {
 					character_event = {
@@ -1430,7 +1430,7 @@ narrative_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = content
 				hidden_tooltip = {
 					character_event = {
@@ -1440,7 +1440,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10100"
 		add_character_modifier = {
@@ -1462,33 +1462,33 @@ narrative_event = {
 	title = "EVTNAME10101"
 	desc = "EVTDESC10101"
 	picture = GFX_evt_pagan
-	
+
 	only_playable = yes
 	min_age = 20
 	max_age = 100
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		war = no
 		in_command = no
 		has_character_modifier = flaming_gap
 	}
-	
+
 	mean_time_to_happen = {
 		months = 12
-		
+
 		modifier = {
 			factor = 0.5
 			trait = lustful
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = kind
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA10101" #Keep ignoring it
 		remove_character_modifier = flaming_gap
@@ -1503,7 +1503,7 @@ narrative_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10101"
 		remove_character_modifier = flaming_gap
@@ -1532,27 +1532,27 @@ narrative_event = {
 	max_age = 100
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		war = no
 		in_command = no
 		has_character_modifier = wailing_gap
 	}
-	
+
 	mean_time_to_happen = {
 		months = 12
-		
+
 		modifier = {
 			factor = 0.5
 			trait = lustful
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			trait = kind
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA10102" #Keep ignoring it
 		remove_character_modifier = wailing_gap
@@ -1561,7 +1561,7 @@ narrative_event = {
 			duration = 730
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10102"
 		remove_character_modifier = wailing_gap
@@ -1599,11 +1599,11 @@ narrative_event = {
 			has_character_flag = choose_solution_gh
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 12
 	}
-	
+
 	option = {
 		name = "EVTOPTA10103" #By using exorcism
 		trigger = {
@@ -1617,7 +1617,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10104"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB10103" #By feeding it cattle
 		trigger = {
@@ -1634,7 +1634,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10105"
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTC10103" #By rolling down stones into it
 		set_character_flag = choose_solution_gh
@@ -1645,7 +1645,7 @@ narrative_event = {
 			tooltip = "EVTTOOLTIP10106"
 		}
 	}
-	
+
 	option = { #By sacrificing what the city held to be most dear
 		name = "EVTOPTD10103"
 		trigger = {
@@ -1687,9 +1687,9 @@ narrative_event = {
 	title = "EVTNAME10104"
 	desc = "EVTDESC10104"
 	picture = GFX_evt_pagan
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10104"
 		random_list = {
@@ -1729,9 +1729,9 @@ narrative_event = {
 	title = "EVTNAME10105"
 	desc = "EVTDESC10105"
 	picture = GFX_evt_pagan
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10105"
 		treasury = -50
@@ -1771,9 +1771,9 @@ narrative_event = {
 	title = "EVTNAME10106"
 	desc = "EVTDESC10106"
 	picture = GFX_evt_pagan
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10106"
 		random_list = {
@@ -1807,16 +1807,16 @@ narrative_event = {
 	}
 }
 
-	
+
 #By sacrificing what the city held to be most dear - child dies
 narrative_event = {
 	id = 10107
 	title = "EVTNAME10107"
 	desc = "EVTDESC10107"
 	picture = GFX_evt_pagan
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10107"
 		random_child = {
@@ -1866,9 +1866,9 @@ narrative_event = {
 	title = "EVTNAME10108"
 	desc = "EVTDESC10108"
 	picture = GFX_evt_pagan
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10108"
 		trigger = {
@@ -1929,9 +1929,9 @@ narrative_event = {
 	title = "EVTNAME10109"
 	desc = "EVTDESC10109"
 	picture = GFX_evt_pagan
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA10109" #Crap! Try something else
 		prestige = -15

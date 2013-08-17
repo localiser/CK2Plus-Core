@@ -13,9 +13,9 @@ character_event = {
 	desc = "EVTDESC88500"
 	picture = "GFX_evt_bishop_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA88500"
 		hidden_tooltip = {
@@ -34,17 +34,17 @@ character_event = {
 	desc = "EVTDESC88501"
 	picture = "GFX_evt_into_the_dungeon"
 	border =  "GFX_event_normal_frame_religion"
-	
-	trigger = { 
+
+	trigger = {
 		num_of_prisoners = 1
 		has_character_flag = ramadan
 		NOT = { has_character_flag = ramadan_prisoners }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88501"
 		set_character_flag = ramadan_prisoners
@@ -54,7 +54,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -69,7 +69,7 @@ character_event = {
 		set_character_flag = ramadan_prisoners
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -88,23 +88,23 @@ character_event = {
 	desc = "EVTDESC88502"
 	picture = "GFX_evt_market"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		scaled_wealth = 0.20
 		NOT = { has_character_flag = ramadan_charity }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88502"
 		scaled_wealth = -0.25
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -119,7 +119,7 @@ character_event = {
 		name = "EVTOPTB88502"
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -139,22 +139,22 @@ character_event = {
 	desc = "EVTDESC88503"
 	picture = "GFX_evt_monk_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		NOT = { has_character_flag = ramadan_prayers }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88503"
 		set_character_flag = ramadan_prayers
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -169,7 +169,7 @@ character_event = {
 		set_character_flag = ramadan_prayers
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -188,7 +188,7 @@ character_event = {
 	desc = "EVTDESC88504"
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		OR = {
@@ -197,11 +197,11 @@ character_event = {
 		}
 		NOT = { has_character_flag = ramadan_ill }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88504"
 		add_trait = ill
@@ -212,7 +212,7 @@ character_event = {
 		add_trait = ill
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -232,17 +232,17 @@ character_event = {
 	desc = "EVTDESC88505"
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		has_character_flag = ramadan_ill
 		trait = ill
 	}
-	
+
 	mean_time_to_happen = {
 		days = 8
 	}
-	
+
 	option = {
 		name = "EVTOPTA88505"
 		add_trait = infirm
@@ -257,25 +257,25 @@ character_event = {
 	desc = "EVTDESC88506"
 	picture = "GFX_evt_monk_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
-		NOT = { 
+		NOT = {
 			trait = gluttonous
 			trait = temperate
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 100
 	}
-	
+
 	option = {
 		name = "EVTOPTA88506"
 		add_trait = temperate
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -294,25 +294,25 @@ character_event = {
 	desc = "EVTDESC88507"
 	picture = "GFX_evt_monk_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
-		NOT = { 
+		NOT = {
 			trait = greedy
 			trait = charitable
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 100
 	}
-	
+
 	option = {
 		name = "EVTOPTA88507"
 		add_trait = charitable
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -331,12 +331,12 @@ character_event = {
 	desc = "EVTDESC88508"
 	picture = "GFX_evt_moors"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		war = yes
 	}
-	
+
 	option = {
 		name = "EVTOPTA88508"
 		character_event = { id = 88522 days = 1 }
@@ -350,13 +350,13 @@ character_event = {
 	desc = "EVTDESC88509"
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		trait = ill
 		has_character_flag = ramadan
 		NOT = { has_character_flag = ramadan_ill }
 	}
-	
+
 	option = {
 		name = "EVTOPTA88509"
 		character_event = { id = 88522 days = 1 }
@@ -370,14 +370,14 @@ character_event = {
 	desc = "EVTDESC88510"
 	picture = "GFX_evt_feast_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		num_of_vassals = 1
 		has_character_flag = ramadan
 	}
-	
+
 	option = {
 		name = "EVTOPTA88510"
 		scaled_wealth = -0.3
@@ -402,9 +402,9 @@ character_event = {
 letter_event = {
 	id = 88511
 	desc = "EVTDESC88511"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA88511"
 		ai_chance = { factor = 70 }
@@ -429,9 +429,9 @@ letter_event = {
 letter_event = {
 	id = 88512
 	desc = "EVTDESC88512"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA88512"
 	}
@@ -443,9 +443,9 @@ character_event = {
 	title = "RAMADANTITLE"
 	desc = "EVTDESC88513"
 	picture = "GFX_evt_feast_muslim"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA88513"
 		any_vassal = {
@@ -465,9 +465,9 @@ character_event = {
 	title = "RAMADANTITLE"
 	desc = "EVTDESC88514"
 	picture = "GFX_evt_feast_muslim"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA88514"
 		clr_character_flag = attending_ramadan_feast
@@ -481,9 +481,9 @@ character_event = {
 	desc = "EVTDESC88515"
 	picture = "GFX_evt_marriage_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_married = yes
 		has_character_flag = ramadan
@@ -491,7 +491,7 @@ character_event = {
 			any_spouse = { is_main_spouse = no }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA88515"
 		scaled_wealth = -0.25
@@ -522,15 +522,15 @@ character_event = {
 	desc = "EVTDESC88516"
 	picture = "GFX_evt_marriage_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_married = yes
 		any_spouse = { is_main_spouse = no }
 		has_character_flag = ramadan
 	}
-	
+
 	option = {
 		name = "EVTOPTA88516"
 		scaled_wealth = -0.25
@@ -581,23 +581,23 @@ character_event = {
 	desc = "EVTDESC88517"
 	picture = "GFX_evt_lunatic"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = gluttonous
 		NOT = { has_character_flag = ramadan_gluttonous }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88517"
 		set_character_flag = ramadan_gluttonous
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -616,7 +616,7 @@ character_event = {
 	desc = "EVTDESC88518"
 	picture = "GFX_evt_jugglers_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		OR = {
@@ -625,17 +625,17 @@ character_event = {
 		}
 		NOT = { has_character_flag = ramadan_lustful_hedonist }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88518"
 		set_character_flag = ramadan_lustful_hedonist
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -654,22 +654,22 @@ character_event = {
 	desc = "EVTDESC88519"
 	picture = "GFX_evt_drunk"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = drunkard
 		NOT = { has_character_flag = ramadan_drunkard }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88519"
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -689,25 +689,25 @@ character_event = {
 	desc = "EVTDESC88520"
 	picture = "GFX_evt_lunatic"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = greedy
-		NOT = { 
-			has_character_flag = ramadan_greedy 
+		NOT = {
+			has_character_flag = ramadan_greedy
 			trait = just
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88520"
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -727,22 +727,22 @@ character_event = {
 	desc = "EVTDESC88521"
 	picture = "GFX_evt_lunatic"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = cynical
 		NOT = { has_character_flag = ramadan_cynical }
 	}
-	
+
 	mean_time_to_happen = {
 		days = 30
 	}
-	
+
 	option = {
 		name = "EVTOPTA88521"
 		if = {
 			limit = {
-				NOT = { 
+				NOT = {
 					any_liege = {
 						dynasty = ROOT
 					}
@@ -762,11 +762,11 @@ character_event = {
 	desc = "EVTDESC88522"
 	picture = "GFX_evt_bishop_muslim"
 	border =  "GFX_event_normal_frame_religion"
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = { has_character_flag = ramadan }
-	
+
 	option = {
 		name = "EVTOPTA88522"
 		clr_character_flag = ramadan
@@ -781,5 +781,5 @@ character_event = {
 		clr_character_flag = ramadan_prisoners
 	}
 }
-	
-	
+
+

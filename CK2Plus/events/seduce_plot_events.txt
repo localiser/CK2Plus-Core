@@ -11,9 +11,9 @@ character_event = {
 	id = seduceplot.0
 	desc = seduceplot.0.desc
 	picture = "GFX_evt_lovers"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EXCELLENT"
 		plot_target_char = {
@@ -28,9 +28,9 @@ character_event = {
 	id = seduceplot.1
 	desc = seduceplot.1.desc
 	picture = "GFX_evt_lovers"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = seduceplot.1.a
 		add_lover = FROM
@@ -46,9 +46,9 @@ character_event = {
 	id = seduceplot.2
 	desc = seduceplot.2.desc
 	picture = "GFX_evt_scandal"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "CURSES"
 		plot_target_char = {
@@ -62,9 +62,9 @@ character_event = {
 	id = seduceplot.3
 	desc = seduceplot.3.desc
 	picture = "GFX_evt_scandal"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = seduceplot.3.a
 		spouse = {
@@ -81,14 +81,14 @@ character_event = {
 }
 
 # Seduce for men events
-# Successful seduce 
+# Successful seduce
 character_event = {
 	id = seduceplot.4
 	desc = seduceplot.4.desc
 	picture = "GFX_evt_lovers"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EXCELLENT"
 		plot_target_char = {
@@ -103,9 +103,9 @@ character_event = {
 	id = seduceplot.5
 	desc = seduceplot.5.desc
 	picture = "GFX_evt_lovers"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = seduceplot.5.a
 		add_lover = FROM
@@ -116,14 +116,14 @@ character_event = {
 	}
 }
 
-# Failed seduce 
+# Failed seduce
 character_event = {
 	id = seduceplot.6
 	desc = seduceplot.6.desc
 	picture = "GFX_evt_scandal"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "CURSES"
 		plot_target_char = {
@@ -137,9 +137,9 @@ character_event = {
 	id = seduceplot.7
 	desc = seduceplot.7.desc
 	picture = "GFX_evt_scandal"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = seduceplot.7.a
 		spouse = {
@@ -161,11 +161,11 @@ character_event = {
 	desc = seduceplot.8.desc
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-	
+
 	capable_only = yes
 	prisoner = no
 	only_women = yes
-	
+
 	trigger = {
 		has_plot = plot_seduce_liege
 		is_pregnant = no
@@ -175,19 +175,19 @@ character_event = {
 			NOT = { trait = incapable }
 		}
 		NOT = { has_character_flag = seduce_in_motion }
-		plot_power_contribution = 
+		plot_power_contribution =
 		{
 			plotter = ROOT
 			power = 0.02
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 850
-		
+
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.10
@@ -195,7 +195,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.20
@@ -203,7 +203,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.30
@@ -211,7 +211,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.40
@@ -219,7 +219,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.50
@@ -231,58 +231,58 @@ character_event = {
 				opinion = { who = ROOT value = 20 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			plot_target_char = {
 				opinion = { who = ROOT value = 40 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			plot_target_char = {
 				opinion = { who = ROOT value = 60 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.6
 			plot_target_char = {
 				opinion = { who = ROOT value = 80 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			plot_power = 0.5
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			plot_power = 0.7
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			plot_power = 0.9
 		}
-		
+
 		modifier = {
 			factor = 0.6
 			trait = fair
 		}
-		
+
 		modifier = {
 			factor = 0.85
 			trait = strong
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			trait = gregarious
 		}
-		
+
 		modifier = {
 			factor = 0.75
 			plot_target_char = {
@@ -292,21 +292,21 @@ character_event = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 1.85
 			plot_target_char = {
 				trait = chaste
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.8
 			plot_target_char = {
 				is_married = no
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.8
 			plot_target_char = {
@@ -315,44 +315,44 @@ character_event = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 11
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			diplomacy = 13
 		}
-		
+
 		modifier = {
 			factor = 0.85
 			diplomacy = 15
 		}
-		
+
 		modifier = {
 			factor = 0.8
 			diplomacy = 17
 		}
-		
+
 		modifier = {
 			factor = 0.8
 			NOT = { age = 25 }
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			NOT = { age = 35 }
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "seduceplot.8.a" # Seduce attempt
 		trigger = {
 			plot_power = 1.0
-		}	
+		}
 		set_character_flag = seduce_in_motion
 		random_list = {
 			90 = {
@@ -362,9 +362,9 @@ character_event = {
 				character_event = { id = seduceplot.2 days = 3 tooltip = "seduce_plot_fail_tooltip" }
 			}
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "seduceplot.8.b" # Too risky
 		trigger = {
@@ -380,10 +380,10 @@ character_event = {
 	desc = seduceplot.9.desc
 	picture = GFX_evt_garden
 	border = GFX_event_normal_frame_intrigue
-	
+
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		any_backed_character = {
 			has_plot = plot_seduce_liege
@@ -395,23 +395,23 @@ character_event = {
 				NOT = { trait = incapable }
 			}
 			NOT = { has_character_flag = seduce_in_motion }
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.02
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 750
-		
+
 		modifier = {
 			factor = 0.6
 			any_backed_character = {
 				has_plot = plot_seduce_liege
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.10
@@ -424,7 +424,7 @@ character_event = {
 			any_backed_character = {
 				has_plot = plot_seduce_liege
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.20
@@ -437,7 +437,7 @@ character_event = {
 			any_backed_character = {
 				has_plot = plot_seduce_liege
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.30
@@ -450,7 +450,7 @@ character_event = {
 			any_backed_character = {
 				has_plot = plot_seduce_liege
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.40
@@ -494,7 +494,7 @@ character_event = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
@@ -502,7 +502,7 @@ character_event = {
 				plot_power = 0.5
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
@@ -510,7 +510,7 @@ character_event = {
 				plot_power = 0.7
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.33
 			any_backed_character = {
@@ -518,44 +518,44 @@ character_event = {
 				plot_power = 0.9
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			trait = gregarious
 		}
-		
+
 		modifier = {
 			factor = 0.85
 			diplomacy = 7
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			diplomacy = 9
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 11
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 13
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 15
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 17
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "seduceplot.9.a" # Seduce attempt
 		trigger = {
@@ -563,8 +563,8 @@ character_event = {
 				has_plot = plot_seduce_liege
 				plot_power = 1.0
 			}
-		}		
-		random_backed_character = { 
+		}
+		random_backed_character = {
 			limit = {
 				has_plot = plot_seduce_liege
 				plot_power = 1.0
@@ -576,11 +576,11 @@ character_event = {
 				}
 				NOT = { has_character_flag = seduce_in_motion }
 			}
-			character_event = { id = seduceplot.10 days = 3 tooltip = "seduce_plot_attempt_tooltip" } 
+			character_event = { id = seduceplot.10 days = 3 tooltip = "seduce_plot_attempt_tooltip" }
 		}
-		
+
 	}
-	
+
 }
 
 # Plotter tells backer to go ahead - seduce liege
@@ -589,9 +589,9 @@ character_event = {
 	desc = seduceplot.10.desc
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "seduceplot.10.a"
 		set_character_flag = seduce_in_motion
@@ -604,7 +604,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "seduceplot.10.b" # Too risky
 		trigger = {
@@ -619,10 +619,10 @@ character_event = {
 	desc = seduceplot.11.desc
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-	
+
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		has_plot = plot_seduce_for_men
 		is_pregnant = no
@@ -632,19 +632,19 @@ character_event = {
 			NOT = { trait = incapable }
 		}
 		NOT = { has_character_flag = seduce_in_motion }
-		plot_power_contribution = 
+		plot_power_contribution =
 		{
 			plotter = ROOT
 			power = 0.02
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 850
-		
+
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.10
@@ -652,7 +652,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.20
@@ -660,7 +660,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.30
@@ -668,7 +668,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.40
@@ -676,7 +676,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = ROOT
 				power = 0.50
@@ -688,58 +688,58 @@ character_event = {
 				opinion = { who = ROOT value = 20 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			plot_target_char = {
 				opinion = { who = ROOT value = 40 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			plot_target_char = {
 				opinion = { who = ROOT value = 60 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.6
 			plot_target_char = {
 				opinion = { who = ROOT value = 80 }
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.65
 			trait = fair
 		}
-		
+
 		modifier = {
 			factor = 0.85
 			trait = poet
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			trait = gardener
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			trait = strong
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			trait = gregarious
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			trait = scarred
 		}
-		
+
 		modifier = {
 			factor = 0.7
 			plot_target_char = {
@@ -749,36 +749,36 @@ character_event = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			plot_power = 0.5
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			plot_power = 0.7
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			plot_power = 0.9
 		}
-		
+
 		modifier = {
 			factor = 1.55
 			plot_target_char = {
 				trait = chaste
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.8
 			plot_target_char = {
 				is_married = no
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.8
 			plot_target_char = {
@@ -787,34 +787,34 @@ character_event = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 11
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 13
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 15
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 17
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "seduceplot.11.a" # Seduce attempt
 		trigger = {
 			plot_power = 1.0
-		}		
+		}
 		set_character_flag = seduce_in_motion
 		random_list = {
 			90 = {
@@ -824,9 +824,9 @@ character_event = {
 				character_event = { id = seduceplot.6 days = 3 tooltip = "seduce_plot_fail_tooltip" }
 			}
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "seduceplot.11.b" # Too risky
 		trigger = {
@@ -842,10 +842,10 @@ character_event = {
 	desc = seduceplot.12.desc
 	picture = GFX_evt_garden
 	border = GFX_event_normal_frame_intrigue
-	
+
 	capable_only = yes
 	prisoner = no
-	
+
 	trigger = {
 		any_backed_character = {
 			has_plot = plot_seduce_for_men
@@ -857,23 +857,23 @@ character_event = {
 				NOT = { trait = incapable }
 			}
 			NOT = { has_character_flag = seduce_in_motion }
-			plot_power_contribution = 
+			plot_power_contribution =
 			{
 				plotter = PREV
 				power = 0.02
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 750
-		
+
 		modifier = {
 			factor = 0.65
 			any_backed_character = {
 				has_plot = plot_seduce_for_men
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.10
@@ -886,7 +886,7 @@ character_event = {
 			any_backed_character = {
 				has_plot = plot_seduce_for_men
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.20
@@ -899,7 +899,7 @@ character_event = {
 			any_backed_character = {
 				has_plot = plot_seduce_for_men
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.30
@@ -912,7 +912,7 @@ character_event = {
 			any_backed_character = {
 				has_plot = plot_seduce_for_men
 				ROOT = {
-					plot_power_contribution = 
+					plot_power_contribution =
 					{
 						plotter = PREV
 						power = 0.40
@@ -956,7 +956,7 @@ character_event = {
 				}
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
@@ -964,7 +964,7 @@ character_event = {
 				plot_power = 0.5
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
@@ -972,7 +972,7 @@ character_event = {
 				plot_power = 0.7
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.33
 			any_backed_character = {
@@ -980,53 +980,53 @@ character_event = {
 				plot_power = 0.9
 			}
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			trait = gregarious
 		}
-		
+
 		modifier = {
 			factor = 0.85
 			diplomacy = 7
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			diplomacy = 9
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			diplomacy = 11
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 13
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 15
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			diplomacy = 17
 		}
-		
+
 		modifier = {
 			factor = 0.9
 			NOT = { age = 25 }
 		}
-		
+
 		modifier = {
 			factor = 0.95
 			NOT = { age = 40 }
 		}
 	}
-	
+
 	option = {
 		name = "seduceplot.12.a" # Seduce attempt
 		trigger = {
@@ -1035,7 +1035,7 @@ character_event = {
 				plot_power = 1.0
 			}
 		}
-		random_backed_character = { 
+		random_backed_character = {
 			limit = {
 				has_plot = plot_seduce_for_men
 				plot_power = 1.0
@@ -1047,11 +1047,11 @@ character_event = {
 				}
 				NOT = { has_character_flag = seduce_in_motion }
 			}
-			character_event = { id = seduceplot.13 days = 1 tooltip = "seduce_plot_attempt_tooltip" } 
+			character_event = { id = seduceplot.13 days = 1 tooltip = "seduce_plot_attempt_tooltip" }
 		}
-		
+
 	}
-	
+
 }
 
 # Plotter tells backer to go ahead - seduce for men
@@ -1060,9 +1060,9 @@ character_event = {
 	desc = seduceplot.13.desc
 	picture = GFX_evt_lovers
 	border = GFX_event_normal_frame_intrigue
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "seduceplot.13.a"
 		set_character_flag = seduce_in_motion
@@ -1075,7 +1075,7 @@ character_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "seduceplot.13.b" # Too risky
 		trigger = {

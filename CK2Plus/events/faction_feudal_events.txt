@@ -2,9 +2,9 @@
 letter_event = {
 	id = 1901002
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901002"
-	
+
 	option = {
 		name = "EVTULTIMATUMNO"
 		ai_chance = {
@@ -44,19 +44,19 @@ letter_event = {
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 0.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 1.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 2.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 3.99 }
-			}				
+			}
 			modifier = {
 				factor = 2.0
 				NOT = {
@@ -64,59 +64,59 @@ letter_event = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 1.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}	
-			}					
-		}		
+				}
+			}
+		}
 		FROM = {
-			opinion = { 
+			opinion = {
 				who = ROOT
 				modifier = ultimatum_refused
 				years = 5
 			}
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_feudal" value = -3 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke					
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900506 }
-			}		
+			}
 		}
 	}
 	option = {
@@ -177,36 +177,36 @@ letter_event = {
 				add_law_w_cooldown = centralization_3
 			}
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 6 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke					
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900507 }
-			}		
+			}
 		}
 	}
 }
 
 character_event = {
 	id = 1901003
-	picture = "GFX_evt_council"		
+	picture = "GFX_evt_council"
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901003"
-	
+
 	option = {
 		name = "EVTOPTA1901003"
 	}
@@ -216,277 +216,277 @@ character_event = {
 letter_event = {
 	id = 1901011
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901011"
-	
+
 	option = {
 		name = "EVTOPTA1901011"
 		if = {
 			limit = {
-				FROM = {	
+				FROM = {
 					NOT = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 0.5
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 0.5
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 0.5
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}			
+				}
 			}
 			add_character_modifier = {
 				name = faction_feudal_bonus_1
 				duration = 1825
-			}				
+			}
 		}
 		if = {
 			limit = {
-				FROM = {	
+				FROM = {
 					OR = {
 						AND = {
 							leads_faction = faction_feudal_emperor
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_emperor
 								power = 0.5
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_king
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_king
 								power = 0.5
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_duke
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_duke
 								power = 0.5
-							}	
-						}			
-					}			
+							}
+						}
+					}
 					NOT = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 1.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}			
+				}
 			}
 			add_character_modifier = {
 				name = faction_feudal_bonus_2
 				duration = 1825
-			}				
+			}
 		}
 		if = {
 			limit = {
-				FROM = {	
+				FROM = {
 					OR = {
 						AND = {
 							leads_faction = faction_feudal_emperor
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_emperor
 								power = 1.0
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_king
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_king
 								power = 1.0
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_duke
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_duke
 								power = 1.0
-							}	
-						}			
-					}				
+							}
+						}
+					}
 					NOT = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 2.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 2.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 2.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}			
+				}
 			}
 			add_character_modifier = {
 				name = faction_feudal_bonus_3
 				duration = 1825
-			}				
+			}
 		}
 		if = {
 			limit = {
-				FROM = {	
+				FROM = {
 					OR = {
 						AND = {
 							leads_faction = faction_feudal_emperor
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_emperor
 								power = 2.0
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_king
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_king
 								power = 2.0
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_duke
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_duke
 								power = 2.0
-							}	
-						}			
-					}			
+							}
+						}
+					}
 					NOT = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 3.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 3.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 3.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}			
+				}
 			}
 			add_character_modifier = {
 				name = faction_feudal_bonus_4
 				duration = 1825
-			}				
+			}
 		}
 		if = {
 			limit = {
-				FROM = {	
+				FROM = {
 					OR = {
 						AND = {
 							leads_faction = faction_feudal_emperor
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_emperor
 								power = 3.0
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_king
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_king
 								power = 3.0
-							}	
+							}
 						}
 						AND = {
 							leads_faction = faction_feudal_duke
-							faction_power = 
+							faction_power =
 							{
 								faction = faction_feudal_duke
 								power = 3.0
-							}	
-						}			
-					}			
-				}			
+							}
+						}
+					}
+				}
 			}
 			add_character_modifier = {
 				name = faction_feudal_bonus_5
 				duration = 1825
-			}				
-		}		
+			}
+		}
 	}
 }
 
@@ -494,12 +494,12 @@ letter_event = {
 letter_event = {
 	id = 1901021
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901021"
-	
+
 	option = {
 		name = "EVTOPTA1901021"
-		any_vassal = {	
+		any_vassal = {
 			limit = {
 				OR = {
 					leads_faction = faction_feudal_emperor
@@ -507,7 +507,7 @@ letter_event = {
 					leads_faction = faction_feudal_duke
 					in_faction = faction_feudal_emperor
 					in_faction = faction_feudal_king
-					in_faction = faction_feudal_duke				
+					in_faction = faction_feudal_duke
 				}
 			}
 			if = { limit = { tier = king } ROOT = { wealth = 30 } }
@@ -521,7 +521,7 @@ letter_event = {
 letter_event = {
 	id = 1901031
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901031"
 
 	option = {
@@ -573,29 +573,29 @@ letter_event = {
 			if = {
 				limit = { has_law = iqta_tax_2 }
 				add_law_w_cooldown = iqta_tax_1
-			}		
+			}
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
-			change_variable = { which = "faction_mood_feudal" value = 6 }	
+			change_variable = { which = "faction_mood_feudal" value = 6 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke						
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900509 }
-			}		
+			}
 		}
-	}	
+	}
 	option = {
 		name = "EVTDEMANDNO"
 		ai_chance = {
@@ -635,19 +635,19 @@ letter_event = {
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 0.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 1.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 2.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 3.99 }
-			}				
+			}
 			modifier = {
 				factor = 1.5
 				NOT = {
@@ -655,59 +655,59 @@ letter_event = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 1.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}	
-			}			
-		}		
+				}
+			}
+		}
 		FROM = {
-			opinion = { 
+			opinion = {
 				who = ROOT
 				modifier = ultimatum_refused
 				years = 5
 			}
-		}		
-		custom_tooltip = { 
+		}
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_feudal" value = -3 }	
+			change_variable = { which = "faction_mood_feudal" value = -3 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke						
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900508 }
-			}		
+			}
 		}
 	}
 }
@@ -716,7 +716,7 @@ letter_event = {
 letter_event = {
 	id = 1901041
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901041"
 
 	option = {
@@ -755,27 +755,27 @@ letter_event = {
 		primary_title = {
 			add_law_w_cooldown = levy_privileges_1
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 6 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke						
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900513 }
-			}		
+			}
 		}
-	}	
+	}
 	option = {
 		name = "EVTDEMANDNO"
 		ai_chance = {
@@ -815,19 +815,19 @@ letter_event = {
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 0.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 1.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 2.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 3.99 }
-			}				
+			}
 			modifier = {
 				factor = 1.5
 				NOT = {
@@ -835,59 +835,59 @@ letter_event = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 1.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}	
-			}		
-		}	
+				}
+			}
+		}
 		FROM = {
-			opinion = { 
+			opinion = {
 				who = ROOT
 				modifier = ultimatum_refused
 				years = 5
 			}
-		}		
-		custom_tooltip = { 
+		}
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODMINUS
-			change_variable = { which = "faction_mood_feudal" value = -3 }	
+			change_variable = { which = "faction_mood_feudal" value = -3 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke						
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900512 }
-			}		
+			}
 		}
 	}
 }
@@ -896,7 +896,7 @@ letter_event = {
 letter_event = {
 	id = 1901051
 	is_triggered_only = yes
-	
+
 	desc = "EVTDESC1901051"
 
 	option = {
@@ -936,33 +936,33 @@ letter_event = {
 			if = {
 				limit = { has_law = tax_privileges_1 }
 				add_law_w_cooldown = tax_privileges_2
-			}		
+			}
 			if = {
 				limit = { has_law = tax_privileges_0 }
 				add_law_w_cooldown = tax_privileges_1
-			}		
+			}
 		}
-		custom_tooltip = { 
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_feudal" value = 6 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke						
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900511 }
-			}		
+			}
 		}
-	}	
+	}
 	option = {
 		name = "EVTDEMANDNO"
 		ai_chance = {
@@ -1002,19 +1002,19 @@ letter_event = {
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 0.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 1.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 2.99 }
-			}	
+			}
 			modifier = {
 				factor = 0.75
 				check_variable = { which = "rebel_power" value = 3.99 }
-			}				
+			}
 			modifier = {
 				factor = 1.5
 				NOT = {
@@ -1022,59 +1022,59 @@ letter_event = {
 						OR = {
 							AND = {
 								leads_faction = faction_feudal_emperor
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_emperor
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_king
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_king
 									power = 1.0
-								}	
+								}
 							}
 							AND = {
 								leads_faction = faction_feudal_duke
-								faction_power = 
+								faction_power =
 								{
 									faction = faction_feudal_duke
 									power = 1.0
-								}	
-							}			
+								}
+							}
 						}
 					}
-				}	
-			}		
-		}	
+				}
+			}
+		}
 		FROM = {
-			opinion = { 
+			opinion = {
 				who = ROOT
 				modifier = ultimatum_refused
 				years = 5
 			}
-		}		
-		custom_tooltip = { 
+		}
+		custom_tooltip = {
 			text = FEUDALFACTIONMOODMINUS
 			change_variable = { which = "faction_mood_feudal" value = -3 }
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
 		}
 		hidden_tooltip = {
 			any_vassal = {
-				limit = { 
+				limit = {
 					OR = {
 						leads_faction = faction_feudal_emperor
 						leads_faction = faction_feudal_king
 						leads_faction = faction_feudal_duke
 						in_faction = faction_feudal_emperor
 						in_faction = faction_feudal_king
-						in_faction = faction_feudal_duke						
+						in_faction = faction_feudal_duke
 					}
 				}
 				character_event = { id = 1900510 }
-			}		
+			}
 		}
 	}
 }

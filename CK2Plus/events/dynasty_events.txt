@@ -12,9 +12,9 @@ character_event = {
 	id = 66000
 	desc = "EVTDESC66000"
 	picture = "GFX_evt_emissary"
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		age = 16
 		num_of_children = 1
@@ -33,7 +33,7 @@ character_event = {
 			intrigue = 12
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -43,7 +43,7 @@ character_event = {
 		modifier = {
 			factor = 5
 			trait = proud
-		}		
+		}
 		modifier = {
 			factor = 0.8
 			trait = stressed
@@ -115,20 +115,20 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
 		}
-				
+
 	}
-	
+
 	option = {
 		name = "EVTOPTA66000" #ask for a claim
 		ai_chance = {
 			factor = 1
 		}
-		
+
 		random_dynasty_member = {
 			limit = {
 				demesne_size = 1
@@ -141,7 +141,7 @@ character_event = {
 			character_event = {	id = 66010  days = 17	tooltip = "EVTTOOLTIP66010" }
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTB66000" #ask for the actual title
 		ai_chance = {
@@ -157,7 +157,7 @@ character_event = {
 				NOT = { any_demesne_title = { claimed_by = root	} }
 			}
 		}
-		
+
 		random_dynasty_member = {
 			limit = {
 				NOT = { num_of_children = 1 }
@@ -170,7 +170,7 @@ character_event = {
 			character_event = {	id = 66020 tooltip = "EVTTOOLTIP66020" }
 		}
 	}
-}	
+}
 
 
 #Dynasty member asks for a claim
@@ -178,9 +178,9 @@ character_event = {
 	id = 66010
 	desc = "EVTDESC66010"
 	picture = "GFX_evt_emissary"
-	
+
 	is_triggered_only = yes
-	
+
 	#no need for notifactions back, landless character gets it anyway.
 	option = {
 		ai_chance = {
@@ -216,7 +216,7 @@ character_event = {
 			add_claim = FROM
 		}
 	}
-	
+
 	option = {
 		ai_chance = {
 			factor = 2
@@ -243,9 +243,9 @@ character_event = {
 	id = 66020
 	desc = "EVTDESC66020"
 	picture = "GFX_evt_emissary"
-	
+
 	is_triggered_only = yes
-	
+
 	#no need for notifactions back, landless character gets it anyway.
 	option = {
 		name = "EVTOPTA66020" #accept demand for title
@@ -275,7 +275,7 @@ character_event = {
 				factor = 3
 				opinion = { who = from value =  75 }
 			}
-		}		
+		}
 		prestige = -5
 		random_demesne_title = {
 			limit = {
@@ -285,9 +285,9 @@ character_event = {
 			}
 			grant_title = FROM
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "EVTOPTB66020" #refuse outrageous demands.
 		FROM = {
@@ -305,11 +305,11 @@ character_event = {
 	id = 66050
 	desc = "EVTDESC66050"
 	picture = "GFX_evt_emissary"
-	
+
 	min_age = 16
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_landed_title = no
 		NOT = {
@@ -326,7 +326,7 @@ character_event = {
 			stewardship = 12
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -336,7 +336,7 @@ character_event = {
 		modifier = {
 			factor = 5
 			trait = proud
-		}		
+		}
 		modifier = {
 			factor = 0.8
 			trait = stressed
@@ -408,13 +408,13 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
 		}
 	}
-	
+
 	option = {
 		name = "EVTOPTA66050" # ask for the title!
 		random_dynasty_member = {
@@ -423,7 +423,7 @@ character_event = {
 				num_of_king_titles = 2
 			}
 			character_event = {	id = 66051	days = 1 tooltip = "EVTTOOLTIP66051" }
-		}		
+		}
 	}
 }
 
@@ -431,13 +431,13 @@ character_event = {
 	id = 66051
 	desc = "EVTDESC66051"
 	picture = "GFX_evt_emissary"
-	
+
 	is_triggered_only = yes
-	
+
 	#no need for notifactions back, landless character gets it anyway.
 	option = {
 		name = "EVTOPTA66051" #accept demand for title
-		
+
 		ai_chance = {
 			factor = 1
 			modifier = {
@@ -464,7 +464,7 @@ character_event = {
 				factor = 3
 				opinion = { who = from value =  75 }
 			}
-		}		
+		}
 		prestige = -5
 		random_demesne_title = {
 			limit = {
@@ -473,9 +473,9 @@ character_event = {
 			}
 			grant_kingdom_w_adjudication = FROM
 		}
-		
+
 	}
-	
+
 	option = {
 		name = "EVTOPTB66051" #refuse outrageous demands.
 		ai_chance = {
@@ -485,7 +485,7 @@ character_event = {
 				opinion = { who = from value =  80 }
 			}
 		}
-		
+
 		FROM = {
 			opinion = {
 				modifier = dynastic_refused_title
@@ -501,20 +501,20 @@ character_event = {
 	id = 66100
 	desc = "EVTDESC66100"
 	picture = "GFX_evt_emissary"
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		age = 16
 		has_landed_title = no
 		opinion = { who = top_liege value = 0 }
-		
+
 		num_of_claims = 1
-		
+
 		any_claim = {
 			NOT = { holder_scope = { same_realm = root } }
 		}
-		
+
 		top_liege = {
 			dynasty = root
 			war = no
@@ -525,7 +525,7 @@ character_event = {
 			diplomacy = 12
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 		modifier = {
@@ -535,7 +535,7 @@ character_event = {
 		modifier = {
 			factor = 5
 			trait = proud
-		}		
+		}
 		modifier = {
 			factor = 0.8
 			trait = stressed
@@ -607,29 +607,29 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = has_measles
-		}		
+		}
 		modifier = {
 			factor = 0.5
 			trait = has_small_pox
 		}
-				
+
 	}
-	
+
 	option = {
 		name = "EVTOPTA66100" #ask for the war!
 
 		top_liege = {
 			character_event = {	id = 66110 	days = 9 tooltip = "EVTTOOLTIP66110" }
-		}		
+		}
 	}
 }
 character_event = {
 	id = 66110
 	desc = "EVTDESC66110"
 	picture = "GFX_evt_emissary"
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = "EVTOPTA66110" #go to war!
 		ai_chance = {
@@ -658,7 +658,7 @@ character_event = {
 				factor = 3
 				opinion = { who = from value =  75 }
 			}
-		}		
+		}
 		FROM = {
 			random_claim = {
 				reverse_war = {
@@ -668,9 +668,9 @@ character_event = {
 				}
 			}
 		}
-	
-	}	
-	
+
+	}
+
 	option = {
 		name = "EVTOPTB66110" #refuse outrageous demands.
 		ai_chance = {
@@ -680,7 +680,7 @@ character_event = {
 				opinion = { who = from value =  80 }
 			}
 		}
-		
+
 		FROM = {
 			opinion = {
 				modifier = dynastic_refused_war
@@ -689,7 +689,7 @@ character_event = {
 			}
 		}
 		prestige = -10
-	}	
+	}
 }
 
 
