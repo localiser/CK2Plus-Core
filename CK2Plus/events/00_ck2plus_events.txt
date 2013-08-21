@@ -1,0 +1,1608 @@
+# Events for the See Bastard Son Legitimized Ambition
+# 0 - Event chain start
+# 1 - Father is asked to legit, trigger'd via decision
+# 2 - Bastard son responds to no
+# 3 - Bastard son responds to yes
+
+#Mother asks bastard's Father to Legitimize bastard via son
+character_event = {
+	id = 1000182002
+	desc = 1000182002.desc
+	picture = GFX_evt_emissary
+
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182002.a"
+		father = {
+			character_event = {
+				id = 1000182003
+			}
+		}
+	}
+}
+
+
+# Father Decides
+character_event = {
+	id = 1000182003
+	desc = 1000182003.desc
+	picture = GFX_evt_emissary
+
+	is_triggered_only = yes
+
+	option = {
+		name = 1000182003.a    # No
+		FROM = {
+			hidden_tooltip = {
+				character_event = {
+					id = 1000182004
+				}
+			}
+
+			mother = {
+				opinion = {
+					modifier = opinion_refused_legit_request
+					who = ROOT
+					years = 10
+				}
+				hidden_tooltip = {
+					character_event = { id = 1000182006 }
+				}
+			}
+
+		}
+	}
+	option = {
+		name = 1000182003.b  # Yes
+		FROM = {
+			hidden_tooltip = {
+				character_event = {
+					id = 1000182005
+				}
+			}
+			remove_trait = bastard
+			add_trait = legit_bastard
+		}
+
+		spouse = {
+			opinion = {
+				modifier = legitimized_bastard
+				who = ROOT
+				years = 10
+			}
+		}
+
+	}
+}
+
+# Son refused
+character_event = {
+	id = 1000182004
+	desc = 1000182004.desc
+	picture = GFX_evt_emissary
+
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182004.a"  # There are other ways...
+		opinion = {
+				modifier = opinion_refused_legit_request
+				who = FROM
+				years = 10
+			}
+
+		if = {
+			limit = {
+				trait = content
+			}
+			remove_trait = content
+		}
+
+		random_list = {
+			40 = {
+				add_trait = ambitious
+			}
+			50 = {
+				add_trait = deceitful
+			}
+			10 = {
+				change_intrigue = 1
+			}
+		}
+
+	}
+
+	option = {
+		name = "1000182004.b"   # Maybe he'll change his mind if I'm better
+		if = {
+			limit = {
+				trait = slothful
+			}
+			remove_trait = slothful
+		}
+
+		random_list = {
+			40 = {
+				add_trait = diligent
+			}
+			50 = {
+				add_trait = brave
+			}
+			10 = {
+				change_martial = 1
+			}
+		}
+	}
+
+	option = {
+		name = "1000182004.c"  # It's fine I don't want it anyway
+		add_trait = content
+		piety = 10
+	}
+}
+
+# Bastard and mother is pleased
+character_event = {
+	id = 1000182005
+	desc = 1000182005.desc
+	picture = GFX_evt_emissary
+
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182005.a"
+		opinion = {
+				modifier = legitimized_child
+				who = FROM
+				years = 10
+			}
+		mother = {
+			opinion = {
+				modifier = legitimized_child
+				who = FROM
+				years = 10
+			}
+			hidden_tooltip = {
+				character_event = { id = 1000182007 }
+			}
+		}
+	}
+}
+
+# Mother learns of Refusal
+character_event = {
+	id = 1000182006
+	desc = 1000182006.desc
+	picture = GFX_evt_emissary
+
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182006.a"
+	}
+}
+
+# Mother learns of Yes answer
+character_event = {
+	id = 1000182007
+	desc = 1000182007.desc
+	picture = GFX_evt_emissary
+
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182007.a"
+
+	}
+}
+
+character_event = {
+	id = 1000182008
+	desc = 1000182008.desc
+	picture = GFX_evt_death
+
+	only_rulers = yes
+	hide_from = yes
+	is_triggered_only = yes
+	trigger = {
+		any_child = {trait = favored_son}
+	}
+
+	option = {
+		name = 1000182008.a
+		any_child = {
+			if = {
+				limit = {trait = favored_son}
+				remove_trait = favored_son
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 1000182009
+	desc = 1000182009.desc
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = 1000182009.a
+		hidden_tooltip={set_character_flag=civilized_province}
+	}
+}
+
+namespace = ao_fabbetrayal
+
+#Any Plot Backer sees chance to fabricate
+character_event = {
+	id = 10001820010
+	desc = "10001820010.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+
+	capable_only = yes
+	prisoner = no
+	trigger = {
+		any_backed_character = {
+			OR = {has_plot=plot_fabricate_evidence_betrayal_same_realm has_plot=plot_fabricate_evidence_betrayal}
+			plot_power = 0.5
+			plot_target_char = {
+				is_adult = yes
+				NOT = { trait = incapable }
+				prisoner = no
+			}
+			NOT = { has_character_flag = fabricate_in_motion }
+			ROOT = {
+				plot_power_contribution = { plotter = PREV power = 0.04}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 600
+
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.1}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.2}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.3}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.4}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.5}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.6}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.7}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.8}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.9}}
+			}
+		}
+
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				plot_power = 2.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				plot_power = 3
+			}
+		}
+	}
+
+	option = {
+		name = "10001820010.a" # Tell Plotter
+		trigger = {
+			any_backed_character = {OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}}
+				plot_power = 0.5
+		}
+		random_backed_character = {
+			limit = {
+				OR = {has_plot=plot_fabricate_evidence_betrayal has_plot=plot_fabricate_evidence_betrayal_same_realm}
+				plot_power = 0.5
+			}
+			letter_event = { id = 10001820011 days = 3}
+			set_character_flag = fabricate_in_motion
+		}
+	}
+}
+
+letter_event = {
+	id = 10001820011
+	desc = "10001820011.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	option = {
+		name = "10001820011.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {trait = lunatic trait = possessed }
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 0.5
+			NOT = { plot_power = 1 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				20 = { character_event = { id = 10001820012 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
+				30 = { character_event = { id = 10001820013 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
+				50 = { character_event = { id = 10001820014 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "10001820011.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {
+					trait = lunatic
+					trait = possessed
+					trait = wroth
+				}
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 1
+			NOT = { plot_power = 1.5 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				33 = { character_event = { id = 10001820012 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
+				33 = { character_event = { id = 10001820013 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
+				34 = { character_event = { id = 10001820014 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "10001820011.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {trait = lunatic trait = possessed trait = wroth }
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 1.5
+			NOT = { plot_power = 2 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				50 = { character_event = { id = 10001820012 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
+				25 = { character_event = { id = 10001820013 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
+				25 = { character_event = { id = 10001820014 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "10001820011.a"
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			plot_power = 2
+			NOT = { plot_power = 2.5 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				60 = { character_event = { id = 10001820012 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
+				20 = { character_event = { id = 10001820013 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
+				20 = { character_event = { id = 10001820014 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "10001820011.a"
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			plot_power = 2.5
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				75 = { character_event = { id = 10001820012 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL1" days = 14 } } #succeeds
+				15 = { character_event = { id = 10001820013 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL2" days = 14 } } #fails, not discovered
+				10 = { character_event = { id = 10001820014 tooltip = "CUSTOMTOOLTIP_FABBETRAYAL3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "10001820011.b" #back out
+		ai_chance = {
+			factor = 10
+		}
+		clr_character_flag = fabricate_in_motion
+	}
+}
+
+#SUCCESS - notify framee
+character_event = {
+	id = 10001820012
+	desc = "10001820012.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	option = {
+		name = "10001820012.a"
+		FROM = {character_event = { id = 10001820015}}
+		opinion = {
+			who = FROM
+			modifier = opinion_framed_me
+			months = 1200
+		}
+		set_character_flag = fabbetrayalvictim
+	}
+}
+# Undiscovered failure
+character_event = {
+	id = 10001820013
+	desc = "10001820013.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	hide_from = yes
+	option = {name = "10001820013.a" FROM = {character_event = { id = 10001820016}}}
+
+}
+#Discovered failure - notify target
+character_event = {
+	id = 10001820014
+	desc = "10001820014.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820014.a"
+		FROM = {character_event = { id = 10001820017}}
+		if={
+			limit = {FROM = {independent = no}}
+			FROM = {liege = {letter_event = {id = 10001820019}} set_character_flag = infbetrayalfail}
+		}
+		if={
+			limit = {any_liege = {character=FROM}}
+			FROM = {
+				any_vassal = {letter_event = {id = 10001820023 } set_character_flag = infbetrayalfail}
+				if={
+					limit = {independent = no}
+					liege = {any_vassal={limit={NOT={OR={character=FROM character=ROOT}}}letter_event = {id = 10001820021} set_character_flag = infbetrayalfail}}
+				}
+			}
+		}
+		if={
+			limit = {AND ={FROM = {has_plot=plot_fabricate_evidence_betrayal_same_realm} NOT = {any_liege = {character=FROM}}}}
+			FROM = {
+				any_vassal = {letter_event = {id = 10001820020} set_character_flag = infbetrayalfail}
+				if={
+					limit = {independent = no}
+					liege = {any_vassal={limit={NOT={OR={character=FROM character=ROOT}}}letter_event = {id = 10001820021} set_character_flag = infbetrayalfail}}
+				}
+			}
+		}
+		any_dynasty_member = {limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+			any_sibling = {
+				if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail}
+				any_spouse = {
+					if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+					any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+					father = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }}
+					mother = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }}
+					any_child = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+				}
+			}
+			any_spouse = {
+				if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+				any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+				father = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }}
+				mother = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }}
+			}
+			father = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }}
+			mother = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }}
+			father_even_if_dead = {
+				any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+				any_spouse = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+			}
+			mother_even_if_dead = {
+				any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+				any_spouse = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+			}
+			any_child = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayalfail}} letter_event = {id = 10001820022} set_character_flag = infbetrayalfail }
+		opinion = {
+			who = FROM
+			modifier = opinion_tried_to_frame_me
+			months = 1200
+		}
+	}
+}
+
+#Notify plotter of success
+character_event = {
+	id = 10001820015
+	desc = "10001820015.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820015.a"
+		clr_character_flag = fabricate_in_motion
+		FROM = {
+			any_dynasty_member = {limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+			any_sibling = {
+				if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal}
+				any_spouse = {
+					if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+					any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+					father = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }}
+					mother = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }}
+					any_child = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+				}
+			}
+			any_spouse = {
+				if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+				any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+				father = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }}
+				mother = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }}
+			}
+			father = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }}
+			mother = { if={limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }}
+			father_even_if_dead = {
+				any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+				any_spouse = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+			}
+			mother_even_if_dead = {
+				any_sibling = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+				any_spouse = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+			}
+			any_child = { limit = {is_ruler=yes NOT={has_character_flag=infbetrayal}} letter_event = {id = 10001820018} set_character_flag = infbetrayal }
+		}
+	}
+}
+#Notify plotter - undiscovered failure
+character_event = {
+	id = 10001820016
+	desc = "10001820016.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {name = "10001820016.a" clr_character_flag = fabricate_in_motion}
+}
+#Notify plotter - discovered failure
+character_event = {
+	id = 10001820017
+	desc = "10001820017.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820017.a"
+		clr_character_flag = fabricate_in_motion
+		if = { limit = {has_plot = plot_fabricate_evidence_betrayal}
+			cancel_plot = plot_fabricate_evidence_betrayal
+		}
+		if = { limit = {has_plot = plot_fabricate_evidence_betrayal_same_realm}
+			cancel_plot = plot_fabricate_evidence_betrayal_same_realm
+		}
+		piety = -25
+	}
+}
+letter_event = {
+	id = 10001820018
+	desc = "10001820018.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820018.a"
+		opinion = { who = FROMFROM modifier = opinion_betrayer months = 180 }
+		opinion = { who = FROM modifier = opinion_unmasked_betrayer months = 60 }
+		clr_character_flag = infbetrayal
+	}
+}
+letter_event = {
+	id = 10001820019
+	desc = "10001820019.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		limit = { OR={ai = no opinion = { who = FROM value = 0 } FROM={any_liege={character=ROOT}} } }
+		name = "10001820019.a"
+		opinion = { who = FROMFROM modifier = opinion_broke_peace months = 60 }
+	}
+	option = {
+		limit = {OR={ ai=no NOT={OR={opinion = { who = FROM value = 0 } FROM={any_liege={character=ROOT}} } }}}
+		name = "10001820019.b"
+	}
+}
+letter_event = {
+	id = 10001820020
+	desc = "10001820020.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820020.a"
+		opinion = { who = FROMFROM modifier = opinion_conspired_within_realm months = 120 }
+		clr_character_flag = infbetrayalfail
+	}
+}
+letter_event = {
+	id = 10001820021
+	desc = "10001820021.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820021.a"
+		opinion = { who = FROMFROM modifier = opinion_conspired_within_realm months = 120 }
+		clr_character_flag = infbetrayalfail
+	}
+}
+letter_event = {
+	id = 10001820022
+	desc = "10001820022.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820022.a"
+		opinion = { who = FROMFROM modifier = opinion_tried_to_trick_me months = 120 }
+		clr_character_flag = infbetrayalfail
+	}
+}
+letter_event = {
+	id = 10001820023
+	desc = "10001820023.desc"
+	picture = GFX_evt_whispers
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "10001820023.a"
+		opinion = { who = FROMFROM modifier = opinion_conspired_against_vassal months = 120 }
+		clr_character_flag = infbetrayalfail
+	}
+}
+
+#3 different kidnapping chains - in transit, out of bed, ambushed leading troops
+#Chain Progress:
+#Step 1: Any backer is alerted of opportunity.
+#Step 2: Backer informs plotter of opportunity.  Plotter can see the odds, which vary based on plot power.  Plotter can choose to take the event or not
+#Step 3: Three options here - success, undetected failure, or detected failure
+
+
+#Any Plot Backer sees chance to nab target in transit
+character_event = {
+	id = 1000182024
+	desc = "1000182024.desc"
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		any_backed_character = {
+			has_plot = plot_kidnapping
+			plot_power = 0.5
+			plot_target_char = {
+				is_adult = yes
+				NOT = { trait = incapable }
+				prisoner = no
+			}
+			NOT = { has_character_flag = kidnap_in_motion }
+			ROOT = {
+				plot_power_contribution = { plotter = PREV power = 0.04}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.1}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.2}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.3}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.4}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.5}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.6}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.7}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.8}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.9}}
+			}
+		}
+
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 2.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 3
+			}
+		}
+	}
+
+	option = {
+		name = "1000182024.a" # Tell Plotter
+		trigger = {
+			any_backed_character = {has_plot = plot_kidnapping}
+				plot_power = 0.5
+		}
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kidnapping
+				plot_power = 0.5
+			}
+			letter_event = { id = 1000182025 days = 3}
+			set_character_flag = kidnap_in_motion
+		}
+	}
+}
+
+letter_event = {
+	id = 1000182025
+	desc = "1000182025.desc"
+	picture = GFX_evt_carriage
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182025.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {trait = lunatic trait = possessed }
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 0.5
+			NOT = { plot_power = 1 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				20 = { character_event = { id = 1000182026 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				30 = { character_event = { id = 1000182027 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				50 = { character_event = { id = 1000182028 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182025.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {
+					trait = lunatic
+					trait = possessed
+					trait = wroth
+				}
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 1
+			NOT = { plot_power = 1.5 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				33 = { character_event = { id = 1000182026 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				33 = { character_event = { id = 1000182027 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				34 = { character_event = { id = 1000182028 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182025.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {trait = lunatic trait = possessed trait = wroth }
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 1.5
+			NOT = { plot_power = 2 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				50 = { character_event = { id = 1000182026 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				25 = { character_event = { id = 1000182027 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				25 = { character_event = { id = 1000182028 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182025.a"
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			plot_power = 2
+			NOT = { plot_power = 2.5 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				60 = { character_event = { id = 1000182026 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				20 = { character_event = { id = 1000182027 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				20 = { character_event = { id = 1000182028 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182025.a"
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			plot_power = 2.5
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				75 = { character_event = { id = 1000182026 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				15 = { character_event = { id = 1000182027 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				10 = { character_event = { id = 1000182028 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182025.b" #back out
+		ai_chance = {
+			factor = 10
+		}
+		clr_character_flag = kidnap_in_motion
+	}
+}
+
+#SUCCESS - notify new prisoner.
+character_event = {
+	id = 1000182026
+	desc = "1000182026.desc"
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182026.a"
+		imprison = FROM
+		FROM = {character_event = { id = 1000182029}}
+		opinion = {
+			who = FROM
+			modifier = opinion_kidnapper
+			months = 1200
+		}
+		any_sibling ={
+			opinion = {
+				who = FROM
+				modifier = opinion_kidnapped_kin
+				months = 600
+			}
+		}
+		any_spouse ={
+			opinion = {
+				who = FROM
+				modifier = opinion_kidnapped_kin
+				months = 600
+			}
+		}
+		any_child ={
+			opinion = {
+				who = FROM
+				modifier = opinion_kidnapped_kin
+				months = 600
+			}
+		}
+	}
+}
+# Undiscovered failure
+character_event = {
+	id = 1000182027
+	desc = "1000182027.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	hide_from = yes
+	option = {name = "1000182027.a" FROM = {character_event = { id = 1000182030}}}
+
+}
+#Discovered failure - notify target
+character_event = {
+	id = 1000182028
+	desc = "1000182028.desc"
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "1000182028.a"
+		FROM = {character_event = { id = 1000182031}}
+		opinion = {
+			who = FROM
+			modifier = opinion_attempt_kidnap
+			months = 1200
+		}
+	}
+}
+
+#Notify plotter of success
+character_event = {
+	id = 1000182029
+	desc = "1000182029.desc"
+	picture = GFX_evt_carriage
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {name = "1000182029.a" clr_character_flag = kidnap_in_motion}
+}
+#Notify plotter - undiscovered failure
+character_event = {
+	id = 1000182030
+	desc = "1000182030.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {name = "1000182030.a" clr_character_flag = kidnap_in_motion}
+}
+#Notify plotter - discovered failure
+character_event = {
+	id = 1000182031
+	desc = "1000182031.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "1000182031.a"
+		clr_character_flag = kidnap_in_motion
+		cancel_plot = plot_kidnapping
+		piety = -50
+		if = {
+			limit = {
+				#NOT = { FROM = { employer = { character = FROM } } }
+				NOT = { FROM = { employer = { character = ROOT } } }
+			}
+			FROM = {
+				employer = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_broke_peace
+						months = 60
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { FROM = { liege = { character = FROM } } }
+				NOT = { FROM = { liege = { character = ROOT } } }
+				NOT = { FROM = { liege = { employer = { character = FROM } } } }
+				NOT = { FROM = { liege = { employer = { character = ROOT } } } }
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_broke_peace
+						months = 60
+					}
+				}
+			}
+		}
+
+	}
+}
+
+#Any Plot Backer sees chance to nab target in his bed
+character_event = {
+	id = 1000182034
+	desc = "1000182034.desc"
+	picture = GFX_evt_recovery
+	border = GFX_event_normal_frame_intrigue
+
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		any_backed_character = {
+			has_plot = plot_kidnapping
+			plot_power = 0.5
+			plot_target_char = {
+				is_adult = yes
+				NOT = { trait = incapable }
+				prisoner = no
+			}
+			NOT = { has_character_flag = kidnap_in_motion }
+			ROOT = {
+				plot_power_contribution = { plotter = PREV power = 0.04}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.1}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.2}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.3}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.4}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.5}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.6}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.7}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.8}}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				ROOT = {plot_power_contribution = {plotter = PREV power = 0.9}}
+			}
+		}
+
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 2.5
+			}
+		}
+		modifier = {
+			factor = 0.66
+			any_backed_character = {
+				has_plot = plot_kidnapping
+				plot_power = 3
+			}
+		}
+	}
+
+	option = {
+		name = "1000182034.a" # Tell Plotter
+		trigger = {
+			any_backed_character = {has_plot = plot_kidnapping}
+				plot_power = 0.5
+		}
+		random_backed_character = {
+			limit = {
+				has_plot = plot_kidnapping
+				plot_power = 0.5
+			}
+			letter_event = { id = 1000182035 days = 3}
+			set_character_flag = kidnap_in_motion
+		}
+	}
+}
+
+letter_event = {
+	id = 1000182035
+	desc = "1000182035.desc"
+	picture = GFX_evt_recovery
+	#border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182035.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {trait = lunatic trait = possessed }
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 0.5
+			NOT = { plot_power = 1 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				20 = { character_event = { id = 1000182036 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				30 = { character_event = { id = 1000182037 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				50 = { character_event = { id = 1000182038 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182035.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {
+					trait = lunatic
+					trait = possessed
+					trait = wroth
+				}
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 1
+			NOT = { plot_power = 1.5 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				33 = { character_event = { id = 1000182036 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				33 = { character_event = { id = 1000182037 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				34 = { character_event = { id = 1000182038 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182035.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				OR = {trait = lunatic trait = possessed trait = wroth }
+				factor = 100
+			}
+		}
+		trigger = {
+			plot_power = 1.5
+			NOT = { plot_power = 2 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				50 = { character_event = { id = 1000182036 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				25 = { character_event = { id = 1000182037 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				25 = { character_event = { id = 1000182038 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182035.a"
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			plot_power = 2
+			NOT = { plot_power = 2.5 }
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				60 = { character_event = { id = 1000182036 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				20 = { character_event = { id = 1000182037 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				20 = { character_event = { id = 1000182038 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182035.a"
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			plot_power = 2.5
+		}
+		if = {
+			limit = { trait = honest }
+			remove_trait = honest
+		}
+		plot_target_char = {
+			random_list = {
+				75 = { character_event = { id = 1000182036 tooltip = "CUSTOMTOOLTIP_KIDNAP1" days = 14 } } #succeeds
+				15 = { character_event = { id = 1000182037 tooltip = "CUSTOMTOOLTIP_KIDNAP2" days = 14 } } #fails, not discovered
+				10 = { character_event = { id = 1000182038 tooltip = "CUSTOMTOOLTIP_KIDNAP3" days = 14 } } #fails, discovered
+			}
+		}
+	}
+	option = {
+		name = "1000182035.b" #back out
+		ai_chance = {
+			factor = 10
+		}
+		clr_character_flag = kidnap_in_motion
+	}
+}
+
+#SUCCESS - notify new prisoner.
+character_event = {
+	id = 1000182036
+	desc = "1000182036.desc"
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+
+	option = {
+		name = "1000182036.a"
+		imprison = FROM
+		FROM = {character_event = { id = 1000182039}}
+		opinion = {
+			who = FROM
+			modifier = opinion_kidnapper
+			months = 1200
+		}
+		any_sibling ={
+			opinion = {
+				who = FROM
+				modifier = opinion_kidnapped_kin
+				months = 600
+			}
+		}
+		any_spouse ={
+			opinion = {
+				who = FROM
+				modifier = opinion_kidnapped_kin
+				months = 600
+			}
+		}
+		any_child ={
+			opinion = {
+				who = FROM
+				modifier = opinion_kidnapped_kin
+				months = 600
+			}
+		}
+	}
+}
+# Undiscovered failure
+character_event = {
+	id = 1000182037
+	desc = "1000182037.desc"
+	picture = GFX_evt_recovery
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	hide_from = yes
+	option = {name = "1000182037.a" FROM = {character_event = { id = 1000182040}}}
+
+}
+#Discovered failure - notify target
+character_event = {
+	id = 1000182038
+	desc = "1000182038.desc"
+	picture = GFX_evt_recovery
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "1000182038.a"
+		FROM = {character_event = { id = 1000182041}}
+		opinion = {
+			who = FROM
+			modifier = opinion_attempt_kidnap
+			months = 1200
+		}
+	}
+}
+
+#Notify plotter of success
+character_event = {
+	id = 1000182039
+	desc = "1000182039.desc"
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {name = "1000182039.a" clr_character_flag = kidnap_in_motion}
+}
+#Notify plotter - undiscovered failure
+character_event = {
+	id = 1000182040
+	desc = "1000182040.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {name = "1000182040.a" clr_character_flag = kidnap_in_motion}
+}
+#Notify plotter - discovered failure
+character_event = {
+	id = 1000182041
+	desc = "1000182041.desc"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	option = {
+		name = "1000182041.a"
+		clr_character_flag = kidnap_in_motion
+		cancel_plot = plot_kidnapping
+		piety = -50
+		if = {
+			limit = {
+				#NOT = { FROM = { employer = { character = FROM } } }
+				NOT = { FROM = { employer = { character = ROOT } } }
+			}
+			FROM = {
+				employer = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_broke_peace
+						months = 60
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { FROM = { liege = { character = FROM } } }
+				NOT = { FROM = { liege = { character = ROOT } } }
+				NOT = { FROM = { liege = { employer = { character = FROM } } } }
+				NOT = { FROM = { liege = { employer = { character = ROOT } } } }
+			}
+			FROM = {
+				liege = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_broke_peace
+						months = 60
+					}
+				}
+			}
+		}
+
+	}
+}
