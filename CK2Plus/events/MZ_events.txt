@@ -218,79 +218,99 @@ character_event = {
 
 ####Rebuild Persepolis
 province_event = {
-	id = 1000094010
-	title = "EVTNAME1000094010"
-	desc = "EVTDESC1000094010"
+	id = 1000182065
+	title = "EVTNAME1000182065"
+	desc = "EVTDESC1000182065"
 	picture = "GFX_persepolis_ruin"
 	
 	is_triggered_only = yes
 	
-	option = {
-		name = "EVTOPTA1000094010" # Rebuild just the royal palace.
-		wealth = -100
-		capital_scope = {
-			add_province_modifier = { name = "rebuilding_persepolis_local" duration = 730 }
-			}
-		character_event = { id = 1000094011 days = 730}
-	}
 
 	option = {
-		name = "EVTOPTB1000094010" # Rebuild the entire city.
-		wealth = -200
+		name = "EVTOPTC1000182065" # Make it the greatest city there ever was!
+		wealth = -1000
 		capital_scope = {
-			add_province_modifier = { name = "rebuilding_persepolis_local" duration = 1460 }
+				add_province_modifier = { name = "rebuilding_persepolis_local" duration = 3650 }
 			}
-		character_event = { id = 1000094011 days = 1460}
-	}
-
-	option = {
-		name = "EVTOPTC1000094010" # Make it the greatest city there ever was!
-		wealth = -300
-		capital_scope = {
-			add_province_modifier = { name = "rebuilding_persepolis_local" duration = 2920 }
-			}
-		character_event = { id = 1000094011 days = 2920}
+		character_event = { id = 1000182066 days = 2920}
 	}
 }
 
 ####Rebuild Persepolis 2
 character_event = {
-	id = 1000094011
-	title = "EVTNAME1000094011"
-	desc = "EVTDESC1000094011"
+	id = 1000182066
+	title = "EVTNAME1000182066"
+	desc = "EVTDESC1000182066"
 	picture = "GFX_persepolis_built"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA1000094011" #Library
-		prestige = 500
+		name = "EVTOPTA1000182066" #Library
 		set_global_flag = persepolis_rebuilt
-		b_perozabad = { set_name = Persepolis }
 		capital_scope = {
 			add_province_modifier = { name = "persepolis_library" duration = -1 }
 			}
+		character_event = { id = 1000182067 days = 730 }	
 	}
 	option = {
-		name = "EVTOPTB1000094011" #Irrigation system
-		prestige = 500
+		name = "EVTOPTB1000182066" #Irrigation system
 		set_global_flag = persepolis_rebuilt
-		b_perozabad = { set_name = Persepolis }
 		capital_scope = {
 			add_province_modifier = { name = "persepolis_irrigation" duration = -1 }
 			}
+		character_event = { id = 1000182067 days = 730 }
 	}
 	option = {
-		name = "EVTOPTC1000094011" #Gate of all nations
-		prestige = 500
+		name = "EVTOPTC1000182066" #Gate of all nations
 		set_global_flag = persepolis_rebuilt
-		b_perozabad = { set_name = Persepolis }
 		capital_scope = {
 			add_province_modifier = { name = "persepolis_gate" duration = -1 }
 			}
+		character_event = { id = 1000182067 days = 730 }
 	}
 }
 
+####Rebuild Persepolis 3
+
+character_event = {
+	id = 1000182067
+	title = "EVTNAME1000182067"
+	desc = "EVTDESC1000182067"
+	picture = "GFX_persepolis_built"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA1000182067"
+		capital_scope = {
+			build_holding = {
+			   title = b_new_persepolis
+			   type = temple
+			   holder = FROM
+			}
+		}
+		prestige = 500
+	}
+}
+
+###News spread about New Persepolis
+narrative_event = {
+	id = 1000182068
+	title = "EVTNAME1000182068"
+	desc = "EVTDESC1000182068"
+	picture = "GFX_persepolis_built"
+	border = "GFX_event_narrative_frame_religion"
+	
+	major = yes
+	only_rulers = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA1000182068"
+	}
+}
 
 # On-action event: Zoroastrian Marriage
 #character_event = {
