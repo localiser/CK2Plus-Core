@@ -59,6 +59,19 @@ job_marshal = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
 			is_female = no
+			AND = {
+				liege = { religion_group = zoroastrian_group }
+				liege = { culture_group = iranian }
+				religion_group = zoroastrian_group
+				culture_group = iranian
+				any_dynasty_member = { higher_tier_than = baron }
+				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+					}
+			}
 			has_global_flag = gender_equality
 			AND = {
 				is_ruler = yes

@@ -866,6 +866,7 @@ nick_the_apostle = {
 	allow = {
 		age = 20
 		piety = 1000
+		NOT = { religion_group = zoroastrian_group }
 	}
 	chance = {
 		factor = 1
@@ -892,6 +893,7 @@ nick_the_blessed = {
 	allow = {
 		age = 20
 		piety = 1000
+		NOT = { religion_group = zoroastrian_group }
 	}
 	chance = {
 		factor = 1
@@ -918,6 +920,7 @@ nick_the_confessor = {
 	allow = {
 		age = 20
 		piety = 1000
+		NOT = { religion_group = zoroastrian_group }
 	}
 	chance = {
 		factor = 1
@@ -940,10 +943,61 @@ nick_the_confessor = {
 	}
 }
 
+nick_with_immortal_soul = {
+	allow = {
+		age = 20
+		piety = 1000
+		religion_group = zoroastrian_group
+		OR = {
+			trait = honest
+			trait = diligent
+		}
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 2.0
+			piety = 1000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 2000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 4000
+		}
+	}
+}
+
+nick_the_mazdayasnian = {
+	allow = {
+		religion_group = zoroastrian_group
+		age = 20
+		piety = 1000
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			piety = 2000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 4000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 6000
+		}
+	}
+}
+
 nick_the_monk = {
 	allow = {
 		age = 20
 		piety = 500
+		NOT = { religion_group = zoroastrian_group }
 		OR = {
 			trait = chaste
 			trait = celibate

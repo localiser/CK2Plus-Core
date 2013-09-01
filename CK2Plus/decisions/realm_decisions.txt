@@ -1219,7 +1219,20 @@ decisions = {
 			completely_controls = d_baghdad
 			completely_controls = d_mosul
 			completely_controls = d_jazira
-			piety = 1500
+			OR = {
+				AND = {
+					piety = 1500
+					OR = {
+						trait = elusive_shadow
+						trait = grey_eminence
+						trait = midas_touched
+						trait = brilliant_strategist
+						trait = mastermind_theologian
+						trait = genius
+					}
+				}
+				piety = 2000
+			}
 		}
 		effect = {
 			hidden_tooltip = {
@@ -1270,14 +1283,22 @@ decisions = {
 			has_dlc = "The Old Gods"
 			religion_group = zoroastrian_group
 			NOT = { has_global_flag = zoroastrian_priesthood_founded }
+			age = 16
+			prisoner = no	
 		}
 		allow = {
 			has_landed_title = e_persia
-			piety = 300
+			realm_learning = 25
+			piety = 500
+			wealth = 500
+			war = no
+			religion_authority = 0.6
 		}
 		effect = {
 			set_global_flag = zoroastrian_priesthood_founded
-			piety = -300
+			wealth = -500
+			piety = -250
+			prestige = 250
 			activate_title = { title = d_zoroastrian status = yes }
 			hidden_tooltip = {
 				create_random_priest = {

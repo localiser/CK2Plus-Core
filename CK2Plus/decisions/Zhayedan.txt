@@ -1,0 +1,86 @@
+decisions = {
+	organize_zhayedan_1 = {
+		is_high_prio = yes
+		potential = {
+			is_female = no
+			prisoner = no
+			age = 16
+			religion_group = zoroastrian_group
+			NOT = { has_global_flag = zhayedan_founded_1 }
+			NOT = { has_global_flag = zhayedan_founded_2 }
+		}
+		allow = {
+			has_landed_title = k_persia
+			prestige = 300
+			wealth = 300
+		}
+		effect = {
+			set_global_flag = zhayedan_founded_1
+			prestige = -300
+			wealth = -300
+			activate_title = { title = d_zhayedan_1 status = yes }
+			hidden_tooltip = {
+				create_character = {
+					random_traits = yes
+					religion = zoroastrian
+					culture = persian
+					dynasty = NONE
+					female = no
+					age = 34
+					trait = skilled_tactician
+				}
+				new_character = {
+					d_zhayedan_1 = {
+						grant_title = PREV
+					}
+					set_defacto_liege = ROOT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	organize_zhayedan_2 = {
+		is_high_prio = yes
+		potential = {
+			has_global_flag = zoroastrian_priesthood_founded
+			is_female = no
+			prisoner = no
+			age = 16
+			religion_group = zoroastrian_group
+			NOT = { has_global_flag = zhayedan_founded_2 }
+		}
+		allow = {
+			has_landed_title = e_persia
+			prestige = 300
+			wealth = 300
+		}
+		effect = {
+			set_global_flag = zhayedan_founded_2
+			prestige = -300
+			wealth = -300
+			activate_title = { title = d_zhayedan_2 status = yes }
+			hidden_tooltip = {
+				create_character = {
+					random_traits = yes
+					religion = zoroastrian
+					culture = persian
+					dynasty = NONE
+					female = no
+					age = 34
+					trait = skilled_tactician
+				}
+				new_character = {
+					d_zhayedan_2 = {
+						grant_title = PREV
+					}
+					set_defacto_liege = ROOT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
