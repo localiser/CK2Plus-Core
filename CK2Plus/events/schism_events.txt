@@ -220,3 +220,153 @@ narrative_event = {
 		ai_chance = { factor = 80 }
 	}
 }
+
+
+narrative_event = {
+	id=1000182069
+	title = EVTNAME1000182069
+	desc = EVTDESC1000182069
+
+	picture = GFX_evt_icon
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTALoR.200
+		set_parent_religion = { religion = orthodox parent = catholic }
+		set_global_flag = schism_mended
+		give_nickname = nick_the_saint
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = { 
+					religion = orthodox
+					controls_religion = no
+				}
+				narrative_event = { id = 1000182070 }
+			}
+		}
+	}
+}
+
+narrative_event = {
+	id = 1000182070
+	title = EVTNAME1000182069
+	desc = EVTDESC1000182069
+	
+	picture = GFX_evt_icon
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTA1000182070
+		ai_chance = { factor = 75 }
+		religion = catholic
+		any_courtier = {
+			religion = catholic
+		}
+		capital_scope = {
+			religion = catholic
+		}
+	}
+	option = { # No
+		name = EVTOPTB1000182070
+		ai_chance = { factor = 25 }
+	}
+}
+
+#patriarch events Catholic
+# Patriarchate of Antioch
+character_event = {
+	id = 1000182071
+	desc = EVTDESC1000182071
+	picture = GFX_evt_bishop_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		religion = catholic
+		OR = {
+				has_landed_title = k_papal_state
+				num_of_emperor_titles = 1
+			}
+		NOT = { has_global_flag = pat_antioch_catholic }
+		completely_controls = c_antiocheia
+	}
+	
+	option = {
+		name = EVTOPTALoR.200
+		set_global_flag = pat_antioch_catholic
+		piety = 100
+	}
+}
+
+# Patriarchate of Jerusalem
+character_event = {
+	id = 1000182072
+	desc = EVTDESC1000182072
+	picture = GFX_evt_bishop_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		religion = catholic
+		OR = {
+				has_landed_title = k_papal_state
+				num_of_emperor_titles = 1
+			}
+		NOT = { has_global_flag = pat_jerusalem_catholic }
+		completely_controls = c_jerusalem
+	}
+	
+	option = {
+		name = EVTOPTALoR.200
+		set_global_flag = pat_jerusalem_catholic
+		piety = 100
+	}
+}
+
+# Patriarchate of Alexandria
+character_event = {
+	id = 1000182073
+	desc = EVTDESC1000182073
+	picture = GFX_evt_bishop_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		religion = catholic
+		OR = {
+				has_landed_title = k_papal_state
+				num_of_emperor_titles = 1
+			}
+		NOT = { has_global_flag = pat_alexandria_catholic }
+		completely_controls = c_alexandria
+	}
+	
+	option = {
+		name = EVTOPTALoR.200
+		set_global_flag = pat_alexandria_catholic
+		piety = 100
+	}
+}
+
+# Patriarchate of Constantinople
+character_event = {
+	id = 1000182074
+	desc = EVTDESC1000182074
+	picture = GFX_evt_bishop_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		religion = catholic
+		OR = {
+				has_landed_title = k_papal_state
+				num_of_emperor_titles = 1
+			}
+		NOT = { has_global_flag = pat_byzantion_catholic }
+		completely_controls = c_byzantion
+	}
+	
+	option = {
+		name = EVTOPTALoR.200
+		set_global_flag = pat_byzantion_catholic
+		piety = 100
+	}
+}
