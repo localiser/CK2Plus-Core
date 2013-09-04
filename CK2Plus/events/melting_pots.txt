@@ -15,14 +15,36 @@ character_event = {
 			culture = frankish
 			culture = occitan
 		}
-		capital_scope = {
-			kingdom = { title = k_england }
-		}
-		any_demesne_province = {
-			kingdom = {
-				title = k_england
+		OR = {
+			capital_scope = {
+				kingdom = { title = k_england }
 			}
-			culture = saxon
+			capital_scope = {
+				empire = { title = e_britannia }
+			}
+			capital_scope = {
+				empire = { title = e_england }
+			}
+		}
+		OR = {
+			any_demesne_province = {
+				kingdom = {
+					title = k_england
+				}
+				culture = saxon
+			}
+			any_demesne_province = {
+				empire = {
+					title = e_britannia
+				}
+				culture = saxon
+			}
+			any_demesne_province = {
+				empire = {
+					title = e_england
+				}
+				culture = saxon
+			}
 		}
 	}
 
@@ -143,8 +165,16 @@ character_event = {
 		culture = english
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_england
+				OR = {
+					kingdom = {
+						title = k_england
+					}
+					empire = {
+						title = e_britannia
+					}
+					empire = {
+						title = e_england
+					}
 				}
 				culture = saxon
 			}
@@ -163,8 +193,16 @@ character_event = {
 	trigger = {
 		year = 1100
 		any_demesne_province = {
-			kingdom = {
-				title = k_england
+			OR = {
+				kingdom = {
+					title = k_england
+				}
+				empire = {
+					title = e_britannia
+				}
+				empire = {
+					title = e_england
+				}
 			}
 			OR = {
 				culture = saxon
@@ -183,8 +221,16 @@ character_event = {
 						independent = yes
 						top_liege = { culture = english }
 					}
-					capital_scope = {
-						kingdom = { title = k_england }
+					OR = {
+						capital_scope = {
+							kingdom = { title = k_england }
+						}
+						capital_scope = {
+							empire = { title = e_britannia }
+						}
+						capital_scope = {
+							empire = { title = e_england }
+						}
 					}
 				}
 			}
@@ -208,8 +254,16 @@ character_event = {
 		name = "EVTOPTA55003"
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_england
+				OR = {
+					kingdom = {
+						title = k_england
+					}
+					empire = {
+						title = e_britannia
+					}
+					empire = {
+						title = e_england
+					}
 				}
 				OR = {
 					culture = saxon
@@ -228,8 +282,16 @@ character_event = {
 							independent = yes
 							top_liege = { culture = english }
 						}
-						capital_scope = {
-							kingdom = { title = k_england }
+						OR = {
+							capital_scope = {
+								kingdom = { title = k_england }
+							}
+							capital_scope = {
+								empire = { title = e_britannia }
+							}
+							capital_scope = {
+								empire = { title = e_england }
+							}
 						}
 					}
 				}
@@ -254,8 +316,16 @@ character_event = {
 			independent = yes
 			top_liege = { culture = english }
 		}
-		capital_scope = {
-			kingdom = { title = k_england }
+		OR = {
+			capital_scope = {
+				kingdom = { title = k_england }
+			}
+			capital_scope = {
+				empire = { title = e_britannia }
+			}
+			capital_scope = {
+				empire = { title = e_england }
+			}
 		}
 		any_courtier = {
 			is_ruler = no
@@ -315,8 +385,16 @@ character_event = {
 			independent = yes
 			top_liege = { culture = english }
 		}
-		capital_scope = {
-			kingdom = { title = k_england }
+		OR = {
+			capital_scope = {
+				kingdom = { title = k_england }
+			}
+			capital_scope = {
+				empire = { title = e_britannia }
+			}
+			capital_scope = {
+				empire = { title = e_england }
+			}
 		}
 		any_vassal = {
 			OR = {
@@ -325,9 +403,21 @@ character_event = {
 				culture = frankish
 				culture = occitan
 			}
-			any_demesne_province = {
-				kingdom = {
-					title = k_england
+			OR = {
+				any_demesne_province = {
+					kingdom = {
+						title = k_england
+					}
+				}
+				any_demesne_province = {
+					empire = {
+						title = e_britannia
+					}
+				}
+				any_demesne_province = {
+					empire = {
+						title = e_england
+					}
 				}
 			}
 		}
@@ -355,9 +445,21 @@ character_event = {
 					culture = frankish
 					culture = occitan
 				}
-				any_demesne_province = {
-					kingdom = {
-						title = k_england
+				OR = {
+					any_demesne_province = {
+						kingdom = {
+							title = k_england
+						}
+					}
+					any_demesne_province = {
+						empire = {
+							title = e_britannia
+						}
+					}
+					any_demesne_province = {
+						empire = {
+							title = e_england
+						}
 					}
 				}
 			}
@@ -395,12 +497,22 @@ character_event = {
 			top_liege = { culture = sicilian }
 		}
 		culture = norman
-		capital_scope = {
-			kingdom = { title = k_sicily }
+		OR = {
+			capital_scope = {
+				kingdom = { title = k_sicily }
+			}
+			capital_scope = {
+				empire = { title = e_sicily }
+			}
 		}
 		any_demesne_province = {
-			kingdom = {
-				title = k_sicily
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
 			}
 			OR = {
 				culture = greek
@@ -409,8 +521,13 @@ character_event = {
 				culture = norman
 			}
 		}
-		capital_scope = {
-			kingdom = { title = k_sicily }
+		OR = {
+			capital_scope = {
+				kingdom = { title = k_sicily }
+			}
+			capital_scope = {
+				empire = { title = e_sicily }
+			}
 		}
 	}
 
@@ -531,8 +648,13 @@ character_event = {
 		culture = sicilian
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
+					}
+					empire = {
+						title = e_sicily
+					}
 				}
 				OR = {
 					culture = maghreb_arabic
@@ -556,8 +678,13 @@ character_event = {
 	trigger = {
 		year = 1100
 		any_demesne_province = {
-			kingdom = {
-				title = k_sicily
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
 			}
 			OR = {
 				culture = greek
@@ -576,8 +703,13 @@ character_event = {
 						independent = yes
 						top_liege = { culture = sicilian }
 					}
-					capital_scope = {
-						kingdom = { title = k_sicily }
+					OR = {
+						capital_scope = {
+							kingdom = { title = k_sicily }
+						}
+						capital_scope = {
+							empire = { title = e_sicily }
+						}
 					}
 				}
 			}
@@ -601,8 +733,13 @@ character_event = {
 		name = "EVTOPTA100009001"
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
+					}
+					empire = {
+						title = e_sicily
+					}
 				}
 				OR = {
 					culture = greek
@@ -621,8 +758,13 @@ character_event = {
 							independent = yes
 							top_liege = { culture = sicilian }
 						}
-						capital_scope = {
-							kingdom = { title = k_sicily }
+						OR = {
+							capital_scope = {
+								kingdom = { title = k_sicily }
+							}
+							capital_scope = {
+								empire = { title = e_sicily }
+							}
 						}
 					}
 				}
@@ -647,11 +789,23 @@ character_event = {
 			independent = yes
 			top_liege = { culture = sicilian }
 		}
-		capital_scope = {
-			kingdom = { title = k_sicily }
+		OR = {
+			capital_scope = {
+				kingdom = { title = k_sicily }
+			}
+			capital_scope = {
+				empire = { title = e_sicily }
+			}
 		}
 		any_demesne_province = {
-			kingdom = { title = k_sicily }
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
+			}
 		}
 		any_courtier = {
 			is_ruler = no
@@ -712,7 +866,14 @@ character_event = {
 			top_liege = { culture = sicilian }
 		}
 		capital_scope = {
-			kingdom = { title = k_sicily }
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
+			}
 		}
 		any_vassal = {
 			OR = {
@@ -722,8 +883,13 @@ character_event = {
 				culture = maghreb_arabic
 			}
 			any_demesne_province = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
+					}
+					empire = {
+						title = e_sicily
+					}
 				}
 			}
 		}
@@ -751,8 +917,13 @@ character_event = {
 					culture = greek
 				}
 				any_demesne_province = {
-					kingdom = {
-						title = k_sicily
+					OR = {
+						kingdom = {
+							title = k_sicily
+						}
+						empire = {
+							title = e_sicily
+						}
 					}
 				}
 			}
@@ -791,12 +962,24 @@ character_event = {
 			top_liege = { culture = sicilian_greek }
 		}
 		capital_scope = {
-			kingdom = { title = k_sicily }
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
+			}
 		}
 		culture = greek
 		any_demesne_province = {
-			kingdom = {
-				title = k_sicily
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
 			}
 			OR = {
 				culture = greek
@@ -924,9 +1107,14 @@ character_event = {
 		culture = sicilian_greek
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
 					}
+					empire = {
+						title = e_sicily
+					}
+				}
 				OR = {
 				culture = maghreb_arabic
 				culture = greek
@@ -949,8 +1137,13 @@ character_event = {
 	trigger = {
 		year = 1100
 		any_demesne_province = {
-			kingdom = {
-				title = k_sicily
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
 			}
 			OR = {
 				culture = greek
@@ -994,8 +1187,13 @@ character_event = {
 		name = "EVTOPTA100009006"
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
+					}
+					empire = {
+						title = e_sicily
+					}
 				}
 				OR = {
 					culture = greek
@@ -1040,7 +1238,14 @@ character_event = {
 			top_liege = { culture = sicilian_greek }
 		}
 		capital_scope = {
-			kingdom = { title = k_sicily }
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
+			}
 		}
 		culture = sicilian_greek
 		any_courtier = {
@@ -1114,12 +1319,26 @@ character_event = {
 			top_liege = { culture = sicilian_arabic }
 		}
 		capital_scope = {
-			kingdom = { title = k_sicily }
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
+			}
 		}
 		culture = maghreb_arabic
 		any_demesne_province = {
 			kingdom = {
-				title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
+					}
+					empire = {
+						title = e_sicily
+					}
+				}
 			}
 			OR = {
 				culture = greek
@@ -1247,9 +1466,14 @@ character_event = {
 		culture = sicilian_arabic
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
 					}
+					empire = {
+						title = e_sicily
+					}
+				}
 				OR = {
 				culture = maghreb_arabic
 				culture = greek
@@ -1272,8 +1496,13 @@ character_event = {
 	trigger = {
 		year = 1100
 		any_demesne_province = {
-			kingdom = {
-				title = k_sicily
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
 			}
 			OR = {
 				culture = greek
@@ -1292,7 +1521,14 @@ character_event = {
 						top_liege = { culture = sicilian_arabic }
 					}
 					capital_scope = {
-						kingdom = { title = k_sicily }
+						OR = {
+							kingdom = {
+								title = k_sicily
+							}
+							empire = {
+								title = e_sicily
+							}
+						}
 					}
 					culture = sicilian_arabic
 				}
@@ -1317,8 +1553,13 @@ character_event = {
 		name = "EVTOPTA100009011"
 		random_demesne_province = {
 			limit = {
-				kingdom = {
-					title = k_sicily
+				OR = {
+					kingdom = {
+						title = k_sicily
+					}
+					empire = {
+						title = e_sicily
+					}
 				}
 				OR = {
 					culture = greek
@@ -1337,7 +1578,14 @@ character_event = {
 							top_liege = { culture = sicilian_arabic }
 						}
 						capital_scope = {
-							kingdom = { title = k_sicily }
+							OR = {
+								kingdom = {
+									title = k_sicily
+								}
+								empire = {
+									title = e_sicily
+								}
+							}
 						}
 						culture = sicilian_arabic
 					}
@@ -1363,7 +1611,14 @@ character_event = {
 			top_liege = { culture = sicilian_arabic }
 		}
 		capital_scope = {
-			kingdom = { title = k_sicily }
+			OR = {
+				kingdom = {
+					title = k_sicily
+				}
+				empire = {
+					title = e_sicily
+				}
+			}
 		}
 		culture = sicilian_arabic
 		any_courtier = {
