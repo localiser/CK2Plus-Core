@@ -421,6 +421,17 @@ character_event = {
 			religion_authority = 0.8
 		}
 		modifier = {
+			factor = 3.0
+			religion_group = pagan_group
+			is_reformed_religion = no
+			NOT = { religion = hellenic_pagan }
+			location = {
+				OR = {
+					NOT = { religion_group = pagan_group }
+					is_reformed_religion = yes
+				}
+			}
+		modifier = {
 			factor = 0.9
 			religion_authority = 0.9
 		}
@@ -850,6 +861,12 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 3.0
+			religion_group = pagan_group
+			is_reformed_religion = no
+			NOT = { religion = hellenic_pagan }
 		}
 	}
 
