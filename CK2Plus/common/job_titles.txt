@@ -24,7 +24,7 @@ job_chancellor = {
 			is_female = no
 			has_global_flag = gender_equality
 		}
-		age = 16
+		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -59,6 +59,19 @@ job_marshal = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
 			is_female = no
+			AND = {
+				liege = { religion_group = zoroastrian_group }
+				liege = { culture_group = iranian }
+				religion_group = zoroastrian_group
+				culture_group = iranian
+				any_dynasty_member = { higher_tier_than = baron }
+				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+					}
+			}
 			has_global_flag = gender_equality
 			AND = {
 				is_ruler = yes
@@ -69,7 +82,7 @@ job_marshal = {
 				}
 			}
 		}
-		age = 16
+		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -114,7 +127,7 @@ job_treasurer = {
 			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
 		}
-		age = 16
+		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -159,7 +172,7 @@ job_spymaster = {
 			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
 		}
-		age = 16
+		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -194,9 +207,16 @@ job_spiritual = {
 		OR = {
 			is_female = no
 			has_global_flag = gender_equality
-			religion_group = pagan_group
+			AND = {
+				religion_group = pagan_group
+				NOT = { religion = hellenic_pagan }
+				NOT = { religion = aztec }
+				NOT = { religion = aztec_reformed}
+				NOT = { religion = tengri_pagan }
+				NOT = { religion = tengri_pagan_reformed}
+			}
 		}
-		age = 16
+		is_adult = yes
 		prisoner = no
 		liege = {
 			religion = FROM

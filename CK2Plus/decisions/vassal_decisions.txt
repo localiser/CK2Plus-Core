@@ -434,7 +434,10 @@ vassal_decisions = {
 				factor = 10
 				is_pretender = yes
 				FROM = {
-					culture_group = byzantine
+					OR = {
+						culture_group = byzantine
+						culture_group = iranian
+					}
 					OR = {
 						is_pretender = yes
 						is_primary_heir = yes
@@ -443,5 +446,5 @@ vassal_decisions = {
 			}
 		}
 	}
-
+	
 }

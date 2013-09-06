@@ -1,12 +1,14 @@
+namespace = ancrel
+
 #On-action combat event: Killed in action
 character_event = {
 	id = 242
-	desc = EVTDESC242
+	desc = EVTDESC242	
 	picture = GFX_evt_death
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		NOT = { trait = berserker }
 	}
@@ -44,7 +46,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -52,12 +54,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -73,7 +75,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 		modifier = {
 			factor = 1.25
 			trait = stressed
@@ -145,13 +147,13 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
+		}		
 	}
-
+	
 	immediate = {
 		death = {
 			death_reason = death_battle
@@ -171,10 +173,10 @@ character_event = {
 			clr_character_flag = temp_battle_kill_242
 		}
 	}
-
+	
 	option = {
 		name = ALAS
-	}
+	}	
 }
 
 #On-action combat event: Wounded in action
@@ -183,7 +185,7 @@ character_event = {
 	desc = EVTDESC243
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -193,10 +195,10 @@ character_event = {
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -228,7 +230,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -236,12 +238,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -257,8 +259,8 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
-
+		}		
+		
 		modifier = {
 			factor = 1.25
 			trait = stressed
@@ -326,14 +328,14 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
-
+		}		
+		
 	}
-
+	
 	option = {
 		name = CURSES
 		add_trait = wounded
@@ -360,8 +362,8 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-
-
+	
+	
 	trigger = {
 		NOT = { trait = maimed }
 		NOT = { trait = berserker }
@@ -371,7 +373,7 @@ character_event = {
 
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -403,7 +405,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -411,12 +413,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -432,7 +434,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 
 		modifier = {
 			factor = 1.25
@@ -501,14 +503,14 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = has_measles
-		}
+		}		
 		modifier = {
 			factor = 1.1
 			trait = has_small_pox
-		}
+		}		
 
 	}
-
+	
 	option = {
 		name = CURSES
 		add_trait = maimed
@@ -535,17 +537,17 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-
-
+	
+	
 	trigger = {
 		NOT = { trait = incapable }
 		is_alive = yes
 		NOT = { trait = immortal }
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
-
+		
 		modifier = {
 			factor = 5
 			has_character_modifier = proving_bravery
@@ -556,7 +558,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-
+		
 			trait = craven
 		}
 		modifier = {
@@ -578,7 +580,7 @@ character_event = {
 		modifier = {
 			trait = dwarf
 			factor = 1.25
-		}
+		}		
 		modifier = {
 			trait = genius
 			factor = 0.9
@@ -586,12 +588,12 @@ character_event = {
 		modifier = {
 			trait = quick
 			factor = 0.9
-		}
+		}	
 		modifier = {
 			trait = slow
 			factor = 2.0
 		}
-
+		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -607,7 +609,7 @@ character_event = {
 		modifier = {
 			trait = weak
 			factor = 2.5
-		}
+		}		
 				modifier = {
 			factor = 1.25
 			trait = stressed
@@ -1754,6 +1756,86 @@ character_event = {
 	option = {
 		name = EVTOPTA262
 		prestige = 100
+		hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					NOT = {
+						trait = head1
+						trait = head2
+						trait = head3
+						trait = head4
+						trait = head5
+					}
+				}
+				character_event = { id = ancrel.0010 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head1
+				}
+				character_event = { id = ancrel.0011 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head2
+				}
+				character_event = { id = ancrel.0012 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head3
+				}
+				character_event = { id = ancrel.0013 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head4
+				}
+				character_event = { id = ancrel.0014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head5
+				}
+				character_event = { id = ancrel.0015 }
+			}
+		}
 	}
 }
 
@@ -1769,6 +1851,86 @@ character_event = {
 	option = {
 		name = EVTOPTA262
 		prestige = 100
+		hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					NOT = {
+						trait = head1
+						trait = head2
+						trait = head3
+						trait = head4
+						trait = head5
+					}
+				}
+				character_event = { id = ancrel.0010 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head1
+				}
+				character_event = { id = ancrel.0011 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head2
+				}
+				character_event = { id = ancrel.0012 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head3
+				}
+				character_event = { id = ancrel.0013 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head4
+				}
+				character_event = { id = ancrel.0014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head5
+				}
+				character_event = { id = ancrel.0015 }
+			}
+		}
 	}
 }
 
@@ -1784,6 +1946,86 @@ character_event = {
 	option = {
 		name = EVTOPTA262
 		prestige = 100
+hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					NOT = {
+						trait = head1
+						trait = head2
+						trait = head3
+						trait = head4
+						trait = head5
+					}
+				}
+				character_event = { id = ancrel.0010 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head1
+				}
+				character_event = { id = ancrel.0011 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head2
+				}
+				character_event = { id = ancrel.0012 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head3
+				}
+				character_event = { id = ancrel.0013 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head4
+				}
+				character_event = { id = ancrel.0014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head5
+				}
+				character_event = { id = ancrel.0015 }
+			}
+		}
 	}
 }
 
@@ -1799,6 +2041,86 @@ character_event = {
 	option = {
 		name = EVTOPTA262
 		prestige = 100
+hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					NOT = {
+						trait = head1
+						trait = head2
+						trait = head3
+						trait = head4
+						trait = head5
+					}
+				}
+				character_event = { id = ancrel.0010 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head1
+				}
+				character_event = { id = ancrel.0011 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head2
+				}
+				character_event = { id = ancrel.0012 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head3
+				}
+				character_event = { id = ancrel.0013 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head4
+				}
+				character_event = { id = ancrel.0014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head5
+				}
+				character_event = { id = ancrel.0015 }
+			}
+		}
 	}
 }
 
@@ -1814,6 +2136,86 @@ character_event = {
 	option = {
 		name = EVTOPTA262
 		prestige = 100
+hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					NOT = {
+						trait = head1
+						trait = head2
+						trait = head3
+						trait = head4
+						trait = head5
+					}
+				}
+				character_event = { id = ancrel.0010 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head1
+				}
+				character_event = { id = ancrel.0011 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head2
+				}
+				character_event = { id = ancrel.0012 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head3
+				}
+				character_event = { id = ancrel.0013 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head4
+				}
+				character_event = { id = ancrel.0014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head5
+				}
+				character_event = { id = ancrel.0015 }
+			}
+		}
 	}
 }
 
@@ -1829,6 +2231,86 @@ character_event = {
 	option = {
 		name = EVTOPTA262
 		prestige = 100
+		hidden_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					NOT = {
+						trait = head1
+						trait = head2
+						trait = head3
+						trait = head4
+						trait = head5
+					}
+				}
+				character_event = { id = ancrel.0010 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head1
+				}
+				character_event = { id = ancrel.0011 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head2
+				}
+				character_event = { id = ancrel.0012 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head3
+				}
+				character_event = { id = ancrel.0013 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head4
+				}
+				character_event = { id = ancrel.0014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = druidic
+						religion = druidic_reformed
+						religion = gaelic_pagan
+						religion = gaelic_pagan_reformed
+					}
+					trait = head5
+				}
+				character_event = { id = ancrel.0015 }
+			}
+		}
 	}
 }
 

@@ -1357,8 +1357,19 @@ claim_all = {
 						OR = { 
 							has_landed_title = e_byzantium
 							has_landed_title = e_roman_empire
+							AND = {
+								independent = yes
+								higher_tier_than = COUNT
+								OR = {
+									culture = roman
+									religion = hellenic_pagan
+								}
+							}
 						}
-						religion_group = christian
+						OR = {
+							religion_group = christian
+							religion_group = pagan_group
+						}
 					}
 					character_event = { id = LoR.30 days = 12 }
 				}
@@ -1414,8 +1425,19 @@ claim_all = {
 					OR = { 
 						has_landed_title = e_byzantium
 						has_landed_title = e_roman_empire
+						AND = {
+							independent = yes
+							higher_tier_than = COUNT
+							OR = {
+								culture = roman
+								religion = hellenic_pagan
+							}
+						}
 					}
-					religion_group = christian
+					OR = {
+						religion_group = christian
+						religion_group = pagan_group
+					}
 				}
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
@@ -1517,8 +1539,19 @@ invasion = {
 						OR = { 
 							has_landed_title = e_byzantium
 							has_landed_title = e_roman_empire
+							AND = {
+								independent = yes
+								higher_tier_than = COUNT
+								OR = {
+									culture = roman
+									religion = hellenic_pagan
+								}
+							}
 						}
-						religion_group = christian
+						OR = {
+							religion_group = christian
+							religion_group = pagan_group
+						}
 					}
 					character_event = { id = LoR.30 days = 12 }
 				}
@@ -1568,8 +1601,20 @@ invasion = {
 					OR = { 
 						has_landed_title = e_byzantium
 						has_landed_title = e_roman_empire
+
+						AND = {
+							independent = yes
+							higher_tier_than = COUNT
+							OR = {
+								culture = roman
+								religion = hellenic_pagan
+							}
+						}
 					}
-					religion_group = christian
+					OR = {
+						religion_group = christian
+						religion_group = pagan_group
+					}
 				}
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
@@ -1770,8 +1815,20 @@ tribal_invasion = {
 					OR = { 
 						has_landed_title = e_byzantium
 						has_landed_title = e_roman_empire
+
+					AND = {
+							independent = yes
+							higher_tier_than = COUNT
+							OR = {
+								culture = roman
+								religion = hellenic_pagan
+							}
+						}
 					}
-					religion_group = christian
+					OR = {
+						religion_group = christian
+						religion_group = pagan_group
+					}
 				}
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
@@ -2556,6 +2613,7 @@ holy_war = {
 		if = {
 			limit = {
 				has_global_flag = hardcore_mode
+				ai = no
 			}
 			hidden_tooltip = { ROOT = { add_character_modifier = { name = "holy_war_timer" duration = 3650 } } }
 		}
@@ -7222,7 +7280,10 @@ imperial_reconquest = {
 		ROOT = {
 			has_landed_title = e_roman_empire
 			independent = yes
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion = hellenic_pagan
+			}
 			NOT = { same_realm = FROM }
 		}
 		FROM = {
@@ -7269,7 +7330,10 @@ imperial_reconquest = {
 	is_valid = {
 		ROOT = {
 			independent = yes
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion_group = pagan_group
+			}
 			NOT = { same_realm = FROM }
 		}
 	}
@@ -7898,7 +7962,15 @@ county_conquest = {
 	on_reverse_demand = {
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
-			prestige = -200		if = {
+			prestige = -200	
+		if = {
+			limit = {
+				has_global_flag = hardcore_mode
+				ai = no
+			}
+			hidden_tooltip = { ROOT = { add_character_modifier = { name = "holy_war_timer" duration = 3650 } } }
+		}			
+		if = {
 			limit = {
 				NOT = { has_global_flag = hardcore_mode }
 			}

@@ -3,12 +3,14 @@
 # Roman Events
 #
 # Event ID LoR.1 - LoR.199 reserved
+# Event ID ancrel.2220 - ancrel.2239 reserved
 #
 #######################################
 
 # Written by Henrik Eklund
 
 namespace = LoR
+namespace = ancrel
 
 ### Lost Roman Provinces
 
@@ -28,20 +30,23 @@ narrative_event = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = syria_palaestina }
-		completely_controls = d_oultrejourdain ### WARNING: completely_controls is a very demanding trigger.
 		completely_controls = d_edessa
-		completely_controls = d_antioch
 		completely_controls = d_aleppo
+		completely_controls = d_antioch
 		completely_controls = d_tripoli
-		completely_controls = d_syria
 		completely_controls = d_damascus
+		completely_controls = d_syria
 		completely_controls = d_galilee
 		completely_controls = d_jerusalem
 		completely_controls = d_ascalon
+		completely_controls = d_oultrejourdain
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = syria_palaestina
@@ -54,26 +59,30 @@ narrative_event = {
 	id = LoR.2
 	title = EVTNAMELoR.2
 	desc = EVTDESCLoR.2
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = aegyptus }
-		completely_controls = d_aswan
 		completely_controls = d_alexandria
 		completely_controls = d_damietta
 		completely_controls = d_cairo
+		completely_controls = d_aswan
 		completely_controls = d_sinai
+		completely_controls = d_nubia
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = aegyptus
@@ -81,31 +90,35 @@ narrative_event = {
 	}
 }
 
-# Provincia Cyrenaica
+# Provincia Cyrenaica et Creta
 narrative_event = {
-	id = LoR.3
-	title = EVTNAMELoR.3
-	desc = EVTDESCLoR.3
-
+	id = ancrel.2230
+	title = EVTNAMEancrel.2230
+	desc = EVTDESCancrel.2230
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = cyrenaica }
 		completely_controls = d_cyrenaica
+		completely_controls = d_krete
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = cyrenaica
-		prestige = 100
+		prestige = 50
 	}
 }
 
@@ -114,24 +127,27 @@ narrative_event = {
 	id = LoR.4
 	title = EVTNAMELoR.4
 	desc = EVTDESCLoR.4
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = africa }
 		completely_controls = d_tripolitania
 		completely_controls = d_tunis
 		completely_controls = d_kabylia
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = africa
@@ -144,28 +160,32 @@ narrative_event = {
 	id = LoR.5
 	title = EVTNAMELoR.5
 	desc = EVTDESCLoR.5
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = illyricum }
-		completely_controls = d_carinthia
+		completely_controls = d_vidin
 		completely_controls = d_rashka
 		completely_controls = d_dioclea
 		completely_controls = d_slavonia
 		completely_controls = d_bosnia
 		completely_controls = d_croatia
 		completely_controls = d_dalmatia
+		completely_controls = d_carinthia
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = illyricum
@@ -178,20 +198,22 @@ narrative_event = {
 	id = LoR.6
 	title = EVTNAMELoR.6
 	desc = EVTDESCLoR.6
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = italia }
-		completely_controls = d_latium
 		completely_controls = d_venice
 		completely_controls = d_verona
 		completely_controls = d_susa
@@ -201,19 +223,119 @@ narrative_event = {
 		completely_controls = d_ferrara
 		completely_controls = d_toscana
 		completely_controls = d_pisa
-		#completely_controls = d_ancona
+		completely_controls = d_ancona
 		completely_controls = d_spoleto
+		completely_controls = d_latium
 		completely_controls = d_benevento
 		completely_controls = d_capua
 		completely_controls = d_apulia
 		completely_controls = d_salerno
 		completely_controls = d_calabria
-		completely_controls = d_sicily
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = italia
+		prestige = 100
+	}
+}
+
+# Provincia Sicilia
+narrative_event = {
+	id = ancrel.2231
+	title = EVTNAMEancrel.2231
+	desc = EVTDESCancrel.2231
+	
+	picture = GFX_evt_victory_arch_byzantine
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
+		NOT = { has_global_flag = sicilia }
+		completely_controls = d_sicily
+	}
+	
+	option = {
+		name = EVTOPTALoR.1
+		set_global_flag = sicilia
+		prestige = 50
+	}
+}
+
+# Provincia Corsica et Sardinia
+narrative_event = {
+	id = ancrel.2232
+	title = EVTNAMEancrel.2232
+	desc = EVTDESCancrel.2232
+	
+	picture = GFX_evt_victory_arch_byzantine
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
+		NOT = { has_global_flag = sardinia }
+		completely_controls = d_sardinia
+	}
+	
+	option = {
+		name = EVTOPTALoR.1
+		set_global_flag = sardinia
+		prestige = 50
+	}
+}
+
+# Provincia Viennensis
+narrative_event = {
+	id = ancrel.2233
+	title = EVTNAMEancrel.2233
+	desc = EVTDESCancrel.2233
+	
+	picture = GFX_evt_victory_arch_byzantine
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
+		NOT = { has_global_flag = viennensis }
+		completely_controls = d_aquitaine
+		completely_controls = d_toulouse
+		completely_controls = d_gascogne
+		completely_controls = d_poitou
+		completely_controls = d_auvergne
+		completely_controls = d_bourbon
+		completely_controls = d_dauphine
+		completely_controls = d_provence
+	}
+	
+	option = {
+		name = EVTOPTALoR.1
+		set_global_flag = viennensis
 		prestige = 100
 	}
 }
@@ -223,39 +345,40 @@ narrative_event = {
 	id = LoR.7
 	title = EVTNAMELoR.7
 	desc = EVTDESCLoR.7
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = gallia }
-		completely_controls = d_normandy
+		completely_controls = d_brittany
 		completely_controls = d_berry
 		completely_controls = d_anjou
+		completely_controls = d_normandy
 		completely_controls = d_orleans
 		completely_controls = d_champagne
 		completely_controls = d_valois
 		completely_controls = d_burgundy
-		completely_controls = d_aquitaine
-		completely_controls = d_toulouse
-		completely_controls = d_gascogne
-		completely_controls = d_poitou
-		completely_controls = d_auvergne
-		completely_controls = d_bourbon
-		completely_controls = d_brittany
-		completely_controls = d_provence
-		completely_controls = d_savoie
-		completely_controls = d_dauphine
 		completely_controls = d_upper_burgundy
+		completely_controls = d_savoie
+		completely_controls = d_brabant
+		completely_controls = d_flanders
+		completely_controls = d_luxembourg
+		completely_controls = d_upper_lorraine
+		completely_controls = d_lower_lorraine
+		completely_controls = d_alsace
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = gallia
@@ -268,18 +391,21 @@ narrative_event = {
 	id = LoR.8
 	title = EVTNAMELoR.8
 	desc = EVTDESCLoR.8
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = germania }
 		completely_controls = d_mecklemburg
 		completely_controls = d_brunswick
@@ -288,16 +414,9 @@ narrative_event = {
 		completely_controls = d_franconia
 		completely_controls = d_baden
 		completely_controls = d_swabia
-		completely_controls = d_luxembourg
-		completely_controls = d_upper_lorraine
-		completely_controls = d_lower_lorraine
-		completely_controls = d_alsace
 		completely_controls = d_holland
 		completely_controls = d_gelre
-		completely_controls = d_brabant
-		completely_controls = d_flanders
 		completely_controls = d_pommerania
-		completely_controls = d_pomeralia
 		completely_controls = d_saxony
 		completely_controls = d_brandenburg
 		completely_controls = d_meissen
@@ -305,11 +424,11 @@ narrative_event = {
 		completely_controls = d_osterreich
 		completely_controls = d_tyrol
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = germania
-		prestige = 100
+		prestige = 50
 	}
 }
 
@@ -318,24 +437,26 @@ narrative_event = {
 	id = LoR.9
 	title = EVTNAMELoR.9
 	desc = EVTDESCLoR.9
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = britannia }
 		completely_controls = d_northumberland
 		completely_controls = d_lancaster
 		completely_controls = d_york
 		completely_controls = d_norfolk
-		completely_controls = d_oxford
 		completely_controls = d_bedford
 		completely_controls = d_hereford
 		completely_controls = d_gloucester
@@ -345,7 +466,7 @@ narrative_event = {
 		completely_controls = d_deheubarth
 		completely_controls = d_cornwall
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = britannia
@@ -358,20 +479,22 @@ narrative_event = {
 	id = LoR.10
 	title = EVTNAMELoR.10
 	desc = EVTDESCLoR.10
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = hispania }
-		completely_controls = d_galicia
 		completely_controls = d_castilla
 		completely_controls = d_aragon
 		completely_controls = d_barcelona
@@ -380,6 +503,7 @@ narrative_event = {
 		completely_controls = d_navarra
 		completely_controls = d_asturias
 		completely_controls = d_leon
+		completely_controls = d_galicia
 		completely_controls = d_porto
 		completely_controls = d_beja
 		completely_controls = d_algarve
@@ -390,7 +514,7 @@ narrative_event = {
 		completely_controls = d_badajoz
 		completely_controls = d_toledo
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = hispania
@@ -403,18 +527,21 @@ narrative_event = {
 	id = LoR.11
 	title = EVTNAMELoR.11
 	desc = EVTDESCLoR.11
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = mauretania }
 		completely_controls = d_marrakech
 		completely_controls = d_tangiers
@@ -422,7 +549,7 @@ narrative_event = {
 		completely_controls = d_alger
 		completely_controls = d_tlemcen
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = mauretania
@@ -435,25 +562,28 @@ narrative_event = {
 	id = LoR.12
 	title = EVTNAMELoR.12
 	desc = EVTDESCLoR.12
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = mesopotamia }
 		completely_controls = d_tigris
-		completely_controls = d_mesopotamia
-		completely_controls = d_mosul
 		completely_controls = d_baghdad
+		completely_controls = d_mosul
+		completely_controls = d_jazira
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = mesopotamia
@@ -466,30 +596,33 @@ narrative_event = {
 	id = LoR.13
 	title = EVTNAMELoR.13
 	desc = EVTDESCLoR.13
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = caledonia }
-		completely_controls = d_albany
 		completely_controls = d_galloway
 		completely_controls = d_western_isles
 		completely_controls = d_lothian
+		completely_controls = d_albany
 		completely_controls = d_moray
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = caledonia
-		prestige = 100
+		prestige = 50
 	}
 }
 
@@ -498,70 +631,115 @@ narrative_event = {
 	id = LoR.14
 	title = EVTNAMELoR.14
 	desc = EVTDESCLoR.14
-
+	
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = hibernia }
-		completely_controls = d_connacht
 		completely_controls = d_ulster
+		completely_controls = d_connacht
 		completely_controls = d_meath
 		completely_controls = d_leinster
 		completely_controls = d_munster
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.1
 		set_global_flag = hibernia
-		prestige = 100
+		prestige = 50
 	}
 }
 
 ### Roman Empire Restored
 
-# The Restoration of Rome
+# The Restoration of Rome (Byzantium / Latin Empire)
 narrative_event = {
 	id = LoR.20
 	title = EVTNAMELoR.20
 	desc = EVTDESCLoR.20
-
+	
 	picture = GFX_evt_rome_restored_byzantine
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTALoR.20
 		set_global_flag = rome_restored
-		hidden_tooltip = {
-			primary_title = {
-				any_direct_de_jure_vassal_title = {
-					de_jure_liege = e_roman_empire
-				}
-			}
-		}
 		e_roman_empire = {
 			grant_title = ROOT
-			copy_title_laws = e_byzantium
-			copy_title_history = e_byzantium
-		}
-		e_byzantium = {
-			destroy_landed_title = THIS
+			if = {
+				limit = { ROOT = { has_landed_title = e_byzantium } }
+				copy_title_laws = e_byzantium
+				copy_title_history = e_byzantium
+				set_global_flag = rome_restored_by_byzantium
+			}
+			if = {
+				limit = {
+					ROOT = { has_landed_title = e_latin_empire }
+					NOT = { ROOT = { has_landed_title = e_byzantium } }
+				}
+				copy_title_laws = e_latin_empire
+				copy_title_history = e_latin_empire
+				set_global_flag = rome_restored_by_latin_empire
+			}
 		}
 		add_trait = augustus
 		give_nickname = nick_the_glorious
 		hidden_tooltip = {
-			activate_title = { title = e_byzantium status = no }
+			e_byzantium = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_byzantium status = no }
+				}
+			}
+			e_latin_empire = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_latin_empire status = no }
+				}
+			}
+			e_hre = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_hre status = no }
+				}
+			}
+			e_italy = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_italy status = no }
+				}
+			}
 			any_playable_ruler = {
 				limit = {
-					NOT = { has_landed_title = e_byzantium }
+					NOT = { character = ROOT }
 					ai = no
 				}
 				narrative_event = { id = LoR.21 }
@@ -570,28 +748,206 @@ narrative_event = {
 	}
 }
 
-# Informed about Restoration of Rome
+# Informed about Restoration of Rome (Byzantium / Latin Empire)
 narrative_event = {
 	id = LoR.21
 	title = EVTNAMELoR.21
 	desc = EVTDESCLoR.21
-
+	
 	picture = GFX_evt_rome_restored_byzantine
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTALoR.21
 		trigger = {
 			NOT = { has_landed_title = e_hre }
+			NOT = { has_landed_title = e_byzantium }
+			NOT = { has_landed_title = e_latin_empire }
 		}
 	}
 	option = {
 		name = EVTOPTBLoR.21
 		trigger = {
-			has_landed_title = e_hre
+			OR = {
+				has_landed_title = e_hre
+				has_landed_title = e_byzantium
+				has_landed_title = e_latin_empire
+			}
 		}
 		prestige = -500
+	}
+}
+
+# The Restoration of Rome (HRE)
+narrative_event = {
+	id = ancrel.2220
+	title = EVTNAMELoR.20
+	desc = EVTDESCancrel.2220
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTALoR.20
+		set_global_flag = rome_restored
+		set_global_flag = rome_restored_by_hre
+		e_roman_empire = {
+			grant_title = ROOT
+			copy_title_laws = e_hre
+			copy_title_history = e_hre
+		}
+		add_trait = augustus
+		give_nickname = nick_the_glorious
+		hidden_tooltip = {
+			e_hre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_roman_empire
+				}
+				destroy_landed_title = THIS
+				activate_title = { title = e_hre status = no }
+			}
+			e_italy = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_italy status = no }
+				}
+			}
+			any_playable_ruler = {
+				limit = {
+					NOT = { character = ROOT }
+					ai = no
+				}
+				narrative_event = { id = ancrel.2221 }
+			}
+		}
+	}
+}
+
+# Informed about Restoration of Rome (HRE)
+narrative_event = {
+	id = ancrel.2221
+	title = EVTNAMELoR.21
+	desc = EVTDESCancrel.2221
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTALoR.21
+		trigger = {
+			NOT = { has_landed_title = e_byzantium }
+			NOT = { has_landed_title = e_latin_empire }
+		}
+	}
+	option = {
+		name = EVTOPTBLoR.21
+		trigger = {
+			OR = {
+				has_landed_title = e_byzantium
+				has_landed_title = e_latin_empire
+			}
+		}
+		prestige = -500
+	}
+}
+
+# The Creation of a new Rome
+narrative_event = {
+	id = ancrel.2222
+	title = EVTNAMELoR.20
+	desc = EVTDESCancrel.2222
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTALoR.20
+		set_global_flag = rome_restored
+		set_global_flag = rome_recreated
+		primary_title = {
+			e_roman_empire = {
+				grant_title = ROOT
+				copy_title_laws = PREV
+			}
+		}
+		add_trait = augustus
+		give_nickname = nick_the_glorious
+		hidden_tooltip = {
+			e_byzantium = {
+				destroy_landed_title = THIS
+				activate_title = { title = e_byzantium status = no }
+			}
+			e_latin_empire = {
+				destroy_landed_title = THIS
+				activate_title = { title = e_latin_empire status = no }
+			}
+			e_hre = {
+				destroy_landed_title = THIS
+				activate_title = { title = e_hre status = no }
+			}
+			e_italy = {
+				if = {
+					limit = { ROOT = { has_landed_title = PREV } }
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_roman_empire
+					}
+					destroy_landed_title = THIS
+					activate_title = { title = e_italy status = no }
+				}
+			}
+			k_italy = {
+				if = {
+					limit = {
+						OR = {
+							owner = { is_liege_or_above = ROOT }
+							ROOT = { has_landed_title = PREV }
+						}
+					}
+					de_jure_liege = e_roman_empire
+				}
+			}
+			k_sicily = {
+				if = {
+					limit = {
+						OR = {
+							owner = { is_liege_or_above = ROOT }
+							ROOT = { has_landed_title = PREV }
+						}
+					}
+					de_jure_liege = e_roman_empire
+				}
+			}
+			any_playable_ruler = {
+				limit = {
+					NOT = { character = ROOT }
+					ai = no
+				}
+				narrative_event = { id = ancrel.2223 }
+			}
+		}
+	}
+}
+
+# Informed about Creation of a new Rome
+narrative_event = {
+	id = ancrel.2223
+	title = EVTNAMELoR.21
+	desc = EVTDESCancrel.2223
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTALoR.21
 	}
 }
 
@@ -602,19 +958,30 @@ character_event = {
 	id = LoR.30
 	desc = EVTDESCLoR.30
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	hide_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
+			AND = {
+				independent = yes
+				higher_tier_than = COUNT
+				OR = {
+					culture = roman
+					religion = hellenic_pagan
+				}
+			}
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.30
 		character_event = { id = LoR.31 days = 12 tooltip = EVTTOOLTIPLoR.31 }
@@ -637,11 +1004,11 @@ character_event = {
 	id = LoR.31
 	desc = EVTDESCLoR.31
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	hide_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTALoR.31
 		custom_tooltip = {
@@ -658,6 +1025,7 @@ character_event = {
 					}
 					character_event = { id = LoR.32 }
 				}
+
 			}
 		}
 	}
@@ -668,9 +1036,9 @@ character_event = {
 	id = LoR.32
 	desc = EVTDESCLoR.32
 	picture = GFX_evt_victory_arch_byzantine
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = EVTOPTALoR.32
 	}
@@ -683,25 +1051,28 @@ narrative_event = {
 	id = LoR.40
 	title = EVTNAMELoR.40
 	desc = EVTDESCLoR.40
-
+	
 	picture = GFX_evt_rome_restored_byzantine
-
+	
 	ai = no
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		OR = {
 			has_landed_title = e_byzantium
 			has_landed_title = e_roman_empire
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = { has_global_flag = roman_borders }
-
+		
+		# Provincia Britannia
 		completely_controls = d_northumberland
 		completely_controls = d_lancaster
 		completely_controls = d_york
 		completely_controls = d_norfolk
-		completely_controls = d_oxford
 		completely_controls = d_bedford
 		completely_controls = d_hereford
 		completely_controls = d_gloucester
@@ -710,8 +1081,8 @@ narrative_event = {
 		completely_controls = d_gwynedd
 		completely_controls = d_deheubarth
 		completely_controls = d_cornwall
-
-		completely_controls = d_latium
+		
+		# Provincia Italia
 		completely_controls = d_venice
 		completely_controls = d_verona
 		completely_controls = d_susa
@@ -721,66 +1092,93 @@ narrative_event = {
 		completely_controls = d_ferrara
 		completely_controls = d_toscana
 		completely_controls = d_pisa
-		#completely_controls = d_ancona
+		completely_controls = d_ancona
 		completely_controls = d_spoleto
+		completely_controls = d_latium
 		completely_controls = d_benevento
 		completely_controls = d_capua
 		completely_controls = d_apulia
 		completely_controls = d_salerno
 		completely_controls = d_calabria
-		completely_controls = d_sicily
+		
+		# Provincia Cilicia et Cyprus
+		completely_controls = d_armenia_minor
+		completely_controls = d_cyprus
 
-		completely_controls = d_oultrejourdain
+		# Provincia Syria Palaestina
 		completely_controls = d_edessa
-		completely_controls = d_antioch
 		completely_controls = d_aleppo
+		completely_controls = d_antioch
 		completely_controls = d_tripoli
-		completely_controls = d_syria
 		completely_controls = d_damascus
+		completely_controls = d_syria
 		completely_controls = d_galilee
 		completely_controls = d_jerusalem
 		completely_controls = d_ascalon
-
-		completely_controls = d_aswan
+		completely_controls = d_oultrejourdain
+		
+		# Provincia Aegyptus
 		completely_controls = d_alexandria
 		completely_controls = d_damietta
 		completely_controls = d_cairo
+		completely_controls = d_aswan
 		completely_controls = d_sinai
-
+		completely_controls = d_nubia
+		
+		# Provincia Cyrenaica et Creta
 		completely_controls = d_cyrenaica
-
+		completely_controls = d_krete
+		
+		# Provincia Africa
 		completely_controls = d_tripolitania
 		completely_controls = d_tunis
 		completely_controls = d_kabylia
-
-		completely_controls = d_carinthia
+		
+		# Provincia Illyricum
+		completely_controls = d_vidin
 		completely_controls = d_rashka
 		completely_controls = d_dioclea
 		completely_controls = d_slavonia
 		completely_controls = d_bosnia
 		completely_controls = d_croatia
 		completely_controls = d_dalmatia
-
-		completely_controls = d_normandy
-		completely_controls = d_berry
-		completely_controls = d_anjou
-		completely_controls = d_orleans
-		completely_controls = d_champagne
-		completely_controls = d_valois
-		completely_controls = d_burgundy
+		completely_controls = d_carinthia
+		
+		# Provincia Sicilia
+		completely_controls = d_sicily
+		
+		# Provincia Corsica et Sardinia
+		completely_controls = d_sardinia
+		
+		# Provincia Viennensis
 		completely_controls = d_aquitaine
 		completely_controls = d_toulouse
 		completely_controls = d_gascogne
 		completely_controls = d_poitou
 		completely_controls = d_auvergne
 		completely_controls = d_bourbon
-		completely_controls = d_brittany
-		completely_controls = d_provence
-		completely_controls = d_savoie
 		completely_controls = d_dauphine
+		completely_controls = d_provence
+		
+		# Provincia Gallia
+		completely_controls = d_brittany
+		completely_controls = d_berry
+		completely_controls = d_anjou
+		completely_controls = d_normandy
+		completely_controls = d_orleans
+		completely_controls = d_champagne
+		completely_controls = d_valois
+		completely_controls = d_burgundy
 		completely_controls = d_upper_burgundy
+		completely_controls = d_savoie
+		completely_controls = d_brabant
+		completely_controls = d_flanders
+		completely_controls = d_luxembourg
+		completely_controls = d_upper_lorraine
+		completely_controls = d_lower_lorraine
+		completely_controls = d_alsace
 
-		completely_controls = d_galicia
+		# Provincia Hispania
 		completely_controls = d_castilla
 		completely_controls = d_aragon
 		completely_controls = d_barcelona
@@ -789,6 +1187,7 @@ narrative_event = {
 		completely_controls = d_navarra
 		completely_controls = d_asturias
 		completely_controls = d_leon
+		completely_controls = d_galicia
 		completely_controls = d_porto
 		completely_controls = d_beja
 		completely_controls = d_algarve
@@ -798,42 +1197,44 @@ narrative_event = {
 		completely_controls = d_sevilla
 		completely_controls = d_badajoz
 		completely_controls = d_toledo
-
+		
+		# Provincia Mauretania
 		completely_controls = d_marrakech
 		completely_controls = d_tangiers
 		completely_controls = d_fes
 		completely_controls = d_alger
 		completely_controls = d_tlemcen
-
-		completely_controls = d_nikaea
-		completely_controls = d_samos
-		completely_controls = d_aegean_islands
-		completely_controls = d_thrace
-		completely_controls = d_adrianopolis
-		completely_controls = d_thessalonika
+		
+		# Provincia Macedonia
 		completely_controls = d_dyrrachion
 		completely_controls = d_epirus
+		completely_controls = d_thessalonika
 		completely_controls = d_athens
 		completely_controls = d_achaia
-		completely_controls = d_krete
-		completely_controls = d_cyprus
-		completely_controls = d_cibyrrhaeot
-
-		completely_controls = d_anatolia
-		completely_controls = d_thracesia
-		completely_controls = d_charsianon
-		completely_controls = d_armeniacon
-		completely_controls = d_paphlagonia
-		completely_controls = d_trebizond
-
-		completely_controls = d_coloneia
-		completely_controls = d_armenia_minor
-
-		completely_controls = d_vidin
+		completely_controls = d_aegean_islands
+		
+		# Provincia Thracia
 		completely_controls = d_turnovo
 		completely_controls = d_karvuna
+		completely_controls = d_adrianopolis
+		completely_controls = d_thrace
+		
+		# Provincia Asia
+		completely_controls = d_nikaea
+		completely_controls = d_samos
+		completely_controls = d_cibyrrhaeot
+		completely_controls = d_thracesia
+		completely_controls = d_anatolia
+		
+		# Provincia Pontus
+		completely_controls = d_paphlagonia
+		completely_controls = d_armeniacon
+		completely_controls = d_charsianon
+		completely_controls = d_trebizond
+		completely_controls = d_coloneia
+		completely_controls = d_mesopotamia
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.40
 		set_global_flag = roman_borders
@@ -848,13 +1249,13 @@ character_event = {
 	id = LoR.45
 	desc = EVTDESCLoR.45
 	picture = GFX_evt_rome_restored_byzantine
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		has_landed_title = e_roman_empire
 		NOT = { trait = augustus }
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.45
 		add_trait = augustus
@@ -866,14 +1267,14 @@ character_event = {
 	id = LoR.46
 	desc = EVTDESCLoR.46
 	picture = GFX_evt_rome_restored_byzantine
-
+	
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		trait = augustus
 		NOT = { has_landed_title = e_roman_empire }
 		is_alive = yes
 	}
-
+	
 	option = {
 		name = EVTOPTALoR.46
 		remove_trait = augustus
