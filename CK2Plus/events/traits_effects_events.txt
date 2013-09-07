@@ -274,6 +274,7 @@ character_event = {
 		war = no
 		in_command = no
 		is_female = no
+		NOT = { religion_group = zoroastrian_group }
 		NOT = { has_job_title = job_spiritual }
 		any_courtier = {
 			has_job_title = job_spiritual
@@ -698,7 +699,10 @@ character_event = {
 		NOT = {
 			trait = homosexual
 		}
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = zoroastrian_group
+		}
 		fertility = 0.4
 		any_courtier = {
 			is_female = yes
@@ -712,7 +716,6 @@ character_event = {
 			NOT = {
 				trait = homosexual
 			}
-			NOT = { is_close_relative = ROOT }
 			has_opinion_modifier = { who = ROOT modifier = opinion_admire_chaste }
 		}
 	}
@@ -740,8 +743,10 @@ character_event = {
 
 	option = {
 		name = EVTOPTA3026
+		trigger = { religion_group = christian }
 		random_courtier = {
 			limit = {
+				religion_group = christian
 				is_female = yes
 				age = 18
 				NOT = { age = 35 }
@@ -753,7 +758,6 @@ character_event = {
 				NOT = {
 					trait = homosexual
 				}
-				NOT = { is_close_relative = ROOT }
 				has_opinion_modifier = { who = ROOT modifier = opinion_admire_chaste } 
 			}
 			impregnate_cuckoo = ROOT
@@ -763,19 +767,43 @@ character_event = {
 
 	option = {
 		name = EVTOPTB3026
+		trigger = { religion_group = christian }
 		random_courtier = {
 			limit = {
+				religion_group = christian
 				is_female = yes
 				age = 18
 				NOT = { age = 35 }
 				is_pregnant = no
-				NOT = { is_close_relative = ROOT }
 				has_opinion_modifier = { who = ROOT modifier = opinion_admire_chaste } 
 			}
 			remove_opinion = { who = ROOT modifier = opinion_admire_chaste }
 		}
 		prestige = -5
 		add_trait = wroth
+	}
+	
+	option = {
+		name = EVTOPTC3026
+		trigger = { religion_group = zoroastrian_group }
+		random_courtier = {
+			limit = {
+				religion_group = zoroastrian_group
+				is_female = yes
+				age = 18
+				NOT = { age = 35 }
+				is_pregnant = no
+				NOT = {
+					trait = celibate
+				}
+				NOT = { trait = eunuch }
+				NOT = {
+					trait = homosexual
+				}
+				has_opinion_modifier = { who = ROOT modifier = opinion_admire_chaste } 
+			}
+			impregnate_cuckoo = ROOT
+		}
 	}
 
 }
@@ -819,6 +847,11 @@ character_event = {
 
 	option = {
 		name = EVTOPTA3030
+		
+		trigger = {
+			NOT = { religion_group = zoroastrian_group }
+		}
+		
 		random_rival = {
 			prestige = 10
 		}
@@ -827,6 +860,25 @@ character_event = {
 
 			give_nickname = nick_the_effeminate
 			prestige = -5
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3030
+		piety = -10
+		
+		trigger = {
+			religion_group = zoroastrian_group
+		}
+		
+		random_rival = {
+			prestige = 10
+		}
+		random = {
+			chance = 25
+
+			give_nickname = nick_the_effeminate
+			piety = -10
 		}
 	}
 }
@@ -898,11 +950,21 @@ character_event = {
 	option = {
 		name = EVTOPTB3035
 		trigger = {
-			is_married = no
+			OR = {
+				AND = {
+					is_married = no
+					religion_group = christian
+				}
+				religion_group = zoroastrian_group
+			}
 		}
 		if = {
 			limit = { religion_group = christian }
 			piety = -25
+		}
+		if = {
+			limit = { religion_group = zoroastrian_group }
+			piety = 25
 		}
 		add_trait = lustful
 		random_courtier = {
@@ -910,7 +972,19 @@ character_event = {
 				is_female = yes
 				age = 16
 				NOT = { age = 35 }
-				NOT = { is_close_relative = ROOT }
+				OR = {
+					AND = {
+						NOT = { is_close_relative = ROOT }
+						religion_group = christian
+					}
+					religion_group = zoroastrian_group
+				}
+			}
+			hidden_tooltip = {
+				random = {
+					chance = 20
+					impregnate_cuckoo = ROOT
+				}
 			}
 			add_trait = lustful
 			opinion = {
@@ -925,6 +999,10 @@ character_event = {
 		name = EVTOPTC3035
 		trigger = {
 			is_married = yes
+		}
+		if = {
+			limit = { religion_group = zoroastrian_group }
+			piety = 10
 		}
 		prestige = -25
 	}
@@ -1085,6 +1163,7 @@ character_event = {
 	}
 
 	option = {
+		trigger = { religion_group = christian }
 		name = EVTOPTA3013
 		random_vassal = {
 			limit = {
@@ -1101,9 +1180,35 @@ character_event = {
 		prestige = -5
 	}
 	option = {
+		trigger = { religion_group = christian }
 		name = EVTOPTB3013
 		piety = -5
 	}
+		option = {
+		trigger = { religion_group = zoroastrian_group }
+		name = EVTOPTC3013
+		random_vassal = {
+			limit = {
+				tier = baron
+				trait = gluttonous
+				is_female = no
+			}
+			opinion = {
+				modifier = temperate_pleaser
+				who = ROOT
+				years = 2
+			}
+			prestige = 5
+		}
+		piety = 5
+	}
+	option = {
+		trigger = { religion_group = zoroastrian_group }
+		name = EVTOPTD3013
+		prestige = 5
+	}
+	
+	
 }
 
 ### GLUTTONOUS ###
@@ -2017,7 +2122,10 @@ character_event = {
 	trigger = {
 		is_ruler = yes
 		trait = charitable
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = zoroastrian_group
+		}
 	}
 
 	mean_time_to_happen = {
@@ -2175,7 +2283,10 @@ character_event = {
 
 	trigger = {
 		trait = charitable
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = zoroastrian_group
+		}
 		any_courtier = {
 			prisoner = yes
 			host = { character = ROOT }
@@ -2852,6 +2963,10 @@ character_event = {
 
 	trigger = {
 		trait = diligent
+		OR = {
+			religion_group = christian
+			religion_group = zoroastrian_group
+		}
 		religion_group = christian
 		war = no
 		in_command = no
