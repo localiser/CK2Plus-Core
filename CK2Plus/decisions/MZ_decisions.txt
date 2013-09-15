@@ -4,56 +4,6 @@
 
 decisions = {
 
-#####Convert to Zoroastrianism
-	convert_to_zoroastrianism = {
-	potential = {
-			is_ruler = yes
-			age = 16
-			prisoner = no
-			religion_group = muslim
-			culture_group = iranian
-			NOT = {trait = zealous}
-			NOT = {piety = 0}
-		}
-		allow = {
-			war = no
-			OR = {
-				AND = {
-					any_demesne_province = {
-					religion_group = zoroastrian_group
-						}
-					NOT = { religion_authority = 0.35 }
-					}
-				NOT = { religion_authority = 0.20 }
-			}
-			prisoner = no
-		}
-		effect = {
-			religion = zoroastrian
-			piety = -200
-			wealth = -100
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				factor = 0
-				NOT = {
-					scaled_wealth = 2.0
-				}
-			}
-			modifier = {
-				factor = 0
-				NOT = {
-					learning = 8
-				}
-			}
-		}
-	}
-
 ###Sacrifices
 	make_sacrifice_mithra = {
 		potential = {

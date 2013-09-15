@@ -1145,4 +1145,239 @@ decisions = {
 			factor = 0
 		}
 	}
+	
+	convert_to_zoroastrianism = {
+	potential = {
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			culture_group = iranian
+			NOT = {trait = zealous}
+			NOT = {piety = 0}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion_group = zoroastrian_group
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion_group = zoroastrian_group
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = zoroastrian
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	
+	convert_to_gaelic_pagan = {
+	potential = {
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			culture_group = celtic
+			NOT = {trait = zealous}
+			NOT = {piety = 0}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = gaelic_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = gaelic_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = gaelic_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	
+	convert_to_druidic = {
+	potential = {
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			OR = {
+				culture_group = celtic
+				culture = frankish
+				culture = occitan
+			}
+			NOT = {trait = zealous}
+			NOT = {piety = 0}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = druidic
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = druidic
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = druidic
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	
+	convert_to_hellenic_pagan = {
+	potential = {
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			OR = {
+				culture = roman
+				culture = greek
+				culture = italian
+				culture = sicilian
+				culture = sicilian_greek
+			}
+			NOT = {trait = zealous}
+			NOT = {piety = 0}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = hellenic_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = hellenic_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = hellenic_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	
 }
