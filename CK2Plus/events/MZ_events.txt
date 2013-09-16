@@ -229,10 +229,10 @@ province_event = {
 	option = {
 		name = "EVTOPTC1000182065" # Make it the greatest city there ever was!
 		wealth = -1000
-		capital_scope = {
-				add_province_modifier = { name = "rebuilding_persepolis_local" duration = 3650 }
-			}
-		character_event = { id = 1000182066 days = 2920}
+		#capital_scope = {
+		#	add_province_modifier = { name = "rebuilding_persepolis_local" duration = 3650 }
+		#}
+		character_event = { id = 1000182066 }
 	}
 }
 
@@ -251,7 +251,7 @@ character_event = {
 		capital_scope = {
 			add_province_modifier = { name = "persepolis_library" duration = -1 }
 			}
-		character_event = { id = 1000182067 days = 730 }	
+		character_event = { id = 1000182067 }	
 	}
 	option = {
 		name = "EVTOPTB1000182066" #Irrigation system
@@ -259,7 +259,7 @@ character_event = {
 		capital_scope = {
 			add_province_modifier = { name = "persepolis_irrigation" duration = -1 }
 			}
-		character_event = { id = 1000182067 days = 730 }
+		character_event = { id = 1000182067 }
 	}
 	option = {
 		name = "EVTOPTC1000182066" #Gate of all nations
@@ -267,7 +267,7 @@ character_event = {
 		capital_scope = {
 			add_province_modifier = { name = "persepolis_gate" duration = -1 }
 			}
-		character_event = { id = 1000182067 days = 730 }
+		character_event = { id = 1000182067 }
 	}
 }
 
@@ -327,6 +327,61 @@ narrative_event = {
 		name = "EVTOPTA1000182068"
 	}
 }
+
+narrative_event = {
+	id = 1000182157
+	title = "EVTNAME1000182157"
+	desc = "EVTDESC1000182157"
+	picture = "GFX_evt_zhayedan"
+	border = "GFX_event_narrative_frame_religion"
+	
+	major = yes
+	only_rulers = yes
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			has_character_flag = event_1000182157
+		}
+		clr_character_flag = event_11000182157
+		name = "1000182008.a"
+	}
+	
+	option = {
+		trigger = {
+			NOT = { has_character_flag = event_1000182157 }
+		}
+		name = "EVTOPTA1000182068"
+	}
+}
+
+narrative_event = {
+	id = 1000182158
+	title = "EVTNAME1000182158"
+	desc = "EVTDESC1000182158"
+	picture = "GFX_evt_zhayedan"
+	border = "GFX_event_narrative_frame_religion"
+	
+	major = yes
+	only_rulers = yes
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			has_character_flag = event_1000182158
+		}
+		clr_character_flag = event_11000182158
+		name = "1000182008.a"
+	}
+	
+	option = {
+		trigger = {
+			NOT = { has_character_flag = event_1000182158 }
+		}
+		name = "EVTOPTA1000182068"
+	}
+}
+
 
 # On-action event: Zoroastrian Marriage
 #character_event = {
