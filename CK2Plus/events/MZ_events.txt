@@ -291,6 +291,12 @@ character_event = {
 			}
 		}
 		prestige = 500
+		hidden_tooltip = {
+			owner = {
+				set_character_flag = event_1000182067
+				narrative_event = { id = 1000182068 days = 7 }
+			}
+		}
 	}
 }
 
@@ -304,10 +310,20 @@ narrative_event = {
 	
 	major = yes
 	only_rulers = yes
-	
 	is_triggered_only = yes
 	
 	option = {
+		trigger = {
+			has_character_flag = event_1000182067
+		}
+		clr_character_flag = event_1000182067
+		name = "1000182008.a"
+	}
+	
+	option = {
+		trigger = {
+			NOT = { has_character_flag = event_1000182067 }
+		}
 		name = "EVTOPTA1000182068"
 	}
 }
