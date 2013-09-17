@@ -31,7 +31,14 @@ plot_seduce_liege = {
 		age = 16
 		is_female = no
 		has_lover = no
-		NOT = { is_close_relative = FROM }
+		
+		OR = {
+			NOT = { is_close_relative = FROM }
+			AND = {
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
+			}
+		}
 		NOT = { spouse = { character = FROM } }
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
@@ -47,7 +54,14 @@ plot_seduce_liege = {
 		age = 16
 		is_female = no
 		has_lover = no
-		NOT = { is_close_relative = FROM }
+		
+		OR = {
+			NOT = { is_close_relative = FROM }
+			AND = {
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
+			}
+		}
 		NOT = { spouse = { character = FROM } }
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
@@ -278,7 +292,13 @@ plot_seduce_for_men = {
 		NOT = { age = 45 }
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
-		NOT = { is_close_relative = FROM }
+		OR = {
+			NOT = { is_close_relative = FROM }
+			AND = {
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
+			}
+		}
 		NOT = { spouse = { character = FROM } }
 		has_lover = no
 		FROM = {
@@ -289,7 +309,13 @@ plot_seduce_for_men = {
 	# Target character scope
 	allow = {
 		# Some basic rules regardless of target
-		NOT = { is_close_relative = FROM }
+		OR = {
+			NOT = { is_close_relative = FROM }
+			AND = {
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
+			}
+		}
 		NOT = { spouse = { character = FROM } }
 		age = 16
 		NOT = { age = 45 }
