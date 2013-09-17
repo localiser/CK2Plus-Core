@@ -10910,3 +10910,64 @@ character_event = {
 		}
 	}
 }
+
+character_event = {
+	id = 1000182162
+	is_triggered_only = yes
+
+	trigger = {
+		ai = yes
+		culture = mongol
+		religion = tengri_pagan
+		age = 16
+		NOT = { trait = bloodlust }
+		NOT = { trait = incapable }
+		primary_title = {
+			OR = {
+				title = e_golden_horde
+				title = e_il-khanate
+				title = e_mongol_empire
+			}
+		}
+	}
+
+	desc = "AI_EVENT"
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "OK"
+		add_trait = bloodlust
+	}
+}
+
+character_event = {
+	id = 1000182163
+	is_triggered_only = yes
+
+	trigger = {
+		trait = bloodlust
+		OR = {
+			AND = {
+				ai = yes
+				culture = mongol
+				NOT = { religion = tengri_pagan }
+			}
+			ai = no
+			trait = incapable
+		}
+	}
+
+	desc = "AI_EVENT"
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "OK"
+		remove_trait = bloodlust
+	}
+}

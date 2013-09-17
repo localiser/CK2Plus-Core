@@ -1147,13 +1147,16 @@ decisions = {
 	}
 	
 	convert_to_zoroastrianism = {
-	potential = {
-			is_ruler = yes
+		potential = {
 			age = 16
 			prisoner = no
 			culture_group = iranian
-			NOT = {trait = zealous}
-			NOT = {piety = 0}
+			piety = 0
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion_group = zoroastrian_group
+			}
 		}
 		allow = {
 			war = no
@@ -1204,12 +1207,15 @@ decisions = {
 	
 	convert_to_gaelic_pagan = {
 	potential = {
-			is_ruler = yes
 			age = 16
 			prisoner = no
 			culture_group = celtic
-			NOT = {trait = zealous}
-			NOT = {piety = 0}
+			piety = 0
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = gaelic_pagan
+			}
 		}
 		allow = {
 			war = no
@@ -1260,16 +1266,19 @@ decisions = {
 	
 	convert_to_druidic = {
 	potential = {
-			is_ruler = yes
 			age = 16
 			prisoner = no
+			piety = 0
 			OR = {
 				culture_group = celtic
 				culture = frankish
 				culture = occitan
 			}
-			NOT = {trait = zealous}
-			NOT = {piety = 0}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = druidic 
+			}
 		}
 		allow = {
 			war = no
@@ -1320,9 +1329,9 @@ decisions = {
 	
 	convert_to_hellenic_pagan = {
 	potential = {
-			is_ruler = yes
 			age = 16
 			prisoner = no
+			piety = 0
 			OR = {
 				culture = roman
 				culture = greek
@@ -1330,8 +1339,11 @@ decisions = {
 				culture = sicilian
 				culture = sicilian_greek
 			}
-			NOT = {trait = zealous}
-			NOT = {piety = 0}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = hellenic_pagan 
+			}
 		}
 		allow = {
 			war = no
