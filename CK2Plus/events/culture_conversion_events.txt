@@ -384,12 +384,22 @@ province_event = {
 
 	option = {
 		name = "EVTOPTA55000"
-		if = {
+		owner = {
+			reverse_culture = ROOT
+			if = {
 				limit = { has_ambition = obj_civilize_province }
 				character_event = { id = 1000182009 }
 			}
-		owner = {
-			reverse_culture = ROOT
+			if = {
+				limit = {
+					top_liege = {
+						NOT = { character = PREV }
+						culture = PREV
+						has_ambition = obj_civilize_province
+					}
+				}
+				top_liege = { character_event = { id = 1000182009 } }
+			}
 		}
 	}	
 }
