@@ -43,7 +43,13 @@ character_event = {
 				ROOT = { trait = lustful }
 				trait = divine_blood
 				ROOT = { trait = divine_blood }
-				NOT = { is_close_relative = ROOT }
+				OR = {
+					NOT = { is_close_relative = FROM }
+					AND = {
+						religion_group = zoroastrian_group
+						FROM = { religion_group = zoroastrian_group }
+					}
+				}
 			}
 			OR = {
 				AND = {
@@ -168,6 +174,12 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
+			religion_group = zoroastrian_group
+			FROM = { religion_group = zoroastrian_group }
+			is_close_relative = ROOT
+		}
+		modifier = {
+			factor = 0.75
 			liege = {
 				is_close_relative = ROOT
 				ROOT = { trait = divine_blood }
@@ -181,6 +193,7 @@ character_event = {
 				NOT = { ROOT = { trait = divine_blood } }
 				NOT = { trait = hedonist }
 				NOT = { ROOT = { trait = hedonist } }
+				NOT = { religion_group = zoroastrian_group }
 			}
 		}
 		modifier = {
@@ -192,6 +205,7 @@ character_event = {
 				NOT = { ROOT = { trait = divine_blood } }
 				NOT = { trait = hedonist }
 				NOT = { ROOT = { trait = hedonist } }
+				NOT = { religion_group = zoroastrian_group }
 			}
 		}
 		modifier = {
@@ -378,9 +392,28 @@ character_event = {
 				is_close_relative = FROM
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
+				NOT = { religion_group = zoroastrian_group }
+				NOT = { FROM = { religion_group = zoroastrian_group } }
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
 			}
 		}
-		piety = 5
+		if = {
+			limit = {
+				NOT = { religion_group = zoroastrian_group }
+			}
+			piety = 5
+		}
+		if = {
+			limit = {
+				religion_group = zoroastrian_group
+			}
+			piety = -5
+		}
 	}
 	option = {
 		name = EVTOPTC451
@@ -499,6 +532,14 @@ character_event = {
 				is_close_relative = FROM
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
+				NOT = { religion_group = zoroastrian_group }
+				NOT = { FROM = { religion_group = zoroastrian_group } }
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
 			}
 		}
 		trigger = {
@@ -535,6 +576,14 @@ character_event = {
 				is_close_relative = FROM
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
+				NOT = { religion_group = zoroastrian_group }
+				NOT = { FROM = { religion_group = zoroastrian_group } }
+			}
+			modifier = {
+				factor = 0.5
+				is_close_relative = FROM
+				religion_group = zoroastrian_group
+				FROM = { religion_group = zoroastrian_group }
 			}
 		}
 		FROM = { character_event = { id = 455 tooltip = EVTTOOLTIP455 } }
