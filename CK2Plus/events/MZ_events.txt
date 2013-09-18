@@ -96,7 +96,46 @@ character_event = {
 		add_character_modifier = {
 			name = zoroastrian_tolerance
 			duration = 365
+		}
+		hidden_tooltip = {
+			any_realm_character = {
+				if = {
+					limit = { religion_group = muslim }
+					opinion = {
+						who = ROOT
+						modifier = opinion_tolerant_muslims
+						months = 60
+					}
+				}
+				if = {
+					limit = { religion_group = zoroastrian_group }
+					opinion = {
+						who = ROOT
+						modifier = opinion_tolerant
+						months = 60
+					}
+				}
 			}
+			any_independent_ruler = {
+				if = {
+					limit = { religion_group = muslim }
+					opinion = {
+						who = ROOT
+						modifier = opinion_tolerant_muslims
+						months = 60
+					}
+				}
+				if = {
+					limit = { religion_group = zoroastrian_group }
+					opinion = {
+						who = ROOT
+						modifier = opinion_tolerant
+						months = 60
+					}
+				}
+			
+			}
+		}
 	}
 	option = {
 		name = "EVTOPTB1000094002"
