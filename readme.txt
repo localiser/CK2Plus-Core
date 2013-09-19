@@ -2,49 +2,19 @@ CK2Plus for Crusader Kings 2
 
 Original Author: Martin "Wiz" Anward
 
-Maintained by the community
+Maintained by the Dev Team
 
 
 
 ## Installation
 
 1) If you have an older version of the mod installed, delete those older versions first.
-2) Unzip to your Crusader Kings II game folder OR the Crusader Kings II my documents folder.
+2) Unzip to your Crusader Kings II my documents folder. (C:\Users\[user]\Documents\Paradox Interactive\Crusader Kings II\mod\)
 3) Make sure the mod was extracted to the correct folder. Inside the 'mod' folder, there should be a CK2Plus.mod file. If there is not, and instead another 'mod' folder, you extracted the mod incorrectly.
-4) Unzip any Hotfixes to your Crusader Kings II folder (same place you installed the mod in step 2.
+4) Unzip any Hotfixes to your Crusader Kings II folder (same place you installed the mod in step 2).
 5) Start the CK2 launcher and check 'CK2+ X.XX' in the list of mods.
 6) Check any optional modules you want to use along with CK2Plus.
 7) Hit play.
-
-
-## Features
-
-- 'Shattered World' scenario with the world divided into independent counts, featuring over 500 new playable characters.
-- New faction system where vassals are members of permanent factions with multiple goals and moods, making factions into an exciting aspect of internal politics that can be both good and bad, instead of just being glorified plots.
-- Rebalanced levies and laws that reduce the military capabilities of large kingdoms with weak authority (like France or the HRE).
-- Reworked difficulty system: Instead of giving flat economy bonuses to the AI, higher difficulties means slower expansion, slower and costlier warfare and more dangerous plots and revolts for the player.
-- Reduced fertility/health and altered attributes for old characters: 80-year olds will no longer have a new child every year while leading their armies from the front, and characters that live to very old ages are suitably rare.
-- New tyranny system that assigns reasonable but noticeable penalties for imprisoning, banishing and executing characters and allows for more leeway in dealing with traitors.
-- Crusades can result in independent Crusader states with a special truce that makes them able to survive their first few years. A Crusade for Jerusalem will now much more closely mirror the historical First Crusade with an independent Jerusalem being created.
-- Holy Wars have a cooldown timer so that the general rate of expansion in Iberia and the Middle East is slowed.
-- More lethal diseases and battles, making medieval life the violent and uncertain existance it should be.
-- It is now more difficult but also more rewarding to raise your crown authority.
-- Tweaked succession laws to make it possible for non-Basques to use Absolute Cognatic. Authority requirements for other succession laws have also been eased.
-- Women of your dynasty can hold some council positions under Cognatic or Agnatic-Cognatic laws.
-- Many more ambitions and plots.
-- More provinces and sea zones.
-- Many minor and major balancing tweaks for a more challenging and enjoyable experience.
-- Many more Kingdoms and (Titular) Empires to create.
-- More mercenaries and holy orders.
-- More cultures.
-- German and French localisation.
-
-## Future Plans
-
-- Non-Christian versions of personality traits with different piety (for chaste lustful etc).
-- Grand Banquet event where you can invite neighbours, friends and allies instead of just vassals.
-- Rework child education events to be more restricted by your traits, and more balanced between the options instead of there always being one 'best'  option.
-- Executing characters gives landed relatives of theirs the option to ask for blood money - if you refuse, they can send assassins or launch a blood feud war against you.
 
 ## Optional Modules
 Use any combination of the following:
@@ -52,8 +22,9 @@ Use any combination of the following:
 - 'Gender Equality' makes women eligible for any position on the council and allows them to inherit on the same grounds as men.
 - 'Hardcore Mode' decreases demesne size and income, makes breaking treaties more costly and in general slows down the pace of expansion for the player.
 
-Use only ONE of the following:
+## Use only ONE of the following (all are optional):
 - 'Shattered World' divides the world into either independent counts or small independent states, depending on the start you choose.
+- 'Divided Muslims' A heavily divided Middle East where many sultans are vying for supremacy of the region.
 
 ## FAQ
 
