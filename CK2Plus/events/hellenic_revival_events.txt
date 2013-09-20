@@ -36,6 +36,8 @@ character_event = {
 			culture = roman
 			culture = italian
 			culture = greek
+			culture = sicilian
+			culture = sicilian_greek
 		}
 		NOT = { has_character_flag = flag_studied_the_classics }
 	}
@@ -367,6 +369,8 @@ character_event = {
 					culture = roman
 					culture = italian
 					culture = greek
+					culture = sicilian
+					culture = sicilian_greek
 				}
 			}
 			modifier = {
@@ -421,7 +425,7 @@ character_event = {
 
 
 # This is a workaround for the "Demand religious conversion" diplomatic action not working.
-# AI characters that normaly would have converted when asked will instead slowly do so by themselves.
+# AI characters that normally would have converted when asked will instead slowly do so by themselves.
 # Players should use the standard "convert_to_liege_religion" decisions instead, which the AI never uses.
 character_event = {
 	id = ancrel.2104
@@ -525,6 +529,8 @@ character_event = {
 			NOT = { culture = roman }
 			NOT = { culture = italian }
 			NOT = { culture = greek }
+			NOT = { culture = sicilian }
+			NOT = { culture = sicilian_greek }
 		}
 		modifier = {
 			factor = 0.5
