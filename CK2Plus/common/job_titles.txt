@@ -22,7 +22,6 @@ job_chancellor = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality
 		}
 		is_adult = yes
 		prisoner = no
@@ -72,7 +71,6 @@ job_marshal = {
 					trait = brilliant_strategist
 					}
 			}
-			has_global_flag = gender_equality
 			AND = {
 				is_ruler = yes
 				independent = yes
@@ -117,12 +115,10 @@ job_treasurer = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality
 			liege = { has_law = true_cognatic_succession }
 		}
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality
 			is_ruler = yes
 			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
@@ -162,12 +158,10 @@ job_spymaster = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality
 			liege = { NOT = { has_law = agnatic_succession } }
 		}
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality
 			is_ruler = yes
 			liege = { dynasty = FROM }
 			liege = { mother = { character = FROM } }
@@ -206,7 +200,6 @@ job_spiritual = {
 	allow = {
 		OR = {
 			is_female = no
-			has_global_flag = gender_equality
 			AND = {
 				religion_group = pagan_group
 				NOT = { religion = hellenic_pagan }
