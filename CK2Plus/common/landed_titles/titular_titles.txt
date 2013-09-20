@@ -909,31 +909,6 @@ k_gondar = {
 k_hammadid = { #unused
 	color = { 149 180 17 }
 }
-k_holland = {
-	color = { 156  96  100 }
-	culture = dutch
-	capital = 80
-	allow = {
-		lower_tier_than = king
-		OR = {
-			culture = dutch
-			k_holland = { OR = { is_titular = no has_holder = yes } }
-		}
-		has_global_flag = shattered_world
-	}
-}
-k_italia = {
-	color={ 245 132 25 }
-	capital = 333
-	allow = {
-		lower_tier_than = king
-		OR = {
-			culture = italian
-			k_italia = { OR = { is_titular = no has_holder = yes } }
-		}
-		has_global_flag = shattered_world
-	}
-}
 k_kafsid = { #unused
 	color = { 109 130 20 }
 }
@@ -1010,19 +985,6 @@ k_northumbria = {
 			}
 			k_northumbria = { OR = { is_titular = no has_holder = yes } }
 		}
-	}
-}
-k_pergamon = {
-	color = { 20 200 200 }
-	capital = 746
-	culture = greek
-	allow = {
-		lower_tier_than = king
-		OR = {
-			culture_group = byzantine
-			k_pergamon = { OR = { is_titular = no has_holder = yes } }
-		}
-		has_global_flag = shattered_world
 	}
 }
 k_prussia = {
@@ -1359,11 +1321,17 @@ e_germany = {
 		war = no
 		not = { tier = emperor }
 		NOT = {
-			religion_group = christian
+			OR = {
+				religion = catholic
+				is_heresy_of = catholic
+			}
 		}
 		OR = {
-			realm_size = 150
-			e_hre = { OR = { is_titular = no has_holder = yes } }
+			AND = {
+				realm_size = 150
+				culture_group = central_germanic
+			}
+			e_germany = { OR = { is_titular = no has_holder = yes } }
 		}
 	}
 	

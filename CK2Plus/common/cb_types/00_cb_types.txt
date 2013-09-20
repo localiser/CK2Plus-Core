@@ -1867,7 +1867,6 @@ crusade = {
 		year = 1000
 		OR = {
 			year = 1166
-			NOT = { has_global_flag = shattered_world }
 		}
 		OR = {
 			has_global_flag = fourth_crusade_begin
@@ -2512,20 +2511,17 @@ holy_war = {
 			}
 			#slow down holy wars between pagans and non pagans
 			OR = {
-				has_global_flag = shattered_world
 				ai = no
 				NOT = { FROM = { religion_group = pagan_group } }
 				piety = 200
 			}
 			OR = {
-				has_global_flag = shattered_world
 				ai = no
 				NOT = { ROOT = { religion_group = pagan_group } }
 				piety = 200
 			}
 			#avoid invading west africa
 			OR = {
-				has_global_flag = shattered_world
 				ai = no
 				AND = {
 					culture_group = west_african
@@ -2539,7 +2535,6 @@ holy_war = {
 			}
 			#avoid invading east africa
 			OR = {
-				has_global_flag = shattered_world
 				ai = no
 				AND = {
 					culture_group = east_african
@@ -2554,14 +2549,12 @@ holy_war = {
 			#big grey blob
 			OR = {
 				ai = no
-				has_global_flag = shattered_world
 				NOT = { has_landed_title = e_hre }
 				piety = 300
 			}
 			#orthodox AI should avoid holy wars for the most part
 			OR = {
 				ai = no
-				has_global_flag = shattered_world
 				AND = {
 					NOT = { religion = orthodox }
 					NOT = { is_heresy_of = orthodox }
@@ -2572,14 +2565,12 @@ holy_war = {
 			#tengri AI should avoid holy wars for the most part
 			OR = {
 				ai = no
-				has_global_flag = shattered_world
 				NOT = { religion = tengri_pagan }
 				piety = 400
 			}
 			#christians should leave tengris alone
 			OR = {
 				ai = no
-				has_global_flag = shattered_world
 				e_golden_horde = { has_holder = yes }
 				e_il-khanate = { has_holder = yes }
 				NOT = { ROOT = { religion_group = christian } }
@@ -2589,7 +2580,6 @@ holy_war = {
 			#jewish AI should avoid holy wars for the most part
 			OR = {
 				ai = no
-				has_global_flag = shattered_world
 				NOT = { religion_group = judaism_group }
 				piety = 400
 			}
