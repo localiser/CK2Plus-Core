@@ -1209,9 +1209,13 @@ decisions = {
 	potential = {
 			age = 16
 			prisoner = no
-			culture_group = celtic
+			OR = {
+				culture = irish
+				culture = scottish
+				culture = welsh
+			}
 			piety = 0
-			NOT = { 
+			NOT = {
 				trait = zealous 
 				trait = incapable
 				religion = gaelic_pagan
@@ -1270,14 +1274,17 @@ decisions = {
 			prisoner = no
 			piety = 0
 			OR = {
-				culture_group = celtic
+				culture = welsh
+				culture = breton
+				culture = saxon
+				culture = cornish
 				culture = frankish
 				culture = occitan
 			}
-			NOT = { 
+			NOT = {
 				trait = zealous 
 				trait = incapable
-				religion = druidic 
+				religion = druidic
 			}
 		}
 		allow = {
@@ -1326,13 +1333,558 @@ decisions = {
 			}
 		}
 	}
-	
+	convert_to_baltic_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = baltic
+				culture = ugricbaltic
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = baltic_pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = baltic_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = baltic_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = baltic_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_norse_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = north_germanic
+				culture = saxon
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = norse_pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = norse_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = norse_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = norse_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_finnish_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = finno_ugric
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = finnish_pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = finnish_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = finnish_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = finnish_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_tengri_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = altaic
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = tengri_pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = tengri_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = tengri_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = tengri_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_aztec = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = mesoamerican
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = aztec 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = aztec
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = aztec
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = aztec
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_slavic_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = east_slavic
+				culture_group = west_slavic
+				culture_group = south_slavic
+				culture_group = magyar
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = slavic_pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = slavic_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = slavic_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = slavic_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_west_african_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = west_african
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = west_african_pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = west_african_pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = west_african_pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = west_african_pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+		convert_to_pagan = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = east_african
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = pagan 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = pagan
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = pagan
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = pagan
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+	convert_to_judaism = {
+	potential = {
+			age = 16
+			prisoner = no
+			piety = 0
+			OR = {
+				culture_group = judaic
+			}
+			NOT = { 
+				trait = zealous 
+				trait = incapable
+				religion = judaism 
+			}
+		}
+		allow = {
+			war = no
+			OR = {
+				AND = {
+					any_demesne_province = {
+						religion = judaism
+					}
+					NOT = { religion_authority = 0.35 }
+				}
+				AND = {
+					any_demesne_province = {
+						religion = judaism
+					}
+					NOT = { religion_authority = 0.45 }
+					trait = cynical
+				}
+				AND = {
+					NOT = { religion_authority = 0.35 }
+					trait = cynical
+				}
+				NOT = { religion_authority = 0.25 }
+			}
+			prisoner = no
+		}
+		effect = {
+			if = {
+				limit = { trait = cynical }
+				remove_trait = cynical
+			}
+			religion = judaism
+			piety = -200
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
 	convert_to_hellenic_pagan = {
 	potential = {
 			age = 16
 			prisoner = no
 			piety = 0
 			OR = {
+				
 				culture = roman
 				culture = greek
 				culture = italian
