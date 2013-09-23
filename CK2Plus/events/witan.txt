@@ -1,0 +1,93 @@
+character_event = {
+	id = 90009011
+	desc = "EVTDESC90009011"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA90009011"
+			k_england = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = k_englandnorman
+				}
+			}  
+      
+        hidden_tooltip = {
+			k_englandnorman = {
+				grant_title = PREV
+				copy_title_laws = k_england
+				copy_title_history = k_england
+			}
+		  
+			any_realm_character = {
+				limit = {
+					has_claim = k_england
+				}
+				add_pressed_claim = k_englandnorman    
+				remove_claim = k_england
+			}   
+			
+			any_playable_ruler = {
+			  any_realm_character = {
+					limit = {
+						has_claim = k_england
+					}
+					add_pressed_claim = k_englandnorman  
+					remove_claim = k_england
+				}
+			}
+			k_england = {
+				destroy_landed_title = yes
+			}
+
+		}
+	}
+}
+
+character_event = {
+	id = 90009012
+	desc = "EVTDESC90009011"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA90009011"
+			k_england = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = k_englandnorwegian
+				}
+			}  
+      
+        hidden_tooltip = {
+			k_englandnorwegian = {
+				grant_title = PREV
+				copy_title_laws = k_england
+				copy_title_history = k_england
+			}
+		  
+			any_realm_character = {
+				limit = {
+					has_claim = k_england
+				}
+				add_pressed_claim = k_englandnorwegian    
+				remove_claim = k_england
+			}   
+			
+			any_playable_ruler = {
+			  any_realm_character = {
+					limit = {
+						has_claim = k_england
+					}
+					add_pressed_claim = k_englandnorwegian  
+					remove_claim = k_england
+				}
+			}
+			k_england = {
+				destroy_landed_title = yes
+			}
+
+		}
+	}
+}  

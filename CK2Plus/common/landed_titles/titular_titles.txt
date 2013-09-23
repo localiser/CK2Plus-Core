@@ -784,6 +784,44 @@
 
 # TITULAR KINGDOMS
 
+k_englandnorman = { #England of William the Conqueror
+	color={ 202 26 26 }
+	color2={ 255 255 255 }
+	capital = 32 # Middlesex
+
+	catholic = 10 #Crusade target weight
+	norse_pagan_reformed = 20 # Crusade target weight
+
+	allow = {
+		war = no
+		religion_group = christian
+		FROM = {
+			any_previous_holder = {
+				always = yes
+			}
+		}
+	}
+}
+
+k_englandnorwegian = { #England of Harald the Conqueror
+	color={ 202 26 26 }
+	color2={ 255 255 255 }
+	capital = 32 # Middlesex
+
+	catholic = 10 #Crusade target weight
+	norse_pagan_reformed = 20 # Crusade target weight
+
+	allow = {
+		war = no
+		religion_group = christian
+		FROM = {
+			any_previous_holder = {
+				always = yes
+			}
+		}
+	}
+}
+
 k_magna_graecia = {
 	color = { 16 211 246 }
 	capital = 344 #Taranto
@@ -909,6 +947,31 @@ k_gondar = {
 k_hammadid = { #unused
 	color = { 149 180 17 }
 }
+k_holland = {
+	color = { 156  96  100 }
+	culture = dutch
+	capital = 80
+	allow = {
+		lower_tier_than = king
+		OR = {
+			culture = dutch
+			k_holland = { OR = { is_titular = no has_holder = yes } }
+		}
+		has_global_flag = shattered_world
+	}
+}
+k_italia = {
+	color={ 245 132 25 }
+	capital = 333
+	allow = {
+		lower_tier_than = king
+		OR = {
+			culture = italian
+			k_italia = { OR = { is_titular = no has_holder = yes } }
+		}
+		has_global_flag = shattered_world
+	}
+}
 k_kafsid = { #unused
 	color = { 109 130 20 }
 }
@@ -985,6 +1048,19 @@ k_northumbria = {
 			}
 			k_northumbria = { OR = { is_titular = no has_holder = yes } }
 		}
+	}
+}
+k_pergamon = {
+	color = { 20 200 200 }
+	capital = 746
+	culture = greek
+	allow = {
+		lower_tier_than = king
+		OR = {
+			culture_group = byzantine
+			k_pergamon = { OR = { is_titular = no has_holder = yes } }
+		}
+		has_global_flag = shattered_world
 	}
 }
 k_prussia = {
@@ -1310,33 +1386,6 @@ e_denmark = {
 			e_denmark = { OR = { is_titular = no has_holder = yes } }
 		}
 	}
-}
-e_germany = {
-	color={ 155 155 155 }
-	color2={ 220 220 20 }
-
-	capital = 314 # Nürnberg
-
-	allow = {
-		war = no
-		not = { tier = emperor }
-		NOT = {
-			OR = {
-				religion = catholic
-				is_heresy_of = catholic
-			}
-		}
-		OR = {
-			AND = {
-				realm_size = 150
-				culture_group = central_germanic
-			}
-			e_germany = { OR = { is_titular = no has_holder = yes } }
-		}
-	}
-	
-	culture = german
-	short_name = yes
 }
 e_norway = {
 	color={ 150 150 170 }
