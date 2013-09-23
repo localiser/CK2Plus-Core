@@ -3438,13 +3438,8 @@ obj_become_king = {
 		is_adult = yes
 		is_playable = yes
 		is_landed = yes
-		OR={independent=yes tier=duke}
 		lower_tier_than = KING
-		NOT = {
-			any_heir_title = {
-				higher_tier_than = DUKE
-			}
-		}
+		independent = yes
 	}
 
 	allow = {
@@ -3455,8 +3450,7 @@ obj_become_king = {
 		factor = 100
 
 		modifier = {
-			factor = 0
-			NOT = { religion_group = pagan_group }
+			factor = 0.05
 			NOT = { trait = ambitious }
 		}
 		modifier = {
@@ -3513,25 +3507,21 @@ obj_become_king = {
 			factor = 0.1
 			tier = COUNT
 		}
-		modifier = {
-			factor = 0.01
-			OR = {
-				religion = finnish_pagan
-				religion = west_african_pagan
-			}
-		}
 	}
 
 	success = {
 		custom_tooltip = {
 			text = obj_become_king_tip
 			hidden_tooltip = {
-				capital_scope = {
-					kingdom = {
-						holder_scope = {
-							character = ROOT
+				OR = {
+					capital_scope = {
+						kingdom = {
+							holder_scope = {
+								character = ROOT
+							}
 						}
 					}
+					higher_tier_than = duke
 				}
 			}
 		}
@@ -3542,10 +3532,7 @@ obj_become_king = {
 			trait = incapable
 			is_playable = no
 			is_landed = no
-			higher_tier_than = DUKE
-			any_heir_title = {
-				higher_tier_than = DUKE
-			}
+			independent = no
 		}
 	}
 
