@@ -22,9 +22,61 @@ character_event = {
 	desc = "EVTDESC2500000"
 
 	option = {
-		name = "EVTOPTA2500000"
-		ai_chance = { factor = 100 }
-		hidden_tooltip = {
+		name = "EVTOPTA2500000" # Declare independence
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 25
+				in_faction = faction_independence
+			}
+			modifier = {
+				factor = 4
+				tier = KING
+			}
+			modifier = {
+				factor = 2
+				liege = {
+					NOT = { religion = ROOT }
+				}
+			}
+			modifier = {
+				factor = 15
+				liege = {
+					NOT = { religion_group = ROOT }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				liege = {
+					NOT = { culture_group = ROOT }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				liege = {
+					NOT = { culture = ROOT }
+				}
+			}
+			modifier = {
+				factor = 20
+				liege = {
+					NOT = { de_jure_liege = FROM }
+				}
+			}
+		}
+		liege = {
+			ROOT = {
+				any_demesne_title = {
+					limit = {
+						higher_tier_than = COUNT
+					}
+					add_weak_pressed_claim = PREVPREV
+				}
+			}
 			opinion = {
 				modifier = opinion_independent
 				who = liege
@@ -35,9 +87,40 @@ character_event = {
 		set_defacto_liege = ROOT
 	}
 	option = {
-		name = "EVTOPTB2500000"
-		ai_chance = { factor = 0 }
-	}
+		name = "EVTOPTB2500000" # Remain loyal
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 5
+				AND = {
+					trait = content
+#					opinion = { who = FROM value = 1 }
+#					de_jure_liege = FROM
+				}
+			}
+			modifier = {
+				factor = 20
+				trait = zealous
+				liege = {
+					controls_religion = yes
+					religion = ROOT
+				}
+			}
+			modifier = {
+				factor = 25
+				OR = {
+					in_faction = faction_independence
+					in_faction = faction_court_emperor
+					in_faction = faction_court_king
+					in_faction = faction_court_duke
+				}
+			}
+			modifier = {
+				factor = 5
+				de_jure_liege = FROM
+				}
+			}
+		}
 }
 
 character_event = {
