@@ -67,12 +67,90 @@ character_event = {
 					NOT = { de_jure_liege = FROM }
 				}
 			}
+			modifier = {
+				factor = 0.50
+				lower_tier_than = king
+				ROOT = {
+					any_demesne_province = {
+						any_neighbor_province = {
+							AND = {
+								realm = { num_of_realm_titles = 10 }
+								NOT = { top_liege = { religion = ROOT } }
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				tier = king
+				ROOT = {
+					any_demesne_province = {
+						any_neighbor_province = {
+							AND = {
+								realm = { num_of_realm_titles = 20 }
+								NOT = { top_liege = { religion = ROOT } }
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.25
+				lower_tier_than = king
+				ROOT = {
+					any_demesne_province = {
+						any_neighbor_province = {
+							AND = {
+								realm = { num_of_realm_titles = 30 }
+								NOT = { top_liege = { religion = ROOT } }
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				tier = king
+				ROOT = {
+					any_demesne_province = {
+						any_neighbor_province = {
+							AND = {
+								realm = { num_of_realm_titles = 40 }
+								NOT = { top_liege = { religion = ROOT } }
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 25
+				trait = lunatic
+			}
+			modifier = {
+				factor = 0.10
+				trait = possessed
+				has_character_modifier = voice_of_jesus
+			}
+			modifier = {
+				factor = 30
+				trait = possessed
+				has_character_modifier = voice_of_satan
+			}
+			modifier = {
+				factor = 15.05
+				trait = possessed
+				NOT = {
+					has_character_modifier = voice_of_jesus
+					has_character_modifier = voice_of_satan
+				}
+			}			
 		}
 		liege = {
 			ROOT = {
 				any_demesne_title = {
 					limit = {
-						higher_tier_than = COUNT
+						higher_tier_than = BARON
 					}
 					add_weak_pressed_claim = PREVPREV
 				}
@@ -92,11 +170,43 @@ character_event = {
 			factor = 4
 			modifier = {
 				factor = 5
-				AND = {
-					trait = content
-#					opinion = { who = FROM value = 1 }
-#					de_jure_liege = FROM
-				}
+				trait = content
+			}
+			modifier = {
+				factor = 10
+				liege = { is_close_relative = yes }
+			}
+			modifier = {
+				factor = 0.3
+				NOT = { opinion = { who = liege value = -100 } }
+			}
+			modifier = {
+				factor = 0.6
+				NOT = { opinion = { who = liege value = -75 } }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { opinion = { who = liege value = -50 } }
+			}
+			modifier = {
+				factor = 0.9
+				NOT = { opinion = { who = liege value = -25 } }
+			}
+			modifier = {
+				factor = 1.1
+				opinion = { who = liege value = 25 }
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = liege value = 50 }
+			}
+			modifier = {
+				factor = 1.4
+				opinion = { who = liege value = 75 }
+			}
+			modifier = {
+				factor = 1.6
+				opinion = { who = liege value = 100 }
 			}
 			modifier = {
 				factor = 20
@@ -107,9 +217,56 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 25
+				factor = 0.75
+				liege = {
+					OR = {
+						trait = tyrant1
+						trait = tyrant2
+						trait = tyrant3
+						trait = tyrant4
+						trait = tyrant5
+					}
+				}
+			}
+			modifier = {
+				factor = 0.50
+				liege = {
+					OR = {
+						trait = tyrant6
+						trait = tyrant7
+						trait = tyrant8
+						trait = tyrant9
+						trait = tyrant10
+					}
+				}
+			}
+			modifier = {
+				factor = 0.25
+				liege = {
+					OR = {
+						trait = tyrant11
+						trait = tyrant12
+						trait = tyrant13
+						trait = tyrant14
+						trait = tyrant15
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				liege = {
+					OR = {
+						trait = tyrant16
+						trait = tyrant17
+						trait = tyrant18
+						trait = tyrant19
+						trait = tyrant20
+					}
+				}
+			}
+			modifier = {
+				factor = 10
 				OR = {
-					in_faction = faction_independence
 					in_faction = faction_court_emperor
 					in_faction = faction_court_king
 					in_faction = faction_court_duke
@@ -136,6 +293,10 @@ character_event = {
 			modifier = opinion_independent
 			who = FROM
 			years = 100
+		}
+		random_list = {
+			25 = { add_trait = stressed }
+			75 = { 0 }
 		}
 	}
 }
