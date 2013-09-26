@@ -6235,6 +6235,34 @@ dejure_county_claim = {
 		OR = {
 			ROOT = { ai = no }
 			FROM = { religion_group = ROOT }
+			AND = {
+				FROM = { 
+					OR = {
+						religion = catholic
+						is_heresy_of = catholic
+					}
+				}
+				ROOT = { 
+					OR = {
+						religion = orthodox
+						is_heresy_of = orthodox
+					}
+				}
+			}
+			AND = {
+				ROOT = { 
+					OR = {
+						religion = catholic
+						is_heresy_of = catholic
+					}
+				}
+				FROM = { 
+					OR = {
+						religion = orthodox
+						is_heresy_of = orthodox
+					}
+				}
+			}
 			location = {
 				duchy = {
 					FROM = {
@@ -6808,6 +6836,34 @@ other_dejure_county_claim = {
 				}
 			}
 			FROM = { religion_group = ROOT }
+			AND = {
+				FROM = { 
+					OR = {
+						religion = catholic
+						is_heresy_of = catholic
+					}
+				}
+				ROOT = { 
+					OR = {
+						religion = orthodox
+						is_heresy_of = orthodox
+					}
+				}
+			}
+			AND = {
+				ROOT = { 
+					OR = {
+						religion = catholic
+						is_heresy_of = catholic
+					}
+				}
+				FROM = { 
+					OR = {
+						religion = orthodox
+						is_heresy_of = orthodox
+					}
+				}
+			}
 			location = {
 				duchy = {
 					FROM = {
