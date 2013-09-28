@@ -18,7 +18,7 @@ spriteTypes = {
 		norefcount = yes
 		can_be_lowres = yes
 	}
-
+	
 ############## Pagan Turkish ##########################		
 
 	
@@ -28,7 +28,7 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_male"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
 			"GFX_mongol_male_clothes_behind:p3:c0"
 			"GFX_mongol_male_headgear_behind:p5:c1"
@@ -81,7 +81,7 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_male1"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
 			"GFX_mongol_male_clothes_behind:p3:c0"
 			"GFX_mongol_male_headgear_behind:p5:c1"
@@ -133,7 +133,7 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_male2"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
 			"GFX_mongol_male_clothes_behind:p3:c0"
 			"GFX_mongol_male_headgear_behind:p5:c1"
@@ -188,7 +188,7 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_female"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
 			"GFX_mongol_female_clothes_behind:p3:c0"
 			"GFX_mongol_female_headgear_behind:p5:c1"
@@ -236,7 +236,7 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_female1"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
 			"GFX_mongol_female_clothes_behind:p3:c0"
 			"GFX_mongol_female_headgear_behind:p5:c1"
@@ -284,7 +284,7 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_female2"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
 			"GFX_mongol_female_clothes_behind:p3:c0"
 			"GFX_mongol_female_headgear_behind:p5:c1"
@@ -332,6 +332,28 @@ spriteTypes = {
 	
 ############## Muslim Turkish ##########################		
 
+	spriteType = {
+		name = "GFX_turkish_male_clothes"
+		texturefile = "gfx\\characters\\turkish_male\\turkish_male_clothes.dds"
+		noOfFrames = 14
+		norefcount = yes
+	}
+	
+	spriteType = {
+		name = "GFX_turkish_male_clothes_behind"
+		texturefile = "gfx\\characters\\turkish_male\\turkish_male_clothes_behind.dds"
+		noOfFrames = 14
+		norefcount = yes
+	}
+	
+	spriteType = {
+		name = "GFX_turkish_male_headgear"
+		texturefile = "gfx\\characters\\turkish_male\\turkish_male_headgear.dds"
+		noOfFrames = 15
+		norefcount = yes
+	}
+
+#### Turkish MALE ####
 	
 	# CULTURE_INDEX: 0 = clothes behind, 1 = headgear behind, 2 = clothes, 3 = headgear mid, 4 = clothes infront, 5 = headgear
 
@@ -339,9 +361,9 @@ spriteTypes = {
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_male_christian"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
-			"GFX_muslim_male_clothes_behind:p3:c0"
+			"GFX_turkish_male_clothes_behind:p3:c0"
 			"GFX_muslim_male_headgear_behind:p5:c1"
 			"GFX_mongol_male_hair_behind:p1:h:y"
 			"GFX_mongol_male_beard_behind:p4:h:y"
@@ -385,16 +407,16 @@ spriteTypes = {
 			{ 56 80 57 }
 		}
 		
-		headgear_that_hides_hair = { 10 }
+		headgear_that_hides_hair = { 10 12 13 14 }
 	}
 	
 	# middle age
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_male_christian1"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
-			"GFX_muslim_male_clothes_behind:p3:c0"
+			"GFX_turkish_male_clothes_behind:p3:c0"
 			"GFX_muslim_male_headgear_behind:p5:c1"
 			"GFX_mongol_male_hair_behind_midage:p1:h:y"
 			"GFX_mongol_male_beard_behind_midage:p4:h:y"
@@ -437,16 +459,16 @@ spriteTypes = {
 			{ 56 80 57 }
 		}
 		
-		headgear_that_hides_hair = { 10 }
+		headgear_that_hides_hair = { 10 12 13 14 }
 	}
 	
 	# old age
 	portraitType = {
 		name = "PORTRAIT_turkishgfx_male_christian2"
 		effectFile = "gfx/FX/portrait.lua"
-		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK
+		layer = { # GFX_TYPE:[d|p]INDEX:COLOR_LINK:DONT_REFRESH_IF_VALID:CULTURE_INDEX
 			"GFX_character_background:p0"
-			"GFX_muslim_male_clothes_behind:p3:c0"
+			"GFX_turkish_male_clothes_behind:p3:c0"
 			"GFX_muslim_male_headgear_behind:p5:c1"
 			"GFX_mongol_male_hair_behind_oldage:p1:h:y"
 			"GFX_mongol_male_beard_behind_oldage:p4:h:y"
@@ -489,7 +511,7 @@ spriteTypes = {
 			{ 56 80 57 }
 		}
 		
-		headgear_that_hides_hair = { 10 }
+		headgear_that_hides_hair = { 10 12 13 14 }
 	}
 
 #### Turkish FEMALE ####
@@ -624,11 +646,12 @@ spriteTypes = {
 
 		hair_color_index = 8
 		hair_color = { # dark, base, highlight
-			{ 10 10 10 } {  125 125 125 } { 255 255 255 }
-			{ 10 10 10 } {  125 125 125 } { 255 255 255 }
-			{ 10 10 10 } {  125 125 125 } { 255 255 255 }
-			{ 30 22 18 } { 180 170 151 } { 255 255 255 }
-		
+			
+			{ 10 10 10 } {  50 50 50 } { 255 255 255 }
+			{ 15 8 0 } { 176 155 108 } { 255 255 255 }
+			{ 10 10 10 } { 125 85 56 } { 255 255 255 }
+			{ 26 11 2 } { 95 49 22 } { 255 255 255 }
+
 		}
 
 		eye_color_index = 9
