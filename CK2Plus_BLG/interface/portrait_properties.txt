@@ -1630,12 +1630,17 @@
 		modifier = {
 			factor = 0
 			OR = {
-				tier = duke
 				tier = king
 				tier = emperor
+				AND = {
+					tier = duke
+					any_demesne_title = {
+						tier = baron
+					}
+			    }     
 			}
 		}
-		modifier = [
+		modifier = {
 			factor = 0
 			is_theocracy = yes
 			religion = catholic
@@ -1697,16 +1702,6 @@
 								title = d_disciples_of_the_old_gods
 							}
 						}
-					}
-				}
-				AND = {
-					religion_group = christian
-					OR = {
-						AND = {
-							is_ruler = yes
-							is_theocracy = yes
-						}
-						has_job_title = job_spiritual
 					}
 				}
 			}
