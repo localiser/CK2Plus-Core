@@ -70,26 +70,122 @@ character_event = {
 			modifier = {
 				factor = 0.50
 				lower_tier_than = king
-				ROOT = {
-					any_demesne_province = {
-						any_neighbor_province = {
-							AND = {
-								realm = { num_of_realm_titles = 10 }
-								NOT = { top_liege = { religion = ROOT } }
+				OR = {
+					ROOT = {
+						AND = {
+							OR = {
+								religion = catholic
+								is_heresy_of = catholic
+							}
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 10 }
+										NOT = { 
+											top_liege = { 
+												religion = ROOT
+												religion = orthodox
+												is_heresy_of = orthodox
+											} 
+										}
+									}
+								}
+							}
+						}
+					}
+					ROOT = {
+						AND = {
+							OR = {
+								religion = orthodox
+								is_heresy_of = orthodox
+							}
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 10 }
+										NOT = { 
+											top_liege = { 
+												religion = ROOT
+												religion = catholic
+												is_heresy_of = catholic
+											} 
+										}
+									}
+								}
+							}
+						}
+					}
+					ROOT = {
+						AND = {
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 10 }
+										NOT = { top_liege = { religion = ROOT } }
+									}
+								}
 							}
 						}
 					}
 				}
 			}
 			modifier = {
-				factor = 0
+				factor = 0.50
 				tier = king
-				ROOT = {
-					any_demesne_province = {
-						any_neighbor_province = {
-							AND = {
-								realm = { num_of_realm_titles = 20 }
-								NOT = { top_liege = { religion = ROOT } }
+				OR = {
+					ROOT = {
+						AND = {
+							OR = {
+								religion = catholic
+								is_heresy_of = catholic
+							}
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 30 }
+										NOT = { 
+											top_liege = { 
+												religion = ROOT
+												religion = orthodox
+												is_heresy_of = orthodox
+											} 
+										}
+									}
+								}
+							}
+						}
+					}
+					ROOT = {
+						AND = {
+							OR = {
+								religion = orthodox
+								is_heresy_of = orthodox
+							}
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 30 }
+										NOT = { 
+											top_liege = { 
+												religion = ROOT
+												religion = catholic
+												is_heresy_of = catholic
+											} 
+										}
+									}
+								}
+							}
+						}
+					}
+					ROOT = {
+						AND = {
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 30 }
+										NOT = { top_liege = { religion = ROOT } }
+									}
+								}
 							}
 						}
 					}
@@ -97,27 +193,61 @@ character_event = {
 			}
 			modifier = {
 				factor = 0.25
-				lower_tier_than = king
-				ROOT = {
-					any_demesne_province = {
-						any_neighbor_province = {
-							AND = {
-								realm = { num_of_realm_titles = 30 }
-								NOT = { top_liege = { religion = ROOT } }
+				tier= king
+				OR = {
+					ROOT = {
+						AND = {
+							OR = {
+								religion = catholic
+								is_heresy_of = catholic
+							}
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 40 }
+										NOT = { 
+											top_liege = { 
+												religion = ROOT
+												religion = orthodox
+												is_heresy_of = orthodox
+											} 
+										}
+									}
+								}
 							}
 						}
 					}
-				}
-			}
-			modifier = {
-				factor = 0
-				tier = king
-				ROOT = {
-					any_demesne_province = {
-						any_neighbor_province = {
-							AND = {
-								realm = { num_of_realm_titles = 40 }
-								NOT = { top_liege = { religion = ROOT } }
+					ROOT = {
+						AND = {
+							OR = {
+								religion = orthodox
+								is_heresy_of = orthodox
+							}
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 40 }
+										NOT = { 
+											top_liege = { 
+												religion = ROOT
+												religion = catholic
+												is_heresy_of = catholic
+											} 
+										}
+									}
+								}
+							}
+						}
+					}
+					ROOT = {
+						AND = {
+							any_demesne_province = {
+								any_neighbor_province = {
+									AND = {
+										realm = { num_of_realm_titles = 40 }
+										NOT = { top_liege = { religion = ROOT } }
+									}
+								}
 							}
 						}
 					}
