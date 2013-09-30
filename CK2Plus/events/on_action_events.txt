@@ -5293,7 +5293,11 @@ character_event = {
 		FROM = { NOT = { has_character_flag = marriage_duty } }
 		NOT = { religion_group = muslim }
 		OR = {
-			NOT = { religion = zoroastrian }
+			NOT = { 
+				religion = zoroastrian
+				religion = egyptian_pagan
+				religion = aten 
+			}
 			NOT = { new_character = { is_close_relative = FROM } }
 		}
 		OR = {
@@ -5522,6 +5526,127 @@ character_event = {
 		trigger = {
 			FROM = { has_character_flag = marriage_duty }
 			piety = 25
+		}
+	}
+}
+
+# On-action event: Kemetic marriage
+character_event = {
+	id = 1000182164
+	desc = "EVTDESC1000182164"
+	picture = "GFX_evt_egyptian_marriage"
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			religion = egyptian_pagan
+			religion = aten
+		}
+		new_character = { is_close_relative = FROM }
+		OR = {
+			FROM = { character = ROOT }
+			AND = {
+				FROM = {
+					dynasty = ROOT
+					is_primary_heir = ROOT
+				}
+				new_character = {
+					NOT = { character = ROOT }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_tooltip = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_get_married
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA500"
+		piety = 100
+		if = {
+			limit = {
+				tier = baron
+				is_patrician = no
+			}
+			wealth = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					tier = count
+					AND = {
+						tier = baron
+						is_patrician = yes
+					}
+				}
+			}
+			wealth = 25
+		}
+		if = {
+			limit = {
+				tier = duke
+			}
+			wealth = 50
+		}
+		if = {
+			limit = {
+				tier = king
+			}
+			wealth = 100
+		}
+		if = {
+			limit = {
+				tier = emperor
+			}
+			wealth = 200
+		}
+	}
+	option = {
+		name = "EVTOPTB500"
+		piety = 100
+		if = {
+			limit = {
+				tier = baron
+				is_patrician = no
+			}
+			prestige = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					tier = count
+					AND = {
+						tier = baron
+						is_patrician = yes
+					}
+				}
+			}
+			prestige = 25
+		}
+		if = {
+			limit = {
+				tier = duke
+			}
+			prestige = 50
+		}
+		if = {
+			limit = {
+				tier = king
+			}
+			prestige = 100
+		}
+		if = {
+			limit = {
+				tier = emperor
+			}
+			prestige = 200
 		}
 	}
 }
