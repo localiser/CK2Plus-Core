@@ -2,9 +2,7 @@ CK2Plus for Crusader Kings 2
 
 Original Author: Martin "Wiz" Anward
 
-Maintained by the Dev Team
-
-
+Maintained by the CK2+ Continuation Dev Team
 
 ## Installation
 
@@ -19,49 +17,55 @@ Maintained by the Dev Team
 ## Optional Modules
 Use any combination of the following:
 - 'Vanilla Hordes' will make the Aztecs and Mongols appear in every game instead of 20%-50% of games as is CK2+ default.
-- 'Gender Equality' makes women eligible for any position on the council and allows them to inherit on the same grounds as men.
 - 'Hardcore Mode' decreases demesne size and income, makes breaking treaties more costly and in general slows down the pace of expansion for the player.
-
-## Use only ONE of the following (all are optional):
-- 'Shattered World' divides the world into either independent counts or small independent states, depending on the start you choose.
-- 'Divided Muslims' A heavily divided Middle East where many sultans are vying for supremacy of the region.
+- 'BLG' (Better Looking Garbs) is a cosmetic mod that changes clothing based on culture.
+- 'FTT' (Flavorful Titular Titles) adds a large number of special titles that can be created.
+- 'Better Armies' changes army composition, increases effects of army buildings, and changes retinue compositions
 
 ## FAQ
 
 Q: Can I play CK2+ multiplayer?
-
 A: Yes, but you must ensure that all players are using the same set of optional modules. You can't have one player playing with No Assaults and another without, or someone playing with Shattered World and someone else playing without, and so on.
 
-
 Q: I have claims/de jure claims/other CBs on a character but declare war says I have no valid casus belli?
-
 A: Check if either you or the character has the 'truce' modifier, which prevents war declarations on newly formed rebel counties and crusader states.
 
-
-Q: Is there supposed to only be two de jure Empires?
-
+Q: Are there supposed to only be two de jure Empires?
 A: Yes. There are dozens of different titular empires to form instead.
 
-
 Q: Is the Catholic world supposed to start at 0 tech?
-
 A: Yes, starting tech was lowered across the board to give Pagans, Armenians, Ethiopians etc more of a fighting chance against Catholics/Muslims.
 
 Q: Why isn't the option to fabricate claims available?
-
 A: You need to have at least 0 prestige to fabricate claims.
 
 Q: Why don't get I get Kingdom de jure claims?
-
 A: You need Medium or higher CA to press Kingdom de jure claims.
 
-
 Q: Why can't I declare Holy Wars?
-
 A: Holy Wars can only be declared every 5 years by the same character. If you have recently declared one, your character will have a modifier that blocks further Holy Wars until it expires.
 
+Q: Does CK2+ work with the EU4 converter?
+A: Yes.
 
-## Credits
+## CK2+ Continuation Credits
+- Wiz (advisor and original creator)
+- Schwarherz (many, many fixes)
+- Zeress (Flavorful Titular Titles, many other fixes)
+- James_Manring (many, many fixes)
+- CaesarVincens (CV's fixes)
+- WilliamAnderson (updated Shattered World)
+- Chopy (Better Looking Garbs)
+- Battle bunny (misc fixes)
+- chatnoir17 (misc fixes)
+- dimontez (misc fixes)
+- Parsidius (misc fixes)
+- SPQR7070 (Better Armies)
+- superskierpat (Ancient Religions)
+- Kit0cha (French localization)
+- twiggyt13 (No Hassles Vassals)
+
+## CK2+ Credits
 - Nexoid (misc icon graphics)
 - Glassmage (Cultural cities 1.091 integration)
 - Necroskowitz (Jewish ruler titles),
@@ -71,7 +75,7 @@ A: Holy Wars can only be declared every 5 years by the same character. If you ha
 - 0zeek40 (Scripting and event writing)
 - idib816 (Jewish Cultures)
 - Sleight of Hand (Breton Names)
-- S lim Jim Pickens (Culture Buildings)
+-S lim Jim Pickens (Culture Buildings)
 - Maestro Ugo (Lupus Agnum)
 - Elryck and Arko (Mercator Mod)
 - zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario)
