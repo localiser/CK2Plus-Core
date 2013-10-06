@@ -105,3 +105,5 @@ A: Yes.
 - Van Diemen (HRE Revised Mod, Youth traits)
 - riso (Treaty of Nymphaeum scenario)
 - Six Gun South (PMM)
+- Satyrlord (Roman Names)
+- Jorlem (Independence Event weight logic)
