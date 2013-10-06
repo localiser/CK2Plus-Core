@@ -751,8 +751,7 @@ decisions = {
 				religion = tengri_pagan
 				religion = slavic_pagan
 				religion = aztec
-				religion = druidic
-				religion = gaelic_pagan
+				religion = celtic_pagan
 				religion = west_african_pagan
 			}
 		}
@@ -791,12 +790,8 @@ decisions = {
 				religion = west_african_pagan_reformed
 			}
 			if = {
-				limit = { religion = gaelic_pagan }
-				religion = gaelic_pagan_reformed
-			}
-			if = {
-				limit = { religion = druidic }
-				religion = druidic_reformed
+				limit = { religion = celtic_pagan }
+				religion = celtic_pagan_reformed
 			}
 
 			hidden_tooltip = {
@@ -1222,95 +1217,21 @@ decisions = {
 			}
 		}
 	}
-	
-	convert_to_gaelic_pagan = {
-	potential = {
-			age = 16
-			prisoner = no
-			OR = {
-				culture = irish
-				culture = scottish
-				culture = welsh
-			}
-			piety = 0
-			NOT = {
-				trait = zealous 
-				trait = incapable
-				religion = gaelic_pagan
-			}
-			NOT = {
-				is_heresy_of = catholic
-				is_heresy_of = orthodox
-				is_heresy_of = sunni
-				is_heresy_of = shiite
-				is_heresy_of = judaism
-				is_heresy_of = zoroastrian
-			}
-		}
-		allow = {
-			war = no
-			OR = {
-				AND = {
-					any_demesne_province = {
-						religion = gaelic_pagan
-					}
-					NOT = { religion_authority = 0.35 }
-				}
-				AND = {
-					any_demesne_province = {
-						religion = gaelic_pagan
-					}
-					NOT = { religion_authority = 0.45 }
-					trait = cynical
-				}
-				AND = {
-					NOT = { religion_authority = 0.35 }
-					trait = cynical
-				}
-				NOT = { religion_authority = 0.25 }
-			}
-			prisoner = no
-		}
-		effect = {
-			if = {
-				limit = { trait = cynical }
-				remove_trait = cynical
-			}
-			religion = gaelic_pagan
-			piety = -200
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				factor = 0
-				NOT = {
-					learning = 8
-				}
-			}
-		}
-	}
-	
-	convert_to_druidic = {
+	convert_to_celtic = {
 	potential = {
 			age = 16
 			prisoner = no
 			piety = 0
 			OR = {
-				culture = welsh
-				culture = breton
+				culture_group = celtic
 				culture = saxon
-				culture = cornish
 				culture = frankish
 				culture = occitan
 			}
 			NOT = {
 				trait = zealous 
 				trait = incapable
-				religion = druidic
+				religion = celtic_pagan
 			}
 			NOT = {
 				is_heresy_of = catholic
@@ -1326,13 +1247,13 @@ decisions = {
 			OR = {
 				AND = {
 					any_demesne_province = {
-						religion = druidic
+						religion = celtic_pagan
 					}
 					NOT = { religion_authority = 0.35 }
 				}
 				AND = {
 					any_demesne_province = {
-						religion = druidic
+						religion = celtic_pagan
 					}
 					NOT = { religion_authority = 0.45 }
 					trait = cynical
@@ -1350,7 +1271,7 @@ decisions = {
 				limit = { trait = cynical }
 				remove_trait = cynical
 			}
-			religion = druidic
+			religion = bceltic_pagan
 			piety = -200
 		}
 		revoke_allowed = {

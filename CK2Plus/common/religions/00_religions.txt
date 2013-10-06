@@ -505,7 +505,7 @@ pagan_group = {
 		religious_clothing_priest = 3
 	}
 	
-	aztec = {
+	aztec_pagan = {
 		graphical_culture = mesoamericangfx
 		icon = 15
 		color = { 0.8 0.2 0.2 }
@@ -535,7 +535,7 @@ pagan_group = {
 		intermarry = aztec_reformed
 	}
 	
-	aztec_reformed = {
+	aztec_pagan_reformed = {
 		graphical_culture = mesoamericangfx
 		icon = 17
 		color = { 0.95 0.3 0.3 }
@@ -678,7 +678,15 @@ pagan_group = {
 		
 	}
 	
-	druidic = {
+	celtic_pagan = {
+	
+	}
+	
+	celtic_pagan_reformed = {
+	
+	}
+	
+	brythonic_pagan = {
 		graphical_culture = norsegfx
 		
 		icon = 37
@@ -690,6 +698,8 @@ pagan_group = {
 		god_names = {
 			GOD_BELI GOD_MANAWYDAN GOD_AMANAETH GOD_LLEU GOD_RHIANNON GOD_EARTH GOD_SKY
 		}
+		
+		parent = celtic_pagan_reformed
 		
 		unit_modifier = {	
 			levy_size = 0.15
@@ -722,7 +732,7 @@ pagan_group = {
 		peace_prestige_loss = yes # Lose Prestige while at peace
 		raised_vassal_opinion_loss = no
 		
-		reformed = druidic_reformed
+		reformed = celtic_pagan_reformed
 		aggression = 1.5 # AI aggression factor
 		
 		
@@ -731,62 +741,10 @@ pagan_group = {
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
 		
-		intermarry = druidic_reformed
+		intermarry = celtic_pagan_reformed
 		
 	}
-	
-	druidic_reformed = {
-		graphical_culture = norsegfx
-		
-		icon = 38
-		heresy_icon = 39
-		
-		color = { 0.2 0.6 0.03 }
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_STONES
-		god_names = {
-			GOD_BELI GOD_MANAWYDAN GOD_AMANAETH GOD_LLEU GOD_RHIANNON GOD_EARTH GOD_SKY
-		}
-		
-		unit_modifier = {	
-			levy_size = 0.15
-			
-			retinuesize_perc = 0.3
-			garrison_size = 0.2
-			
-			key = "HERO_RELIGION"
-		}
-		unit_home_modifier = {
-			land_morale = 0.4
-			light_infantry_defensive = 0.4
-			heavy_infantry_defensive = 0.4
-			pikemen_defensive = 0.4
-			light_cavalry_defensive = 0.4
-			knights_defensive = 0.4
-			archers_defensive = 0.4
-			horse_archers_defensive = 0.4
-			
-			garrison_size = 0.2
-			
-			key = "HERO_RELIGION_HOME_TERRITORY"
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_looting = yes
-		max_consorts = 3
-		
-		aggression = 1.5 # AI aggression factor
-		
-		short_reign_opinion_year_mult = 4 # The default is 2
-		
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-		
-		intermarry = druidic
-		
-	}
-	
+
 	egyptian_pagan = {
 	
 		# Names given only to Kemetic characters 
@@ -874,7 +832,7 @@ pagan_group = {
 		
 	}
 	
-	aten = {
+	aten_pagan = {
 		graphical_culture = muslimgfx
 
 		color = {0.3 0.3 0}
@@ -1162,6 +1120,13 @@ pagan_group = {
 		religious_clothing_head = 5
 		religious_clothing_priest = 5
 	}
+	mystery_eleusinia = {
+		parent = hellenic_pagan
+	}
+	
+	mystery_mithras = {
+		parent = hellenic_pagan
+	}
 	
 	norse_pagan = {
 		graphical_culture = norsegfx
@@ -1262,6 +1227,15 @@ pagan_group = {
 		intermarry = slavic_pagan_reformed
 		intermarry = finnish_pagan
 		intermarry = finnish_pagan_reformed
+	}
+	
+	norse_asatru = {
+		parent = norse_pagan_reformed
+	}
+	
+	norse_vanatru = {
+		parent = norse_pagan_reformed
+	
 	}
 	
 	slavic_pagan = {
