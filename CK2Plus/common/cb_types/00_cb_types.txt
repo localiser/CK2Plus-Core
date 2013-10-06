@@ -219,7 +219,7 @@ other_claim = {
 
 	can_use = {
 		NOT = { has_character_modifier = holding_epic_tournament }
-		NOT = { has_character_modifier = holy_truce_timer }
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 	}
 
@@ -727,6 +727,8 @@ claim_on_liege = {
 	can_ask_to_join_war = no
 
 	can_use = {
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
+		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = {
 			in_revolt = no
 			liege = {
@@ -929,7 +931,7 @@ other_claim_on_liege = {
 
 	can_use = {
 		NOT = { has_character_modifier = holding_epic_tournament }
-		NOT = { has_character_modifier = holy_truce_timer }
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = {
 			in_revolt = no
@@ -1858,9 +1860,6 @@ crusade = {
 	can_use = {
 #		ROOT = { demesne_size = 1 }
 		year = 1000
-		OR = {
-			year = 1166			
-		}
 		OR = {
 			has_global_flag = fourth_crusade_begin
 			AND = {
@@ -5583,7 +5582,7 @@ succession_on_liege = {
 	can_call_vassals = yes
 
 	allow_whitepeace = no
-
+	
 	can_use_title = {
 		is_primary_holder_title_tier = yes
 
@@ -6614,7 +6613,7 @@ other_dejure_barony_claim = {
 
 	can_use = {
 		NOT = { has_character_modifier = holding_epic_tournament }
-		NOT = { has_character_modifier = holy_truce_timer }
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		NOT = {
 			ROOT = {
@@ -6788,7 +6787,7 @@ other_dejure_county_claim = {
 
 	can_use = {
 		NOT = { has_character_modifier = holding_epic_tournament }
-		NOT = { has_character_modifier = holy_truce_timer }
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		NOT = {
 			ROOT = {
