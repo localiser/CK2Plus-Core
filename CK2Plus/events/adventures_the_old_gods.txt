@@ -34,6 +34,7 @@ character_event = {
 			has_holder = yes
 			holder_scope = {
 				independent = yes # Only do this vs independent rulers
+				NOT = { has_character_modifier = holy_truce_timer }
 			}
 			OR = {
 				tier = KING
@@ -584,9 +585,9 @@ character_event = {
 		is_ruler = no
 
 		diplomacy = 7
-		martial = 7
+		martial = 12
+#		martial = 7
 		health = 4
-
 		NOT = { trait = content }
 		NOT = { trait = craven }
 
@@ -609,12 +610,13 @@ character_event = {
 				always = yes
 			}
 		}
-
+		
 		NOT = { # Handled by event 1200
 			any_claim = {
 				has_holder = yes
 				holder_scope = {
 					independent = yes
+					NOT = { has_character_modifier = holy_truce_timer }
 				}
 				OR = {
 					tier = KING
@@ -711,6 +713,7 @@ character_event = {
 				is_landed = yes
 				independent = yes
 				NOT = { is_vassal_or_below = ROOT }
+				NOT = { has_character_modifier = holy_truce_timer }
 				any_realm_province = {
 					OR = {
 						AND = {
