@@ -24,12 +24,17 @@ province_event = {
 	trigger = {
 		has_dlc = "The Old Gods"
 
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
+		}
+
 		# Heretic revolts have prio
 		OR = {
 			is_heretic = no
 			owner = {
 				top_liege = {
 					NOT = { is_parent_religion = ROOT }
+
 				}
 			}
 		}
@@ -580,7 +585,9 @@ province_event = {
 
 	trigger = {
 		has_dlc = "The Old Gods"
-
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
+		}
 		# There is already an ongoing peasant revolt for this province
 		owner = {
 			top_liege = {
@@ -1097,7 +1104,9 @@ province_event = {
 				is_parent_religion = ROOT
 			}
 		}
-
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
+		}
 		NOT = { # Not if there is already an ongoing revolt
 			owner = {
 				top_liege = {
@@ -1452,7 +1461,9 @@ province_event = {
 				is_parent_religion = ROOT
 			}
 		}
-
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
+		}
 		owner = {
 			top_liege = {
 				war = yes
@@ -1754,7 +1765,9 @@ province_event = {
 				always = yes # Must have had a holder in the past
 			}
 		}
-
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
+		}
 		# Heretic revolts have prio
 		OR = {
 			is_heretic = no
@@ -1967,6 +1980,9 @@ character_event = {
 			attacker = { character = ROOT }
 			using_cb = liberation_revolt
 		}
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
+		}
 	}
 
 	immediate = {
@@ -2030,6 +2046,9 @@ province_event = {
 					}
 				}
 			}
+		}
+		NOT = {
+			owner = { top_liege = { has_character_modifier = holy_truce_timer } }
 		}
 	}
 
