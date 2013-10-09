@@ -9,7 +9,7 @@ province_event = {
 	id = 55000
 	desc = "EVTDESC55000"
 	picture = GFX_evt_throne_room
-
+	hide_window = yes
 	trigger = {
 		owner = {
 			NOT = {
@@ -391,8 +391,7 @@ province_event = {
 		}
 	}
 
-	option = {
-		name = "EVTOPTA55000"
+	immediate = {
 		owner = {
 			reverse_culture = ROOT
 			if = {
@@ -410,7 +409,12 @@ province_event = {
 				top_liege = { character_event = { id = 1000182009 } }
 			}
 		}
-	}	
+	}
+
+	option = {
+		name = "EVTOPTA55000"
+	}
+
 }
 
 # Ruler goes native
