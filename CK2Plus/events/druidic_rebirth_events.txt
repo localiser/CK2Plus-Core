@@ -30,10 +30,10 @@ character_event = {
 		culture_group = celtic
 		NOT = {
 			OR = {
-				religion = druidic
+				religion = brythonic_pagan
 				religion = celtic_pagan_reformed
 				religion = gaelic_pagan
-				religion = gaelic_pagan_reformed
+				religion = celtic_pagan
 			}
 			has_character_flag = hates_magic
 			any_courtier = {
@@ -61,7 +61,7 @@ character_event = {
 				dynasty = NONE
 				female = no
 				age = 53
-				religion = druidic
+				religion = celtic_pagan
 				culture = ROOT
 				trait = mystic
 				trait = scholarly_theologian
@@ -122,7 +122,9 @@ character_event = {
 					limit = {
 						NOT = {
 							OR = {
-								religion = druidic
+								religion = celtic_pagan
+								religion = celtic_pagan_reformed
+								religion = brythonic_pagan
 								religion = gaelic_pagan
 							}
 						}
@@ -137,8 +139,10 @@ character_event = {
 					limit = {
 						NOT = {
 							OR = {
-								religion = druidic
+								religion = brythonic_pagan
 								religion = gaelic_pagan
+								religion = celtic_pagan
+								religion = celtic_pagan_reformed
 							}
 						}
 						age = 16
@@ -165,8 +169,10 @@ character_event = {
 	trigger = {
 		NOT = {
 			OR = {
-				religion = druidic
+				religion = brythonic_pagan
 				religion = gaelic_pagan
+				religion = celtic_pagan
+				religion = celtic_pagan_reformed
 			}
 		}
 		has_character_modifier = celtic_ways
@@ -187,7 +193,7 @@ character_event = {
 					culture = irish
 				}
 			}
-			religion = gaelic_pagan
+			religion = celtic_pagan
 		}
 		if = {
 			limit = { 
@@ -197,7 +203,7 @@ character_event = {
 					culture = cornish
 				}
 			}
-			religion = druidic
+			religion = celtic_pagan
 		}
 		piety = 50
 	}
@@ -402,7 +408,7 @@ character_event = {
 					culture = cornish
 				}
 			}
-			religion = druidic
+			religion = celtic_pagan
 		}
 		if = {
 			limit = {
@@ -411,7 +417,7 @@ character_event = {
 					culture = irish
 				}
 			}
-			religion = gaelic_pagan
+			religion = celtic_pagan
 		}
 	}
 }

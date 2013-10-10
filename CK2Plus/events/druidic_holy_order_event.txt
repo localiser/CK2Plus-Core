@@ -30,7 +30,8 @@ narrative_event = {
 				limit = {
 					ai = no
 					OR = {
-						religion = druidic
+						religion = brythonic_pagan
+						religion = celtic_pagan
 						religion = celtic_pagan_reformed
 					}
 				}
@@ -110,7 +111,8 @@ character_event = {
 		in_command = no
 		has_global_flag = gwydion_founded
 		OR = {
-			religion = druidic
+			religion = celtic_pagan
+			religion = brythonic_pagan
 			religion = celtic_pagan_reformed
 		}
 		NOT = { 
@@ -526,7 +528,10 @@ character_event = {
 			dynasty = NONE
 			female = yes
 			age = 26
-			religion = druidic
+			OR = {
+				religion = brythonic_pagan
+				religion = celtic_pagan
+			}
 			culture = FROM
 		}
 		new_character = {
