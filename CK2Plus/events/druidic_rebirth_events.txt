@@ -3,18 +3,16 @@
 # ANCIENT RELIGIONS
 # - Rebirth of Druidism
 #
-# Event ID ancrel.0000 - ancrel.0009 reserved
+# Event ID 1000182173 - 1000182181 reserved
 #
 #######################################
 
 # Written by Patrick Marchand
 
-namespace = ancrel
-
 # Old "Wizard" Appears
 character_event = {
-	id = ancrel.0000
-	desc = EVTDESCancrel.0000
+	id = 1000182173
+	desc = EVTDESC1000182173
 	picture = GFX_evt_Whispering_in_ear
 	border = GFX_event_normal_frame_religion
 	
@@ -47,7 +45,7 @@ character_event = {
 	}	
 	
 	option = {
-		name = EVTOPTAancrel.0000
+		name = EVTOPTA1000182173
 		if = {
 			limit = {
 				OR = {
@@ -90,7 +88,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTBancrel.0000
+		name = EVTOPTB1000182173
 		custom_tooltip = {
 			text = begone_sorcerer
 			set_character_flag = hates_magic
@@ -100,8 +98,8 @@ character_event = {
 
 # Adopt celtic rites
 character_event = {
-	id = ancrel.0001
-	desc = EVTDESCancrel.0001
+	id = 1000182174
+	desc = EVTDESC1000182174
 	picture = GFX_evt_Pagan_dolmen
 	
 	prisoner = no
@@ -109,7 +107,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTAancrel.0001
+		name = EVTOPTA1000182174
 		custom_tooltip = {
 			text = adopt_celtic_rites
 			piety = -50
@@ -133,7 +131,7 @@ character_event = {
 						war = no
 						NOT = { trait = incapable }
 					}
-					character_event = { id = ancrel.0003 days = 5 }
+					character_event = { id = 1000182176 days = 5 }
 				}
 				any_courtier = {
 					limit = {
@@ -150,7 +148,7 @@ character_event = {
 						war = no
 						NOT = { trait = incapable }
 					}
-					character_event = { id = ancrel.0003 days = 5 }
+					character_event = { id = 1000182176 days = 5 }
 				}
 			}
 		}
@@ -159,8 +157,8 @@ character_event = {
 
 # Bishop asks character to reform Celtic ways
 character_event = {
-	id = ancrel.0002
-	desc = EVTDESCancrel.0002
+	id = 1000182175
+	desc = EVTDESC1000182175
 	picture = GFX_evt_scandal
 	
 	prisoner = no
@@ -183,7 +181,7 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTAancrel.0002
+		name = EVTOPTA1000182175
 		ai_chance = { factor = 50 }
 		hidden_tooltip = { remove_character_modifier = celtic_ways }
 		if = {
@@ -208,7 +206,7 @@ character_event = {
 		piety = 50
 	}
 	option = {
-		name = EVTOPTBancrel.0002
+		name = EVTOPTB1000182175
 		piety = 50
 		ai_chance = { factor = 50 }
 		religion_head = {
@@ -224,8 +222,8 @@ character_event = {
 
 # Adopt celtic rites (vassal)
 character_event = {
-	id = ancrel.0003
-	desc = EVTDESCancrel.0003
+	id = 1000182176
+	desc = EVTDESC1000182176
 	picture = GFX_evt_Pagan_dolmen
 	
 	prisoner = no
@@ -234,7 +232,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTAancrel.0003
+		name = EVTOPTA1000182176
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -252,13 +250,13 @@ character_event = {
 			hidden_tooltip = {
 				IF = {
 					limit = { is_ruler = yes }
-					top_liege = { character_event = { id = ancrel.0004 days = 5 } }
+					top_liege = { character_event = { id = 1000182177 days = 5 } }
 				}
 			}
 		}
 	}
 	option = {
-		name = EVTOPTBancrel.0003
+		name = EVTOPTB1000182176
 		piety = 50
 		ai_chance = {
 			factor = 50
@@ -282,41 +280,41 @@ character_event = {
 		hidden_tooltip = {
 			IF = {
 				limit = { is_ruler = yes }
-				top_liege = { character_event = { id = ancrel.0005 days = 5 } }
+				top_liege = { character_event = { id = 1000182178 days = 5 } }
 			}
 		}
 	}
 }
 # Vassal adopted celtic rites
 character_event = {
-	id = ancrel.0004
-	desc = EVTDESCancrel.0004
+	id = 1000182177
+	desc = EVTDESC1000182177
 	picture = GFX_evt_Pagan_dolmen
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTAancrel.0004
+		name = EVTOPTA1000182177
 	}
 }
 # Vassal refuses celtic rites
 character_event = {
-	id = ancrel.0005
-	desc = EVTDESCancrel.0005
+	id = 1000182178
+	desc = EVTDESC1000182178
 	picture = GFX_evt_Ruler_listening_to_supplicant
 
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTAancrel.0005
+		name = EVTOPTA1000182178
 	}
 }
 
 ### Lunatic and Possessed conversion
 # Hear a tapping at the door
 character_event = {
-	id = ancrel.0006
-	desc = EVTDESCancrel.0006
+	id = 1000182179
+	desc = EVTDESC1000182179
 	picture = GFX_evt_courier
 	
 	min_age = 16
@@ -336,17 +334,17 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTAancrel.0006
+		name = EVTOPTA1000182179
 		ai_chance = {
 			factor = 50
 		}
 		tooltip_info = lunatic
 		hidden_tooltip = {
-			character_event = { id = ancrel.0007 }
+			character_event = { id = 1000182180 }
 		}
 	}
 	option = {
-		name = EVTOPTBancrel.0006
+		name = EVTOPTB1000182179
 		tooltip_info = lunatic
 		ai_chance = {
 			factor = 50
@@ -355,8 +353,8 @@ character_event = {
 }
 # The elves come in
 character_event = {
-	id = ancrel.0007
-	desc = EVTDESCancrel.0007
+	id = 1000182180
+	desc = EVTDESC1000182180
 	picture = GFX_evt_courier
 	
 	min_age = 16
@@ -365,17 +363,17 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTAancrel.0007
+		name = EVTOPTA1000182180
 		tooltip_info = lunatic
 		ai_chance = {
 			factor = 50
 		}
 		hidden_tooltip = {
-			character_event = { id = ancrel.0008 }
+			character_event = { id = 1000182181 }
 		}
 	}
 	option = {
-		name = EVTOPTBancrel.0007
+		name = EVTOPTB1000182180
 		tooltip_info = lunatic
 		ai_chance = {
 			factor = 50
@@ -388,8 +386,8 @@ character_event = {
 }
 # King of the Elves!
 character_event = {
-	id = ancrel.0008
-	desc = EVTDESCancrel.0008
+	id = 1000182181
+	desc = EVTDESC1000182181
 	picture = GFX_evt_courier
 	
 	min_age = 16
@@ -398,7 +396,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTAancrel.0008
+		name = EVTOPTA1000182181
 		tooltip_info = lunatic
 		if = {
 			limit = {
