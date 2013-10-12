@@ -3,18 +3,16 @@
 # ANCIENT RELIGIONS
 # - Revival of the Hellenic religion
 #
-# Event ID ancrel.2100 - ancrel.2109 reserved
+# Event ID 1000182303 - 1000182307 reserved
 #
 #######################################
 
 # Written by Jon Severinsson
 
-namespace = ancrel
-
 # Studied the classics
 character_event = {
-	id = ancrel.2100
-	desc = EVTDESCancrel.2100
+	id = 1000182303
+	desc = EVTDESC1000182303
 	picture = GFX_evt_library
 	border = GFX_event_normal_frame_religion
 
@@ -97,7 +95,7 @@ character_event = {
 	}
 
 	option = {
-		name = EVTOPTAancrel.2100
+		name = EVTOPTA1000182303
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -145,22 +143,22 @@ character_event = {
 			host = {
 				if = {
 					limit = { NOT = { religion = hellenic_pagan } }
-					character_event = { id = ancrel.2101 }
+					character_event = { id = 1000182304 }
 				}
 			}
 		}
 	}
 
 	option = {
-		name = EVTOPTBancrel.2100
+		name = EVTOPTB1000182303
 		ai_chance = { factor = 90 }
 		piety = 50
 	}
 }
 
 character_event = {
-	id = ancrel.2101
-	desc = EVTDESCancrel.2101
+	id = 1000182304
+	desc = EVTDESC1000182304
 	picture = GFX_evt_roman_temple
 	border = GFX_event_normal_frame_religion
 
@@ -168,14 +166,14 @@ character_event = {
 	hide_from = yes
 
 	option = {
-		name = EVTOPTAancrel.2101
+		name = EVTOPTA1000182304
 		trigger = {
 			FROM = { is_child_of = ROOT }
 		}
 		piety = -10
 	}
 	option = {
-		name = EVTOPTBancrel.2101
+		name = EVTOPTB1000182304
 		trigger = {
 			FROM = { NOT = { is_child_of = ROOT } }
 		}
@@ -185,8 +183,8 @@ character_event = {
 
 # Make Hellenic Paganism the state religion?
 character_event = {
-	id = ancrel.2102
-	desc = EVTDESCancrel.2102
+	id = 1000182305
+	desc = EVTDESC1000182305
 	picture = GFX_evt_roman_temple
 	border = GFX_event_normal_frame_religion
 
@@ -194,7 +192,7 @@ character_event = {
 	hide_from = yes
 
 	option = {
-		name = EVTOPTAancrel.2102
+		name = EVTOPTA1000182305
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -232,7 +230,7 @@ character_event = {
 			}
 		}
 		custom_tooltip = {
-			text = EVTTOOLTIPAancrel.2102
+			text = EVTTOOLTIPA1000182305
 			hidden_tooltip = {
 				any_realm_character  = {
 					limit = {
@@ -264,14 +262,14 @@ character_event = {
 						is_playable = yes
 						NOT = { religion = ROOT }
 					}
-					character_event = { id = ancrel.2103 }
+					character_event = { id = 1000182306 }
 				}
 			}
 		}
 	}
 
 	option = {
-		name = EVTOPTBancrel.2102
+		name = EVTOPTB1000182305
 		ai_chance = {
 			factor = 50
 		}
@@ -300,15 +298,15 @@ character_event = {
 
 # Adopt the new Hellenic state religion?
 character_event = {
-	id = ancrel.2103
-	desc = EVTDESCancrel.2103
+	id = 1000182306
+	desc = EVTDESC1000182306
 	picture = GFX_evt_roman_temple
 	border = GFX_event_normal_frame_religion
 
 	is_triggered_only = yes
 
 	option = {
-		name = EVTOPTAancrel.2103
+		name = EVTOPTA1000182306
 		ai_chance = {
 			factor = 20
 			modifier = {
@@ -409,14 +407,14 @@ character_event = {
 					is_playable = yes
 					NOT = { religion = FROM }
 				}
-				character_event = { id = ancrel.2103 }
+				character_event = { id = 1000182306 }
 			}
 		}
 		reverse_opinion = { modifier = opinion_adopted_hellenic_state_religion who = FROM }
 	}
 
 	option = {
-		name = EVTOPTBancrel.2103
+		name = EVTOPTB1000182306
 		ai_chance = { factor = 80 }
 		piety = 10
 		reverse_opinion = { modifier = opinion_rejected_hellenic_state_religion who = FROM }
@@ -428,7 +426,7 @@ character_event = {
 # AI characters that normally would have converted when asked will instead slowly do so by themselves.
 # Players should use the standard "convert_to_liege_religion" decisions instead, which the AI never uses.
 character_event = {
-	id = ancrel.2104
+	id = 1000182307
 	hide_window = yes
 	
 	trigger = {
