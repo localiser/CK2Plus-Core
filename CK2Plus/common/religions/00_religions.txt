@@ -504,6 +504,33 @@ pagan_group = {
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
 	}
+
+	aztec_pagan_reformed = {
+		graphical_culture = mesoamericangfx
+		icon = 17
+		color = { 0.95 0.3 0.3 }
+		god_names = {
+			GOD_HUITZILOPOCHTLI GOD_XIPE_TOTEC GOD_TEZCATLIPOCA GOD_QUETZALCOATL GOD_MICTLANTECUHTLI GOD_TLALOC
+		}
+
+		unit_modifier = {
+			levy_size = 0.3
+
+			key = "OFF_RELIGION"
+		}
+
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priests_can_marry = yes
+		max_consorts = 3
+		can_call_crusade = yes
+
+		aggression = 2.0 # AI aggression factor
+
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		intermarry = aztec
+	}	
 	
 	aztec_pagan = {
 		graphical_culture = mesoamericangfx
@@ -535,31 +562,61 @@ pagan_group = {
 		intermarry = aztec_pagan_reformed
 	}
 	
-	aztec_pagan_reformed = {
-		graphical_culture = mesoamericangfx
-		icon = 17
-		color = { 0.95 0.3 0.3 }
-		god_names = {
-			GOD_HUITZILOPOCHTLI GOD_XIPE_TOTEC GOD_TEZCATLIPOCA GOD_QUETZALCOATL GOD_MICTLANTECUHTLI GOD_TLALOC
-		}
+	baltic_pagan_reformed = {
+		graphical_culture = norsegfx
 
-		unit_modifier = {
-			levy_size = 0.3
+		icon = 32
+		heresy_icon = 33
 
-			key = "OFF_RELIGION"
-		}
-
+		color = { 0.75 0.5 0.35 }
 		crusade_name = GREAT_HOLY_WAR
 		scripture_name = THE_LEGENDS
-		priests_can_marry = yes
-		max_consorts = 3
+		god_names = {
+			GOD_DIEVAS GOD_GABIJA GOD_PERKUNAS GOD_LAIMA
+		}
+		
 		can_call_crusade = yes
+		
+		unit_modifier = {		
+			garrison_size = 0.2
+			levy_size = 0.2
 
-		aggression = 2.0 # AI aggression factor
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+
+			garrison_size = 0.4
+
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+
+		priests_can_marry = yes
+		female_temple_holders = yes
+		can_call_crusade = yes
+		allow_looting = yes
+		max_consorts = 3
 
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
-		intermarry = aztec
+		
+		intermarry = catholic
+		intermarry = orthodox
+		intermarry = norse_pagan
+		intermarry = norse_pagan_reformed
+		intermarry = slavic_pagan
+		intermarry = slavic_pagan_reformed
+		intermarry = finnish_pagan
+		intermarry = finnish_pagan_reformed
+		intermarry = baltic_pagan
+		
 	}
 	
 	baltic_pagan = {
@@ -621,71 +678,15 @@ pagan_group = {
 		
 	}
 	
-	baltic_pagan_reformed = {
-		graphical_culture = norsegfx
-
-		icon = 32
-		heresy_icon = 33
-
-		color = { 0.75 0.5 0.35 }
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
-		god_names = {
-			GOD_DIEVAS GOD_GABIJA GOD_PERKUNAS GOD_LAIMA
-		}
-		
-		can_call_crusade = yes
-		
-		unit_modifier = {		
-			garrison_size = 0.2
-			levy_size = 0.2
-
-			key = "DEF_RELIGION"
-		}
-		unit_home_modifier = {
-			land_morale = 0.8
-			light_infantry_defensive = 0.8
-			heavy_infantry_defensive = 0.8
-			pikemen_defensive = 0.8
-			light_cavalry_defensive = 0.8
-			knights_defensive = 0.8
-			archers_defensive = 0.8
-			horse_archers_defensive = 0.8
-
-			garrison_size = 0.4
-
-			key = "DEF_RELIGION_HOME_TERRITORY"
-		}
-
-		priests_can_marry = yes
-		female_temple_holders = yes
-		can_call_crusade = yes
-		allow_looting = yes
-		max_consorts = 3
-
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-		
-		intermarry = catholic
-		intermarry = orthodox
-		intermarry = norse_pagan
-		intermarry = norse_pagan_reformed
-		intermarry = slavic_pagan
-		intermarry = slavic_pagan_reformed
-		intermarry = finnish_pagan
-		intermarry = finnish_pagan_reformed
-		intermarry = baltic_pagan
-		
-	}
+	celtic_pagan_reformed = {
+		icon = 39
+		heresy_icon = 37
+	}	
 	
 	celtic_pagan = {
 		icon = 39
 		heresy_icon = 37
-	}
-	
-	celtic_pagan_reformed = {
-		icon = 39
-		heresy_icon = 37
+		reformed = celtic_pagan_reformed
 	}
 	
 	brythonic_pagan = {
@@ -863,6 +864,67 @@ pagan_group = {
 		
 	}
 	
+	finnish_pagan_reformed = {
+		graphical_culture = norsegfx
+
+		icon = 26
+		heresy_icon = 27
+
+		color = { 0.65 0.65 0.1 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		god_names = {
+			GOD_UKKO GOD_PERKELE GOD_JUMI GOD_THE_GREAT_BEAR GOD_KUU GOD_TAPIO GOD_TAARA GOD_OMOL GOD_MASTOR_AVA
+		}
+		
+		can_call_crusade = yes
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+
+			garrison_size = 0.4
+
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+
+		priests_can_marry = yes
+		female_temple_holders = yes
+		can_call_crusade = yes
+		allow_looting = yes
+		max_consorts = 3
+
+		aggression = 0.5 # AI aggression factor
+
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = catholic
+		intermarry = orthodox
+		intermarry = tengri_pagan
+		intermarry = tengri_pagan_reformed
+		intermarry = baltic_pagan
+		intermarry = baltic_pagan_reformed
+		intermarry = norse_pagan
+		intermarry = norse_pagan_reformed
+		intermarry = slavic_pagan
+		intermarry = slavic_pagan_reformed
+		intermarry = finnish_pagan
+		
+	}	
+	
 	finnish_pagan = {
 		graphical_culture = norsegfx
 
@@ -925,66 +987,6 @@ pagan_group = {
 		
 	}
 	
-	finnish_pagan_reformed = {
-		graphical_culture = norsegfx
-
-		icon = 26
-		heresy_icon = 27
-
-		color = { 0.65 0.65 0.1 }
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
-		god_names = {
-			GOD_UKKO GOD_PERKELE GOD_JUMI GOD_THE_GREAT_BEAR GOD_KUU GOD_TAPIO GOD_TAARA GOD_OMOL GOD_MASTOR_AVA
-		}
-		
-		can_call_crusade = yes
-		
-		unit_modifier = {		
-			garrison_size = 0.3
-			levy_size = 0.1
-
-			key = "DEF_RELIGION"
-		}
-		unit_home_modifier = {
-			land_morale = 0.8
-			light_infantry_defensive = 0.8
-			heavy_infantry_defensive = 0.8
-			pikemen_defensive = 0.8
-			light_cavalry_defensive = 0.8
-			knights_defensive = 0.8
-			archers_defensive = 0.8
-			horse_archers_defensive = 0.8
-
-			garrison_size = 0.4
-
-			key = "DEF_RELIGION_HOME_TERRITORY"
-		}
-
-		priests_can_marry = yes
-		female_temple_holders = yes
-		can_call_crusade = yes
-		allow_looting = yes
-		max_consorts = 3
-
-		aggression = 0.5 # AI aggression factor
-
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-		
-		intermarry = catholic
-		intermarry = orthodox
-		intermarry = tengri_pagan
-		intermarry = tengri_pagan_reformed
-		intermarry = baltic_pagan
-		intermarry = baltic_pagan_reformed
-		intermarry = norse_pagan
-		intermarry = norse_pagan_reformed
-		intermarry = slavic_pagan
-		intermarry = slavic_pagan_reformed
-		intermarry = finnish_pagan
-		
-	}
 	
 	gaelic_pagan = {
 		graphical_culture = norsegfx
@@ -1075,6 +1077,54 @@ pagan_group = {
 		parent = hellenic_pagan
 	}
 	
+	norse_pagan_reformed = {
+		graphical_culture = norsegfx
+
+		icon = 20
+		heresy_icon = 21
+
+		color = { 0.6 0.6 0.6 }
+		god_names = {
+			GOD_THOR GOD_THE_THUNDERER GOD_THE_ALLFATHER GOD_THE_ODIN GOD_FREY GOD_TYR
+		}
+
+		unit_modifier = {
+			levy_size = 0.3
+
+			key = "OFF_RELIGION"
+		}
+
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_SAGAS
+		priests_can_marry = yes
+
+		can_call_crusade = yes
+
+		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
+		allow_looting = yes
+		allow_rivermovement = yes
+		female_temple_holders = yes
+
+		short_reign_opinion_year_mult = 3 # The default is 2
+
+		aggression = 1.5 # AI aggression factor
+
+		max_consorts = 3
+
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+
+		intermarry = catholic
+		intermarry = orthodox
+		intermarry = norse_pagan
+		intermarry = baltic_pagan
+		intermarry = baltic_pagan_reformed
+		intermarry = slavic_pagan
+		intermarry = slavic_pagan_reformed
+		intermarry = finnish_pagan
+		intermarry = finnish_pagan_reformed
+	}
+	
 	norse_pagan = {
 		graphical_culture = norsegfx
 
@@ -1128,53 +1178,6 @@ pagan_group = {
 		
 	}
 	
-	norse_pagan_reformed = {
-		graphical_culture = norsegfx
-
-		icon = 20
-		heresy_icon = 21
-
-		color = { 0.6 0.6 0.6 }
-		god_names = {
-			GOD_THOR GOD_THE_THUNDERER GOD_THE_ALLFATHER GOD_THE_ODIN GOD_FREY GOD_TYR
-		}
-
-		unit_modifier = {
-			levy_size = 0.3
-
-			key = "OFF_RELIGION"
-		}
-
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_SAGAS
-		priests_can_marry = yes
-
-		can_call_crusade = yes
-
-		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
-		allow_looting = yes
-		allow_rivermovement = yes
-		female_temple_holders = yes
-
-		short_reign_opinion_year_mult = 3 # The default is 2
-
-		aggression = 1.5 # AI aggression factor
-
-		max_consorts = 3
-
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-
-		intermarry = catholic
-		intermarry = orthodox
-		intermarry = norse_pagan
-		intermarry = baltic_pagan
-		intermarry = baltic_pagan_reformed
-		intermarry = slavic_pagan
-		intermarry = slavic_pagan_reformed
-		intermarry = finnish_pagan
-		intermarry = finnish_pagan_reformed
-	}
 	
 	norse_asatru = {
 		icon = 21
@@ -1187,6 +1190,63 @@ pagan_group = {
 		heresy_icon = 20
 		parent = norse_pagan_reformed
 	
+	}
+	
+	slavic_pagan_reformed = {
+		graphical_culture = norsegfx
+
+		icon = 23
+		heresy_icon = 24
+
+		color = { 0.85 0.73 0.4 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		god_names = {
+			GOD_PERUN GOD_VELES GOD_JARILO GOD_SVAROG GOD_TRIGLAV GOD_RADEGAST
+		}
+
+		unit_modifier = {
+			garrison_size = 0.2
+			levy_size = 0.2
+
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+
+			garrison_size = 0.4
+
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		can_call_crusade = yes
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		can_call_crusade = yes
+		allow_looting = yes
+		max_consorts = 3
+
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = catholic
+		intermarry = orthodox
+		intermarry = tengri_pagan
+		intermarry = tengri_pagan_reformed
+		intermarry = baltic_pagan
+		intermarry = baltic_pagan_reformed
+		intermarry = norse_pagan
+		intermarry = norse_pagan_reformed
+		intermarry = slavic_pagan
+		
 	}
 	
 	slavic_pagan = {
@@ -1250,60 +1310,46 @@ pagan_group = {
 		
 	}
 	
-	slavic_pagan_reformed = {
-		graphical_culture = norsegfx
+	tengri_pagan_reformed = { # Mongols
+		graphical_culture = mongolgfx
 
-		icon = 23
-		heresy_icon = 24
+		icon = 29
+		heresy_icon = 30
 
-		color = { 0.85 0.73 0.4 }
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
+		color = { 0.1 0.3 0.85 }
 		god_names = {
-			GOD_PERUN GOD_VELES GOD_JARILO GOD_SVAROG GOD_TRIGLAV GOD_RADEGAST
+			GOD_TENGRI GOD_ERLIK_KHAN GOD_TUNG-AK
 		}
 
 		unit_modifier = {
-			garrison_size = 0.2
-			levy_size = 0.2
+			levy_size = 0.3
 
-			key = "DEF_RELIGION"
+			light_cavalry_offensive = 0.3
+			light_cavalry_defensive = 0.3
+
+			key = "tengri_pagan"
 		}
-		unit_home_modifier = {
-			land_morale = 0.8
-			light_infantry_defensive = 0.8
-			heavy_infantry_defensive = 0.8
-			pikemen_defensive = 0.8
-			light_cavalry_defensive = 0.8
-			knights_defensive = 0.8
-			archers_defensive = 0.8
-			horse_archers_defensive = 0.8
 
-			garrison_size = 0.4
-
-			key = "DEF_RELIGION_HOME_TERRITORY"
-		}
-		
-		can_call_crusade = yes
-		
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
 		priests_can_marry = yes
-		female_temple_holders = yes
-		can_call_crusade = yes
 		allow_looting = yes
+		can_call_crusade = yes
 		max_consorts = 3
 
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
+		aggression = 2.0 # AI aggression factor
+
+		religious_clothing_head = 6
+		religious_clothing_priest = 4
 		
-		intermarry = catholic
+		intermarry = sunni
+		intermarry = shiite
+		intermarry = zoroastrian
 		intermarry = orthodox
+		intermarry = finnish_pagan
+		intermarry = finnish_pagan_reformed
+		intermarry = judaism
 		intermarry = tengri_pagan
-		intermarry = tengri_pagan_reformed
-		intermarry = baltic_pagan
-		intermarry = baltic_pagan_reformed
-		intermarry = norse_pagan
-		intermarry = norse_pagan_reformed
-		intermarry = slavic_pagan
 		
 	}
 	
@@ -1354,48 +1400,55 @@ pagan_group = {
 		intermarry = tengri_pagan_reformed
 	}
 	
-	tengri_pagan_reformed = { # Mongols
-		graphical_culture = mongolgfx
+	west_african_pagan_reformed = {
+		graphical_culture = africangfx
 
-		icon = 29
-		heresy_icon = 30
+		icon = 35
+		heresy_icon = 36
 
-		color = { 0.1 0.3 0.85 }
-		god_names = {
-			GOD_TENGRI GOD_ERLIK_KHAN GOD_TUNG-AK
-		}
-
-		unit_modifier = {
-			levy_size = 0.3
-
-			light_cavalry_offensive = 0.3
-			light_cavalry_defensive = 0.3
-
-			key = "tengri_pagan"
-		}
-
+		color = { 1.0 0.45 0.0 }
 		crusade_name = GREAT_HOLY_WAR
 		scripture_name = THE_LEGENDS
-		priests_can_marry = yes
-		allow_looting = yes
+		god_names = {
+			GOD_THE_SPIRITS GOD_THE_ANCESTORS
+		}
+
 		can_call_crusade = yes
+
+		unit_modifier = {
+			garrison_size = 0.4
+
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+
+			garrison_size = 0.4
+
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+
+		priests_can_marry = yes
+		female_temple_holders = yes
+		allow_looting = yes
+
 		max_consorts = 3
 
-		aggression = 2.0 # AI aggression factor
+		aggression = 0.5 # AI aggression factor
 
-		religious_clothing_head = 6
-		religious_clothing_priest = 4
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
 		
-		intermarry = sunni
-		intermarry = shiite
-		intermarry = zoroastrian
-		intermarry = orthodox
-		intermarry = finnish_pagan
-		intermarry = finnish_pagan_reformed
-		intermarry = judaism
-		intermarry = tengri_pagan
+		intermarry = west_african_pagan
 		
-	}
+	}	
 	
 	west_african_pagan = {
 		graphical_culture = africangfx
@@ -1449,55 +1502,6 @@ pagan_group = {
 		
 	}
 	
-	west_african_pagan_reformed = {
-		graphical_culture = africangfx
-
-		icon = 35
-		heresy_icon = 36
-
-		color = { 1.0 0.45 0.0 }
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
-		god_names = {
-			GOD_THE_SPIRITS GOD_THE_ANCESTORS
-		}
-
-		can_call_crusade = yes
-
-		unit_modifier = {
-			garrison_size = 0.4
-
-			key = "DEF_RELIGION"
-		}
-		unit_home_modifier = {
-			land_morale = 0.8
-			light_infantry_defensive = 0.8
-			heavy_infantry_defensive = 0.8
-			pikemen_defensive = 0.8
-			light_cavalry_defensive = 0.8
-			knights_defensive = 0.8
-			archers_defensive = 0.8
-			horse_archers_defensive = 0.8
-
-			garrison_size = 0.4
-
-			key = "DEF_RELIGION_HOME_TERRITORY"
-		}
-
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_looting = yes
-
-		max_consorts = 3
-
-		aggression = 0.5 # AI aggression factor
-
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-		
-		intermarry = west_african_pagan
-		
-	}
 }
 
 zoroastrian_group = {
