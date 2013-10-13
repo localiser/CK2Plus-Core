@@ -386,7 +386,8 @@ duchy_adventure = {
 			}
 		}
 		ROOT = {
-			imprison = FROM
+			banish = FROM
+			wealth = -500
 			hidden_tooltip = {
 				disband_event_forces = yes
 				clr_character_flag = duchy_adventurer
@@ -399,10 +400,11 @@ duchy_adventure = {
 	on_reverse_demand = {
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
-			transfer_scaled_wealth = {
+			transfer_wealth = {
 				to = FROM
-				value = 4.0
+				value = 100
 			}
+			wealth = -500
 		}
 
 		FROM = {
@@ -410,7 +412,7 @@ duchy_adventure = {
 		}
 
 		ROOT = {
-			imprison = FROM
+			banish = FROM
 			prestige = -200
 			hidden_tooltip = {
 				disband_event_forces = yes

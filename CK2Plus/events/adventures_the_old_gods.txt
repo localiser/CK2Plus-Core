@@ -585,8 +585,7 @@ character_event = {
 		is_ruler = no
 
 		diplomacy = 7
-		martial = 12
-#		martial = 7
+		martial = 7
 		health = 4
 		NOT = { trait = content }
 		NOT = { trait = craven }
@@ -718,6 +717,13 @@ character_event = {
 					OR = {
 						AND = {
 							port = yes
+							NOT = {
+								culture = khazar
+								has_landed_title = e_il-khanate
+								has_landed_title = e_golden_horde
+								has_landed_title = e_timurids
+								has_landed_title = e_mongol_empire
+							}
 							ROOT = {
 								NOT = { culture_group = altaic }
 								NOT = { culture = hungarian }
@@ -727,11 +733,6 @@ character_event = {
 							owner = {
 								same_realm = ROOT
 							}
-						}
-					}
-					NOT = {
-						empire = {
-							title = e_scandinavia
 						}
 					}
 					NOT = {
@@ -747,6 +748,13 @@ character_event = {
 					OR = {
 						AND = {
 							port = yes
+							NOT = {
+								culture = khazar
+								has_landed_title = e_il-khanate
+								has_landed_title = e_golden_horde
+								has_landed_title = e_timurids
+								has_landed_title = e_mongol_empire
+							}
 							ROOT = {
 								NOT = { culture_group = altaic }
 								NOT = { culture = hungarian }
@@ -756,11 +764,6 @@ character_event = {
 							owner = {
 								same_realm = ROOT
 							}
-						}
-					}
-					NOT = {
-						empire = {
-							title = e_scandinavia
 						}
 					}
 					NOT = {
@@ -859,11 +862,6 @@ character_event = {
 					}
 				}
 				NOT = {
-					empire = {
-						title = e_scandinavia
-					}
-				}
-				NOT = {
 					duchy = {
 						title = d_bjarmia
 					}
@@ -910,11 +908,6 @@ character_event = {
 								}
 							}
 							NOT = {
-								empire = {
-									title = e_scandinavia
-								}
-							}
-							NOT = {
 								duchy = {
 									title = d_bjarmia
 								}
@@ -939,11 +932,6 @@ character_event = {
 									owner = {
 										same_realm = ROOT
 									}
-								}
-							}
-							NOT = {
-								empire = {
-									title = e_scandinavia
 								}
 							}
 							NOT = {
