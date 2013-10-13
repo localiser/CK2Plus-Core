@@ -197,6 +197,7 @@ obj_civilize_province = {
 	allow = {
 		any_realm_lord = {any_demesne_province = {NOT = {culture = ROOT culture = PREV}}}
 		is_ruler = yes
+		is_capable = yes
 	}
 
 	chance = {
@@ -207,9 +208,12 @@ obj_civilize_province = {
 		has_character_flag = civilized_province
 	}
 	abort = {
-		AND = {
-			NOT = {has_character_flag = civilized_province}
-			NOT = {any_realm_lord = {any_demesne_province = {NOT = {culture = ROOT culture = PREV}}}}
+		OR = {
+			AND = {
+				NOT = {has_character_flag = civilized_province}
+				NOT = {any_realm_lord = {any_demesne_province = {NOT = {culture = ROOT culture = PREV}}}}
+			}
+			is_capable = no
 		}
 	}
 	effect = {
