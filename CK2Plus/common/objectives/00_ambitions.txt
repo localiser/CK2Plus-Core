@@ -3544,6 +3544,123 @@ obj_become_king = {
 	}
 }
 
+# Become Emperor (AI Only), framework added if Paradox ever adds ai_capital_empire_focus
+# obj_become_emperor_ai = {
+	# type = character
+
+	# can_cancel = no
+
+	# ai_capital_empire_focus = yes # AI characters with this ambition will actually focus on taking the empire
+
+	# potential = {
+		# ai = yes
+		# is_adult = yes
+		# is_playable = yes
+		# is_landed = yes
+		# tier = KING
+		# OR = {
+			# has_landed_title = k_germany
+			# has_landed_title = k_byzantium
+			# has_landed_title = k_nikaea
+			# has_landed_title = k_bavaria
+		# }
+		# independent = yes
+	# }
+
+	# allow = {
+		# NOT = { trait = incapable }
+	# }
+
+	# chance = {
+		# factor = 500
+
+		# modifier = {
+			# factor = 0.05
+			# NOT = { trait = ambitious }
+		# }
+		# modifier = {
+			# factor = 3.0
+			# capital_scope = {
+				# empire = {
+					# has_holder = no
+				# }
+			# }
+		# }
+		# modifier = {
+			# factor = 0.3
+			# capital_scope = {
+				# empire = {
+					# holder_scope={ROOT={liege={character=PREVPREV}}}
+				# }
+			# }
+		# }
+		# modifier = {
+			# factor = 3.0
+			# trait = ambitious
+		# }
+		# modifier = {
+			# factor = 2.0
+			# trait = brave
+		# }
+		# modifier = {
+			# factor = 3.0
+			# OR = {
+				# independent = yes
+				# AND = {
+					# religion_group = pagan_group
+					# is_reformed_religion = no
+				# }
+			# }
+		# }
+		# modifier = {
+			# factor = 0.1
+			# trait = craven
+		# }
+		# modifier = {
+			# factor = 0.01
+			# trait = content
+		# }
+		# modifier = {
+			# factor = 0.01
+			# trait = slothful
+		# }
+	# }
+
+	# success = {
+		# custom_tooltip = {
+			# text = obj_become_king_tip
+			# hidden_tooltip = {
+				# OR = {
+					# capital_scope = {
+						# empire = {
+							# holder_scope = {
+								# character = ROOT
+							# }
+						# }
+					# }
+					# higher_tier_than = king
+				# }
+			# }
+		# }
+	# }
+
+	# abort = {
+		# OR = {
+			# trait = incapable
+			# is_playable = no
+			# is_landed = no
+			# independent = no
+		# }
+	# }
+
+	# abort_effect = {
+	# }
+
+	# effect = {
+		# prestige = 250
+	# }
+# }
+
 obj_become_emperor = {
 	type = character
 
