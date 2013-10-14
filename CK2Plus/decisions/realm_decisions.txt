@@ -484,8 +484,17 @@ decisions = {
 			age = 16
 			prisoner = no
 			NOT = { trait = incapable }
-			has_landed_title = e_byzantium
-			religion_group = christian
+			OR = {
+				has_landed_title = e_byzantium
+				has_landed_title = e_latin_empire
+				has_landed_title = e_italy
+				has_landed_title = e_hre
+			}
+			OR = {
+				religion_group = christian
+				religion = hellenic_pagan
+				is_heresy_of = hellenic_pagan
+			}
 		}
 		allow = {
 			prestige = 3000
