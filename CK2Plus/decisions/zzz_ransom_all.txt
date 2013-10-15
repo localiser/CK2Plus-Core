@@ -1,0 +1,61 @@
+decisions = {
+	ransom_nonvassal = {
+		potential = {
+			ai = no
+			any_courtier = {
+				NOT = { same_realm = ROOT }
+				prisoner = yes
+			}
+		}
+		
+		allow = {
+			NOT = { has_character_modifier = ransom_timer }
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = ransom_timer
+				duration = 25
+				hidden = yes
+			}
+			any_courtier = {
+				limit = {
+					NOT = { same_realm = ROOT }
+					prisoner = yes
+
+				}
+				character_event = { id = 1000182316 days = 5 random = 12 }
+			}
+			
+		}
+	}
+	
+	ransom_all = {
+		potential = {
+			ai = no
+			any_courtier = {
+				same_realm = ROOT
+				prisoner = yes
+			}
+		}
+		
+		allow = {
+			NOT = { has_character_modifier = ransom_timer }
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = ransom_timer
+				duration = 25
+				hidden = yes
+			}
+			any_courtier = {
+				limit = {
+					prisoner = yes
+				}
+				character_event = { id = 1000182316 days = 5 random = 12 }
+			}
+			
+		}
+	}
+}

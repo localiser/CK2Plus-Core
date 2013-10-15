@@ -1,0 +1,3025 @@
+#on_siege_won_leader events
+#110009991
+#110009992
+#110009993
+
+#attacker gets imprisonment options if owner of holding is at holding when it falls in siege, unless all family #"hidden"
+
+character_event = {
+
+	id = 110009991
+	desc = "EVTDESCsiegewin01"
+	picture = "GFX_evt_siege"
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			holder_scope = {
+				OR = {
+					location = { is_capital = yes }
+					any_courtier = { at_location = PREV }
+				}
+				at_location = ROOT 
+				NOT = { has_character_modifier = modifier_hidden }
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTleavedecision"
+		
+		trigger = {
+			NOT = {
+				OR = {
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				}
+			}
+			mercenary = no
+		}
+		any_liege = {
+			limit = {
+				OR = {
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = PREVPREV}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = PREVPREV}}
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = PREVPREV}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = PREVPREV}}
+				}
+			}
+			hidden_tooltip = {
+				character_event = {id = 110009994 }
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAsiegewin1"
+		
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { holder_scope = { war_with = ROOT } }
+		} 
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50  
+				FROM = { holder_scope = { primary_title = { higher_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 100  
+				FROM = { holder_scope = { primary_title = { higher_tier_than = DUKE } } }
+			}
+			modifier = {
+				factor = 0.25  
+				FROM = { holder_scope = { primary_title = { lower_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 10
+				trait = impaler
+			}
+			modifier = {
+				factor = 10
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+
+		}
+		random = { 
+			chance = 5
+			add_trait = just
+			remove_trait = charitable
+		}
+
+		FROM = { 
+			holder_scope = {
+				limit = { 
+					at_location = ROOT
+					NOT = { has_character_modifier = modifier_hidden } 
+				}  
+				imprison = ROOT
+			}		
+		}			
+	}
+		
+	option = {
+		name = "EVTOPTAsiegewin2"
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							AND = {
+								NOT = { character = ROOT }
+								at_location = ROOT
+								NOT = { character = PREV }
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+						
+						any_spouse = {
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
+						}		
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				FROM = { holder_scope = { primary_title = { lower_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 40
+				FROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = COUNT } } } }
+			}
+			modifier = {
+				factor = 100
+				FROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = DUKE } } } }
+			}
+			modifier = {
+				factor = 8
+				trait = cruel
+			}
+			modifier = {
+				factor = 8
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}	
+		}
+
+		random = { 
+			chance = 10
+			add_trait = greedy
+			remove_trait = kind
+			add_trait = cruel
+		}
+		random = { 
+			chance = 5
+			add_trait = ambitious
+			add_trait = diligent
+			remove_trait = charitable
+			remove_trait = just
+		}
+		
+		FROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = { 
+							any_child = { 
+								has_guardian = yes
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden } 
+							}
+						}
+					}
+					any_dynasty_member = { 
+						any_child = { 
+							limit = {
+								has_guardian = yes
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+							guardian = { imprison = ROOT }
+						}
+					}
+				}
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						imprison = ROOT
+					}	
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+						at_location = ROOT 
+						NOT = {
+							has_character_modifier = modifier_hidden } 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = ROOT 
+							NOT = {
+								has_character_modifier = modifier_hidden
+							} 
+						}		
+						imprison = ROOT
+					}
+				}
+			}		
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAsiegewin6"
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							AND = {
+								NOT = { character = ROOT }
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+						
+						any_spouse = {
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+								
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 20
+				trait = cruel
+			}
+			modifier = {
+				factor = 10
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.3
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = just
+			}
+		}
+
+		if = {
+			limit = { NOT  = { lifestyle_traits = 1 } }
+			add_trait = impaler
+		}
+		
+		random = { 
+			chance = 50
+			remove_trait = kind
+			add_trait = cruel	
+		}
+		
+		random = { 
+			chance = 30
+			remove_trait = just
+			add_trait = arbitrary
+		}
+		
+		FROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden } 
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+							at_location = ROOT 
+							NOT = {
+								has_character_modifier = modifier_hidden
+							} 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = ROOT 
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+			}		
+		}
+	}	
+				 
+	option = {
+		name = "EVTOPTAsiegewin3"
+		
+
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { holder_scope = { war_with = ROOT } }
+		}
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				trait = kind
+			}
+			modifier = {
+				factor = 3
+				trait = charitable
+			}
+			modifier = {
+				factor = 3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}	
+		}
+		
+		random = { 
+			chance = 10
+			add_trait = kind
+			add_trait = just
+			remove_trait = cruel
+		}
+		
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			remove_trait = diligent
+			add_trait = charitable
+		}
+		
+		FROM = { 
+			holder_scope = { 			
+				if = {
+					limit = {
+						any_dynasty_member = {
+							AND = { 
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = {
+						limit = { 
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_spouse = {
+							AND = { 
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }	
+							}
+						}
+					}
+					any_spouse = {
+						limit = { 
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }	
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAwaylitfriendlycapture"
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			NOT = { FROM = { holder_scope = { war_with = ROOT } } }
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		prestige = 5
+		FROM = { 
+			holder_scope = { 
+				any_courtier = { 
+					if = {
+						limit = { 
+							at_location = ROOT 
+							NOT = { war_with = ROOT }
+						}
+						opinion = {
+							who = ROOT
+							modifier = liberated
+							months = 12
+						}
+					}
+					hidden_tooltip = {
+						if = { 
+							limit = { 
+								at_location = ROOT 
+								NOT = { war_with = ROOT }
+								has_character_modifier = modifier_hidden 
+							} 
+							remove_character_modifier = modifier_hidden
+						}
+					}	
+				}
+			}
+		}	
+	}
+}
+
+	
+#if owner not at location, event for imprisoning their family.  if all hidden, then it should say "Fine lets go"
+character_event = {
+
+	id = 110009992
+	desc = "EVTDESCsiegenoenemy"
+	picture = "GFX_evt_siege"
+	border = GFX_event_normal_frame_war
+
+
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { 
+			holder_scope = {
+				OR = {
+					AND = {
+						tier = baron is_patrician = no
+						num_of_baron_titles = 1
+						NOT = {num_of_baron_titles = 2}
+					}
+					AND = {
+						num_of_count_titles = 1
+						NOT = {num_of_count_titles = 2}
+					}
+					any_courtier = {at_location = FROM}
+				}
+				OR = {
+					NOT = { at_location = ROOT }
+					has_character_modifier = modifier_hidden
+				}
+			}
+		}
+		FROM = { 
+			holder_scope = {
+				war_with = ROOT
+				OR = {
+					any_dynasty_member = {
+						AND = {
+							NOT = { character = ROOT }
+							at_location = ROOT
+							NOT = { character = PREV }
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+					}
+					
+					any_spouse = {
+						at_location = ROOT
+						NOT = { has_character_modifier = modifier_hidden }
+					}		
+				}
+			} 
+		}
+	}
+	
+	option = {
+		name = "EVTOPTleavedecision"
+		
+		trigger = {
+			NOT = {
+				OR = {
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				}				
+			}
+		}
+		any_liege = {
+			limit = {
+				OR = {
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = PREVPREV}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = PREVPREV}}
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = PREVPREV}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = PREVPREV}}
+				}
+			}
+			hidden_tooltip = {
+				character_event = {id = 110009995 }
+			}
+		}
+	}
+		
+	option = {
+		name = "EVTOPTAnoenemy2"
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = {
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							AND = {
+								NOT = { character = ROOT }
+								at_location = ROOT
+								NOT = { character = PREV }
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+						
+						any_spouse = {
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+								
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				FROM = { holder_scope = { primary_title = { lower_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 40
+				FROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = COUNT } } } }
+			}
+			modifier = {
+				factor = 100
+				FROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = DUKE } } } }
+			}
+			modifier = {
+				factor = 8
+				trait = cruel
+			}
+			modifier = {
+				factor = 8
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}	
+		}
+
+		random = { 
+			chance = 10
+			add_trait = greedy
+			remove_trait = kind
+			add_trait = cruel
+		}
+		random = { 
+			chance = 5
+			add_trait = ambitious
+			add_trait = diligent
+			remove_trait = charitable
+			remove_trait = just
+		}
+		
+		FROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = { 
+							any_child = { 
+								has_guardian = yes
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden } 
+							}
+						}
+					}
+					any_dynasty_member = { 
+						any_child = { 
+							limit = {
+								has_guardian = yes
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+							guardian = { imprison = ROOT }
+						}
+					}
+				}
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						imprison = ROOT
+					}	
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+						at_location = ROOT 
+						NOT = {
+							has_character_modifier = modifier_hidden } 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = ROOT 
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}		
+						imprison = ROOT
+					}
+				}
+			}		
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTAnoenemy3"
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							AND = {
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+						
+						any_spouse = {
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+								
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 20
+				trait = cruel
+			}
+			modifier = {
+				factor = 10
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.3
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = just
+			}
+		}
+
+		if = {
+			limit = { NOT  = { lifestyle_traits = 1 } }
+			add_trait = impaler
+		}
+		
+		random = { 
+			chance = 50
+			remove_trait = kind
+			add_trait = cruel	
+		}
+		
+		random = { 
+			chance = 30
+			remove_trait = just
+			add_trait = arbitrary
+		}
+				
+		FROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = ROOT 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+							at_location = ROOT 
+							NOT = {
+								has_character_modifier = modifier_hidden
+							} 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = ROOT 
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+			}		
+		}
+	}
+	
+	option = { 
+		name = "EVTOPTAnoenemy1"
+
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { holder_scope = { war_with = ROOT } }
+		}
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				trait = kind
+			}
+			modifier = {
+				factor = 3
+				trait = charitable
+			}
+			modifier = {
+				factor = 3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}	
+		}
+		
+		random = { 
+			chance = 10
+			add_trait = kind
+			add_trait = just
+			remove_trait = cruel
+		}
+		
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			remove_trait = diligent
+			add_trait = charitable
+		}
+		
+		FROM = { 
+			holder_scope = { 			
+				if = {
+					limit = {
+						any_dynasty_member = {
+							AND = { 
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = {
+						limit = { 
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_spouse = {
+							AND = { 
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }	
+							}
+						}
+					}
+					any_spouse = {
+						limit = { 
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }	
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+			}
+		}
+	}	
+
+	option = {
+		name = "EVTOPTAwaylitfriendlycapture"
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			NOT = {FROM = { holder_scope = { war_with = ROOT } }}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		prestige = 5
+		FROM = { 
+			holder_scope = { 
+				any_courtier = { 
+					if = {
+						limit = { 
+							at_location = ROOT 
+							NOT = { war_with = ROOT }
+						}
+						opinion = {
+							who = ROOT
+							modifier = liberated
+							months = 12
+						}
+					}
+					hidden_tooltip = {
+						if = { 
+							limit = { 
+								at_location = ROOT 
+								NOT = { war_with = ROOT }
+								has_character_modifier = modifier_hidden 
+							} 
+							remove_character_modifier = modifier_hidden
+						}
+					}	
+				}
+			}
+		}	
+	}
+}
+
+
+
+#if dungeons have anybody worth freeing, there are options for that on siege win
+character_event = {
+
+	id = 110009993
+	desc = "EVTDESCWAYsearchdungeons"
+	picture = "GFX_evt_siege"
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+		
+	trigger = {
+		FROM = { 
+			holder_scope = {
+				AND = { 
+					war_with = ROOT 
+					any_courtier = { 
+						prisoner = yes 
+						at_location = ROOT
+					} 
+				} 
+			} 
+		} 						
+	}
+			
+	option = {
+		name = "EVTOPTleavedecision"
+		
+		trigger = {
+			NOT = {
+				OR = {
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				}
+			}
+		}
+		any_liege = {
+			limit = {
+				OR = {
+					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = PREVPREV}}
+					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = PREVPREV}}
+				}
+			}
+			hidden_tooltip = {
+				character_event = {id = 110009996 }
+			}
+		}
+	}			
+				
+	option = {
+		
+		name = "EVTOPWAYprisonrelease01"
+		trigger = { 
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					AND = { 
+						war_with = ROOT 
+						any_courtier = { prisoner = yes } 
+					} 
+				} 
+			} 
+		} 	
+		ai_chance = { 
+			factor = 0.25
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.5
+				trait = paranoid
+			}
+		}
+		random = { 
+			chance = 20
+			add_trait = kind
+			remove_trait = cruel
+			add_trait = charitable
+			remove_trait = paranoid
+		}
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			remove_trait = diligent
+		}
+		FROM = { 
+			holder_scope = {
+				any_courtier = {	
+					limit = {
+						NOT = { character = PREV } 
+						at_location = ROOT
+						prisoner = yes 
+					}
+				prisoner = no
+				}
+			}
+		}
+	}
+		
+	option = {
+		name = "EVTOPWAYprisonrelease02"
+
+		trigger = { 
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					AND = { 
+						war_with = ROOT 
+						any_courtier = { war_with = PREV } 
+					} 
+				} 
+			} 
+		} 
+			
+		ai_chance = { 
+			factor = 1.5 
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.5
+				trait = paranoid
+			} 
+		}
+			
+		random = { 
+			chance = 20
+			add_trait = just
+			remove_trait = cruel
+		}
+			
+		random = { 
+			chance = 5
+			remove_trait = paranoid
+			add_trait = trusting
+		}
+		
+		FROM = { 
+			holder_scope = {
+				any_courtier = {	
+					limit = {
+						NOT = { character = PREV } 
+						prisoner = yes 
+						war_with = PREV
+					}
+					prisoner = no
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPWAYprisonrelease03"
+		 
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					war_with = ROOT 
+					any_courtier = {
+							prisoner = yes
+					}		
+				}
+			}
+			ROOT = { 
+				any_dynasty_member = {
+					AND = {
+						at_location = ROOT
+						prisoner = yes 
+					}
+				}
+			}	  
+		}
+			 	
+		 	
+		ai_chance = { 
+			factor = 0.75
+			modifier = {
+				factor = 0.9
+				trait = kind
+			}
+			modifier = {
+				factor = 0.9
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.75
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+		}
+		random = { 
+			chance = 10
+			add_trait = paranoid
+			add_trait = cynical
+		}
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			add_trait = diligent
+		}
+		ROOT = { 
+			any_dynasty_member = { 
+				if = { 
+					limit = {
+						prisoner = yes
+						has_guardian = yes
+						at_location = ROOT 
+					}					
+					guardian = { prisoner = no }
+				}
+			}
+			any_dynasty_member = {
+				if = {
+					limit = { 
+						prisoner = yes 
+						at_location = ROOT
+					}
+					prisoner = no
+				}
+			}
+			any_spouse = {
+				if = {
+					limit = { 
+						prisoner = yes 
+						at_location = ROOT
+					}
+					prisoner = no
+				}
+			}
+		}
+	}
+				
+					
+	option = {
+		name = "EVTOPWAYprisonrelease04"
+			
+		trigger = {
+			OR = {
+				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
+				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+			}
+			FROM = { 
+				holder_scope = { 
+					AND = { 
+						war_with = ROOT 
+						any_courtier = { prisoner = yes }
+					} 
+				} 
+			} 
+		} 	
+		
+		ai_chance = { 
+			factor = 0.01 
+			modifier = {
+				factor = 0.1
+				trait = kind
+			}
+			modifier = {
+				factor = 0.1
+				trait = just
+			}
+			modifier = {
+				factor = 10
+				trait = ambitious
+			}
+			modifier = {
+				factor = 10
+				trait = cruel
+			}
+			modifier = {
+				factor = 10
+				trait = wroth
+			}
+			modifier = {
+				factor = 10
+				trait = cynical
+			}
+			modifier = {
+				factor = 10
+				trait = paranoid
+			} 
+		}
+		
+		random = { 
+			chance = 20
+			remove_trait = just
+			add_trait = cruel
+			remove_trait = charitable	
+		}
+		
+		random = { 
+			chance = 10
+			remove_trait = zealous
+			add_trait = wroth
+			add_trait = cynical
+		}
+		
+		FROM = { 
+			holder_scope = {
+				any_courtier = {	
+					limit = { 
+						at_location = ROOT
+						prisoner = yes 
+					}
+					opinion = {
+						who = ROOT
+						modifier = left_to_rot
+						months = 60
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+#Events sent to liege
+
+character_event = {
+
+	id = 110009994
+	desc = "EVTDESCsiegewin01"
+	picture = "GFX_evt_siege"
+	border = GFX_event_normal_frame_war
+
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAsiegewin1"
+		
+		trigger = {
+			FROMFROM = { holder_scope = { war_with = ROOT } }
+		} 
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 50  
+				FROMFROM = { holder_scope = { primary_title = { higher_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 100  
+				FROMFROM = { holder_scope = { primary_title = { higher_tier_than = DUKE } } }
+			}
+			modifier = {
+				factor = 0.25  
+				FROMFROM = { holder_scope = { primary_title = { lower_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 10
+				trait = impaler
+			}
+			modifier = {
+				factor = 10
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+
+		}
+		random = { 
+			chance = 5
+			add_trait = just
+			remove_trait = charitable
+		}
+
+		FROMFROM = { 
+			holder_scope = {
+				limit = { 
+					at_location = FROMFROM
+					NOT = { has_character_modifier = modifier_hidden } 
+				}  
+				imprison = ROOT
+			}		
+		}	
+				
+	}
+		
+	option = {
+		name = "EVTOPTAsiegewin2"
+		trigger = {
+			FROMFROM = { 
+				holder_scope = { 
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							NOT = { character = FROM }
+							at_location = FROMFROM
+							NOT = { character = PREV }
+							NOT = { has_character_modifier = modifier_hidden }
+						}			
+						any_spouse = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}		
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				FROMFROM = { holder_scope = { primary_title = { lower_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 40
+				FROMFROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = COUNT } } } }
+			}
+			modifier = {
+				factor = 100
+				FROMFROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = DUKE } } } }
+			}
+			modifier = {
+				factor = 8
+				trait = cruel
+			}
+			modifier = {
+				factor = 8
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}	
+		}
+
+		random = { 
+			chance = 10
+			add_trait = greedy
+			remove_trait = kind
+			add_trait = cruel
+		}
+		random = { 
+			chance = 5
+			add_trait = ambitious
+			add_trait = diligent
+			remove_trait = charitable
+			remove_trait = just
+		}
+		
+		FROMFROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = { 
+							any_child = { 
+								has_guardian = yes
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden } 
+							}
+						}
+					}
+					any_dynasty_member = { 
+						any_child = { 
+							limit = {
+								has_guardian = yes
+								at_location = FROMFROM 
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+							guardian = { imprison = ROOT }
+						}
+					}
+				}
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						imprison = ROOT
+					}	
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+						at_location = FROMFROM
+						NOT = {
+							has_character_modifier = modifier_hidden } 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = FROMFROM
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}		
+						imprison = ROOT
+					}
+				}
+			}		
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAsiegewin6"
+		trigger = {
+			FROMFROM = { 
+				holder_scope = { 
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							NOT = { character = FROM }
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						
+						any_spouse = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}		
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 20
+				trait = cruel
+			}
+			modifier = {
+				factor = 10
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.3
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = just
+			}
+		}
+
+		if = {
+			limit = { NOT  = { lifestyle_traits = 1 } }
+			add_trait = impaler
+		}
+		
+		random = { 
+			chance = 50
+			remove_trait = kind
+			add_trait = cruel	
+		}
+
+		random = { 
+			chance = 30
+			remove_trait = just
+			add_trait = arbitrary
+		}
+		
+		FROMFROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+							at_location = FROMFROM
+							NOT = {
+								has_character_modifier = modifier_hidden
+							} 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = FROMFROM
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+			}		
+		}
+	}		
+				 
+	option = {
+		name = "EVTOPTAsiegewin3"
+		
+
+		trigger = {
+			FROMFROM = { holder_scope = { war_with = ROOT } }
+		}
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				trait = kind
+			}
+			modifier = {
+				factor = 3
+				trait = charitable
+			}
+			modifier = {
+				factor = 3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}	
+		}
+		
+		random = { 
+			chance = 10
+			add_trait = kind
+			add_trait = just
+			remove_trait = cruel
+		}
+		
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			remove_trait = diligent
+			add_trait = charitable
+		}
+		
+		FROMFROM = { 
+			holder_scope = { 			
+				if = {
+					limit = {
+						any_dynasty_member = {
+							AND = { 
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = {
+						limit = { 
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_spouse = {
+							AND = { 
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }	
+							}
+						}
+					}
+					any_spouse = {
+						limit = { 
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }	
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTAwaylitfriendlycapture"
+		trigger = {
+			NOT = { FROMFROM = { holder_scope = { war_with = ROOT } } }
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		prestige = 5
+		FROMFROM = { 
+			holder_scope = { 
+				any_courtier = { 
+					if = {
+						limit = { 
+							at_location = FROMFROM
+							NOT = { war_with = ROOT }
+						}
+						opinion = {
+							who = ROOT
+							modifier = liberated
+							months = 12
+						}
+					}
+					hidden_tooltip = {
+						if = { 
+							limit = { 
+								at_location = FROMFROM
+								NOT = { war_with = ROOT }
+								has_character_modifier = modifier_hidden 
+							} 
+							remove_character_modifier = modifier_hidden
+						}
+					}	
+				}
+			}
+		}	
+	}
+}
+
+
+character_event = {
+
+	id = 110009995
+	desc = "EVTDESCsiegenoenemy"
+	picture = "GFX_evt_siege"
+	border = GFX_event_normal_frame_war
+
+	hide_from = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAnoenemy2"
+		trigger = {
+			FROMFROM = { 
+				holder_scope = {
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							NOT = { character = FROM }
+							at_location = FROMFROM
+							NOT = { character = PREV }
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						
+						any_spouse = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+								
+					}
+				} 
+			}
+		}
+								
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				FROMFROM = { holder_scope = { primary_title = { lower_tier_than = COUNT } } }
+			}
+			modifier = {
+				factor = 40
+				FROMFROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = COUNT } } } }
+			}
+			modifier = {
+				factor = 100
+				FROMFROM = { holder_scope = { 
+					any_dynasty_member = { primary_title = { higher_tier_than = DUKE } } } }
+			}
+			modifier = {
+				factor = 8
+				trait = cruel
+			}
+			modifier = {
+				factor = 8
+				trait = greedy
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}	
+		}
+
+		random = { 
+			chance = 10
+			add_trait = greedy
+			remove_trait = kind
+			add_trait = cruel
+		}
+		random = { 
+			chance = 5
+			add_trait = ambitious
+			add_trait = diligent
+			remove_trait = charitable
+			remove_trait = just
+		}
+		
+		FROMFROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = { 
+							any_child = { 
+								has_guardian = yes
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden } 
+							}
+						}
+					}
+					any_dynasty_member = { 
+						any_child = { 
+							limit = {
+								has_guardian = yes
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+							guardian = { imprison = ROOT }
+						}
+					}
+				}
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = { 
+						limit = {
+							at_location = FROMFROM 
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						imprison = ROOT
+					}	
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+						at_location = FROMFROM
+						NOT = {
+							has_character_modifier = modifier_hidden } 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = FROMFROM
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}		
+						imprison = ROOT
+					}
+				}
+			}		
+		}
+	}		
+	
+	option = {
+		name = "EVTOPTAnoenemy3"
+		trigger = {
+			FROMFROM = { 
+				holder_scope = { 
+					war_with = ROOT
+					OR = {
+						any_dynasty_member = {
+							AND = {
+								NOT = { character = FROM }
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+						
+						any_spouse = {
+							NOT = { character = FROM }
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+								
+					}
+				} 
+			}
+		}
+				
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 20
+				trait = cruel
+			}
+			modifier = {
+				factor = 10
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 0
+				trait = kind
+			}
+			modifier = {
+				factor = 20
+				trait = impaler
+			}
+			modifier = {
+				factor = 20
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.3
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = just
+			}
+		}
+
+
+		if = {
+			limit = { NOT  = { lifestyle_traits = 1 } }
+			add_trait = impaler
+		}
+		
+		random = { 
+			chance = 50
+			remove_trait = kind
+			add_trait = cruel	
+		}
+		
+		random = { 
+			chance = 30
+			remove_trait = just
+			add_trait = arbitrary
+		}
+				
+		FROMFROM = { 
+			holder_scope = {  
+				if = { 
+					limit = {
+						any_dynasty_member = {  
+							AND = {
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = {
+						limit = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+					
+				if = { 
+					limit = {
+						any_spouse = {  
+							at_location = FROMFROM
+							NOT = {
+								has_character_modifier = modifier_hidden
+							} 
+						}
+					}
+					any_spouse = {
+						limit = {
+							at_location = FROMFROM
+							NOT = {
+								has_character_modifier = modifier_hidden } 
+						}
+						death = {death_reason = death_battle killer = ROOT}
+						hidden_tooltip = {
+							any_dynasty_member = {
+								limit = {
+									is_alive = yes
+									NOT = { character = ROOT }
+								}
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_spouse = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_dishonorable
+									months = 60
+								}
+							}
+							any_child = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							father = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							mother = {	
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+							any_sibling = {
+								opinion = {
+									who = ROOT
+									modifier = opinion_killed_close_kin
+									months = 60
+								}
+							}
+						}
+					}
+				}
+			}		
+		}
+	}
+	
+	option = { 
+		name = "EVTOPTAnoenemy1"
+
+		trigger = {
+			FROMFROM = { holder_scope = { war_with = ROOT } }
+		}
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				trait = kind
+			}
+			modifier = {
+				factor = 3
+				trait = charitable
+			}
+			modifier = {
+				factor = 3
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}	
+		}
+		
+		random = { 
+			chance = 10
+			add_trait = kind
+			add_trait = just
+			remove_trait = cruel
+		}
+		
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			remove_trait = diligent
+			add_trait = charitable
+		}
+		
+		FROMFROM = { 
+			holder_scope = { 			
+				if = {
+					limit = {
+						any_dynasty_member = {
+							AND = { 
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }
+							}
+						}
+					}
+					any_dynasty_member = {
+						limit = { 
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_spouse = {
+							AND = { 
+								at_location = FROMFROM
+								NOT = { has_character_modifier = modifier_hidden }	
+							}
+						}
+					}
+					any_spouse = {
+						limit = { 
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }	
+						}
+						opinion = {
+							who = ROOT
+							modifier = opinion_relieved
+							months = 12
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTAwaylitfriendlycapture"
+		trigger = {
+			NOT = {FROMFROM = { holder_scope = { war_with = ROOT } }}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		prestige = 5
+		FROMFROM = { 
+			holder_scope = { 
+				any_courtier = { 
+					if = {
+						limit = { 
+							at_location = FROMFROM 
+							NOT = { war_with = ROOT }
+						}
+						opinion = {
+							who = ROOT
+							modifier = liberated
+							months = 12
+						}
+					}
+					hidden_tooltip = {
+						if = { 
+							limit = { 
+								at_location = FROMFROM
+								NOT = { war_with = ROOT }
+								has_character_modifier = modifier_hidden 
+							} 
+							remove_character_modifier = modifier_hidden
+						}
+					}	
+				}
+			}
+		}	
+	}
+}
+
+
+character_event = {
+
+	id = 110009996
+	desc = "EVTDESCWAYsearchdungeons"
+	picture = "GFX_evt_siege"
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+				
+	option = {
+		
+		name = "EVTOPWAYprisonrelease01"
+		trigger = { 
+			FROMFROM = { 
+				holder_scope = { 
+					AND = { 
+						war_with = ROOT 
+						any_courtier = { prisoner = yes } 
+					} 
+				} 
+			} 
+		} 	
+		ai_chance = { 
+			factor = 0.25
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.5
+				trait = paranoid
+			}
+		}
+		random = { 
+			chance = 20
+			add_trait = kind
+			remove_trait = cruel
+			add_trait = charitable
+			remove_trait = paranoid
+		}
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			remove_trait = diligent
+		}
+		FROMFROM = { 
+			holder_scope = {
+				any_courtier = {	
+					limit = { 
+						at_location = FROMFROM
+						prisoner = yes 
+					}
+				prisoner = no
+				}
+			}
+		}
+	}
+		
+	option = {
+		name = "EVTOPWAYprisonrelease02"
+
+		trigger = { 
+			FROMFROM = { 
+				holder_scope = { 
+					AND = { 
+						war_with = ROOT 
+						any_courtier = { war_with = PREV } 
+					} 
+				} 
+			} 
+		} 
+			
+		ai_chance = { 
+			factor = 1.5 
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 0.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.5
+				trait = paranoid
+			} 
+		}
+			
+		random = { 
+			chance = 20
+			add_trait = just
+			remove_trait = cruel
+		}
+			
+		random = { 
+			chance = 5
+			remove_trait = paranoid
+			add_trait = trusting
+		}
+		
+		FROMFROM = { 
+			holder_scope = {
+				any_courtier = {	
+					limit = { 
+						prisoner = yes 
+						war_with = PREV
+					}
+					prisoner = no
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPWAYprisonrelease03"
+		 
+		trigger = {
+			FROMFROM = { 
+				holder_scope = { 
+					war_with = ROOT 
+					any_courtier = {
+							prisoner = yes
+					}		
+				}
+			}
+			ROOT = { 
+				any_dynasty_member = {
+					AND = {
+						at_location = FROMFROM
+						prisoner = yes 
+					}
+				}
+			}	  
+		}
+			 	
+		 	
+		ai_chance = { 
+			factor = 0.75
+			modifier = {
+				factor = 0.9
+				trait = kind
+			}
+			modifier = {
+				factor = 0.9
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.75
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+		}
+		random = { 
+			chance = 10
+			add_trait = paranoid
+			add_trait = cynical
+		}
+		random = { 
+			chance = 5
+			remove_trait = ambitious
+			add_trait = diligent
+		}
+		ROOT = { 
+			any_dynasty_member = { 
+				if = { 
+					limit = {
+						prisoner = yes
+						has_guardian = yes
+						at_location = FROMFROM
+					}					
+					guardian = { prisoner = no }
+				}
+			}
+			any_dynasty_member = {
+				if = {
+					limit = { 
+						prisoner = yes 
+						at_location = FROMFROM
+					}
+					prisoner = no
+				}
+			}
+			any_spouse = {
+				if = {
+					limit = { 
+						prisoner = yes 
+						at_location = FROMFROM
+					}
+					prisoner = no
+				}
+			}
+		}
+	}
+				
+					
+	option = {
+		name = "EVTOPWAYprisonrelease04"
+			
+		trigger = {
+			FROMFROM = { 
+				holder_scope = { 
+					AND = { 
+						war_with = ROOT 
+						any_courtier = { prisoner = yes }
+					} 
+				} 
+			} 
+		} 	
+		
+		ai_chance = { 
+			factor = 0.01 
+			modifier = {
+				factor = 0.1
+				trait = kind
+			}
+			modifier = {
+				factor = 0.1
+				trait = just
+			}
+			modifier = {
+				factor = 10
+				trait = ambitious
+			}
+			modifier = {
+				factor = 10
+				trait = cruel
+			}
+			modifier = {
+				factor = 10
+				trait = wroth
+			}
+			modifier = {
+				factor = 10
+				trait = cynical
+			}
+			modifier = {
+				factor = 10
+				trait = paranoid
+			} 
+		}
+		
+		random = { 
+			chance = 20
+			remove_trait = just
+			add_trait = cruel
+			remove_trait = charitable	
+		}
+		
+		random = { 
+			chance = 10
+			remove_trait = zealous
+			add_trait = wroth
+			add_trait = cynical
+		}
+		
+		FROMFROM = { 
+			holder_scope = {
+				any_courtier = {	
+					limit = { 
+						at_location = FROMFROM
+						prisoner = yes 
+					}
+					opinion = {
+						who = ROOT
+						modifier = left_to_rot
+						months = 60
+					}
+				}
+			}
+		}
+	}
+}
