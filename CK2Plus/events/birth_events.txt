@@ -28,8 +28,6 @@ character_event = {
 			}
 		}
 		OR = {
-			religion_group = christian
-			religion_group = judaism_group
 			is_female = yes
 			trait = homosexual
 		}
@@ -44,10 +42,10 @@ character_event = {
 				trait = divine_blood
 				ROOT = { trait = divine_blood }
 				OR = {
-					NOT = { is_close_relative = FROM }
+					NOT = { is_close_relative = ROOT }
 					AND = {
 						religion_group = zoroastrian_group
-						FROM = { religion_group = zoroastrian_group }
+						ROOT = { religion_group = zoroastrian_group }
 					}
 				}
 			}
@@ -174,9 +172,11 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			religion_group = zoroastrian_group
-			FROM = { religion_group = zoroastrian_group }
-			is_close_relative = ROOT
+			liege = { 
+				religion_group = zoroastrian_group 
+				is_close_relative = ROOT
+				ROOT = { religion_group = zoroastrian_group }
+			}
 		}
 		modifier = {
 			factor = 0.75
