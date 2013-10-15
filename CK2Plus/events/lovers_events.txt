@@ -39,6 +39,11 @@ character_event = {
 					character = ROOT
 				}
 			}
+			lover = {
+				NOT = {
+					is_consort = PREV
+				}
+			}
 		}
 	}
 
@@ -1157,6 +1162,31 @@ character_event = {
 		if = {
 			limit = {
 				is_married = yes
+				lover = {
+					is_consort = PREV
+				}
+				spouse = {
+					is_alive = yes
+					prisoner = no
+					is_abroad = no
+				}
+			}
+			spouse = {
+				opinion = {
+					modifier = opinion_disappointed
+					who = ROOT
+					years = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_married = yes
+				lover = {
+					NOT = {
+						is_consort = PREV
+					}
+				}
 				spouse = {
 					is_alive = yes
 					prisoner = no
@@ -1234,6 +1264,11 @@ character_event = {
 						spouse = { character = ROOT }
 					}
 				}
+				lover = {
+					NOT = {
+						is_consort = PREV
+					}
+				}			
 			}
 			piety = -5
 			any_vassal = {
@@ -1294,6 +1329,15 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		NOT = {
+			spouse = {
+				any_consort = {
+					lover = {
+						is_consort = PREV
+					}
+				}
+			}
+		}
 		spouse = {
 			in_command = no
 			war = no
@@ -2053,6 +2097,11 @@ character_event = {
 	only_rulers = yes
 
 	trigger = {
+		lover = {
+			NOT = {
+				is_consort = ROOT
+			}
+		}		
 		war = no
 		in_command = no
 		is_married = yes
@@ -2239,7 +2288,28 @@ character_event = {
 		name = "EVTOPTA64075" #Ignore your wife, and go visit lover
 		random = {
 			chance = 50
-
+			if = {
+				limit = {
+					lover = {
+						is_consort = PREV
+					}
+				}
+				spouse = {
+					opinion = {
+						modifier = opinion_disappointed
+						who = ROOT
+						years = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					lover = {
+						NOT = {
+							is_consort = PREV
+						}
+					}
+				}
 			spouse = {
 				opinion = {
 					modifier = opinion_angry
@@ -2247,6 +2317,7 @@ character_event = {
 					years = 10
 				}
 			}
+		}
 		}
 		random = {
 			chance = 50
@@ -2285,6 +2356,14 @@ character_event = {
 				}
 			}
 			20 = {
+				if = {
+					limit = {
+						lover = {
+							NOT = {
+								is_consort = PREV
+							}
+						}
+					}	
 				spouse = {
 					character_event = {
 						id = 64076
@@ -2293,6 +2372,7 @@ character_event = {
 				}
 			}
 		}
+	}
 	}
 	option = {
 		name = "EVTOPTC64075" #Spend time with wife instead
@@ -2911,6 +2991,48 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB64100" #I can have her in my castle
+		if = {
+			limit = {
+				lover = {
+					is_consort = PREV
+				}
+			}
+			random_list = {
+				50 = {
+				remove_trait = stressed
+				#TODO: Notify lost stressed.
+				}
+				25 = {
+					lover = {
+						if = {
+							limit = { is_married = yes }
+							impregnate_cuckoo = ROOT
+						}
+						if = {
+							limit = { is_married = no }
+							impregnate = ROOT
+						}
+					}
+					hidden_tooltip = {
+						ROOT = {
+							character_event = {
+								id = 64101
+								days = 2
+								random = 2
+							}
+						}
+					}
+				}
+				25 = {
+				}
+			}
+		}
+		if = {
+			limit = {
+				lover = {
+					NOT = { is_consort = PREV }
+				}
+			}
 		random_list = {
 			50 = {
 				remove_trait = stressed
@@ -2946,6 +3068,7 @@ character_event = {
 				}
 			}
 		}
+	}
 	}
 	option = {
 		name = "EVTOPTC64100" #I don't need comfort
@@ -3055,6 +3178,11 @@ character_event = {
 			is_alive = yes
 			is_abroad = no
 			prisoner = no
+		}
+		NOT = {
+			lover = {
+				is_consort = ROOT
+			}
 		}
 		lover = {
 			NOT = {
@@ -3218,6 +3346,9 @@ character_event = {
 					is_pregnant = no
 				}
 			}
+			NOT = {
+				is_consort = PREV
+			}
 		}
 	}
 
@@ -3358,6 +3489,9 @@ character_event = {
 				}
 			}
 			prisoner = no
+			NOT = {
+				is_consort = PREV
+			}
 		}
 		spouse = {
 			is_alive = yes
@@ -4038,6 +4172,9 @@ character_event = {
 			NOT = {
 				spouse = { character = ROOT }
 			}
+			NOT = {
+				is_consort = PREV
+			}
 			OR = {
 				AND = {
 					is_female = yes
@@ -4149,11 +4286,6 @@ character_event = {
 	id = 64200
 	picture = GFX_evt_lovers
 	trigger = {
-		OR = {
-			religion_group = christian
-			religion_group = judaism_group
-			is_female = yes
-		}
 		is_married = yes
 		has_lover = no
 		OR = {
