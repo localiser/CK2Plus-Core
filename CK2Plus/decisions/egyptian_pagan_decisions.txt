@@ -1,0 +1,58 @@
+decisions = {	
+	restore_luxor = {
+		is_high_prio = yes
+		potential = {
+			is_ruler = yes
+			age = 16
+			OR = {
+				religion = egyptian_pagan
+				religion = aten_pagan
+			}
+			NOT = { has_global_flag = luxor_restored }
+			OR = {
+				has_landed_title = k_egypt
+				has_landed_title = e_egypt
+			}
+		}	
+		allow = {
+			wealth = 300
+			795 = {
+				owner = {
+					OR = {
+						religion = egyptian_pagan
+						religion = aten_pagan
+					}
+					OR = {
+						top_liege = { character = ROOT }
+						character = root
+					}
+				}
+			}
+			war = no
+			prisoner = no		
+		}
+		effect = {
+			province_event = { id = 1000182319 }
+			set_global_flag = luxor_restored
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 3.0
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}
+	}
+}
