@@ -9,31 +9,29 @@ decisions = {
 				religion = aten_pagan
 			}
 			NOT = { has_global_flag = luxor_restored }
+			NOT = { has_global_flag = luxor_restoring }
 			OR = {
 				has_landed_title = k_egypt
 				has_landed_title = e_egypt
 			}
 		}	
 		allow = {
-			wealth = 300
+			wealth = 1000
 			795 = {
 				owner = {
 					OR = {
 						religion = egyptian_pagan
 						religion = aten_pagan
 					}
-					OR = {
-						top_liege = { character = ROOT }
-						character = root
-					}
+					character = ROOT
 				}
 			}
 			war = no
 			prisoner = no		
 		}
 		effect = {
+			set_global_flag = luxor_restoring
 			province_event = { id = 1000182319 }
-			set_global_flag = luxor_restored
 		}
 		revoke_allowed = {
 			always = no
@@ -44,7 +42,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					scaled_wealth = 10.0
 				}
 			}
 			modifier = {

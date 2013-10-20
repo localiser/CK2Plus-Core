@@ -1,0 +1,141 @@
+# Luxor Restoration Part 1
+province_event = {
+	id = 1000182319
+	title = "EVTNAME1000182319"
+	desc = "EVTDESC1000182319"
+	picture = "GFX_persepolis_ruin"
+
+	is_triggered_only = yes
+	
+	immediate = {
+		795 = { set_province_flag = reb_luxor_1 }
+	}	
+
+	option = {
+		name = "EVTOPTA1000182319" # Make it the greatest temple there ever was!
+		wealth = -1000
+	}
+}
+
+# Luxor Restoration Part 2 - Add Asyut bonus modifier ~8 years
+province_event = {
+	id = 1000182320
+	title = "EVTNAME1000182320"
+	desc = "EVTDESC1000182320"
+	picture = "GFX_evt_luxor"
+
+	trigger = {
+		has_global_flag = luxor_restoring
+		province_id = 795 # Asyut
+		NOT = { has_global_flag = luxor_restored }
+		had_province_flag = { flag = reb_luxor_1 days = 2555 random = 365 }
+		NOT = { has_province_flag = reb_luxor_2 }
+	}
+
+	immediate = {
+		set_province_flag = reb_luxor_2
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "EVTOPTA1000182320" # Library
+		795 = {
+			add_province_modifier = { name = "luxor_library" duration = -1 }
+			}
+	}
+	option = {
+		name = "EVTOPTB1000182320" # Promote Fanaticism
+		795 = {
+			add_province_modifier = { name = "luxor_fanaticism" duration = -1 }
+			}
+	}
+	option = {
+		name = "EVTOPTC1000182320" # Promote Tax Collection
+		795 = {
+			add_province_modifier = { name = "luxor_admin" duration = -1 }
+			}
+	}
+}
+
+# Luxor Restoration Part 3 ~2 years
+
+province_event = {
+	id = 1000182321
+	title = "EVTNAME1000182321"
+	desc = "EVTDESC1000182321"
+	picture = "GFX_evt_luxor"
+	
+	trigger = {
+		has_global_flag = luxor_restoring
+		province_id = 795 # Asyut
+		NOT = { has_global_flag = luxor_restored }
+		has_province_flag = reb_luxor_1
+		had_province_flag = { flag = reb_luxor_2 days = 638 random = 92 }		
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	immediate = {
+		clr_global_flag = luxor_restoring
+		set_global_flag = luxor_restored
+		clr_province_flag = reb_luxor_1
+		clr_province_flag = reb_luxor_2
+	}
+
+	option = {
+		name = "EVTOPTA1000182321"
+		795 = {
+			build_holding = {
+			   title = b_luxor
+			   type = temple
+			   holder = FROM
+			}
+		}
+		prestige = 500
+		owner = {
+			religion_authority = {
+				modifier = luxor_restored
+				years = 30
+			}
+		}
+		hidden_tooltip = {
+			owner = {
+				set_character_flag = event_1000182322
+				narrative_event = { id = 1000182322 days = 7 }
+			}
+		}
+	}
+}
+
+# News spread about Luxor
+narrative_event = {
+	id = 1000182322
+	title = "EVTNAME1000182322"
+	desc = "EVTDESC1000182322"
+	picture = "GFX_evt_luxor"
+	border = "GFX_event_narrative_frame_religion"
+	
+	major = yes
+	only_rulers = yes
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			has_character_flag = event_1000182322
+		}
+		clr_character_flag = event_1000182322
+		name = "1000182008.a"
+	}
+	
+	option = {
+		trigger = {
+			NOT = { has_character_flag = event_1000182322 }
+		}
+		name = "EVTOPTA1000182322"
+	}
+}
