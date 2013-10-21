@@ -1,5 +1,397 @@
 # TITULAR KINGDOMS
 
+k_magna_graecia = {
+	color = { 16 211 246 }
+	capital = 344 #Taranto
+	assimilate = no
+	allow = {
+		war = no
+		is_republic = yes
+	}
+	culture = greek
+	dignity = 10
+	greek = "Megane Hellas"
+	sicilian_greek = "Megane Hellas"
+	sicilian = "Magna Grecia"
+	italian = "Magna Grecia"
+	bedouin_arabic = "Majna Ghrasya"
+	maghreb_arabic = "Majna Ghrasya"
+	levantine_arabic = "Majna Ghrasya"
+	egyptian_arabic = "Majna Ghrasya"
+	andalusian_arabic = "Majna Ghrasya"
+	sicilian_arabic = "Majna Ghrasya"
+}
+
+k_bhutan = {
+	color = { 255 127 20 }
+}
+
+k_cornwall = {
+	color = { 195 65 15 }
+	capital = 31 # Cornwall
+	culture = cornish
+	
+	saxon = "Cornweall"
+	cornish = "Kernow"
+	scottish = "Dumnonia"
+	breton = "Dumnonia"
+	welsh = "Cernyw"
+	norman = "Cornualia"
+	frankish = "Cornualia"
+	
+	
+	allow = {
+		war = no
+		OR = {
+			culture = cornish
+			k_cornwall = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+}
+
+k_dal = {
+	color = { 20 20 255 }
+}
+
+k_dublin = {
+	color = { 255 65 20 }
+	capital = 11 # Dublin
+	culture = danish
+	allow = {
+		war = no
+		OR = {
+			culture = english_norse
+			culture_group = north_germanic
+			k_dublin = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	irish = "Dubhlinn"
+	saxon = "Difelin"
+	norwegian = "Dyflin"
+	swedish = "Dyflin"
+	danish = "Dyflin"
+	welsh = "Dulyn"
+}
+
+k_epirus = {
+	color = { 159 158 29 }
+	capital = 472
+	culture = greek
+	allow = {
+		war = no
+		OR = {
+			culture_group = byzantine
+			k_epirus = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	greek = "Epeiros"
+	sicilian_greek = "Epeiros"
+	croatian = "Epir"
+	serbian = "Epir"
+	frankish = "Epire"
+	bulgarian = "Epir"
+}
+
+k_holland = {
+	color = { 156  96  100 }
+	culture = dutch
+	capital = 80
+	allow = {
+		lower_tier_than = king
+		OR = {
+			culture = dutch
+			k_holland = { OR = { is_titular = no has_holder = yes } }
+		}
+		has_global_flag = shattered_world
+	}
+	frankish = "Hollande"
+	italian = "Olanda"
+}
+
+k_livonia = {
+	color={ 209 121 116 }
+	capital = 377 #livs
+	culture = german
+	allow = {
+		war = no
+		OR = {
+			religion = catholic
+			k_livonia = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	swedish = "Livland"
+	danish = "Livland"
+	norwegian = "Livland"
+	norse = "Livland"
+	german = "Livland"
+	lithuanian = "Livonija"
+	finnish = "Liivinmaa"
+	russian = "Liflyandiya"
+	ugricbaltic = "Liivimaa"
+	lettigallish = "Livonika"
+	polish = "Inflanty"
+}
+
+k_mercia = {
+	color={ 227 199 41 }
+	capital = 63 # Derby
+	culture = saxon
+	allow = {
+		war = no
+		OR = {
+			AND = {
+				culture = saxon
+				lower_tier_than = king
+			}
+			k_mercia = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	saxon = "Mierce"
+	norman = "Mercie"
+	frankish = "Mercie"
+}
+
+k_normandy = { #unused
+	color={ 73 136 4 }
+	color2={ 255 255 255 }
+	culture = norman
+	frankish = "Normandie"
+	norman = "Normanz"
+	breton = "Normandi"
+	dutch = "Normandie"
+	occitan = "Normandia"
+}
+
+k_northumbria = {
+	color = { 255 65 20 }
+	capital = 57 # York
+	culture = saxon
+	allow = {
+		war = no
+		OR = {
+			AND = {
+				culture = saxon
+				lower_tier_than = king
+			}
+			k_northumbria = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	saxon = "Northymbraland"
+	norman = "Northumbrie"
+}
+
+k_prussia = {
+	color={ 121 176 209 }
+	capital = 370 # Marienburg
+	culture = german
+	allow = {
+		war = no
+		OR = {
+			culture = german
+			culture_group = baltic
+			k_prussia = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	german = "Preussen"
+	lettigallish = "Prusija"
+	lithuanian = "Prusija"
+	polish = "Prusy"
+	prussian = "Prusa"
+	danish = "Projsen"
+	swedish = "Projsen"
+	norse = "Projsen"
+	norwegian = "Projsen"
+}
+
+k_sami = {
+	color = { 11 80 139 }
+	culture = lappish
+	capital = 386 # Kemi
+	tribe = yes
+	
+	allow = {
+		OR = {
+			AND = {
+				culture = lappish
+				OR = {
+					religion = finnish_pagan
+					religion = finnish_pagan_reformed
+				}
+			}
+			k_sami = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	dignity = 10
+	
+	title = "HEAD_CHIEF"
+	foa = "HEAD_CHIEF_FOA"
+	title_prefix = "UNIFIED_TRIBES_OF"	
+	finnish = "Lapps"
+	swedish = "Lapps"
+	norwegian = "Lapps"
+	danish = "Lapps"
+	norse = "Lapps"
+	russian = "Lopari"
+}
+
+k_sardinia = {
+    color={ 170 200 170 }
+	capital = 326 # Cagliari
+	culture = italian
+	allow = {
+		war = no
+		OR = {
+			culture_group = latin
+			culture_group = iberian
+			k_sardinia = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	italian = "Sardegna"
+	catalan = "Sardenya"
+	castillan = "Cerdena"
+	occitan = "Sardenha"
+	sicilian = "Sardigna"
+}
+
+k_saxony = {
+	color={ 74 132 75 }
+	color2={ 70 255 255 }
+
+	capital = 256
+
+	culture = german
+	allow = {
+		war = no
+		OR = {
+			AND = {
+				culture = german
+				NOT = { tier = emperor }
+			}
+			k_saxony = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	german = "Sachsen"
+	bohemian = "Sasko"
+	polish = "Saksonia"
+	italian = "Sassonia"
+}
+
+k_thessalonika = {
+	color = { 162  210  210 }
+	color2={ 255 255 23 }
+
+	allow = {
+		war = no
+		religion = catholic
+	}
+	capital = 490 #Thessalonica
+	turkish = "Salonika"
+	bulgarian = "Solun"
+	frankish = "Salonique"
+	serbian = "Solun"
+}
+
+k_roma = {
+	color = { 245 102 97 }
+	capital = 333 #Roma
+	culture = roman
+
+	title = "Consul"
+	title_female = "Consul"
+
+	short_name = yes
+
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_roma = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	german = "Rom"
+	frankish = "Rome"
+}
+
+k_gotland = {
+	color={ 96 92 240 }
+	color2={ 255 255 255 }
+	assimilate = no
+
+	capital = 301 #Gotland
+	culture = swedish
+
+	dignity = 200 # Never want the Republic of Pisa to change primary title
+
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_gotland = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	finnish = "Gotlanti"
+	ugricbaltic = "Gotlanti"
+}
+
+k_ancona = {
+	color={ 130 227 180 }
+	color2={ 255 255 255 }
+	assimilate = no
+
+	capital = 350 # Ancona
+	culture = italian
+
+	dignity = 200 # Never want the Republic of Pisa to change primary title
+
+	allow = {
+		war = no
+		OR = {
+			is_republic = yes
+			k_ancona = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	greek = "Ankon"
+	sicilian_greek = "Ankon"
+	frankish = "Ancone"
+}
+
+k_wend = {
+	color={ 142 160 40 }
+	capital = 260 #Mecklemburg
+	culture = pommeranian
+
+	allow = {
+		war = no
+		OR = {
+			culture = pommeranian
+			k_wend = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	dignity = 100
+	danish = "Vindr"
+	norwegian = "Vindr"
+	norse = "Vindr"
+	swedish = "Vindr"
+	polish = "Wendowie"
+}
+
+k_wessex = {
+	color={ 101 206 15 }
+	capital = 26 # Winchester
+	culture = saxon
+	allow = {
+		war = no
+		OR = {
+			AND = {
+				culture = saxon
+				lower_tier_than = king
+			}
+			k_wessex = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	saxon = "Westseaxna"
+}
+
 k_pechenegs = {
 	color = { 173 150 43 }
 	color2 = { 0 128 128 }
@@ -1317,4 +1709,296 @@ b_polkarios = {
 b_urso = {
 	culture = italian
 	religion = catholic
+}
+
+d_acre = {
+	color = { 19 180 16 }
+	dignity = 10
+	greek = "Ptolemais"
+
+	sicilian_greek = "Ptolemais"
+
+	bedouin_arabic = "Akko"
+
+	maghreb_arabic = "Akko"
+	levantine_arabic = "Akko"
+	egyptian_arabic = "Akko"
+
+	andalusian_arabic = "Akko"
+
+	sicilian_arabic = "Akko"
+}
+
+d_aquileia = {
+	color = { 250 175 250 }
+	color2 = { 255 255 255 }
+
+	capital = 358 #Aquileia
+	allow = {
+		war = no
+		religion_group = christian
+		is_theocracy = yes
+	}
+	dignity = 10
+	croatian = "Akvileja"
+	serbian = "Akvileja"
+	german = "Agley"
+}
+
+d_bologna = {
+	color = { 219 155 35 }
+	capital = 352 # Bologna
+	culture = italian
+	allow = {
+		war = no
+		is_republic = yes
+		lower_tier_than = duke
+		OR = {
+			independent = yes
+			liege = { is_merchant_republic = no }
+		}
+	}
+	dignity = 10
+	frankish = "Bologne"
+	occitan = "Bolonha"
+	sicilian = "Bulogna"
+	english = "Baloney"
+}
+
+d_foix = {
+	color = { 247 211 116 }
+	occitan = "Fois"
+}
+
+d_hamburg = {
+	color = { 147 177 125 }
+	allow = {
+		war = no
+		is_republic = yes
+		lower_tier_than = duke
+		OR = {
+			independent = yes
+			liege = { is_merchant_republic = no }
+		}
+	}
+	capital = 261
+	dignity = 10
+}
+
+d_galatia = {
+	color = { 244 75 185 }
+	capital = 752
+	allow = {
+		war = no
+		is_republic = yes
+		lower_tier_than = duke
+		OR = {
+			independent = yes
+			liege = { is_merchant_republic = no }
+		}
+	}
+	dignity = 10
+	turkish = "Kirsehir"
+	bedouin_arabic = "Kirshur"
+	maghreb_arabic = "Kirshur"
+	levantine_arabic = "Kirshur"
+	egyptian_arabic = "Kirshur"
+	andalusian_arabic = "Kirshur"
+	sicilian_arabic = "Kirshur"
+}
+
+d_karelians = {
+	color={ 190 246 101 }
+
+	tribe = yes
+
+	culture = finnish
+	title = "HIGH_CHIEF"
+	foa = "HIGH_CHIEF_FOA"
+	title_prefix = "TRIBE_OF"
+	dignity = 10
+	swedish = "Karelen"
+	danish = "Karelen"
+	norwegian = "Karelen"
+	russian = "Kareliya"
+	finnish = "Karjala"
+	komi = "Karjala"
+}
+
+d_mainz = {
+	color = { 150 158 228 }
+	color2 = { 255 255 255 }
+
+	capital = 123 # Mainz
+	allow = {
+		war = no
+		religion_group = christian
+		is_theocracy = yes
+	}
+	dignity = 10
+}
+
+d_marino = {
+	color = { 0  128  255 }
+	capital = 329 # Urbino
+	culture = italian
+	allow = {
+		war = no
+		is_republic = yes
+		lower_tier_than = duke
+		OR = {
+			independent = yes
+			liege = { is_merchant_republic = no }
+		}
+	}
+	dignity = 10
+	frankish = "Marin"
+	occitan = "Marin"
+	sicilian = "Marinu"
+	greek = "Marinos"
+	sicilian_greek = "Marinos"
+}
+
+d_pfalz = {
+	color = { 203 150 143 }
+	culture = german
+	capital = 124
+	short_name = yes
+	allow = {
+		d_pfalz = { has_holder = yes }
+	}
+	dignity = 10
+	english = "Palatinate"
+	frankish = "Palatinat"
+	dutch = "Palts"
+	italian = "Palatinato"
+	occitan = "Palatinat"
+}
+
+d_piedmont = {
+	color={ 114 222 38 }
+	color2={ 255 255 255 }
+	occitan = "Piemont"
+	frankish = "Piemont"
+	sicilian = "Piemunti"	
+}
+
+d_ravenna = {
+	color = { 244 125 85 }
+	color2 = { 255 255 255 }
+
+	capital = 351 #Ravenna
+	allow = {
+		war = no
+		religion_group = christian
+		is_theocracy = yes
+	}
+	dignity = 10
+	german = "Raben"
+	frankish = "Ravenne"
+	occitan = "Ravena"
+}
+
+d_tobruk = {
+	color={ 10 48 243 }
+	bedouin_arabic = "Tubruq"
+	maghreb_arabic = "Tubruq"
+	levantine_arabic = "Tubruq"
+	egyptian_arabic = "Tubruq"
+	andalusian_arabic = "Tubruq"
+	sicilian_arabic = "Tubruq"
+	greek = "Antipyrgos"
+	sicilian_greek = "Antipyrgos"
+	italian = "Tobruch"
+	sicilian = "Tobruch"
+}
+
+d_trier = {
+	color={ 10 48 243 }
+	allow = {
+		war = no
+		religion_group = christian
+		is_theocracy = yes
+	}
+	dignity = 10
+	capital = 118
+	italian = "Treviri"
+	frankish = "TrËves"
+	occitan = "Treveri"
+}
+
+d_salzburg = {
+	color={ 220 220 250 }
+	capital = 448
+	allow = {
+		war = no
+		religion_group = christian
+		is_theocracy = yes
+	}
+	dignity = 10
+	frankish = "Salzbourg"
+	italian = "Salisburgo"
+	bohemian = "Solnohrad"
+}
+
+d_samarra = {
+	color = { 217 247 147 }
+	dignity = 10
+}
+
+d_syracuse = {
+	color = { 226 204 28 }
+	capital = 343
+	allow = {
+		war = no
+		culture_group = byzantine
+	}
+	greek = "Syrakousa"
+	sicilian_greek = "Syrakousa"
+	sicilian = "Sarausa"
+	sicilian_arabic = "Surkush"
+	maghreb_arabic = "Surkush"
+	levantine_arabic = "Surkush"
+	egyptian_arabic = "Surkush"
+	bedouin_arabic = "Surkush"
+	andalusian_arabic = "Surkush"
+}
+
+d_tyrone = {
+	color={ 137 14 21 }
+	irish = "TÌr Eoghain"
+	english = "Tyrone"
+	norman = "Tirowen"
+	saxon = "Tirowen"
+}
+
+d_kasogs = {
+	color = { 42 107 17 }
+
+	tribe = yes
+
+	dynasty_title_names = no
+	culture = khazar
+	title = "HIGH_CHIEF"
+	foa = "HIGH_CHIEF_FOA"
+	title_prefix = "TRIBE_OF"
+	dignity = 10
+}
+
+d_mandinka = {
+	color={ 255 127 39 }
+	color2={ 255 255 255 }
+
+	culture = jolof
+	tribe = yes
+
+	capital = 940 # Baol
+
+	allow = {
+		always = no
+	}
+
+	title = "HIGH_CHIEF"
+	foa = "HIGH_CHIEF_FOA"
+	title_prefix = "TRIBE_OF"
 }

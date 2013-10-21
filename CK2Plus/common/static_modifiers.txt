@@ -9,9 +9,13 @@
 ##########################################################################
 
 very_easy_player = {
+	fertility = 0.5
+	land_morale = 0.5
 }
 
 easy_player = {
+	fertility = 0.25
+	land_morale = 0.25
 }
 
 normal_player = {
@@ -21,9 +25,11 @@ hard_player = {
 }
 
 very_hard_player = {
+	land_morale = -0.25
 }
 
 very_easy_ai = {
+	land_morale = -0.25
 }
 
 easy_ai = {
@@ -33,9 +39,15 @@ normal_ai = {
 }
 
 hard_ai = {
+	land_morale = 0.25
+	global_tax_modifier = 0.1
+	levy_reinforce_rate = 0.5
 }
 
 very_hard_ai = {
+	land_morale = 0.5
+	global_tax_modifier = 0.2
+	levy_reinforce_rate = 1.0
 }
 
 ##########################################################################
@@ -65,19 +77,23 @@ land_province = {
 
 mild_winter = {
 	supply_limit = -1
+	max_attrition = 0.1			
 }
 
 normal_winter = {
 	supply_limit = -3
+	max_attrition = 0.1	
 }
 
 severe_winter = {
 	supply_limit = -5
+	max_attrition = 0.1	
 }
 
 out_of_supply =
 {
 	supply_limit = -5
+	max_attrition = 0.1	
 }
 
 no_adjacent_controlled = {
@@ -97,7 +113,7 @@ non_accepted_culture = {
 
 # A religion in another religion group
 different_religion = {
-	local_revolt_risk = 0.02				#2% revolt risk!
+	local_revolt_risk = 0.04
 }
 
 # Another religion in the same religion group
@@ -107,7 +123,7 @@ same_religion_group = {
 
 # County vs Count is heresy vs parent religion
 county_heresy = {
-	local_revolt_risk = 0.02				#2% revolt risk!
+	local_revolt_risk = 0.04
 }
 
 # Isolated county
@@ -186,7 +202,7 @@ foreign_rebels = {
 }
 
 jizya_tax = {
-	local_tax_modifier = 0.2
+	local_tax_modifier = 0.25
 	icon = 4
 }
 

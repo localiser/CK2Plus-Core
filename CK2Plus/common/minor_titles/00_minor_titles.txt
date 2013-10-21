@@ -311,10 +311,7 @@ title_prince = {
 
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
-
-	allow = {
-	}
-
+	
 	gain_effect = {
 	}
 	lose_effect = {
@@ -323,13 +320,14 @@ title_prince = {
 	message = no
 }
 
-# Not currently in use
+# Pagan consort
 title_courtesan = {
 	dignity = 0.05
 	realm_in_name = yes
-
-	monthly_salary = 0.01
-
+	
+	monthly_salary = 0.02
+	monthly_prestige = 0.01
+	
 	gain_effect = {
 	}
 	lose_effect = {
@@ -341,6 +339,43 @@ title_courtesan = {
 #######################################
 # SOFT: GRANTABLE - FULLY MODDABLE
 #######################################
+
+title_court_eunuch = {
+	dignity = 0.01
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.02
+	monthly_prestige = 0.01
+	
+	allow = {
+		is_adult = yes
+		trait = eunuch
+		FROM = {
+			is_feudal = yes
+			primary_title = {
+				OR = {
+					tier = king
+					tier = emperor
+				}
+			}
+			NOT = { has_landed_title = e_byzantium }
+			NOT = { has_landed_title = e_roman_empire }
+		}
+	}
+	
+	gain_effect = {
+		FROM = {
+			prestige = 10
+		}
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
 title_court_dwarf = {
 	dignity = 0.01
 	realm_in_name = yes
@@ -392,6 +427,9 @@ title_court_dwarf = {
 	}
 
 	gain_effect = {
+		FROM = {
+			prestige = 10
+		}
 	}
 	lose_effect = {
 	}
@@ -785,18 +823,33 @@ title_seneschal = {
 	message = yes
 }
 
+title_paramount_knight = {
+	dignity = 0.8
+	grant_limit = 0 
+	opinion_effect = 0
+
+	monthly_prestige = 0.5
+
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
 # Byzantine Titles
 title_despot = {
 	dignity = 0.25
 	realm_in_name = yes
 	grant_limit = 1
 	opinion_effect = 25
-
-	counts_as_purple_born = yes
-
+	
 	monthly_salary = 0.1
-	monthly_prestige = 0.05
-
+	monthly_prestige = 0.01
+	
+	counts_as_purple_born = yes
+	
 	allow = {
 		is_female = no
 		is_close_relative = FROM
@@ -1001,7 +1054,7 @@ title_kouropalates = {
 
 title_anthypatos = {
 	dignity = 0.075
-	grant_limit = 1
+	grant_limit = 4
 	opinion_effect = 10
 
 	monthly_salary = 0.025
@@ -1548,7 +1601,6 @@ title_volva = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		is_female = yes
 		trait = mystic
@@ -1582,7 +1634,6 @@ title_lawspeaker = {
 	monthly_prestige = 0.02
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
@@ -1620,7 +1671,6 @@ title_drottseti = {
 	monthly_prestige = 0.03
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
@@ -1655,7 +1705,6 @@ title_court_skald = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
@@ -1690,7 +1739,6 @@ title_marksman = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		is_female = no
 		FROM = {
@@ -1724,7 +1772,6 @@ title_hirdman = {
 	monthly_prestige = 0.005
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		is_female = no
 		FROM = {
@@ -1761,7 +1808,6 @@ title_baghatur = {
 	monthly_prestige = 0.02
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
@@ -1796,7 +1842,6 @@ title_cherbi = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
@@ -1831,7 +1876,6 @@ title_darkhan = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
@@ -1865,7 +1909,6 @@ title_noyan = {
 	monthly_prestige = 0.005
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		is_ruler = no
 		FROM = {
@@ -2426,7 +2469,6 @@ title_yabgu = {
 	monthly_prestige = 0.05
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		is_female = no
 		is_close_relative = FROM
@@ -2470,7 +2512,6 @@ title_ishad = {
 	monthly_prestige = 0.02
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		is_female = no
 		FROM = {
@@ -2513,7 +2554,6 @@ title_kundur = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_merchant_republic = no
 		is_adult = yes
 		FROM = {
 			is_feudal = yes
