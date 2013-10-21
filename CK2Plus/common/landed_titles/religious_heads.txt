@@ -1,0 +1,726 @@
+k_israel = {
+	color={ 120 120 220 }
+	color2={ 255 255 255 }
+
+	capital = 774 # Jerusalem
+
+	title = "Mashiah"
+	foa = "MASHIAH_FOA"
+
+	dignity = 100 # Counted as having this many more counties than it does
+
+	gain_effect = {
+		activate_title = { title = d_sons_of_judea status = yes }
+		d_sons_of_judea = {
+			holder_scope = {
+				set_defacto_liege = PREVPREV
+			}
+		}
+	}
+
+	religion = judaism
+	controls_religion = judaism
+}
+
+k_papal_state = {
+	color={ 255 255 255 }
+	color2={ 255 255 0 }
+	armenian = "Papiká Kráte"
+	greek = "Papiká Kráte"
+	alan = "Papiká Kráte"
+	georgian = "Papiká Kráte"
+	russian = "Papskaja"
+	capital = 333 # Rome
+	
+	title = "POPE"
+	foa = "POPE_FOA"
+	short_name = yes
+	location_ruler_title = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = catholic
+	
+	religion = catholic
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Adeodatus Agapetus Agatho Albertus Alexander Anacletus Anastasius Anicetus Anterus Benedictus Bonifacius Caelestinus Caius Callistus Christophorus Clemens Conon Constantinus Cornelius Damasus Dionysius Dioscorus Donus Eleuther Eugenius Eulalius Eusebius Eutychianus Evaristus Fabianus Felix Formosus Gelasius Gregorius Hadrianus Hilarius Hippolytus Honorius Hormisdas Hyginus Innocentius Ioannes Iulius Lando Laurentius Leo Liberius Linus Lucius Marcellinus Marcellus Marcus Marinus Martinus Miltiades Nicolaus Novatianus Paschalis Paulus Pelagius Philippus Pius Pontianus Romanus Sabinianus Sergius Severinus Silverius Silvester Simplicius Siricius Sisinnius Sixtus Soterius Stephanus Symmachus Telesphorus Theodoricus Theodorus Urbanus Ursinus Valentinus Victor Vigilius Vitalianus Zacharias Zephyrinus Zosimus
+	}
+}
+
+d_antipape = {
+	color = { 208 208 208 }
+	color2 = { 255 255 255 }
+	religion = catholic
+}
+
+k_orthodox = {
+	color={ 214 127 255 }
+	color2={ 220 220 0 }
+	
+	capital = 496 # Constantinople
+	
+	title = "ECUMENICAL_PATRIARCH"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	turkish = "Rum Ortodoks Patrikhanesi"
+	armenian = "Oikoumeniko Patriarcheio"
+	greek = "Oikoumeniko Patriarcheio"
+	alan = "Oikoumeniko Patriarcheio"
+	georgian = "Oikoumeniko Patriarcheio"
+	serbian = "Oikoumeniko Patriarcheio"
+	romanian = "Oikoumeniko Patriarcheio"
+	bulgarian = "Oikoumeniko Patriarcheio"
+	russian = "Pravoslavnaya Cerkov"
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = orthodox
+	
+	religion = orthodox
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Agathangelos Akakios Alexandros Alexios Alypios Anastasios Anatolios Andreas Anthimos Antonios Arsakios Arsenios Athanasios Athenadoros Athenagoras Attikos Bartholomaios Basileios Beniamin Demetrios Demophilos Diogenes Dionysios Dometios Dositheos Eleutherios Epiphanios  Eudoxios Eugenios Euphemios Eusebios Eustathios Eustratios Euthymios Eutykhios Euzoios Evagrios Felix Flavianos Gabriel Gennadios Georgios Gerasimos Germanos Gregorios Iakobos Ieremias Ignatios Ioakeim Ioannes Ioannikios Ioasaph Ioseph Isaias Isidoros Kallinikos Kallistos Kastinos Khariton Khrysanthos Klemens Konstantinos Konstantios Kosmas Kyprianos Kyriakos Kyrillos Kyros Laurentios Léon Léontios Loukas Makarios Makedonios Manuel Markos Matthaios Maximianos Maximos Meletios  Methodios Metrophanes Mikhael Minas Neilos Nektarios Neophytos Nestorios Nikephoros Niketas Nikolaos Nyphon Olympianos Onesimos Paisios Pakhomios Parthenios Paulos Pertinax Petros Philadelphos Philotheos Photios Phravitas Plutarkhos Polyeuktos Polykarpos Probos Proklos Pyrros Raphael Ruphinos Sedekion Serapheim Sergios Sisinios Sophronios Stakhys Stephanos Symeon Tarasios Theodoros Theodosios Theodotos Theoleptos Theophanes Theophylaktos Thomas Timotheos Titos Tryphon
+	}
+}
+
+d_sunni = {
+	color={ 40 160 40 }
+	color2={ 220 220 0 }
+	
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	title = "CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=sunni
+	
+	# Controls a religion
+	controls_religion = sunni
+	
+	allow = {
+		OR = {
+			trait = mirza
+			trait = sayyid
+			piety = 1000
+		}
+		OR = {
+			AND = {
+				trait = sayyid
+				piety = 1000
+			}
+			custom_tooltip = { 
+				text = controls_mecca_medina
+				hidden_tooltip = {
+					719 = { # Mecca
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					718 = { # Medina
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = controls_jerusalem_damascus_baghdad
+				hidden_tooltip = {
+					774 = { # Jerusalem
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					728 = { # Damascus
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					693 = { # Baghdad
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	caliphate = yes
+	
+	coat_of_arms=
+	{
+		data=
+		{
+			0 0 0 3 0 2 2
+		}
+		religion=sunni
+	}
+}
+
+d_shiite = {
+	color={ 60 190 60 }
+	color2={ 218 255 127 }
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	title = "CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=shiite
+	
+	# Controls a religion
+	controls_religion = shiite
+	
+	allow = {
+		OR = {
+			trait = mirza
+			trait = sayyid
+			piety = 1000
+		}
+		NOT = { has_global_flag = shia_caliphate_revolt_ongoing }
+		OR = {
+			AND = {
+				trait = sayyid
+				piety = 1000
+			}
+			custom_tooltip = {
+				text = controls_mecca_medina
+				hidden_tooltip = {
+					719 = { # Mecca
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					718 = { # Medina
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = controls_jerusalem_damascus_baghdad
+				hidden_tooltip = {
+					774 = { # Jerusalem
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					728 = { # Damascus
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					693 = { # Baghdad
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	caliphate = yes
+	
+	coat_of_arms=
+	{
+		data=
+		{
+			0 0 0 9 1 7 7
+		}
+		religion=shiite
+	}
+}
+
+d_norse_pagan_reformed = {
+	color={ 155 155 235 }
+	color2={ 220 220 0 }
+	
+	capital = 290 #Uppland
+	
+	title = "FYLKIR"
+	title_female = "FYLKJA"
+	foa = "FYLKIR_FOA"
+	
+	creation_requires_capital = no
+	
+	allow = {
+		religion = norse_pagan_reformed
+		num_of_holy_sites = 3
+		piety = 500
+	}
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	# Controls a religion
+	controls_religion = norse_pagan_reformed
+	
+	religion = norse_pagan_reformed
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_tengri_pagan_reformed = {
+	color={ 100 80 100 }
+	color2={ 220 220 0 }
+	
+	capital = 594 #	Sarkel
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = tengri_pagan_reformed
+	
+	religion = tengri_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_baltic_pagan_reformed = {
+	color={ 122 165 70 }
+	color2={ 220 220 0 }
+	
+	capital = 366 #Stettin
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = baltic_pagan_reformed
+	
+	religion = baltic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_finnish_pagan_reformed = {
+	color={ 240 240 220 }
+	color2={ 220 220 0 }
+	
+	capital = 381 # Uusimaa
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = finnish_pagan_reformed
+	
+	religion = finnish_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_slavic_pagan_reformed = {
+	color={ 175 50 136 }
+	color2={ 220 220 0 }
+	
+	capital = 515 # Tirgoviste
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = slavic_pagan_reformed
+	
+	religion = slavic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_aztec_reformed = {
+	color={ 245 245 135 }
+	color2={ 220 220 0 }
+	
+	capital = 1 #???????
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = aztec_reformed
+	
+	religion = aztec_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_west_african_pagan_reformed = {
+	color={ 91 49 13 }
+	color2={ 220 220 0 }
+	
+	capital = 925 # Mali
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = west_african_pagan_reformed
+	
+	religion = west_african_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_zoroastrian = {
+	color={ 180 120 40 }
+	color2={ 220 220 0 }
+	
+	capital = 646 #	Esfahan
+	
+	title = "HEAD_MOABADAN_MOABAD"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = zoroastrian
+	
+	religion = zoroastrian
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_miaphysite = {
+	color={ 217 155 177 }
+	color2={ 220 220 0 }
+	
+	capital = 802 # Alexandria
+	
+	title = "COPTIC_POPE"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = miaphysite
+	
+	religion = miaphysite
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Abraham Alexandros Alexios Agatho Anastasios Andronikos Athanasios Benjamin Christodolos Cosmas Kyril Damian 
+		Demetrius Dioscorus Gabriel Yohannes Iosephos Isaakios Iakobos Makarios Markianos Markos Matheos Khail Mina 
+		Petros Philotheos Shenouda Simeon Theodoros Theophilus Timotheos Zacharias
+	}
+}
+
+d_monophysite = {
+	color={ 200 115 167 }
+	color2={ 220 220 0 }
+	
+	capital = 802 # Alexandria
+	
+	title = "MONOPHYSITE_POPE"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = monophysite
+	
+	religion = monophysite
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Abraham Alexandros Alexios Agatho Anastasius Andronicus Athanasios Benjamin Christodolos Cosmas Cyril Damian
+		Demetrius Dioscorus Gabriel Ioannes Iosephos Isaakios Iakobos Makarios Markianos Matheos Mikhael Mina
+		Petros Philotheos Shenouda Simeon Theodoros Theophilus Timotheos Zacharias
+	}
+}
+
+d_nestorian = {
+	color={ 180 137 97 }
+	color2={ 220 220 0 }
+	
+	capital = 764 # Antioch
+	
+	title = "PATRIARCH_IN_THE_EAST"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = nestorian
+	
+	religion = nestorian
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Aba Abraham Eliya Denha Emmanuel Giwargis Hnanisho Ishoyahb Makkikha 
+		Maremmeh Pethion Sabrisho Shemon Sargis Surin Theodosios Timotheos Yahballaha Yohannan
+	}
+}
+
+d_monothelite = {
+	color={ 180 170 65 }
+	color2={ 220 220 0 }
+	
+	capital = 764 # Antioch
+	
+	title = "MONOTHELITE_PATRIARCH"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	
+	short_name = yes
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = monothelite
+	
+	religion = monothelite
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Alexios Antonios Athanasios Basileios Chariton Dionysios Dositheos Eustathios Eustratios Euthymios
+		Gennadios Georgios Gerasimos Germanos Gregoras Ioannes Iosephos Isidoros Kallistos Konstantinos
+		Kosmas Leon Leontios Loukas Makarios Manuel Maximos Metrophanes Mikhael Neophytos Nephon Niketas
+		Nikolaos Nilos Matthaios Paulos Sergios Sisinnios Symeon Theodoros Theodosios Theodotos
+	}
+}
+
+d_celtic_pagan_reformed = {
+	color={ 122 165 70 }
+	color2={ 220 220 0 }
+	
+	capital = 64 # Gwynedd
+	
+	title = "ARCH_DRUID"
+	title_female = "ARCH_DRUIDESSE"
+	foa = "ARCH_DRUID_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = celtic_pagan_reformed
+	
+	religion = celtic_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_hellenic_pagan = {
+	color={ 155 155 235 }
+	color2={ 220 220 0 }
+	
+	capital = 333 #Roma
+	
+	title = "PONTIFEX_MAXIMUS"
+	foa = "PONTIFEX_MAXIMUS_FOA"
+	
+	creation_requires_capital = no
+	
+	allow = {
+		religion = hellenic_pagan
+		num_of_holy_sites = 3
+		religion_authority = 0.6
+		piety = 500
+	}
+	
+	gain_effect = {
+		hidden_tooltip = {
+			e_roman_empire = {
+				owner = {
+					if = {
+						limit = {
+							religion = hellenic_pagan
+						}
+						character_event = { id = 1000182305 days = 1 }
+					}
+				}
+			}
+			e_byzantium = {
+				owner = {
+					if = {
+						limit = {
+							religion = hellenic_pagan
+							NOT = { has_landed_title = e_roman_empire }
+						}
+						character_event = { id = 1000182305 days = 1 }
+					}
+				}
+			}
+			e_latin_empire = {
+				owner = {
+					if = {
+						limit = {
+							religion = hellenic_pagan
+							NOT = { has_landed_title = e_roman_empire }
+							NOT = { has_landed_title = e_byzantium }
+						}
+						character_event = { id = 1000182305 days = 1 }
+					}
+				}
+			}
+		}
+	}
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	# Controls a religion
+	controls_religion = hellenic_pagan
+	
+	religion = hellenic_pagan
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
