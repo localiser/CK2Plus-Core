@@ -1,5 +1,46 @@
 # TITULAR KINGDOMS
 
+k_qarakhnid = { # Actually Khiva
+	color = { 39 138 51 }
+	color2 = { 255 255 255 }
+	
+	capital	= 626 # Khiva
+	culture = persian
+	
+	tengri_pagan_reformed = 50
+	zoroastrian_group = 700 # Crusade target weight
+	
+	allow = {
+		war = no
+		OR = {
+			culture = persian
+			k_qarakhnid = { 
+				OR = { 
+					is_titular = no 
+					has_holder = yes 
+				} 
+			}
+		}
+	}
+} # k_qarakhnid
+
+k_gondar = {
+	color={ 223 223 211 }
+	color2={ 255 255 255 }
+
+	capital = 883 #Gondar
+
+	allow = {
+		war = no
+		OR = {
+			religion_group = judaism_group
+			k_gondar = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+
+	dignity = 100
+}
+
 k_magna_graecia = {
 	color = { 16 211 246 }
 	capital = 344 #Taranto
