@@ -1285,3 +1285,47 @@ e_scandinavia = {
 	icelandic = "Skandinavia"
 	finnish = "Skandinavia"
 }
+e_latin_empire = {
+	color = { 150 105 56 }
+	
+	capital = 496 # Byzantion
+	
+	short_name = yes
+	
+	
+	allow = {
+		not = { tier = emperor }
+		war = no
+		OR = {
+			religion = catholic
+			is_heresy_of = catholic
+		}
+		e_byzantium = {
+			has_holder = no
+		}
+		e_roman_empire = {
+			has_holder = no
+		}
+		custom_tooltip = {
+			text = controls_kaliopolis_thrake
+			hidden_tooltip = {
+				495 = { # Kaliopolis
+					owner = {
+						OR = {
+							is_liege_or_above = ROOT
+							character = ROOT
+						}
+					}
+				}
+				497 = { # Thrake
+					owner = {
+						OR = {
+							is_liege_or_above = ROOT
+							character = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+}
