@@ -2448,7 +2448,13 @@ holy_war = {
 				is_heresy_of = FROM
 				is_parent_religion = FROM
 				AND = {
-					religion_group = muslim
+					OR = {
+						religion_group = muslim
+						AND = {
+							religion_group = pagan_group
+							is_reformed_religion = yes
+						}
+					}
 					NOT = { religion = FROM }
 				}
 			}
@@ -7860,7 +7866,13 @@ county_conquest = {
 						is_heresy_of = FROM
 						is_parent_religion = FROM
 						AND = {
-							religion_group = muslim
+							OR = {
+								religion_group = muslim
+								AND = {
+									religion_group = pagan_group
+									is_reformed_religion = yes
+								}
+							}
 							NOT = { religion = FROM }
 						}
 					}
