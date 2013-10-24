@@ -31,13 +31,14 @@ character_event = {
 		name = "EVTOPTleavedecision"
 		
 		trigger = {
+			independent = no
 			NOT = {
 				OR = {
 					any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 					any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
 					any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 					any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
-				}
+				}				
 			}
 			mercenary = no
 		}
@@ -63,6 +64,7 @@ character_event = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				independent = yes
 			}
 			FROM = { holder_scope = { war_with = ROOT } }
 		} 
@@ -134,6 +136,7 @@ character_event = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				independent = yes
 			}
 			FROM = { 
 				holder_scope = { 
@@ -279,6 +282,7 @@ character_event = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				independent = yes
 			}
 			FROM = { 
 				holder_scope = { 
@@ -502,6 +506,7 @@ character_event = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				independent = yes
 			}
 			FROM = { holder_scope = { war_with = ROOT } }
 		}
@@ -602,6 +607,7 @@ character_event = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { war_with = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { war_with = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { war_with = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
+				independent = yes
 			}
 			NOT = { FROM = { holder_scope = { war_with = ROOT } } }
 		}
