@@ -2590,12 +2590,15 @@ holy_war = {
 				NOT = { religion_group = FROM }
 				is_heresy_of = FROM
 				is_parent_religion = FROM
-				OR = {
-					religion_group = muslim
-					AND = {
-						religion_group = pagan_group
-						is_reformed_religion = yes
+				AND = {
+					OR = {
+						religion_group = muslim
+						AND = {
+							religion_group = pagan_group
+							is_reformed_religion = yes
+						}
 					}
+					NOT = { religion = FROM }
 				}
 			}
 		}
