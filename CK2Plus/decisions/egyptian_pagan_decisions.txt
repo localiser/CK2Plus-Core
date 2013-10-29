@@ -53,4 +53,58 @@ decisions = {
 			}
 		}
 	}
+	build_pyramid = {
+		is_high_prio = yes
+		
+		potential = {
+			is_ruler = yes
+			age = 16
+			higher_tier_than = duke
+			
+			OR = {
+				religion = egyptian_pagan
+				religion = aten_pagan
+			}
+			NOT = { 
+				has_character_flag = pyramid_built
+				has_character_flag = pyramid_building_char
+				capital_scope = {
+					has_province_flag = pyramid_building_prov
+				}
+				trait = incapable
+			}
+			OR = {
+				has_landed_title = k_egypt
+				has_landed_title = e_egypt
+			}
+		}
+		allow = {
+			wealth = 600
+			war = no
+			prisoner = no		
+		}
+		effect = {
+			set_character_flag = pyramid_building_char
+			character_event = { id = 1000182325 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 6.0
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					learning = 8
+				}
+			}
+		}		
+	}
 }

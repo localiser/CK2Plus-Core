@@ -139,3 +139,80 @@ narrative_event = {
 		name = "EVTOPTA1000182322"
 	}
 }
+
+# Pharaoh wants to build a Pyramid
+character_event = {
+	id = 1000182325
+	desc = "EVTDESC1000182325"
+	picture = "GFX_evt_boatcoast"
+
+	is_triggered_only = yes
+	
+	immediate = {
+		capital_scope = { set_province_flag = pyramid_building_prov }
+	}	
+
+	option = {
+		name = "EVTOPTA1000182325" # Make it the greatest pyramid there ever was!
+		wealth = -600
+	}
+}
+
+# The Pyramid is done!
+province_event = {
+	id = 1000182326
+	desc = "EVTDESC1000182326"
+	picture = "GFX_evt_pyramid"
+
+	trigger = {
+		# had_province_flag = { flag = pyramid_building_prov years = 10 random = 10 }
+		had_province_flag = { flag = pyramid_building_prov days = 1 random = 3 } # for testing
+		owner = { 
+			NOT = { has_character_flag = pyramid_built}
+		}
+	}
+
+	immediate = {
+		clr_province_flag = pyramid_building_prov
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "EVTOPTA1000182326" # My pyramid is done!
+
+		trigger = { has_character_flag = pyramid_building_char}
+		clr_character_flag = pyramid_building_char
+		set_character_flag = pyramid_built
+		prestige = 500
+	}
+	option = {
+		name = "EVTOPTB1000182326" # My predecessor's pyramid is done
+
+		trigger = { 
+			NOT = { 
+				has_character_flag = pyramid_building_char
+			}
+			OR = {
+				religion = egyptian_pagan
+				religion = aten_pagan
+			}	
+		}
+		prestige = 100
+	}
+	option = {
+		name = "EVTOPTC1000182326" # Pagan Garbage!
+
+		trigger = { 
+			NOT = { 
+				has_character_flag = pyramid_building_char
+				OR = {
+					religion = egyptian_pagan
+					religion = aten_pagan
+				}					
+			}
+		}		
+	}	
+}
