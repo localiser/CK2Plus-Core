@@ -183,35 +183,43 @@ province_event = {
 	option = {
 		name = "EVTOPTA1000182326" # My pyramid is done!
 
-		trigger = { has_character_flag = pyramid_building_char}
-		clr_character_flag = pyramid_building_char
-		set_character_flag = pyramid_built
-		prestige = 500
+		trigger = { owner = { has_character_flag = pyramid_building_char}}
+		owner = {
+			clr_character_flag = pyramid_building_char
+			set_character_flag = pyramid_built
+			prestige = 500
+		}
 	}
 	option = {
 		name = "EVTOPTB1000182326" # My predecessor's pyramid is done
 
 		trigger = { 
-			NOT = { 
-				has_character_flag = pyramid_building_char
+			owner = {
+				NOT = { 
+					has_character_flag = pyramid_building_char
+				}
+				OR = {
+					religion = egyptian_pagan
+					religion = aten_pagan
+				}
 			}
-			OR = {
-				religion = egyptian_pagan
-				religion = aten_pagan
-			}	
 		}
-		prestige = 100
+		owner = {
+			prestige = 100
+		}
 	}
 	option = {
 		name = "EVTOPTC1000182326" # Pagan Garbage!
 
 		trigger = { 
-			NOT = { 
-				has_character_flag = pyramid_building_char
-				OR = {
-					religion = egyptian_pagan
-					religion = aten_pagan
-				}					
+			owner = {
+				NOT = {
+					has_character_flag = pyramid_building_char
+					OR = {
+						religion = egyptian_pagan
+						religion = aten_pagan
+					}	
+				}
 			}
 		}		
 	}	
