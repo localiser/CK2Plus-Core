@@ -552,13 +552,32 @@ k_lotharingia = {
 	polish = "Lotaryngia"
 	
 	d_kleve = {
-			color={ 232 232 107 }
-			color2={ 255 255 255 }
+		color={ 232 232 107 }
+		color2={ 255 255 255 }
 
-			capital = 89 #Cleves
+		capital = 89 #Cleves
 
-			allow = { war = no }
-
+		allow = { war = no }
+		
+		c_limburg = {
+				color={ 149 150 153 }
+				color2={ 255 255 255 }
+				frankish = "Limbourg"
+				italian = "Limburgo"
+				bohemian = "Limburk"
+				b_limburg = {
+					frankish = "Limbourg"
+					castillan = "Limburgo"
+				}
+				b_valkenburg = {
+				}
+				b_maastricht = {
+				}
+				b_wassenberg = {
+				}
+				b_eupen = {
+			}
+		}	
 		c_loon = {
 			color={ 147 146 140 }
 			color2={ 255 255 255 }
@@ -969,34 +988,6 @@ k_lotharingia = {
 			}
 		}
 	}
-	d_limburg = {
-		color={ 255 0 0 }
-		color2={ 230 230 230 }
-		frankish = "Limbourg"
-		italian = "Limburgo"
-		bohemian = "Limburk"
-		capital = 912 #Limburg
-		culture = dutch
-		c_limburg = {
-			color={ 149 150 153 }
-			color2={ 255 255 255 }
-			frankish = "Limbourg"
-			italian = "Limburgo"
-			bohemian = "Limburk"
-			b_limburg = {
-				frankish = "Limbourg"
-				castillan = "Limburgo"
-			}
-			b_valkenburg = {
-			}
-			b_maastricht = {
-			}
-			b_wassenberg = {
-			}
-			b_eupen = {
-		}
-	}
-}
 	d_liege = {
 		color={ 210 0 0 }
 		color2={ 255 216 0 }
@@ -1006,6 +997,7 @@ k_lotharingia = {
 		bohemian = "Lutych"
 		capital = 116 #Liege
 		culture = frankish
+			
 		c_liege = {
 			color={ 144 144 144 }
 			color2={ 255 255 255 }
@@ -7647,29 +7639,8 @@ k_italy = {
 		color={ 191 158 158 }
 		color2={ 255 255 255 }
 		
-		capital = 236 # Piemonte
+		capital = 958 # Suze
 		
-		c_piemonte = {
-			color={ 104 12 38 }
-			color2={ 255 255 255 }
-			
-			b_ivrea = {
-			}
-			b_torino = {
-			}
-			b_settimo = {
-			}
-			b_auriate = {
-			}
-			b_novara = {
-			}
-			b_ferrero = {
-			}
-			b_messarano = {
-			}
-			b_crevacuore = {
-			}
-		}
 		
 		c_saluzzo = {
 			color={ 155 46 76 }
@@ -7692,7 +7663,60 @@ k_italy = {
 			b_caraglio = {
 			}
 		}
+		c_mondovi = {
+			color={ 55 146 176 }
+			color2={ 255 255 255 }
+			b_mondovi = {
+			}
+			b_perlo ={
+			}
+			b_garessio = {
+			}
+			b_nucetto = {
+			}
+		}
+		c_suze = {
+			color={ 255 146 76 }
+			color2={ 255 255 255 }
+			b_suza = {
+			}
+			b_bussoleno = {
+			}
+			b_caprie = {
+			}
+		}
+	}
+	d_piedmont = {
+		color={ 114 222 38 }
+		color2={ 255 255 255 }
+		culture = italian
+		capital = 236 #Piemonte
 		
+		occitan = "Piemont"
+		frankish = "Piemont"
+		sicilian = "Piemunti"
+		
+		c_piemonte = {
+			color={ 104 12 38 }
+			color2={ 255 255 255 }
+			
+			b_ivrea = {
+			}
+			b_torino = {
+			}
+			b_settimo = {
+			}
+			b_auriate = {
+			}
+			b_novara = {
+			}
+			b_ferrero = {
+			}
+			b_messarano = {
+			}
+			b_crevacuore = {
+			}
+		}
 		c_monferrato = {
 			color={ 250 244 225 }
 			color2={ 255 255 255 }
@@ -7724,7 +7748,7 @@ k_italy = {
 			}
 			b_ovada = {
 			}
-		}
+		}	
 		c_asti = {
 			color={ 160 0 0 }
 			color2={ 255 255 255 }
@@ -7737,28 +7761,6 @@ k_italy = {
 			b_costigliole = {
 			}
 		}
-		c_mondovi = {
-			color={ 55 146 176 }
-			color2={ 255 255 255 }
-			b_mondovi = {
-			}
-			b_perlo ={
-			}
-			b_garessio = {
-			}
-			b_nucetto = {
-			}
-		}
-		c_suze = {
-			color={ 255 146 76 }
-			color2={ 255 255 255 }
-			b_suza = {
-			}
-			b_bussoleno = {
-			}
-			b_caprie = {
-			}
-		}
 		c_alessandria = {
 			color={ 55 43 32 }
 			color2={ 255 255 255 }
@@ -7766,9 +7768,8 @@ k_italy = {
 			}
 			b_solero = {
 			}
-		}
-	}
-	
+		}	
+	}	
 	d_lombardia = {
 		color={ 240 240 240 }
 		color2={ 0 110 190 }
@@ -7878,41 +7879,6 @@ k_italy = {
 			b_colorno = {
 			}
 			b_montebello = {
-			}
-		}
-		c_tortone = {
-			color={ 155 143 132 }
-			color2={ 255 255 255 }
-			b_tortona = {
-			}
-			b_casasco = {
-			}
-			b_momperone = {
-			}
-			b_montegioco = {
-			}
-			b_sarezzano = {
-			}
-		}
-		c_cremona = {
-			color={ 255 245 234 }
-			color2={ 255 255 255 }
-			
-			b_cremona = {
-			}
-			b_crema = {
-			}
-			b_sospiro = {
-			}
-			b_vescovato = {
-			}
-			b_viadana = {
-			}
-			b_castelgoffredo = {
-			}
-			b_casalmaggiore = {
-			}
-			b_manerbio = {
 			}
 		}
 	}
@@ -8051,7 +8017,42 @@ k_italy = {
 		color2={ 255 255 255 }
 		
 		capital = 322 # Modena
-		
+
+		c_tortone = {
+			color={ 155 143 132 }
+			color2={ 255 255 255 }
+			b_tortona = {
+			}
+			b_casasco = {
+			}
+			b_momperone = {
+			}
+			b_montegioco = {
+			}
+			b_sarezzano = {
+			}
+		}		
+		c_cremona = {
+			color={ 255 245 234 }
+			color2={ 255 255 255 }
+			
+			b_cremona = {
+			}
+			b_crema = {
+			}
+			b_sospiro = {
+			}
+			b_vescovato = {
+			}
+			b_viadana = {
+			}
+			b_castelgoffredo = {
+			}
+			b_casalmaggiore = {
+			}
+			b_manerbio = {
+			}
+		}		
 		c_modena = {
 			color={ 251 250 226 }
 			color2={ 255 255 255 }
@@ -18613,6 +18614,71 @@ k_aquitaine = {
 	catalan = "Aquitania"
 	castillan = "Aquitania"
 	
+d_pyrenees = {
+	color = { 224  146  113 } 
+	color2={ 255 255 255 }
+	
+	capital = 210 # Foix
+	culture = occitan
+
+	c_comminges = {
+		color={ 36 25 255 }
+		color2={ 255 255 255 }
+		b_comminges = {
+		}
+		b_nebouzan = {
+		}
+		b_couserans = {
+		}
+		b_aspet = {
+		}
+	}
+	c_foix = {
+		color={ 24 13 246 }
+		color2={ 255 255 255 }
+		
+		b_foix = {
+		} 
+		b_pamiers = {
+		} 
+		b_mirepoix = {
+		} 
+		b_montsegur = {
+		} 
+		b_stbertrand = {
+		}  
+		b_roquefeuil = {
+		} 
+		b_stgaudens = {
+		}  
+		b_usson = {
+		} 
+	}
+	c_rosello = {
+		color = { 255 240 12 }
+		color2={ 255 255 255 }
+		basque = "Rosselló"
+		castillan = "Rosellón"
+		catalan = "Rosselló"
+		occitan = "Rosselhon"
+		b_cotlliure = {
+		}
+		b_perpinya = {
+		}
+		b_elna = {
+		}
+		b_cuixa = {
+		}
+		b_prada = {
+		}
+		b_oltrera = {
+		}
+		b_canigo = {
+		}
+		b_ceret = {
+		}
+	}
+}	
 d_poitou = {
 		color={ 0 74 140 }
 		color2={ 214 0 0 }
@@ -19003,27 +19069,6 @@ d_poitou = {
 		color2={ 240 240 240 }
 		capital = 209 # Armagnac
 		culture = occitan
-		c_foix = {
-			color={ 24 13 246 }
-			color2={ 255 255 255 }
-			
-			b_foix = {
-			} 
-			b_pamiers = {
-			} 
-			b_mirepoix = {
-			} 
-			b_montsegur = {
-			} 
-			b_stbertrand = {
-			}  
-			b_roquefeuil = {
-			} 
-			b_stgaudens = {
-			}  
-			b_usson = {
-			} 
-		}
 		c_bearn = {
 			color={ 27 16 249 }
 			color2={ 255 255 255 }
@@ -19104,18 +19149,6 @@ d_poitou = {
 			b_mimizan = {
 			}
 			b_latestedebuch = {
-			}
-		}
-		c_comminges = {
-			color={ 36 25 255 }
-			color2={ 255 255 255 }
-			b_comminges = {
-			}
-			b_nebouzan = {
-			}
-			b_couserans = {
-			}
-			b_aspet = {
 			}
 		}
 		c_bigorre = {
@@ -20398,30 +20431,6 @@ k_aragon = {
 			b_elpuidesegur = {
 			}
 			b_tremp = {
-			}
-		}
-		c_rosello = {
-			color = { 255 240 12 }
-			color2={ 255 255 255 }
-			basque = "Rosselló"
-			castillan = "Rosellón"
-			catalan = "Rosselló"
-			occitan = "Rosselhon"
-			b_cotlliure = {
-			}
-			b_perpinya = {
-			}
-			b_elna = {
-			}
-			b_cuixa = {
-			}
-			b_prada = {
-			}
-			b_oltrera = {
-			}
-			b_canigo = {
-			}
-			b_ceret = {
 			}
 		}
 		c_empuries = {
@@ -22588,7 +22597,7 @@ k_arabia = {
 			}
 		}
 		c_sharawrah = {
-			color={ 196 263 89 }
+			color={ 196 255 89 }
 			color2={ 255 255 255 }
 			
 			b_sharawrah = {
@@ -25696,8 +25705,6 @@ k_abyssinia = {
 			}
 			b_dinder = {
 			}
-			b_kataigarsa = {
-			}
 		}		
 		c_sennar = {
 			color={ 210 42 105 }
@@ -28595,11 +28602,10 @@ k_mali = {
 			color2={ 255 255 255 }
 			
 			b_boure = {}
-			b_bamako = {
+			b_safo = {
 				holy_site = west_african_pagan
 				holy_site = west_african_pagan_reformed
 			}
-			b_safo = {}
 			b_baguineda = {}
 			b_dialakoro = {}
 			b_bougouni = {}
