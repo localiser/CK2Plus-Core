@@ -2,6 +2,7 @@ e_hre = {
 	color={ 155 155 155 }
 	color2={ 220 220 20 }
 	capital = 314 # Nürnberg
+	culture = german
 
 	allow = {
 		war = no
@@ -11,8 +12,25 @@ e_hre = {
 			is_heresy_of = catholic
 		}
 		OR = {
-			realm_size = 150
-			e_hre = { OR = { is_titular = no has_holder = yes } }
+			OR = {
+				e_hre = { 
+					OR = { 
+						is_titular = no 
+						has_holder = yes 
+					}
+				}
+				realm_size = 150
+			}
+			AND = {
+				realm_size = 150
+				OR = {
+					has_landed_title = k_germany
+					has_landed_title = k_lotharingia
+					has_landed_title = k_bohemia
+					has_landed_title = k_italy
+					has_landed_title = k_burgundy
+				}
+			}
 		}
 		e_roman_empire = { 
 			has_holder = no
@@ -20,7 +38,6 @@ e_hre = {
 	}
 
 	religion=catholic
-	culture = german
 	short_name = yes
 	saxon = "Heiliges Römisches Reich"
 	english = "Holy Roman Empire"
@@ -157,18 +174,19 @@ e_germany = {
         allow = {
                 war = no
                 not = { tier = emperor }
+				culture = german
 				OR = {
 					e_roman_empire = { has_holder = yes }
 					NOT = {
-							OR = {
+						OR = {
 							religion = catholic
 							is_heresy_of = catholic
-							}
+						}
 					}
 				}
                 OR = {
-                        realm_size = 150
-                        e_hre = { OR = { is_titular = no has_holder = yes } }
+                    realm_size = 150
+                    e_hre = { OR = { is_titular = no has_holder = yes } }
                 }
         }
         
