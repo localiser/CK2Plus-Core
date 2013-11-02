@@ -781,10 +781,9 @@ k_morea = {
 	dignity = 10
 }
 
-#v1.32
+# v1.32
 e_celtic = {
 	color={ 0 153 0 }
-	color2={ 156 117 23 }	
 	capital = 11 # Dublin
 	culture = irish
 	short_name = yes
@@ -792,13 +791,69 @@ e_celtic = {
 	creation_requires_capital = no
 	
 	allow = {
-		not = { tier = emperor }
+		NOT = { tier = emperor }
 		culture_group = celtic
 		OR = {
 			realm_size = 150
 			e_celtic = { OR = { is_titular = no has_holder = yes } }
 		}
 		war = no
+	}	
+}
+
+# 1.35
+e_common = {
+	color={ 176 81 111 }
+	capital = 529 # Plock
+	culture = polish
+	short_name = yes
+	
+	
+	allow = {
+		war = no
+		NOT = { tier = emperor }
+		OR = {
+			realm_size = 150
+			e_common = { OR = { is_titular = no has_holder = yes } }
+		}
+	}	
+}
+e_songhai = {
+	color={ 120 153 20 }
+	capital = 914 # Gao
+	culture = manden
+	
+	
+	allow = {
+		war = no
+		NOT = { tier = emperor }
+		OR = {
+			realm_size = 150
+			e_songhai = { OR = { is_titular = no has_holder = yes } }
+		}
+	}	
+}
+e_jewish = {
+	color={ 180 53 220 }
+	capital = 774 # Jerusalem
+	culture = ashkenazi
+	creation_requires_capital = no
+	
+	short_name = yes
+	
+	allow = {
+		war = no
+		OR =
+		{
+			religion_group = judaic_group
+			culture_group = judaic
+		}
+		religion = jewish
+		NOT = { tier = emperor }
+		OR = {
+			realm_size = 150
+			e_jewish = { OR = { is_titular = no has_holder = yes } }
+		}
 	}	
 }
 			
