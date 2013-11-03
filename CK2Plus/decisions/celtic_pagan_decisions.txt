@@ -82,7 +82,17 @@ decisions = {
 			scaled_wealth = 0.10
 			prisoner = no
 			learning = 8
-			NOT = {trait = zealous}
+			OR = {
+				NOT = { religion_authority = 0.25 }
+				AND = {
+					OR = {
+						trait = possessed
+						trait = lunatic
+					}
+					NOT = { religion_authority = 0.70 }
+				}
+			}
+			NOT = { trait = zealous }
 			any_courtier = {
 				OR = {
 					religion = celtic_pagan
