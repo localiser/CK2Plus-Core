@@ -107,4 +107,58 @@ decisions = {
 			}
 		}		
 	}
+	restore_priesthood_egyptian_pagan = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "The Old Gods"
+			religion = egyptian_pagan
+			NOT = { has_global_flag = egyptian_priesthood_founded }
+			age = 16
+			prisoner = no	
+			has_landed_title = e_egypt
+		}
+		allow = {
+			realm_learning = 25
+			piety = 500
+			wealth = 500
+			war = no
+			religion_authority = 0.6	
+			b_luxor = { has_holder = yes }
+		}
+		effect = {
+			set_global_flag = egyptian_priesthood_founded
+			wealth = -500
+			piety = -250
+			prestige = 250
+			activate_title = { title = d_egyptian_pagan status = yes }
+			hidden_tooltip = {
+				create_random_priest = {
+					random_traits = yes
+					religion = egyptian_pagan
+					culture = egyptian_arabic
+					dynasty = random
+					female = no
+					age = 41
+				}
+				new_character = {
+					d_egyptian_pagan = {
+						grant_title = PREV
+					}
+					narrative_event = { id = TOG.6004 days = 2 }
+				}
+			}
+			d_egyptian_pagan = {
+				holder_scope = {
+					e_egypt = {
+						holder_scope = {
+							set_defacto_vassal = PREVPREV
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 }
