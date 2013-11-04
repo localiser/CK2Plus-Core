@@ -1,4 +1,5 @@
 decisions = {	
+# Restore Luxor Temple
 	restore_luxor = {
 		is_high_prio = yes
 		potential = {
@@ -53,6 +54,7 @@ decisions = {
 			}
 		}
 	}
+# Build a Pyramid
 	build_pyramid = {
 		is_high_prio = yes
 		
@@ -107,6 +109,8 @@ decisions = {
 			}
 		}		
 	}
+	
+# Restore Priesthood
 	restore_priesthood_egyptian_pagan = {
 		is_high_prio = yes
 		potential = {
@@ -154,6 +158,114 @@ decisions = {
 							set_defacto_vassal = PREVPREV
 						}
 					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+# Holy Order 1 (Anubis)
+	organize_anubis = {
+		is_high_prio = yes
+		potential = {
+			has_landed_title = k_egypt
+			prisoner = no
+			age = 16
+			OR = {
+				religion = egyptian_pagan
+				religion = aten_pagan
+			}
+			NOT = { has_global_flag = anubis_founded }
+			NOT = { has_global_flag = horus_founded }
+		}
+		allow = {
+			prestige = 300
+			wealth = 300
+		}
+		effect = {
+			set_global_flag = anubis_founded
+			prestige = -300
+			wealth = -300
+			activate_title = { title = d_anubis status = yes }
+			hidden_tooltip = {
+				owner = {
+					set_character_flag = event_1000182331
+					narrative_event = { id = 1000182331 }
+				}
+				create_character = {
+					random_traits = yes
+					religion = egyptian_pagan
+					culture = egyptian_arabic
+					dynasty = NONE
+					age = 34
+					attributes = {
+						martial = 7
+						diplomacy = 5
+						intrigue = 2
+						learning = 2
+						stewardship = 2
+					}
+				}
+				new_character = {
+					d_anubis = {
+						grant_title = PREV
+					}
+					set_defacto_liege = ROOT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+# Holy Order 2 (Horus)
+	organize_horus = {
+		is_high_prio = yes
+		potential = {
+			has_landed_title = e_egypt
+			prisoner = no
+			age = 16
+			OR = {
+				religion = egyptian_pagan
+				religion = aten_pagan
+			}
+			NOT = { has_global_flag = horus_founded }
+			has_global_flag = anubis_founded
+		}
+		allow = {
+			prestige = 300
+			wealth = 300
+		}
+		effect = {
+			set_global_flag = horus_founded
+			prestige = -300
+			wealth = -300
+			activate_title = { title = d_anubis status = yes }
+			hidden_tooltip = {
+				owner = {
+					set_character_flag = event_1000182332
+					narrative_event = { id = 1000182332 }
+				}
+				create_character = {
+					random_traits = yes
+					religion = egyptian_pagan
+					culture = egyptian_arabic
+					dynasty = NONE
+					age = 34
+					attributes = {
+						martial = 7
+						diplomacy = 5
+						intrigue = 2
+						learning = 2
+						stewardship = 2
+					}
+				}
+				new_character = {
+					d_horus = {
+						grant_title = PREV
+					}
+					set_defacto_liege = ROOT
 				}
 			}
 		}
