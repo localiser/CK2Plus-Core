@@ -1207,9 +1207,17 @@ decisions = {
 				}
 			}
 			NOT = {	
-				AND = {
-					religion_group = judaism_group
-					culture_group = judaic
+				OR = {
+					AND = {
+						religion_group = judaism_group
+						culture_group = judaic
+						religion_authority = 0.10
+					}
+					AND = {
+						religion_group = judaism_group
+						NOT = { culture_group = judaic }
+						religion_authority = 0.15
+					}					
 				}
 			}
 			NOT = {	
