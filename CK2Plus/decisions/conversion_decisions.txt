@@ -1151,9 +1151,10 @@ decisions = {
 		}
 	}
 	
-	#Cultures can convert to their cultural pagan beliefs if the MA of their current religion is low
+	# Cultures can convert to their cultural pagan beliefs if the MA of their current religion is low
 	gone_pagan = {
 		potential = {
+			is_high_prio = yes		
 			age = 16
 			prisoner = no
 			is_heretic = no
@@ -1164,11 +1165,21 @@ decisions = {
 				religion_authority = 0.45				
 				trait = zealous 
 				trait = incapable
-				religion_group = zoroastrian_group
-				religion_group = judaism_group
-				is_reformed_religion = no
+				culture_group = iberian # No pagan religion to assign them to
+				culture_group = crusader
+				AND = {
+					culture_group = arabic # No pagan religion to assign them to
+					NOT = { culture = egyptian_arabic }
+				}
+			}
+			NOT = {
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = no
+				}
 			}
 			
+			# Specific Lock outs. Don't want the option to appear for someone who can only go pagan to their current religion
 			NOT = {	
 				AND = {
 					OR = {
@@ -1178,6 +1189,103 @@ decisions = {
 					culture = egyptian_arabic
 				}
 			}
+			NOT = {	
+				AND = {
+					OR = {
+						religion = hellenic_pagan
+						religion = mystery_eleusinia
+						religion = mystery_mithra
+					}
+					OR = {
+						culture = roman
+						culture = greek
+						culture = italian
+						culture = sicilian
+						culture = sicilian_greek
+						culture_group = byzantine
+					}
+				}
+			}
+			NOT = {	
+				AND = {
+					religion_group = judaism_group
+					culture_group = judaic
+				}
+			}
+			NOT = {	
+				AND = {
+					religion_group = zoroastrian_group
+					culture_group = iranian
+				}
+			}
+			NOT = {	
+				AND = {
+					religion = celtic_pagan_reformed
+					OR = {
+						culture_group = celtic
+						culture_group = west_germanic
+						culture = frankish
+						culture = occitan
+					}
+				}
+			}
+			NOT = {	
+				AND = {
+					religion = norse_pagan_reformed
+					OR = {
+						culture_group = north_germanic
+						culture_group = west_germanic
+						culture_group = central_germanic
+						culture = norman
+					}
+				}
+			}
+			NOT = {	
+				AND = {
+					religion = baltic_pagan_reformed
+					OR = {
+						 culture_group = baltic
+						 culture = ugricbaltic
+					}
+				}
+			}
+			NOT = {	
+				AND = {
+					religion = finnish_pagan_reformed
+					culture_group = finno_ugric
+				}
+			}
+			NOT = {	
+				AND = {
+					religion = tengri_pagan_reformed
+					OR = {
+						culture_group = altaic
+						culture = hungarian
+					}
+				}
+			}
+			NOT = {	
+				AND = {
+					religion = aztec_pagan_reformed
+					culture_group = mesoamerican
+				}
+			}	
+			NOT = {	
+				AND = {
+					religion = slavic_pagan_reformed
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+						culture_group = south_slavic
+					}
+				}
+			}		
+			NOT = {	
+				AND = {
+					religion = west_african_pagan_reformed
+					culture_group = west_african
+				}
+			}				
 		}
 		allow = {
 			war = no
