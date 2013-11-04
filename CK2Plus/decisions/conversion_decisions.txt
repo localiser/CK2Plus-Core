@@ -1157,21 +1157,25 @@ decisions = {
 			age = 16
 			prisoner = no
 			is_heretic = no
+			piety = 0	
 			
-			NOT = { religion_authority = 0.45 }			
+			NOT = {
+				has_character_flag = gone_pagan
+				religion_authority = 0.45				
+				trait = zealous 
+				trait = incapable
+				religion_group = zoroastrian_group
+				religion_group = judaism_group
+				is_reformed_religion = no
+			}
 			
-			piety = 0
-			NOT = { 
-				OR = {
-					has_character_flag = gone_pagan
-					trait = zealous 
-					trait = incapable
-					religion_group = zoroastrian_group
-					religion_group = judaism_group
-					AND = {
-						religion_group = pagan_group
-						is_reformed_religion = yes
+			NOT = {	
+				AND = {
+					OR = {
+						religion = egyptian_pagan
+						religion = aten_pagan
 					}
+					culture = egyptian_arabic
 				}
 			}
 		}
@@ -1182,6 +1186,7 @@ decisions = {
 					any_demesne_province = {
 						OR = {
 							religion_group = zoroastrian_group
+							religion_group = judaism_group
 							AND = {
 								religion_group = pagan_group
 								is_reformed_religion = no
