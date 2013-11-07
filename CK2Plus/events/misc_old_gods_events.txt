@@ -1318,3 +1318,33 @@ character_event = {
 		}
 	}
 }
+# Special event for Carolingian Empire to be renamed to HRE
+character_event = {
+	id = 1000182333
+	title = EVTNAME1000182333
+	desc = EVTDESC1000182333
+
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_diplomacy
+
+	only_playable = yes
+
+	trigger = {
+		has_landed_title = e_hre
+		NOT = { dynasty = 25061 } # Karling dynasty
+		NOT = { has_global_flag = hre_renamed }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTA1000182333
+		set_global_flag = hre_renamed
+		e_hre = {
+			set_name=""
+			adjective=""
+		}
+	}
+}
