@@ -1,0 +1,42 @@
+character_event = {
+	id = 7110010
+	
+	trigger = {
+		OR = {
+			has_landed_title = k_papal_state
+			has_character_flag = startup_character
+		}
+		NOT = { has_global_flag = alternate_scenarios }
+	}
+		
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.01
+			always = yes
+		}
+	}
+	
+	option = {
+		name = "OK"
+		set_global_flag = alternate_scenarios
+		if = {
+			limit = {
+				NOT = {
+					any_independent_ruler = {
+						is_feudal = yes
+						num_of_count_titles = 1
+						num_of_duke_titles = 1
+					}
+				}
+			}
+			set_global_flag = alternate_scenarios_no_dukes
+		}
+		any_playable_ruler = {
+			limit = { independent = yes }
+			add_trait = bloodlust
+		}		
+	}
+}
