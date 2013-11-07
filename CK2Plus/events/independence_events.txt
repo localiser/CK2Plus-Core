@@ -297,55 +297,167 @@ character_event = {
 	option = {
 		name = "EVTOPTB2500000" # Remain loyal
 		ai_chance = {
-			factor = 4
+			factor = 9
 			modifier = {
-				factor = 5
+				factor = 15
 				trait = content
 			}
 			modifier = {
+				factor = 5
+				trait = slothful
+			}	
+			modifier = {
+				factor = 2
+				trait = infirm
+			}
+			modifier = {
+				factor = 100
+				trait = incapable
+			}				
+			modifier = {
 				factor = 10
-				liege = { is_close_relative = yes }
-			}
-			modifier = {
-				factor = 0.3
-				NOT = { opinion = { who = liege value = -100 } }
-			}
-			modifier = {
-				factor = 0.6
-				NOT = { opinion = { who = liege value = -75 } }
-			}
-			modifier = {
-				factor = 0.8
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 0.9
-				NOT = { opinion = { who = liege value = -25 } }
-			}
-			modifier = {
-				factor = 1.1
-				opinion = { who = liege value = 25 }
-			}
-			modifier = {
-				factor = 1.2
-				opinion = { who = liege value = 50 }
-			}
-			modifier = {
-				factor = 1.4
-				opinion = { who = liege value = 75 }
-			}
-			modifier = {
-				factor = 1.6
-				opinion = { who = liege value = 100 }
+				liege = {
+					has_landed_title = e_hre
+					has_trait = crowned_by_pope
+				}
 			}
 			modifier = {
 				factor = 20
+				liege = { is_close_relative = yes }
+			}
+			modifier = {
+				factor = 10
+				liege = { dynasty = ROOT }
+			}		
+			modifier = {
+				factor = 0.2
+				NOT = { opinion = { who = liege value = -100 } }
+			}
+			modifier = {
+				factor = 0.4
+				NOT = { opinion = { who = liege value = -75 } }
+			}
+			modifier = {
+				factor = 0.6
+				NOT = { opinion = { who = liege value = -50 } }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { opinion = { who = liege value = -25 } }
+			}
+			modifier = {
+				factor = 3
+				opinion = { who = liege value = 25 }
+			}
+			modifier = {
+				factor = 6
+				opinion = { who = liege value = 50 }
+			}
+			modifier = {
+				factor = 12
+				opinion = { who = liege value = 75 }
+			}
+			modifier = {
+				factor = 24
+				opinion = { who = liege value = 100 }
+			}
+			modifier = {
+				factor = 100
 				trait = zealous
 				liege = {
 					controls_religion = yes
 					religion = ROOT
 				}
 			}
+			modifier = {
+				factor = 25
+				NOT = { trait = zealous }
+				liege = {
+					controls_religion = yes
+					religion = ROOT
+				}
+			}
+			modifier = {
+				factor = 0
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 100 }
+					decadence = 80
+				}
+			}				
+			modifier = {
+				factor = 0.3
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 80 }
+					decadence = 60
+				}
+			}				
+			modifier = {
+				factor = 0.6
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 60 }
+					decadence = 40
+				}
+			}				
+			modifier = {
+				factor = 0.8
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 40 }
+					decadence = 25
+				}
+			}			
+			modifier = {
+				factor = 1
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 25 }
+					decadence = 20
+				}
+			}
+			modifier = {
+				factor = 2
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 20 }
+					decadence = 15
+				}
+			}	
+			modifier = {
+				factor = 4
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 15 }
+					decadence = 10
+				}
+			}
+			modifier = {
+				factor = 8
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 10 }
+					decadence = 5
+				}
+			}
+			modifier = {
+				factor = 16
+				religion_group = muslim
+				liege = {
+					religion_group = muslim
+					NOT = { decadence = 5 }
+					decadence = 0
+				}
+			}			
 			modifier = {
 				factor = 0.75
 				liege = {
@@ -403,7 +515,7 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 5
+				factor = 10
 				de_jure_liege = FROM
 				}
 			}
