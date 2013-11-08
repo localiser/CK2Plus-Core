@@ -23,12 +23,21 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA2500000" # Declare independence
+		trigger = {
+			prisoner = no
+			age = 16
+			NOT = { trait = incapable }
+		}
 		ai_chance = {
 			factor = 4
 			modifier = {
 				factor = 5
 				trait = ambitious
 			}
+			modifier = {
+				factor = 5
+				liege = { primary_title = { is_titular = yes } }
+			}			
 			modifier = {
 				factor = 25
 				in_faction = faction_independence
@@ -297,11 +306,15 @@ character_event = {
 	option = {
 		name = "EVTOPTB2500000" # Remain loyal
 		ai_chance = {
-			factor = 9
+			factor = 25
 			modifier = {
 				factor = 15
 				trait = content
 			}
+			modifier = {
+				factor = 5
+				liege = { primary_title = { is_titular = no } }
+			}						
 			modifier = {
 				factor = 5
 				trait = slothful
