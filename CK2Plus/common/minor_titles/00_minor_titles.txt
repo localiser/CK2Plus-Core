@@ -403,6 +403,9 @@ title_court_dwarf = {
 			OR = {
 				religion_group = christian
 				religion_group = muslim
+				religion_group = judaism_group
+				religion = egyptian_pagan
+				religion = aten_pagan
 			}
 		}
 		NOT = {
@@ -462,6 +465,7 @@ title_court_jester = {
 			}
 			OR = {
 				religion_group = christian
+				religion_group = judaism_group
 				religion = hellenic_pagan
 			}
 		}
@@ -525,7 +529,10 @@ title_keeper_of_swans = {
 			}
 			NOT = { has_landed_title = e_byzantium }
 			NOT = { has_landed_title = e_roman_empire }
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion_group = judaism_group
+			}
 		}
 		NOT = {
 			has_minor_title = title_master_of_the_horse
@@ -576,7 +583,11 @@ title_master_of_the_horse = {
 			is_feudal = yes
 			NOT = { has_landed_title = e_byzantium }
 			NOT = { has_landed_title = e_roman_empire }
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion_group = pagan_group
+				religion_group = judaism_group
+			}
 		}
 		NOT = {
 			has_minor_title = title_keeper_of_swans
@@ -627,7 +638,11 @@ title_master_of_the_hunt = {
 			is_feudal = yes
 			NOT = { has_landed_title = e_byzantium }
 			NOT = { has_landed_title = e_roman_empire }
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion_group = pagan_group
+				religion_group = judaism_group
+			}
 		}
 		NOT = {
 			has_minor_title = title_keeper_of_swans
@@ -677,7 +692,10 @@ title_high_almoner = {
 			is_feudal = yes
 			NOT = { has_landed_title = e_byzantium }
 			NOT = { has_landed_title = e_roman_empire }
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion_group = judaism_group
+			}
 		}
 		NOT = {
 			has_minor_title = title_keeper_of_swans
@@ -728,8 +746,9 @@ title_cupbearer = {
 			is_feudal = yes
 			OR = {
 				religion_group = christian
+				religion_group = pagan_group
 				religion_group = muslim
-				religion = hellenic_pagan
+				religion_group = judaism_group
 			}
 		}
 		NOT = {
@@ -792,7 +811,11 @@ title_seneschal = {
 			}
 			NOT = { has_landed_title = e_byzantium }
 			NOT = { has_landed_title = e_roman_empire }
-			religion_group = christian
+			OR = {
+				religion_group = christian
+				religion_group = pagan_group
+				religion_group = judaism_group
+			}
 		}
 		NOT = {
 			has_minor_title = title_keeper_of_swans
@@ -2484,6 +2507,14 @@ title_yabgu = {
 			OR = {
 				religion = tengri_pagan
 				religion = tengri_pagan_reformed
+				AND = {
+					culture_group = altaic
+					NOT = {
+						religion_group = catholic
+						religion_group = muslim
+						religion_group = zoroastrian_group
+					}
+				}
 			}
 		}
 		NOT = { has_minor_title = title_ishad }
@@ -2492,6 +2523,12 @@ title_yabgu = {
 		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
 		NOT = { has_minor_title = title_venerable_elder }
+		NOT = {
+			has_minor_title = title_master_of_the_horse
+			has_minor_title = title_master_of_the_hunt
+			has_minor_title = title_cupbearer
+			has_minor_title = title_seneschal
+		}				
 	}
 
 	gain_effect = {
@@ -2526,6 +2563,14 @@ title_ishad = {
 			OR = {
 				religion = tengri_pagan
 				religion = tengri_pagan_reformed
+				AND = {
+					culture_group = altaic
+					NOT = {
+						religion_group = catholic
+						religion_group = muslim
+						religion_group = zoroastrian_group
+					}
+				}
 			}
 		}
 		NOT = { has_minor_title = title_yabgu }
@@ -2534,6 +2579,12 @@ title_ishad = {
 		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
 		NOT = { has_minor_title = title_venerable_elder }
+		NOT = {
+			has_minor_title = title_master_of_the_horse
+			has_minor_title = title_master_of_the_hunt
+			has_minor_title = title_cupbearer
+			has_minor_title = title_seneschal
+		}				
 	}
 
 	gain_effect = {
@@ -2567,6 +2618,14 @@ title_kundur = {
 			OR = {
 				religion = tengri_pagan
 				religion = tengri_pagan_reformed
+				AND = {
+					culture_group = altaic
+					NOT = {
+						religion_group = catholic
+						religion_group = muslim
+						religion_group = zoroastrian_group
+					}
+				}
 			}
 		}
 		NOT = { has_minor_title = title_yabgu }
@@ -2575,6 +2634,12 @@ title_kundur = {
 		NOT = { has_minor_title = title_master_of_the_bow }
 		NOT = { has_minor_title = title_master_of_the_blade }
 		NOT = { has_minor_title = title_venerable_elder }
+		NOT = {
+			has_minor_title = title_master_of_the_horse
+			has_minor_title = title_master_of_the_hunt
+			has_minor_title = title_cupbearer
+			has_minor_title = title_seneschal
+		}		
 	}
 
 	gain_effect = {
