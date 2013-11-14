@@ -110,16 +110,7 @@ e_hre = {
 					has_holder = yes 
 				}
 			}
-			AND = {
-				e_hre = {
-					OR = {
-						is_titular = yes
-						has_holder = no
-					}
-				}
-				has_landed_title = k_germany
-				realm_size = 150
-			}
+			realm_size = 150
 		}
 	}
 
@@ -176,10 +167,12 @@ e_byzantium = {
 }
 
 e_germany = {
-	color={ 155 155 155 }
+	color={ 160 95 95 }
 	color2={ 220 220 20 }
 	capital = 314 # Nürnberg
 
+	creation_requires_capital = no
+	
 	allow = {
 		war = no
 		NOT = { 
@@ -187,28 +180,21 @@ e_germany = {
 		}
 		culture = german
 		OR = {
-			AND = {
-				e_roman_empire = { 
-					has_holder = yes 
-				}
-				realm_size = 150
-			}
-			AND = {
-				e_hre = { 
-					has_holder = yes
-				}
-				realm_size = 150
-			}
-			e_germany = {
+			e_hre = {
 				has_holder = yes
-				is_titular = no
 			}
-			AND = {
-				NOT = {
-					religion = catholic
+			NOT = {
+				religion = catholic
+			}
+		}
+		OR = {
+			e_germany = {
+				OR = {
+					has_holder = yes
+					is_titular = no
 				}
-				realm_size = 150
 			}
+			realm_size = 150
 		}
 	}
 	culture = german
@@ -484,6 +470,36 @@ e_khazaria = {
 		}
 	}
 }
+e_norse = {
+	color = {102 102 102 }
+	color2 = {255 255 255}
+	
+	capital = 274
+	culture = norse
+	short_name = yes
+	
+	creation_requires_capital = no
+	
+	allow = {
+		war = no
+		NOT = { tier = emperor }
+		OR = {
+			culture = norse
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		OR = {
+			realm_size = 150
+			e_norse = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+}
+
 e_steppe_wolfe = {
 	color={ 118 118 118 }
 	color2={ 255 255 255 }
@@ -1176,7 +1192,7 @@ e_mali = {
 
 #culture-based with capital
 e_north_sea = {
-	color={ 35 75 233 }
+	color = { 35 75 233 }
 	capital = 32 #Middlesex
 	culture = norwegian
 	allow = {
