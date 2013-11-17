@@ -2614,7 +2614,10 @@ holy_war = {
 		}
 		if = {
 			limit = {
-				NOT = { has_global_flag = hardcore_mode }
+				OR = {
+					NOT = { has_global_flag = hardcore_mode }
+					ai = yes
+				}
 			}
 			hidden_tooltip = { ROOT = { add_character_modifier = { name = "holy_war_timer" duration = 1825 } } }
 		}
