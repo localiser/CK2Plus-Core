@@ -126,7 +126,7 @@ narrative_event = {
 	id = TOG.7
 	title = EVTNAME_TOG_007
 	desc = EVTDESC_TOG_007
-	picture = GFX_evt_mongols_pillage_oldgods
+	picture = GFX_evt_rome_falls
 	border = GFX_event_narrative_frame_war
 
 	is_triggered_only = yes
@@ -396,7 +396,7 @@ narrative_event = {
 	id = TOG.22
 	title = EVTNAME_TOG_022
 	desc = EVTDESC_TOG_022
-	picture = GFX_evt_mongols_pillage_oldgods
+	picture = GFX_evt_mecca_falls_soa
 	border = GFX_event_narrative_frame_war
 
 	is_triggered_only = yes
@@ -1612,6 +1612,10 @@ character_event = {
 	picture = GFX_evt_tengri_throneroom_oldgods
 	border = GFX_event_normal_frame_war
 
+	min_age = 16
+	only_men = yes
+	prisoner = no
+	
 	trigger = {
 		has_dlc = "The Old Gods"
 		OR = {
@@ -1619,6 +1623,10 @@ character_event = {
 			has_character_flag = khagan_finishing_nerge
 		}
 		war = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {
@@ -1856,7 +1864,7 @@ character_event = {
 					trait = gluttonous
 					NOT = { character = ROOT }
 				}
-				character_event = { id = TOG.723 }
+				character_event = { id = TOG.203 }
 				set_character_flag = feast_gluttonous
 			}
 		}

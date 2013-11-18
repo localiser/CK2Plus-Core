@@ -16,7 +16,7 @@
 province_event = {
 	id = 39000
 	desc = "EVTDESC39000"
-	picture = "GFX_evt_burning_house"
+	picture = "GFX_evt_stone_church"
 	border = "GFX_event_normal_frame_religion"
 
 	trigger = {
@@ -27,7 +27,7 @@ province_event = {
 			religion = hellenic_pagan
 			religion = egyptian_pagan
 			AND = {
-				religion_group = judaism_group
+				religion_group = jewish_group
 				k_israel = { has_holder = yes }
 			}
 			AND = {
@@ -40,6 +40,8 @@ province_event = {
 		NOT = { province_id = 497 } # Thrace
 		NOT = { province_id = 719 } # Mecca
 		NOT = { province_id = 718 } # Medina
+		
+		NOT = { has_dlc = "Sons of Abraham" }		
 	}
 
 	mean_time_to_happen = {
@@ -202,9 +204,16 @@ character_event = {
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
 
+	only_playable = yes
+	only_men = yes
+	
 	trigger = {
-		controls_religion = yes
 		religion = catholic
+		
+		NOT = { has_dlc = "Sons of Abraham" }
+		
+		controls_religion = yes
+		
 		any_playable_ruler = {
 			NOT = { has_character_flag = go_away_pope }
 			religion = catholic
@@ -284,8 +293,14 @@ character_event = {
 	picture = GFX_evt_heretic
 	border = GFX_event_normal_frame_religion
 
+	only_playable = yes
+	only_men = yes
+
 	trigger = {
 		religion = catholic
+		
+		NOT = { has_dlc = "Sons of Abraham" }
+		
 		controls_religion = yes
 
 		any_playable_ruler = {
@@ -443,15 +458,20 @@ character_event = {
 	trigger = {
 		independent = no
 		is_heretic = no
-
+		religion_group = christian
+		
+		NOT = { has_dlc = "Sons of Abraham" }
+		
 		liege = {
+			religion = ROOT
+			
 			any_courtier = {
 				is_heretic = yes
 				religion_group = christian
 				prisoner = no
 				is_councillor = yes
 			}
-			religion = ROOT
+			
 			ROOT = {
 				NOT = { has_opinion_modifier = { who = PREV modifier = opinion_disappointed } }
 			}
@@ -505,15 +525,18 @@ letter_event = {
 province_event = {
 	id = 39001
 	desc = "EVTDESC39001"
-	picture = "GFX_evt_burning_house"
+	picture = "GFX_evt_stone_church"
 	border = "GFX_event_normal_frame_religion"
 
 	trigger = {
 		is_heretic = no
+		owner = { is_heretic = no }		
 		NOT = { province_id = 333 } # Rome
 		NOT = { province_id = 497 } # Thrace
 		NOT = { province_id = 719 } # Mecca
 
+		NOT = { has_dlc = "Sons of Abraham" }
+		
 		any_neighbor_province = {
 			has_owner = yes
 			is_heresy_of = ROOT
@@ -618,6 +641,9 @@ character_event = {
 	prisoner = no
 
 	trigger = {
+	
+		NOT = { has_dlc = "Sons of Abraham" }
+	
 		is_heretic = no
 		OR = {
 			is_ruler = no
@@ -684,6 +710,9 @@ character_event = {
 
 	trigger = {
 		is_heretic = yes
+		
+		NOT = { has_dlc = "Sons of Abraham" }	
+		
 		any_courtier = {
 			age = 16
 			is_parent_religion = ROOT
@@ -958,59 +987,86 @@ narrative_event = {
 	desc = "EVTDESC39100"
 	picture = "GFX_evt_crusaders"
 	border = "GFX_event_narrative_frame_religion"
-
+	
 	major = yes
-
 	only_playable = yes
-
+	only_men = yes
+	
 	trigger = {
-		year = 1113		# Papal recognition
-		NOT = { is_title_active = d_knights_hospitaler }
-		religion = catholic
-		controls_religion = yes
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = {
-		name = "EVTOPTA39100"
-		trigger = {
+		OR = {
 			religion = catholic
-			controls_religion = yes
+			religion = cathar
+			religion = fraticelli
+			religion = waldensian
+			religion = lollard
 		}
+		is_heretic = no
+		
+		NOT = { is_title_active = d_knights_hospitaler }
+		
+		has_global_flag = christian_crusades_unlocked
+		
+		OR = {
+			year = 1113	# Historical
+			221 = { # Provence
+				NOT = { owner = { religion_group = christian } }
+			}
+			214 = { # Toulouse
+				NOT = { owner = { religion_group = christian } }
+			}
+			112 = { # Paris
+				NOT = { owner = { religion_group = christian } }
+			}
+			119 = { # Cologne
+				NOT = { owner = { religion_group = christian } }
+			}
+			257 = { # Braunschweig
+				NOT = { owner = { religion_group = christian } }
+			}
+			e_byzantium = {
+				holder_scope = {
+					NOT = { religion_group = christian }
+				}
+			}
+			496 = { # Constantinople
+				NOT = { owner = { religion_group = christian } }
+			}
+			753 = { # Ancyra
+				NOT = { owner = { religion_group = christian } }
+			}
+			333 = { # Rome
+				NOT = { owner = { religion_group = christian } }
+			}
+			AND = {
+				482 = { # Athens
+					NOT = { owner = { religion_group = christian } }
+				}
+				481 = { # Corinth
+					NOT = { owner = { religion_group = christian } }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
 		activate_title = { title = d_knights_hospitaler status = yes }
 		create_random_soldier = {
 			dynasty = none
 			random_traits = yes
+			religion = ROOT
 		}
 		new_character = {
 			d_knights_hospitaler = {
 				grant_title = PREV
 			}
-			if = {
-				limit = {
-					k_jerusalem = {
-						has_holder = yes
-						holder_scope = { religion = catholic }
-					}
-				}
-				set_defacto_liege = k_jerusalem
-			}
-			if = {
-				limit = {
-					k_jerusalem = {
-						OR = {
-							NOT = { has_holder = yes }
-							holder_scope = { NOT = { religion = catholic } }
-						}
-					}
-				}
-				set_defacto_liege = THIS
-			}
+			set_defacto_liege = THIS
+			wealth = 500
 		}
-
+		
 		religion_authority = {
 			modifier = religious_order_formed
 			years = 10
@@ -1019,8 +1075,7 @@ narrative_event = {
 	option = {
 		name = "EVTOPTA39100"
 		trigger = {
-			religion = catholic
-			controls_religion = no
+			religion = ROOT
 		}
 	}
 	option = {
@@ -1033,7 +1088,7 @@ narrative_event = {
 		name = "EVTOPTC39100"
 		trigger = {
 			religion_group = christian
-			NOT = { religion = catholic }
+			NOT = { religion = ROOT }
 		}
 	}
 }
@@ -1045,59 +1100,73 @@ narrative_event = {
 	desc = "EVTDESC39101"
 	picture = "GFX_evt_crusaders"
 	border = "GFX_event_narrative_frame_religion"
-
+	
 	major = yes
 	only_playable = yes
-
+	only_men = yes
+	
 	trigger = {
-		year = 1118		# Papal recognition
+		OR = {
+			religion = catholic
+			religion = cathar
+			religion = fraticelli
+			religion = waldensian
+			religion = lollard
+		}
+		is_heretic = no
+		
 		NOT = { year = 1312 }
 		NOT = { is_title_active = d_knights_templar }
-		religion = catholic
-		controls_religion = yes
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = {
-		name = "EVTOPTA39101"
-		trigger = {
-			religion = catholic
-			controls_religion = yes
+	
+		has_global_flag = christian_crusades_unlocked
+		
+		OR = {
+			year = 1118	# Historical
+			
+			e_byzantium = {
+				holder_scope = {
+					NOT = { religion_group = christian }
+				}
+			}
+			496 = { # Constantinople
+				NOT = { owner = { religion_group = christian } }
+			}
+			753 = { # Ancyra
+				NOT = { owner = { religion_group = christian } }
+			}
+			333 = { # Rome
+				NOT = { owner = { religion_group = christian } }
+			}
+			AND = {
+				482 = { # Athens
+					NOT = { owner = { religion_group = christian } }
+				}
+				481 = { # Corinth
+					NOT = { owner = { religion_group = christian } }
+				}
+			}
 		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
 		activate_title = { title = d_knights_templar status = yes }
 		create_random_soldier = {
 			dynasty = none
 			random_traits = yes
+			religion = ROOT
 		}
 		new_character = {
 			d_knights_templar = {
 				grant_title = PREV
 			}
-			if = {
-				limit = {
-					k_jerusalem = {
-						has_holder = yes
-						holder_scope = { religion = catholic }
-					}
-				}
-				set_defacto_liege = k_jerusalem
-			}
-			if = {
-				limit = {
-					k_jerusalem = {
-						OR = {
-							NOT = { has_holder = yes }
-							holder_scope = { NOT = { religion = catholic } }
-						}
-					}
-				}
-				set_defacto_liege = THIS
-			}
+			set_defacto_liege = THIS
+			wealth = 600
 		}
-
+		
 		religion_authority = {
 			modifier = religious_order_formed
 			years = 10
@@ -1106,8 +1175,7 @@ narrative_event = {
 	option = {
 		name = "EVTOPTA39101"
 		trigger = {
-			religion = catholic
-			controls_religion = no
+			religion = ROOT
 		}
 	}
 	option = {
@@ -1120,7 +1188,7 @@ narrative_event = {
 		name = "EVTOPTC39100"
 		trigger = {
 			religion_group = christian
-			NOT = { religion = catholic }
+			NOT = { religion = ROOT }
 		}
 	}
 }
@@ -1132,39 +1200,64 @@ narrative_event = {
 	desc = "EVTDESC39102"
 	picture = "GFX_evt_crusaders"
 	border = "GFX_event_narrative_frame_religion"
-
+	
 	major = yes
 	only_playable = yes
-
+	only_men = yes
+	
 	trigger = {
-		year = 1192		# Papal recognition
-		NOT = { is_title_active = d_teutonic_order }
-		religion = catholic
-		controls_religion = yes
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = {
-		name = "EVTOPTA39102"
-		trigger = {
+		OR = {
 			religion = catholic
-			controls_religion = yes
+			religion = cathar
+			religion = fraticelli
+			religion = waldensian
+			religion = lollard
 		}
+		is_heretic = no
+		
+		NOT = { is_title_active = d_teutonic_order }
+		
+		has_global_flag = christian_crusades_unlocked
+		
+		OR = {
+			year = 1192	# Historical
+			221 = { # Provence
+				NOT = { owner = { religion_group = christian } }
+			}
+			214 = { # Toulouse
+				NOT = { owner = { religion_group = christian } }
+			}
+			112 = { # Paris
+				NOT = { owner = { religion_group = christian } }
+			}
+			119 = { # Cologne
+				NOT = { owner = { religion_group = christian } }
+			}
+			257 = { # Braunschweig
+				NOT = { owner = { religion_group = christian } }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
 		activate_title = { title = d_teutonic_order status = yes }
 		create_random_soldier = {
 			dynasty = none
 			random_traits = yes
+			religion = ROOT
 		}
 		new_character = {
 			d_teutonic_order = {
 				grant_title = PREV
 			}
 			set_defacto_liege = THIS
+			wealth = 500
 		}
-
+		
 		religion_authority = {
 			modifier = religious_order_formed
 			years = 10
@@ -1173,8 +1266,7 @@ narrative_event = {
 	option = {
 		name = "EVTOPTA39102"
 		trigger = {
-			religion = catholic
-			controls_religion = no
+			religion = ROOT
 		}
 	}
 	option = {
@@ -1187,7 +1279,7 @@ narrative_event = {
 		name = "EVTOPTC39100"
 		trigger = {
 			religion_group = christian
-			NOT = { religion = catholic }
+			NOT = { religion = ROOT }
 		}
 	}
 }
@@ -1740,8 +1832,8 @@ character_event = {
 		}
 	}
 
-	mean_time_to_happen = {
-		days = 1
+	weight_multiplier = {
+		factor = 1
 		modifier = {
 			factor = 1.5
 			trait = zealous
@@ -3002,6 +3094,7 @@ character_event = {
 			modifier = {
 				factor = 5
 				NOT = { year = 930 }
+				NOT = { culture_group = magyar }
 			}
 			modifier = {
 				factor = 5
@@ -3181,6 +3274,7 @@ character_event = {
 					religion = orthodox
 				}
 			}
+			
 			modifier = { #Tweaked by Battle bunny
 				factor = 1.5
 				NOT = { religion_authority = 0.5 }
@@ -3232,6 +3326,31 @@ character_event = {
 				#End tweaks
 		}
 
+		if = {
+			limit = {
+				trait = cynical
+				NOT = { trait = zealous }
+				age = 12
+			}
+			random = {
+				chance = 60
+				add_trait = sympathy_pagans
+			}
+		}
+		if = {
+			limit = {
+				NOT = { 
+					trait = cynical
+					trait = zealous
+				}
+				age = 12
+			}
+			random = {
+				chance = 50
+				add_trait = sympathy_pagans
+			}
+		}		
+		
 		prestige = -500
 		religion = FROM
 		piety = 250
@@ -3552,6 +3671,30 @@ character_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		if = {
+			limit = {
+				trait = cynical
+				NOT = { trait = zealous }
+				age = 12
+			}
+			random = {
+				chance = 60
+				add_trait = sympathy_pagans
+			}
+		}
+		if = {
+			limit = {
+				NOT = { 
+					trait = cynical 
+					trait = zealous 
+				}
+				age = 12
+			}
+			random = {
+				chance = 50
+				add_trait = sympathy_pagans
+			}
+		}
 		religion = FROM
 		liege = {
 			character_event = { id = 39602 }
@@ -4242,9 +4385,9 @@ character_event = {
 		ai_chance = { factor = 20 }
 		trigger = {
 			culture_group = judaic
-			NOT = { religion_group = judaism}
+			NOT = { religion_group = jewish}
 		}
-		religion = judaism
+		religion = jewish
 		if = {
 			limit = { trait = cynical }
 			remove_trait = cynical
@@ -4280,5 +4423,665 @@ character_event = {
 		clr_character_flag = gone_pagan
 	}
 }
+
+# THE START OF THE CHRISTIAN CRUSADES - 1090 AND JERUSALEM NOT CHRISTIAN
+narrative_event = {
+	id = 39660
+	title = EVTNAME39660
+	desc = EVTDESC39660
+	picture = GFX_evt_jerusalem
+	border = GFX_event_narrative_frame_religion
 	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion = catholic
+		controls_religion = yes
+		year = 1090
+		
+		774 = { # Jerusalem
+			NOT = { owner = { religion_group = christian } }
+		}
+		
+		NOT = { has_global_flag = christian_crusades_unlocked }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		set_global_flag = christian_crusades_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39660
+		trigger = {
+			religion_group = christian
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39660
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+	}
+}
+
+# THE START OF THE CHRISTIAN CRUSADES - BYZANTIUM FAILING
+narrative_event = {
+	id = 39661
+	title = EVTNAME39660
+	desc = EVTDESC39661
+	picture = GFX_evt_hagia_sofia
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion = catholic
+		controls_religion = yes
+		NOT = { has_global_flag = christian_crusades_unlocked }
+		
+		OR = {
+			e_byzantium = {
+				holder_scope = {
+					NOT = { religion_group = christian }
+				}
+			}
+			496 = { # Constantinople
+				NOT = { owner = { religion_group = christian } }
+			}
+			753 = { # Ancyra
+				NOT = { owner = { religion_group = christian } }
+			}
+			AND = {
+				482 = { # Athens
+					NOT = { owner = { religion_group = christian } }
+				}
+				481 = { # Corinth
+					NOT = { owner = { religion_group = christian } }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = christian_crusades_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39660
+		trigger = {
+			religion_group = christian
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39660
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+	}
+}
+
+# THE START OF THE CHRISTIAN CRUSADES - ROME HAS FALLEN
+narrative_event = {
+	id = 39662
+	title = EVTNAME39660
+	desc = EVTDESC39662
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion = catholic
+		controls_religion = yes
+		NOT = { has_global_flag = christian_crusades_unlocked }
+		
+		333 = { # Rome
+			owner = {
+				OR = {
+					NOT = { religion_group = christian }
+					is_heretic = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = christian_crusades_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39660
+		trigger = {
+			religion_group = christian
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39660
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+	}
+}
+
+# THE START OF THE CHRISTIAN CRUSADES - EUROPE
+narrative_event = {
+	id = 39663
+	title = EVTNAME39660
+	desc = EVTDESC39663
+	picture = GFX_evt_crusaders
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion = catholic
+		controls_religion = yes
+		NOT = { has_global_flag = christian_crusades_unlocked }
+		
+		OR = {
+			221 = { # Provence
+				NOT = { owner = { religion_group = christian } }
+			}
+			214 = { # Toulouse
+				NOT = { owner = { religion_group = christian } }
+			}
+			112 = { # Paris
+				NOT = { owner = { religion_group = christian } }
+			}
+			119 = { # Cologne
+				NOT = { owner = { religion_group = christian } }
+			}
+			257 = { # Braunschweig
+				NOT = { owner = { religion_group = christian } }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = christian_crusades_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39660
+		trigger = {
+			religion_group = christian
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39660
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+	}
+}
+
+# THE START OF MUSLIM JIHADS - 1187 IF THERE IS STILL A CALIPH
+narrative_event = {
+	id = 39670
+	title = EVTNAME39670
+	desc = EVTDESC39670
+	picture = GFX_evt_bishop_muslim
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion_group = muslim
+		controls_religion = yes
+		year = 1187
+		
+		NOT = { has_global_flag = muslim_jihads_unlocked }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		set_global_flag = muslim_jihads_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39670
+		trigger = {
+			religion_group = muslim
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39670
+		trigger = {
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+
+# THE START OF MUSLIM JIHADS - JERUSALEM HAS FALLEN
+narrative_event = {
+	id = 39671
+	title = EVTNAME39670
+	desc = EVTDESC39671
+	picture = GFX_evt_jerusalem_captured_muslims
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion_group = muslim
+		controls_religion = yes
+		NOT = { has_global_flag = muslim_jihads_unlocked }
+		774 = { # Jerusalem
+			NOT = { owner = { religion_group = muslim } }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = muslim_jihads_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39670
+		trigger = {
+			religion_group = muslim
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39670
+		trigger = {
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+
+# THE START OF MUSLIM JIHADS - MECCA HAS FALLEN
+narrative_event = {
+	id = 39672
+	title = EVTNAME39670
+	desc = EVTDESC39672
+	picture = GFX_evt_mecca_falls_soa
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion_group = muslim
+		controls_religion = yes
+		NOT = { has_global_flag = muslim_jihads_unlocked }
+		719 = { # Mecca
+			NOT = { owner = { religion_group = muslim } }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = muslim_jihads_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39670
+		trigger = {
+			religion_group = muslim
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39670
+		trigger = {
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+
+# THE START OF MUSLIM JIHADS - THE CENTER CANNOT HOLD
+narrative_event = {
+	id = 39673
+	title = EVTNAME39670
+	desc = EVTDESC39673
+	picture = GFX_evt_moors
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion_group = muslim
+		controls_religion = yes
+		NOT = { has_global_flag = muslim_jihads_unlocked }
+		OR = {
+			693 = { # Baghdad
+				NOT = { owner = { religion_group = muslim } }
+			}
+			728 = { # Damascus
+				NOT = { owner = { religion_group = muslim } }
+			}
+			796 = { # Cairo
+				NOT = { owner = { religion_group = muslim } }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = muslim_jihads_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39670
+		trigger = {
+			religion_group = muslim
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39670
+		trigger = {
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+
+# THE START OF MUSLIM JIHADS - AFRICA UNDER THREAT
+narrative_event = {
+	id = 39674
+	title = EVTNAME39670
+	desc = EVTDESC39674
+	picture = GFX_evt_desert
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion_group = muslim
+		controls_religion = yes
+		NOT = { has_global_flag = muslim_jihads_unlocked }
+		OR = {
+			843 = { # Marrakesh
+				NOT = { owner = { religion_group = muslim } }
+			}
+			817 = { # Tunis
+				NOT = { owner = { religion_group = muslim } }
+			}
+			831 = { # Al Djazair
+				NOT = { owner = { religion_group = muslim } }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = muslim_jihads_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39670
+		trigger = {
+			religion_group = muslim
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39670
+		trigger = {
+			NOT = { religion_group = muslim }
+		}
+	}
+}
+
+# THE START OF PAGAN GREAT HOLY WARS - AFTER THE ABRAHAMICS
+narrative_event = {
+	id = 39680
+	title = EVTNAME39680
+	desc = EVTDESC39680
+	picture = GFX_evt_midwinter_blot_oldgods
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		religion_group = pagan_group
+		controls_religion = yes
+		
+		NOT = { has_global_flag = pagan_ghws_unlocked }
+		
+		OR = {
+			has_global_flag = muslim_jihads_unlocked
+			has_global_flag = christian_crusades_unlocked
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		set_global_flag = pagan_ghws_unlocked
+	}
+	
+	option = {
+		name = EVTOPTA39680
+		trigger = {
+			religion = ROOT
+		}
+	}
+	
+	option = {
+		name = EVTOPTB39680
+		trigger = {
+			religion_group = pagan_group
+			NOT = { religion = ROOT }
+		}
+	}
+	
+	option = {
+		name = EVTOPTC39680
+		trigger = {
+			NOT = { religion_group = pagan_group }
+		}
+	}
+}
+
+# Vassal accepts religious conversion demand. 
+# Fired from 'on_vassal_accepts_religious_conversion'
+# FROMFROM is the demander. FROM is the vassal. ROOT is the character. Fires for the vassal and each of his courtiers and vassals.
+character_event = {
+	id = 39700
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { religion = FROMFROM }
+		OR = {
+			AND = {
+				is_ruler = no
+				NOT = { trait = zealous }
+				religion = FROM # Will not change religion if already different from the vassal's
+			}
+			character = FROM
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				character = FROM
+			}
+			opinion = {
+				who = FROMFROM
+				modifier = opinion_demanded_conversion
+			}
+			if = {
+				limit = {
+					prisoner = yes
+					host = {
+						character = FROMFROM
+					}
+				}
+				imprison = no
+			}
+		}
+	}
+	
+	option = { # No sympathy for the old religion
+		ai_chance = {
+			factor = 100
+		}
+		religion = FROMFROM
+	}
+	
+	option = { # Sympathy for the old religion
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					trait = zealous
+					NOT = { age = 12 }
+				}
+			}
+			modifier = {
+				factor = 10
+				trait = cynical
+				age = 12
+			}
+		}
+		if = {
+			limit = {
+				religion_group = christian
+			}
+			add_trait = sympathy_christendom
+		}
+		if = {
+			limit = {
+				religion_group = muslim
+			}
+			add_trait = sympathy_islam
+		}
+		if = {
+			limit = {
+				religion_group = pagan_group
+			}
+			add_trait = sympathy_pagans
+		}
+		if = {
+			limit = {
+				religion_group = zoroastrian_group
+			}
+			add_trait = sympathy_zoroastrianism
+		}
+		if = {
+			limit = {
+				religion_group = jewish_group
+			}
+			add_trait = sympathy_judaism
+		}
+		
+		religion = FROMFROM
+	}
+}
+
 	

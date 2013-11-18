@@ -332,9 +332,17 @@ character_event = {
 	picture = "GFX_evt_moors"
 	border =  "GFX_event_normal_frame_religion"
 
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
 	trigger = {
 		has_character_flag = ramadan
 		war = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {
@@ -351,10 +359,18 @@ character_event = {
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
 
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
 	trigger = {
 		trait = ill
 		has_character_flag = ramadan
 		NOT = { has_character_flag = ramadan_ill }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {

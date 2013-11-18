@@ -19,11 +19,22 @@ narrative_event = {
 	desc = "EVTDESC88000"
 	major = yes
 
-	picture = "GFX_evt_shadow"
-
+	picture = GFX_evt_shadow
+	
+	hide_from = yes
+	
+	only_playable = yes
+	only_men = yes
+	min_age = 16
+	
 	trigger = {
 		year = 1089
-		has_landed_title = d_hashshashin
+		OR = {
+			religion = shiite
+			religion = druze
+			religion = hurufi
+		}
+		is_heretic = no
 		NOT = {
 			has_global_flag = assassins_founded
 			has_global_flag = assassins_destroyed
@@ -62,7 +73,7 @@ narrative_event = {
 			random_traits = no
 			name = "Hassan"
 			dynasty = random
-			religion = shiite
+			religion = ROOT
 			culture = persian
 			female = no
 			age = 40
@@ -88,7 +99,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 16
@@ -96,7 +107,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 18
@@ -104,7 +115,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 18
@@ -112,7 +123,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 20
@@ -120,7 +131,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 25
@@ -128,7 +139,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 26
@@ -136,7 +147,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = no
 				age = 28
@@ -144,7 +155,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = yes
 				age = 16
@@ -152,7 +163,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = yes
 				age = 17
@@ -160,7 +171,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = yes
 				age = 18
@@ -168,7 +179,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = yes
 				age = 18
@@ -176,7 +187,7 @@ narrative_event = {
 			create_character = {
 				random_traits = yes
 				dynasty = random
-				religion = shiite
+				religion = ROOT
 				culture = persian
 				female = yes
 				age = 20
@@ -253,14 +264,18 @@ narrative_event = {
 	picture = "GFX_evt_shadow"
 
 	trigger = {
-		has_landed_title = d_hashshashin
 		has_global_flag = assassins_founded
+		has_landed_title = d_hashshashin
 		NOT = { year = 1200 }
 		NOT = { demesne_size = 1 }
 		NOT = {
 			has_global_flag = assassins_destroyed
 			has_global_flag = assassins_scatter
 		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {
@@ -341,6 +356,10 @@ narrative_event = {
 			has_global_flag = assassins_destroyed
 		}
 	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}	
 
 	option = {
 		name = "OK"

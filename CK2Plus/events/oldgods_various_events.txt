@@ -33,7 +33,7 @@ character_event = {
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 0.8
@@ -123,7 +123,7 @@ character_event = {
 		is_alive = yes
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 
 		modifier = {
@@ -285,7 +285,7 @@ character_event = {
 		is_alive = yes
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 
 		modifier = {
@@ -444,7 +444,7 @@ character_event = {
 		trait = berserker
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 1.5
@@ -620,7 +620,7 @@ character_event = {
 		trait = berserker
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 1.5
@@ -757,7 +757,7 @@ character_event = {
 		age = 50
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		months = 24
 	}
 
@@ -856,7 +856,7 @@ character_event = {
 		is_pretender = no
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		months = 2080
 	}
 
@@ -920,9 +920,18 @@ character_event = {
 	id = TOG.3105
 	hide_window = yes
 
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	
 	trigger = {
 		has_landed_title = d_varangian_guard
 		NOT = { trait = varangian }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	immediate = {
@@ -943,6 +952,7 @@ character_event = {
 
 	trigger = {
 		has_character_flag = wants_varangian
+		has_character_flag = denied_varangian		
 	}
 
 	immediate = {
@@ -1048,7 +1058,7 @@ character_event = {
 
 	is_triggered_only = yes
 
-	option = {
+	option = { # Deny
 		name = EVTOPTA_TOG_3110
 		FROM = {
 			opinion = {
@@ -1056,10 +1066,12 @@ character_event = {
 				years = 1
 				who = ROOT
 			}
+			clr_character_flag = wants_varangian
+			set_character_flag = denied_varangian
 		}
 		prestige = -100
 	}
-	option = {
+	option = { # Allow
 		name = EVTOPTB_TOG_3110
 		d_varangian_guard = {
 			holder_scope = {
@@ -1861,15 +1873,19 @@ character_event = {
 	desc = EVTDESC_TOG_3134
 	picture = GFX_evt_viking_throneroom_oldgods
 	border = GFX_event_normal_frame_war
-
+	ai = no
+	
 	trigger = {
 		has_dlc = "The Old Gods"
-		ai = no
 		OR = {
 			has_character_flag = wants_varangian
 			has_character_flag = serving_varangian
 		}
 		father = { is_alive = no }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	immediate = {
@@ -1890,14 +1906,23 @@ character_event = {
 	id = TOG.3135
 	hide_window = yes
 
+	min_age = 16
+	ai = yes
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	
 	trigger = {
 		has_dlc = "The Old Gods"
-		ai = yes
 		OR = {
 			has_character_flag = wants_varangian
 			has_character_flag = serving_varangian
 		}
 		father = { is_alive = no }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	immediate = {
@@ -2938,16 +2963,16 @@ character_event = {
 	id = TOG.3260
 	hide_window = yes
 
+	min_age = 16
+	max_age = 17
+	
 	trigger = {
 		has_dlc = "The Old Gods"
 		has_character_flag = demon_child
-		age = 16
 	}
-
-	immediate = {
-		clr_character_flag = demon_child
-		clr_character_flag = demon_child_fake
-		clr_character_flag = child_exorcism
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {
