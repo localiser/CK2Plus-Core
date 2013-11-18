@@ -2062,7 +2062,7 @@ character_event = {
 		NOT = { trait = maimed }
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 3
@@ -2745,7 +2745,7 @@ character_event = {
 		NOT = { trait = maimed }
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 3
@@ -3037,6 +3037,19 @@ character_event = {
 	hide_from = yes
 	is_triggered_only = yes
 
+	immediate = {
+		if = {
+			limit = {
+				spouse = { character = FROM }
+				FROM = { 
+					ai = no
+					NOT = { has_character_flag = achievement_spouse_killer } 
+				}
+			}
+			FROM = { set_character_flag = achievement_spouse_killer }
+		}
+	}
+	
 	option = {
 		name = "EVTOPTA162"
 		hidden_tooltip = {
@@ -4778,24 +4791,23 @@ diploresponse_event = {
 	}
 }
 
-# GRANT_LANDED_TITLE_INTERACTION_ACCEPT_EVENT =
-diploresponse_event = {
-	id = 228
-
-	is_triggered_only = yes
-	major = no
-	is_friendly = yes
-
-	trigger = {
-		ai = no
-	}
-
-	desc = "EVTDESC228"
-
-	option = {
-		name = "OK"
-	}
-}
+# GRANT_LANDED_TITLE_INTERACTION_DECLINE_EVENT =
+#diploresponse_event = {
+#	id = 229
+#
+#	is_triggered_only = yes
+#	major = no
+#
+#	trigger = {
+#		ai = no
+#	}
+#
+#	desc = "EVTDESC229"
+#
+#	option = {
+#		name = "OK"
+#	}
+#}
 
 # GRANT_LANDED_TITLE_INTERACTION_DECLINE_EVENT =
 diploresponse_event = {
@@ -5312,6 +5324,15 @@ character_event = {
 			}
 		}
 	}
+	
+	immediate = {
+		hidden_tooltip = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_get_married
+			}
+		}
+	}	
 
 	option = {
 		name = "EVTOPTA500"
@@ -5421,6 +5442,15 @@ character_event = {
 			}
 		}
 	}
+
+	immediate = {
+		hidden_tooltip = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_get_married
+			}
+		}
+	}	
 
 	immediate = {
 		hidden_tooltip = {
@@ -6308,6 +6338,10 @@ narrative_event = {
 	only_rulers = yes
 
 	immediate = {
+		if = {
+			limit = { ai = no }
+			set_character_flag = achievement_new_ways
+		}	
 		any_courtier = {
 			limit = {
 				is_heresy_of = ROOT
@@ -6347,15 +6381,44 @@ narrative_event = {
 			d_fianna = {
 				religion = celtic_pagan_reformed # This Holy Order now changes religion
 			}
+			d_gwydion	 = {
+				religion = celtic_pagan_reformed # This Holy Order now changes religion
+			}			
 			set_global_flag = celtic_reformation
 		}
 		if = {
-			limit = { religion = celtic_pagan_reformed }
-			d_gwydion = {
-				religion = celtic_pagan_reformed # This Holy Order now changes religion
-			}
-			set_global_flag = celtic_reformation
+			limit = { religion = tengri_pagan_reformed }
+			d_great_host = {
+				religion = tengri_pagan_reformed # This Holy Order now changes religion
+			}			
+			set_global_flag = tengri_reformation
 		}
+		if = {
+			limit = { religion = baltic_pagan_reformed }
+			d_guardians_of_the_sacred_flame = {
+				religion = baltic_pagan_reformed # This Holy Order now changes religion
+			}				
+			set_global_flag = baltic_reformation
+		}
+		if = {
+			limit = { religion = finnish_pagan_reformed }
+			d_disciples_of_the_old_gods = {
+				religion = finnish_pagan_reformed # This Holy Order now changes religion
+			}				
+			set_global_flag = finnish_reformation
+		}
+		if = {
+			limit = { religion = aztec_pagan_reformed }
+			set_global_flag = aztec_pagan_reformation
+		}
+		if = {
+			limit = { religion = slavic_pagan_reformed }
+			set_global_flag = slavic_reformation
+		}
+		if = {
+			limit = { religion = west_african_pagan_reformed }
+			set_global_flag = west_african_reformation
+		}		
 	}
 
 	option = {
@@ -6440,5 +6503,31 @@ narrative_event = {
 			NOT = { religion = ROOT }
 			NOT = { is_heresy_of = ROOT }
 		}
+	}
+}
+
+character_event = {
+	id = 675
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		controls_religion = yes
+		death_reason = death_sacrificed
+		killer = {
+			ai = no
+			NOT = { has_character_flag = achievement_holy_smoke }
+		}
+	}
+	
+	immediate = {
+		killer = {
+			set_character_flag = achievement_holy_smoke
+		}
+	}
+	
+	option = {
+		name = "OK"
 	}
 }

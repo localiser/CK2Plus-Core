@@ -1,0 +1,344 @@
+################################
+# Steam Achievement Events
+################################
+
+# Viking Raider
+unit_event = {
+	id = 700
+	hide_window = yes
+	
+	ai = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			culture_group = north_germanic
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+		loot = 1000
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = achievement_viking_raider }
+			}
+			set_character_flag = achievement_viking_raider
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Mr. Doge-Elect
+character_event = {
+	id = 701
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	ai = no
+	
+	trigger = {
+		NOT = { has_character_flag = achievement_doge_elect }
+	}
+	
+	immediate = {
+		set_character_flag = achievement_doge_elect
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Empressive
+character_event = {
+	id = 702
+	hide_window = yes
+	
+	ai = no
+	is_female = yes
+	
+	trigger = {
+		primary_title = { tier = EMPEROR }
+		mother_even_if_dead = {
+			primary_title = { tier = EMPEROR }
+		}
+		mother_even_if_dead = {
+			mother_even_if_dead = {
+				primary_title = { tier = EMPEROR }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_empressive
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Black Widow
+character_event = {
+	id = 703
+	hide_window = yes
+	
+	ai = no
+	is_female = yes
+	min_age = 16
+	
+	trigger = {
+		any_spouse_even_if_dead = {
+			count = 3
+			is_alive = no
+			killer = { character = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_black_widow
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# The Black Bishop
+character_event = {
+	id = 704
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = bad_priest_christian
+		any_liege = {
+			ai = no
+			reverse_has_opinion_modifier = { who = ROOT modifier = opinion_supported_pope }
+			NOT = { has_character_flag = achievement_black_bishop }
+		}
+	}
+	
+	immediate = {
+		any_liege = {
+			limit = {
+				ai = no
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_supported_pope }
+				NOT = { has_character_flag = achievement_black_bishop }
+			}
+			set_character_flag = achievement_black_bishop
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Turbulent Priest
+character_event = {
+	id = 705
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_theocracy = yes
+		religion = catholic
+		killer = {
+			ai = no
+			is_liege_of = ROOT
+			religion = catholic
+			NOT = { has_character_flag = achievement_turbulent_priest }
+		}
+		killer = {
+			rightful_religious_head_scope = {
+				ROOT = {
+					likes_better_than = { 
+						who = PREV
+						than = PREVPREV
+					}
+				}
+			}
+		}	
+	}
+	
+	immediate = {
+		killer = {
+			set_character_flag = achievement_turbulent_priest
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Full House
+character_event = {
+	id = 706
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			father = {
+				ai = no
+				NOT = { has_character_flag = achievement_full_house }
+			}
+			mother = { 
+				ai = no 
+				NOT = { has_character_flag = achievement_full_house }
+			}
+		}
+	}
+	
+	immediate = {
+		
+		if = {
+			limit = {
+				father = { 
+					ai = no
+					NOT = { has_character_flag = achievement_full_house }
+					NOT = { check_variable = { which = "bob_saget" value = 4.5 } }
+				}
+			}
+			father = {
+				change_variable = { which = "bob_saget" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				mother = { 
+					ai = no
+					NOT = { has_character_flag = achievement_full_house }
+					NOT = { check_variable = { which = "bob_saget" value = 4.5 } }
+				}
+			}
+			mother = {
+				change_variable = { which = "bob_saget" value = 1 }
+			}
+		}
+		
+		if = {
+			limit = {
+				father = { 
+					ai = no
+					NOT = { has_character_flag = achievement_full_house }
+					check_variable = { which = "bob_saget" value = 4.5 }
+				}
+			}
+			father = {
+				set_character_flag = achievement_full_house
+			}
+		}
+		if = {
+			limit = {
+				mother = { 
+					ai = no
+					NOT = { has_character_flag = achievement_full_house }
+					check_variable = { which = "bob_saget" value = 4.5 }
+				}
+			}
+			mother = {
+				set_character_flag = achievement_full_house
+			}
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Keeping it in the Family
+character_event = {
+	id = 707
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = inbred
+		OR = {
+			AND = {
+				father = {
+					ai = no
+					NOT = { has_character_flag = achievement_in_the_family }
+				}
+			}
+			AND = {
+				mother = {
+					ai = no
+					NOT = { has_character_flag = achievement_in_the_family }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				father = {
+					ai = no
+					NOT = { has_character_flag = achievement_in_the_family }
+				}
+			}
+			father = { set_character_flag = achievement_in_the_family }
+		}
+		if = {
+			limit = {
+				mother = {
+					ai = no
+					NOT = { has_character_flag = achievement_in_the_family }
+				}
+			}
+			mother = { set_character_flag = achievement_in_the_family }
+		}
+	}			
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# The Marriage Game
+character_event = {
+	id = 708
+	hide_window = yes
+	
+	ai = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = achievement_get_married }
+	}
+	
+	immediate = {
+		set_character_flag = achievement_get_married
+	}			
+	
+	option = {
+		name = "OK"
+	}
+}

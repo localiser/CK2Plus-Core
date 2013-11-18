@@ -1120,11 +1120,15 @@ character_event = {
 	picture = GFX_evt_emissary
 
 	trigger = {
-		has_character_flag = imprisoned_by_regent
 		any_courtier = {
 			has_minor_title = title_regent
 			NOT = { has_character_flag = declared_ruler_insane }
 		}
+		has_character_flag = imprisoned_by_regent
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {

@@ -215,7 +215,7 @@ character_event = {
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -551,7 +551,7 @@ character_event = {
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -571,49 +571,70 @@ character_event = {
 	id = 4140
 	desc = EVTDESC4140
 	picture = GFX_evt_death
-
+	
 	is_triggered_only = yes
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
-
+	
 	option = {
 		name = EVTOPTA4140
 		trigger = {
-			NOT = { trait = cynical }
+			religion_group = christian
 		}
-		piety = 10
+		add_character_modifier = {
+			name = the_sincere
+			duration = 180
+		}
 	}
-
+	option = {
+		name = EVTOPTD4140
+		trigger = {
+			religion_group = muslim
+		}
+		add_character_modifier = {
+			name = the_sincere
+			duration = 180
+		}
+	}
+	option = {
+		name = EVTOPTE4140
+		trigger = {
+			NOT = {
+				religion_group = muslim
+				religion_group = christian
+			}
+		}
+		add_character_modifier = {
+			name = the_sincere
+			duration = 180
+		}
+	}
+	
 	option = {
 		name = EVTOPTB4140
-		tooltip_info = cynical
-		trigger = {
-			trait = cynical
-
+		add_character_modifier = {
+			name = the_cynical
+			duration = 180
 		}
-		piety = -10
 	}
-
+	
 	option = {
 		name = EVTOPTC4140
-		tooltip_info = charitable
 		trigger = {
-			trait = charitable
 			FROM = {
 				spouse = {
 					is_alive = yes
 				}
 			}
 		}
-		wealth = -5
 		FROM = {
 			spouse = {
 				opinion = {
 					modifier = charitable_pos
 					who = ROOT
-					years = 5
+					years = 2
 				}
 			}
 		}
