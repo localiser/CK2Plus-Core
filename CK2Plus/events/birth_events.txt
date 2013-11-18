@@ -1293,46 +1293,6 @@ character_event = {
 	}
 }
 
-# On-action event: A bastard child is born, but is not recognized as such by the spouse of the mother
-character_event = {
-	id = 318
-	desc = "EVTDESC318"
-	picture = "GFX_evt_birth"
-
-	is_triggered_only = yes
-
-	trigger = {
-		real_father = {
-			is_alive = yes
-			ROOT = {
-				father = {
-					NOT = { character = PREVPREV }
-				}
-			}
-		}
-	}
-
-	option = {
-		name = "OK"
-		real_father = {
-			character_event = { id = 319 } # The real father is notified
-		}
-	}
-}
-
-character_event = {
-	id = 319
-	desc = "EVTDESC319"
-	picture = "GFX_evt_birth"
-
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTA319
-		piety = -5
-	}
-}
-
 # A courtier initiates romance with another courtier
 character_event = {
 	id = 97320
