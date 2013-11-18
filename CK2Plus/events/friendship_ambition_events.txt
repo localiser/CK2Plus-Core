@@ -20,8 +20,8 @@ namespace = friendevents
 
 # Councillor tries to befriend liege
 character_event = {
-	id = friendevents.0
-	desc = friendevents.0.desc
+	id = 1000182335
+	desc = 1000182335.desc
 	picture = GFX_evt_courtiers_talking
 
 	prisoner = no
@@ -102,11 +102,11 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.0.a"  # Let's talk to him
+		name = "1000182335.a"  # Let's talk to him
 		ai_chance = { factor = 95 }
 		liege = {
 			character_event = {
-				id = friendevents.1
+				id = 1000182336
 				days = 1
 				random = 3
 				tooltip = "make_friend_attempt_tooltip"
@@ -115,7 +115,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.0.b"  # Maybe later
+		name = "1000182335.b"  # Maybe later
 		ai_chance = { factor = 5 }
 		random = {
 				chance = 5
@@ -127,14 +127,14 @@ character_event = {
 
 # Liege responds
 character_event = {
-	id = friendevents.1
-	desc = friendevents.1.desc
+	id = 1000182336
+	desc = 1000182336.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendevents.1.a"  # Make Friends
+		name = "1000182336.a"  # Make Friends
 		opinion = {
 			modifier = opinion_friend
 			who = FROM
@@ -142,7 +142,7 @@ character_event = {
 		}
 		FROM = {
 			character_event = {
-				id = friendevents.2
+				id = 1000182337
 				days = 1
 				random = 3
 				tooltip = "make_friend_success_tooltip"
@@ -151,10 +151,10 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.1.b"  # Rebuff him
+		name = "1000182336.b"  # Rebuff him
 		FROM = {
 			character_event = {
-				id = friendevents.3
+				id = 1000182338
 				days = 1
 				random = 3
 				tooltip = "make_friend_sad_tooltip"
@@ -165,8 +165,8 @@ character_event = {
 
 # Friends - councillor and liege
 character_event = {
-	id = friendevents.2
-	desc = friendevents.2.desc
+	id = 1000182337
+	desc = 1000182337.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -183,8 +183,8 @@ character_event = {
 
 # Sad - councillor and liege
 character_event = {
-	id = friendevents.3
-	desc = friendevents.3.desc
+	id = 1000182338
+	desc = 1000182338.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -201,8 +201,8 @@ character_event = {
 
 # ruler tries to befriend a courtier
 character_event = {
-	id = friendevents.4
-	desc = friendevents.4.desc
+	id = 1000182339
+	desc = 1000182339.desc
 	picture = GFX_evt_courtiers_talking
 
 	prisoner = no
@@ -284,7 +284,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.4.a"  # Let's talk to him
+		name = "1000182339.a"  # Let's talk to him
 		ai_chance = { factor = 95 }
 		# If male ruler, make friends with man
 		if = {
@@ -315,7 +315,7 @@ character_event = {
 				}
 
 				character_event = {
-					id = friendevents.5
+					id = 1000182340
 					days = 1
 					random = 3
 					tooltip = "make_friend_attempt_tooltip"
@@ -351,7 +351,7 @@ character_event = {
 				}
 
 				character_event = {
-					id = friendevents.5
+					id = 1000182340
 					days = 1
 					random = 3
 					tooltip = "make_friend_attempt_tooltip"
@@ -361,7 +361,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.4.b"  # Maybe later
+		name = "1000182339.b"  # Maybe later
 		ai_chance = { factor = 5 }
 		random = {
 				chance = 5
@@ -373,14 +373,14 @@ character_event = {
 
 # courtier decides if he wants to make friends with liege
 character_event = {
-	id = friendevents.5
-	desc = friendevents.5.desc
+	id = 1000182340
+	desc = 1000182340.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendevents.5.a"  # Make Friends
+		name = "1000182340.a"  # Make Friends
 		ai_chance = {
 			factor = 75
 
@@ -396,7 +396,7 @@ character_event = {
 		}
 		FROM = {
 			character_event = {
-				id = friendevents.6
+				id = 1000182341
 				days = 1
 				random = 3
 				tooltip = "make_friend_success_tooltip"
@@ -405,7 +405,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.5.b"  # Rebuff him
+		name = "1000182340.b"  # Rebuff him
 		ai_chance = {
 			factor = 25
 
@@ -416,7 +416,7 @@ character_event = {
 		}
 		FROM = {
 			character_event = {
-				id = friendevents.7
+				id = 1000182342
 				days = 1
 				random = 3
 				tooltip = "make_friend_sad_tooltip"
@@ -427,8 +427,8 @@ character_event = {
 
 # friends - courtier and liege
 character_event = {
-	id = friendevents.6
-	desc = friendevents.6.desc
+	id = 1000182341
+	desc = 1000182341.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -445,8 +445,8 @@ character_event = {
 
 # Sad - courtier and liege
 character_event = {
-	id = friendevents.7
-	desc = friendevents.7.desc
+	id = 1000182342
+	desc = 1000182342.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -464,8 +464,8 @@ character_event = {
 
 # Duelist tries to befriend liege
 character_event = {
-	id = friendevents.8
-	desc = friendevents.8.desc
+	id = 1000182343
+	desc = 1000182343.desc
 	picture = GFX_evt_courtiers_talking
 
 	prisoner = no
@@ -560,11 +560,11 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.0.a"  # Let's talk to him
+		name = "1000182335.a"  # Let's talk to him
 		ai_chance = { factor = 95 }
 		liege = {
 			character_event = {
-				id = friendevents.9
+				id = 1000182344
 				days = 1
 				random = 3
 				tooltip = "make_friend_attempt_tooltip"
@@ -573,7 +573,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.0.b"  # Maybe later
+		name = "1000182335.b"  # Maybe later
 		ai_chance = { factor = 5 }
 		random = {
 				chance = 5
@@ -585,14 +585,14 @@ character_event = {
 
 # Liege responds
 character_event = {
-	id = friendevents.9
-	desc = friendevents.9.desc
+	id = 1000182344
+	desc = 1000182344.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendevents.9.a"  # Make Friends
+		name = "1000182344.a"  # Make Friends
 		opinion = {
 			modifier = opinion_friend
 			who = FROM
@@ -601,7 +601,7 @@ character_event = {
 		add_trait = duelist
 		FROM = {
 			character_event = {
-				id = friendevents.10
+				id = 1000182345
 				days = 1
 				random = 3
 				tooltip = "make_friend_success_tooltip"
@@ -610,10 +610,10 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.9.b"  # Rebuff him
+		name = "1000182344.b"  # Rebuff him
 		FROM = {
 			character_event = {
-				id = friendevents.11
+				id = 1000182346
 				days = 1
 				random = 3
 				tooltip = "make_friend_sad_tooltip"
@@ -624,8 +624,8 @@ character_event = {
 
 # Friends - duelist and liege
 character_event = {
-	id = friendevents.10
-	desc = friendevents.10.desc
+	id = 1000182345
+	desc = 1000182345.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -642,8 +642,8 @@ character_event = {
 
 # Sad - duelist and liege
 character_event = {
-	id = friendevents.11
-	desc = friendevents.11.desc
+	id = 1000182346
+	desc = 1000182346.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -660,8 +660,8 @@ character_event = {
 
 # 2 courtiers friendship
 character_event = {
-	id = friendevents.12
-	desc = friendevents.12.desc
+	id = 1000182347
+	desc = 1000182347.desc
 	picture = GFX_evt_courtiers_talking
 
 	prisoner = no
@@ -750,7 +750,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.12.a"  # Let's talk to him
+		name = "1000182347.a"  # Let's talk to him
 		ai_chance = { factor = 95 }
 		liege = {
 			# If male, make friends with man
@@ -783,7 +783,7 @@ character_event = {
 					}
 
 				character_event = {
-					id = friendevents.13
+					id = 1000182348
 					days = 1
 					random = 3
 					tooltip = "make_friend_attempt_tooltip"
@@ -820,7 +820,7 @@ character_event = {
 				}
 
 				character_event = {
-					id = friendevents.13
+					id = 1000182348
 					days = 1
 					random = 3
 					tooltip = "make_friend_attempt_tooltip"
@@ -831,7 +831,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.12.b"  # Maybe later
+		name = "1000182347.b"  # Maybe later
 		ai_chance = { factor = 5 }
 		random = {
 				chance = 5
@@ -843,14 +843,14 @@ character_event = {
 
 # other courtier responds
 character_event = {
-	id = friendevents.13
-	desc = friendevents.13.desc
+	id = 1000182348
+	desc = 1000182348.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendevents.13.a"  # Make Friends
+		name = "1000182348.a"  # Make Friends
 		ai_chance = { factor = 75 }
 		opinion = {
 			modifier = opinion_friend
@@ -859,7 +859,7 @@ character_event = {
 		}
 		FROM = {
 			character_event = {
-				id = friendevents.14
+				id = 1000182349
 				days = 1
 				random = 3
 				tooltip = "make_friend_success_tooltip"
@@ -868,11 +868,11 @@ character_event = {
 	}
 
 	option = {
-		name = "friendevents.13.b"  # Rebuff him
+		name = "1000182348.b"  # Rebuff him
 		ai_chance = { factor = 25 }
 		FROM = {
 			character_event = {
-				id = friendevents.15
+				id = 1000182350
 				days = 1
 				random = 3
 				tooltip = "make_friend_sad_tooltip"
@@ -883,8 +883,8 @@ character_event = {
 
 # Friends - 2 courtiers
 character_event = {
-	id = friendevents.14
-	desc = friendevents.14.desc
+	id = 1000182349
+	desc = 1000182349.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -901,8 +901,8 @@ character_event = {
 
 # Sad - 2 courtiers
 character_event = {
-	id = friendevents.15
-	desc = friendevents.15.desc
+	id = 1000182350
+	desc = 1000182350.desc
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
