@@ -2352,11 +2352,11 @@ hellenic_pagan_rebels = {
 ######################################################################
 # Jewish rebels. Disgruntled fanatics.
 ######################################################################
-judaism_rebels = {
+jewish_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = judaism
+	religion = jewish
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -2393,7 +2393,7 @@ judaism_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = judaism }
+			NOT = { religion = jewish }
 		}
 		modifier = {
 			factor = 0.001
@@ -2438,14 +2438,14 @@ judaism_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = judaism
-			owner = { religion = judaism }
+			religion = jewish
+			owner = { religion = jewish }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = judaism }
+			NOT = { religion = jewish }
 			any_neighbor_province = {
-	 			religion = judaism
+	 			religion = jewish
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -2469,22 +2469,22 @@ judaism_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				NOT = { religion = judaism }
+				NOT = { religion = jewish }
 				OR = {
 					any_neighbor_province = {
-						religion = judaism
+						religion = jewish
 						NOT = { has_province_modifier = "forced_conversion" }
 					}
 					owner = {
 						NOT = {
 							any_owned_province = {
-								religion = judaism
+								religion = jewish
 							}
 						}
 					}
 				}
 			}
-			change_religion = judaism
+			change_religion = jewish
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -2492,17 +2492,17 @@ judaism_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = judaism }
+				NOT = { religion = jewish }
 				NOT = {
 					OR = {
 						any_neighbor_province = {
-							religion = judaism
+							religion = jewish
 							NOT = { has_province_modifier = "forced_conversion" }
 						}
 						owner = {
 							NOT = {
 								any_owned_province = {
-									religion = judaism
+									religion = jewish
 								}
 							}
 						}
@@ -2516,7 +2516,7 @@ judaism_rebels = {
 		}
 		if = {
 			limit = {
-				religion = judaism
+				religion = jewish
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -2528,12 +2528,12 @@ judaism_rebels = {
 	# Country scope
 	can_negotiate_trigger = {
 		any_owned_province = { controlled_by = REB }
-		religion_group = judaism_group
+		religion_group = jewish_group
 	}
 	
 	# Country scope
 	can_enforce_trigger = {
-		religion_group = judaism_group
+		religion_group = jewish_group
 	}
 	
 	# Country Scope	
@@ -2541,14 +2541,14 @@ judaism_rebels = {
 		add_prestige = -50
 		if = {
 			limit = {
-				NOT = { religion = judaism }
+				NOT = { religion = jewish }
 			}
-			change_religion = judaism 
+			change_religion = jewish 
 			force_converted = yes
 		}
 		if = {
 			limit = {
-				religion = judaism
+				religion = jewish
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -2558,20 +2558,20 @@ judaism_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "judaism_rebels_demand"
+	demands_description = "jewish_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion = judaism }
+				NOT = { religion = jewish }
 			}
-			change_religion = judaism
+			change_religion = jewish
 			force_converted = yes
 		}
 		if = {
 			limit = {
-				religion = judaism
+				religion = jewish
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"

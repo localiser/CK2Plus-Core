@@ -261,21 +261,26 @@ christian = {
 
 }
 
-judaism_group = {
+jewish_group = {
 	has_coa_on_barony_only = yes
-	graphical_culture = muslimgfx
+	graphical_culture = jewishgfx
 	playable = yes
 	pacifist = yes # Will make Hordes lose their super aggressiveness
+	
+	# Names given only to Jewish characters (base names)
+	male_names = {
+		Ezra Isaac Hezekiah Manasseh Hanukkah Levi Zebulun Simeon
+	}	
 
-	judaism = {
-		graphical_culture = muslimgfx
+	jewish = {
+		graphical_culture = jewishgfx
 		icon = 46
 		heresy_icon = 47
 		color = { 0.4 0.6 0.8 }
 		crusade_name = "HOLY_WAR"
 		scripture_name = THE_TORAH
 		god_names = {
-			GOD_GOD GOD_HASHEM GOD_ADONAI
+			GOD_GOD GOD_HASHEM GOD_ADONAI GOD_THE_LORD
 		}
 		priests_can_marry = yes
 		can_excommunicate = yes
@@ -284,10 +289,11 @@ judaism_group = {
 		intermarry = tengri_pagan_reformed
 		intermarry = zoroastrian
 		
+		expel_modifier = expelled_jewish
 	}
 	neo-essene = {
-		graphical_culture = muslimgfx
-		parent = judaism
+		graphical_culture = jewishgfx
+		parent = jewish
 		icon = 47
 		heresy_icon = 46
 		color = { 0.5 0.7 0.95 }
@@ -297,10 +303,12 @@ judaism_group = {
 			GOD_GOD GOD_HASHEM GOD_ADONAI
 		}
 		priests_can_marry = yes
+		
+		expel_modifier = expelled_jewish
 	}
 	zevianite = {
-		graphical_culture = muslimgfx
-		parent = judaism
+		graphical_culture = jewishgfx
+		parent = jewish
 		icon = 47
 		heresy_icon = 46
 		color = { 0.35 0.7 0.9 }
@@ -310,10 +318,12 @@ judaism_group = {
 			GOD_GOD GOD_HASHEM GOD_ADONAI
 		}
 		priests_can_marry = yes
+		
+		expel_modifier = expelled_jewish
 	}
 	ebionite = {
-		graphical_culture = muslimgfx
-		parent = judaism
+		graphical_culture = jewishgfx
+		parent = jewish
 		icon = 47
 		heresy_icon = 46
 		color = { 0.5 0.55 0.9 }
@@ -323,7 +333,47 @@ judaism_group = {
 			GOD_GOD GOD_HASHEM GOD_ADONAI
 		}
 		priests_can_marry = yes
+		
+		expel_modifier = expelled_jewish		
 	}
+	samaritan = {
+		graphical_culture = jewishgfx
+		
+		icon = 38
+		heresy_icon = 39
+		
+		color = { 0.1 0.8 0.8 }
+		
+		parent = jewish
+		
+		can_grant_divorce = yes
+		can_call_crusade = yes
+		can_grant_invasion_cb = invasion
+		
+		religious_clothing_head = 7
+		religious_clothing_priest = 7
+		
+		expel_modifier = expelled_jewish
+	}
+	karaite = {
+		graphical_culture = jewishgfx
+		
+		icon = 38
+		heresy_icon = 39
+		
+		color = { 0.1 0.5 0.9 }
+		
+		parent = jewish
+		
+		can_grant_divorce = yes
+		can_call_crusade = yes
+		can_grant_invasion_cb = invasion
+		
+		religious_clothing_head = 7
+		religious_clothing_priest = 7
+		
+		expel_modifier = expelled_jewish
+	}	
 }
 
 muslim = {
@@ -1346,7 +1396,7 @@ pagan_group = {
 		intermarry = orthodox
 		intermarry = finnish_pagan
 		intermarry = finnish_pagan_reformed
-		intermarry = judaism
+		intermarry = jewish
 		intermarry = tengri_pagan
 		
 	}
@@ -1394,7 +1444,7 @@ pagan_group = {
 		intermarry = orthodox
 		intermarry = finnish_pagan
 		intermarry = finnish_pagan_reformed
-		intermarry = judaism
+		intermarry = jewish
 		intermarry = tengri_pagan_reformed
 	}
 	
@@ -1540,7 +1590,7 @@ zoroastrian_group = {
 		intermarry = shiite
 		intermarry = tengri_pagan
 		intermarry = tengri_pagan_reformed
-		intermarry = judaism
+		intermarry = jewish
 
 		religious_clothing_head = 5
 		religious_clothing_priest = 5
