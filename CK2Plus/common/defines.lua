@@ -613,6 +613,7 @@ NMilitary = {
 	NUMBER_OF_TROOPS_PER_GALLEY = 100,				-- Number of men each galley can hold
 	FRIENDLY_TERRITORY_LEVY_RETURN_PERCENT = 1.0,	-- Percent of subunit that returns to levy when unit is disbanded in friendly territory
 	OTHER_TERRITORY_LEVY_RETURN_PERCENT = 0.5,		-- Percent of subunit that returns to levy when unit is disbanded in non-friendly territory
+	LEVY_MAINTENANCE_FACTOR = 1.5,					-- General maintenance factor for levy troops
 	MERCENARY_MAINTENANCE_FACTOR = 3,				-- Maintenance factor for NORMAL mercenary units
 	HOLDING_LEVY_SIZE_OWNER_MARTIAL_BASE = 0.50,	
 	HOLDING_LEVY_SIZE_OWNER_MARTIAL_MULT = 0.05,	-- Levy size modifier: Each point of the holding owner's Martial skill is multiplied with this and added to HOLDING_LEVY_SIZE_OWNER_MARTIAL_BASE
