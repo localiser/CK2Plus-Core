@@ -1,4 +1,4 @@
-name = "[Required] CK2+ Core (2.04.0)"
+name = "[Required] CK2+ Core (2.05.0)"
 path = "mod/CK2Plus"
 replace_path = "common"
 replace_path = "common/cb_types"
