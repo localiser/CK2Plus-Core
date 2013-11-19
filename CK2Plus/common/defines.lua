@@ -614,7 +614,6 @@ NMilitary = {
 	FRIENDLY_TERRITORY_LEVY_RETURN_PERCENT = 1.0,	-- Percent of subunit that returns to levy when unit is disbanded in friendly territory
 	OTHER_TERRITORY_LEVY_RETURN_PERCENT = 0.5,		-- Percent of subunit that returns to levy when unit is disbanded in non-friendly territory
 	LEVY_MAINTENANCE_FACTOR = 1.5,					-- General maintenance factor for levy troops
-	MERCENARY_MAINTENANCE_FACTOR = 3,				-- Maintenance factor for NORMAL mercenary units
 	HOLDING_LEVY_SIZE_OWNER_MARTIAL_BASE = 0.50,	
 	HOLDING_LEVY_SIZE_OWNER_MARTIAL_MULT = 0.05,	-- Levy size modifier: Each point of the holding owner's Martial skill is multiplied with this and added to HOLDING_LEVY_SIZE_OWNER_MARTIAL_BASE
 	MERCENARY_MAINTENANCE_FACTOR = 3.0,				-- Maintenance factor for NORMAL mercenary units	
@@ -661,7 +660,7 @@ NMilitary = {
 	CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS = 15,	-- Amount of warscore per year since attacker/defender started getting the bonus
 	CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP = 20,	-- Amount of warscore per year since attacker/defender started getting the bonus, for independence wars (can be overridden separately in religion scripts)
 	REVOLTRISK_REDUCTION_PER_YEAR = 1,
-	DIFFERENT_RELIGIONGROUP_SUPPLY_PENALTY = -0.25,	-- Only 75% supply in provinces with different religios group
+	DIFFERENT_RELIGIONGROUP_SUPPLY_PENALTY = -0.25,	-- Only 25% supply in provinces with different religios group
 	MONTHS_UNTIL_REBEL_WIN = 12,					-- Number of days until province is totally conquered by rebels
 	OWN_SETTLEMENT_SUPPLY_BONUS = 0.25,				-- Extra supply from being in home realm
 	NEUTRAL_SETTLEMENT_SUPPLY_BONUS = 0.125,		-- Neutral supply bonus
@@ -920,8 +919,8 @@ NAI =
 	MARRIAGE_AI_PRESTIGE_VALUE = 0.5,						-- Multiplier for how highly AI values prestige when arranging marriages and evaluating marriage offers
 	MAX_KING_TITLES_TO_CREATE = 0,							-- AI will not seek to create/usurp more King-level titles than this (0 for unlimited)
 	MAX_EMPIRE_TITLES_TO_CREATE = 1,						-- AI will not seek to create/usurp more Empire-level titles than this (0 for unlimited)
-	AI_EMPEROR_CREATES_KINGDOMS = 0,						-- If set to 1, AI Emperors will create King-level titles
-	AI_ALWAYS_CREATES_DUCHIES = 0,							-- If set to 1, AI will always create Duchy titles even if it has Gavelkind etc	
+	AI_EMPEROR_CREATES_KINGDOMS = 1,						-- If set to 1, AI Emperors will create King-level titles
+	AI_ALWAYS_CREATES_DUCHIES = 1,							-- If set to 1, AI will always create Duchy titles even if it has Gavelkind etc	
 	AI_ASSAULT_RATIO = 12,									-- AI will launch assaults at this ratio of attackers to defenders
 	HARD_DIFF_AI_ATTRITION = 0.5,							-- AI attrition multiplier at Hard difficulty
 	V_HARD_DIFF_AI_ATTRITION = 0.25,						-- AI attrition multiplier at Very Hard difficulty
@@ -1058,7 +1057,7 @@ NRulerDesigner =
 	COST_SAME_RELIGION_OPINION = 0.5,
 	COST_AMBITION_OPINION = 0,
 	COST_GENERAL_OPINION = 0.75,
-	MAX_AGE = 50,
+	MAX_AGE = 60,
 },
 
 }

@@ -238,8 +238,41 @@ succession_laws = {
 			factor = 0
 		}
 	}
+	succ_papal_succession = {
+		potential = {
+			title = k_papal_state
+		}
+		
+		effect = {
+			succession = papal_succession
+		}
+		revoke_allowed = {
+			always = no
+		}		
+	}
+	
+	# Titles revert back to the liege on death
+	succ_appointment = {
+		potential = {
+			holder_scope = {
+				is_feudal = yes
+				independent = no
+				any_liege = {
+					holy_order = yes
+				}
+				is_merchant_republic = no
+			}
+		}
+		effect = {
+			succession = appointment
+		}
+		revoke_allowed = {
+			always = no
+		}		
+	}	
 	succ_open_elective = {
 		potential = {
+			NOT = { title = k_papal_state }
 			OR = {
 				is_primary_type_title = yes
 				AND = {
@@ -274,6 +307,7 @@ succession_laws = {
 				holder_scope = { is_theocracy = no }
 				holder_scope = {
 					NOT = { religion = catholic }
+					NOT = { religion = fraticelli }
 				}
 			}
 			holder_scope = {
@@ -301,7 +335,10 @@ succession_laws = {
 			}
 
 			holder_scope = {
-				religion = catholic
+				OR = {
+					religion = catholic
+					religion = fraticelli
+				}
 				is_merchant_republic = no
 				is_patrician = no
 			}
