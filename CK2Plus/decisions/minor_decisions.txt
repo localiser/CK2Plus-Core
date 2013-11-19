@@ -542,6 +542,66 @@ decisions = {
 			}
 		}
 	}
+	
+	catholic_pilgrimage = {
+		potential = {
+		has_dlc = "Sons of Abraham"
+		is_ruler = yes
+		religion_group = christian
+		NOT = { trait = pilgrim }
+		NOT = { trait = on_pilgrimage }
+		NOT = { has_character_flag = activated_pilgrimage }
+		NOT = { has_character_flag = preparing_pilgrimage }
+		}
+		allow = {
+			war = no
+			in_command = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			prisoner = no
+			scaled_wealth = 0.20
+			age = 16
+			custom_tooltip = {
+				text = health_travel_condition
+				hidden_tooltip = {
+					NOT = {	trait = pregnant }
+					NOT = {	trait = incapable }
+					NOT = {	trait = blinded }
+					NOT = {	trait = has_tuberculosis }
+					NOT = {	trait = has_typhoid_fever }
+					NOT = {	trait = has_typhus }
+					NOT = {	trait = has_bubonic_plague }
+					NOT = {	trait = has_measles }
+					NOT = {	trait = has_small_pox }
+					NOT = {	trait = has_aztec_disease }
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = -0.20
+			set_character_flag = activated_pilgrimage
+			hidden_tooltip = {
+				character_event = { 
+					id = SoA.5000
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.001             # Only a minority of Catholics ever go on a pilgrimage
+			modifier = {
+				factor = 0
+				NOT = { age = 25 }
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+		}
+	}	
 
 	go_on_hajj = {
 		potential = {
@@ -557,9 +617,24 @@ decisions = {
 		}
 		allow = {
 			war = no
+			in_command = no
 			prisoner = no
 			wealth = 50
 			age = 16
+			custom_tooltip = {
+				text = health_travel_condition
+				hidden_tooltip = {
+					NOT = {	trait = incapable }
+					NOT = {	trait = blinded }
+					NOT = {	trait = has_tuberculosis }
+					NOT = {	trait = has_typhoid_fever }
+					NOT = {	trait = has_typhus }
+					NOT = {	trait = has_bubonic_plague }
+					NOT = {	trait = has_measles }
+					NOT = {	trait = has_small_pox }
+					NOT = {	trait = has_aztec_disease }
+				}
+			}			
 		}
 		effect = {
 			wealth = -50
@@ -698,9 +773,11 @@ decisions = {
 			is_ruler = yes
 			is_feudal = yes
 			prisoner = no
+			age = 16
 			religion_group = muslim
 			NOT = {
 				trait = on_hajj
+				trait = incapable
 			}
 			NOT = { has_character_flag = ramadan }
 		}
@@ -772,4 +849,131 @@ decisions = {
 		}
 	}
 
+	celebrate_passover = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			religion_group = jewish_group
+			NOT = { has_character_modifier = held_passover_timer }
+			NOT = {	has_character_flag = holding_passover }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			AND = {
+				NOT = { month = 6 }
+				month = 3
+			}
+			scaled_wealth = 0.20
+			prisoner = no
+		}
+		effect = {
+			scaled_wealth = -0.20
+			set_character_flag = holding_passover
+			custom_tooltip = {
+				text = passover_celebrations
+				hidden_tooltip = { 
+					character_event = { id = SoA.500 } 
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					scaled_wealth = 3.0
+				}
+			}
+		}
+	}	
+	
+	borrow_money_jews = {
+		potential = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = zoroastrian_group
+			}	
+			NOT = { 
+				religion_group = jewish_group
+				has_character_modifier = expelled_jewish
+				top_liege = { has_character_modifier = expelled_jewish }
+			}
+			NOT = { has_character_modifier = borrowed_from_jews }
+			has_dlc = "Sons of Abraham"
+			is_playable = yes
+			age = 16
+			prisoner = no
+		}
+		
+		allow = {
+		}
+		
+		effect = {
+			add_character_modifier = {
+				name = borrowed_from_jews
+				duration = -1
+				inherit = yes
+			}
+			wealth = 300
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				wealth = 0
+			}
+			modifier = {
+				factor = 0.01 # Slow it down
+			}
+		}
+	}
+	repay_money_jews = {
+		potential = {	
+			NOT = { 
+				has_character_modifier = expelled_jewish
+			}
+			has_character_modifier = borrowed_from_jews
+			has_dlc = "Sons of Abraham"
+		}
+		
+		allow = {
+			wealth = 350
+		}
+		
+		effect = {
+			remove_character_modifier = borrowed_from_jews
+			wealth = -350
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { wealth = 450 }
+			}
+			modifier = {
+				factor = 0.1 # Slow it down
+			}
+		}
+	}
 }
