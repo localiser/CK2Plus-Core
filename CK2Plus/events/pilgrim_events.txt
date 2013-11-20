@@ -839,7 +839,7 @@ character_event = {
 			factor = 10
 		}
 		piety = 5
-		random_list {
+		random_list = {
 			10 = {
 				add_trait = pneumonic
 			}
@@ -859,7 +859,7 @@ character_event = {
 			limit = { NOT = { trait = cynical } }
 			add_trait = cynical
 		}
-		random_list {
+		random_list = {
 			5 = {
 				add_trait = pneumonic
 			}
@@ -2774,7 +2774,7 @@ character_event = {
 					character_event = { id = SoA.5063 }    # Freedom
 				}
 				if = {
-					limit = { NOT { trait = homosexual } }
+					limit = { NOT = { trait = homosexual } }
 					random_list = {
 						20 = {  character_event = { id = SoA.5057 } }  # Strong religious experience
 						10 = {  character_event = { id = SoA.5058 } }  # Disappointed in the place
@@ -2995,14 +2995,14 @@ character_event = {
 		name = EVTOPTB_SoA_5060
 		if = {
 			limit = { NOT = { trait = gregarious } }
-			random {
+			random = {
 				chance = 50
 				add_trait = gregarious
 			}
 		}
 		if = {
 			limit = { trait = gregarious }
-			random {
+			random = {
 				chance = 20
 				change_diplomacy = 1
 			}
@@ -3464,7 +3464,7 @@ character_event = {
 		clr_character_flag = pilgrimage_to_santiago
 		clr_character_flag = good_pilgrimage
 		add_trait = pilgrim
-		hidden_tooltip { remove_trait = on_pilgrimage }
+		hidden_tooltip = { remove_trait = on_pilgrimage }
 		piety = 30
 	}
 }
@@ -3497,7 +3497,7 @@ character_event = {
 		clr_character_flag = pilgrimage_to_santiago
 		clr_character_flag = bad_pilgrimage
 		add_trait = pilgrim
-		hidden_tooltip { remove_trait = on_pilgrimage }
+		hidden_tooltip = { remove_trait = on_pilgrimage }
 		piety = -10
 		if = {
 			limit = { NOT = { trait = cynical } }
@@ -3537,7 +3537,7 @@ character_event = {
 		clr_character_flag = pilgrimage_to_santiago
 		clr_character_flag = abominable_pilgrimage
 		add_trait = pilgrim
-		hidden_tooltip { remove_trait = on_pilgrimage }
+		hidden_tooltip = { remove_trait = on_pilgrimage }
 		piety = -100
 	}
 }
