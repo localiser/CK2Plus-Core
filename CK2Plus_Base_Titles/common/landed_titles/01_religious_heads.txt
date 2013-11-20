@@ -18,8 +18,8 @@ k_israel = {
 		}
 	}
 
-	religion = judaism
-	controls_religion = judaism
+	religion = jewish
+	# controls_religion = jewish
 }
 
 k_papal_state = {
@@ -547,8 +547,8 @@ d_monophysite = {
 	
 	# Regnal names
 	male_names = {
-		Abraham Alexandros Alexios Agatho Anastasius Andronicus Athanasios Benjamin Christodolos Cosmas Cyril Damian
-		Demetrius Dioscorus Gabriel Ioannes Iosephos Isaakios Iakobos Makarios Markianos Matheos Mikhael Mina
+		Abraham Alexandros Alexios Agatho Anastasius Andronicus Athanasios Benjamin Christodolos Cosmas Cyril Damian 
+		Demetrius Dioscorus Gabriel Ioannes Iosephos Isaakios Iakobos Makarios Markianos Matheos Michail Mina 
 		Petros Philotheos Shenouda Simeon Theodoros Theophilus Timotheos Zacharias
 	}
 }
@@ -610,10 +610,12 @@ d_monothelite = {
 	
 	# Regnal names
 	male_names = {
-		Alexios Antonios Athanasios Basileios Chariton Dionysios Dositheos Eustathios Eustratios Euthymios
-		Gennadios Georgios Gerasimos Germanos Gregoras Ioannes Iosephos Isidoros Kallistos Konstantinos
-		Kosmas Leon Leontios Loukas Makarios Manuel Maximos Metrophanes Mikhael Neophytos Nephon Niketas
-		Nikolaos Nilos Matthaios Paulos Sergios Sisinnios Symeon Theodoros Theodosios Theodotos
+		Alexios Antonios Athanasios Basileios Dositheos Eustathios Eustratios Euthymios Gennadios 
+		Georgios Gerasimos Germanos Gregorios Ioannes Iosephos Isidoros Kallistos Konstantinos
+		Kosmas Leon Leontios Loukas Makarios Manuel Maximos Metrophanes Michael Neophytos Nephon Niketas
+		Nikolaos Matthaios Paulos Sergios Theodoros Theodosios Theodotos Akakios Alexandros Anastasios 
+		Anthimos Gabriel Ieremias Ignatios Ioakim Kallinikos Kyriakos Kyrillos Makedonios Markos Meletios 
+		Methodios Nikephoros Petros Photios Polykarpos Stephanos Sophronios Theophylaktos Thomas Timotheos
 	}
 }
 
@@ -732,6 +734,330 @@ d_hellenic_pagan = {
 	controls_religion = hellenic_pagan
 	
 	religion = hellenic_pagan
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+
+}
+d_fraticelli = {
+	color={ 198 249 255 }
+	color2={ 220 220 0 }
+	
+	capital = 333 # Rome
+	
+	title = "POPE"
+	foa = "POPE_FOA"
+	short_name = yes
+	location_ruler_title = yes
+	
+	allow = {
+		always = no # Only by special decision
+	}
+	
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = fraticelli
+	
+	religion = fraticelli
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		John Gregory Benedict Clement Innocent Leo Pius Stephen Boniface Urban Alexander Adrian Paul
+		Celestine Martin Nicholas Sixtus Felix Sergius Anastasius Honorius Eugene Sylvester Victor
+		Lucius Callixtus Julius Pelagius Adeodatus Theodore Marinus Agapetus Damasus Paschal
+		Gelasius Marcellus "John Paul" Anacletus Evaristus Telesphorus Hyginus Anicetus Mark Hilarius 
+		Simplicius Symmachus Hormisdas Silverius Vigilius Sabinian Severinus Vitalian Donus Agatho
+		Conon Sisinnius Constantine Zachary Valentine Formosus Romanus Lando
+	}
+}
+
+d_iconoclast = {
+	color={ 153 50 125 }
+	color2={ 220 220 0 }
+	
+	capital = 496 # Constantinople
+	
+	title = "ECUMENICAL_PATRIARCH"
+	foa = "ECUMENICAL_PATRIARCH_FOA"
+	short_name = yes
+	
+	allow = {
+		always = no # Only by special decision
+	}
+
+	# Always exists
+	landless = yes
+	
+	# Controls a religion
+	controls_religion = iconoclast
+	
+	religion = iconoclast
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	
+	# Regnal names
+	male_names = {
+		Alexios Antonios Athanasios Basileios Chariton Dionysios Dositheos Eustathios Eustratios Euthymios
+		Gennadios Georgios Gerasimos Germanos Gregoras Ioannes Iosephos Isidoros Kallistos Konstantinos
+		Kosmas Leon Leontios Loukas Makarios Manuel Maximos Metrophanes Michael Neophytos Nephon Niketas
+		Nikolaos Nilos Matthaios Paulos Sergios Sisinnios Symeon Theodoros Theodosios Theodotos
+	}
+}
+
+d_yazidi = {
+	color={ 20 50 160 }
+	color2={ 220 220 0 }
+	
+	capital = 697 # Mosul
+	
+	dignity = 80 # Counted as having this many more counties than it does
+	
+	title = "SHEIKH"
+	title_female = "SHEIKHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=yazidi
+	
+	# Controls a religion
+	controls_religion = yazidi
+	
+	allow = {
+		piety = 1000
+	}
+	
+	caliphate = yes
+	
+	coat_of_arms=
+	{
+		data=
+		{
+			0 0 3 0 0 11 11
+		}
+		religion=yazidi
+	}
+}
+
+d_ibadi = {
+	color={ 20 130 20 }
+	color2={ 220 220 0 }
+	
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 80 # Counted as having this many more counties than it does
+	
+	title = "CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=ibadi
+	
+	# Controls a religion
+	controls_religion = ibadi
+	
+	allow = {
+		OR = {
+			trait = mirza
+			trait = sayyid
+			piety = 1000
+		}
+		OR = {
+			AND = {
+				trait = sayyid
+				piety = 1000
+			}
+			custom_tooltip = { 
+				text = controls_mecca_medina
+				hidden_tooltip = {
+					719 = { # Mecca
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					718 = { # Medina
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = controls_jerusalem_damascus_baghdad
+				hidden_tooltip = {
+					774 = { # Jerusalem
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					728 = { # Damascus
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					693 = { # Baghdad
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	caliphate = yes
+	
+	coat_of_arms=
+	{
+		data=
+		{
+			0 0 0 8 0 2 2
+		}
+		religion=ibadi
+	}
+}
+
+d_hurufi = {
+	color={ 80 220 80 }
+	color2={ 220 220 0 }
+	
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	
+	title = "CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=hurufi
+	
+	# Controls a religion
+	controls_religion = hurufi
+	
+	allow = {
+		OR = {
+			trait = mirza
+			trait = sayyid
+			piety = 1000
+		}
+		OR = {
+			AND = {
+				trait = sayyid
+				piety = 1000
+			}
+			custom_tooltip = {
+				text = controls_mecca_medina
+				hidden_tooltip = {
+					719 = { # Mecca
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					718 = { # Medina
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = controls_jerusalem_damascus_baghdad
+				hidden_tooltip = {
+					774 = { # Jerusalem
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					728 = { # Damascus
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					693 = { # Baghdad
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	caliphate = yes
+	
+	coat_of_arms=
+	{
+		data=
+		{
+			0 0 0 7 1 7 7
+		}
+		religion=hurufi
+	}
+}
+d_jewish = {
+	color = { 0 80 255 }
+	
+	capital = 774 #	Jerusalem
+	
+	title = "HEAD_KOHEN_GADOL"
+	foa = "POPE_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = jewish
+	
+	religion = jewish
+	
+	# Cannot be held as a secondary title
+	primary = yes
 	
 	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
 }
