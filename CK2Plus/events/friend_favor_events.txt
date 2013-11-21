@@ -1,11 +1,29 @@
-namespace = friendfavors
+#Events for friends of liege asking for help - by JGCrusader
+#1000182373 - friend asks for help with getting married (AI only)
+#1000182374 - liege responds to request for help with getting married
+#1000182375 - friend asks for help with being priest (AI only)
+#1000182376 - liege responds to help request for being priest
+#1000182377 - friend asks to mentor liege's child
+#1000182378 - liege responds to mentor liege's child request
+#1000182379 - liege says OK to wardship request
+#1000182380 - liege says no to wardship request
+#1000182381 - friend asks for help with amassing wealth
+#1000182382 - liege responds to help request for amassing wealth
+#1000182383 - he gave me nothing
+#1000182384 - He gave some money
+#1000182385 - He talked me out of my ambition
+#1000182386 - friend asks liege to stop war against him
+#1000182387 - liege responds to request to stop inter-realm war
+#1000182388 - friend gets response - peace
+#1000182389 - aggressor is forced to make peace and isn't happy
+#1000182390 - friend gets response - no help
 
-# Events for friends of liege asking for help - by JGCrusader
+
 
 # friend asks for help with getting married (AI only)
 character_event = {
-	id = friendfavors.0
-	desc = friendfavors.0.desc
+	id = 1000182373
+	desc = EVTDESC1000182373
 	picture = GFX_evt_marriage
 
 	is_triggered_only = yes
@@ -13,21 +31,21 @@ character_event = {
 	option = {
 		name = "OK"  # send request
 		liege = {
-			character_event = { id = friendfavors.1 }
+			character_event = { id = 1000182374 }
 		}
 	}
 }
 
 # liege responds to request for help with getting married
 character_event = {
-	id = friendfavors.1
-	desc = friendfavors.1.desc
+	id = 1000182374
+	desc = EVTDESC1000182374
 	picture = GFX_evt_marriage
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendfavors.1.a"  # I have a courtier
+		name = "EVTOPTA1000182374"  # I have a courtier
 		trigger = {
 			FROM = {
 				is_married = no
@@ -63,7 +81,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendfavors.1.b"  # I'll find one
+		name = "EVTOPTB1000182374"  # I'll find one
 		trigger = {
 			NOT = { intrigue = 10 }
 			FROM = { is_female = no }
@@ -88,7 +106,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendfavors.1.c"  # I'll find an attractive one
+		name = "EVTOPTC1000182374"  # I'll find an attractive one
 		trigger = {
 			intrigue = 10
 			FROM = { is_female = no }
@@ -114,7 +132,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendfavors.1.d"  # Sorry, can't help
+		name = "EVTOPTD1000182374"  # Sorry, can't help
 		ai_chance = { factor = 0 }
 		FROM = {
 			opinion = {
@@ -128,8 +146,8 @@ character_event = {
 
 # friend asks for help with being priest (AI only)
 character_event = {
-	id = friendfavors.2
-	desc = friendfavors.2.desc
+	id = 1000182375
+	desc = EVTDESC1000182375
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -137,21 +155,21 @@ character_event = {
 	option = {
 		name = "OK"  # send request
 		liege = {
-			character_event = { id = friendfavors.3 }
+			character_event = { id = 1000182376 }
 		}
 	}
 }
 
 # liege responds to help request for being priest
 character_event = {
-	id = friendfavors.3
-	desc = friendfavors.3.desc
+	id = 1000182376
+	desc = EVTDESC1000182376
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendfavors.3.a"  # It would annoy the pope, but...
+		name = "EVTOPTA1000182376"  # It would annoy the pope, but...
 		trigger = {
 			primary_title = { has_law = investiture_law_0 }
 		}
@@ -181,7 +199,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendfavors.3.b"  # I have that authority
+		name = "EVTOPTC1000182376"  # I have that authority
 		trigger = {
 			primary_title = { has_law = investiture_law_1 }
 		}
@@ -203,7 +221,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendfavors.3.c"  # Sorry, can't help
+		name = "EVTOPTC1000182376"  # Sorry, can't help
 		ai_chance = {
 			factor = 90
 			modifier = {
@@ -223,8 +241,8 @@ character_event = {
 
 # friend asks to mentor liege's child
 character_event = {
-	id = friendfavors.4
-	desc = friendfavors.4.desc
+	id = 1000182377
+	desc = EVTDESC1000182377
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -232,21 +250,20 @@ character_event = {
 	option = {
 		name = "OK"
 		liege = {
-			letter_event = { id = friendfavors.5 days = 5 random = 5 tooltip = friend_wardship_request_tooltip }
+			letter_event = { id = 1000182378 days = 5 random = 5 tooltip = friend_wardship_request_tooltip }
 		}
 	}
 }
 
-
 # liege responds to mentor liege's child request
 letter_event = {
-	id = friendfavors.5
-	desc = friendfavors.5.desc
+	id = 1000182378
+	desc = EVTDESC1000182378
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendfavors.5.a"  # OK
+		name = "EVTOPTA1000182378"  # OK
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -285,13 +302,13 @@ letter_event = {
 		}
 		hidden_tooltip = {
 			FROM = {
-				letter_event = { id = friendfavors.6 }
+				letter_event = { id = 1000182379 }
 			}
 		}
 	}
 
 	option = {
-		name = "friendfavors.5.b"  # Sorry, no
+		name = "EVTOPTB1000182378"  # Sorry, no
 		ai_chance = { factor = 75 }
 		FROM = {
 			opinion = {
@@ -302,7 +319,7 @@ letter_event = {
 		}
 		hidden_tooltip = {
 			FROM = {
-				letter_event = { id = friendfavors.7 }
+				letter_event = { id = 1000182380 }
 			}
 		}
 	}
@@ -310,8 +327,8 @@ letter_event = {
 
 # liege says OK to wardship request
 letter_event = {
-	id = friendfavors.6
-	desc = friendfavors.6.desc
+	id = 1000182379
+	desc = EVTDESC1000182379
 	picture = GFX_evt_courtiers_talking
 
 	is_triggered_only = yes
@@ -323,8 +340,8 @@ letter_event = {
 
 # liege says no to wardship request
 letter_event = {
-	id = friendfavors.7
-	desc = friendfavors.7.desc
+	id = 1000182380
+	desc = EVTDESC1000182380
 
 	is_triggered_only = yes
 
@@ -334,8 +351,8 @@ letter_event = {
 }
 # friend asks for help with amassing wealth
 character_event = {
-	id = friendfavors.8
-	desc = friendfavors.8.desc
+	id = 1000182381
+	desc = EVTDESC1000182381
 	picture = GFX_evt_market
 
 	is_triggered_only = yes
@@ -343,21 +360,21 @@ character_event = {
 	option = {
 		name = "OK"
 		liege = {
-			character_event = { id = friendfavors.9 days = 5 random = 10 tooltip = friend_money_request_tooltip }
+			character_event = { id = 1000182382 days = 5 random = 10 tooltip = friend_money_request_tooltip }
 		}
 	}
 }
 
 # liege responds to help request for amassing wealth
 character_event = {
-	id = friendfavors.9
-	desc = friendfavors.9.desc
+	id = 1000182382
+	desc = EVTDESC1000182382
 	picture = GFX_evt_market
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendfavors.9.a"  # half yr income
+		name = "EVTOPTA1000182382"  # half yr income
 		trigger = {
 			NOT = { trait = charitable }
 		}
@@ -367,13 +384,13 @@ character_event = {
 		}
 		hidden_tooltip = {
 			FROM = {
-				letter_event = { id = friendfavors.11 }
+				letter_event = { id = 1000182384 }
 			}
 		}
 	}
 
 	option = {
-		name = "friendfavors.9.b"  # 1 yr income
+		name = "EVTOPTB1000182382"  # 1 yr income
 		transfer_scaled_wealth = {
 			to = FROM
 			value = 1.0
@@ -385,13 +402,13 @@ character_event = {
 				years = 5
 			}
 			hidden_tooltip = {
-				letter_event = { id = friendfavors.11 }
+				letter_event = { id = 1000182384 }
 			}
 		}
 	}
 
 	option = {
-		name = "friendfavors.9.c"  # 2 yr income
+		name = "EVTOPTC1000182382"  # 2 yr income
 		trigger = {
 			scaled_wealth = 2.0
 			trait = charitable
@@ -408,13 +425,13 @@ character_event = {
 				years = 10
 			}
 			hidden_tooltip = {
-				letter_event = { id = friendfavors.11 }
+				letter_event = { id = 1000182384 }
 			}
 		}
 	}
 
 	option = {
-		name = "friendfavors.9.d"  # Sorry, can't help
+		name = "EVTOPTD1000182382"  # Sorry, can't help
 		FROM = {
 			opinion = {
 				modifier = opinion_unhelpful_friend
@@ -422,13 +439,13 @@ character_event = {
 				years = 15
 			}
 			hidden_tooltip = {
-				letter_event = { id = friendfavors.10 }
+				letter_event = { id = 1000182383 }
 			}
 		}
 	}
 
 	option = {
-		name = "friendfavors.9.e"  # Talk him out of it
+		name = "EVTOPTE1000182382"  # Talk him out of it
 		trigger = {
 			diplomacy = 7
 			FROM = {
@@ -444,7 +461,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			FROM = {
-				letter_event = { id = friendfavors.12 }
+				letter_event = { id = 1000182385 }
 			}
 		}
 	}
@@ -452,8 +469,8 @@ character_event = {
 
 # he gave me nothing
 letter_event = {
-	id = friendfavors.10
-	desc = friendfavors.10.desc
+	id = 1000182383
+	desc = EVTDESC1000182383
 
 	is_triggered_only = yes
 
@@ -464,8 +481,8 @@ letter_event = {
 
 # He gave some money
 letter_event = {
-	id = friendfavors.11
-	desc = friendfavors.11.desc
+	id = 1000182384
+	desc = EVTDESC1000182384
 
 	is_triggered_only = yes
 
@@ -476,8 +493,8 @@ letter_event = {
 
 # He talked me out of my ambition
 letter_event = {
-	id = friendfavors.12
-	desc = friendfavors.12.desc
+	id = 1000182385
+	desc = EVTDESC1000182385
 
 	is_triggered_only = yes
 
@@ -489,8 +506,8 @@ letter_event = {
 
 # friend asks liege to stop war against him
 character_event = {
-	id = friendfavors.13
-	desc = friendfavors.13.desc
+	id = 1000182386
+	desc = EVTDESC1000182386
 	picture = GFX_evt_courier
 
 	is_triggered_only = yes
@@ -498,21 +515,21 @@ character_event = {
 	option = {
 		name = "OK"  # send request
 		liege = {
-			character_event = { id = friendfavors.14 days = 5 random = 5 tooltip = friend_peace_request_tooltip }
+			character_event = { id = 1000182387 days = 5 random = 5 tooltip = friend_peace_request_tooltip }
 		}
 	}
 }
 
 # liege responds to request to stop inter-realm war
 character_event = {
-	id = friendfavors.14
-	desc = friendfavors.14.desc
+	id = 1000182387
+	desc = EVTDESC1000182387
 	picture = GFX_evt_large_army
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendfavors.14.a"  # stop war
+		name = "EVTOPTA1000182387"  # stop war
 		ai_chance = {
 			factor = 1
 			modifier = {
@@ -521,7 +538,7 @@ character_event = {
 			}
 		}
 		FROM = {
-			letter_event = { id = friendfavors.15 tooltip = friend_given_peace_tooltip }
+			letter_event = { id = 1000182388 tooltip = friend_given_peace_tooltip }
 			opinion = {
 				modifier = opinion_helpful_friend
 				who = FROM
@@ -531,7 +548,7 @@ character_event = {
 				limit = {
 					any_defender = {character=ROOT}
 				}
-				any_attacker={letter_event = { id = friendfavors.16 tooltip = attacker_forced_peace_tooltip }}
+				any_attacker={letter_event = { id = 1000182389 tooltip = attacker_forced_peace_tooltip }}
 			}
 
 			any_war = {
@@ -560,7 +577,7 @@ character_event = {
 	}
 
 	option = {
-		name = "friendfavors.14.b"  # don't stop war
+		name = "EVTOPTB1000182387"  # don't stop war
 		ai_chance = {
 			factor = 1
 			modifier = {
@@ -569,7 +586,7 @@ character_event = {
 			}
 		}
 		FROM = {
-			letter_event = { id = friendfavors.17 tooltip = friend_given_war_tooltip }
+			letter_event = { id = 1000182390 tooltip = friend_given_war_tooltip }
 			opinion = {
 				modifier = opinion_unhelpful_friend
 				who = ROOT
@@ -581,8 +598,8 @@ character_event = {
 
 # friend gets response - peace
 letter_event = {
-	id = friendfavors.15
-	desc = friendfavors.15.desc
+	id = 1000182388
+	desc = EVTDESC1000182388
 
 	is_triggered_only = yes
 
@@ -593,13 +610,13 @@ letter_event = {
 
 # aggressor is forced to make peace and isn't happy
 letter_event = {
-	id = friendfavors.16
-	desc = friendfavors.16.desc
+	id = 1000182389
+	desc = EVTDESC1000182389
 
 	is_triggered_only = yes
 
 	option = {
-		name = "friendfavors.16.a"
+		name = "EVTOPTA1000182389"
 		opinion = {
 			modifier = opinion_stopped_my_war
 			who = FROM
@@ -610,8 +627,8 @@ letter_event = {
 
 # friend gets response - no help
 letter_event = {
-	id = friendfavors.17
-	desc = friendfavors.17.desc
+	id = 1000182390
+	desc = EVTDESC1000182390
 
 	is_triggered_only = yes
 
