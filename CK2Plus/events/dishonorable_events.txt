@@ -1,6 +1,11 @@
+#Dishonorable Events
+#1000182391 - Assassin is excommunicated
+#1000182392 - Assassin goes nuts
+#1000182393 - Murder a Courtier?
+
 #Assassin is excommunicated
 character_event = {
-	id = 1300000
+	id = 1000182391
 	picture = GFX_evt_lunatic
 	is_triggered_only = yes
 
@@ -22,7 +27,7 @@ character_event = {
 		rightful_religious_head_scope = { NOT = { opinion = { who = ROOT value = 25 } } }
 	}
 
-	desc = "EVTDESC1300000"
+	desc = "EVTDESC1000182391"
 
 	mean_time_to_happen = {
 		days = 1
@@ -106,7 +111,7 @@ character_event = {
 
 
 	option = {
-		name = "EVTOPTA1300000"
+		name = "EVTOPTA1000182391"
 		piety = -50
 		add_trait = excommunicated
 		clr_character_flag = filthy_murderer
@@ -115,7 +120,7 @@ character_event = {
 
 #Assassin goes nuts
 character_event = {
-	id = 1300001
+	id = 1000182392
 	picture = GFX_evt_lunatic
 	is_triggered_only = yes
 
@@ -138,7 +143,7 @@ character_event = {
 		}
 	}
 
-	desc = "EVTDESC1300001"
+	desc = "EVTDESC1000182392"
 
 	mean_time_to_happen = {
 		days = 1
@@ -217,41 +222,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTB1300001"
-		trigger = {
-			OR = {
-				AND = {
-					trait = kind
-					trait = charitable
-				}
-				AND = {
-					trait = kind
-					trait = just
-				}
-				AND = {
-					trait = charitable
-					trait = just
-				}
-				AND = {
-					trait = honest
-					trait = just
-				}
-				AND = {
-					trait = honest
-					trait = charitable
-				}
-				AND = {
-					trait = honest
-					trait = kind
-				}
-			}
-		}
-		remove_trait = stressed
-		add_trait = lunatic
-		clr_character_flag = filthy_murderer
-	}
-	option = {
-		name = "EVTOPTA1300001"
+		name = "EVTOPTA1000182392"
 		trigger = {
 			trait = stressed
 			OR = {
@@ -293,8 +264,44 @@ character_event = {
 		add_trait = depressed
 		clr_character_flag = filthy_murderer
 	}
+
 	option = {
-		name = "EVTOPTC1300001"
+		name = "EVTOPTB1000182392"
+		trigger = {
+			OR = {
+				AND = {
+					trait = kind
+					trait = charitable
+				}
+				AND = {
+					trait = kind
+					trait = just
+				}
+				AND = {
+					trait = charitable
+					trait = just
+				}
+				AND = {
+					trait = honest
+					trait = just
+				}
+				AND = {
+					trait = honest
+					trait = charitable
+				}
+				AND = {
+					trait = honest
+					trait = kind
+				}
+			}
+		}
+		remove_trait = stressed
+		add_trait = lunatic
+		clr_character_flag = filthy_murderer
+	}
+
+	option = {
+		name = "EVTOPTC1000182392"
 		trigger = {
 			NOT = { trait = stressed }
 			OR = {
@@ -336,7 +343,7 @@ character_event = {
 		clr_character_flag = filthy_murderer
 	}
 	option = {
-		name = "EVTOPTD1300001"
+		name = "EVTOPTD1000182392"
 		trigger = {
 			NOT = {
 				trait = kind
@@ -359,8 +366,9 @@ character_event = {
 	}
 }
 
+#Murder a Courtier?
 character_event = {
-	id = 1300002
+	id = 1000182393
 	picture = GFX_evt_lunatic
 	is_triggered_only = yes
 
@@ -385,7 +393,7 @@ character_event = {
 		}
 	}
 
-	desc = "EVTDESC1300002"
+	desc = "EVTDESC1000182393"
 
 	mean_time_to_happen = {
 		days = 1
@@ -463,9 +471,8 @@ character_event = {
 		}
 	}
 
-
 	option = {
-		name = "EVTOPTA1300002"
+		name = "EVTOPTA1000182393"
 		random_courtier = {
 			limit = {
 				age = 16
