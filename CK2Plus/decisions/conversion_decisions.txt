@@ -1351,8 +1351,10 @@ decisions = {
 	
 	# Cultures can convert to their cultural pagan beliefs if the MA of their current religion is low
 	gone_pagan = {
+	
+		is_high_prio = yes	
+
 		potential = {
-			is_high_prio = yes		
 			age = 16
 			prisoner = no
 			is_heretic = no
@@ -1364,7 +1366,7 @@ decisions = {
 				trait = zealous 
 				trait = incapable
 				culture_group = iberian # No pagan religion to assign them to
-				culture_group = crusader
+				culture_group = crusader_group
 				AND = {
 					culture_group = arabic # No pagan religion to assign them to
 					NOT = { culture = egyptian_arabic }
@@ -1392,7 +1394,7 @@ decisions = {
 					OR = {
 						religion = hellenic_pagan
 						religion = mystery_eleusinia
-						religion = mystery_mithra
+						religion = mystery_mithras
 					}
 					OR = {
 						culture = roman
