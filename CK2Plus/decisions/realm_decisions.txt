@@ -1423,20 +1423,54 @@ decisions = {
 			k_israel = {
 				has_holder = no
 			}
+			NOT = { has_global_flag = israel_remade }
 		}
 		allow = {
 			completely_controls = d_jerusalem
 			completely_controls = d_ascalon
 			completely_controls = d_galilee
 			completely_controls = d_oultrejourdain
-			774 = {
-				religion_group = jewish_group
+			OR = {
+				has_landed_title = k_jerusalem
+				k_jerusalem = { is_titular = yes }
 			}
 			piety = 500
 			prestige = 500
 		}
 		effect = {
+			set_global_flag = israel_remade
+			set_character_flag = centralize_without_penalties
+			k_israel = {
+				hidden_tooltip = {
+					copy_title_laws = k_jerusalem
+				}
+				gain_title = ROOT				
+				clr_character_flag = centralize_without_penalties
+			}
+			hidden_tooltip = {
+				any_playable_ruler = {
+				  any_realm_character = {
+						limit = {
+							has_claim = k_jerusalem
+						}
+						add_pressed_claim = k_israel
+						remove_claim = k_jerusalem
+					}
+				}			
+				k_jerusalem = {
+						any_de_jure_vassal_title = {
+							de_jure_liege = k_israel
+						}
+					destroy_landed_title = yes 
+				}
+			}			
 			narrative_event = { id = SoA.102 tooltip = EVTTOOLTIP_SoA_102 }
+			activate_title = { title = d_sons_of_judea status = yes }
+			d_sons_of_judea = {
+				holder_scope = {
+					set_defacto_liege = PREVPREV
+				}
+			}
 			prestige = 1000
 		}
 		ai_will_do = {
