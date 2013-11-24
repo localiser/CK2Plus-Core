@@ -134,11 +134,33 @@ decisions = {
 				}
 			}
 			
+			controls_religion = no
+			
 			c_roma = {
 				holder_scope = {
 					OR = {
 						character = ROOT
 						is_liege_or_above = ROOT
+					}
+					OR = {
+						AND = {
+							ROOT = { religion = catholic }
+							k_papal_state = {
+								holder_scope = {
+									NOT = { character = PREVPREV }
+									NOT = { is_vassal_or_below = PREVPREV }
+								}
+							}
+						}
+						AND = {
+							ROOT = { religion = fraticelli }
+							d_fraticelli = {
+								holder_scope = {
+									NOT = { character = PREVPREV }
+									NOT = { is_vassal_or_below = PREVPREV }
+								}
+							}
+						}
 					}
 				}
 			}

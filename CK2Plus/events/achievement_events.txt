@@ -12,7 +12,7 @@ unit_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		owner = {
+		FROM = {
 			culture_group = north_germanic
 			OR = {
 				religion = norse_pagan
@@ -23,11 +23,13 @@ unit_event = {
 	}
 	
 	immediate = {
-		if = {
-			limit = {
-				NOT = { has_character_flag = achievement_viking_raider }
+		FROM = {
+			if = {
+				limit = {
+					NOT = { has_character_flag = achievement_viking_raider }
+				}
+				set_character_flag = achievement_viking_raider
 			}
-			set_character_flag = achievement_viking_raider
 		}
 	}
 	
