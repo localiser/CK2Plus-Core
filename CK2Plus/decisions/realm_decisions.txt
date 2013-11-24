@@ -1520,7 +1520,29 @@ decisions = {
 				religion_group = christian
 				religion_group = muslim
 				religion_group = zoroastrian_group
-			}	
+			}
+			OR = {
+				any_demesne_title = {
+					has_building = ct_jewish_community_1
+				}
+				any_realm_lord = {
+					lower_tier_than = king
+					any_liege = { character = ROOT }
+					OR = {
+						AND = {
+							tier = baron
+							liege = { character = ROOT }
+						}
+					}
+					any_demesne_title = {
+						has_building = ct_jewish_community_1
+					}
+				}
+				has_character_modifier = borrowed_from_jews
+				any_courtier = {
+					religion_group = jewish_group
+				}
+			}
 			NOT = { 
 				religion_group = jewish_group
 				has_character_modifier = expelled_jewish
