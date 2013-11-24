@@ -15,8 +15,15 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		NOT = {
+			AND = {
+				religion_group = pagan_group
+				is_reformed_religion = no
+			}
+		}
 		FROM = {
 			holder_scope = {
+				higher_tier_than = BARON
 				OR = {
 					location = { is_capital = yes }
 					any_courtier = { at_location = PREV }
@@ -133,6 +140,26 @@ character_event = {
 	option = {
 		name = "EVTOPTAsiegewin2"
 		trigger = {
+			AND = {
+				OR = {
+					trait = cruel
+					trait = arbitrary
+					trait = possessed
+					trait = lunatic
+					trait = greedy
+					trait = deceitful
+					trait = paranoid
+				}
+				NOT = {
+					trait = just
+					trait = honest
+					trait = kind
+					trait = charitable
+					trait = slothful
+					trait = humble
+					trait = trusting
+				}
+			}
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
@@ -232,7 +259,12 @@ character_event = {
 								at_location = ROOT 
 								NOT = { has_character_modifier = modifier_hidden }
 							}
-							guardian = { imprison = ROOT }
+							guardian = { 
+								random = { 
+									chance = 33
+									imprison = ROOT 
+								}
+							}
 						}
 					}
 				}
@@ -250,7 +282,10 @@ character_event = {
 							at_location = ROOT 
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}	
 				}
 					
@@ -269,7 +304,10 @@ character_event = {
 								has_character_modifier = modifier_hidden
 							} 
 						}		
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}
 				}
 			}		
@@ -279,6 +317,26 @@ character_event = {
 	option = {
 		name = "EVTOPTAsiegewin6"
 		trigger = {
+			AND = {
+				OR = {
+					trait = cruel
+					trait = arbitrary
+					trait = possessed
+					trait = lunatic
+					trait = greedy
+					trait = deceitful
+					trait = paranoid
+				}
+				NOT = {
+					trait = just
+					trait = honest
+					trait = kind
+					trait = charitable
+					trait = slothful
+					trait = humble
+					trait = trusting
+				}
+			}
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
@@ -300,7 +358,7 @@ character_event = {
 							at_location = ROOT
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-								
+						
 					}
 				} 
 			}
@@ -376,7 +434,11 @@ character_event = {
 							at_location = ROOT 
 							NOT = { has_character_modifier = modifier_hidden } 
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
+						
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -443,7 +505,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -660,8 +725,35 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		AND = {
+			OR = {
+				trait = cruel
+				trait = arbitrary
+				trait = possessed
+				trait = lunatic
+				trait = greedy
+				trait = deceitful
+				trait = paranoid
+			}
+			NOT = {
+				trait = just
+				trait = honest
+				trait = kind
+				trait = charitable
+				trait = slothful
+				trait = humble
+				trait = trusting
+			}
+		}
+		NOT = {
+			AND = {
+				religion_group = pagan_group
+				is_reformed_religion = no
+			}
+		}	
 		FROM = { 
 			holder_scope = {
+				higher_tier_than = BARON
 				OR = {
 					AND = {
 						tier = baron is_patrician = no
@@ -832,7 +924,12 @@ character_event = {
 								at_location = ROOT 
 								NOT = { has_character_modifier = modifier_hidden }
 							}
-							guardian = { imprison = ROOT }
+							guardian = { 								
+								random = { 
+									chance = 33
+									imprison = ROOT 
+								} 
+							}
 						}
 					}
 				}
@@ -850,7 +947,10 @@ character_event = {
 							at_location = ROOT 
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}	
 				}
 					
@@ -868,7 +968,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}		
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}
 				}
 			}		
@@ -973,7 +1076,10 @@ character_event = {
 							at_location = ROOT 
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -1040,7 +1146,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -1256,6 +1365,7 @@ character_event = {
 	trigger = {
 		FROM = { 
 			holder_scope = {
+				higher_tier_than = BARON
 				AND = { 
 					war_with = ROOT 
 					any_courtier = { 
@@ -1702,7 +1812,10 @@ character_event = {
 					at_location = FROMFROM
 					NOT = { has_character_modifier = modifier_hidden } 
 				}  
-				imprison = ROOT
+				random = { 
+					chance = 33
+					imprison = ROOT 
+				}
 			}		
 		}	
 				
@@ -1711,6 +1824,26 @@ character_event = {
 	option = {
 		name = "EVTOPTAsiegewin2"
 		trigger = {
+			AND = {
+				OR = {
+					trait = cruel
+					trait = arbitrary
+					trait = possessed
+					trait = lunatic
+					trait = greedy
+					trait = deceitful
+					trait = paranoid
+				}
+				NOT = {
+					trait = just
+					trait = honest
+					trait = kind
+					trait = charitable
+					trait = slothful
+					trait = humble
+					trait = trusting
+				}
+			}		
 			FROMFROM = { 
 				holder_scope = { 
 					war_with = ROOT
@@ -1802,7 +1935,12 @@ character_event = {
 								at_location = FROMFROM 
 								NOT = { has_character_modifier = modifier_hidden }
 							}
-							guardian = { imprison = ROOT }
+							guardian = { 
+								random = { 
+									chance = 33
+									imprison = ROOT 
+								}
+							}
 						}
 					}
 				}
@@ -1820,7 +1958,10 @@ character_event = {
 							at_location = FROMFROM
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}	
 				}
 					
@@ -1838,7 +1979,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}		
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}
 				}
 			}		
@@ -1848,6 +1992,26 @@ character_event = {
 	option = {
 		name = "EVTOPTAsiegewin6"
 		trigger = {
+			AND = {
+				OR = {
+					trait = cruel
+					trait = arbitrary
+					trait = possessed
+					trait = lunatic
+					trait = greedy
+					trait = deceitful
+					trait = paranoid
+				}
+				NOT = {
+					trait = just
+					trait = honest
+					trait = kind
+					trait = charitable
+					trait = slothful
+					trait = humble
+					trait = trusting
+				}
+			}		
 			FROMFROM = { 
 				holder_scope = { 
 					war_with = ROOT
@@ -1937,7 +2101,10 @@ character_event = {
 							at_location = FROMFROM
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -2004,7 +2171,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -2305,7 +2475,12 @@ character_event = {
 								at_location = FROMFROM
 								NOT = { has_character_modifier = modifier_hidden }
 							}
-							guardian = { imprison = ROOT }
+							guardian = { 
+								random = { 
+									chance = 33
+									imprison = ROOT 
+								}								
+							}
 						}
 					}
 				}
@@ -2323,7 +2498,10 @@ character_event = {
 							at_location = FROMFROM 
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}	
 				}
 					
@@ -2341,7 +2519,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}		
-						imprison = ROOT
+						random = { 
+							chance = 33
+							imprison = ROOT 
+						}
 					}
 				}
 			}		
@@ -2445,7 +2626,10 @@ character_event = {
 							at_location = FROMFROM
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
@@ -2512,7 +2696,10 @@ character_event = {
 							NOT = {
 								has_character_modifier = modifier_hidden } 
 						}
-						death = {death_reason = death_battle killer = ROOT}
+						random = { 
+							chance = 33
+							death = {death_reason = death_battle killer = ROOT} 
+						}
 						hidden_tooltip = {
 							any_dynasty_member = {
 								limit = {
