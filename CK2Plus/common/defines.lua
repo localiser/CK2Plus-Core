@@ -349,7 +349,7 @@ NDiplomacy = {
 
 NCharacter = {
 	MAX_AGE_BEFORE_BETROTHAL_BREAKS = 20,
-NOMINATE_CROWN_BISHOP_PIETY_COST = 15, 					-- OBSOLETE
+	NOMINATE_CROWN_BISHOP_PIETY_COST = 15, 					-- OBSOLETE
 	NOMINATE_CROWN_BISHOP_REL_AUTHORITY_CHANGE = -0.01, -- OBSOLETE
 	WRONG_GOV_FORM_TAX_MOD = -0.5,
 	CHANGE_SUCC_LAW_YEARS = 10,						-- Rulers must have reigned this long before they can change succession laws
