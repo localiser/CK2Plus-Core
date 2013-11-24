@@ -661,6 +661,96 @@ decisions = {
 			}
 		}
 	}
+	convert_to_icelandic = {
+		potential = {
+			culture = norse
+			is_ruler = yes
+			capital_scope = {
+				kingdom = { title = k_iceland }
+			}
+			any_realm_province = {
+				culture = icelandic
+			}
+		}
+		allow = {
+			culture = norse
+		}
+		effect = {
+			culture = icelandic
+			any_courtier = {
+				limit = {
+					culture = norse
+					employer = { character = ROOT }
+					dynasty = ROOT
+				}
+				culture = icelandic
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0.2 # Slow it down a bit
+			}
+
+			modifier = { # Do not flip if we're in a Norse empire
+				factor = 0
+				top_liege = { culture = norse }
+				top_liege = {
+					tier = emperor
+				}
+			}
+
+			modifier = {
+				factor = 0.01
+				capital_scope = {
+					NOT = { culture = icelandic }
+				}
+			}
+			modifier = {
+				factor = 2.0
+				liege = { culture = icelandic }
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 2
+					culture = icelandic
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 4
+					culture = icelandic
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 6
+					culture = icelandic
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 8
+					culture = icelandic
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 10
+					culture = icelandic
+				}
+			}
+		}
+	}
 	convert_to_norman = {
 		potential = {
 			culture = norse
