@@ -1,1 +1,1 @@
-name = "[Optional] CK2+ Base Localized Titles"path = "mod/CK2Plus_Base_Titles"dependencies = "[Required] CK2+ Core (2.05.1)"
+name = "[Optional] CK2+ Base Localized Titles"path = "mod/CK2Plus_Base_Titles"dependencies = "[Required] CK2+ Core (2.05.2)"
