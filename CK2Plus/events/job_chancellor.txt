@@ -812,6 +812,12 @@ letter_event = {
 	}
 	option = {
 		name = "EVTOPTA20131" #Press the Claim
+		trigger = {	
+			NOT = {
+				primary_title = { lower_tier_than = DUKE }
+				is_patrician = yes
+			}
+		}
 		ai_chance = {
 			factor = 90
 			modifier = {
@@ -826,13 +832,13 @@ letter_event = {
 				}
 			}
 		}
-		if = {
-			limit = {
-				primary_title = { lower_tier_than = DUKE }
-			}
-			treasury = -100
-			prestige = -100
-		}
+		# if = {
+			# limit = {
+				# primary_title = { lower_tier_than = DUKE }
+			# }
+			# treasury = -100
+			# prestige = -100
+		# }
 		if = {
 			limit = {
 				primary_title = { tier = DUKE }
@@ -871,7 +877,7 @@ letter_event = {
 		name = "EVTOPTA20131" #Press the Claim
 		trigger = {
 			OR = {
-				primary_title = { tier = COUNT }
+				primary_title = { lower_tier_than = DUKE }
 				is_patrician = yes
 			}
 		}
