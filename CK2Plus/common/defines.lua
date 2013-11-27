@@ -1,8 +1,8 @@
 NDefines = {
 
 NDiplomacy = {
-	PRESTIGE_LOSS_ON_SEND_GIFT_DECLINE = 10,
-	PIETY_FROM_CHURCH_GIFTS = 3,
+	PRESTIGE_LOSS_ON_SEND_GIFT_DECLINE = 10,	-- OBSOLETE
+	PIETY_FROM_CHURCH_GIFTS = 3,				-- OBSOLETE
 	BREAK_TRUCE_PRESTIGE_PERC_COST = 0.5,		-- Percent of current prestige lost before the base prestige cost (below)
 	BREAK_TRUCE_PRESTIGE_COST = 200,			-- Base Prestige cost for breaking a truce
 	MONTHS_PER_SUCCESSION_CB = 24,				-- Number of months a succession CB lasts
@@ -45,14 +45,14 @@ NDiplomacy = {
 	MAX_ELECTOR_TITLES_LEGALLY_HELD = 1,		-- Max elector titles that a king or above can hold before vassals start getting angry
 	ASSASSINATION_COST_RANK_MULT = 50,			-- Additional cost for assassinations multiplied by rank (count = 1, emperor = 4). Also applies to children of rulers.
 	WOMEN_INHERIT_PRESSED_CLAIMS = 1,			-- If set to 1, they will get pressed claims on their parents' titles
-	BASTARDS_INHERIT_PRESSED_CLAIMS = 1,		-- If set to 1, they will get pressed claims on their parents' titles	
+	BASTARDS_INHERIT_PRESSED_CLAIMS = 1,		-- If set to 1, they will get pressed claims on their parents' titles
 	MUSLIM_LAW_CHANGE_PIETY_COST = 50,			-- Piety cost for Muslims when changing normal demesne laws
 	MUSLIM_CROWN_LAW_CHANGE_PIETY_COST = 100,	-- Piety cost for Muslims when changing Crown laws
 	INTER_MUSLIM_WAR_MONTHLY_PIETY_COST = 2,  	-- Monthly Piety cost for Muslims who are primary attackers against a ruler of the same religion (not civil wars)
 	MUSLIM_TEMPLE_HOLDING_MONTHLY_PIETY = 0.2, 	-- Monthly Piety for Muslims for each Temple holding in the demesne
 	DOWRY_MULTIPLIER = 1.0,						-- The Dowry cost for a Patrician is prestige gain from marriage * this
 	PAGAN_PEACE_MONTHS = 60,					-- Months before the Peace Prestige loss kicks in for certain Pagan religions
-	PAGAN_PEACE_MONTHLY_PRESTIGE_LOSS = 5.0,	-- Prestige loss for being at peace, for certain Pagan religions
+	PAGAN_PEACE_MONTHLY_PRESTIGE_LOSS = 2.0,	-- Prestige loss for being at peace, for certain Pagan religions
 	PRESTIGE_OPINION_DIV = 100,					-- Divider for prestige to vassal opinion (5x higher effect for negative prestige)
 	PRESTIGE_OPINION_MAX = 20,					-- Max opinion impact of prestige (positive OR negative)
 	PIETY_OPINION_DIV = 25,						-- Divider for piety to church opinion
@@ -349,7 +349,7 @@ NDiplomacy = {
 
 NCharacter = {
 	MAX_AGE_BEFORE_BETROTHAL_BREAKS = 20,
-	NOMINATE_CROWN_BISHOP_PIETY_COST = 15, 					-- OBSOLETE
+	NOMINATE_CROWN_BISHOP_PIETY_COST = 15, 				-- OBSOLETE
 	NOMINATE_CROWN_BISHOP_REL_AUTHORITY_CHANGE = -0.01, -- OBSOLETE
 	WRONG_GOV_FORM_TAX_MOD = -0.5,
 	CHANGE_SUCC_LAW_YEARS = 10,						-- Rulers must have reigned this long before they can change succession laws
@@ -369,9 +369,9 @@ NCharacter = {
 	INBRED_DIVINE_BLOOD_TRAIT_CHANCE_FACTOR = 0.2,	-- Inbreeding: Multiplier to the base chance
 	LUNATIC_DIVINE_BLOOD_TRAIT_CHANCE_FACTOR = 1.0,	-- Inbreeding: Multiplier to the base chance
 	MAX_LED_FACTIONS = 2,							-- Maximum number of led Factions
-	PORTRAIT_ADULT_MALE_AGE_THRESHOLD = 16,			-- Male child to adult age portrait switch
-	PORTRAIT_ADULT_FEMALE_AGE_THRESHOLD = 16,		-- Female child to adult age portrait switch
-	PORTRAIT_MID_AGE_THRESHOLD = 30,				-- Middle age switch for character portraits
+	PORTRAIT_ADULT_MALE_AGE_THRESHOLD = 16,		-- Male child to adult age portrait switch
+	PORTRAIT_ADULT_FEMALE_AGE_THRESHOLD = 16,	-- Female child to adult age portrait switch
+	PORTRAIT_MID_AGE_THRESHOLD = 32,				-- Middle age switch for character portraits
 	PORTRAIT_OLD_AGE_THRESHOLD = 50,				-- Old age switch for character portraits
 	AGE_OF_ADULTHOOD_MALE = 16,						-- Male can rule at this age. 
 	AGE_OF_ADULTHOOD_FEMALE = 16,					-- Female can rule at this age.
@@ -486,8 +486,8 @@ NTitle = {
 	NORMAL_LAW_CHANGE_MONTHS = 60,
 	TITLE_USURP_COOLDOWN_MONTHS = 60,
 	DE_JURE_ASSIMILATION_YEARS = 50,			-- Duchies a under the de facto control of another kingdom will change de jure liege after this many years
-	EMPIRE_DE_JURE_ASSIMILATION_YEARS = 50,		-- Kingdoms under the de facto control of another empire will change de jure liege after this many years
-	ALLOW_DE_JURE_ASSIMILATION_ANYWHERE = 0,	-- If set to 0, will only assimilate duchy titles which contain the assimilating Kingdom's capital or border existing de jure land of that title
+	EMPIRE_DE_JURE_ASSIMILATION_YEARS = 100,	-- Kingdoms under the de facto control of another empire will change de jure liege after this many years
+	ALLOW_DE_JURE_ASSIMILATION_ANYWHERE = 1,	-- If set to 0, will only assimilate duchy titles which contain the assimilating Kingdom's capital or border existing de jure land of that title
 	REQ_DUCHIES_FOR_KINGDOM_CREATION = 3, 		-- Number of held duchies required to create a kingdom (for rulers who are not already kings or emperors)
 	REQ_KINGDOMS_FOR_EMPIRE_CREATION = 3, 		-- Number of held kingdoms required to create an Empire (for rulers who are not already emperors)
 	TITULAR_TITLE_CREATION_COST_MULT = 1,		-- Titular titles are more expensive to create
@@ -499,7 +499,7 @@ NTitle = {
 	DEJURE_COUNTY_LIMIT_TO_CREATE = 0.51,			-- Fraction of de jure counties that you must control to create a non-imperial title
 	DEJURE_COUNTY_LIMIT_TO_USURP = 0.51,			-- Fraction of de jure counties that you must control to usurp a non-imperial title
 	EMPIRE_DEJURE_COUNTY_LIMIT_TO_CREATE = 0.8,		-- Fraction of de jure counties that you must control to create an imperial title
-	EMPIRE_DEJURE_COUNTY_LIMIT_TO_USURP = 0.8,		-- Fraction of de jure counties that you must control to usurp an imperial title	
+	EMPIRE_DEJURE_COUNTY_LIMIT_TO_USURP = 0.8		-- Fraction of de jure counties that you must control to usurp an imperial title	
 },
 
 NReligion = {
@@ -930,7 +930,7 @@ NAI =
 	RAID_MAX_REALM_SIZE = 24,								-- Realms with more holdings than this will never go on Raids
 	RAID_AGGRESSION = 18,									-- General frequency of raids. A LOWER number means more often!
 	RAID_PREP_INV_SPARE_SAME_CULTURE = 1,					-- AI of religions that allow prepared invasions will not raid provinces in their own culture group (to prevent intra-Scandinavian raids)
-	RAID_SPARE_ACCEPTED_RELIGIONS = 1						-- AI will not raid rulers of other religions in the same religion group, unless heresy vs parent religion	
+	RAID_SPARE_ACCEPTED_RELIGIONS = 1						-- AI will not raid rulers of other religions in the same religion group, unless heresy vs parent religion
 },
 
 NFrontend = 
