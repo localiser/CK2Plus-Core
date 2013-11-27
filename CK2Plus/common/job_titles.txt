@@ -21,9 +21,21 @@ job_chancellor = {
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
-			is_female = no
+			AND = {
+				OR = {
+					is_female = no
+					AND = { 
+						religion = cathar
+						liege = { religion = cathar }
+					}
+					liege = { has_law = true_cognatic_succession }
+					liege = { has_law = enatic_cognatic_succession }
+					liege = { has_law = enatic_succession }
+				}
+				is_adult = yes
+			}
+			has_character_flag = special_chancellor
 		}
-		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -55,32 +67,47 @@ job_marshal = {
 	monthly_prestige = 0.025
 
 	allow = {
-		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
-			is_female = no
+				NOT = { liege = { spouse = { character = FROM } } }
+				ai = no
+			}
+		OR = {
 			AND = {
-				liege = { religion_group = zoroastrian_group }
-				liege = { culture_group = iranian }
-				religion_group = zoroastrian_group
-				culture_group = iranian
-				any_dynasty_member = { higher_tier_than = baron }
 				OR = {
-					trait = misguided_warrior
-					trait = tough_soldier
-					trait = skilled_tactician
-					trait = brilliant_strategist
+					is_female = no
+					AND = {
+						liege = { religion_group = zoroastrian_group }
+						liege = { culture_group = iranian }
+						religion_group = zoroastrian_group
+						culture_group = iranian
+						any_dynasty_member = { higher_tier_than = baron }
+						OR = {
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+							}
 					}
-			}
-			AND = {
-				is_ruler = yes
-				independent = yes
-				OR = {
-					martial = 12
-					ai = no
+					AND = {
+						is_ruler = yes
+						independent = yes
+						OR = {
+							martial = 12
+							ai = no
+						}
+					}
+					AND = { 
+						religion = cathar
+						liege = { religion = cathar }
+					}
+					liege = { has_law = true_cognatic_succession }
+					liege = { has_law = enatic_cognatic_succession }
+					liege = { has_law = enatic_succession }
 				}
+				is_adult = yes
 			}
+			has_character_flag = special_marshal
 		}
-		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -112,18 +139,32 @@ job_treasurer = {
 	monthly_prestige = 0.025
 
 	allow = {
-		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
-			is_female = no
-			liege = { has_law = true_cognatic_succession }
-		}
+				NOT = { liege = { spouse = { character = FROM } } }
+				ai = no
+			}
 		OR = {
-			is_female = no
-			is_ruler = yes
-			liege = { dynasty = FROM }
-			liege = { mother = { character = FROM } }
+			AND = {
+				OR = {
+					is_female = no
+					AND = { 
+						religion = cathar
+						liege = { religion = cathar }
+					}
+					liege = { has_law = true_cognatic_succession }
+					liege = { has_law = enatic_cognatic_succession }
+					liege = { has_law = enatic_succession }
+				}
+				OR = {
+					is_female = no
+					is_ruler = yes
+					liege = { dynasty = FROM }
+					liege = { mother = { character = FROM } }
+				}
+				is_adult = yes
+			}
+			has_character_flag = special_treasurer
 		}
-		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -155,18 +196,27 @@ job_spymaster = {
 	monthly_prestige = 0.025
 
 	allow = {
-		NOT = { liege = { spouse = { character = FROM } } }
 		OR = {
-			is_female = no
-			liege = { NOT = { has_law = agnatic_succession } }
-		}
+				NOT = { liege = { spouse = { character = FROM } } }
+				ai = no
+			}
 		OR = {
-			is_female = no
-			is_ruler = yes
-			liege = { dynasty = FROM }
-			liege = { mother = { character = FROM } }
+			AND = {
+				OR = {
+					is_female = no
+					liege = { NOT = { has_law = agnatic_succession } }
+					AND = { 
+						religion = cathar
+						liege = { religion = cathar }
+					}
+					is_ruler = yes
+					liege = { dynasty = FROM }
+					liege = { mother = { character = FROM } }
+				}
+				is_adult = yes
+			}
+			has_character_flag = special_spymaster
 		}
-		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
 	}
@@ -199,17 +249,30 @@ job_spiritual = {
 
 	allow = {
 		OR = {
-			is_female = no
-			AND = {
-				religion_group = pagan_group
-				NOT = { religion = hellenic_pagan }
-				NOT = { religion = aztec_pagan }
-				NOT = { religion = aztec_pagan_reformed}
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = tengri_pagan_reformed}
+				NOT = { liege = { spouse = { character = FROM } } }
+				ai = no
 			}
+		OR = {
+			AND = {
+				is_adult = yes
+				OR = {
+					is_female = no
+					AND = {
+						religion_group = pagan_group
+						NOT = { religion = hellenic_pagan }
+						NOT = { religion = aztec_pagan }
+						NOT = { religion = aztec_pagan_reformed}
+						NOT = { religion = tengri_pagan }
+						NOT = { religion = tengri_pagan_reformed}
+					}
+					liege = { has_law = true_cognatic_succession }
+					liege = { has_law = enatic_cognatic_succession }
+					liege = { has_law = enatic_succession }
+					religion = cathar
+				}
+			}
+			has_character_flag = special_spiritual
 		}
-		is_adult = yes
 		prisoner = no
 		liege = {
 			religion = FROM
