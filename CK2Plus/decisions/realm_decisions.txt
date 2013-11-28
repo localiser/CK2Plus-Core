@@ -1,6 +1,7 @@
 decisions = {
 
 	hold_a_epic_tournament  = {
+		is_high_prio = yes
 		potential = {
 			NOT = {
 				religion_group = muslim
@@ -237,7 +238,7 @@ decisions = {
 	issue_declaration_of_repentance = {
 		potential = {
 			religion = catholic
-			age = 16
+			is_adult = yes
 			demesne_size = 1
 			OR = {
 				NOT = { has_character_flag = ask_for_repentance }
@@ -276,7 +277,6 @@ decisions = {
 	demand_liege_title = {
 		is_high_prio = yes
 		potential = {
-			# always = no #obsolete
 			NOT = { has_character_flag = requested_de_jure_title }
 			liege = {
 				NOT = { character = ROOT }
@@ -527,7 +527,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
-			age = 16
+			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }
 			OR = {

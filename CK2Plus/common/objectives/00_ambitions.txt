@@ -1,3 +1,5 @@
+# Supported types:
+# character, spouse, rivals, friends, liege_titles, vassal_titles, realm_titles, realm_characters, realm_characters_plus, independent_rulers
 
 ###############
 # AMBITIONS
@@ -13,8 +15,9 @@ obj_become_chancellor = {
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_councillor = no
+		diplomacy = 8
 		liege = {
 			NOT = { character = ROOT }
 		}
@@ -120,7 +123,12 @@ obj_become_chancellor = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		change_diplomacy = 1
+		if = {
+			limit = {
+				NOT = { has_character_flag = obj_become_councillor }
+			}
+			change_diplomacy = 1
+		}
 		opinion = {
 			who = liege
 			modifier = opinion_ambition_fulfilled
@@ -137,11 +145,16 @@ obj_become_marshal = {
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_councillor = no
 		independent = no
 		OR = {
 			is_female = no
+			liege = {
+				primary_title = {
+					has_law = true_cognatic_succession
+				}
+			}
 		}
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_become_councillor }
@@ -237,7 +250,12 @@ obj_become_marshal = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		change_martial = 1
+		if = {
+			limit = {
+				NOT = { has_character_flag = obj_become_councillor }
+			}
+			change_martial = 1
+		}
 		opinion = {
 			who = liege
 			modifier = opinion_ambition_fulfilled
@@ -254,7 +272,7 @@ obj_become_treasurer = {
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_councillor = no
 		independent = no
 		OR = {
@@ -380,7 +398,12 @@ obj_become_treasurer = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		change_stewardship = 1
+		if = {
+			limit = {
+				NOT = { has_character_flag = obj_become_councillor }
+			}
+			change_stewardship = 1
+		}
 		opinion = {
 			who = liege
 			modifier = opinion_ambition_fulfilled
@@ -396,7 +419,7 @@ obj_become_spymaster = {
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_councillor = no
 		independent = no
 		OR = {
@@ -521,7 +544,12 @@ obj_become_spymaster = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		change_intrigue = 1
+		if = {
+			limit = {
+				NOT = { has_character_flag = obj_become_councillor }
+			}
+			change_intrigue = 1
+		}
 		opinion = {
 			who = liege
 			modifier = opinion_ambition_fulfilled
@@ -538,7 +566,7 @@ obj_become_spiritual = {
 	allow = {
 		NOT = { liege = { spouse = { character = FROM } } }
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_councillor = no
 		independent = no
 		OR = {
@@ -667,7 +695,12 @@ obj_become_spiritual = {
 		clr_character_flag = obj_check
 	}
 	effect = {
-		change_learning = 1
+		if = {
+			limit = {
+				NOT = { has_character_flag = obj_become_councillor }
+			}
+			change_learning = 1
+		}
 		opinion = {
 			who = liege
 			modifier = opinion_ambition_fulfilled
@@ -682,11 +715,16 @@ obj_become_spiritual = {
 
 obj_amass_wealth_1 = {
 	type = character
-
+	
+	potential = {
+		NOT = { has_character_flag = obj_amass_wealth }
+	}
+	
 	allow = {
-		age = 16
+		is_adult=yes
 		NOT = { wealth = 250 }
 		is_ruler = yes
+		NOT = { trait = charitable }
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_amass_wealth }
 		NOT = { has_character_modifier = loan_timer }
@@ -966,10 +1004,12 @@ obj_become_paragon_of_virtue = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult=yes
 		piety = 0
 		NOT = { piety = 1000 }
 		is_ruler = yes
+		NOT = { trait = cruel }
+		NOT = { trait = impaler }
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_become_paragon_of_virtue }
 	}
@@ -1154,7 +1194,7 @@ obj_become_exalted_2 = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult=yes
 		prestige = 0
 		NOT = { prestige = 2000 }
 		is_ruler = yes
@@ -1432,8 +1472,10 @@ obj_get_married = {
 
 	allow = {
 		prisoner = no
-		age = 16
+		is_marriage_adult = yes
 		is_married = no
+		is_betrothed = no
+		is_consort = no
 		can_marry = yes
 		NOT = { has_landed_title = k_papal_state }
 		NOT = { trait = celibate }
@@ -1482,6 +1524,10 @@ obj_get_married = {
 		modifier = {
 			factor = 10.0
 			age = 40
+		}
+		modifier = {
+			factor = 0.01
+			mercenary = yes
 		}
 	}
 	success = {
@@ -1549,10 +1595,11 @@ obj_marry_ruler = {
 
 	allow = {
 		prisoner = no
-		age = 16
+		is_marriage_adult = yes
 		is_ruler = no
 		is_female = yes
 		is_married = no
+		is_consort = no
 		can_marry = yes
 		NOT = { trait = celibate }
 		NOT = { trait = eunuch }
@@ -1573,11 +1620,7 @@ obj_marry_ruler = {
 		}
 	}
 	chance = {
-		factor = 100
-		modifier = {
-			factor = 0.1
-			trait = homosexual
-		}
+		factor = 100		
 		modifier = {
 			factor = 0.1
 			trait = chaste
@@ -1656,8 +1699,11 @@ obj_have_a_daughter = {
 
 	allow = {
 		prisoner = no
-		age = 16
-		is_married = yes
+		is_marriage_adult = yes
+		OR = {
+			is_married = yes
+			is_consort = yes
+		}
 		NOT = {
 			any_child = {
 				is_female = yes
@@ -1716,6 +1762,10 @@ obj_have_a_daughter = {
 				age = 45
 				is_female = yes
 			}
+			AND = {
+				age = 75
+				is_female = no
+			}
 			trait = celibate
 			trait = eunuch
 			trait = incapable
@@ -1751,8 +1801,11 @@ obj_have_a_son = {
 
 	allow = {
 		prisoner = no
-		age = 16
-		is_married = yes
+		is_marriage_adult = yes
+		OR = {
+			is_married = yes
+			is_consort = yes
+		}
 		NOT = {
 			any_child = {
 				is_female = no
@@ -1801,6 +1854,14 @@ obj_have_a_son = {
 			trait = celibate
 			trait = eunuch
 			trait = incapable
+			AND = {
+				age = 45
+				is_female = yes
+			}
+			AND = {
+				age = 75
+				is_female = no
+			}
 		}
 	}
 	abort_effect = {
@@ -1831,12 +1892,18 @@ obj_wants_landed_title = {
 
 	allow = {
 		prisoner = no
-		age = 16
+		is_adult = yes
 		OR = {
 			is_female = no
+			liege = {
+				primary_title = {
+					has_law = true_cognatic_succession
+				}
+			}
 		}
 		is_ruler = no
 		NOT = { trait = incapable }
+		NOT = { trait = eunuch }
 		liege = {
 			is_close_relative = ROOT
 			num_of_extra_landed_titles = 1
@@ -5035,7 +5102,7 @@ obj_befriend_relhead = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult = yes
 		ai = no
 		religion_head = { is_alive = yes }
 		NOT = { trait = incapable }
@@ -5071,7 +5138,6 @@ obj_befriend_relhead = {
 			NOT = { war_with = ROOT }
 		}
 	}
-
 	chance = {
 		factor = 0
 	}
@@ -5170,13 +5236,14 @@ obj_improve_martial = {
 	type = character
 
 	potential = {
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		prisoner = no
 	}
 
 	allow = {
 		NOT = { martial = 8 }
+		NOT = { trait = infirm }
 		NOT = { trait = incapable }
 	}
 	chance = {
@@ -5209,6 +5276,7 @@ obj_improve_martial = {
 	abort = {
 		OR = {
 			trait = incapable
+			trait = infirm
 			prisoner = yes
 		}
 	}
@@ -5245,13 +5313,14 @@ obj_improve_stewardship = {
 	type = character
 
 	potential = {
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		prisoner = no
 	}
 
 	allow = {
 		NOT = { stewardship = 8 }
+		NOT = { trait = infirm }
 		NOT = { trait = incapable }
 	}
 	chance = {
@@ -5284,6 +5353,7 @@ obj_improve_stewardship = {
 	abort = {
 		OR = {
 			trait = incapable
+			trait = infirm
 			prisoner = yes
 		}
 	}
@@ -5323,7 +5393,7 @@ obj_improve_learning = {
 	type = character
 
 	potential = {
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		prisoner = no
 	}
@@ -5331,6 +5401,7 @@ obj_improve_learning = {
 	allow = {
 		NOT = { learning = 8 }
 		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
 	chance = {
 		factor = 20
@@ -5362,6 +5433,7 @@ obj_improve_learning = {
 	abort = {
 		OR = {
 			trait = incapable
+			trait = infirm
 			prisoner = yes
 		}
 	}
@@ -5397,7 +5469,7 @@ obj_improve_diplomacy = {
 	type = character
 
 	potential = {
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		prisoner = no
 	}
@@ -5405,6 +5477,7 @@ obj_improve_diplomacy = {
 	allow = {
 		NOT = { diplomacy = 8 }
 		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
 	chance = {
 		factor = 20
@@ -5436,6 +5509,7 @@ obj_improve_diplomacy = {
 	abort = {
 		OR = {
 			trait = incapable
+			trait = infirm
 			prisoner = yes
 		}
 	}
@@ -5471,7 +5545,7 @@ obj_improve_intrigue = {
 	type = character
 
 	potential = {
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		prisoner = no
 	}
@@ -5479,6 +5553,7 @@ obj_improve_intrigue = {
 	allow = {
 		NOT = { intrigue = 8 }
 		NOT = { trait = incapable }
+		NOT = { trait = infirm }
 	}
 	chance = {
 		factor = 20
@@ -5510,6 +5585,7 @@ obj_improve_intrigue = {
 	abort = {
 		OR = {
 			trait = incapable
+			trait = infirm
 			prisoner = yes
 		}
 	}
