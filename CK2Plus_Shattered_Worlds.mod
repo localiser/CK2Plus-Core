@@ -1,5 +1,0 @@
-name = "(Scenarios) CK2+ Shattered Worlds"
-path = "mod/CK2Plus_Shattered_Worlds"
-dependencies = "[Required] CK2+ Core (2.05.2)"
-#replace_path = "history/characters"
-#replace_path = "history/titles"
