@@ -1520,6 +1520,14 @@ character_event = {
 				add_trait = ill
 			}
 		}
+		mother = {
+			if = {
+				limit = {
+					trait = pregnant
+				}
+				remove_trait = pregnant
+			}
+		}
 	}
 
 	option = { # No complications
@@ -1690,6 +1698,15 @@ character_event = {
 	trigger = {
 		age = 1
 	}
+	
+	immediate = {
+		if = {
+			limit = {
+				trait = pregnant
+			}
+			remove_trait = pregnant
+		}
+	}	
 	
 	option = { # No complications
 		name = OK
