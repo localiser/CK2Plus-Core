@@ -576,32 +576,38 @@ character_event = {
 
 	is_triggered_only = yes
 	hide_from = yes
+	hide_window = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 50
-			NOT = { age = 60 }
-			ai = no
+		NOT = { trait = immortal }
+		age = 50
+		NOT = { age = 60 }
+		OR = {
+			trait = young1
+			trait = young6
+			trait = young16
 			NOT = { trait = old50 }
+			trait = old60
+			trait = old70
+			trait = old80
+			trait = old90
 		}
 	}
-
+	
+	immediate = {
+		add_trait = old50
+		remove_trait = young1
+		remove_trait = younng6
+		remove_trait = young16
+		remove_trait = old60
+		remove_trait = old70
+		remove_trait = old80
+		remove_trait = old90
+	}
+	
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = old50
-			remove_trait = young1
-			remove_trait = young6
-			remove_trait = young16
-		}
-	}
 }
 
 character_event = {
@@ -609,34 +615,39 @@ character_event = {
 	picture = "GFX_evt_illness"
 
 	is_triggered_only = yes
+	hide_window = yes
 	hide_from = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 60
-			NOT = { age = 70 }
-			ai = no
+		NOT = { trait = immortal }
+		age = 60
+		NOT = { age = 70 }
+		OR = {
+			trait = young1
+			trait = young6
+			trait = young16
+			trait = old50
 			NOT = { trait = old60 }
+			trait = old70
+			trait = old80
+			trait = old90
 		}
+	}
+	
+	immediate = {
+		remove_trait = old50
+		add_trait = old60
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16
+		remove_trait = old70
+		remove_trait = old80
+		remove_trait = old90
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = old60
-			remove_trait = old50
-			remove_trait = young1
-			remove_trait = young6
-			remove_trait = young16
-		}
-	}
 }
 
 character_event = {
@@ -644,35 +655,39 @@ character_event = {
 	picture = "GFX_evt_illness"
 
 	is_triggered_only = yes
+	hide_window = yes
 	hide_from = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 70
-			NOT = { age = 80 }
-			ai = no
+		NOT = { trait = immortal }
+		age = 70
+		NOT = { age = 80 }
+		OR = {
+			trait = young1
+			trait = young6
+			trait = young16
+			trait = old50
+			trait = old60
 			NOT = { trait = old70 }
+			trait = old80
+			trait = old90
 		}
+	}
+	
+	immediate = {
+		remove_trait = old50
+		remove_trait = old60
+		add_trait = old70
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16
+		remove_trait = old80
+		remove_trait = old90
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = old70
-			remove_trait = old60
-			remove_trait = old50
-			remove_trait = young1
-			remove_trait = young6
-			remove_trait = young16
-		}
-	}
 }
 
 character_event = {
@@ -680,36 +695,39 @@ character_event = {
 	picture = "GFX_evt_illness"
 
 	is_triggered_only = yes
+	hide_window = yes
 	hide_from = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 80
-			NOT = { age = 90 }
-			ai = no
+		NOT = { trait = immortal }
+		age = 80
+		NOT = { age = 90 }
+		OR = {
+			trait = young1
+			trait = young6
+			trait = young16
+			trait = old50
+			trait = old60
+			trait = old70
 			NOT = { trait = old80 }
+			trait = old90
 		}
+	}
+	
+	immediate = {
+		remove_trait = old50
+		remove_trait = old60
+		remove_trait = old70
+		add_trait = old80
+		remove_trait = old 90
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = old80
-			remove_trait = old70
-			remove_trait = old60
-			remove_trait = old50
-			remove_trait = young1
-			remove_trait = young6
-			remove_trait = young16
-		}
-	}
 }
 
 character_event = {
@@ -717,416 +735,191 @@ character_event = {
 	picture = "GFX_evt_illness"
 
 	is_triggered_only = yes
+	hide_window = yes
 	hide_from = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 90
-			ai = no
+		NOT = { trait = immortal }
+		age = 90
+		OR = {
+			trait = young1
+			trait = young6
+			trait = young16
+			trait = old50
+			trait = old60
+			trait = old70
+			trait = old80
 			NOT = { trait = old90 }
 		}
 	}
 
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = old90
-			remove_trait = old80
-			remove_trait = old70
-			remove_trait = old60
-			remove_trait = old50
-			remove_trait = young1
-			remove_trait = young6
-			remove_trait = young16
-		}
-	}
-}
-
-character_event = {
-	id = 300008
-	picture = "GFX_evt_illness"
-
-	is_triggered_only = yes
-	hide_from = yes
-	min_age = 50
-	max_age = 60
-
-	trigger = {
-		ai = yes
-		NOT = { trait = immortal }
-		NOT = { trait = old50 }
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = old50
-		remove_trait = young1
-		remove_trait = young6
-		remove_trait = young16
-	}
-}
-
-character_event = {
-	id = 300009
-	picture = "GFX_evt_illness"
-
-	is_triggered_only = yes
-	hide_from = yes
-	min_age = 60
-	max_age = 70
-
-	trigger = {
-		ai = yes
-		NOT = { trait = immortal }
-		NOT = { trait = old60 }
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = old60
+	immediate = {
 		remove_trait = old50
-		remove_trait = young1
-		remove_trait = young6
-		remove_trait = young16
-	}
-}
-
-
-character_event = {
-	id = 300010
-	picture = "GFX_evt_illness"
-
-	is_triggered_only = yes
-	hide_from = yes
-	min_age = 70
-	max_age = 80
-
-	trigger = {
-		ai = yes
-		NOT = { trait = immortal }
-		NOT = { trait = old70 }
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = old70
 		remove_trait = old60
-		remove_trait = old50
-		remove_trait = young1
-		remove_trait = young6
-		remove_trait = young16
-	}
-}
-
-character_event = {
-	id = 300011
-	picture = "GFX_evt_illness"
-
-	is_triggered_only = yes
-	hide_from = yes
-	min_age = 80
-	max_age = 90
-
-	trigger = {
-		ai = yes
-		NOT = { trait = immortal }
-		NOT = { trait = old80 }
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = old80
 		remove_trait = old70
-		remove_trait = old60
-		remove_trait = old50
-		remove_trait = young1
-		remove_trait = young6
-		remove_trait = young16
-	}
-}
-
-character_event = {
-	id = 300012
-	picture = "GFX_evt_illness"
-
-	is_triggered_only = yes
-	hide_from = yes
-	min_age = 90
-
-	trigger = {
-		ai = yes
-		NOT = { trait = immortal }
-		NOT = { trait = old90 }
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = old90
 		remove_trait = old80
-		remove_trait = old70
-		remove_trait = old60
-		remove_trait = old50
+		add_trait = old90
 		remove_trait = young1
 		remove_trait = young6
 		remove_trait = young16
 	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	desc = "AI_EVENT"
 }
 
 #young characters
-
-character_event = {
-	id = 300013
-	picture = "GFX_evt_illness"
-
-	hide_from = yes
-	min_age = 15
-	max_age = 30
-
-	trigger = {
-		ai = yes
-		NOT = { trait = immortal }
-		NOT = { trait = young16 }
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = young16
-		remove_trait = young1
-		remove_trait = young6
-	}
-}
-
-
-character_event = {
-	id = 300014
-	picture = "GFX_evt_illness"
-
-	hide_from = yes
-
-	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 15
-			NOT = { age = 30 }
-			ai = no
-			NOT = { trait = young16 }
-		}
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = young16
-			remove_trait = young1
-			remove_trait = young6
-		}
-	}
-}
 character_event = {
 	id = 300015
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
+	hide_window = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 30
-			ai = no
-			OR = {
-				trait = young1
-				trait = young6
-				trait = young16
-			}
-		}
-	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-
-	option = {
-		name = "OK"
-		liege = {
-			remove_trait = young16
-			remove_trait = young6
-			remove_trait = young1
-		}
-	}
-}
-character_event = {
-	id = 300016
-	picture = "GFX_evt_illness"
-
-	hide_from = yes
-
-	min_age = 30
-	max_age = 50
-
-	trigger = {
-		ai = yes
 		NOT = { trait = immortal }
+		age = 30
+		NOT = { age = 50 }
 		OR = {
 			trait = young1
 			trait = young6
 			trait = young16
+			trait = old50
+			trait = old60
+			trait = old70
+			trait = old80
+			trait = old90
 		}
+	}
+	
+	immediate = {
+		remove_trait = young1
+		remove_trait = young6
+		remove_trait = young16
+		remove_trait = old50
+		remove_trait = old60
+		remove_trait = old70
+		remove_trait = old80
+		remove_trait = old90
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		remove_trait = young16
-		remove_trait = young6
-		remove_trait = young1
-	}
 }
+
 character_event = {
 	id = 300017
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
+	hide_window = yes
 
 	trigger = {
-		ai = yes
 		NOT = { trait = immortal }
-		NOT = { trait = young1 }
+		OR = {
+			NOT = { trait = young1 }
+			trait = young6
+			trait = young16
+			trait = old50
+			trait = old60
+			trait = old70
+			trait = old80
+			trait = old90
+		}
 		NOT = { age = 6 }
 	}
-
-	mean_time_to_happen = { days = 1 }
-
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
+	
+	immediate = {
 		add_trait = young1
-	}
-}
-character_event = {
-	id = 300018
-	picture = "GFX_evt_illness"
-
-	hide_from = yes
-
-	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			NOT = { age = 6 }
-			ai = no
-			NOT = { trait = young1 }
-		}
+		remove_trait = young6
+		remove_trait = young16
+		remove_trait = old50
+		remove_trait = old60
+		remove_trait = old70
+		remove_trait = old80
+		remove_trait = old90
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = young1
-		}
-	}
 }
 character_event = {
 	id = 300019
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
+	hide_window = yes
 
 	trigger = {
 		ai = yes
 		NOT = { trait = immortal }
-		NOT = { trait = young6 }
-		NOT = { trait = young16 }
+		OR = {
+			trait = young1
+			NOT = { trait = young6 }
+			trait = young16
+			trait = old50
+			trait = old60
+			trait = old70
+			trait = old80
+			trait = old90
+		}
 		age = 6
 		NOT = { age = 16 }
+	}
+	
+	immediate = {
+		remove_trait = young1
+		add_trait = young6
+		remove_trait = young16
+		remove_trait = old50
+		remove_trait = old60
+		remove_trait = old70
+		remove_trait = old80
+		remove_trait = old90
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		add_trait = young6
-		remove_trait = young1
-	}
 }
 character_event = {
 	id = 300020
 	picture = "GFX_evt_illness"
 
 	hide_from = yes
+	hide_window = yes
 
 	trigger = {
-		ai = yes
-		is_ruler = no
-		liege = {
-			NOT = { trait = immortal }
-			age = 6
-			NOT = { age = 16 }
-			ai = no
-			NOT = { trait = young6 }
+		NOT = { trait = immortal }
+		age = 16
+		NOT = { age = 30 }
+		OR = {
+			trait = young1
+			trait = young6
 			NOT = { trait = young16 }
+			trait = old50
+			trait = old60
+			trait = old70
+			trait = old80
+			trait = old90
 		}
+	}
+	
+	immediate = {
+		remove_trait = young1
+		remove_trait = young6
+		add_trait = young16
+		remove_trait = old50
+		remove_trait = old60
+		remove_trait = old70
+		remove_trait = old80
+		remove_trait = old90
 	}
 
 	mean_time_to_happen = { days = 1 }
 
 	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
-		liege = {
-			add_trait = young6
-			remove_trait = young1
-		}
-	}
 }
