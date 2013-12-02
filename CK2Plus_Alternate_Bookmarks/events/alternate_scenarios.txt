@@ -1,12 +1,11 @@
 character_event = {
 	id = 7110010
-	
+	desc = startup_event_desc
+		
 	trigger = {
 		ai = no
 		NOT = { has_global_flag = alternate_scenarios }
 	}
-	
-	desc = startup_event_desc
 	
 	mean_time_to_happen = {
 		days = 1
@@ -16,25 +15,61 @@ character_event = {
 		}
 	}
 	
-	option = {
-		name = "Extra casus belli"
+	immediate = {
 		set_global_flag = alternate_scenarios
-		set_global_flag = enable_casusbellis
-		if = {
+		if = {    ## Bookmark is Shattered world
 			limit = {
 				ROOT = {
 					tier = COUNT
+					independent = yes
+				}
+				NOT = {
+					any_independent_ruler = {
+						primary_title = d_aleppo
+					}
 				}
 			}
 			set_global_flag = shattered_world
 		}
-		if = {
+		if = {   ## Bookmark is reign of princes
 			limit = {
 				ROOT = {
 					tier = DUKE
+					independent = yes
+				}
+				NOT = {
+					any_independent_ruler = {
+						primary_title = d_aleppo
+					}
+				}
+				NOT = {
+					any_independent_ruler = {
+						primary_title = e_hre
+					}
 				}
 			}
 			set_global_flag = reign_of_princes
+		}
+		if = {   ## Bookmark is Divided muslims
+			limit = {
+				any_independent_ruler = {
+					primary_title = d_aleppo
+				}
+			}
+			NOT = {
+				any_independent_ruler = {
+					primary_title = d_holland
+				}
+			}
+			set_global_flag = divided_muslims
+		}
+		if = {   ## Bookmark is Reign of the Ancients
+			limit = {
+				80 = {
+					religion = norse_pagan
+				}
+			}
+			set_global_flag = reign_ancients
 		}
 		hidden_tooltip = {
 			any_playable_ruler = {
@@ -43,30 +78,13 @@ character_event = {
 			}
 		}
 	}
+
+	
+	option = {
+		name = "Extra casus belli"
+		set_global_flag = enable_casusbellis
+	}
 	option = {
 		name = "Leave it as it is"
-		set_global_flag = alternate_scenarios
-		if = {
-			limit = {
-				ROOT = {
-					tier = COUNT
-				}
-			}
-			set_global_flag = shattered_world
-		}
-		if = {
-			limit = {
-				ROOT = {
-					tier = DUKE
-				}
-			}
-			set_global_flag = reign_of_princes
-		}
-		hidden_tooltip = {
-			any_playable_ruler = {
-				limit = { independent = yes }
-				add_trait = bloodlust
-			}
-		}
 	}
 }
