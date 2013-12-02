@@ -1348,3 +1348,36 @@ character_event = {
 		}
 	}
 }
+# Special event for Neustria to be renamed to Normandy
+character_event = {
+	id = 1000182563
+	title = EVTNAME1000182563
+	desc = EVTDESC1000182563
+
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_diplomacy
+
+	only_playable = yes
+
+	trigger = {
+		has_landed_title = d_normandy
+		OR = {
+			culture = norse
+			culture = norman
+		}
+		NOT = { has_global_flag = neustria_renamed }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTA1000182563
+		set_global_flag = neustria_renamed
+		d_normandy = {
+			set_name=""
+			adjective=""
+		}
+	}
+}
