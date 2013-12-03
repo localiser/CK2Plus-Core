@@ -25,7 +25,10 @@ character_event = {
 				}
 				NOT = {
 					any_independent_ruler = {
-						primary_title = d_aleppo
+						AND = {
+							has_landed_title = d_holland
+							has_landed_title = c_holland
+						}
 					}
 				}
 			}
@@ -37,31 +40,14 @@ character_event = {
 					tier = DUKE
 					independent = yes
 				}
-				NOT = {
-					any_independent_ruler = {
-						primary_title = d_aleppo
-					}
-				}
-				NOT = {
-					any_independent_ruler = {
-						primary_title = e_hre
+				any_independent_ruler = {
+					AND = {
+						has_landed_title = d_holland
+						has_landed_title = c_holland
 					}
 				}
 			}
 			set_global_flag = reign_of_princes
-		}
-		if = {   ## Bookmark is Divided muslims
-			limit = {
-				any_independent_ruler = {
-					primary_title = d_aleppo
-				}
-			}
-			NOT = {
-				any_independent_ruler = {
-					primary_title = d_holland
-				}
-			}
-			set_global_flag = divided_muslims
 		}
 		if = {   ## Bookmark is Reign of the Ancients
 			limit = {
@@ -70,6 +56,17 @@ character_event = {
 				}
 			}
 			set_global_flag = reign_ancients
+		}
+		if = {   ## Bookmark is Divided muslims
+			limit = {
+				any_independent_ruler = {
+					has_landed_title = e_hre
+				}
+				80 = {
+					religion = catholic
+				}
+			}
+			set_global_flag = divided_muslims
 		}
 		hidden_tooltip = {
 			any_playable_ruler = {
