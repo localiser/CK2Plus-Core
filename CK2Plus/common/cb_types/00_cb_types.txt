@@ -2551,11 +2551,43 @@ holy_war = {
 				ai = no
 				NOT = { FROM = { religion_group = pagan_group } }
 				piety = 200
+				AND = {
+					religion_group = christian
+					has_global_flag = christian_crusades_unlocked
+					piety = 100
+				}
+				AND = {
+					religion_group = muslim
+					has_global_flag = muslim_jihads_unlocked
+					piety = 100
+				} 
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = yes
+					has_global_flag = pagan_ghws_unlocked
+					piety = 100
+				}
 			}
 			OR = {				
 				ai = no
-				NOT = { ROOT = { religion_group = pagan_group } }
+				NOT = { ROOT = { AND = { religion_group = pagan_group is_reformed_religion = no } } }
 				piety = 200
+				AND = {
+					religion_group = christian
+					has_global_flag = christian_crusades_unlocked
+					piety = 100
+				}
+				AND = {
+					religion_group = muslim
+					has_global_flag = muslim_jihads_unlocked
+					piety = 100
+				} 
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = yes
+					has_global_flag = pagan_ghws_unlocked
+					piety = 100
+				}				
 			}
 			#avoid invading west africa
 			OR = {				
