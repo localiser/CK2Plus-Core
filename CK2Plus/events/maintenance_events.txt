@@ -10847,6 +10847,9 @@ character_event = {
 character_event = {
 	id = 1000182162
 	is_triggered_only = yes
+	
+	hide_window = yes
+	hide_from = yes	
 
 	trigger = {
 		ai = yes
@@ -10863,23 +10866,25 @@ character_event = {
 			}
 		}
 	}
-
-	desc = "AI_EVENT"
+	
+	immediate = {
+		add_trait = bloodlust
+	}	
 
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
-		add_trait = bloodlust
-	}
+	desc = "AI_EVENT"
 }
 
 character_event = {
 	id = 1000182163
 	is_triggered_only = yes
 
+	hide_window = yes
+	hide_from = yes	
+	
 	trigger = {
 		trait = bloodlust
 		OR = {
@@ -10892,15 +10897,14 @@ character_event = {
 			trait = incapable
 		}
 	}
-
-	desc = "AI_EVENT"
+	
+	immediate = {
+		remove_trait = bloodlust
+	}	
 
 	mean_time_to_happen = {
 		days = 1
 	}
-
-	option = {
-		name = "OK"
-		remove_trait = bloodlust
-	}
+	
+	desc = "AI_EVENT"
 }
