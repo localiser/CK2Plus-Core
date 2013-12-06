@@ -10846,12 +10846,25 @@ character_event = {
 
 character_event = {
 	id = 1000182162
-	is_triggered_only = yes
+	
+	hide_window = yes
+	hide_from = yes	
 
 	trigger = {
+		OR = {
+			has_global_flag = golden_horde_arrival
+			has_global_flag = il_khanate_arrival
+			has_global_flag = aztec_arrival
+		}	
 		ai = yes
-		culture = mongol
-		religion = tengri_pagan
+		OR = {
+			culture = mongol
+			culture = nahuatl
+		}
+		OR = {
+			religion = tengri_pagan
+			religion = aztec_pagan
+		}
 		age = 16
 		NOT = { trait = bloodlust }
 		NOT = { trait = incapable }
@@ -10859,48 +10872,64 @@ character_event = {
 			OR = {
 				title = e_golden_horde
 				title = e_il-khanate
+				title = e_timurids
 				title = e_mongol_empire
+				title = e_mexikha
 			}
 		}
 	}
-
-	desc = "AI_EVENT"
+	
+	immediate = {
+		add_trait = bloodlust
+	}	
 
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
-		add_trait = bloodlust
-	}
+	desc = "AI_EVENT"
 }
 
 character_event = {
 	id = 1000182163
-	is_triggered_only = yes
 
+	hide_window = yes
+	hide_from = yes	
+	
 	trigger = {
+		OR = {
+			has_global_flag = golden_horde_arrival
+			has_global_flag = il_khanate_arrival
+			has_global_flag = aztec_arrival
+		}
 		trait = bloodlust
 		OR = {
+			ai = no
 			AND = {
 				ai = yes
-				culture = mongol
-				NOT = { religion = tengri_pagan }
+				OR = {
+					culture = mongol
+					culture = nahuatl
+				}
+				NOT = { 
+					OR = {
+						religion = tengri_pagan 
+						religion = aztec_pagan
+					}
+				}
 			}
-			ai = no
 			trait = incapable
+			independent = no
 		}
 	}
-
-	desc = "AI_EVENT"
+	
+	immediate = {
+		remove_trait = bloodlust
+	}	
 
 	mean_time_to_happen = {
 		days = 1
 	}
-
-	option = {
-		name = "OK"
-		remove_trait = bloodlust
-	}
+	
+	desc = "AI_EVENT"
 }
