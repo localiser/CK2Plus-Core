@@ -1,0 +1,1128 @@
+# Excommunicated for messing with Funny Hat Man
+character_event = {
+	id = 1000188000
+	title = EVTNAME1000188000
+	desc = EVTDESC1000188000
+	
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_war
+	
+	only_rulers = yes
+	only_playable = yes
+	prisoner = no
+	
+	trigger = {
+		religion = catholic
+		NOT = { has_character_flag = attacking_fhm }
+		is_primary_war_attacker = yes
+		any_current_enemy = {
+			is_primary_war_defender = yes
+			has_landed_title = "k_papal_state" #you declared war on the Pope, YOU BASTARD
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {
+		name = EVTOPT1000188000
+		add_trait = excommunicated #You make Baby Jesus cry
+		set_character_flag = attacking_fhm
+		any_vassal = { 
+			IF = {
+				limit = {
+					religion = catholic 
+					controls_religion = no
+					}
+				character_event = { id = 1000188001 } # vassals may support the Pope
+			}
+		}
+	}
+}
+
+# Guelf or Ghibelline ? (vassals)
+character_event = {
+	id = 1000188001
+	is_triggered_only = yes
+	title = EVTNAME1000188001
+	desc = EVTDESC1000188001
+	
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_war
+	
+	
+	
+	
+	option = {
+		name = EVTOPTA1000188001 #We shall defend the holy church!
+		trigger = { controls_religion = no }
+		ai_chance = {
+			factor = 24
+			modifier = {
+				factor = 0
+				#excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 100
+				 #excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 1.25
+				capital_scope = {
+					OR = {
+						de_jure_liege_or_above = k_italy
+						de_jure_liege_or_above = k_sicily
+						de_jure_liege_or_above = k_papal_state
+						}
+					}
+				}
+			modifier = {
+				factor = 0
+				controls_religion = yes
+				}
+			modifier = {
+				factor = 0
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = 0 }}}
+				}
+			modifier = {
+				factor = 0.75
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = 25 }}}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 1.5
+				religion_head = { reverse_opinion = { who = ROOT value = 75 }}
+				}
+			modifier = {
+				factor = 1.5
+				religion_head = { reverse_opinion = { who = ROOT value = 100 }}
+				}
+			modifier = {
+				factor = 5
+				NOT = { opinion = { who = liege value = -75 } }
+				}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = liege value = -50 } }
+				}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = liege value = -25 } }
+				}
+			modifier = {
+				factor = 0.75
+				opinion = { who = liege value = 25 }
+				}
+			modifier = {
+				factor = 0.75
+				opinion = { who = liege value = 50 }
+				}
+			modifier = {
+				factor = 0.25
+				opinion = { who = liege value = 75 }
+				}
+			modifier = {
+				factor = 0.1
+				opinion = { who = liege value = 100 }
+				}
+			modifier = {
+				factor = 2
+				trait = zealous
+				}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+				}
+			modifier = {
+				factor = 0.5
+				trait = craven
+				}
+			modifier = {
+				factor = 1.5
+				trait = just
+				}
+			modifier = {
+				factor = 1.5
+				trait = content
+				}
+			modifier = {
+				factor = 1.5
+				trait = honest
+				}
+			modifier = {
+				factor = 1.1
+				trait = chaste
+				}
+			modifier = {
+				factor = 1.1
+				trait = humble
+				}
+			modifier = {
+				factor = 1.1
+				trait = temperate
+				}
+			modifier = {
+				factor = 1.1
+				trait = charitable
+				}
+			modifier = {
+				factor = 1.25
+				piety = 500
+				}
+			modifier = {
+				factor = 1.25
+				liege = { ROOT = { NOT = { de_jure_liege_or_above = PREV } } }
+				}
+			modifier = {
+				factor = 1.25
+				liege = { NOT = { culture = ROOT } }
+				}
+			modifier = {
+				factor = 0.9
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } }
+				}
+		}
+		hidden_tooltip = { opinion = { who = liege modifier = guelf years = 100 } }
+		hidden_tooltip = { reverse_opinion = { who = liege modifier = guelf years = 100 } }
+		hidden_tooltip = { set_defacto_liege = ROOT }
+		# hidden_tooltip = { rightful_religious_head_scope = { opinion = { who = ROOT modifier = joined_my_war }  } }
+		religion_head = {
+			ROOT = { join_defender_wars = PREV }
+			}
+		if = {
+			limit = {
+				trait = excommunicated
+				}
+			excommunicate = no
+		}
+	}
+	
+		option = {
+		name = EVTOPTB1000188001 #Send some volunteers!
+		trigger = { controls_religion = no }
+		ai_chance = {
+			factor = 23
+			modifier = {
+				factor = 0
+				#excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 0 #should join in open war instead
+				#excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 0
+				controls_religion = yes
+				}
+			modifier = {
+				factor = 0
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -35 }}}
+				}
+			modifier = {
+				factor = 1.1
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 25 }}
+				}
+			modifier = {
+				factor = 0.25 # should join in open war instead
+				religion_head = { reverse_opinion = { who = ROOT value = 100 }}
+				}
+			modifier = {
+				factor = 0.5 # should declare open war instead
+				NOT = { opinion = { who = liege value = -75 } }
+				}
+			modifier = {
+				factor = 1.25
+				NOT = { opinion = { who = liege value = -25 } }
+				}
+			modifier = {
+				factor = 0.5
+				opinion = { who = liege value = 25 }
+				}
+			modifier = {
+				factor = 0.5
+				opinion = { who = liege value = 50 }
+				}
+			modifier = {
+				factor = 0.25
+				opinion = { who = liege value = 75 }
+				}
+			modifier = {
+				factor = 0.1
+				opinion = { who = liege value = 100 }
+				}
+			modifier = {
+				factor = 0.25 # should join in open war instead
+				trait = zealous
+				}
+			modifier = {
+				factor = 1.5
+				trait = craven
+				}
+			modifier = {
+				factor = 1.1
+				trait = chaste
+				}
+			modifier = {
+				factor = 1.1
+				trait = humble
+				}
+			modifier = {
+				factor = 1.1
+				trait = temperate
+				}
+			modifier = {
+				factor = 1.1
+				trait = charitable
+				}
+			modifier = {
+				factor = 1.25
+				piety = 500
+				}
+			modifier = {
+				factor = 1.25
+				liege = { ROOT = { NOT = { de_jure_liege = PREV } } }
+				}
+			modifier = {
+				factor = 1.25
+				liege = { NOT = { culture = ROOT } }
+				}
+			modifier = {
+				factor = 0.9
+				religion_head = { NOT = { has_landed_title = "k_papal_state" } }
+				}
+			modifier = {
+				factor = 1.25
+				demesne_size = 5
+				}
+			modifier = {
+				factor = 1.25
+				num_of_vassals = 10
+				}
+			}
+			religion_head = { 
+				capital_scope = {
+					ROOT = {
+						spawn_unit =  {
+							province = PREV
+							home = PREV
+							owner = PREVPREV
+							match_character = THIS
+							match_mult = 0.25
+							disband_on_peace = yes
+						}
+					}
+				}
+			}
+	}
+	
+	option = {
+		name = EVTOPTC1000188001 #Perhaps we can contribute some money to him...
+		trigger = { controls_religion = no }
+		ai_chance = {
+			factor = 23
+			modifier = {
+				factor = 0
+				#excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 0 #should join in open war instead
+				#excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 0
+				controls_religion = yes
+				}
+			modifier = {
+				factor = 0
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -50 }}}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 0 }}
+				}
+			modifier = {
+				factor = 0.25 # should join in open war instead
+				religion_head = { reverse_opinion = { who = ROOT value = 100 }}
+				}
+			modifier = {
+				factor = 0.25 # should declare open war instead
+				NOT = { opinion = { who = liege value = -75 } }
+				}
+			modifier = {
+				factor = 0.5 # should declare open war instead
+				NOT = { opinion = { who = liege value = -50 } }
+				}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = liege value = -25 } }
+				}
+			modifier = {
+				factor = 0.75
+				opinion = { who = liege value = 25 }
+				}
+			modifier = {
+				factor = 0.75
+				opinion = { who = liege value = 50 }
+				}
+			modifier = {
+				factor = 0.25
+				opinion = { who = liege value = 75 }
+				}
+			modifier = {
+				factor = 0.1
+				opinion = { who = liege value = 100 }
+				}
+			modifier = {
+				factor = 0.25 # should join in open war instead
+				trait = zealous
+				}
+			modifier = {
+				factor = 1.5
+				trait = craven
+				}
+			modifier = {
+				factor = 1.1
+				trait = chaste
+				}
+			modifier = {
+				factor = 1.1
+				trait = humble
+				}
+			modifier = {
+				factor = 1.1
+				trait = temperate
+				}
+			modifier = {
+				factor = 1.1
+				trait = charitable
+				}
+			modifier = {
+				factor = 1.25
+				piety = 500 
+				}
+			modifier = {
+				factor = 1.25
+				liege = { ROOT = { NOT = { de_jure_liege = PREV } } }
+				}
+			modifier = {
+				factor = 1.25
+				liege = { NOT = { culture = ROOT } }
+				}
+			modifier = {
+				factor = 0.9
+				religion_head = { NOT = { has_landed_title = "k_papal_state" } }
+				}
+			modifier = {
+				factor = 2.5
+				wealth = 1000
+				}
+			modifier = {
+				factor = 0 #AI shouldn't run a debt with this option
+				primary_title = { higher_tier_than = COUNT }
+				NOT = { wealth = 100 }
+			}
+			modifier = {
+				factor = 0
+				primary_title = { higher_tier_than = BARON }
+				NOT = { wealth = 50 }
+			}
+			modifier = {
+				factor = 0
+				primary_title = { lower_tier_than = COUNT }
+				NOT = { wealth = 25 }
+				}
+			}
+		if = {
+			limit = {
+				primary_title = { higher_tier_than = COUNT }
+				}
+			wealth = -100
+			rightful_religious_head_scope = { wealth = 100 }
+			}
+		if = {
+			limit = {
+				primary_title = { higher_tier_than = BARON }
+				primary_title = { lower_tier_than = DUKE }
+				}
+			wealth = -50
+			rightful_religious_head_scope = { wealth = 50 }
+			}
+		if = {
+			limit = {
+				primary_title = { lower_tier_than = COUNT }
+				}
+			wealth = -25
+			rightful_religious_head_scope = { wealth = 25 }
+			}
+	}
+	
+	option = {
+		name = EVTOPTD1000188001 #The only good Pope is a dead Pope
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 100
+				#excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 0
+				#excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 1000
+				controls_religion = yes
+				}
+			modifier = {
+				factor = 5
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -50 }}}
+				}
+			modifier = {
+				factor = 0.75
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 0
+				religion_head = { reverse_opinion = { who = ROOT value = 100 }}
+				}
+			modifier = {
+				factor = 0
+				NOT = { opinion = { who = liege value = -75 } }
+				}
+			modifier = {
+				factor = 0.75 
+				NOT = { opinion = { who = liege value = -50 } }
+				}
+			modifier = {
+				factor = 0.75
+				NOT = { opinion = { who = liege value = -25 } }
+				}
+			modifier = {
+				factor = 1.5
+				opinion = { who = liege value = 50 }
+				}
+			modifier = {
+				factor = 1.5
+				opinion = { who = liege value = 75 }
+				}
+			modifier = {
+				factor = 5
+				opinion = { who = liege value = 100 }
+				}
+			modifier = {
+				factor = 0.25 
+				trait = zealous
+				}
+			modifier = {
+				factor = 1.5 
+				trait = ambitious
+				}
+			modifier = {
+				factor = 1.1
+				trait = envious
+				}
+			modifier = {
+				factor = 1.1
+				trait = greedy
+				}
+			modifier = {
+				factor = 1.1
+				trait = slothful
+				}
+			modifier = {
+				factor = 1.1
+				trait = lustful
+				}
+			modifier = {
+				factor = 1.1
+				trait = gluttonous
+				}
+			modifier = {
+				factor = 1.1
+				trait = proud
+				}
+			modifier = {
+				factor = 2
+				NOT = { piety = 250 }
+				}
+			}
+	}
+
+}
+
+character_event = {
+	id = 1000188002
+	title = EVTNAME1000188002
+	desc = EVTDESC1000188002
+	
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_war
+	
+	only_rulers = yes
+	only_playable = yes
+	min_age = 16
+	prisoner = no
+	
+	trigger = {
+		war = no
+		controls_religion = no
+		religion = catholic
+		mercenary = no
+		capital_scope = {
+			OR = {
+				de_jure_liege_or_above = k_italy
+				de_jure_liege_or_above = k_sicily
+				de_jure_liege_or_above = k_papal_state
+				}
+			}
+		OR = {
+			independent = yes
+			top_liege = { war = no }
+			}
+		religion_head = { 
+			has_landed_title = k_papal_state
+			is_primary_war_defender = yes
+			}
+		NOT = { has_character_flag = declined_guelf_ghibelline }
+		primary_title = { higher_tier_than = BARON }
+		}
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = EVTOPTA1000188002 #Guelfs join the war!
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				 #excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 100
+				# excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 2
+				trait = zealous
+				}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+				}
+			modifier = {
+				factor = 0.5
+				trait = craven
+				}
+			modifier = {
+				factor = 1.5
+				trait = just
+				}
+			modifier = {
+				factor = 1.5
+				trait = content
+				}
+			modifier = {
+				factor = 1.5
+				trait = honest
+				}
+			modifier = {
+				factor = 1.1
+				trait = chaste
+				}
+			modifier = {
+				factor = 1.1
+				trait = humble
+				}
+			modifier = {
+				factor = 1.1
+				trait = temperate
+				}
+			modifier = {
+				factor = 1.1
+				trait = charitable
+				}
+			modifier = {
+				factor = 1.25
+				piety = 500
+				}
+			modifier = {
+				factor = 0.75
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } }
+				}
+			modifier = {
+				factor = 0
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = 0 }}}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 25 }}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 75 }}
+				}
+			modifier = {
+				factor = 0.66
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 25 }}
+						}
+				}
+			modifier = {
+				factor = 0.66
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 50 }}
+						}
+				}
+			modifier = {
+				factor = 0.66
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 75 }}
+						}
+				}
+			}
+			religion_head = {
+				ROOT = { join_defender_wars = PREV }
+				}
+			if = {
+				limit = {
+					trait = excommunicated
+					}
+				excommunicate = no
+			}
+		}	
+		
+	option = {
+		name = EVTOPTB1000188002 #Guelfs send volunteers
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				 #excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 0
+				# excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 0.25
+				trait = zealous
+				}
+			modifier = {
+				factor = 1.5
+				trait = craven
+				}
+			modifier = {
+				factor = 1.25
+				trait = just
+				}
+			modifier = {
+				factor = 1.25
+				trait = content
+				}
+			modifier = {
+				factor = 1.25
+				trait = deceitful
+				}
+			modifier = {
+				factor = 1.1
+				trait = chaste
+				}
+			modifier = {
+				factor = 1.1
+				trait = humble
+				}
+			modifier = {
+				factor = 1.1
+				trait = temperate
+				}
+			modifier = {
+				factor = 1.1
+				trait = charitable
+				}
+			modifier = {
+				factor = 1.25
+				piety = 250
+				}
+			modifier = {
+				factor = 1.25
+				is_merchant_republic = yes
+				}
+			modifier = {
+				factor = 0.75
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } }
+				}
+			modifier = {
+				factor = 0
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -25 }}}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 0 }}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 25 }}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 0.5
+				religion_head = { reverse_opinion = { who = ROOT value = 75 }}
+				}
+			modifier = {
+				factor = 0.75
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 25 }}
+						}
+				}
+			modifier = {
+				factor = 0.75
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 50 }}
+						}
+				}
+			modifier = {
+				factor = 0.75
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 75 }}
+						}
+				}
+			}
+			set_character_flag = declined_guelf_ghibelline
+			religion_head = { 
+				capital_scope = {
+					ROOT = {
+						spawn_unit =  {
+							province = PREV
+							home = PREV
+							owner = PREVPREV
+							match_character = THIS
+							match_mult = 0.25
+							disband_on_peace = yes
+						}
+					}
+				}
+			}
+		}
+		option = {
+		name = EVTOPTC1000188002 #This is not our concern
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0
+				 #excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 0
+				# excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 0.5
+				trait = zealous
+				}
+			modifier = {
+				factor = 1.5
+				trait = craven
+				}
+			modifier = {
+				factor = 1.25
+				trait = arbitrary
+				}
+			modifier = {
+				factor = 1.25
+				trait = content
+				}
+			modifier = {
+				factor = 1.1
+				trait = lustful
+				}
+			modifier = {
+				factor = 1.1
+				trait = proud
+				}
+			modifier = {
+				factor = 1.1
+				trait = gluttonous
+				}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+				}
+			modifier = {
+				factor = 1.25
+				is_feudal = yes
+				}
+			modifier = {
+				factor = 0
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -100 }}}
+				}
+			modifier = {
+				factor = 0.9
+				religion_head = { reverse_opinion = { who = ROOT value = 0 }}
+				}
+			modifier = {
+				factor = 0.8
+				religion_head = { reverse_opinion = { who = ROOT value = 25 }}
+				}
+			modifier = {
+				factor = 0.8
+				religion_head = { reverse_opinion = { who = ROOT value = 50 }}
+				}
+			modifier = {
+				factor = 0.5
+				religion_head = { reverse_opinion = { who = ROOT value = 75 }}
+				}				
+			}
+		set_character_flag = declined_guelf_ghibelline
+		prestige = -25
+		}
+	option = {
+		name = EVTOPTD1000188002 #Ghibellines, to arms!
+		trigger = {
+			religion_head = {
+				NOT = { 
+					any_current_enemy = {
+						NOT = { religion_group = christian }
+						}
+					}
+				}
+			}
+		ai_chance = {
+			factor  = 10
+			modifier = {
+				factor = 100
+				 #excommunicated by the true pope
+				trait = excommunicated
+				rightful_religious_head_scope = { has_landed_title = "k_papal_state" } 
+				}
+			modifier = {
+				factor = 0
+				# excommunicated by the anti-pope
+				trait = excommunicated
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } 
+				}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+				}
+			modifier = {
+				factor = 1.25
+				trait = brave
+				}
+			modifier = {
+				factor = 1.25
+				trait = cruel
+				}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+				}
+			modifier = {
+				factor = 1.25
+				trait = honest
+				}
+			modifier = {
+				factor = 1.1
+				trait = lustful
+				}
+			modifier = {
+				factor = 1.1
+				trait = envious
+				}
+			modifier = {
+				factor = 1.1
+				trait = wroth
+				}
+			modifier = {
+				factor = 1.1
+				trait = greedy
+				}
+			modifier = {
+				factor = 1.25
+				NOT = { piety = 100 }
+				}
+			modifier = {
+				factor = 2
+				rightful_religious_head_scope = { NOT = { has_landed_title = "k_papal_state" } } #antipope follower
+				}
+			modifier = {
+				factor = 2
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -100 }}}
+				}
+			modifier = {
+				factor = 1.25
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = -50 }} }
+				}
+			modifier = {
+				factor = 1.25
+				NOT = { religion_head = { reverse_opinion = { who = ROOT value = 0 }} }
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 25 }}
+						}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 50 }}
+						}
+				}
+			modifier = {
+				factor = 1.25
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 75 }}
+						}
+				}
+			modifier = {
+				factor = 5
+				religion_head = { 
+					any_current_enemy = {
+						reverse_opinion = { who = ROOT value = 100 }}
+						}
+				}
+			}
+		religion_head = {
+				any_current_enemy = {
+					ROOT = { join_attacker_wars = PREV }
+					}
+				}
+
+		}
+}
+
+character_event = {
+	id = 1000188003
+	desc = EVTDESC1000188003
+	
+	only_rulers = yes
+
+	trigger = {
+		war = no
+		OR = {
+			independent = yes
+			liege = { character = ROOT }
+			liege = { war = no }
+		}
+	any_playable_ruler = {
+		reverse_has_opinion_modifier = { who = ROOT modifier = guelf }
+		}	
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	
+
+	option = {
+		name = OK
+		if = {
+			limit = {
+				any_playable_ruler = {
+					NOT = { is_liege_of = ROOT }
+					reverse_has_opinion_modifier = {
+						who = ROOT
+						modifier = guelf
+					}
+					higher_tier_than = ROOT
+				}
+			}
+			random_playable_ruler = {
+				limit = {
+					NOT = { is_liege_of = ROOT }
+					reverse_has_opinion_modifier = {
+						who = ROOT
+						modifier = guelf
+					}
+					higher_tier_than = ROOT
+				}
+				ROOT = { set_defacto_liege = PREV }
+			}
+			remove_opinion = { who = liege modifier = guelf }
+			reverse_remove_opinion = { who = liege modifier = guelf }
+		}
+	}
+}
+
+character_event = {
+	id = 1000188004
+	
+	only_rulers = yes
+	only_playable = yes
+	hide_window = yes # hidden event
+		
+	trigger = {
+		NOT = {
+			any_current_enemy = {
+				has_landed_title = "k_papal_state" 
+			}
+		}
+		has_character_flag = attacking_fhm
+	}
+	
+	mean_time_to_happen = {
+		years = 1 #low priority cleanup
+	}
+	
+	immediate = {
+		clr_character_flag = attacking_fhm
+		}
+}
