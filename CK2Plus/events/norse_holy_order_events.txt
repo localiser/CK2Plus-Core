@@ -1,0 +1,111 @@
+# The Bræðralag founded
+narrative_event = {
+	id = 1000182569
+	title = EVTNAME1000182569
+	desc = EVTDESC1000182569
+	picture = GFX_evt_blood_eagle
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA1000182565
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
+				narrative_event = { id = 1000182570 }
+			}
+		}
+	}
+}
+
+# The player is informed of the Bræðralag
+narrative_event = {
+	id = 1000182570
+	title = EVTNAME1000182570
+	desc = EVTDESC1000182570
+	picture = GFX_evt_blood_eagle
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182570
+		trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1000182570
+		trigger = {
+			NOT = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+}
+
+# The Úlfheðnar founded
+narrative_event = {
+	id = 1000182571
+	title = EVTNAME1000182571
+	desc = EVTDESC1000182571
+	picture = GFX_evt_blood_eagle
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA1000182565
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
+				narrative_event = { id = 1000182572 }
+			}
+		}
+	}
+}
+
+# The player is informed of the Úlfheðnar
+narrative_event = {
+	id = 1000182572
+	title = EVTNAME1000182572
+	desc = EVTDESC1000182572
+	picture = GFX_evt_blood_eagle
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182570
+		trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1000182570
+		trigger = {
+			NOT = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+}

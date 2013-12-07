@@ -1,0 +1,140 @@
+decisions = {
+	organise_braedralag = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+			prisoner = no
+			age = 16
+			NOT = { has_global_flag = braedralag_founded }
+		}
+		allow = {
+			tier = emperor
+			prestige = 300
+			wealth = 300	
+		}
+		effect = {
+			set_global_flag = braedralag_founded
+			prestige = -300
+			wealth = -300
+			activate_title = { title = d_braedralag status = yes }
+			hidden_tooltip = {
+				narrative_event = { id = 1000182569 }
+				create_character = {
+					random_traits = yes
+					religion = ROOT
+					culture = ROOT
+					dynasty = NONE
+					female = no
+					age = 34
+					trait = skilled_tactician
+					trait = berserker
+					trait = viking
+					trait = zealous
+				}
+				new_character = {
+					d_braedralag = {
+						grant_title = PREV
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	become_braedralag = {
+		is_high_prio = yes
+		potential = {
+			tier = count
+			religion = norse_pagan_reformed
+			prisoner = no
+			age = 16
+			ai = yes
+			independent = yes
+		}
+		allow = {
+			piety = 300
+			OR = {
+				trait = zealous
+				trait = viking
+				trait = berserker
+				trait = holy_warrior
+			}
+		}
+		effect = {
+			set_global_flag = braedralag_founded
+			activate_title = { title = d_braedralag status = yes }
+			d_braedralag = {
+				grant_title = ROOT
+			}
+			narrative_event = { id = 1000182569 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	organise_ulfhednar = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+			prisoner = no
+			age = 16
+			NOT = { has_global_flag = ulfhednar_founded }
+		}
+		allow = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+			prestige = 300
+			wealth = 300	
+		}
+		effect = {
+			set_global_flag = ulfhednar_founded
+			prestige = -300
+			wealth = -300
+			activate_title = { title = d_jomsvikings status = yes }
+			hidden_tooltip = {
+				narrative_event = { id = 1000182571 }
+				create_character = {
+					random_traits = yes
+					religion = ROOT
+					culture = ROOT
+					dynasty = NONE
+					female = no
+					age = 34
+					trait = skilled_tactician
+					trait = berserker
+					trait = viking
+					trait = zealous
+				}
+				new_character = {
+					d_jomsvikings = {
+						grant_title = PREV
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
