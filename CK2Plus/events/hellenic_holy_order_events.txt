@@ -113,3 +113,90 @@ narrative_event = {
 		}
 	}
 }
+
+#The Herculeans ask for land in Achaia
+character_event = {
+	id = 1000182573
+	title = EVTNAME1000182573
+	desc = EVTDESC1000182573
+	
+	picture = GFX_evt_roman_temple
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_landed_title = c_achaia
+		is_title_active = d_herculean
+		d_herculean = { owner = { religion = ROOT } }
+		top_liege = {
+			d_herculean = { owner = { religion = PREVPREV } }
+		}
+		476 = { NOT = { num_of_settlements = 4 } } #Achaia has a free slot
+		NOT = { has_character_flag = no_land_to_herculeans }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = EVTOPTA1000182573
+		d_herculean = {
+			owner = {
+				opinion = {
+					modifier = opinion_granted_barony_to_holy_order
+					who = ROOT
+					years = 100
+				 }
+			}
+		}
+		piety = 100
+		hidden_tooltip = { 476 = { province_event = 1000182574 days = 10 } }
+		random = {
+			chance = 50
+			add_trait = zealous
+		}
+		random = {
+			chance = 50
+			add_trait = holy_warrior
+		}
+		random = {
+			chance = 25
+			add_trait = charitable
+		}
+	}
+	
+	option = {
+		name = EVTOPTB1000182573
+		set_character_flag = no_land_to_herculeans
+		piety = -50
+		remove_trait = zealous
+	}
+}
+
+	province_event = {
+	id = 1000182574
+	title = EVTNAME1000182574
+	desc = EVTDESC1000182574
+	
+	picture = GFX_evt_roman_temple
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		build_holding = {
+			title = b_kalavryta
+			type = castle
+			holder = FROM
+		}
+		b_kalavryta = { set_name = "Olympus Mons" }
+		d_herculean = { owner = { gain_title = b_kalavryta } }
+	}
+	
+	option = {
+		name = OK
+	}
+}
+		
