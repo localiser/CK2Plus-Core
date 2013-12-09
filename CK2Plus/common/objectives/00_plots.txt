@@ -2302,7 +2302,7 @@ plot_gain_fellow_vassal_title = {
 
 	vassal_intrigue_plot = yes
 
-	# Plotter scope
+	# Plotter scope	
 	potential = {
 		is_playable = yes
 		prisoner = no
@@ -2323,6 +2323,8 @@ plot_gain_fellow_vassal_title = {
 		holder_scope = { NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }	}
 		FROM = { ai = no }
 		NOT = { claimed_by = FROM }
+		is_recent_grant = no
+		
 		# Not the current heir
 		NOT = {
 			holder_scope = {

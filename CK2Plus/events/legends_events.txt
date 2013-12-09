@@ -24,7 +24,10 @@ narrative_event = {
 		war = no
 		in_command = no
 		is_ill = no
+		OR = {
 		religion_group = christian
+			religion_group = pagan_group
+		}
 		NOT = {
 			has_character_flag = killed_robin_hood
 		}
@@ -37,13 +40,13 @@ narrative_event = {
 		any_demesne_province = {
 			OR = {
 				has_province_modifier = highway_robber_band
-				revolt_risk = 5
+				revolt_risk = 0.05
 			}
 		}
 	}
 
 	mean_time_to_happen = {
-		months = 9000
+		months = 2000
 
 		modifier = {
 			factor = 1.2
@@ -444,14 +447,17 @@ narrative_event = {
 			opinion = {
 				modifier = opinion_killed_merrymen
 				who = ROOT
-				years = 10
+				years = 5
 			}
 		}
 	}
 
 	option = {
 		name = "EVTOPTB10011" #Hire him and his merry men as gamekeepers
-		piety = 10
+		add_character_modifier = {
+			name = the_merciful
+			duration = 365
+		}
 		create_character = {
 			name = Robin
 			random_traits = no
@@ -542,7 +548,7 @@ narrative_event = {
 			opinion = {
 				modifier = opinion_disapprove
 				who = ROOT
-				years = 10
+				years = 5
 			}
 		}
 		clr_character_flag = lure_robin
@@ -1143,14 +1149,17 @@ narrative_event = {
 			opinion = {
 				modifier = opinion_killed_merrymen
 				who = ROOT
-				years = 10
+				years = 5
 			}
 		}
 	}
 
 	option = {
 		name = "EVTOPTB10040" #Hire him and his merry men as gamekeepers
-		piety = 10
+		add_character_modifier = {
+			name = the_merciful
+			duration = 365
+		}
 		create_character = {
 			name = Robin
 			random_traits = no
@@ -1265,14 +1274,17 @@ narrative_event = {
 			opinion = {
 				modifier = opinion_killed_merrymen
 				who = ROOT
-				years = 10
+				years = 5
 			}
 		}
 	}
 
 	option = {
 		name = "EVTOPTB10041" #Hire him and his merry men as gamekeepers
-		piety = 10
+		add_character_modifier = {
+			name = the_merciful
+			duration = 365
+		}
 		create_character = {
 			name = Robin
 			random_traits = no
@@ -1358,14 +1370,13 @@ narrative_event = {
 	desc = "EVTDESC10100"
 	picture = GFX_evt_pagan
 
+	only_playable = yes
 	min_age = 20
 	max_age = 100
 	capable_only = yes
-	only_rulers = yes
 	prisoner = no
 
 	trigger = {
-		higher_tier_than = baron
 		war = no
 		in_command = no
 		NOT = {
@@ -1693,7 +1704,7 @@ narrative_event = {
 	option = {
 		name = "EVTOPTA10104"
 		random_list = {
-			50 = {
+			90 = {
 				set_character_flag = gate_exorcism
 				narrative_event = {
 					id = 10108
@@ -1702,7 +1713,7 @@ narrative_event = {
 					tooltip = "EVTTOOLTIP10108" #It worked!
 				}
 			}
-			50 = {
+			10 = {
 				narrative_event = {
 					id = 10109
 					days = 5
@@ -1736,7 +1747,7 @@ narrative_event = {
 		name = "EVTOPTA10105"
 		treasury = -50
 		random_list = {
-			75 = {
+			90 = {
 				set_character_flag = gate_cattle
 				narrative_event = {
 					id = 10108
@@ -1745,7 +1756,7 @@ narrative_event = {
 					tooltip = "EVTTOOLTIP10108" #It worked!
 				}
 			}
-			25 = {
+			10 = {
 				narrative_event = {
 					id = 10109
 					days = 30
@@ -1777,7 +1788,7 @@ narrative_event = {
 	option = {
 		name = "EVTOPTA10106"
 		random_list = {
-			50 = {
+			90 = {
 				set_character_flag = gate_stones
 				narrative_event = {
 					id = 10108
@@ -1786,7 +1797,7 @@ narrative_event = {
 					tooltip = "EVTTOOLTIP10108" #It worked!
 				}
 			}
-			50 = {
+			10 = {
 				narrative_event = {
 					id = 10109
 					days = 5
@@ -1880,7 +1891,6 @@ narrative_event = {
 			name = exorcism_gateshell
 			duration = 1825
 		}
-		change_learning = 2
 	}
 	option = {
 		name = "EVTOPTB10108"
@@ -1893,7 +1903,6 @@ narrative_event = {
 			name = cattle_gateshell
 			duration = 1825
 		}
-		change_stewardship = 2
 	}
 	option = {
 		name = "EVTOPTC10108"
@@ -1906,7 +1915,6 @@ narrative_event = {
 			name = stones_gateshell
 			duration = 1825
 		}
-		change_martial = 2
 	}
 	option = {
 		name = "EVTOPTD10108"
@@ -1919,7 +1927,6 @@ narrative_event = {
 			name = sacrifice_gateshell
 			duration = 1825
 		}
-		change_intrigue = 2
 	}
 }
 

@@ -191,6 +191,7 @@ de_jure_laws = {
 						NOT = { religion = finnish_pagan }
 						NOT = { religion = aztec_pagan }
 						NOT = { religion = slavic_pagan }
+						NOT = { religion = west_african_pagan }
 					}
 				}
 			}
@@ -312,6 +313,7 @@ de_jure_laws = {
 						NOT = { religion = finnish_pagan }
 						NOT = { religion = aztec_pagan }
 						NOT = { religion = slavic_pagan }
+						NOT = { religion = west_african_pagan }
 					}
 				}
 			}
@@ -434,6 +436,7 @@ de_jure_laws = {
 						NOT = { religion = finnish_pagan }
 						NOT = { religion = aztec_pagan }
 						NOT = { religion = slavic_pagan }
+						NOT = { religion = west_african_pagan }
 					}
 				}
 			}
@@ -514,13 +517,19 @@ de_jure_laws = {
 
 # INVESTITURE
 
+	# Papal Investiture
 	investiture_law_0 = {
 		show_as_title = yes
 		group = investiture_law
 		default = yes
 		potential = {
 			NOT = { has_law = investiture_law_0 }
-			holder_scope = { religion = catholic }
+			holder_scope = {
+				OR = {
+					religion = catholic
+					religion = fraticelli
+				}
+			}
 		}
 		allow = {
 			NOT = { empire = { NOT = { title = PREV } holder_scope = { OR = { character = ROOT is_liege_of = ROOT } } } }
@@ -547,6 +556,7 @@ de_jure_laws = {
 		}
 	}
 
+	# Free Investiture
 	investiture_law_1 = {
 		show_as_title = yes
 		rel_head_opinion = -20
@@ -555,7 +565,12 @@ de_jure_laws = {
 		group = investiture_law
 		potential = {
 			NOT = { has_law = investiture_law_1 }
-			holder_scope = { religion = catholic }
+			holder_scope = {
+				OR = {
+					religion = catholic
+					religion = fraticelli
+				}
+			}
 		}
 		allow = {
 			NOT = { title = k_papal_state }

@@ -4642,6 +4642,39 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA65155" #No more food.
+		trigger = {
+			NOT = { religion_group = muslim }
+			NOT = { religion_group = jewish_group }
+		}
+		random_list = {
+			55 = {
+			}
+			25 = {
+				add_trait = depressed
+				hidden_tooltip = {
+					character_event = {
+						id = 38288 #Notify Depressed
+					}
+				}
+			}
+			20 = {
+				remove_trait = gluttonous
+				hidden_tooltip = {
+					character_event = {
+						id = 65151 #Notify Remove Gluttonous
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC65155 #No more food - Muslim or Jew
+		trigger = {
+			OR = {
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+		}		
 		random_list = {
 			55 = {
 			}
