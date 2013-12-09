@@ -1,4 +1,13 @@
 shield_maiden = {
+	potential = {
+		is_female = yes
+		religion_group = pagan_group
+		NOT = {
+			religion = tengri_pagan
+			religion = tengri_pagan_reformed
+		}
+	}
+
 	martial = 2
 	fertility = -0.15
 	
@@ -19,6 +28,14 @@ shield_maiden = {
 }
 
 martial_lady = {
+	potential = {
+		is_female = yes
+		NOT = {
+			religion_group = pagan_group
+			religion_group = zoroastrian_group
+		}
+	}
+
 	martial = 1
 	fertility = -0.15
 	
@@ -39,6 +56,15 @@ martial_lady = {
 }
 
 martial_lady_tengri = {
+	potential = {
+		is_female = yes
+		OR = {
+			religion = tengri_pagan
+			religion = tengri_pagan_reformed
+			religion_group = zoroastrian_group
+		}
+	}
+
 	martial = 2
 	fertility = -0.15
 	
@@ -48,7 +74,7 @@ martial_lady_tengri = {
 	}
 	
 	command_modifier = {
-		cavalry = 0.15
+		cavalry = 0.20
 	}
 	
 	same_opinion = 10
@@ -59,6 +85,11 @@ martial_lady_tengri = {
 }
 
 virgin_queen = {
+	potential = {
+		is_female = yes
+	}
+
+	martial = 3
 	diplomacy = 3
 	intrigue = 3
 	learning = 3
@@ -103,6 +134,10 @@ coruler = {
 }
 	
 dresses_as_man = {
+	potential = {
+		is_female = yes
+	}
+
 	martial = 1
 	intrigue = 1
 	
@@ -110,8 +145,8 @@ dresses_as_man = {
 		morale_offence = 0.1
 	}
 	
-	general_opinion = -10
-	sex_appeal_opinion = 10
+	general_opinion = -5
+	sex_appeal_opinion = 5
 	church_opinion = -5 #not a big deal for pagans, but still eschewing natural roles
 	same_opinion = 25
 	
@@ -119,6 +154,14 @@ dresses_as_man = {
 }
 
 dresses_as_man_abm =  {
+	potential = {
+		is_female = yes
+		NOT = {
+			religion_group = pagan_group
+			religion_group = zoroastrian_group
+		}
+	}
+
 	martial = 1 
 	intrigue = 1
 	
@@ -136,4 +179,8 @@ dresses_as_man_abm =  {
 
 teaching_daughter = {
 	vassal_opinion = 5 #partial offset for female heir penalty
+	same_opinion = 50 # primarily so vassals in the same situation don't help to set a bad precedent
+	
+	random = no
+	customizer = no
 }
