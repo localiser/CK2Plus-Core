@@ -1,8 +1,8 @@
 NDefines = {
 
 NDiplomacy = {
-	PRESTIGE_LOSS_ON_SEND_GIFT_DECLINE = 10,
-	PIETY_FROM_CHURCH_GIFTS = 3,
+	PRESTIGE_LOSS_ON_SEND_GIFT_DECLINE = 10,	-- OBSOLETE
+	PIETY_FROM_CHURCH_GIFTS = 3,				-- OBSOLETE
 	BREAK_TRUCE_PRESTIGE_PERC_COST = 0.5,		-- Percent of current prestige lost before the base prestige cost (below)
 	BREAK_TRUCE_PRESTIGE_COST = 500,			-- Base Prestige cost for breaking a truce
 	MONTHS_PER_SUCCESSION_CB = 24,				-- Number of months a succession CB lasts
@@ -45,7 +45,7 @@ NDiplomacy = {
 	MAX_ELECTOR_TITLES_LEGALLY_HELD = 1,		-- Max elector titles that a king or above can hold before vassals start getting angry
 	ASSASSINATION_COST_RANK_MULT = 50,			-- Additional cost for assassinations multiplied by rank (count = 1, emperor = 4). Also applies to children of rulers.
 	WOMEN_INHERIT_PRESSED_CLAIMS = 1,			-- If set to 1, they will get pressed claims on their parents' titles
-	BASTARDS_INHERIT_PRESSED_CLAIMS = 1,		-- If set to 1, they will get pressed claims on their parents' titles	
+	BASTARDS_INHERIT_PRESSED_CLAIMS = 1,		-- If set to 1, they will get pressed claims on their parents' titles
 	MUSLIM_LAW_CHANGE_PIETY_COST = 50,			-- Piety cost for Muslims when changing normal demesne laws
 	MUSLIM_CROWN_LAW_CHANGE_PIETY_COST = 100,	-- Piety cost for Muslims when changing Crown laws
 	INTER_MUSLIM_WAR_MONTHLY_PIETY_COST = 2,  	-- Monthly Piety cost for Muslims who are primary attackers against a ruler of the same religion (not civil wars)
@@ -349,7 +349,7 @@ NDiplomacy = {
 
 NCharacter = {
 	MAX_AGE_BEFORE_BETROTHAL_BREAKS = 20,
-	NOMINATE_CROWN_BISHOP_PIETY_COST = 15, 					-- OBSOLETE
+	NOMINATE_CROWN_BISHOP_PIETY_COST = 15, 				-- OBSOLETE
 	NOMINATE_CROWN_BISHOP_REL_AUTHORITY_CHANGE = -0.01, -- OBSOLETE
 	WRONG_GOV_FORM_TAX_MOD = -0.5,
 	CHANGE_SUCC_LAW_YEARS = 10,						-- Rulers must have reigned this long before they can change succession laws
@@ -369,9 +369,9 @@ NCharacter = {
 	INBRED_DIVINE_BLOOD_TRAIT_CHANCE_FACTOR = 0.2,	-- Inbreeding: Multiplier to the base chance
 	LUNATIC_DIVINE_BLOOD_TRAIT_CHANCE_FACTOR = 1.0,	-- Inbreeding: Multiplier to the base chance
 	MAX_LED_FACTIONS = 2,							-- Maximum number of led Factions
-	PORTRAIT_ADULT_MALE_AGE_THRESHOLD = 16,			-- Male child to adult age portrait switch
-	PORTRAIT_ADULT_FEMALE_AGE_THRESHOLD = 16,		-- Female child to adult age portrait switch
-	PORTRAIT_MID_AGE_THRESHOLD = 30,				-- Middle age switch for character portraits
+	PORTRAIT_ADULT_MALE_AGE_THRESHOLD = 16,		-- Male child to adult age portrait switch
+	PORTRAIT_ADULT_FEMALE_AGE_THRESHOLD = 16,	-- Female child to adult age portrait switch
+	PORTRAIT_MID_AGE_THRESHOLD = 32,				-- Middle age switch for character portraits
 	PORTRAIT_OLD_AGE_THRESHOLD = 50,				-- Old age switch for character portraits
 	AGE_OF_ADULTHOOD_MALE = 16,						-- Male can rule at this age. 
 	AGE_OF_ADULTHOOD_FEMALE = 16,					-- Female can rule at this age.
@@ -409,7 +409,7 @@ NTitle = {
 	COUNT_AS_VASSAL_PRESTIGE = 0.025,
 	DUKE_AS_VASSAL_PRESTIGE = 0.1,
 	KING_AS_VASSAL_PRESTIGE = 0.5,
-	EMPEROR_AS_VASSAL_PRESTIGE = 1.0, 				-- Impossible, but needs to be here
+	EMPEROR_AS_VASSAL_PRESTIGE = 1.0, 	-- Impossible, but needs to be here
 
 -- Monthly prestige from held titles
 	BARON_TITLE_PRESTIGE = 0.05,
@@ -440,22 +440,22 @@ NTitle = {
 	EMPEROR_GRANT_TO_CHURCH_PIETY = 100,
 	
 -- Title Creation Cost	
-	BARON_CREATION_COST = 1, 						-- Unused, impossible
-	COUNT_CREATION_COST = 100, 						-- Unused, impossible
+	BARON_CREATION_COST = 1, -- Unused, impossible
+	COUNT_CREATION_COST = 100, -- Unused, impossible
 	DUKE_CREATION_COST = 200,
 	KING_CREATION_COST = 500,
 	EMPEROR_CREATION_COST = 1000,
 
 -- Title Creation Prestige Gain
-	BARON_CREATION_PRESTIGE = 50, 					-- Granted when building a new settlement
-	COUNT_CREATION_PRESTIGE = 100, 					-- Unused, impossible
+	BARON_CREATION_PRESTIGE = 50, -- Granted when building a new settlement
+	COUNT_CREATION_PRESTIGE = 100, -- Unused, impossible
 	DUKE_CREATION_PRESTIGE = 200,
 	KING_CREATION_PRESTIGE = 500,
 	EMPEROR_CREATION_PRESTIGE = 1000,
 	
 -- Title Destruction Prestige Cost
-	BARON_DESTRUCTION_PRESTIGE_COST = 0, 			-- Unused, impossible
-	COUNT_DESTRUCTION_PRESTIGE_COST = 0, 			-- Unused, impossible
+	BARON_DESTRUCTION_PRESTIGE_COST = 0, -- Unused, impossible
+	COUNT_DESTRUCTION_PRESTIGE_COST = 0, -- Unused, impossible
 	DUKE_DESTRUCTION_PRESTIGE_COST = 200,
 	KING_DESTRUCTION_PRESTIGE_COST = 500,
 	EMPEROR_DESTRUCTION_PRESTIGE_COST = 1000,	
@@ -464,15 +464,15 @@ NTitle = {
 	BARON_CLAIM_PRESTIGE_COST = 150,
 	COUNT_CLAIM_PRESTIGE_COST = 300,
 	DUKE_CLAIM_PRESTIGE_COST = 600,
-	KING_CLAIM_PRESTIGE_COST = 1200, 				-- Unused, impossible
-	EMPEROR_CLAIM_PRESTIGE_COST = 2400, 			-- Unused, impossible
+	KING_CLAIM_PRESTIGE_COST = 1200, -- Unused, impossible
+	EMPEROR_CLAIM_PRESTIGE_COST = 2400, -- Unused, impossible
 	
 -- Title Revokation Prestige Cost
 	BARON_REVOKE_PRESTIGE_COST = 50,
 	COUNT_REVOKE_PRESTIGE_COST = 100,
 	DUKE_REVOKE_PRESTIGE_COST = 200,
 	KING_REVOKE_PRESTIGE_COST = 500,
-	EMPEROR_REVOKE_PRESTIGE_COST = 1000, 			-- Unused, impossible
+	EMPEROR_REVOKE_PRESTIGE_COST = 1000, -- Unused, impossible
 	
 -- Title Grant Decadence Reduction (Multiplied with current decadence)
 	BARON_GRANT_DECADENCE_RED = 0,
@@ -485,21 +485,24 @@ NTitle = {
 	CLAIM_DE_JURE_TITLE_COST_MOD = 0.5,
 	NORMAL_LAW_CHANGE_MONTHS = 60,
 	TITLE_USURP_COOLDOWN_MONTHS = 60,
-	DE_JURE_ASSIMILATION_YEARS = 100,				-- Duchies a under the de facto control of another kingdom will change de jure liege after this many years
-	EMPIRE_DE_JURE_ASSIMILATION_YEARS = 100,		-- Kingdoms under the de facto control of another empire will change de jure liege after this many years
-	ALLOW_DE_JURE_ASSIMILATION_ANYWHERE = 0,		-- If set to 0, will only assimilate duchy titles which contain the assimilating Kingdom's capital or border existing de jure land of that title
-	REQ_DUCHIES_FOR_KINGDOM_CREATION = 3, 			-- Number of held duchies required to create a kingdom (for rulers who are not already kings or emperors)
-	REQ_KINGDOMS_FOR_EMPIRE_CREATION = 3, 			-- Number of held kingdoms required to create an Empire (for rulers who are not already emperors)
-	TITULAR_TITLE_CREATION_COST_MULT = 1,			-- Titular titles are more expensive to create
-	ENFORCE_ONE_OF_EACH_HOLDING = 1,				-- Require players to build at least one City, Temple and Castle in each province
+	DE_JURE_ASSIMILATION_YEARS = 100,			-- Duchies a under the de facto control of another kingdom will change de jure liege after this many years
+	EMPIRE_DE_JURE_ASSIMILATION_YEARS = 100,	-- Kingdoms under the de facto control of another empire will change de jure liege after this many years
+	ALLOW_DE_JURE_ASSIMILATION_ANYWHERE = 0,	-- If set to 0, will only assimilate duchy titles which contain the assimilating Kingdom's capital or border existing de jure land of that title
+	REQ_DUCHIES_FOR_KINGDOM_CREATION = 3, 		-- Number of held duchies required to create a kingdom (for rulers who are not already kings or emperors)
+	REQ_KINGDOMS_FOR_EMPIRE_CREATION = 3, 		-- Number of held kingdoms required to create an Empire (for rulers who are not already emperors)
+	TITULAR_TITLE_CREATION_COST_MULT = 1,		-- Titular titles are more expensive to create
+	ENFORCE_ONE_OF_EACH_HOLDING = 1,			-- Require players to build at least one City, Temple and Castle in each province
 	MAX_REPUBLIC_COUNTIES_IN_REALM = 0.1,		-- 10% of a feudal realm is allowed to be under vassal republics (affects title grants)
-	MAX_THEOCRACY_COUNTIES_IN_REALM = 0.1,		-- 10% of a feudal realm is allowed to be under vassal theocracies/bishoprics (affects title grants)	
+	MAX_THEOCRACY_COUNTIES_IN_REALM = 0.1,		-- 10% of a feudal realm is allowed to be under vassal theocracies/bishoprics (affects title grants)
+	THEOCRACY_COUNTIES_CAN_BORDER = 1,			-- Can feudal lords create neighboring theocracy counties?
+	REPUBLIC_COUNTIES_CAN_BORDER = 1,				-- Can feudal lords create neighboring republic counties?
+	MIN_REVOKE_MONTHS_AFTER_GRANT = 12,			-- Months that must pass before you can revoke the title off someone you granted it to	
 
 -- Title creation and usurpation requirements	
 	DEJURE_COUNTY_LIMIT_TO_CREATE = 0.6,			-- Fraction of de jure counties that you must control to create a non-imperial title
 	DEJURE_COUNTY_LIMIT_TO_USURP = 0.6,				-- Fraction of de jure counties that you must control to usurp a non-imperial title
 	EMPIRE_DEJURE_COUNTY_LIMIT_TO_CREATE = 0.8,		-- Fraction of de jure counties that you must control to create an imperial title
-	EMPIRE_DEJURE_COUNTY_LIMIT_TO_USURP = 0.8,		-- Fraction of de jure counties that you must control to usurp an imperial title	
+	EMPIRE_DEJURE_COUNTY_LIMIT_TO_USURP = 0.8		-- Fraction of de jure counties that you must control to usurp an imperial title	
 },
 
 NReligion = {
@@ -693,6 +696,8 @@ NMilitary = {
 	CAPTURED_CLOSE_MALE_RELATIVE_WAR_SCORE = 5.0,	-- War score for holding a close male relative prisoner
 	CAPTURED_HEIR_WAR_SCORE = 50.0,					-- War score for holding the heir prisoner
 	
+	EVENT_TROOPS_SIZE_MULT = 1.0,							-- Applied to match_mult to determine size of troops spawned from events & history
+	
 	OCCUPATION_PENALTY_MONTHS = 60,					-- This and below are different modifier lengths applied to settlements upon conquest
 	OCCUPATION_PENALTY_MONTHS_DIFFERENT_RELIGION = 0,
 	OCCUPATION_PENALTY_MONTHS_DIFFERENT_RELIGIONGROUP = 0,
@@ -813,6 +818,7 @@ NMilitary = {
 	BOTTLENECK_ATTACKER_MARTIAL_MODIFIER = 1.0,
 	BOTTLENECK_CHANCE_LEADER_CAP = 95,
 	BOTTLENECK_CHANCE_MAX = 100,
+	BOTTLENECK_CHOKE_TROOP_CAP = 300,		-- THIS IS SPARTAAAAAAAAA!!!!	
 	
 	CAPITAL_COUNTY_VASSAL_COUNT_LEVY_MULT = 1,	-- Used instead of CAPITAL_COUNTY_LEVY_MULT for vassal counts
 	CAPITAL_COUNTY_VASSAL_LEVY_MULT = 1.25,		-- Used instead of CAPITAL_COUNTY_LEVY_MULT for non-count vassals
@@ -832,17 +838,17 @@ NMilitary = {
 NTechnology = {
 	POINTS_PER_ATTRIBUTE = 0.04,
 
-	BASE_NEIGHBOUR_SPREAD_BONUS = 0.03, 			-- bonus for each neighbour with the tech
-	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0, 		-- multiplier to the above bonus if neighbour is of your religious group
-	BASE_DEMESNE_SPREAD_BONUS = 0.06, 				-- bonus for each other province in demesne with the tech
-	MAX_DEMESNE_BONUS = 0.3, 						-- maximum bonus from demesne
-	FOCUS_BONUS = 2.0, 								-- bonus for the tech in each group set as the focus
-	TRADEPOST_SPREAD_BONUS = 0.002, 				-- Spread from trade posts
-	SPYACTION_SPREAD_BONUS = 0.006,					-- Spread from the target of the study technology spymaster action
+	BASE_NEIGHBOUR_SPREAD_BONUS = 0.03, 		-- bonus for each neighbour with the tech
+	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0, 	-- multiplier to the above bonus if neighbour is of your religious group
+	BASE_DEMESNE_SPREAD_BONUS = 0.06, 			-- bonus for each other province in demesne with the tech
+	MAX_DEMESNE_BONUS = 0.3, 					-- maximum bonus from demesne
+	FOCUS_BONUS = 2.0, 							-- bonus for the tech in each group set as the focus
+	TRADEPOST_SPREAD_BONUS = 0.002, 			-- Spread from trade posts
+	SPYACTION_SPREAD_BONUS = 0.006,				-- Spread from the target of the study technology spymaster action
 	
-	IDEAL_YEAR_LEVEL_0 = 700, 						-- the chance to get a progress to this level will increase after this date and decrease before it
+	IDEAL_YEAR_LEVEL_0 = 700, 					-- the chance to get a progress to this level will increase after this date and decrease before it
 	IDEAL_YEAR_LEVEL_8 = 1500,
-	IDEAL_YEAR_AHEAD_PENALTY = -0.2,				-- UNUSED
+	IDEAL_YEAR_AHEAD_PENALTY = -0.2,			-- UNUSED
 	IDEAL_YEAR_AHEAD_PENALTY_INVEST = 0.4,		-- Percent increase in cost pre level ahead of ideal date
 	
 	PAGAN_HOME_ATTRITION_REMOVAL_LEVEL = 4.0,
@@ -855,9 +861,9 @@ NTechnology = {
 	END_MIL_CATHOLIC    = 5.0,
 	END_ECO_CATHOLIC    = 5.0,
 	END_CUL_CATHOLIC    = 5.0,
-	END_REN_CLOSE       = 7.0,						-- Tech level at the center of the renaissance
-	END_REN_FAR         = 6.0,						-- Tech level on the fringe of the renaissance
-	REN_PROVINCE        = 328,						-- Province where the Renaissance is centered
+	END_REN_CLOSE       = 7.0, -- Tech level at the center of the renaissance
+	END_REN_FAR         = 6.0, -- Tech level on the fringe of the renaissance
+	REN_PROVINCE        = 328, -- Province where the Renaissance is centered
 	START_MIL_MUSLIM    = 1.0,
 	START_ECO_MUSLIM    = 1.0,
 	START_CUL_MUSLIM    = 1.0,
@@ -879,22 +885,22 @@ NTechnology = {
 },
 
 NDisease = {
-	SMALL_TOWN_INCOME = 11.0, 						-- A coastal town with this income has no chance of starting an outbreak
-	BIG_TOWN_INCOME = 30.0, 						-- A coastal town with this income is always a canditate for starting an outbreak
-	MIN_OUTBREAK_CHANCE = 0.1, 						-- Min chance that an outbreak will happen in a particular town
+	SMALL_TOWN_INCOME = 11.0, -- A coastal town with this income has no chance of starting an outbreak
+	BIG_TOWN_INCOME = 30.0, -- A coastal town with this income is always a canditate for starting an outbreak
+	MIN_OUTBREAK_CHANCE = 0.1, -- Min chance that an outbreak will happen in a particular town
 },
 
 NGraphics = {
 	PORT_SHIP_OFFSET = 3.0,
-	CITY_SPRAWL_SHRINK_DISTANCE = 150.0, 			-- Start shrinking at this distance
-	CITY_SPRAWL_DRAW_DISTANCE = 200.0, 				-- Remove at this distance
-	CITY_SPRAWL_AMOUNT = 1, 						-- Size of cities, higher gives larger cities
-	CITY_SPRAWL_NUDGE_TAX_VALUE = 50, 				-- Debug flag
-	PROVINCE_NAME_DRAW_DISTANCE = 500.0, 			-- Remove province names beyond this distance
+	CITY_SPRAWL_SHRINK_DISTANCE = 150.0, -- Start shrinking at this distance
+	CITY_SPRAWL_DRAW_DISTANCE = 200.0, -- Remove at this distance
+	CITY_SPRAWL_AMOUNT = 1, -- Size of cities, higher gives larger cities
+	CITY_SPRAWL_NUDGE_TAX_VALUE = 50, -- Debug flag
+	PROVINCE_NAME_DRAW_DISTANCE = 500.0, -- Remove province names beyond this distance
 },
 
 NEngine = {
-	EVENT_PROCESS_OFFSET = 20, 						-- Events are checked every X day per character or province (1 is ideal, but CPU heavy)
+	EVENT_PROCESS_OFFSET = 20, -- Events are checked every X day per character or province (1 is ideal, but CPU heavy)
 },
 
 NAI =
@@ -930,7 +936,7 @@ NAI =
 	RAID_MAX_REALM_SIZE = 24,								-- Realms with more holdings than this will never go on Raids
 	RAID_AGGRESSION = 18,									-- General frequency of raids. A LOWER number means more often!
 	RAID_PREP_INV_SPARE_SAME_CULTURE = 1,					-- AI of religions that allow prepared invasions will not raid provinces in their own culture group (to prevent intra-Scandinavian raids)
-	RAID_SPARE_ACCEPTED_RELIGIONS = 1						-- AI will not raid rulers of other religions in the same religion group, unless heresy vs parent religion	
+	RAID_SPARE_ACCEPTED_RELIGIONS = 1						-- AI will not raid rulers of other religions in the same religion group, unless heresy vs parent religion
 },
 
 NFrontend = 
@@ -950,7 +956,7 @@ NFrontend =
 	CAMERA_MIN_DIST_FOR_ROTATE = 800.0, -- Controlls when rotation starts. When camera is close enought it starts
 	TIME_FROZEN = 1.0,  				-- Time before initial animation starts (some deylay here so it should NOT be 0, then the animation starts before you can see it)
 	TIME_UNTIL_ROTATE = 1.5, 			-- Time when rotation start (from begining of time)
-	CAMERA_SPEED_START = 0.04,  		-- Initial animation speed
+	CAMERA_SPEED_START = 0.04,  			-- Initial animation speed
 	CAMERA_SPEED_ROTATE = 0.04,			-- Rotation speed
 	GUI_MOVE_SPEED = 300,				-- How fast sliding gui objects move ( pixels/s )
 	

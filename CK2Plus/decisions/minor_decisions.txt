@@ -28,9 +28,10 @@ decisions = {
 					has_character_modifier = holding_large_feast
 				}
 			}
-			num_of_vassals = 1
+			num_of_vassals = 1			
 			primary_title = { tier = COUNT }
 			NOT = { trait = incapable }
+			NOT = { has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -252,6 +253,7 @@ decisions = {
 			num_of_vassals = 1
 			primary_title = { tier = COUNT }
 			NOT = { trait = incapable }
+			NOT = { has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -386,10 +388,6 @@ decisions = {
 		potential = {
 			is_ruler = yes
 			age = 16
-			# OR = {
-				# is_female = no
-				# martial = 10
-			# }
 			OR = {
 				ai = no
 				NOT = { has_character_flag = ai_hunt_cooldown }
@@ -404,6 +402,7 @@ decisions = {
 			}
 			primary_title = { tier = COUNT }
 			NOT = { trait = incapable }
+			NOT = { has_character_flag = do_not_disturb }			
 		}
 		allow = {
 			war = no
@@ -545,13 +544,11 @@ decisions = {
 	
 	catholic_pilgrimage = {
 		potential = {
-		has_dlc = "Sons of Abraham"
-		is_ruler = yes
-		religion_group = christian
-		NOT = { trait = pilgrim }
-		NOT = { trait = on_pilgrimage }
-		NOT = { has_character_flag = activated_pilgrimage }
-		NOT = { has_character_flag = preparing_pilgrimage }
+			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			religion_group = christian
+			NOT = { trait = pilgrim }
+			NOT = { has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -613,6 +610,7 @@ decisions = {
 			NOT = {	has_character_flag = preparing_hajj }
 			NOT = {	has_character_flag = ramadan }
 			NOT = {	has_character_flag = activated_hajj }
+			NOT = {	has_character_flag = do_not_disturb }			
 			lower_tier_than = duke
 		}
 		allow = {
@@ -640,6 +638,7 @@ decisions = {
 			wealth = -50
 			clr_character_flag = promise_hajj
 			set_character_flag = activated_hajj
+			set_character_flag = do_not_disturb
 
 			hidden_tooltip = {
 				letter_event = {
@@ -859,6 +858,7 @@ decisions = {
 			religion_group = jewish_group
 			NOT = { has_character_modifier = held_passover_timer }
 			NOT = {	has_character_flag = holding_passover }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -875,6 +875,7 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_passover
+			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = passover_celebrations
 				hidden_tooltip = { 

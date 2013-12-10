@@ -434,6 +434,7 @@ character_event = {
 			attributes = {
 				diplomacy = 10
 			}
+			flag = ai_flag_refuse_conversion			
 		}
 	}
 }
@@ -485,6 +486,7 @@ character_event = {
 			attributes = {
 				stewardship = 10
 			}
+			flag = ai_flag_refuse_conversion
 		}
 	}
 }
@@ -536,6 +538,7 @@ character_event = {
 			attributes = {
 				intrigue = 10
 			}
+			flag = ai_flag_refuse_conversion
 		}
 	}
 }
@@ -587,6 +590,7 @@ character_event = {
 			attributes = {
 				diplomacy = 10
 			}
+			flag = ai_flag_refuse_conversion
 		}
 	}
 }
@@ -638,6 +642,7 @@ character_event = {
 			attributes = {
 				stewardship = 10
 			}
+			flag = ai_flag_refuse_conversion
 		}
 	}
 }
@@ -689,6 +694,7 @@ character_event = {
 			attributes = {
 				intrigue = 10
 			}
+			flag = ai_flag_refuse_conversion
 		}
 	}
 }
@@ -809,6 +815,7 @@ character_event = {
 		}
 		custom_tooltip = { text = passover_accepted }
 		set_character_flag = attending_passover
+		set_character_flag = do_not_disturb
 		hidden_tooltip = { character_event = { id = SoA.503 days = 8 } }
 	}
 	option = {
@@ -897,6 +904,7 @@ character_event = {
 		prestige = 100
 		piety = 100
 		clr_character_flag = holding_passover
+		clr_character_flag = do_not_disturb
 	}
 }
 
@@ -912,6 +920,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_SoA_504
 		clr_character_flag = attending_passover
+		clr_character_flag = do_not_disturb
 	}
 }
 
@@ -930,14 +939,14 @@ narrative_event = {
 	option = {
 		name = EVTOPTA_SoA_550
 		trigger = {
-			religion_group = jewish
+			religion_group = jewish_group
 		}
 	}
 	option = {
 		name = EVTOPTB_TOG_6004
 		trigger = {
 			NOT = {
-				religion_group = jewish
+				religion_group = jewish_group
 				religion_group = muslim
 			}
 		}
@@ -947,5 +956,136 @@ narrative_event = {
 		trigger = {
 			religion_group = muslim
 		}
+	}
+}
+
+### Jewish Councillor Events
+
+# Chancellor (Hidden)
+character_event = {
+	id = SoA.560
+	hide_window = yes
+	
+	trigger = {
+		religion_group = jewish_group
+		has_job_title = job_chancellor
+		employer = {
+			NOT = { religion_group = jewish_group }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 280
+	}
+	
+	immediate = {
+		employer = {
+			character_event = { id = SoA.561 }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Chancellor
+character_event = {
+	id = SoA.561
+	desc = EVTDESC_SoA_561
+	picture = GFX_evt_jewish_market
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_561
+		culture_techpoints = 50
+	}
+}
+
+# Steward (Hidden)
+character_event = {
+	id = SoA.562
+	hide_window = yes
+	
+	trigger = {
+		religion_group = jewish_group
+		has_job_title = job_treasurer
+		employer = {
+			NOT = { religion_group = jewish_group }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 280
+	}
+	
+	immediate = {
+		employer = {
+			character_event = { id = SoA.563 }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Steward
+character_event = {
+	id = SoA.563
+	desc = EVTDESC_SoA_563
+	picture = GFX_evt_jewish_market
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_561
+		economy_techpoints = 50
+	}
+}
+
+# Spymaster (Hidden)
+character_event = {
+	id = SoA.564
+	hide_window = yes
+	
+	trigger = {
+		religion_group = jewish_group
+		has_job_title = job_spymaster
+		employer = {
+			NOT = { religion_group = jewish_group }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 280
+	}
+	
+	immediate = {
+		employer = {
+			character_event = { id = SoA.565 }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# Spymaster
+character_event = {
+	id = SoA.565
+	desc = EVTDESC_SoA_565
+	picture = GFX_evt_jewish_market
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_561
+		military_techpoints = 50
 	}
 }

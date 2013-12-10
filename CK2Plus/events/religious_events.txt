@@ -5084,4 +5084,80 @@ character_event = {
 	}
 }
 
+# Catholic antipope immediately loses claim if he or liege is no longer catholic
+character_event = {
+	id = 39701
+
+	hide_window = yes
+
+	only_rulers = yes
+	
+	trigger = {
+		k_papal_state = {
+			any_claimant = {
+				OR = {
+					NOT = { religion = catholic }
+					any_liege = { NOT = { religion = catholic } }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		k_papal_state = {
+			any_claimant = {
+				limit = {
+					OR ={
+						NOT = { religion = catholic }
+						any_liege = { NOT = { religion = catholic } }
+					}
+				}
+				remove_claim = k_papal_state
+			}
+		}
+	}
+}
+
+# Fraticelli antipope immediately loses claim if he or liege is no longer Fraticelli
+character_event = {
+	id = 39702
+
+	hide_window = yes
+
+	only_rulers = yes
+	
+	trigger = {
+		d_fraticelli = {
+			any_claimant = {
+				OR = {
+					NOT = { religion = fraticelli }
+					any_liege = { NOT = { religion = fraticelli } }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		d_fraticelli = {
+			any_claimant = {
+				limit = {
+					OR = {
+						NOT = { religion = fraticelli }
+						any_liege = { NOT = { religion = fraticelli } }
+					}
+				}
+				remove_claim = d_fraticelli
+			}
+		}
+	}
+}
+
 	

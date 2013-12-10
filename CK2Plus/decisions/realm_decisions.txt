@@ -27,6 +27,7 @@ decisions = {
 		}
 		effect = {
 			set_character_flag = epic_tournament
+			set_character_flag = do_not_disturb
 			set_character_flag = holding_epic_tournament
 			wealth = -200
 			prestige = 100
@@ -541,15 +542,65 @@ decisions = {
 			piety = 2000
 			religion_authority = 0.5
 			completely_controls = c_byzantion
-			b_hagiasophia = { holder_scope = { religion = orthodox } }
+			b_hagiasophia = {
+				holder_scope = {
+					OR = {
+						religion = orthodox
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_antiocheia
-			b_antiocheia = { holder_scope = { religion = orthodox } }
+			b_antiocheia = {
+				holder_scope = {
+					OR = {
+						religion = orthodox
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_jerusalem
-			b_jerusalem = { holder_scope = { religion = orthodox } }
+			b_jerusalem = {
+				holder_scope = {
+					OR = {
+						religion = orthodox
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_alexandria
-			b_alexandria = { holder_scope = { religion = orthodox } }
+			b_alexandria = {
+				holder_scope = {
+					OR = {
+						religion = orthodox
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_roma
-			b_roma = { holder_scope = { religion = orthodox } }
+			b_roma = {
+				holder_scope = {
+					OR = {
+						religion = orthodox
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
+					}
+					is_heretic = no
+				}
+			}
 		}
 		effect = {
 			narrative_event = { id = LoR.210 tooltip = EVTTOOLTIPLoR.210 }
@@ -578,17 +629,73 @@ decisions = {
 			piety = 2000
 			religion_authority = 0.9
 			completely_controls = c_byzantion
-			b_hagiasophia = { holder_scope = { religion = catholic } }
+			b_hagiasophia = {
+				holder_scope = {
+					OR = {
+						religion = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_antiocheia
-			b_antiocheia = { holder_scope = { religion = catholic } }
+			b_antiocheia = {
+				holder_scope = {
+					OR = {
+						religion = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_jerusalem
-			b_jerusalem = { holder_scope = { religion = catholic } }
+			b_jerusalem = {
+				holder_scope = {
+					OR = {
+						religion = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+					is_heretic = no
+				}
+			}
 			completely_controls = c_alexandria
-			b_alexandria = { holder_scope = { religion = catholic } }
+			b_alexandria = {
+				holder_scope = {
+					OR = {
+						religion = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+					is_heretic = no
+				}
+			}
+			completely_controls = c_roma
 			OR = {
 				AND = {
 				completely_controls = c_roma
-				b_roma = { holder_scope = { religion = catholic } }
+					b_roma = { 
+						holder_scope = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}
+					}
 				}
 				c_roma = {
 					holder_scope = {
@@ -854,6 +961,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = morale_from_nerge }
 			NOT = {	has_character_flag = holding_nerge }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -868,6 +976,7 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_nerge
+			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = prepare_nerge
 				hidden_tooltip = {
@@ -902,6 +1011,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_blot_timer }
 			NOT = {	has_character_flag = holding_blot }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -918,6 +1028,7 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_blot
+			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = prepare_blot
 				hidden_tooltip = {
@@ -952,6 +1063,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_ukon_juhla_timer }
 			NOT = {	has_character_flag = holding_ukon_juhla }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -968,6 +1080,7 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_ukon_juhla
+			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = prepare_ukon_juhla
 				hidden_tooltip = {
@@ -1002,6 +1115,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_uzgavenes_timer }
 			NOT = {	has_character_flag = holding_uzgavenes }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -1018,6 +1132,7 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_uzgavenes
+			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = prepare_uzgavenes
 				hidden_tooltip = {
@@ -1052,6 +1167,7 @@ decisions = {
 			}
 			NOT = { has_character_modifier = held_jarilo_timer }
 			NOT = {	has_character_flag = holding_jarilo }
+			NOT = {	has_character_flag = do_not_disturb }
 		}
 		allow = {
 			war = no
@@ -1068,6 +1184,7 @@ decisions = {
 		effect = {
 			scaled_wealth = -0.20
 			set_character_flag = holding_jarilo
+			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = prepare_jarilo
 				hidden_tooltip = {
@@ -1387,7 +1504,7 @@ decisions = {
 			hidden_tooltip = {
 				create_random_priest = {
 					random_traits = yes
-					religion = jewish
+					religion = ROOT
 					culture = ROOT
 					dynasty = random
 					female = no

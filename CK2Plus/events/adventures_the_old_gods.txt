@@ -19,15 +19,15 @@ character_event = {
 
 	hide_window = yes # Only fires for unplayable landless characters
 
-	only_men = yes
-	
 	min_age = 16
 	max_age = 50
+	only_men = yes
 	capable_only = yes
 	prisoner = no
 	
 	trigger = {
 		has_dlc = "The Old Gods"
+		
 		is_ruler = no
 
 		any_claim = {
@@ -173,14 +173,12 @@ character_event = {
 	border = GFX_event_normal_frame_war
 	hide_window = yes # Only fires for unplayable landless characters
 
-	capable_only = yes
-	prisoner = no
-	
 	is_triggered_only = yes
 
 	trigger = {
-	
 	is_ruler = no
+		prisoner = no
+		NOT = { trait = incapable }
 
 		any_claim = {
 			has_holder = yes
@@ -589,20 +587,21 @@ character_event = {
 
 	hide_window = yes # Only fires for unplayable landless characters
 
-	only_men = yes
-	
 	min_age = 16
 	max_age = 50
+	only_men = yes
 	capable_only = yes
 	prisoner = no
 
 	trigger = {
 		has_dlc = "The Old Gods"
+		
 		is_ruler = no
 		
 		diplomacy = 9
 		martial = 9
 		health = 4
+		
 		NOT = { trait = content }
 		NOT = { trait = craven }
 
@@ -889,14 +888,14 @@ character_event = {
 
 	hide_window = yes # Only fires for unplayable landless characters
 
-	capable_only = yes
-	prisoner = no
-	
 	is_triggered_only = yes
 
 	trigger = {
 		has_dlc = "The Old Gods"
+		
 		is_ruler = no
+		prisoner = no
+		NOT = { trait = incapable }
 
 		NOT = {
 			any_heir_title = {
