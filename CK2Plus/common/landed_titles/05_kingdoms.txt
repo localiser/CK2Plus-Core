@@ -3818,22 +3818,22 @@ k_byzantium = {
         capital = 482 #Athens
 
         allow = {
-                war = no
-				NOT = {
-					AND = {
-						ai = yes
-						has_landed_title = e_byzantium
-					}
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
 				}
-                OR = {
-                        culture = greek
-                        k_byzantium = {
-                                OR = {
-                                        is_titular = no
-                                        has_holder = yes
-                                }
-                        }
-                }
+			}
+			OR = {
+					culture = greek
+					k_byzantium = {
+							OR = {
+									is_titular = no
+									has_holder = yes
+							}
+					}
+			}
         }
 
         greek = "Byzantion"
@@ -10609,260 +10609,256 @@ k_denmark = {
         }
 }
 
-k_iceland = {
-        color={ 105 55 215 }
-        color2={ 120 220 120 }
+k_north_sea = {
+	color={ 88 100 100 }
+	color2={ 120 220 120 }
 
-        catholic = 10 #Crusade target weight
-        finnish_pagan_reformed = 5
-        norse_pagan_reformed = 100 # Crusade target weight
-
-        culture = icelandic
-
-        capital = 1 #Vestisland
-
-        allow = {
-                war = no
-                OR = {
-                        culture = icelandic
-                        culture = norse
-                        k_iceland = {
-                                OR = {
-                                        is_titular = no
-                                        has_holder = yes
-                                }
-                        }
-                }
-        }
-        
-        icelandic = "Island"
-        saxon = "Island"
-        danish = "Island"
-        norwegian = "Island"
-        swedish = "Island"
-        english_norse = "Island"
-        norse = "Island"
-        irish = "Innis Tile"
-        dutch = "IJsland"
-        welsh = "Ynys yr Iâ"
-
-		d_iceland = {
-			color={ 195 190 255 }
-			color2={ 220 220 220 }
-			icelandic = "Island"
-			saxon = "Island"
-			danish = "Island"
-			norwegian = "Island"
-			swedish = "Island"
-			english_norse = "Island"
-			norse = "Island"
-			irish = "Innis Tile"
-			dutch = "IJsland"
-			welsh = "Ynys yr Iâ"
-			capital = 1 # Vestisland
+	catholic = 10 #Crusade target weight
+	finnish_pagan_reformed = 5
+	norse_pagan_reformed = 100 # Crusade target weight
+	
+	culture = norse
+    capital = 36 #Orkney
 		
-			allow = {
-					war = no
-			}   
-			c_vestisland = {
-					color={ 160 210 250 }
-					color2={ 220 220 220 }
-					
-					swedish = "Västisland"
-					
-					b_reykjavik = {
-					}
-					b_skalholt = {
-					}					
-					b_alftanes = {
-							swedish = "Alftanäs"
-					}
-					b_pingvellir = {
-					}
-					b_kjalarnes = {
-					}
-					b_hlidarendi = {
-					}
-					b_hvamm = {
-					}
-					b_borg = {
-					}
-			}
-			c_austisland = {
-				color = { 210 250 160 }
-				color2 = { 220 220 220 }
-				swedish = "Östisland"
-				b_glaumbaer = {
-				}
-				b_valpjotstadur = {
-				}
-				b_kirkjubaer = {
-				}
-				b_goddalir = {
-				}
-			}
-			c_vestfirdir = {
-				color={ 0 148 255 }
-				color2={ 220 220 220 }
-				b_isafjordur = {
-				}
-				b_bolungarvik = {
-				}
-				b_vesturbyggo = {
-				}
-			 }
-			c_nordulandvestra = {
-				color={ 2 50 134 }
-				color2={ 255 255 255 }
-				b_saudarkrokur = {
-				}
-				b_skagafjordur = {
-				}
-				b_hunapingvestra = {
-				}
-				b_holar = {
-						holy_site = norse_pagan
-						holy_site = norse_pagan_reformed
-				}
-			}
-			c_nordulandeystra = {
-				color={ 0 90 214 }
-				color2={ 255 255 255 }
-				b_akureyri = {
-				}
-				b_husavik = {
-				}
-				b_hrisey = {
-				}
-			}
-			c_sudurland = {
-				color={ 85 150 200 }
-				color2={ 255 255 255 }
-				b_selfoss = {
-				}
-				b_arbog = {
-				}
-			}
-        }
-		d_orkney = {
-			color={ 0 18 255 }
-			color2={ 255 255 255 }
+	norwegian = "Vesterhavet"
+	swedish = "Vesterhavet"
+	danish = "Vesterhavet"
+	icelandic = "Nordsoen"
+	english_norse = "Nordsoen"
+	norse = "Nordsoen"
 
-			capital = 36 # Orkney
-			
-			norse = "Norðreyjar"
-			norwegian = "Nordeyjar"
-			swedish = "Nordeyjar"
-			danish = "Nordeyjar"
-			scottish = "Na h-Eileanan a Tuath"
-			dutch = "Orkaden"
-                
-			allow = {
-					war = no
+	allow = {
+		war = no
+		OR = {
+			culture_group = north_germanic
+			culture_group = west_germanic
+			culture_group = celtic
+			k_north_sea = {
+				OR = {
+						is_titular = no
+						has_holder = yes
+				}
 			}
-			
-			pagan_coa = {
-					template = 0
-					layer = {
-							texture = 2
-							texture_internal = 5
-							emblem = 0
-							color = 0
-							color = 0
-							color = 0
-					}
-					religion = "norse_pagan"
-			}
-			
-			c_faereyar = {
-				color={ 25 87 103 }
-				color2={ 255 255 255 }
+		}
+	}
+
+	d_iceland = {
+		color={ 195 190 255 }
+		color2={ 220 220 220 }
+		icelandic = "Island"
+		saxon = "Island"
+		danish = "Island"
+		norwegian = "Island"
+		swedish = "Island"
+		english_norse = "Island"
+		norse = "Island"
+		irish = "Innis Tile"
+		dutch = "IJsland"
+		welsh = "Ynys yr Iâ"
+		capital = 1 # Vestisland
+	
+		allow = {
+				war = no
+		}   
+		c_vestisland = {
+				color={ 160 210 250 }
+				color2={ 220 220 220 }
 				
-				swedish = "Färöarna"
+				swedish = "Västisland"
 				
-				b_skansin = {
+				b_reykjavik = {
 				}
-				b_torshavn = {
+				b_skalholt = {
+				}					
+				b_alftanes = {
+						swedish = "Alftanäs"
 				}
-				b_kirkjubour = {
+				b_pingvellir = {
 				}
-				b_funningur = {
+				b_kjalarnes = {
 				}
-				b_kvivik = {
+				b_hlidarendi = {
 				}
-				b_sandur = {
+				b_hvamm = {
 				}
-				b_klaksvik = {
+				b_borg = {
 				}
-				b_hov = {
-				}
+		}
+		c_austisland = {
+			color = { 210 250 160 }
+			color2 = { 220 220 220 }
+			swedish = "Östisland"
+			b_glaumbaer = {
 			}
-			c_shetland = {
-				color={ 145 132 38 }
-				color2={ 255 255 255 }
-				norwegian = "Hjaltland"
-				danish = "Hjaltland"
-				swedish = "Hjaltland"
-				scottish = "Sealtainn"
-				dutch = "Hitland"
-				b_scalloway = {
-				}
-				b_muness = {
-				}
-				b_tingwall = {
-				}
-				b_cunningsburgh = {
-						norwegian = "Konungsborg"
-						danish = "Konungsborg"
-						swedish = "Konungsborg"
-						norse = "Konungsborg"
-				}
-				b_sumburgh = {
-				}
-				b_northmavine = {
-				}
-				b_sound = {
-				}
-				b_yell = {
-				}
+			b_valpjotstadur = {
 			}
-			c_orkney = {
-				color={ 50 165 36 }
-				color2={ 255 255 255 }
-				norwegian = "Orknø"
-				swedish = "Orknö"
-				danish = "Orknø"
-				scottish = "Arcaibh"
-				norse = "Orknö"
-				welsh = "Ynysoedd Erch"
-				
-				b_kirkwall = {
-						norwegian = "Kirkuvåg"
-						danish = "Kyrkovik"
-						swedish = "Kyrkovik"
-						scottish = "Baile na h-Eaglais"
-						norse = "Kyrkovik"
-				}
-				b_birsay = {
-						norwegian = "Birgishærad"
-						danish = "Birgishærad"
-						swedish = "Birgishärad"
-						norse = "Birgishærad"
-				}
-				b_orphir = {
-				}
-				b_westray = {
-				}
-				b_wyre = {
-				}
-				b_egilsay = {
-				}
-				b_sanday = {
-				}
-				b_ronaldsay = {
-				}
+			b_kirkjubaer = {
 			}
-        }
+			b_goddalir = {
+			}
+		}
+		c_vestfirdir = {
+			color={ 0 148 255 }
+			color2={ 220 220 220 }
+			b_isafjordur = {
+			}
+			b_bolungarvik = {
+			}
+			b_vesturbyggo = {
+			}
+		 }
+		c_nordulandvestra = {
+			color={ 2 50 134 }
+			color2={ 255 255 255 }
+			b_saudarkrokur = {
+			}
+			b_skagafjordur = {
+			}
+			b_hunapingvestra = {
+			}
+			b_holar = {
+					holy_site = norse_pagan
+					holy_site = norse_pagan_reformed
+			}
+		}
+		c_nordulandeystra = {
+			color={ 0 90 214 }
+			color2={ 255 255 255 }
+			b_akureyri = {
+			}
+			b_husavik = {
+			}
+			b_hrisey = {
+			}
+		}
+		c_sudurland = {
+			color={ 85 150 200 }
+			color2={ 255 255 255 }
+			b_selfoss = {
+			}
+			b_arbog = {
+			}
+		}
+	}
+	d_orkney = {
+		color={ 0 18 255 }
+		color2={ 255 255 255 }
+
+		capital = 36 # Orkney
+		
+		norse = "Norðreyjar"
+		norwegian = "Nordeyjar"
+		swedish = "Nordeyjar"
+		danish = "Nordeyjar"
+		scottish = "Na h-Eileanan a Tuath"
+		dutch = "Orkaden"
+			
+		allow = {
+				war = no
+		}
+		
+		pagan_coa = {
+				template = 0
+				layer = {
+						texture = 2
+						texture_internal = 5
+						emblem = 0
+						color = 0
+						color = 0
+						color = 0
+				}
+				religion = "norse_pagan"
+		}
+		
+		c_faereyar = {
+			color={ 25 87 103 }
+			color2={ 255 255 255 }
+			
+			swedish = "Färöarna"
+			
+			b_skansin = {
+			}
+			b_torshavn = {
+			}
+			b_kirkjubour = {
+			}
+			b_funningur = {
+			}
+			b_kvivik = {
+			}
+			b_sandur = {
+			}
+			b_klaksvik = {
+			}
+			b_hov = {
+			}
+		}
+		c_shetland = {
+			color={ 145 132 38 }
+			color2={ 255 255 255 }
+			norwegian = "Hjaltland"
+			danish = "Hjaltland"
+			swedish = "Hjaltland"
+			scottish = "Sealtainn"
+			dutch = "Hitland"
+			b_scalloway = {
+			}
+			b_muness = {
+			}
+			b_tingwall = {
+			}
+			b_cunningsburgh = {
+					norwegian = "Konungsborg"
+					danish = "Konungsborg"
+					swedish = "Konungsborg"
+					norse = "Konungsborg"
+			}
+			b_sumburgh = {
+			}
+			b_northmavine = {
+			}
+			b_sound = {
+			}
+			b_yell = {
+			}
+		}
+		c_orkney = {
+			color={ 50 165 36 }
+			color2={ 255 255 255 }
+			norwegian = "Orknø"
+			swedish = "Orknö"
+			danish = "Orknø"
+			scottish = "Arcaibh"
+			norse = "Orknö"
+			welsh = "Ynysoedd Erch"
+			
+			b_kirkwall = {
+					norwegian = "Kirkuvåg"
+					danish = "Kyrkovik"
+					swedish = "Kyrkovik"
+					scottish = "Baile na h-Eaglais"
+					norse = "Kyrkovik"
+			}
+			b_birsay = {
+					norwegian = "Birgishærad"
+					danish = "Birgishærad"
+					swedish = "Birgishärad"
+					norse = "Birgishærad"
+			}
+			b_orphir = {
+			}
+			b_westray = {
+			}
+			b_wyre = {
+			}
+			b_egilsay = {
+			}
+			b_sanday = {
+			}
+			b_ronaldsay = {
+			}
+		}
+	}
 }
 
 k_norway = {

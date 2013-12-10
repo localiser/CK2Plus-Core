@@ -176,26 +176,59 @@ k_epirus = {
 }
 
 k_holland = {
-        color = { 156  96  100 }
-        culture = dutch
-        capital = 80
-        allow = {
-                lower_tier_than = king
-                OR = {
-                        culture = dutch
-                        k_holland = { OR = { is_titular = no has_holder = yes } }
-                }
-                has_global_flag = alternate_scenarios
-        }
-        frankish = "Hollande"
-        italian = "Olanda"
-        castillan = "Holanda"
-        bohemian = "Holandsko"
-        polish = "Holandia"
-        occitan = "Olanda"
-        portuguese = "Holanda"
-        catalan = "Holanda"
-        basque = "Holanda"
+	color = { 156  96  100 }
+	culture = dutch
+	capital = 80
+	allow = {
+		lower_tier_than = king
+		OR = {
+				culture = dutch
+				k_holland = { OR = { is_titular = no has_holder = yes } }
+		}
+		has_global_flag = alternate_scenarios
+	}
+	frankish = "Hollande"
+	italian = "Olanda"
+	castillan = "Holanda"
+	bohemian = "Holandsko"
+	polish = "Holandia"
+	occitan = "Olanda"
+	portuguese = "Holanda"
+	catalan = "Holanda"
+	basque = "Holanda"
+}
+
+k_iceland = {
+	color={ 105 55 215 }
+	color2={ 120 220 120 }
+	
+	culture = icelandic
+
+    capital = 1 #Vestisland
+	
+	icelandic = "Island"
+	saxon = "Island"
+	danish = "Island"
+	norwegian = "Island"
+	swedish = "Island"
+	english_norse = "Island"
+	norse = "Island"
+	irish = "Innis Tile"
+	dutch = "IJsland"
+	welsh = "Ynys yr Iâ"
+	
+	allow = {
+		war = no
+		OR = {
+			culture_group = north_germanic
+			k_iceland = {
+				OR = {
+						is_titular = no
+						has_holder = yes
+				}
+			}
+		}
+    }
 }
 
 k_livonia = {
@@ -280,27 +313,27 @@ k_northumbria = {
 }
 
 k_prussia = {
-        color={ 121 176 209 }
-        capital = 370 # Marienburg
-        culture = german
-        allow = {
-                war = no
-                OR = {
-                        culture = german
-                        culture_group = baltic
-                        k_prussia = { OR = { is_titular = no has_holder = yes } }
-                }
-        }
-        german = "Preußen"
-        lettigallish = "Prusija"
-        lithuanian = "Prusija"
-        polish = "Prusy"
-        prussian = "Prusa"
-        danish = "Prøjsen"
-        swedish = "Projsen"
-        norse = "Projsen"
-        norwegian = "Projsen"
-        dutch = "Pruissen"
+	color={ 121 176 209 }
+	capital = 370 # Marienburg
+	culture = german
+	allow = {
+		war = no
+		OR = {
+			culture = german
+			culture_group = baltic
+			k_prussia = { OR = { is_titular = no has_holder = yes } }
+		}
+	}
+	german = "Preußen"
+	lettigallish = "Prusija"
+	lithuanian = "Prusija"
+	polish = "Prusy"
+	prussian = "Prusa"
+	danish = "Prøjsen"
+	swedish = "Projsen"
+	norse = "Projsen"
+	norwegian = "Projsen"
+	dutch = "Pruissen"
 }
 
 k_sami = {

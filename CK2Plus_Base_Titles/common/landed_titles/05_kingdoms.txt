@@ -846,17 +846,23 @@ k_germany = {
 
 	allow = {
 		war = no
-		OR = {
-			culture = german
-			culture = frankish
-			k_germany = { 
-				OR = { 
-					is_titular = no 
-					has_holder = yes 
-				} 
+		NOT = {
+			AND = {
+				ai = yes
+				has_landed_title = e_hre
 			}
 		}
-	}
+		OR = {
+				culture = german
+				culture = frankish
+				k_germany = {
+						OR = {
+								is_titular = no
+								has_holder = yes
+						}
+				}
+		}
+        }
 	
 	d_swiss = {
 		color={ 186 26 26 }
@@ -3279,14 +3285,20 @@ k_byzantium = {
 
 	allow = {
 		war = no
-		OR = {
-			culture = greek
-			k_byzantium = { 
-				OR = { 
-					is_titular = no 
-					has_holder = yes 
-				} 
+		NOT = {
+			AND = {
+				ai = yes
+				has_landed_title = e_byzantium
 			}
+		}
+		OR = {
+				culture = greek
+				k_byzantium = {
+						OR = {
+								is_titular = no
+								has_holder = yes
+						}
+				}
 		}
 	}
 
@@ -9929,24 +9941,24 @@ k_denmark = {
 	}
 }
 
-k_iceland = {
-	color={ 105 55 215 }
+k_north_sea = {
+	color={ 88 100 100 }
 	color2={ 120 220 120 }
 
 	catholic = 10 #Crusade target weight
 	finnish_pagan_reformed = 5
 	norse_pagan_reformed = 100 # Crusade target weight
 
-	culture = icelandic
+	culture = norse
 
-	capital = 1 #Vestisland
+	capital = 36 #Orkney
 
 	allow = {
 		war = no
 		OR = {
 			culture = icelandic
 			culture = norse
-			k_iceland = { 
+			k_north_sea = { 
 				OR = { 
 					is_titular = no 
 					has_holder = yes 
@@ -9954,15 +9966,6 @@ k_iceland = {
 			}
 		}
 	}
-	
-	# icelandic = "Island"
-	# saxon = "Island"
-	# danish = "Island"
-	# norwegian = "Island"
-	# swedish = "Island"
-	# english_norse = "Island"
-	# norse = "Island"
-	# irish = "Innis Tile"
 
 		d_iceland = {
 		color={ 195 190 255  }
@@ -28164,7 +28167,7 @@ k_scotland = {
 		capital = 50 # Galloway
 		# scottish = "Gall-Gaidel"
 		# irish = "Gall-Ghaidhealaibh"			
-		welsh = Strathclyde
+		# welsh = Strathclyde
 		
 		allow = {
 			war = no
