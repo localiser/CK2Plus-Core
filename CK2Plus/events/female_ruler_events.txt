@@ -1,0 +1,438 @@
+###################################
+#
+# Events for and about female rulers
+#
+# Written by Miaow
+#
+#
+###################################
+
+character_event = { # my daughter is poised to inherit!
+	id = 1000182575
+	title = EVTNAME1000182575
+	desc = EVTDESC1000182575
+	
+	picture = GFX_evt_girl_with_sword
+	
+	major = yes
+	only_rulers = yes
+	min_age = 30
+	capable_only = yes
+	prisoner = no
+	only_playable = yes
+	
+	trigger = {
+		NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
+		current_heir = {
+			is_female = yes
+			age = 6
+			NOT = { age = 20 }
+			OR = {
+				father = { character = ROOT }
+				mother = { character = ROOT }
+			}
+		}
+		NOT = { trait = teaching_daughter }
+		NOT = { has_character_flag = misogyny }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 0.5
+			trait = cynical
+		}
+		modifier = {
+			factor = 0.5
+			trait = ill
+		}
+		modifier = {
+			factor = 0.5
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.5
+			trait = leper
+		}
+		modifier = {
+			factor = 0.5
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.25 
+			OR = {
+				trait = eunuch
+				trait = celibate
+			}
+		}
+		modifier = {
+			factor = 0.1 # players will want this faster
+			ai = no
+		}
+		modifier = {
+			factor = 0.5
+			current_heir = {
+				trait = genius
+			}
+		}
+		modifier = {
+			factor = 0.5
+			current_heir = {
+				trait = strong
+			}
+		}
+		modifier = {
+			factor = 0.75
+			current_heir = {
+				trait = quick
+			}
+		}
+		modifier = {
+			factor = 0.75
+			current_heir = {
+				trait = tall
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = weak
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = dwarf
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = hunchback
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = inbred
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = slow
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = imbecile
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = clubfooted
+			}
+		}	
+		modifier = {
+			factor = 2
+			NOT = {
+				religion_group = pagan_group
+				religion_group = zoroastrian_group
+			}
+		}	
+	}
+	
+	option = { # I shall raise her to rule
+		name = EVTOPTA1000182575
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 1.25
+				age = 40
+			}
+			modifier = {
+				factor = 1.25
+				age = 50
+			}
+			modifier = {
+				factor = 1.25
+				age = 60
+			}
+			modifier = {
+				factor = 1.25
+				age = 70
+			}
+			modifier = {
+				factor = 1.25
+				age = 80
+			}
+			modifier = {
+				factor = 0.5
+				NOT = {
+					religion_group = pagan_group
+					religion_group = zoroastrian_group
+				}
+			}
+			modifier = {
+				factor = 1.25
+				trait = ill
+			}
+			modifier = {
+				factor = 1.25
+				trait = pneumonic
+			}
+			modifier = {
+				factor = 1.25
+				trait = leper
+			}
+			modifier = {
+				factor = 1.25
+				trait = maimed
+			}
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 2 
+				OR = {
+					trait = eunuch
+					trait = celibate
+				}
+			}
+		}
+		add_trait = teaching_daughter
+		current_heir = {
+			opinion = { who = ROOT modifier = favoured_heiress years = 50 }
+		}
+		any_dynasty_member = {
+			limit = { male = yes }
+			opinion = { who = ROOT modifier = upset years = 50 }
+			ROOT = {
+				current_heir = { 
+					reverse_opinion = { who = PREVPREV modifier = covets_inheritance years = 50 }
+				}
+			}
+		}
+	}
+	option = { # I could still have a son
+		name = EVTOPTB1000182575
+		ai_chance = {
+			factor  = 75
+			modifier = {
+				factor = 1.25
+				trait = lustful
+			}
+			modifier = {
+				factor = 2
+				spouse = {
+					NOT = {
+						age = 25
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Never——player-only option to not see this event again, AI will have chance to reconsider if appropriate
+		name = EVTOPtC1000182575
+		ai_chance = { factor = 0 }
+		set_character_flag = misogyny
+	}	
+}
+
+character_event = { # now we have a male heir
+	id = 1000182576
+	title = EVTNAME1000182576
+	desc = EVTDESC1000182576
+	
+	picture = GFX_evt_child_sword_training
+	
+	only_rulers = yes
+	min_age = 31
+	only_playable = yes
+	
+	trigger = {
+		trait = teaching_daughter
+		current_heir = {
+			male = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = EVTOPTA1000182576
+		remove_trait = teaching_daughter 
+		any_child = {
+			limit = {
+				has_opinion_modifier = { who = ROOT modifier = favoured_heiress }
+			}
+			remove_opinion = { who = ROOT modifier = favoured_heiress }
+		}
+	}
+}
+
+character_event = { # No sons, should I change my laws?
+	id = 1000182577
+	title = EVTNAME1000182577
+	desc = EVTDESC1000182577
+	
+	picture = GFX_evt_council_around_table
+	
+	major = yes
+	only_rulers = yes
+	min_age = 50
+	capable_only = yes
+	prisoner = no
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			has_law = agnatic_succession
+			has_law = cognatic_succession
+		}
+		NOT = {
+			religion_group = muslim
+		}
+		NOT = {
+			any_child = {
+				AND = {
+					male = yes
+					NOT = { trait = bastard }
+				}
+			}
+		}
+		any_child = {
+			is_female = yes
+		}
+		NOT = { trait = immortal } 
+	}
+	
+	mean_time_to_happen = {
+		months = 60 # cannot set this too high, as life expectancy is pretty low after 50
+		modifier = {
+			factor = 0.5
+			trait = cynical #taken to mean open-minded in this case (replace if we ever make conservative/innovative traits)
+		}
+		modifier = {
+			factor = 2
+			trait = zealous #taken to mean traditionalist in this case (replace if we ever make conservative/innovative traits)
+		}
+		modifier = {
+			factor = 0.5
+			current_heir = {
+				NOT = { dynasty = ROOT }
+			}
+		}
+	}
+	
+	option = { # change law to Agnatic-Cognatic to preserve my dynasty
+		name = EVTOPTA1000182577
+		trigger = {
+			has_law = agnatic_succession
+		}
+		ai_chance = {
+			factor = 1 # Only if the dynasty will be lost or in unusual cases
+			modifier = {
+				factor = 25
+				is_female = yes
+			}
+			modifier = {
+				factor = 25
+				trait = teaching_daughter
+			}
+			modifier = {
+				factor = 10
+				current_heir = {
+					NOT = { dynasty = ROOT }
+				}
+			}
+		}
+		current_heir = {
+			opinion = { who = ROOT modifier = disinherited years = 100 } 
+			hidden_tooltip = { letter_event = { id = 1000182578 days = 3 } }
+		}
+		add_law = cognatic_succession
+		current_heir = { #WOOT for executing stuff in order
+			opinion = { who = ROOT modifier = favoured_heiress years = 100 }
+		}
+	}
+	
+	option = { # My kingdom shall not pass from lance to spindle!
+		name = EVTOPTB1000182577
+		trigger = {
+			has_law = cognatic_succession
+			male = yes
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.25 # you made your choice and should stick with it
+				trait = teaching_daughter
+			}
+			modifier = {
+				factor = 0.5
+				any_child = {
+					OR = {
+						trait = quick
+						trait = genius
+						trait = strong
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					religion_group = christian
+					religion_group = jewish_group
+				}
+			}
+		}
+		add_law = agnatic_succession
+		any_child = { 
+			opinion = { who = ROOT modifier = disinherited years = 100 }
+		}
+		current_heir = {
+			opinion = { who = ROOT modifier = chosen_heir years = 100 }
+		}
+	}
+	option = { # God's will be done
+		name = EVTOPTC1000182577
+		ai_chance = {
+			factor = 25
+		
+		any_vassal = {
+			opinion = { who = ROOT modifier = opinion = worried years = 100 }
+		}
+	}
+}
+
+letter_event = { # ruler changed his laws to favour his daughter over me
+	id = 1000182578 
+	title = EVTNAME1000182578
+	desc = EVTDESC1000182578
+	
+	picture = GFX_evt_emissary_kneeling_before_throne
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182578
+		FROM = {
+			current_heir = {
+				reverse_opinion = { who = ROOT modifier = disinherited years = 100 }
+			}
+			primary_title = { add_claim = ROOT }
+		}
+	}
+}
+		
