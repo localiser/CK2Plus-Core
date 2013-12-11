@@ -1163,7 +1163,14 @@ character_event = {
 			clr_character_flag = holmgang_target
 			clr_character_flag = do_not_disturb
 		}
-		add_trait = scarred
+		IF = {
+			limit = { is_female = no }
+			add_trait = scarred
+		}
+		IF = {
+			limit = { is_female = yes }
+			add_trait = scarred_female
+		}
 		prestige = 200
 		tooltip = {
 			FROMFROM = { prestige = -200 }
@@ -1196,7 +1203,14 @@ character_event = {
 			clr_character_flag = do_not_disturb
 		}
 		prestige = 200
-		add_trait = scarred
+		IF = {
+			limit = { is_female = no }
+			add_trait = scarred
+		}
+		IF = {
+			limit = { is_female = yes }
+			add_trait = scarred_female
+		}
 		tooltip = {
 			FROMFROM = {
 				death = {
@@ -1498,7 +1512,14 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_TOG_5005
-		add_trait = scarred
+		IF = {
+			limit = { is_female = no }
+			add_trait = scarred
+		}
+		IF = {
+			limit = { is_female = yes }
+			add_trait = scarred_female
+		}
 		prestige = 200
 		tooltip = {
 			FROM = { prestige = -200 }
@@ -1517,7 +1538,14 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_TOG_5005
-		add_trait = scarred
+		IF = {
+			limit = { is_female = no }
+			add_trait = scarred
+		}
+		IF = {
+			limit = { is_female = yes }
+			add_trait = scarred_female
+		}
 		prestige = 200
 		tooltip = {
 			FROM = {

@@ -14,7 +14,6 @@ character_event = { # my daughter is poised to inherit!
 	
 	picture = GFX_evt_girl_with_sword
 	
-	major = yes
 	only_rulers = yes
 	min_age = 30
 	capable_only = yes
@@ -22,22 +21,26 @@ character_event = { # my daughter is poised to inherit!
 	only_playable = yes
 	
 	trigger = {
-		NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
-		current_heir = {
-			is_female = yes
-			age = 6
-			NOT = { age = 20 }
-			OR = {
-				father = { character = ROOT }
-				mother = { character = ROOT }
+			primary_title = {
+				NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
 			}
-		}
-		NOT = { trait = teaching_daughter }
-		NOT = { has_character_flag = misogyny }
+			current_heir = {
+				AND = {
+					is_female = yes
+					age = 6
+					NOT = { age = 20 }
+					OR = {
+						father = { character = ROOT }
+						mother = { character = ROOT }
+					}
+				}
+			}
+			NOT = { trait = teaching_daughter }
+			NOT = { has_character_flag = misogyny }
 	}
 	
 	mean_time_to_happen = {
-		months = 120
+		years = 15
 		modifier = {
 			factor = 0.5
 			is_female = yes
@@ -47,20 +50,24 @@ character_event = { # my daughter is poised to inherit!
 			trait = cynical
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			trait = ill
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			trait = pneumonic
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			trait = leper
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			trait = maimed
+		}
+		modifier = {
+			factor = 0.75
+			trait = infirm
 		}
 		modifier = {
 			factor = 0.25 
@@ -200,6 +207,10 @@ character_event = { # my daughter is poised to inherit!
 				trait = chaste
 			}
 			modifier = {
+				factor = 1.25
+				trait = infirm
+			}
+			modifier = {
 				factor = 2 
 				OR = {
 					trait = eunuch
@@ -212,7 +223,7 @@ character_event = { # my daughter is poised to inherit!
 			opinion = { who = ROOT modifier = favoured_heiress years = 50 }
 		}
 		any_dynasty_member = {
-			limit = { male = yes }
+			limit = { is_female = no }
 			opinion = { who = ROOT modifier = opinion_upset years = 50 }
 			ROOT = {
 				current_heir = { 
@@ -241,7 +252,7 @@ character_event = { # my daughter is poised to inherit!
 	}
 	
 	option = { # Never——player-only option to not see this event again, AI will have chance to reconsider if appropriate
-		name = EVTOPtC1000182575
+		name = EVTOPTC1000182575
 		ai_chance = { factor = 0 }
 		set_character_flag = misogyny
 	}	
@@ -261,7 +272,7 @@ character_event = { # now we have a male heir
 	trigger = {
 		trait = teaching_daughter
 		current_heir = {
-			male = yes
+			is_female = no
 		}
 	}
 	
@@ -288,7 +299,6 @@ character_event = { # No sons, should I change my laws?
 	
 	picture = GFX_evt_council_around_table
 	
-	major = yes
 	only_rulers = yes
 	min_age = 50
 	capable_only = yes
@@ -296,9 +306,11 @@ character_event = { # No sons, should I change my laws?
 	only_playable = yes
 	
 	trigger = {
-		OR = {
-			has_law = agnatic_succession
-			has_law = cognatic_succession
+		primary_title = {
+			OR = {
+				has_law = agnatic_succession
+				has_law = cognatic_succession
+			}
 		}
 		NOT = {
 			religion_group = muslim
@@ -306,7 +318,7 @@ character_event = { # No sons, should I change my laws?
 		NOT = {
 			any_child = {
 				AND = {
-					male = yes
+					is_female = no
 					NOT = { trait = bastard }
 				}
 			}
@@ -338,7 +350,9 @@ character_event = { # No sons, should I change my laws?
 	option = { # change law to Agnatic-Cognatic to preserve my dynasty
 		name = EVTOPTA1000182577
 		trigger = {
-			has_law = agnatic_succession
+			primary_title = {
+				has_law = agnatic_succession
+			}
 		}
 		ai_chance = {
 			factor = 1 # Only if the dynasty will be lost or in unusual cases
@@ -357,11 +371,13 @@ character_event = { # No sons, should I change my laws?
 				}
 			}
 		}
-		current_heir = {
+		current_heir = { #Old heir
 			opinion = { who = ROOT modifier = disinherited years = 100 } 
 			hidden_tooltip = { letter_event = { id = 1000182578 days = 3 } }
 		}
-		add_law = cognatic_succession
+		primary_title = {
+			add_law = cognatic_succession
+		}
 		current_heir = { #WOOT for executing stuff in order
 			opinion = { who = ROOT modifier = favoured_heiress years = 100 }
 		}
@@ -370,8 +386,10 @@ character_event = { # No sons, should I change my laws?
 	option = { # My kingdom shall not pass from lance to spindle!
 		name = EVTOPTB1000182577
 		trigger = {
+		primary_title = {
 			has_law = cognatic_succession
-			male = yes
+		}
+			is_female = no
 		}
 		ai_chance = {
 			factor = 50
@@ -397,7 +415,9 @@ character_event = { # No sons, should I change my laws?
 				}
 			}
 		}
-		add_law = agnatic_succession
+		primary_title = {
+			add_law = agnatic_succession
+		}
 		any_child = { 
 			opinion = { who = ROOT modifier = disinherited years = 100 }
 		}
@@ -433,6 +453,270 @@ letter_event = { # ruler changed his laws to favour his daughter over me
 			}
 			primary_title = { add_claim = ROOT }
 		}
+	}
+}
+
+
+character_event = { # make vassals pledge allegiance to daughter
+	id = 1000182579
+	name = EVTNAME1000182579
+	desc = EVTDESC1000182579
+	
+	picture = GFX_evt_emissary_kneeling_before_throne
+	
+	only_rulers = yes
+	min_age = 45
+	capable_only = yes
+	prisoner = no
+	only_playable = yes
+	
+	trigger = {
+		NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
+		war = no
+		trait = teaching_daughter
+		current_heir = {
+			is_female = yes
+			age = 16
+			OR = {
+				father = { character = ROOT }
+				mother = { character = ROOT }
+			}
+		}
+		top_liege = {
+			war = no
+		}
+		NOT = {
+			any_vassal = {
+				ROOT = {
+					current_heir = {
+						reverse_has_opinion_modifier = { who = PREVPREV modifier = swore_allegiance }
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			trait = ill
+		}
+		modifier = {
+			factor = 0.75
+			trait = pneumonic
+		}
+		modifier = {
+			factor = 0.75
+			trait = leper
+		}
+		modifier = {
+			factor = 0.75
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.75
+			trait = infirm
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = weak
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = dwarf
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = hunchback
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = inbred
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = slow
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = imbecile
+			}
+		}
+		modifier = {
+			factor = 5
+			current_heir = {
+				trait = clubfooted
+			}
+		}
+	}
+	
+	option = { # Make them take an oath
+		name = EVTOPTA1000182579
+		ai_chance = { factor  = 90 } # TODO teach the AI to decide more intelligently
+		any_vassal = {
+			letter_event = { id = 1000182580 days = 1 } 
+		}
+	}
+	
+	option = { # No need
+		name = EVTOPTB1000182579
+		ai_chance = { factor  = 10 }
+		prestige = - 100
+	}
+}
+
+letter_event = { # Asked to swear an oath to my liege's daughter
+	id = 1000182580 
+	title = EVTNAME1000182580
+	desc = EVTDESC1000182580
+	
+	picture = GFX_evt_emissary_kneeling_before_throne
+	
+	is_triggered_only = yes
+		
+	option = { # Swear the Oath
+		name = EVTOPTA1000182580
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				is_female = yes
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 1.25
+				trait = honest
+			}
+			modifier = {
+				factor = 0.8
+				trait = proud
+			}
+			modifier = {
+				factor = 0.8
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.8
+				relative_power_to_liege = 0.1
+			}
+			modifier = {
+				factor = 0.8
+				relative_power_to_liege = 0.2
+			}
+			modifier = {
+				factor = 0.8
+				relative_power_to_liege = 0.3
+			}
+			modifier = {
+				factor = 0.8
+				relative_power_to_liege = 0.4
+			}
+			modifier = {
+				factor = 0.8
+				relative_power_to_liege = 0.5
+			}
+			modifier = {
+				factor = 0.5
+				relative_power_to_liege = 0.75
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = liege value = 10 }
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = liege value = 40 }
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = liege value = 70 }
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = liege value = 90 }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { opinion = { who = liege value = -10 } }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { opinion = { who = liege value = -40 } }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { opinion = { who = liege value = -70 } }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { opinion = { who = liege value = -90 } }
+			}
+		}
+		liege = {
+			current_heir = {
+				reverse_opinion = { who = ROOT modifier = swore_allegiance }
+				opinion = { who = ROOT modifier = opinion_very_grateful years = 100 }
+			}
+			opinion = { who = ROOT modifier = opinion_very_grateful years = 100 }
+			letter_event = { id = 1000182581 days = 4 } 
+		}
+	}
+	
+	option = { #Refuse the Oath
+		name = EVTOPTB1000182580
+		ai_chance = { factor = 50 }
+		liege = { 
+			letter_event = { id = 1000182582 days = 5 } 
+			opinion = { who = ROOT modifier = refused_allegiance years = 100 }
+			reverse_opinion = { who = ROOT modifier = opinion_ruler_do_not_trust_him years = 25 }
+			current_heir = { 
+				opinion = { who = ROOT modifier = refused_allegiance years = 100 }
+				reverse_opinion = { who = ROOT modifier = opinion_ruler_do_not_trust_him years = 25 }
+			}
+		}
+	}
+}
+
+letter_event = { #notify acceptance
+	id = 1000182581
+	title = EVTNAME1000182581
+	desc = EVTDESC1000182581
+		
+	picture = GFX_evt_emissary_kneeling_before_throne
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = OK
+	}
+}
+
+letter_event = { #notify refusal
+	id = 1000182582
+	title = EVTNAME1000182582
+	desc = EVTDESC1000182582
+		
+	picture = GFX_evt_emissary_kneeling_before_throne
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182578
 	}
 }
 		
