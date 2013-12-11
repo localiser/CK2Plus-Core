@@ -454,11 +454,6 @@ character_event = {
 			}
 		}
 		tooltip_info = diplomacy
-		tooltip = {
-			FROM = {
-				cancel_objective = obj_amass_wealth
-			}
-		}
 		hidden_tooltip = {
 			FROM = {
 				letter_event = { id = 1000182385 }
@@ -500,7 +495,22 @@ letter_event = {
 
 	option = {
 		name = "OK"
-		cancel_objective = obj_amass_wealth
+		if = {
+			limit = { has_ambition = obj_amass_wealth_1 }
+			cancel_objective = obj_amass_wealth_1
+		}
+		if = { 
+			limit = { has_ambition = obj_amass_wealth_2 }
+			cancel_objective = obj_amass_wealth_2
+		}
+		if = { 
+			limit = { has_ambition = obj_amass_wealth_3 }
+			cancel_objective = obj_amass_wealth_3
+		}
+		if = { 
+			limit = { has_ambition = obj_amass_wealth_4 }
+			cancel_objective = obj_amass_wealth_4
+		}
 	}
 }
 
