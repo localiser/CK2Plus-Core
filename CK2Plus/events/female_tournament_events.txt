@@ -1,0 +1,241 @@
+########################################################
+#
+# Integrating females into tournaments
+#
+# Written by Miaow
+#
+#
+########################################################
+
+character_event = { #Invited to the tourney
+	id = 1000182583
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182583
+	
+	picture = GFX_evt_tournament_gallery
+	
+	is_triggered_only = yes
+	
+	option = { # I will watch it
+		name = EVTOPTA1000182583
+		ai_chance = { 
+			factor = 75
+			modifier = {
+				factor = 1.25
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.25
+				trait = fair
+			}
+			modifier = {
+				factor = 1.25
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.25
+				trait = gluttonous
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+		}
+		prestige = 10
+		set_character_flag = spectating_tournament
+		set_character_flag = do_not_disturb
+	}
+	
+	option = { # My champion will defend my colours
+		name = EVTOPTB1000182583
+		trigger = {
+			OR = {
+				any_vassal = {
+					OR = {
+						has_minor_title = title_ladys_champion
+						has_minor_title = title_champion
+					}
+				}
+				any_courtier = {
+					OR = {
+						has_minor_title = title_ladys_champion
+						has_minor_title = title_champion
+					}
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 15 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 10 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 5 }
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = fair
+			}
+			modifier = {
+				factor = 1.25
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.25
+				trait = gluttonous
+			}
+			modifier = { # women warriors should consider participating themselves
+				factor = 0.5
+				martial = 15
+				OR = {
+					trait = shield_maiden
+					trait = martial_lady
+					trait = martial_lady_tengri
+				}
+			}
+		}
+		prestige = 25
+		set_character_flag = spectating_tournament
+		set_character_flag = do_not_disturb
+		any_vassal = {
+			limit = {
+				OR = {
+					has_minor_title = title_ladys_champion
+					has_minor_title = title_champion
+				}
+			}
+			letter_event = { id = 1000182584 days = 1 }
+		}
+		any_courtier = { # need to attempt with any_courtier scope as players could appoint an unlanded courtier
+			limit = {
+				OR = {
+					has_minor_title = title_ladys_champion
+					has_minor_title = title_champion
+				}
+			}
+			letter_event = { id = 1000182584 days = 1 }
+		}
+	}
+	
+	option = { # I will fight myself!
+		name = EVTOPTC1000182583
+		trigger = {
+			martial = 15
+			trait = brave
+			OR = {
+				trait = misguided_warrior
+				trait = tough_soldier
+				trait = skilled_tactician
+				trait = brilliant_strategist
+				trait = shield_maiden
+				trait = martial_lady
+				trait = martial_lady_tengri
+			}
+		}
+		ai_chance = {   #this option is mainly for players, only very exceptionally should an AI chose it (a JoA character, for instance)
+			factor = 25
+			modifier = {
+				factor = 1.25
+				martial = 20
+			}
+			modifier = {
+				factor = 1.25
+				martial = 25
+			}
+			modifier = {
+				factor = 1.5
+				martial = 30 # only JoA should have this much
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+				}
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = shield_maiden
+					trait = martial_lady
+					trait = martial_lady_tengri
+				}
+			}
+		}
+		prestige = 100
+		IF = {
+			limit = {
+				OR = {
+					religion_group = christian
+					religion_group = jewish_group
+				}
+			}
+			piety = -25
+		}		
+		set_character_flag = attending_tournament
+		set_character_flag = do_not_disturb
+	}
+	
+	option = { # Meh
+		name = EVTOPTD1000182583
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.25
+				trait = ugly
+			}
+			modifier = {
+				factor = 1.25
+				trait = chaste
+			}
+			modifier = {
+				factor = 1.25
+				trait = clubfooted
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = hunchback
+			}
+			modifier = {
+				factor = 1.25
+				trait = dwarf
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = 1000182584
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182584
+	
+	picture = GFX_evt_tournament_gallery
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1000182584
+		prestige = 50
+		set_character_flag = attending_tournament
+		set_character_flag = championing_liege_lady
+		set_character_flag = do_not_disturb
+	}
+}

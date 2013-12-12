@@ -8,7 +8,6 @@ decisions = {
 				has_character_flag = epic_tournament
 			}
 			independent = yes
-#			NOT = { is_female = yes	}
 			OR = {
 				tier = king
 				tier = emperor
@@ -21,6 +20,24 @@ decisions = {
 			ruled_years = 5
 			prestige = 500
 			wealth = 200
+			OR = {
+				NOT = { is_female = yes	}
+				OR = {
+					any_vassal = {
+						OR = {
+							has_minor_title = title_ladys_champion
+							has_minor_title = title_champion
+						}
+					}
+					any_courtier = {
+						OR = {
+							has_minor_title = title_ladys_champion
+							has_minor_title = title_champion
+						}
+					}
+					martial = 15
+				}
+			}		
 			NOT = { has_character_modifier = holding_large_feast }
 			NOT = { has_character_modifier = holding_summer_fair }
 			NOT = { has_character_modifier = holding_grand_hunt }
@@ -41,13 +58,29 @@ decisions = {
 				any_realm_character = {
 					limit = {
 						is_feudal = yes
-						NOT = { has_job_title = job_spiritual }
+						NOT = { 
+							AND = {
+								has_job_title = job_spiritual 
+								OR = {
+									religion_group = christian
+									religion_group = jewish_group
+								}
+							}
+						}
 						age = 16
 						NOT = { health_traits = 1 }
 						prisoner = no
 						NOT = { is_female = yes	}
 					}
 					character_event = { id = 70000 }
+				}
+				any_realm_character = {
+					limit = {
+						is_feudal = yes
+						age = 16
+						has_job_title = job_spiritual 
+					}
+					character_event = { id = 1000182583 }
 				}
 			}
 		}
