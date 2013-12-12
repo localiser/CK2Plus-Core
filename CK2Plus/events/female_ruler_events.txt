@@ -251,7 +251,7 @@ character_event = { # my daughter is poised to inherit!
 		}
 	}
 	
-	option = { # Never——player-only option to not see this event again, AI will have chance to reconsider if appropriate
+	option = { # Never×—player-only option to not see this event again, AI will have chance to reconsider if appropriate
 		name = EVTOPTC1000182575
 		ai_chance = { factor = 0 }
 		set_character_flag = misogyny
@@ -297,7 +297,7 @@ character_event = { # No sons, should I change my laws?
 	title = EVTNAME1000182577
 	desc = EVTDESC1000182577
 	
-	picture = GFX_evt_council_around_table
+	picture = GFX_evt_council
 	
 	only_rulers = yes
 	min_age = 50
@@ -441,7 +441,7 @@ letter_event = { # ruler changed his laws to favour his daughter over me
 	title = EVTNAME1000182578
 	desc = EVTDESC1000182578
 	
-	picture = GFX_evt_emissary_kneeling_before_throne
+	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
@@ -460,16 +460,13 @@ letter_event = { # ruler changed his laws to favour his daughter over me
 character_event = { # make vassals pledge allegiance to daughter
 	id = 1000182579
 	name = EVTNAME1000182579
-	desc = EVTDESC1000182579
-	
-	picture = GFX_evt_emissary_kneeling_before_throne
-	
+	desc = EVTDESC1000182579	
+	picture = GFX_evt_emissary	
 	only_rulers = yes
 	min_age = 45
 	capable_only = yes
 	prisoner = no
 	only_playable = yes
-	
 	trigger = {
 		NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
 		war = no
@@ -495,7 +492,6 @@ character_event = { # make vassals pledge allegiance to daughter
 			}
 		}
 	}
-	
 	mean_time_to_happen = {
 		months = 120
 		modifier = {
@@ -561,7 +557,6 @@ character_event = { # make vassals pledge allegiance to daughter
 			}
 		}
 	}
-	
 	option = { # Make them take an oath
 		name = EVTOPTA1000182579
 		ai_chance = { factor  = 90 } # TODO teach the AI to decide more intelligently
@@ -569,20 +564,19 @@ character_event = { # make vassals pledge allegiance to daughter
 			letter_event = { id = 1000182580 days = 1 } 
 		}
 	}
-	
-	option = { # No need
-		name = EVTOPTB1000182579
-		ai_chance = { factor  = 10 }
-		prestige = - 100
+	option = { #no need
+	name = EVTOPTB1000182579
+	ai_chance = { factor = 10 }
+	prestige = -100
 	}
 }
 
-letter_event = { # Asked to swear an oath to my liege's daughter
-	id = 1000182580 
-	title = EVTNAME1000182580
+letter_event = {
+	id = 1000182580
+	name = EVTNAME1000182580
 	desc = EVTDESC1000182580
 	
-	picture = GFX_evt_emissary_kneeling_before_throne
+	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 		
@@ -631,7 +625,7 @@ letter_event = { # Asked to swear an oath to my liege's daughter
 				relative_power_to_liege = 0.5
 			}
 			modifier = {
-				factor = 0.5
+				factor = 0.8
 				relative_power_to_liege = 0.75
 			}
 			modifier = {
@@ -697,7 +691,7 @@ letter_event = { #notify acceptance
 	title = EVTNAME1000182581
 	desc = EVTDESC1000182581
 		
-	picture = GFX_evt_emissary_kneeling_before_throne
+	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
@@ -711,7 +705,7 @@ letter_event = { #notify refusal
 	title = EVTNAME1000182582
 	desc = EVTDESC1000182582
 		
-	picture = GFX_evt_emissary_kneeling_before_throne
+	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
