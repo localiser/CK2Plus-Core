@@ -64,6 +64,7 @@ A: Yes.
 - superskierpat (Ancient Religions)
 - Kit0cha (French localization)
 - twiggyt13 (No Hassles Vassals)
+- Nivve (Altered Bookmarks)
 
 ## CK2+ Credits
 - Nexoid (misc icon graphics)
