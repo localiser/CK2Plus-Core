@@ -971,3 +971,88 @@ restore_byzantium = {
 		factor = 100
 	}
 }
+
+free_family_cb = {
+	name = CB_NAME_FREE_FAMILY
+	war_name = WAR_NAME_FREE_FAMILY
+	sprite = 1
+	truce_days = 3650
+	hostile_against_others = no
+	can_call_allies = yes # Can either side call allies
+	can_attack_vassals = no
+	
+	can_use = { 
+		ROOT = { NOT = { has_character_modifier = holding_epic_tournament }	}
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
+		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
+	
+		ROOT = {
+			any_dynasty_member ={
+				is_prisoner = yes
+				host = { character = FROM }
+			}
+		}
+		FROM = {
+			NOT = {
+				same_realm = ROOT
+			}
+		}
+	}
+	
+	is_valid_title = {
+		ROOT = {
+			any_dynasty_member = {
+				is_prisoner = yes
+				host = { character = FROM }
+			}
+		}
+	}
+	
+	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		any_dynasty_member = {
+			limit = {
+				is_prisoner = yes
+				host = { character = FROM }
+			}
+			release = PREV
+		}
+	}
+	
+	on_fail = {
+		ROOT = {
+			prestige = -100
+		}
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			any_dynasty_member = {
+				limit = {
+					is_prisoner = yes
+					liege = FROM
+				}
+				death = {
+					death_reason = death_execution
+					killer = FROM
+				}
+			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
