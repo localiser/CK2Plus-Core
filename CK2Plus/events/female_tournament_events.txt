@@ -182,7 +182,7 @@ character_event = { #Invited to the tourney
 			}
 			piety = -25
 		}		
-		set_character_flag = attending_tournament
+		set_character_flag = spectating_tournament
 		set_character_flag = do_not_disturb
 	}
 	
@@ -234,7 +234,7 @@ letter_event = {
 	option = {
 		name = EVTOPTA1000182584
 		prestige = 50
-		set_character_flag = attending_tournament
+		set_character_flag = spectating_tournament
 		set_character_flag = championing_liege_lady
 		set_character_flag = do_not_disturb
 	}
@@ -303,13 +303,13 @@ character_event = {
 		prestige = 150
 		scaled_wealth = -0.2
 		opinion = { who = FROM modifier = opinion_tournament_winner years = 20 }
-		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 20 } 
+		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 20 } }
 	}
 	option = {
 		name = EVTOPTB1000182588
 		prestige = 75
 		opinion = { who = FROM modifier = opinion_tournament_winner years = 20 }
-		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 20 } 
+		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 20 } }
 	}
 }
 
@@ -327,14 +327,14 @@ character_event = {
 		name = EVTOPTA1000182588
 		prestige = 125
 		scaled_wealth = -0.15
-		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 }
-		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 15 } 
+		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 } }
+		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 15 } }
 	}
 	option = {
 		name = EVTOPTB1000182588
 		prestige = 65
-		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 }
-		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 15 } 
+		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 } }
+		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 15 } }
 	}
 }
 
@@ -353,12 +353,448 @@ character_event = {
 		prestige = 100
 		scaled_wealth = -0.10
 		opinion = { who = FROM modifier = opinion_tournament_third_place years = 10 }
-		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 10 } 
+		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 10 } }
 	}
 	option = {
 		name = EVTOPTB1000182588
 		prestige = 50
 		opinion = { who = FROM modifier = opinion_tournament_third_place years = 10 }
-		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 10 } 
+		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 10 } } 
+	}
+}
+
+character_event = { # Lady becomes proud
+	id = 1000182591
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182591
+	picture = GFX_evt_grazia
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = proud
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.8
+			trait = envious
+		}
+		modifier = {
+			factor = 0.8
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.8
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 0.8
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.8
+			trait = charitable
+		}
+		modifier = {
+			factor = 0.8
+			trait = gregorious
+		}
+		modifier = {
+			factor = 0.67
+			trait = fair
+		}
+		modifier = {
+			factor = 0.67
+			trait = quick
+		}
+		modifier = {
+			factor = 0.67
+			trait = genius
+		}
+		modifier = {
+			factor = 0.67
+			trait = tall
+		}
+		modifier = {
+			factor = 2
+			trait = ugly
+		}
+		modifier = {
+			factor = 2
+			trait = dwarf
+		}
+		modifier = {
+			factor = 2
+			trait = hunchback
+		}
+		modifier = {
+			factor = 1.25
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.25
+			trait = temperate
+		}
+		modifier = {
+			factor = 1.25
+			trait = content
+		}
+		modifier = {
+			factor = 1.25
+			trait = kind
+		}
+		modifier = {
+			factor = 1.25
+			trait = slothful
+		}
+		modifier = {
+			factor = 1.25
+			trait = shy
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		add_trait = proud
+		name = EVTOPTA1000182591
+	}
+}
+	
+character_event = { # Lady becomes humble
+	id = 1000182592
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182592
+	picture = GFX_evt_grazia
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = humble
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.8
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.8
+			trait = temperate
+		}
+		modifier = {
+			factor = 0.8
+			trait = content
+		}
+		modifier = {
+			factor = 0.8
+			trait = kind
+		}
+		modifier = {
+			factor = 0.8
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.8
+			trait = shy
+		}
+		modifier = {
+			factor = 1.25
+			trait = envious
+		}
+		modifier = {
+			factor = 1.25
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.25
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 1.25
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = charitable
+		}
+		modifier = {
+			factor = 1.25
+			trait = gregarious
+		}
+		modifier = { # humility is meaningless without reasons for pride
+			factor = 0.9
+			trait = fair
+		}
+		modifier = {
+			factor = 0.9
+			trait = quick
+		}
+		modifier = {
+			factor = 0.9
+			trait = genius
+		}
+		modifier = {
+			factor = 0.9
+			trait = tall
+		}
+		modifier = {
+			factor = 2
+			trait = ugly
+		}
+		modifier = {
+			factor = 2
+			trait = dwarf
+		}
+		modifier = {
+			factor = 2
+			trait = hunchback
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		add_trait = humble
+		name = EVTOPTA1000182592
+	}
+}
+
+character_event = { # Lady becomes gregarious
+	id = 1000182593
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182593
+	picture = GFX_evt_grazia
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = gregarious
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.8
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.8
+			trait = kind
+		}
+		modifier = {
+			factor = 0.8
+			trait = deceitful
+		}
+		modifier = {
+			factor = 0.8
+			trait = trusting
+		}
+		modifier = {
+			factor = 0.8
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.8
+			trait = poet
+		}
+		modifier = {
+			factor = 0.9
+			diplomacy = 11
+		}
+		modifier = {
+			factor = 0.9
+			diplomacy = 13
+		}
+		modifier = {
+			factor = 0.9
+			diplomacy = 15
+		}
+		modifier = {
+			factor = 0.9
+			diplomacy = 17
+		}
+		modifier = {
+			factor = 0.9
+			diplomacy = 19
+		}
+		modifier = {
+			factor = 0.9
+			diplomacy = 21
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		add_trait = gregarious
+		name = EVTOPTA1000182593
+	}
+}
+
+character_event = { # Lady becomes gregarious
+	id = 1000182594
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182594
+	picture = GFX_evt_grazia
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = shy
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.8
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.8
+			trait = greedy
+		}
+		modifier = {
+			factor = 0.8
+			trait = honest
+		}
+		modifier = {
+			factor = 0.8
+			trait = cynical
+		}
+		modifier = {
+			factor = 0.8
+			trait = scholar
+		}
+		modifier = {
+			factor = 0.8
+			trait = gardener
+		}
+		modifier = {
+			factor = 0.8
+			trait = hunter
+		}
+		modifier = {
+			factor = 0.8
+			trait = falconer
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 10 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 9 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 8 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 7 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 6 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 5 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 4 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 3 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { diplomacy = 2 }
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		name = EVTOPTA1000182594
+		add_trait = shy
 	}
 }
