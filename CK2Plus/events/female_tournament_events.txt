@@ -689,7 +689,7 @@ character_event = { # Lady becomes gregarious
 	}
 }
 
-character_event = { # Lady becomes gregarious
+character_event = { # Lady becomes shy
 	id = 1000182594
 	title = TOURNAMENTTITLE
 	desc = EVTDESC1000182594
@@ -796,5 +796,434 @@ character_event = { # Lady becomes gregarious
 	option = {
 		name = EVTOPTA1000182594
 		add_trait = shy
+	}
+}
+
+character_event = { # Lady becomes honest
+	id = 1000182595
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182595
+	
+	picture = GFX_evt_grazia
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = honest
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.8
+			trait = trusting
+		}
+		modifier = {
+			factor = 0.8
+			trait = charitable
+		}
+		modifier = {
+			factor = 0.8
+			trait = proud
+		}
+		modifier = {
+			factor = 0.8
+			trait = content
+		}
+		modifier = {
+			factor = 0.8
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.8
+			trait = strong
+		}
+		modifier = {
+			factor = 0.8
+			trait = tall
+		}
+		modifier = {
+			factor = 1.25
+			trait = dwarf
+		}
+		modifier = {
+			factor = 1.25
+			trait = hunchback
+		}
+		modifier = {
+			factor = 1.25
+			trait = weak
+		}
+		modifier = {
+			factor = 1.25
+			trait = cynical
+		}
+		modifier = {
+			factor = 1.25
+			trait = paranoid
+		}
+		modifier = {
+			factor = 1.25
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.25
+			trait = envious
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		add_trait = honest
+		name = EVTOPTA1000182595
+	}
+}
+
+character_event = { # Lady becomes deceitful
+	id = 1000182596
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182596
+	picture = GFX_evt_grazia
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = deceitful
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 1.25
+			trait = trusting
+		}
+		modifier = {
+			factor = 1.25
+			trait = charitable
+		}
+		modifier = {
+			factor = 1.25
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = content
+		}
+		modifier = {
+			factor = 1.25
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = strong
+		}
+		modifier = {
+			factor = 1.25
+			trait = tall
+		}
+		modifier = {
+			factor = 0.8
+			trait = dwarf
+		}
+		modifier = {
+			factor = 0.8
+			trait = hunchback
+		}
+		modifier = {
+			factor = 0.8
+			trait = weak
+		}
+		modifier = {
+			factor = 0.8
+			trait = cynical
+		}
+		modifier = {
+			factor = 0.8
+			trait = paranoid
+		}
+		modifier = {
+			factor = 0.8
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.8
+			trait = envious
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		name = EVTOPTA1000182596
+		add_trait = deceitful
+	}
+}
+
+character_event = { # Lady becomes lustful
+	id = 1000182597
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182597
+	
+	picture = GFX_evt_courtly_love
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = lustful
+			trait = celibate
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.4
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.8
+			trait = trusting
+		}
+		modifier = {
+			factor = 0.8
+			trait = kind
+		}
+		modifier = {
+			factor = 0.8
+			trait = proud
+		}
+		modifier = {
+			factor = 0.8
+			trait = wroth
+		}
+		modifier = {
+			factor = 0.8
+			trait = greedy
+		}
+		modifier = {
+			factor = 0.8
+			trait = poet
+		}
+		modifier = {
+			factor = 0.8
+			trait = mystic
+		}
+		modifier = {
+			factor = 0.8
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.25
+			trait = temperate
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = slothful
+		}
+		modifier = {
+			factor = 1.25
+			trait = cynical
+		}
+		modifier = {
+			factor = 1.25
+			trait = paranoid
+		}
+		modifier = {
+			factor = 1.25
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.25
+			trait = charitable
+		}
+		modifier = {
+			factor = 1.25
+			trait = gardener
+		}
+		modifier = {
+			factor = 1.25
+			trait = duelist
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		add_trait = lustful
+		name = EVTOPTA1000182597
+	}
+}
+
+character_event = { # Lady becomes chaste
+	id = 1000182598
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182598
+	
+	picture = GFX_evt_courtly_love
+
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		has_character_flag = spectating_tournament
+		NOT = { has_character_flag = spectating_tournament_event }
+		NOT = {
+			has_character_flag = tournament_has_ended
+		}
+		NOT = {
+			trait = chaste
+			trait = hedonist
+		}
+		top_liege = {
+			has_character_flag = tournament_begins
+			NOT = {
+				has_character_flag = tournament_has_ended
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.4
+			trait = celibate
+		}
+		modifier = {
+			factor = 1.25
+			trait = trusting
+		}
+		modifier = {
+			factor = 1.25
+			trait = kind
+		}
+		modifier = {
+			factor = 1.25
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = wroth
+		}
+		modifier = {
+			factor = 1.25
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = poet
+		}
+		modifier = {
+			factor = 1.25
+			trait = mystic
+		}
+		modifier = {
+			factor = 1.25
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.8
+			trait = temperate
+		}
+		modifier = {
+			factor = 0.8
+			trait = patient
+		}
+		modifier = {
+			factor = 0.8
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.8
+			trait = cynical
+		}
+		modifier = {
+			factor = 0.8
+			trait = paranoid
+		}
+		modifier = {
+			factor = 0.8
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.8
+			trait = charitable
+		}
+		modifier = {
+			factor = 0.8
+			trait = gardener
+		}
+		modifier = {
+			factor = 0.8
+			trait = duelist
+		}
+	}
+	
+	immediate = {
+		set_character_flag = spectating_tournament_event
+	}
+	
+	option = {
+		name = EVTOPTA1000182598
+		add_trait = chaste
 	}
 }

@@ -45,7 +45,14 @@ decisions = {
 		effect = {
 			set_character_flag = epic_tournament
 			set_character_flag = do_not_disturb
-			set_character_flag = holding_epic_tournament
+			IF = {
+				limit = { is_female = no }				
+				set_character_flag = holding_epic_tournament
+			}
+			IF = {
+				limit = { is_female = yes }				
+				character_event = { id = 1000182583 }
+			}
 			wealth = -200
 			prestige = 100
 			add_character_modifier = {
