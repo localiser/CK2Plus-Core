@@ -239,3 +239,126 @@ letter_event = {
 		set_character_flag = do_not_disturb
 	}
 }
+
+# Champion killed
+character_event = {
+	id = 1000182585
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182585
+	
+	picture = GFX_evt_death
+
+	is_triggered_only = yes
+
+	option = {
+		name = SHEDATEAR
+		prestige = -50
+	}
+}
+
+# Champion maimed
+character_event = {
+	id = 1000182586
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182586
+	
+	picture = GFX_evt_injured
+
+	is_triggered_only = yes
+
+	option = {
+		name = SHEDATEAR
+		prestige = -25
+	}
+}
+
+# Champion injured
+character_event = {
+	id = 1000182587
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182587
+	
+	picture = GFX_evt_injured
+
+	is_triggered_only = yes
+
+	option = {
+		name = SHEDATEAR
+		prestige = -25
+	}
+}
+
+# Champion victorious
+character_event = {
+	id = 1000182588
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182588
+	
+	picture = GFX_evt_tournament_gallery
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1000182588
+		prestige = 150
+		scaled_wealth = -0.2
+		opinion = { who = FROM modifier = opinion_tournament_winner years = 20 }
+		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 20 } 
+	}
+	option = {
+		name = EVTOPTB1000182588
+		prestige = 75
+		opinion = { who = FROM modifier = opinion_tournament_winner years = 20 }
+		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 20 } 
+	}
+}
+
+# Champion runner-up
+character_event = {
+	id = 1000182589
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182589
+	
+	picture = GFX_evt_tournament_gallery
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1000182588
+		prestige = 125
+		scaled_wealth = -0.15
+		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 }
+		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 15 } 
+	}
+	option = {
+		name = EVTOPTB1000182588
+		prestige = 65
+		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 }
+		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 15 } 
+	}
+}
+
+# Champion third place
+character_event = {
+	id = 1000182590
+	title = TOURNAMENTTITLE
+	desc = EVTDESC1000182590
+	
+	picture = GFX_evt_tournament_gallery
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1000182588
+		prestige = 100
+		scaled_wealth = -0.10
+		opinion = { who = FROM modifier = opinion_tournament_third_place years = 10 }
+		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 10 } 
+	}
+	option = {
+		name = EVTOPTB1000182588
+		prestige = 50
+		opinion = { who = FROM modifier = opinion_tournament_third_place years = 10 }
+		FROM = { opinion = { who = ROOT modifier = opinion_upset years = 10 } 
+	}
+}
