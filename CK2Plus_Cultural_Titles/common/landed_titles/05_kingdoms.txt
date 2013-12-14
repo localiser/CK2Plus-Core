@@ -3,7 +3,6 @@ k_frisia = {
         color2={ 220 220 20 }
 
         culture = dutch
-
         capital = 84 #Frisia
 
         allow = {
@@ -534,7 +533,7 @@ k_frisia = {
                         }
                         b_bronckhorst = {
                         }
-        }
+				}
                 c_zutphen = {
                         color={ 159 159 159 }
                         color2={ 255 255 255 }
@@ -1187,7 +1186,7 @@ k_lotharingia = {
                         }
                         b_malmedy = {
                         }
-          }
+				}
                 c_namur = {
                         color={ 154 152 153 }
                         color2={ 255 255 255 }
@@ -3109,14 +3108,14 @@ k_pomerania = {
         bohemian = "Pomeransko"
         dutch = "Pommeren"
         
-d_pomeralia = {
-                color={ 202 112 85 }
-                color2={ 20 20 20 }
-                capital = 368 # Danzig
+		d_pomeralia = {
+			color={ 202 112 85 }
+			color2={ 20 20 20 }
+			capital = 368 # Danzig
         
-                allow = {
-                        war = no
-                }
+			allow = {
+				war = no
+			}
         
                 c_danzig = {
                         color={ 143 153 6 }
@@ -3538,8 +3537,7 @@ d_pomeralia = {
                         b_leipzig = {
                                 pommeranian = Lipsk
                         }
-                        b_merseburg = {
-                                
+                        b_merseburg = {                                
                         }
                         b_halle = {
                                 pommeranian = Dobrebora
@@ -7489,24 +7487,24 @@ k_sicily = {
         }
 }
 
-        k_adal = {
-                color = { 161 72 126 }
-                capital = 872 #Berbera
+k_adal = {
+		color = { 161 72 126 }
+		capital = 872 #Berbera
 
-                culture = somali
+		culture = somali
 
-                allow = {
-                        war = no
-                        OR = {
-                                culture = somali
-                                k_adal = {
-                                        OR = {
-                                                is_titular = no
-                                                has_holder = yes
-                                        }
-                                }
-                        }
-                }
+		allow = {
+			war = no
+				OR = {
+					culture = somali
+					k_adal = {
+						OR = {
+							is_titular = no
+							has_holder = yes
+						}
+					}
+				}
+		}
                 
                 d_harer = {
                         color={ 153 2 59 }
@@ -9861,10 +9859,6 @@ k_sweden = {
                                 norwegian = "Læckø"
                                 danish = "Læckø"
                         }
-                        # b_lena
-                        # b_skalunda
-                        # b_lindholmen
-                        # b_alvsborg
                 }
                 c_dal = {
                         color={ 204 40 97 }
@@ -19055,7 +19049,6 @@ k_france = {
                 c_auxerre = {
                         color={ 162 82 96 }
                         color2={ 255 255 255 }
-                        
                         b_auxerre = {
                         }
                         b_druyes = {
@@ -19288,21 +19281,41 @@ k_france = {
                         war = no
                 }
                 
-                c_evreux = {
-                        color={ 55 248 225 }
+                c_ponthieu = {
+                        color={ 186 39 141 }
+                        color2={ 255 255 255 }
+                        b_montreuil = {
+                        }
+                        b_abbeville = {
+                        }
+                        b_crecy = {
+                        }
+                        b_ailly = {
+                        }
+                        b_nouvion = {
+                        }
+                }				
+                c_eu = {
+                        color={ 233 218 92 }
                         color2={ 255 255 255 }
                         
-                        b_evreux = {
+                        b_eu = {
                         }
-                        b_falaise = {
+                        b_mortemer = {
                         }
-                        b_lisieux = {
+                        b_gournay = {
                         }
-                        b_honfleur = {
+                        b_aumale = {
                         }
-                        b_lechevain = {
+                        b_forges = {
                         }
-                }
+                        b_drincourt = {
+                        }
+                        b_neufchatel-en-bray = {
+                        }
+                        b_serqueux = {
+                        }
+                }				
                 c_avranches = {
                         color={ 128 7 18 }
                         color2={ 255 255 255 }
@@ -19413,20 +19426,6 @@ k_france = {
                         b_romorantin = {
                         }
                         b_stgeorgesdubois = {
-                        }
-                }
-                c_chartres = {
-                        color={ 203 151 210 }
-                        color2={ 255 255 255 }
-                        b_chartres = {
-                        }
-                        b_nogent = {
-                        }
-                        b_gallardon = {
-                        }
-                        b_epernon = {
-                        }
-                        b_tiron = {
                         }
                 }
                 c_dunois = {
@@ -19546,6 +19545,30 @@ k_france = {
                 dignity = 10
 
                 allow = { war = no }
+				
+                c_chartres = {
+                        color={ 203 151 210 }
+                        color2={ 255 255 255 }
+                        b_chartres = {
+                        }
+                        b_nogent = {
+                        }
+                        b_gallardon = {
+                        }
+                        b_epernon = {
+                        }
+                        b_tiron = {
+                        }
+                }				
+				
+                c_dreux = {
+                        color={ 174 127 229 }
+                        color2={ 255 255 255 }
+                        b_dreux = {
+                        }
+                        b_verneuil = {
+                        }
+                }				
                 
                 c_ile_de_france = {
                         color={ 38 144 211 }
@@ -19582,27 +19605,6 @@ k_france = {
                         war = no
                 }
                 
-                c_eu = {
-                        color={ 233 218 92 }
-                        color2={ 255 255 255 }
-                        
-                        b_eu = {
-                        }
-                        b_mortemer = {
-                        }
-                        b_gournay = {
-                        }
-                        b_aumale = {
-                        }
-                        b_forges = {
-                        }
-                        b_drincourt = {
-                        }
-                        b_neufchatel-en-bray = {
-                        }
-                        b_serqueux = {
-                        }
-                }
                 c_vermandois = {
                         color={ 154 10 154 }
                         color2={ 255 255 255 }
@@ -19675,6 +19677,21 @@ k_france = {
                         war = no
                 }
                 
+                c_evreux = {
+                        color={ 55 248 225 }
+                        color2={ 255 255 255 }
+                        
+                        b_evreux = {
+                        }
+                        b_falaise = {
+                        }
+                        b_lisieux = {
+                        }
+                        b_honfleur = {
+                        }
+                        b_lechevain = {
+                        }
+                }				
                 c_alencon = {
                         color={ 74 127 129 }
                         color2={ 255 255 255 }
@@ -19705,14 +19722,6 @@ k_france = {
                         b_male = {
                         }
                         b_authon = {
-                        }
-                }
-                c_dreux = {
-                        color={ 174 127 229 }
-                        color2={ 255 255 255 }
-                        b_dreux = {
-                        }
-                        b_verneuil = {
                         }
                 }
         }
@@ -19755,7 +19764,7 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-                                war = no
+						war = no
                 }
 
                 c_comminges = {
@@ -27157,7 +27166,64 @@ k_abyssinia = {
         sicilian_arabic = "Al Habashah"
         dutch = "Abessinië"
         german = "Abessinien"
-        
+
+		d_eritrea = {
+			color={ 170 200 225 }
+			color2={ 255 255 255 }
+			
+			capital = 1009 # Meroe
+			
+			allow = { war = no }
+
+			c_janub = { # Nukhaylah
+				color={ 110 100 185 }
+				color2={ 255 255 255 }
+				
+				b_janub = {
+				}
+				b_mellit = {
+				}
+			}		
+			c_atbarah = {
+				color={ 208 40 103 }
+				color2={ 255 255 255 }
+			
+				b_dongolah = {
+				}
+				b_atbarah = {
+				}
+				b_bayuda = {
+				}
+				b_kasea = {
+				}
+				b_ghabah = {
+				}
+			}					
+			c_meroe = {
+				color={ 0 70 5 }
+				
+				b_meroe = {
+				}
+				b_taka = {
+				}
+				b_wolqayt = {
+				}
+				b_darqab = {
+				}
+			}
+			c_napata = {
+				color={ 0 255 25 }
+				
+				b_napata = {
+				}
+				b_kakur = {
+				}
+				b_dabbah = {
+				}
+				b_girra = {
+				}
+			}
+		}		
         d_asosa = {
                 color={ 148 179 172 }
                 color2={ 255 255 255 }
@@ -27166,6 +27232,15 @@ k_abyssinia = {
 
                 allow = { war = no }
                 
+				c_melut = { # Gorhan
+					color={ 30 180 200 }
+					color2={ 255 255 255 }
+					
+					b_melut = { # Gorhan
+					}
+					b_shagar = {
+					}
+				}				
                 c_asosa = {
                         color={ 152 76 212 }
                         color2={ 255 255 255 }
@@ -27219,6 +27294,16 @@ k_abyssinia = {
                         war = no
                 }
         
+				c_barka = {
+					color={ 11 61 100 }
+					
+					b_barka = {
+					}
+					b_alaka = {
+					}
+					b_bogos = {
+					}
+				}			
                 c_aksum = {
                         color={ 169 94 249 }
                         color2={ 255 255 255 }
@@ -27286,28 +27371,38 @@ k_abyssinia = {
                 allow = {
                         war = no
                 }
-                
-                c_atbara = {
-                        color={ 211 44 135 }
-                        color2={ 255 255 255 }
-                
-                        b_atbara = {
-                        }
-                        b_omdurman = {
-                        }
-                        b_begarawiyah = {
-                        }
-                        b_soba = {
-                        }
-                        b_tabat = {
-                        }
-                        b_wadrawah = {
-                        }
-                        b_meruwah = {
-                        }
-                        b_hajaralasla = {
-                        }
-                }
+				
+				c_nahud = { # Ghurud
+					color={ 70 135 165 }
+					color2={ 255 255 255 }
+					
+					b_nahud = {
+					}
+					b_zabad = {
+					}
+				}
+				c_sama = {
+					color={ 175 90 54 }
+					color2={ 50 75 10 }
+					b_sama = { #South
+					}
+					b_yoboukaina = {
+					}
+				}					
+				c_soba = {
+					color={ 177 68 68 }
+					
+					b_sobah = {
+					}
+					b_madani = {
+					}
+					b_chirih = {
+					}
+					b_waacha = {
+					}
+					b_yadetah = {
+					}	
+				}               
                 c_kassala = {
                         color={ 132 122 67 }
                         color2={ 255 255 255 }
@@ -27375,7 +27470,7 @@ k_abyssinia = {
                         }
                         b_dembiya = {
                         }
-                }
+                }			
                 c_antalo = {
                         color={ 151 64 156 }
                         color2={ 255 255 255 }
@@ -27418,6 +27513,18 @@ k_abyssinia = {
                         b_garo = {
                         }
                 }
+				c_butana = { # Naqa
+					color={ 116 156 119 }
+					
+					b_butana = {
+					}
+					b_gedaref = {
+					}
+					b_bazen = {
+					}
+					b_gallabat = {
+					}
+				}					
         }
 } # k_abyssinia
 
@@ -27441,6 +27548,51 @@ k_nubia = {
         }
         dutch = "Nubië"
         
+        d_nobatia = {
+                color={ 169 157 108 }
+                color2={ 255 255 255 }
+                
+                capital = 1015 # Qasar Ibrim
+                
+                allow = {
+                        war = no
+                }
+
+				c_shamal = { # Qasar Ibrim
+					color={ 110 145 205 }
+					color2={ 255 255 255 }
+					
+					b_shamal = { # Qasar Ibrim
+					}
+					b_simbel = {
+					}
+					b_ahmar = {
+					}
+					b_abka = {
+					}
+				}	
+				c_salima = {
+						color={ 40 90 40 }
+						b_salima = {
+						}
+						b_maks = {
+						}
+				}	
+			c_farash = {
+				color={ 206 38 101 }
+				color2={ 255 255 255 }
+			
+				b_farash = {
+				}
+				b_shabana = {
+				}
+				b_argo = {
+				}
+				b_dagarti = {
+				}
+			}		
+		}		
+		
         d_nubia = {
                 color = { 41 188 120 }
                 capital = 793 # Makuria
@@ -27500,15 +27652,60 @@ k_nubia = {
 						}
 						b_qibli = {
 						}
-				}
-				c_salima = {
-						color={ 40 90 40 }
-						b_salima = {
-						}
-						b_maks = {
-						}
-				}				
+				}			
         }
+		
+        d_alodia = {
+			color={ 86 140 91 }
+			color2={ 255 255 255 }
+			
+			capital = 985 # Aidhab
+			
+			allow = {
+					war = no
+			}
+			
+			c_atbara = {
+				color={ 211 44 135 }
+				color2={ 255 255 255 }
+		
+				b_atbara = {
+				}
+				b_omdurman = {
+				}
+				b_begarawiyah = {
+				}
+				b_soba = {
+				}
+				b_tabat = {
+				}
+				b_wadrawah = {
+				}
+				b_meruwah = {
+				}
+				b_hajaralasla = {
+				}
+			}				
+			c_aidhab = {
+				color={ 21 133 222 }
+				
+				b_aidhab = {
+				}
+				b_dahlak = {
+				}
+				b_akkele_guzay = {
+				}
+			}
+			c_jubiyah = { # Kovar
+				color={ 80 120 200 }
+				color2={ 255 255 255 }
+				
+				b_jubiyah = { # Kovar
+				}
+				b_warral = {
+				}
+			}
+		}		
         
         d_hayya = {
                 color={ 186 40 91 }
@@ -27541,7 +27738,7 @@ k_nubia = {
                         }
                         b_derri = {
                         }
-                }		
+                }				
                 c_hayya = {
                         color={ 176 122 230 }
                         color2={ 255 255 255 }
@@ -27562,20 +27759,7 @@ k_nubia = {
                         }
                         b_ummmardi = {
                         }
-                }
-				c_shamal = { # Qasr Ibrim
-					color={ 110 145 205 }
-					color2={ 255 255 255 }
-					
-					b_shamal = { # Qasr Ibrim
-					}
-					b_simbel = {
-					}
-					b_ahmar = {
-					}
-					b_abka = {
-					}
-				}						
+                }					
         }
 		
 }
@@ -28950,6 +29134,21 @@ k_wales = {
                         war = no
                 }
                 
+				
+                c_ceredigion = {
+                        color={ 248 235 0 }
+                        color2={ 0 0 0 }
+                        b_aberaeron = {
+                        }
+                        b_gaer_penrhos = {
+                        }
+                        b_llangeitho = {
+                        }
+                        b_tregaron = {
+                        }
+                        b_abermagwr = {
+                        }
+                }					
                 c_dyfed = {
                         color={ 167 103 226 }
                         color2={ 255 255 255 }
@@ -29060,21 +29259,7 @@ k_wales = {
                         b_radnor = {
                                 welsh = "Pencraig"
                         }
-                }
-                c_ceredigion = {
-                        color={ 248 235 0 }
-                        color2={ 0 0 0 }
-                        b_aberaeron = {
-                        }
-                        b_gaer_penrhos = {
-                        }
-                        b_llangeitho = {
-                        }
-                        b_tregaron = {
-                        }
-                        b_abermagwr = {
-                        }
-                }				
+                }			
                 c_maelienydd = {
                         color={ 175 90 20 }
                         color2={ 248 235 0 }
@@ -29869,7 +30054,6 @@ k_scotland = {
                                 scottish = "Kiltarlity"
                                 irish = "Kiltarlity"
                         }
-
                 }
         }
 } # k_scotland
@@ -30843,157 +31027,4 @@ k_ghana = {
                         b_kughah = {}
                 }
         }
-}
-	k_darfur = { #placeholder
-		color={ 70 155 185 }
-		color2={ 255 255 255 }
-		capital = 794
-		allow = {
-				always = yes
-			}
-			
-	d_makuria = {
-		color={ 85 200 95 }
-		color2={ 255 255 255 }
-		
-		c_napata = {
-			color={ 0 255 25 }
-			
-			b_napata = {
-			}
-			b_kakur = {
-			}
-			b_dabbah = {
-			}
-			b_girra = {
-			}
-		}
-		c_meroe = {
-			color={ 0 70 5 }
-			
-			b_meroe = {
-			}
-			b_taka = {
-			}
-			b_wolqayt = {
-			}
-			b_darqab = {
-			}
-		}
-		c_farash = {
-			color={ 206 38 101 }
-			color2={ 255 255 255 }
-		
-			b_farash = {
-			}
-			b_shabana = {
-			}
-			b_argo = {
-			}
-			b_dagarti = {
-			}
-		}
-	}
-	d_kordofan = {
-		color={ 90 145 175 }
-		color2={ 255 255 255 }
-		
-		c_nahud = { # Ghurud
-			color={ 70 135 165 }
-			color2={ 255 255 255 }
-			
-			b_nahud = {
-			}
-			b_zabad = {
-			}
-		}
-		c_janub = { # Nukhaylah
-			color={ 110 100 185 }
-			color2={ 255 255 255 }
-			
-			b_janub = {
-			}
-			b_mellit = {
-			}
-		}
-	}
-	d_nuba = { # Darfur
-		color={ 80 120 250 }
-		color2={ 255 255 255}
-		
-		c_jubiyah = { # Kovar
-			color={ 80 120 200 }
-			color2={ 255 255 255 }
-			
-			b_jubiyah = { # Kovar
-			}
-			b_warral = {
-			}
-		}
-		c_nuba = { # Sama
-			color={ 80 120 240 }
-			color2={ 255 255 255 }	
-			
-			b_nuba = { # Sama
-			}
-			b_qardud = {
-			}
-		}			
-	}	
-	d_darfur = {
-		color={ 50 165 200 }
-		color2={ 255 255 255 }
-		
-		c_melut = { # Gorhan
-			color={ 30 180 200 }
-			color2={ 255 255 255 }
-			
-			b_melut = { # Gorhan
-			}
-			b_shagar = {
-			}
-		}			
-	}		
-	d_eritrea = {
-		color={ 170 200 225 }
-		color2={ 255 255 255 }
-		
-		c_aidhab = {
-			color={ 21 133 222 }
-			
-			b_aidhab = {
-			}
-			b_dahlak = {
-			}
-			b_akkele_guzay = {
-			}
-		}
-		c_atbarah = {
-			color={ 208 40 103 }
-			color2={ 255 255 255 }
-		
-			b_dongolah = {
-			}
-			b_atbarah = {
-			}
-			b_bayuda = {
-			}
-			b_kasea = {
-			}
-			b_ghabah = {
-			}
-		}
-		c_butana = { # Naqa
-			color={ 116 156 119 }
-			
-			b_butana = {
-			}
-			b_gedaref = {
-			}
-			b_bazen = {
-			}
-			b_gallabat = {
-			}
-		}		
-	}
 }
