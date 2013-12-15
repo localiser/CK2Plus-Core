@@ -1,5 +1,6 @@
+namespace = temp
 character_event = {
-	id = 7110010
+	id = temp.7110010
 	desc = startup_event_desc
 		
 	trigger = {
@@ -76,12 +77,54 @@ character_event = {
 		}
 	}
 
+	option = {
+		name = "Set global flags"
+	}
+}
+
+character_event = {
+	id = temp.7110011
+	desc = startup_event2_desc
+		
+	trigger = {
+		ai = no
+		NOT = { has_global_flag = options_done }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.01
+			always = yes
+		}
+	}
+	
+	immediate = {
+		set_global_flag = options_done
+	}
 	
 	option = {
-		name = "Extra casus belli"
+		name = "RoA/DM: ???"
+		trigger = {
+			any_independent_ruler = {
+				has_landed_title = e_hre
+			}
+		}
+	}
+	
+	option = {
+		name = "SW/RoP: Extra casus belli for a more hectic start"
+		trigger = {
+			NOT = {
+				any_independent_ruler = {
+					has_landed_title = e_hre
+				}
+			}
+		}
 		set_global_flag = enable_casusbellis
 	}
+	
 	option = {
-		name = "Leave it as it is"
+		name = "Back-up option"
 	}
 }
