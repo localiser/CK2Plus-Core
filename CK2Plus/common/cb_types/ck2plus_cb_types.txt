@@ -986,26 +986,19 @@ free_family_cb = {
 		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 	
-		ROOT = {
-			any_dynasty_member ={
-				is_prisoner = yes
-				host = { character = FROM }
-			}
-		}
-		FROM = {
-			NOT = {
-				same_realm = ROOT
-			}
+		any_dynasty_member = {
+			prisoner = yes
 		}
 	}
 	
 	is_valid_title = {
-		ROOT = {
-			any_dynasty_member = {
-				is_prisoner = yes
-				host = { character = FROM }
+		FROM = {
+			any_courtier = {
+				prisoner = yes
+				dynasty = ROOT
 			}
 		}
+		
 	}
 	
 	on_success = {
