@@ -3650,6 +3650,40 @@ allow={
 		}
 	}
 }
+nick_the_heathen = {
+	allow = {
+		is_ruler = yes
+		religion_group = pagan_group
+		primary_title = { higher_tier_than = COUNT }
+		NOT = { has_landed_title = d_norse_pagan_reformed }
+		is_adult = yes
+	}
+	
+	chance = {
+		modifier = {
+			factor = 5
+			has_ambition = obj_get_nick
+		}
+		modifier = {
+			factor = 0.5
+			AND = {
+				religion = norse_pagan
+				trait = zealous
+			}
+		}
+		modifier = {
+			factor = 0.5
+			AND = {
+				liege = { NOT = {religion_group = pagan} }
+				liege =  { trait = zealous }
+			}
+		}
+		modifier = {
+			factor = 0.2
+			liege = { NOT = { religion_group = pagan } }
+		}
+	}
+}
 nick_the_clueless = {
 	allow={
 		NOT = { diplomacy = 12 }
