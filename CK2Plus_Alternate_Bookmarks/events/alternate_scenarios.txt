@@ -1,5 +1,5 @@
 namespace = temp
-character_event = {
+character_event = {  ### set global flags
 	id = temp.7110010
 	desc = startup_event_desc
 		
@@ -104,10 +104,13 @@ character_event = {
 	}
 	
 	option = {
-		name = "RoA/DM: ???"
+		name = "RoA: <N/A>"
 		trigger = {
 			any_independent_ruler = {
 				has_landed_title = e_hre
+			}
+			80 = {
+				religion = norse_pagan
 			}
 		}
 	}
@@ -123,8 +126,18 @@ character_event = {
 		}
 		set_global_flag = enable_casusbellis
 	}
-	
 	option = {
-		name = "Back-up option"
+		name = "DM: <N/A>"
+		trigger = {
+			any_independent_ruler = {
+				has_landed_title = e_hre
+			}
+			80 = {
+				religion = catholic
+			}
+		}
+	}
+	option = {
+		name = "...Emergency exit..."
 	}
 }
