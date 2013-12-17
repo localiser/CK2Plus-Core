@@ -299,6 +299,15 @@ province_event = {
 				clr_character_flag = attending_tournament_event
 				clr_character_flag = do_not_disturb
 			}
+			any_realm_character = {
+				limit = {
+					has_character_flag = spectating_tournament
+					NOT = {
+						character = PREV
+					}
+				}
+				character_event = { id = 1000182626 }
+			}
 		}
 	}
 }
