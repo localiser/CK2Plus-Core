@@ -19,7 +19,10 @@ job_chancellor = {
 	monthly_prestige = 0.025
 
 	allow = {
-		NOT = { liege = { spouse = { character = FROM } } }
+		OR = {
+				NOT = { liege = { spouse = { character = FROM } } }
+				ai = no
+			}
 		OR = {
 			AND = {
 				OR = {
