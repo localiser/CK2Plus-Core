@@ -46,7 +46,48 @@ character_event = {
 		}
 		hidden_tooltip = {
 			set_character_flag = tournament_begins
-			set_character_flag = attending_tournament
+			IF = {
+				limit = {
+					OR = {
+						is_female = no
+						AND = {
+							martial = 15
+							trait = brave
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist
+								trait = shield_maiden
+								trait = martial_lady
+								trait = martial_lady_tengri
+							}
+						}
+					}
+				}
+				set_character_flag = attending_tournament
+			}
+			IF = {
+				limit = {
+					NOT = {
+						is_female = no
+						AND = {
+							martial = 15
+							trait = brave
+							OR = {
+								trait = misguided_warrior
+								trait = tough_soldier
+								trait = skilled_tactician
+								trait = brilliant_strategist
+								trait = shield_maiden
+								trait = martial_lady
+								trait = martial_lady_tengri
+							}
+						}
+					}
+				}
+				character_event = { id = 1000182583 }
+			}
 			location = {
 				set_province_flag = tournament_60_days
 			}
@@ -553,7 +594,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { has_charecter_flag = championing_liege_lady }
+				limit = { has_character_flag = championing_liege_lady }
 				liege = { character_event = { id = 1000182585 } }
 			}
 		}
@@ -707,7 +748,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { has_charecter_flag = championing_liege_lady }
+				limit = { has_character_flag = championing_liege_lady }
 				liege = { character_event = { id = 1000182586 } }
 			}
 		}
@@ -840,7 +881,6 @@ character_event = {
 
 	immediate = {
 		set_character_flag = attending_tournament_event
-		set_character_flag = championing_liege_lady
 	}
 
 	option = {
@@ -860,8 +900,9 @@ character_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { has_charecter_flag = championing_liege_lady }
+				limit = { has_character_flag = championing_liege_lady }
 				liege = { character_event = { id = 1000182587 } }
+				clr_character_flag = championing_liege_lady
 			}
 		}
 	}
@@ -1533,8 +1574,9 @@ character_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { has_charecter_flag = championing_liege_lady }
+				limit = { has_character_flag = championing_liege_lady }
 				liege = { character_event = { id = 1000182588 } }
+				clr_character_flag = championing_liege_lady
 			}
 		}
 	}
@@ -1727,8 +1769,9 @@ character_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { has_charecter_flag = championing_liege_lady }
+				limit = { has_character_flag = championing_liege_lady }
 				liege = { character_event = { id = 1000182589 } }
+				clr_character_flag = championing_liege_lady
 			}
 		}
 	}
@@ -1922,8 +1965,9 @@ character_event = {
 		}
 		hidden_tooltip = {
 			if = {
-				limit = { has_charecter_flag = championing_liege_lady }
+				limit = { has_character_flag = championing_liege_lady }
 				liege = { character_event = { id = 1000182590 } }
+				clr_character_flag = championing_liege_lady
 			}
 		}
 	}
