@@ -106,22 +106,17 @@ character_event = {
 	option = {
 		name = "RoA: <N/A>"
 		trigger = {
-			any_independent_ruler = {
-				has_landed_title = e_hre
-			}
-			80 = {
-				religion = norse_pagan
-			}
+			has_global_flag = reign_ancients
 		}
 	}
 	
 	option = {
 		name = "SW/RoP: Extra casus belli for a more hectic start"
 		trigger = {
-			NOT = {
-				any_independent_ruler = {
-					has_landed_title = e_hre
-				}
+		trigger = {
+			OR = {
+				has_global_flag = shattered_world
+				has_global_flag = reign_of_princes				
 			}
 		}
 		set_global_flag = enable_casusbellis
@@ -129,12 +124,7 @@ character_event = {
 	option = {
 		name = "DM: <N/A>"
 		trigger = {
-			any_independent_ruler = {
-				has_landed_title = e_hre
-			}
-			80 = {
-				religion = catholic
-			}
+			has_global_flag = divided_muslims
 		}
 	}
 	option = {
