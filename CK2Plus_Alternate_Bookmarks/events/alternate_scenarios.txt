@@ -69,6 +69,14 @@ character_event = {  ### set global flags
 			}
 			set_global_flag = divided_muslims
 		}
+		if = {   ## Bookmark is Another New Dawn
+			limit = {
+				80 = {
+					religion = ancestry
+				}
+			}
+			set_global_flag = another_new_dawn
+		}
 		hidden_tooltip = {
 			any_playable_ruler = {
 				limit = { independent = yes }
@@ -82,7 +90,7 @@ character_event = {  ### set global flags
 	}
 }
 
-character_event = {
+character_event = { ### Options event
 	id = temp.7110011
 	desc = startup_event2_desc
 		
@@ -111,12 +119,13 @@ character_event = {
 	}
 	
 	option = {
-		name = "SW/RoP: Extra casus belli for a more hectic start"
+		name = "SW/RoP/AND: Extra casus belli for a more hectic start"
 		trigger = {
 		trigger = {
 			OR = {
 				has_global_flag = shattered_world
-				has_global_flag = reign_of_princes				
+				has_global_flag = reign_of_princes	
+				has_global_flag = another_new_dawn
 			}
 		}
 		set_global_flag = enable_casusbellis
