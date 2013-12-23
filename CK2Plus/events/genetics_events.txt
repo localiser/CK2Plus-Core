@@ -15,6 +15,7 @@ character_event = {
 		set_character_flag = genetics_check
 		hidden_tooltip = {
 			add_trait = young1
+			set_character_flag = yehudi_check
 
 			#chance for genius or quick
 			if = {
@@ -163,6 +164,15 @@ character_event = {
 					}
 				}
 				add_trait = divine_blood
+			}
+			
+			if = {
+				limit = { 
+					OR = {
+						mother_even_if_dead = { trait = yehudi }
+					}
+				}
+				add_trait = yehudi
 			}
 
 			any_child = {

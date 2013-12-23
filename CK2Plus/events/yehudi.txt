@@ -1,0 +1,58 @@
+character_event = {
+	id = 1000182632
+	
+	hide_window = yes	
+	
+	trigger = {
+		NOT = { has_character_flag = yehudi_check }
+	}
+		
+	desc = "AI_EVENT"
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.01
+			always = yes
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { 
+				NOT = { trait = yehudi } 
+				religion_group = jewish_group 
+				is_ruler = no 
+				age = 1
+			}
+			random = {
+				chance = 70
+				add_trait = yehudi
+			}
+		}
+		if = {
+			limit = { has_character_flag = start_of_game_character religion_group = jewish_group }
+			add_trait = yehudi
+		}
+		if = {
+			limit = { 
+				OR = {
+					mother_even_if_dead = { trait = yehudi }
+				}
+				age = 1
+			}
+			add_trait = yehudi
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				religion_group = jewish_group
+				primary_title = {
+					is_theocracy = yes
+				}
+			}
+			add_trait = yehudi
+		}
+		set_character_flag = yehudi_check
+	}
+}
