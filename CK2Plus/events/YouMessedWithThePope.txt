@@ -194,7 +194,7 @@ character_event = {
 		hidden_tooltip = { opinion = { who = liege modifier = guelf years = 100 } }
 		hidden_tooltip = { reverse_opinion = { who = liege modifier = guelf years = 100 } }
 		hidden_tooltip = { set_defacto_liege = ROOT }
-		# hidden_tooltip = { rightful_religious_head_scope = { opinion = { who = ROOT modifier = joined_my_war }  } }
+		hidden_tooltip = { add_trait = guelf }
 		religion_head = {
 			ROOT = { join_defender_wars = PREV }
 			}
@@ -1056,6 +1056,7 @@ character_event = {
 
 	trigger = {
 		war = no
+		trait = guelf
 		OR = {
 			independent = yes
 			liege = { character = ROOT }
@@ -1098,6 +1099,7 @@ character_event = {
 			}
 			remove_opinion = { who = liege modifier = guelf }
 			reverse_remove_opinion = { who = liege modifier = guelf }
+			remove_trait = guelf
 		}
 	}
 }
