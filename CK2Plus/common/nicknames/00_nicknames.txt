@@ -17,7 +17,6 @@ nick_the_exile = {}
 nick_the_unlucky = {}
 nick_the_lucky = {}
 nick_the_restorer = {}
-nick_the_heathen = {}
 nick_the_liberator = {}
 nick_haardraade = {}
 nick_the_jackal = {}
@@ -3660,23 +3659,20 @@ nick_the_heathen = {
 	}
 	
 	chance = {
+		factor = 2
 		modifier = {
 			factor = 5
 			has_ambition = obj_get_nick
 		}
 		modifier = {
 			factor = 0.5
-			AND = {
-				religion = norse_pagan
-				trait = zealous
-			}
+			religion = norse_pagan
+			trait = zealous
 		}
 		modifier = {
 			factor = 0.5
-			AND = {
-				liege = { NOT = {religion_group = pagan_group } }
-				liege =  { trait = zealous }
-			}
+			liege = { NOT = {religion_group = pagan_group } }
+			liege =  { trait = zealous }
 		}
 		modifier = {
 			factor = 0.1
