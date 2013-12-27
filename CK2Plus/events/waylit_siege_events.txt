@@ -63,10 +63,9 @@ character_event = {
 			}
 		}
 	}
-	
 	option = {
 		name = "EVTOPTAsiegewin1"
-		
+
 		trigger = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
@@ -125,7 +124,6 @@ character_event = {
 			add_trait = just
 			remove_trait = charitable
 		}
-
 		FROM = { 
 			holder_scope = {
 				limit = { 
@@ -136,29 +134,26 @@ character_event = {
 			}		
 		}			
 	}
-		
 	option = {
 		name = "EVTOPTAsiegewin2"
 		trigger = {
-			AND = {
-				OR = {
-					trait = cruel
-					trait = arbitrary
-					trait = possessed
-					trait = lunatic
-					trait = greedy
-					trait = deceitful
-					trait = paranoid
-				}
-				NOT = {
-					trait = just
-					trait = honest
-					trait = kind
-					trait = charitable
-					trait = slothful
-					trait = humble
-					trait = trusting
-				}
+			OR = {
+				trait = cruel
+				trait = arbitrary
+				trait = possessed
+				trait = lunatic
+				trait = greedy
+				trait = deceitful
+				trait = paranoid
+			}
+			NOT = {
+				trait = just
+				trait = honest
+				trait = kind
+				trait = charitable
+				trait = slothful
+				trait = humble
+				trait = trusting
 			}
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
@@ -170,14 +165,11 @@ character_event = {
 					war_with = ROOT
 					OR = {
 						any_dynasty_member = {
-							AND = {
-								NOT = { character = ROOT }
-								at_location = ROOT
-								NOT = { character = PREV }
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							NOT = { character = ROOT }
+							at_location = ROOT
+							NOT = { character = PREV }
+							NOT = { has_character_modifier = modifier_hidden }
 						}
-						
 						any_spouse = {
 							at_location = ROOT
 							NOT = { has_character_modifier = modifier_hidden }
@@ -186,8 +178,6 @@ character_event = {
 				} 
 			}
 		}
-				
-
 		ai_chance = {
 			factor = 0.5
 			modifier = {
@@ -225,7 +215,6 @@ character_event = {
 				trait = wroth
 			}	
 		}
-
 		random = { 
 			chance = 10
 			add_trait = greedy
@@ -239,7 +228,6 @@ character_event = {
 			remove_trait = charitable
 			remove_trait = just
 		}
-		
 		FROM = { 
 			holder_scope = {  
 				if = { 
@@ -270,11 +258,9 @@ character_event = {
 				}
 				if = { 
 					limit = {
-						any_dynasty_member = {  
-							AND = {
-								at_location = ROOT 
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+						any_dynasty_member = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -288,8 +274,7 @@ character_event = {
 						}
 					}	
 				}
-					
-				if = { 
+			if = { 
 					limit = {
 						any_spouse = {  
 						at_location = ROOT 
@@ -313,29 +298,26 @@ character_event = {
 			}		
 		}
 	}
-	
 	option = {
 		name = "EVTOPTAsiegewin6"
 		trigger = {
-			AND = {
-				OR = {
-					trait = cruel
-					trait = arbitrary
-					trait = possessed
-					trait = lunatic
-					trait = greedy
-					trait = deceitful
-					trait = paranoid
-				}
-				NOT = {
-					trait = just
-					trait = honest
-					trait = kind
-					trait = charitable
-					trait = slothful
-					trait = humble
-					trait = trusting
-				}
+			OR = {
+				trait = cruel
+				trait = arbitrary
+				trait = possessed
+				trait = lunatic
+				trait = greedy
+				trait = deceitful
+				trait = paranoid
+			}
+			NOT = {
+				trait = just
+				trait = honest
+				trait = kind
+				trait = charitable
+				trait = slothful
+				trait = humble
+				trait = trusting
 			}
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
@@ -347,13 +329,10 @@ character_event = {
 					war_with = ROOT
 					OR = {
 						any_dynasty_member = {
-							AND = {
-								NOT = { character = ROOT }
-								at_location = ROOT
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							NOT = { character = ROOT }
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
 						}
-						
 						any_spouse = {
 							at_location = ROOT
 							NOT = { has_character_modifier = modifier_hidden }
@@ -363,8 +342,6 @@ character_event = {
 				} 
 			}
 		}
-				
-
 		ai_chance = {
 			factor = 0.5
 			modifier = {
@@ -400,33 +377,27 @@ character_event = {
 				trait = just
 			}
 		}
-
 		if = {
 			limit = { NOT  = { lifestyle_traits = 1 } }
 			add_trait = impaler
-		}
-		
+		}		
 		random = { 
 			chance = 50
 			remove_trait = kind
 			add_trait = cruel	
 		}
-		
 		random = { 
 			chance = 30
 			remove_trait = just
 			add_trait = arbitrary
 		}
-		
 		FROM = { 
 			holder_scope = {  
 				if = { 
 					limit = {
-						any_dynasty_member = {  
-							AND = {
-								at_location = ROOT 
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+						any_dynasty_member = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -565,8 +536,6 @@ character_event = {
 				 
 	option = {
 		name = "EVTOPTAsiegewin3"
-		
-
 		trigger = {
 			OR = {
 				any_war = { OR = { any_defender = { FROM = {holder_scope = { character = PREVPREV}}} any_defender = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_attacker = {character = ROOT}}
@@ -575,7 +544,6 @@ character_event = {
 			}
 			FROM = { holder_scope = { war_with = ROOT } }
 		}
-		
 		ai_chance = {
 			factor = 1
 			modifier = {
@@ -603,30 +571,25 @@ character_event = {
 				trait = cruel
 			}	
 		}
-		
 		random = { 
 			chance = 10
 			add_trait = kind
 			add_trait = just
 			remove_trait = cruel
 		}
-		
 		random = { 
 			chance = 5
 			remove_trait = ambitious
 			remove_trait = diligent
 			add_trait = charitable
 		}
-		
 		FROM = { 
 			holder_scope = { 			
 				if = {
 					limit = {
 						any_dynasty_member = {
-							AND = { 
-								at_location = ROOT
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = {
@@ -644,10 +607,8 @@ character_event = {
 				if = {
 					limit = {
 						any_spouse = {
-							AND = { 
-								at_location = ROOT
-								NOT = { has_character_modifier = modifier_hidden }	
-							}
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }	
 						}
 					}
 					any_spouse = {
@@ -665,7 +626,6 @@ character_event = {
 			}
 		}
 	}
-	
 	option = {
 		name = "EVTOPTAwaylitfriendlycapture"
 		trigger = {
@@ -680,7 +640,6 @@ character_event = {
 		ai_chance = {
 			factor = 100
 		}
-		
 		prestige = 5
 		FROM = { 
 			holder_scope = { 
@@ -712,7 +671,6 @@ character_event = {
 	}
 }
 
-	
 #if owner not at location, event for imprisoning their family.  if all hidden, then it should say "Fine lets go"
 character_event = {
 
@@ -725,25 +683,23 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		AND = {
-			OR = {
-				trait = cruel
-				trait = arbitrary
-				trait = possessed
-				trait = lunatic
-				trait = greedy
-				trait = deceitful
-				trait = paranoid
-			}
-			NOT = {
-				trait = just
-				trait = honest
-				trait = kind
-				trait = charitable
-				trait = slothful
-				trait = humble
-				trait = trusting
-			}
+		OR = {
+			trait = cruel
+			trait = arbitrary
+			trait = possessed
+			trait = lunatic
+			trait = greedy
+			trait = deceitful
+			trait = paranoid
+		}
+		NOT = {
+			trait = just
+			trait = honest
+			trait = kind
+			trait = charitable
+			trait = slothful
+			trait = humble
+			trait = trusting
 		}
 		NOT = {
 			AND = {
@@ -777,14 +733,11 @@ character_event = {
 				war_with = ROOT
 				OR = {
 					any_dynasty_member = {
-						AND = {
-							NOT = { character = ROOT }
-							at_location = ROOT
-							NOT = { character = PREV }
-							NOT = { has_character_modifier = modifier_hidden }
-						}
+						NOT = { character = ROOT }
+						at_location = ROOT
+						NOT = { character = PREV }
+						NOT = { has_character_modifier = modifier_hidden }
 					}
-					
 					any_spouse = {
 						at_location = ROOT
 						NOT = { has_character_modifier = modifier_hidden }
@@ -793,10 +746,8 @@ character_event = {
 			} 
 		}
 	}
-	
 	option = {
 		name = "EVTOPTleavedecision"
-		
 		trigger = {
 			NOT = {
 				OR = {
@@ -821,7 +772,6 @@ character_event = {
 			}
 		}
 	}
-		
 	option = {
 		name = "EVTOPTAnoenemy2"
 		trigger = {
@@ -834,25 +784,19 @@ character_event = {
 					war_with = ROOT
 					OR = {
 						any_dynasty_member = {
-							AND = {
-								NOT = { character = ROOT }
-								at_location = ROOT
-								NOT = { character = PREV }
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							NOT = { character = ROOT }
+							at_location = ROOT
+							NOT = { character = PREV }
+							NOT = { has_character_modifier = modifier_hidden }
 						}
-						
 						any_spouse = {
 							at_location = ROOT
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-								
 					}
 				} 
 			}
 		}
-				
-
 		ai_chance = {
 			factor = 0.5
 			modifier = {
@@ -890,7 +834,6 @@ character_event = {
 				trait = wroth
 			}	
 		}
-
 		random = { 
 			chance = 10
 			add_trait = greedy
@@ -904,7 +847,6 @@ character_event = {
 			remove_trait = charitable
 			remove_trait = just
 		}
-		
 		FROM = { 
 			holder_scope = {  
 				if = { 
@@ -935,11 +877,9 @@ character_event = {
 				}
 				if = { 
 					limit = {
-						any_dynasty_member = {  
-							AND = {
-								at_location = ROOT 
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+						any_dynasty_member = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -953,7 +893,6 @@ character_event = {
 						}
 					}	
 				}
-					
 				if = { 
 					limit = {
 						any_spouse = {  
@@ -977,7 +916,6 @@ character_event = {
 			}		
 		}
 	}	
-	
 	option = {
 		name = "EVTOPTAnoenemy3"
 		trigger = {
@@ -990,23 +928,17 @@ character_event = {
 					war_with = ROOT
 					OR = {
 						any_dynasty_member = {
-							AND = {
-								at_location = ROOT
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
 						}
-						
 						any_spouse = {
 							at_location = ROOT
 							NOT = { has_character_modifier = modifier_hidden }
 						}
-								
 					}
 				} 
 			}
 		}
-				
-
 		ai_chance = {
 			factor = 0.5
 			modifier = {
@@ -1064,11 +996,9 @@ character_event = {
 			holder_scope = {  
 				if = { 
 					limit = {
-						any_dynasty_member = {  
-							AND = {
-								at_location = ROOT 
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+						any_dynasty_member = {
+							at_location = ROOT 
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -1262,10 +1192,8 @@ character_event = {
 				if = {
 					limit = {
 						any_dynasty_member = {
-							AND = { 
-								at_location = ROOT
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = {
@@ -1283,10 +1211,8 @@ character_event = {
 				if = {
 					limit = {
 						any_spouse = {
-							AND = { 
-								at_location = ROOT
-								NOT = { has_character_modifier = modifier_hidden }	
-							}
+							at_location = ROOT
+							NOT = { has_character_modifier = modifier_hidden }	
 						}
 					}
 					any_spouse = {
@@ -1366,20 +1292,16 @@ character_event = {
 		FROM = { 
 			holder_scope = {
 				higher_tier_than = BARON
-				AND = { 
-					war_with = ROOT 
-					any_courtier = { 
-						prisoner = yes 
-						at_location = ROOT
-					} 
-				} 
+				war_with = ROOT 
+				any_courtier = {
+					prisoner = yes 
+					at_location = ROOT
+				}
 			} 
 		} 						
 	}
-			
 	option = {
 		name = "EVTOPTleavedecision"
-		
 		trigger = {
 			NOT = {
 				OR = {
@@ -1400,9 +1322,7 @@ character_event = {
 			}
 		}
 	}			
-				
 	option = {
-		
 		name = "EVTOPWAYprisonrelease01"
 		trigger = { 
 			OR = {
@@ -1411,10 +1331,8 @@ character_event = {
 			}
 			FROM = { 
 				holder_scope = { 
-					AND = { 
-						war_with = ROOT 
-						any_courtier = { prisoner = yes } 
-					} 
+					war_with = ROOT
+					any_courtier = { prisoner = yes }
 				} 
 			} 
 		} 	
@@ -1484,15 +1402,12 @@ character_event = {
 				any_war = { OR = { any_attacker = { FROM = {holder_scope = { character = PREVPREV}}} any_attacker = { FROM = {holder_scope = { any_liege = { character = PREVPREVPREV }}}} } any_defender = {character = ROOT}}
 			}
 			FROM = { 
-				holder_scope = { 
-					AND = { 
-						war_with = ROOT 
-						any_courtier = { war_with = PREV } 
-					} 
+				holder_scope = {
+					war_with = ROOT 
+					any_courtier = { war_with = PREV } 
 				} 
 			} 
 		} 
-			
 		ai_chance = { 
 			factor = 1.5 
 			modifier = {
@@ -1524,7 +1439,6 @@ character_event = {
 				trait = paranoid
 			} 
 		}
-			
 		random = { 
 			chance = 20
 			add_trait = just
@@ -1569,10 +1483,8 @@ character_event = {
 			}
 			ROOT = { 
 				any_dynasty_member = {
-					AND = {
-						at_location = ROOT
-						prisoner = yes 
-					}
+					at_location = ROOT
+					prisoner = yes 
 				}
 			}	  
 		}
@@ -1650,8 +1562,6 @@ character_event = {
 			}
 		}
 	}
-				
-					
 	option = {
 		name = "EVTOPWAYprisonrelease04"
 			
@@ -1662,14 +1572,11 @@ character_event = {
 			}
 			FROM = { 
 				holder_scope = { 
-					AND = { 
-						war_with = ROOT 
-						any_courtier = { prisoner = yes }
-					} 
+					war_with = ROOT 
+					any_courtier = { prisoner = yes }
 				} 
 			} 
 		} 	
-		
 		ai_chance = { 
 			factor = 0.01 
 			modifier = {
@@ -1818,32 +1725,28 @@ character_event = {
 				}
 			}		
 		}	
-				
 	}
-		
 	option = {
 		name = "EVTOPTAsiegewin2"
 		trigger = {
-			AND = {
-				OR = {
-					trait = cruel
-					trait = arbitrary
-					trait = possessed
-					trait = lunatic
-					trait = greedy
-					trait = deceitful
-					trait = paranoid
-				}
-				NOT = {
-					trait = just
-					trait = honest
-					trait = kind
-					trait = charitable
-					trait = slothful
-					trait = humble
-					trait = trusting
-				}
-			}		
+			OR = {
+				trait = cruel
+				trait = arbitrary
+				trait = possessed
+				trait = lunatic
+				trait = greedy
+				trait = deceitful
+				trait = paranoid
+			}
+			NOT = {
+				trait = just
+				trait = honest
+				trait = kind
+				trait = charitable
+				trait = slothful
+				trait = humble
+				trait = trusting
+			}
 			FROMFROM = { 
 				holder_scope = { 
 					war_with = ROOT
@@ -1946,11 +1849,9 @@ character_event = {
 				}
 				if = { 
 					limit = {
-						any_dynasty_member = {  
-							AND = {
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+						any_dynasty_member = {
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -1992,26 +1893,24 @@ character_event = {
 	option = {
 		name = "EVTOPTAsiegewin6"
 		trigger = {
-			AND = {
-				OR = {
-					trait = cruel
-					trait = arbitrary
-					trait = possessed
-					trait = lunatic
-					trait = greedy
-					trait = deceitful
-					trait = paranoid
-				}
-				NOT = {
-					trait = just
-					trait = honest
-					trait = kind
-					trait = charitable
-					trait = slothful
-					trait = humble
-					trait = trusting
-				}
-			}		
+			OR = {
+				trait = cruel
+				trait = arbitrary
+				trait = possessed
+				trait = lunatic
+				trait = greedy
+				trait = deceitful
+				trait = paranoid
+			}
+			NOT = {
+				trait = just
+				trait = honest
+				trait = kind
+				trait = charitable
+				trait = slothful
+				trait = humble
+				trait = trusting
+			}
 			FROMFROM = { 
 				holder_scope = { 
 					war_with = ROOT
@@ -2090,10 +1989,8 @@ character_event = {
 				if = { 
 					limit = {
 						any_dynasty_member = {  
-							AND = {
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -2284,10 +2181,8 @@ character_event = {
 				if = {
 					limit = {
 						any_dynasty_member = {
-							AND = { 
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = {
@@ -2305,10 +2200,8 @@ character_event = {
 				if = {
 					limit = {
 						any_spouse = {
-							AND = { 
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }	
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }	
 						}
 					}
 					any_spouse = {
@@ -2487,10 +2380,8 @@ character_event = {
 				if = { 
 					limit = {
 						any_dynasty_member = {  
-							AND = {
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = { 
@@ -2537,13 +2428,10 @@ character_event = {
 					war_with = ROOT
 					OR = {
 						any_dynasty_member = {
-							AND = {
-								NOT = { character = FROM }
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							NOT = { character = FROM }
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
-						
 						any_spouse = {
 							NOT = { character = FROM }
 							at_location = FROMFROM
@@ -2615,10 +2503,8 @@ character_event = {
 				if = { 
 					limit = {
 						any_dynasty_member = {  
-							AND = {
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = {
@@ -2808,10 +2694,8 @@ character_event = {
 				if = {
 					limit = {
 						any_dynasty_member = {
-							AND = { 
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_dynasty_member = {
@@ -2829,10 +2713,8 @@ character_event = {
 				if = {
 					limit = {
 						any_spouse = {
-							AND = { 
-								at_location = FROMFROM
-								NOT = { has_character_modifier = modifier_hidden }	
-							}
+							at_location = FROMFROM
+							NOT = { has_character_modifier = modifier_hidden }
 						}
 					}
 					any_spouse = {
@@ -2908,10 +2790,8 @@ character_event = {
 		trigger = { 
 			FROMFROM = { 
 				holder_scope = { 
-					AND = { 
-						war_with = ROOT 
-						any_courtier = { prisoner = yes } 
-					} 
+					war_with = ROOT 
+					any_courtier = { prisoner = yes } 
 				} 
 			} 
 		} 	
@@ -2977,10 +2857,8 @@ character_event = {
 		trigger = { 
 			FROMFROM = { 
 				holder_scope = { 
-					AND = { 
-						war_with = ROOT 
-						any_courtier = { war_with = PREV } 
-					} 
+					war_with = ROOT 
+					any_courtier = { war_with = PREV } 
 				} 
 			} 
 		} 
@@ -3056,10 +2934,8 @@ character_event = {
 			}
 			ROOT = { 
 				any_dynasty_member = {
-					AND = {
-						at_location = FROMFROM
-						prisoner = yes 
-					}
+					at_location = FROMFROM
+					prisoner = yes 
 				}
 			}	  
 		}
@@ -3145,10 +3021,8 @@ character_event = {
 		trigger = {
 			FROMFROM = { 
 				holder_scope = { 
-					AND = { 
-						war_with = ROOT 
-						any_courtier = { prisoner = yes }
-					} 
+					war_with = ROOT 
+					any_courtier = { prisoner = yes }
 				} 
 			} 
 		} 	
