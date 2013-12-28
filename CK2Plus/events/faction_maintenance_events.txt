@@ -1,0 +1,232 @@
+#Faction Maintenance on Character Death
+character_event = {
+	id = 110047
+	picture = "GFX_evt_death"
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	desc = "EVTDESC110044"
+
+	immediate = {
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_ruler = yes
+				}
+				if = {
+					limit = { has_character_flag = faction_feudal_war }
+					current_heir = {
+						set_character_flag = faction_feudal_war
+					}
+					clr_character_flag = faction_feudal_war
+				}
+				if = {
+					limit = { has_character_flag = faction_court_war }
+					current_heir = {
+						set_character_flag = faction_court_war
+					}
+					clr_character_flag = faction_court_war
+				}
+				if = {
+					limit = { has_character_flag = faction_republican_war }
+					current_heir = {
+						set_character_flag = faction_republican_war
+					}
+					clr_character_flag = faction_republican_war
+				}
+				if = {
+					limit = { has_character_flag = faction_religious_war }
+					current_heir = {
+						set_character_flag = faction_religious_war
+					}
+					clr_character_flag = faction_religious_war
+				}
+				if = {
+					limit = { has_character_flag = faction_separatist_war }
+					current_heir = {
+						set_character_flag = faction_separatist_war
+					}
+					clr_character_flag = faction_separatist_war
+				}
+				if = {
+					limit = { has_character_flag = faction_pretender_war }
+					current_heir = {
+						set_character_flag = faction_pretender_war
+					}
+					clr_character_flag = faction_pretender_war
+				}
+				random_courtier = { limit = { ai = yes prisoner = no is_ruler = no NOT = { character = PREV } } character_event = { id = 110073 days = 3 } }
+			}
+			if = {
+				limit = {
+					is_ruler = yes
+					current_heir = { lower_tier_than = ROOT }
+				}
+				if = {
+					limit = { NOT = { has_character_flag = lifetime_appointments } }
+					current_heir = { clr_character_flag = lifetime_appointments }
+				}
+				if = {
+					limit = { NOT = { has_character_flag = max_levies }	}
+					current_heir = { clr_character_flag = max_levies }
+				}
+				if = {
+					limit = { has_character_flag = lifetime_appointments }
+					job_spymaster = { remove_title = job_spymaster remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_marshal = { remove_title = job_marshal remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_chancellor = { remove_title = job_chancellor remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_treasurer = { remove_title = job_treasurer remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					job_spiritual = { remove_title = job_spiritual remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+					current_heir = {
+						set_character_flag = lifetime_appointments
+						if = {
+							limit = { is_ruler = yes }
+							job_spymaster = { remove_title = job_spymaster remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+							job_marshal = { remove_title = job_marshal remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+							job_chancellor = { remove_title = job_chancellor remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+							job_treasurer = { remove_title = job_treasurer remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+							job_spiritual = { remove_title = job_spiritual remove_opinion = { who = PREV modifier = opinion_fired_from_council } }
+						}
+					}
+					clr_character_flag = lifetime_appointments
+				}
+				if = {
+					limit = { has_character_flag = max_levies }
+					current_heir = {
+						set_character_flag = max_levies
+					}
+					clr_character_flag = max_levies
+				}
+				if = {
+					limit = { trait = loyalist }
+					current_heir = { add_trait = loyalist }
+					remove_trait = loyalist
+				}
+				if = {
+					limit = { trait = rebel }
+					current_heir = { add_trait = rebel }
+					random_playable_ruler = {
+						limit = {
+							reverse_has_opinion_modifier = {
+								who = ROOT
+								modifier = revolting_against
+							}
+						}
+						ROOT = {
+							current_heir = {
+								opinion = { who = PREVPREV modifier = revolting_against years = 100 }
+							}
+							remove_opinion = {
+								who = PREV
+								modifier = revolting_against
+							}
+						}
+					}
+					remove_trait = rebel
+				}
+				current_heir = {
+					any_playable_ruler = {
+						limit = {
+							has_opinion_modifier = {
+								who = ROOT
+								modifier = revolting_against
+							}
+						}
+						opinion = { who = PREV modifier = revolting_against years = 100 }
+						remove_opinion = {
+							who = ROOT
+							modifier = revolting_against
+						}
+					}
+				}
+				current_heir = {
+					set_variable = { which = "faction_mood_feudal" value = 0 }
+					set_variable = { which = "faction_mood_court" value = 0 }
+					set_variable = { which = "faction_mood_republican" value = 0 }
+					set_variable = { which = "faction_mood_religious" value = 0 }
+					set_variable = { which = "rebel_power" value = 0 }
+				}
+				current_heir = {
+					clr_character_flag = faction_feudal_happy
+					clr_character_flag = faction_feudal_unhappy
+					clr_character_flag = faction_feudal_angry
+					clr_character_flag = faction_republican_happy
+					clr_character_flag = faction_republican_unhappy
+					clr_character_flag = faction_republican_angry
+					clr_character_flag = faction_religious_happy
+					clr_character_flag = faction_religious_unhappy
+					clr_character_flag = faction_religious_angry
+					clr_character_flag = faction_court_happy
+					clr_character_flag = faction_court_unhappy
+					clr_character_flag = faction_court_angry
+				}
+				if = {
+					limit = { has_character_flag = faction_feudal_happy }
+					current_heir = { set_character_flag = faction_feudal_happy }
+				}
+				if = {
+					limit = { has_character_flag = faction_feudal_unhappy }
+					current_heir = { set_character_flag = faction_feudal_unhappy }
+				}
+				if = {
+					limit = { has_character_flag = faction_feudal_angry }
+					current_heir = { set_character_flag = faction_feudal_angry }
+				}
+				if = {
+					limit = { has_character_flag = faction_republican_happy }
+					current_heir = { set_character_flag = faction_republican_happy }
+				}
+				if = {
+					limit = { has_character_flag = faction_republican_unhappy }
+					current_heir = { set_character_flag = faction_republican_unhappy }
+				}
+				if = {
+					limit = { has_character_flag = faction_republican_angry }
+					current_heir = { set_character_flag = faction_republican_angry }
+				}
+				if = {
+					limit = { has_character_flag = faction_religious_happy }
+					current_heir = { set_character_flag = faction_religious_happy }
+				}
+				if = {
+					limit = { has_character_flag = faction_religious_unhappy }
+					current_heir = { set_character_flag = faction_religious_unhappy }
+				}
+				if = {
+					limit = { has_character_flag = faction_religious_angry }
+					current_heir = { set_character_flag = faction_religious_angry }
+				}
+				if = {
+					limit = { has_character_flag = faction_court_happy }
+					current_heir = { set_character_flag = faction_court_happy }
+				}
+				if = {
+					limit = { has_character_flag = faction_court_unhappy }
+					current_heir = { set_character_flag = faction_court_unhappy }
+				}
+				if = {
+					limit = { has_character_flag = faction_court_angry }
+					current_heir = { set_character_flag = faction_court_angry }
+				}
+			}
+			set_variable = { which = "faction_mood_feudal" value = 0 }
+			set_variable = { which = "faction_mood_court" value = 0 }
+			set_variable = { which = "faction_mood_republican" value = 0 }
+			set_variable = { which = "faction_mood_religious" value = 0 }
+			set_variable = { which = "rebel_power" value = 0 }
+			clr_character_flag = faction_feudal_happy
+			clr_character_flag = faction_feudal_unhappy
+			clr_character_flag = faction_feudal_angry
+			clr_character_flag = faction_republican_happy
+			clr_character_flag = faction_republican_unhappy
+			clr_character_flag = faction_republican_angry
+			clr_character_flag = faction_religious_happy
+			clr_character_flag = faction_religious_unhappy
+			clr_character_flag = faction_religious_angry
+			clr_character_flag = faction_court_happy
+			clr_character_flag = faction_court_unhappy
+			clr_character_flag = faction_court_angry
+		}
+	}
+}
