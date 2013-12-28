@@ -3592,42 +3592,44 @@ character_event = {
 			modifier = {
 				factor = 1.5
 				liege = {
-					AND = {
-						OR = {
-							leads_faction = faction_feudal_emperor
-							leads_faction = faction_feudal_king
-							leads_faction = faction_feudal_duke
-						}
-						liege = {
-							primary_title = {
-								OR = {
-									has_law = iqta_tax_2
-									has_law = feudal_tax_2
+					OR = {
+						AND = {
+							OR = {
+								leads_faction = faction_feudal_emperor
+								leads_faction = faction_feudal_king
+								leads_faction = faction_feudal_duke
+							}
+							liege = {
+								primary_title = {
+									OR = {
+										has_law = iqta_tax_2
+										has_law = feudal_tax_2
+									}
 								}
 							}
 						}
-					}
-					AND = {
-						OR = {
-							leads_faction = faction_religious_emperor
-							leads_faction = faction_religious_king
-							leads_faction = faction_religious_duke
-						}
-						liege = {
-							primary_title = {
-								has_law = temple_tax_2
+						AND = {
+							OR = {
+								leads_faction = faction_religious_emperor
+								leads_faction = faction_religious_king
+								leads_faction = faction_religious_duke
+							}
+							liege = {
+								primary_title = {
+									has_law = temple_tax_2
+								}
 							}
 						}
-					}
-					AND = {
-						OR = {
-							leads_faction = faction_republican_emperor
-							leads_faction = faction_republican_king
-							leads_faction = faction_republican_duke
-						}
-						liege = {
-							primary_title = {
-								has_law = city_tax_2
+						AND = {
+							OR = {
+								leads_faction = faction_republican_emperor
+								leads_faction = faction_republican_king
+								leads_faction = faction_republican_duke
+							}
+							liege = {
+								primary_title = {
+									has_law = city_tax_2
+								}
 							}
 						}
 					}

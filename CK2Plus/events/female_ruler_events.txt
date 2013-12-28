@@ -25,14 +25,12 @@ character_event = { # my daughter is poised to inherit!
 				NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
 			}
 			current_heir = {
-				AND = {
-					is_female = yes
-					age = 6
-					NOT = { age = 20 }
-					OR = {
-						father = { character = ROOT }
-						mother = { character = ROOT }
-					}
+				is_female = yes
+				age = 6
+				NOT = { age = 20 }
+				OR = {
+					father = { character = ROOT }
+					mother = { character = ROOT }
 				}
 			}
 			NOT = { trait = teaching_daughter }
@@ -317,10 +315,8 @@ character_event = { # No sons, should I change my laws?
 		}
 		NOT = {
 			any_child = {
-				AND = {
-					is_female = no
-					NOT = { trait = bastard }
-				}
+				is_female = no
+				NOT = { trait = bastard }
 			}
 		}
 		any_child = {

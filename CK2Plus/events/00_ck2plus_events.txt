@@ -569,8 +569,17 @@ character_event = {
 				}
 			}
 		}
-		if={
-			limit = {AND ={FROM = {has_plot=plot_fabricate_evidence_betrayal_same_realm} NOT = {any_liege = {character=FROM}}}}
+		if = {
+			limit = {
+				FROM = {
+					has_plot= plot_fabricate_evidence_betrayal_same_realm
+					}
+				NOT = {
+					any_liege = {
+						character = FROM
+					}
+				}
+			}
 			FROM = {
 				any_vassal = {letter_event = {id = 1000182020} set_character_flag = infbetrayalfail}
 				if={

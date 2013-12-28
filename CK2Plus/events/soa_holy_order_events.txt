@@ -1432,7 +1432,7 @@ province_event = {
 }
 
 ########################################
-# The Bektashi Order
+# The ansar Order
 ########################################
 
 # The Grand Master demands one of your sons due to debt
@@ -1453,8 +1453,8 @@ character_event = {
 			religion = yazidi
 		}
 		is_heretic = no
-		has_character_modifier = borrowed_from_bektashi
-		NOT = { has_character_flag = sent_son_to_bektashi }
+		has_character_modifier = borrowed_from_ansar
+		NOT = { has_character_flag = sent_son_to_ansar }
 		any_child = {
 			is_female = no
 			is_adult = yes
@@ -1514,7 +1514,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				character_event = {
 					id = SoA.1202
@@ -1564,11 +1564,11 @@ letter_event = {
 			factor = 100
 		}
 		
-		set_character_flag = sent_son_to_bektashi
+		set_character_flag = sent_son_to_ansar
 		
 		piety = 100
 		
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				FROMFROM = {
 					move_character = PREV
@@ -1584,7 +1584,7 @@ letter_event = {
 		name = EVTOPTB_SOA_1003 # Pay them back
 		wealth = -300
 		hidden_tooltip = {
-			remove_character_modifier = borrowed_from_bektashi
+			remove_character_modifier = borrowed_from_ansar
 		}
 		FROM = {
 			wealth = 300
@@ -1598,7 +1598,7 @@ letter_event = {
 }
 
 
-# Birth of the Bektashi Order
+# Birth of the ansar Order
 narrative_event = {
 	id = SoA.1209
 	title = EVTTITLE_SOA_1209
@@ -1620,7 +1620,7 @@ narrative_event = {
 			}
 			is_heretic = no
 		NOT = {
-			is_title_active = d_bektashi
+			is_title_active = d_ansar
 		}
 		
 		has_global_flag = muslim_jihads_unlocked
@@ -1651,7 +1651,7 @@ narrative_event = {
 	}
 	
 	immediate = {
-		activate_title = { title = d_bektashi status = yes }
+		activate_title = { title = d_ansar status = yes }
 		create_character = {
 			random_traits = no
 			name = Bektash
@@ -1680,7 +1680,7 @@ narrative_event = {
 		}
 		new_character = {
 			wealth = 500
-			d_bektashi = {
+			d_ansar = {
 				grant_title = PREV
 			}
 			create_character = {
@@ -1772,7 +1772,7 @@ narrative_event = {
 	}
 }
 
-# Ping event when borrowing money from the Bektashi
+# Ping event when borrowing money from the ansar
 character_event = {
 	id = SoA.1210
 	desc = OK
@@ -1797,7 +1797,7 @@ character_event = {
 	}
 }
 
-# Notification event when borrowing money from the Bektashi
+# Notification event when borrowing money from the ansar
 letter_event = {
 	id = SoA.1211
 	desc = EVTDESC_SOA_1211
@@ -1830,14 +1830,14 @@ character_event = {
 		}
 		is_heretic = no
 		
-		has_character_modifier = borrowed_from_bektashi
-		NOT = { has_character_flag = sent_son_to_bektashi }
+		has_character_modifier = borrowed_from_ansar
+		NOT = { has_character_flag = sent_son_to_ansar }
 		
 		any_demesne_province = {
 			has_empty_holding = yes
 		}
 		
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				wealth = 300
 			}
@@ -1876,7 +1876,7 @@ province_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				character_event = {
 					id = SoA.1222
@@ -1927,7 +1927,7 @@ letter_event = {
 		}
 		
 		hidden_tooltip = {
-			remove_character_modifier = borrowed_from_bektashi
+			remove_character_modifier = borrowed_from_ansar
 			FROMFROM = {
 				province_event = { id = SoA.1224 }
 			}
@@ -1940,7 +1940,7 @@ letter_event = {
 		name = EVTOPTB_SOA_1003 # Pay them back
 		wealth = -300
 		hidden_tooltip = {
-			remove_character_modifier = borrowed_from_bektashi
+			remove_character_modifier = borrowed_from_ansar
 		}
 		FROM = {
 			wealth = 300
@@ -1977,7 +1977,7 @@ province_event = {
 	}
 }
 
-# The son of a ruler volunteers to join the Bektashi Order
+# The son of a ruler volunteers to join the ansar Order
 character_event = {
 	id = SoA.1230
 	desc = EVTDESC_SOA_1230
@@ -2001,7 +2001,7 @@ character_event = {
 		
 		martial = 5
 		
-		is_title_active = d_bektashi
+		is_title_active = d_ansar
 		
 		OR = {
 			father_even_if_dead = {
@@ -2096,7 +2096,7 @@ character_event = {
 	}
 }
 
-# Son or brother asks to join the Bektashi
+# Son or brother asks to join the ansar
 character_event = {
 	id = SoA.1231
 	desc = EVTDESC_SOA_1231
@@ -2135,7 +2135,7 @@ character_event = {
 	}
 }
 
-# Son or brother joins the Bektashi Order
+# Son or brother joins the ansar Order
 character_event = {
 	id = SoA.1232
 	desc = EVTDESC_SOA_1232
@@ -2147,7 +2147,7 @@ character_event = {
 	option = {
 		name = EXCELLENT
 		
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				ROOT = {
 					move_character = PREV
@@ -2160,7 +2160,7 @@ character_event = {
 	}
 }
 
-# Liege refuses request to join the Bektashi
+# Liege refuses request to join the ansar
 character_event = {
 	id = SoA.1233
 	desc = EVTDESC_SOA_1233
@@ -2194,7 +2194,7 @@ character_event = {
 	trigger = {
 		religion = shiite
 		
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				wealth = 300
 				NOT = {
@@ -2218,7 +2218,7 @@ character_event = {
 		months = 240
 		modifier = {
 			factor = 0.5
-			d_bektashi = {
+			d_ansar = {
 				holder_scope = {
 					NOT = { demesne_size = 1 }
 				}
@@ -2226,7 +2226,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			d_bektashi = {
+			d_ansar = {
 				holder_scope = {
 					NOT = { demesne_size = 2 }
 				}
@@ -2234,7 +2234,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			d_bektashi = {
+			d_ansar = {
 				holder_scope = {
 					realm_size = 5
 				}
@@ -2270,7 +2270,7 @@ province_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		d_bektashi = {
+		d_ansar = {
 			holder_scope = {
 				character_event = {
 					id = SoA.1252
@@ -2320,7 +2320,7 @@ letter_event = {
 			factor = 100
 			modifier = {
 				factor = 0
-				has_character_modifier = expelled_bektashi
+				has_character_modifier = expelled_ansar
 			}
 		}
 		
@@ -2328,7 +2328,7 @@ letter_event = {
 			FROMFROM = {
 				province_event = { id = SoA.1254 }
 			}
-			remove_character_modifier = expelled_bektashi
+			remove_character_modifier = expelled_ansar
 		}
 		
 		piety = 200
