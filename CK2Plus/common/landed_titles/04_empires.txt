@@ -8,14 +8,13 @@ e_roman_empire = {
 	duchy_revokation = yes
 	purple_born_heirs = yes
 	culture = roman
-
 	allow = {
-		NOT = { 
+		is_adult = yes
+		ruled_years = 5
+		war = no
+		NOT = {
 			tier = emperor 
 		}
-		war = no
-		ruled_years = 5
-		is_adult = yes
 		OR = {
 			e_roman_empire = {
 				OR = {
@@ -41,9 +40,9 @@ e_hre = {
 	short_name = yes
 
 	allow = {
-		war = no
-		ruled_years = 5
 		is_adult = yes
+		ruled_years = 5
+		war = no
 		NOT = { 
 			tier = emperor 
 		}

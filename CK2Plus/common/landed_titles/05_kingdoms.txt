@@ -11,13 +11,13 @@ k_frisia = {
 	catholic = 700 # Crusade target weight
 	norse_pagan_reformed = 200 # Crusade target weight
 	allow = {
-		independent = yes
-		NOT = {
-			has_landed_title = e_byzantium 
-		}
 		is_adult = yes
 		ruled_years = 5
 		war = no
+		NOT = {
+			has_landed_title = e_byzantium
+			ai = yes
+		}
 		OR = {
 			culture = dutch
 			k_frisia = {
@@ -34,6 +34,8 @@ k_frisia = {
 		culture = dutch
 		capital = 77 #Artois
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_artois = {
@@ -78,6 +80,8 @@ k_frisia = {
 		culture = dutch
 		capital = 78
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_yperen = {
@@ -134,6 +138,8 @@ k_frisia = {
 		capital = 80 #Holland
 		culture = dutch
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_holland = {
@@ -179,6 +185,8 @@ k_frisia = {
 		capital = 83 #Gelre
 		culture = dutch
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_ostfriesland = {
@@ -251,6 +259,8 @@ k_frisia = {
 		capital = 117 #Brabant
 		culture = dutch
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_brabant = {
@@ -287,13 +297,13 @@ k_lotharingia = {
 	dignity = 9
 	catholic = 10 #Crusade target weight
 	allow = {
-		independent = yes
-		NOT = {
-			has_landed_title = e_byzantium 
-		}
 		is_adult = yes
 		ruled_years = 5
 		war = no
+		NOT = {
+			has_landed_title = e_byzantium
+			ai = yes
+		}
 		OR = {
 			culture = german
 			culture = frankish
@@ -310,6 +320,8 @@ k_lotharingia = {
 		color2={ 255 255 255 }
 		capital = 89 #Cleves
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_limburg = {
@@ -360,6 +372,8 @@ k_lotharingia = {
 		color2={ 255 255 255 }
 		capital = 115 #Luxembourg
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_luxembourg = {
@@ -396,6 +410,8 @@ k_lotharingia = {
 		color2={ 255 255 255 }
 		capital = 127 #Lorraine
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_lorraine = {
@@ -440,6 +456,8 @@ k_lotharingia = {
 		color2={ 255 255 255 }
 		capital = 118 # Trier
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_pfalz = {
@@ -472,6 +490,8 @@ k_lotharingia = {
 		color2={ 255 255 255 }
 		capital = 134 #Sundgau
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_nordgau = {
@@ -504,6 +524,8 @@ k_lotharingia = {
 		color2={ 255 255 0 }
 		capital = 911 #Bar
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_verdun = {
@@ -531,6 +553,8 @@ k_lotharingia = {
 		capital = 116 #Liege
 		culture = frankish
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_liege = {
@@ -567,19 +591,21 @@ k_germany = {
 	slavic_pagan_reformed = 10 # Crusade target weight
 	baltic_pagan_reformed = 1 # Crusade target weight
 	allow = {
-		independent = yes
+		is_adult = yes
+		ruled_years = 5
+		war = no
 		NOT = {
 			OR = {
-				has_landed_title = e_byzantium
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
 				AND = {
 					has_landed_title = e_hre
 					ai = yes
 				}
 			}
 		}
-		is_adult = yes
-		ruled_years = 5
-		war = no
 		OR = {
 			culture = german
 			culture = frankish
@@ -596,6 +622,8 @@ k_germany = {
 		color2={ 255 255 255 }
 		capital = 245 #Schwyz
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_schwyz = {
@@ -652,6 +680,8 @@ k_germany = {
 		color2={ 255 255 255 }
 		capital = 263 #Holstein
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_hamburg = {
@@ -696,6 +726,8 @@ k_germany = {
 		color2={ 97 255 255 }
 		capital = 258 #Lüneburg
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_celle = {
@@ -755,6 +787,8 @@ k_germany = {
 		color2={ 255 255 255 }
 		capital = 86 #Oldenburg
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_osnabruck = {
@@ -799,6 +833,8 @@ k_germany = {
 		color2={ 255 255 255 }
 		capital = 255 #Thuringen
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_thuringen = {
@@ -831,6 +867,8 @@ k_germany = {
 		color2={ 255 216 0 }
 		capital = 119 #Köln
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_koln = {
@@ -865,6 +903,8 @@ k_germany = {
 		color2={ 255 255 255 }
 		capital = 123 #Mainz
 		allow = {
+			is_adult = yes
+			ruled_years = 5
 			war = no
 		}
 		c_mainz = {
@@ -920,7 +960,11 @@ k_germany = {
 		color={ 115 149 109 }
 		color2={ 255 255 255 }
 		capital = 125 #Baden
-		allow = { war = no }
+		allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+		}	
 		c_baden = {
 			color={ 74 207 6 }
 			color2={ 255 255 255 }
@@ -947,124 +991,85 @@ k_germany = {
 		}
 	}
 	d_bavaria = {
-                color={ 18 121 121 }
-                color2={ 255 255 255 }
-                capital = 360 #Oberbayern
-                
-                allow = { war = no }
-                
-                c_kempten = {
-                        color={ 165 232 174 }
-                        color2={ 255 255 255 }
-                
-                        b_kempten = {
-                        }
-                        b_augsburg = {
-                        }
-                        b_zumarshausen = {
-                        }
-                        b_kaufbeuren = {
-                        }
-                        b_donauworth = {
-                        }
-                        b_friedberg = {
-                        }
-                        b_hochstadt = {
-                        }
-                        b_rain = {
-                        }
-                }
-                c_oberbayern = {
-                        color={ 205 186 144 }
-                        color2={ 255 255 255 }
-                        b_munchen = {
-                        }
-                        b_dachau = {
-                        }
-                        b_freising = {
-                        }
-                        b_andechs = {
-                        }
-                        b_diessen = {
-                        }
-                        b_dingolfing = {
-                        }
-                        b_pfaffenberg = {
-                        }
-                        b_ebersberg = {
-                        }
-                }
-                c_salzburg = {
-                        color={ 59 50 207 }
-                        color2={ 255 255 255 }
-                        b_salzburg = {
-                        }
-                        b_durmberg = {
-                        }
-                        b_waging = {
-                        }
-                        b_berchtesgaden = {
-                        }
-                        b_tittmoning = {
-                        }
-                        b_laufen = {
-                        }
-                        b_muhldorf = {
-                        }
-                        b_gastein = {
-                        }
-                }
-                c_niederbayern = {
-                        color={ 47 208 86 }
-                        color2={ 255 255 255 }
-                        b_straubing = {
-                        }
-                        b_regensburg = {
-                        }
-                        b_landshut = {
-                        }
-                        b_ingolstadt = {
-                        }
-                        b_wittelsbach = {
-                        }
-                        b_cham = {
-                        }
-                        b_rohrbach = {
-                        }
-                        b_kirchroth = {
-                        }
-                }
-                c_nurnberg = {
-                        color={ 234 43 180 }
-                        color2={ 255 255 255 }
-                        b_nurnberg = {
-                        }
-                        b_ellwangen = {
-                        }
-                        b_furth = {
-                        }
-                        b_kulmbach = {
-                        }
-                        b_hohenburg = {
-                        }
-                        b_nordlingen = {
-                        }
-                        b_eichstatt = {
-                        }
-                        b_erlangen = {
-                        }
-                }
-        }
-        
-        d_osterreich = {
-                color={ 191 182 182 }
-                color2={ 255 255 255 }
-                
-                capital = 449 #Österreich
-                
-                allow = { war = no }
-                
-                c_passau = {
+		color={ 18 121 121 }
+		color2={ 255 255 255 }
+		capital = 360 #Oberbayern
+		allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+		}
+		c_kempten = {
+			color={ 165 232 174 }
+			color2={ 255 255 255 }
+			b_kempten = {}
+			b_augsburg = {}
+			b_zumarshausen = {}
+			b_kaufbeuren = {}
+			b_donauworth = {}
+			b_friedberg = {}
+			b_hochstadt = {}
+			b_rain = {}
+		}
+		c_oberbayern = {
+			color={ 205 186 144 }
+			color2={ 255 255 255 }
+			b_munchen = {}
+			b_dachau = {}
+			b_freising = {}
+			b_andechs = {}
+			b_diessen = {}
+			b_dingolfing = {}
+			b_pfaffenberg = {}
+			b_ebersberg = {}
+		}
+		c_salzburg = {
+			color={ 59 50 207 }
+			color2={ 255 255 255 }
+			b_salzburg = {}
+			b_durmberg = {}
+			b_waging = {}
+			b_berchtesgaden = {}
+			b_tittmoning = {}
+			b_laufen = {}
+			b_muhldorf = {}
+			b_gastein = {}
+		}
+		c_niederbayern = {
+			color={ 47 208 86 }
+			color2={ 255 255 255 }
+			b_straubing = {}
+			b_regensburg = {}
+			b_landshut = {}
+			b_ingolstadt = {}
+			b_wittelsbach = {}
+			b_cham = {}
+			b_rohrbach = {}
+			b_kirchroth = {}
+		}
+		c_nurnberg = {
+			color={ 234 43 180 }
+			color2={ 255 255 255 }
+			b_nurnberg = {}
+			b_ellwangen = {}
+			b_furth = {}
+			b_kulmbach = {}
+			b_hohenburg = {}
+			b_nordlingen = {}
+			b_eichstatt = {}
+			b_erlangen = {}
+		}
+	}
+	d_osterreich = {
+		color={ 191 182 182 }
+		color2={ 255 255 255 }
+		capital = 449 #Österreich
+		allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+		}
+		c_passau = {
                         color={ 200 161 53 }
                         color2={ 255 255 255 }
                         b_passau = {
@@ -1130,7 +1135,11 @@ k_germany = {
                 color2={ 255 255 255 }
                 capital = 316 #Tirol
                 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_tirol = {
                         color={ 149 80 128 }
@@ -1180,7 +1189,11 @@ k_germany = {
                 
                 capital = 358 # Aquileia
                 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_istria = {
                         color={ 139 65 17 }
@@ -1271,7 +1284,9 @@ k_germany = {
                 capital = 249 #Schwaben
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_schwaben = {
@@ -1371,11 +1386,13 @@ k_bohemia = {
         baltic_pagan_reformed = 1 # Crusade target weight
    
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = bohemian
                         k_bohemia = {
@@ -1393,7 +1410,9 @@ k_bohemia = {
                 capital = 437 # Praha
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_domazlice = {
@@ -1503,7 +1522,9 @@ k_bohemia = {
                 capital = 440 # Olomouc
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
    
                 c_znojmo = {
@@ -1602,11 +1623,13 @@ k_pomerania = {
         baltic_pagan_reformed = 100 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = pommeranian
                         religion_group = pagan_group
@@ -1625,7 +1648,9 @@ k_pomerania = {
 			capital = 368 # Danzig
         
 			allow = {
-				war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
 			}
         
                 c_danzig = {
@@ -1700,7 +1725,9 @@ k_pomerania = {
                 capital = 260 #mecklemburg
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_mecklemburg = {
@@ -1796,7 +1823,9 @@ k_pomerania = {
                 capital = 366 # Stettin
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_wolgast = {
@@ -1846,7 +1875,9 @@ k_pomerania = {
                 capital = 310 #Anhalt
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_plauen = {
@@ -1898,7 +1929,9 @@ k_pomerania = {
                 capital = 365 #Brandenburg
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_anhalt = {
@@ -1970,7 +2003,9 @@ k_pomerania = {
                 capital = 312 #Meissen
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_meissen = {
@@ -2029,11 +2064,13 @@ k_byzantium = {
         capital = 482 #Athens
 
         allow = {
-			war = no
-			ruled_years = 5
 			is_adult = yes
-			independent = yes
-			NOT = { has_landed_title = e_byzantium }
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
 			OR = {
 					culture = greek
 					k_byzantium = {
@@ -2051,7 +2088,9 @@ k_byzantium = {
                 capital = 484 # Naxos
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_abydos = {
@@ -2150,7 +2189,9 @@ k_byzantium = {
                 muslim = 100 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kaliopolis = {
@@ -2232,7 +2273,9 @@ k_byzantium = {
                 capital = 494 # Adrianopolis
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_adrianopolis = {
@@ -2284,7 +2327,9 @@ k_byzantium = {
                 capital = 490 # Thessalonike
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_chalkidike = {
@@ -2356,7 +2401,9 @@ k_byzantium = {
                 capital = 470 # Dyrrachion
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_strymon = {
@@ -2429,7 +2476,9 @@ k_byzantium = {
                 capital = 473 # Arta
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_epeiros = {
@@ -2517,7 +2566,9 @@ k_byzantium = {
                 capital = 482 # Atheniai
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_demetrias = {
@@ -2590,7 +2641,9 @@ k_byzantium = {
                 capital = 476 # Achaia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_achaia = {
@@ -2683,7 +2736,9 @@ k_byzantium = {
                 capital = 480 # Chandax
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kaneia = {
@@ -2735,7 +2790,9 @@ k_byzantium = {
                 capital = 757 # Famagusta
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_famagusta = {
@@ -2794,11 +2851,13 @@ k_nikaea = {
         zoroastrian_group = 100 # Crusade target weight
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = greek
                         k_nikaea = {
@@ -2816,7 +2875,9 @@ k_nikaea = {
                 capital = 750 # Nikaea
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_nikaea = {
@@ -2910,7 +2971,9 @@ k_nikaea = {
                 capital = 486 # Samos
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_ephesos = {
@@ -2986,7 +3049,9 @@ k_nikaea = {
                 capital = 755 # Attaleia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_attaleia = {
@@ -3059,7 +3124,9 @@ k_nikaea = {
                 capital = 759 # Ikonion
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_dorylaion = {
@@ -3114,7 +3181,9 @@ k_nikaea = {
                 capital = 748 # Laodikeia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_sozopolis = {
@@ -3167,7 +3236,9 @@ k_nikaea = {
                 capital = 760 # Tyana
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kaisereia = {
@@ -3238,7 +3309,9 @@ k_nikaea = {
                 capital = 753 # Ankyra
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_paphlagonia = {
@@ -3316,11 +3389,13 @@ k_trebizond = {
         zoroastrian_group = 10 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = greek
                         k_trebizond = {
@@ -3340,7 +3415,9 @@ k_trebizond = {
                 dignity = 7
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }                
                 c_theodosiopolis = {
                         color={ 179 169 76 }
@@ -3412,7 +3489,9 @@ k_trebizond = {
                 capital = 738 # Amisos
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_amisos = {
@@ -3471,11 +3550,13 @@ k_armenia = {
         zoroastrian_group = 50 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = armenian
                         k_armenia = {
@@ -3493,7 +3574,9 @@ k_armenia = {
                 capital = 761 # Tarsos
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lykandos = {
@@ -3610,7 +3693,9 @@ k_armenia = {
                 capital = 682 # Vaspurakan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_vaspurakan = {
@@ -3684,7 +3769,9 @@ k_armenia = {
                 capital = 702 # Mesopotamia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_karin = {
@@ -3757,7 +3844,9 @@ k_armenia = {
                 capital = 699 # Edessa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_edessa = {
@@ -3829,7 +3918,9 @@ k_armenia = {
                 capital = 706 # Koloneia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_koloneia = {
@@ -3891,11 +3982,13 @@ k_bulgaria = {
         tengri_pagan_reformed = 5
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = bulgarian
                         k_bulgaria = {
@@ -3913,7 +4006,9 @@ k_bulgaria = {
                 capital = 506 # Vidin
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_vidin = {
@@ -3965,7 +4060,9 @@ k_bulgaria = {
                 capital = 499 # Tyrnovo
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_tyrnovo = {
@@ -4059,7 +4156,9 @@ k_bulgaria = {
                 capital = 509 # Karvuna
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_mesembria = {
@@ -4140,11 +4239,13 @@ k_serbia = {
         capital = 502 # Rashka
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = serbian
                         k_serbia = {
@@ -4162,7 +4263,9 @@ k_serbia = {
                 capital = 502 # Rashka
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_rashka = {
@@ -4235,7 +4338,9 @@ k_serbia = {
                 capital = 468 # Ragusa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_zeta = {
@@ -4317,11 +4422,13 @@ k_croatia = {
         capital = 465 # Zadar
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = croatian
                         k_croatia = {
@@ -4339,7 +4446,9 @@ k_croatia = {
                 capital = 461 # Zagreb
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_krizevci = {
@@ -4412,7 +4521,9 @@ k_croatia = {
                 capital = 463 # Usora
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_rama = {
@@ -4464,7 +4575,9 @@ k_croatia = {
                 capital = 464 # Senj
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_zachlumia = {
@@ -4533,7 +4646,9 @@ k_croatia = {
                 capital = 465 # Zadar
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_split = {
@@ -4588,11 +4703,13 @@ k_sicily = {
         shiite = 50 #Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = italian
                         culture = sicilian
@@ -4615,7 +4732,9 @@ k_sicily = {
                 catholic = 250 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_benevento = {
@@ -4682,7 +4801,9 @@ k_sicily = {
                 catholic = 250 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_capua = {
@@ -4744,7 +4865,9 @@ k_sicily = {
                 catholic = 250 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_apulia = {
@@ -4820,7 +4943,9 @@ k_sicily = {
                 catholic = 250 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_salerno = {
@@ -4894,7 +5019,9 @@ k_sicily = {
                 catholic = 250 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_consenza = {
@@ -4947,7 +5074,9 @@ k_sicily = {
                 capital = 340 # Palermo
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_palermo = {
@@ -5085,11 +5214,13 @@ k_adal = {
 		culture = somali
 
 		allow = {
-			war = no
-			ruled_years = 5
 			is_adult = yes
-			independent = yes
-			NOT = { has_landed_title = e_byzantium }
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
 			OR = {
 				culture = somali
 				k_adal = {
@@ -5106,7 +5237,9 @@ k_adal = {
                         color2={ 255 255 255 }
                         
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                         
                         capital = 873 # Harer
@@ -5159,7 +5292,11 @@ k_adal = {
 
                         capital = 872 #Berbera
 
-                        allow = { war = no }
+                        allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+						}
                         
                         c_busaso = {
                                 color={ 103 213 147 }
@@ -5225,11 +5362,13 @@ k_georgia = {
         zoroastrian_group = 5 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = georgian
                         k_georgia = {
@@ -5247,7 +5386,9 @@ k_georgia = {
                 capital = 679 # Kartli
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kartli = {
@@ -5341,7 +5482,9 @@ k_georgia = {
                 capital = 601 # Imeretia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kasogs = {
@@ -5418,11 +5561,13 @@ k_azerbaijan = {
         culture = persian
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = persian
                         k_azerbaijan = {
@@ -5440,7 +5585,9 @@ k_azerbaijan = {
                         capital = 666 # Gilan
                         
                         allow = {
-                                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                         }
                                 
                         c_oromieh = {
@@ -5514,7 +5661,9 @@ k_azerbaijan = {
                         capital = 670 # Azerbaijan
                         
                         allow = {
-                                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                         }
                         
                         culture = persian
@@ -5609,7 +5758,9 @@ k_azerbaijan = {
                 capital = 674 # Derbent
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_albania = {
@@ -5687,11 +5838,13 @@ k_italy = {
 		hellenic_pagan = 1000 #Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = italian
                         k_italy = {
@@ -5709,7 +5862,9 @@ k_italy = {
                 capital = 319 # Verona
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_treviso = {
@@ -5804,7 +5959,9 @@ k_italy = {
                 capital = 958 # Suze
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 
@@ -5859,7 +6016,9 @@ k_italy = {
                 capital = 236 #Piemonte
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_piemonte = {
@@ -5928,7 +6087,9 @@ k_italy = {
                 capital = 235 # Lombardia
                         
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                         
                 c_brescia = {
@@ -6017,7 +6178,9 @@ k_italy = {
                 capital = 233 # Genoa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 dignity = 10
@@ -6130,7 +6293,9 @@ k_italy = {
                 capital = 322 # Modena
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_tortone = {
@@ -6215,7 +6380,9 @@ k_italy = {
                 capital = 351 # Ravenna
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_bologna = {
@@ -6288,7 +6455,9 @@ k_italy = {
                 capital = 328 # Firenze
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lucca = {
@@ -6360,7 +6529,9 @@ k_italy = {
                 capital = 327 # Pisa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_pisa = {
@@ -6408,8 +6579,10 @@ k_italy = {
                 capital = 350 # Ancona
                 
                 allow = {
-                        war = no
-                }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			}
                 
                 c_ancona = {
                         color={ 5 244 134 }
@@ -6480,7 +6653,9 @@ k_italy = {
                 color2={ 255 255 255 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_spoleto = {
@@ -6525,7 +6700,9 @@ k_italy = {
                 christian = 750 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_roma = {
@@ -6609,7 +6786,9 @@ k_italy = {
                 capital = 326 # Cagliari
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_corsica = {
@@ -6697,12 +6876,14 @@ k_venice = {
         
         dignity = 200 # Never want the Republic of Venice to change primary title
         allow = {
-                is_republic = yes
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+            is_republic = yes
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = italian
                         k_venice = {
@@ -6721,7 +6902,9 @@ k_venice = {
                 dignity = 10
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_venezia = {
@@ -6759,11 +6942,13 @@ k_sweden = {
         norse_pagan_reformed = 10
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = swedish
                         culture = norse
@@ -6783,7 +6968,9 @@ k_sweden = {
                 capital = 282 # Jamtland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_medelpad = {
@@ -6862,7 +7049,9 @@ k_sweden = {
                 capital = 290 # Uppland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -6953,7 +7142,9 @@ k_sweden = {
                 capital = 293 # Östergötland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_sodermanland = {
@@ -7052,7 +7243,9 @@ k_sweden = {
                 dignity = 10
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_gotland = {
@@ -7096,7 +7289,9 @@ k_sweden = {
                 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_vastergotland = {
@@ -7170,7 +7365,9 @@ k_sweden = {
                 capital = 285 # Hälsingland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lappland = {
@@ -7243,7 +7440,9 @@ k_sweden = {
                 capital = 288 # Värmland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_dalarna = {
@@ -7316,7 +7515,9 @@ k_sweden = {
                 capital = 298 # Småland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_smaland = {
@@ -7396,11 +7597,13 @@ k_denmark = {
         capital = 266 # Sjaelland
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = danish
                         culture = norse
@@ -7419,7 +7622,9 @@ k_denmark = {
                 capital = 303 # Skåne
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_skane = {
@@ -7517,7 +7722,9 @@ k_denmark = {
                 dignity = 8
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -7598,7 +7805,9 @@ k_denmark = {
                 capital = 267 # Jylland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -7675,11 +7884,13 @@ k_north_sea = {
     capital = 36 #Orkney
 
 	allow = {
-		war = no
+		is_adult = yes
 		ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+		war = no
+		NOT = {
+			has_landed_title = e_byzantium
+			ai = yes
+		}
 		OR = {
 			culture_group = north_germanic
 			culture_group = west_germanic
@@ -7699,7 +7910,9 @@ k_north_sea = {
 		capital = 1 # Vestisland
 	
 		allow = {
-				war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
 		}   
 		c_vestisland = {
 				color={ 160 210 250 }
@@ -7766,7 +7979,9 @@ k_north_sea = {
 		capital = 36 # Orkney
 			
 		allow = {
-				war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
 		}
 		
 		pagan_coa = {
@@ -7860,11 +8075,13 @@ k_norway = {
         capital = 274 # Bergenshus
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = norwegian
                         culture = norse
@@ -7882,7 +8099,9 @@ k_norway = {
                 capital = 274 # Bergenhus
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_agder = {
@@ -7976,7 +8195,9 @@ k_norway = {
                 capital = 272 # Akershus
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -8062,7 +8283,9 @@ k_norway = {
                 capital = 275 # Trondelag
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -8150,7 +8373,11 @@ k_norway = {
 
                 capital = 278 #Halogaland
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_halogaland = {
                         color={ 36 108 220 }
@@ -8234,11 +8461,13 @@ k_finland = {
         slavic_pagan_reformed = 5
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = finno_ugric
                         k_finland = {
@@ -8256,7 +8485,11 @@ k_finland = {
 
                 capital = 392 #Kexholm
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
             
                 c_vodi = {
                         color={ 246 244 30 }
@@ -8332,7 +8565,9 @@ k_finland = {
                 culture = ugricbaltic
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_reval = {
@@ -8384,7 +8619,9 @@ k_finland = {
                 capital = 388 # Karjala
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_onega = {
@@ -8479,7 +8716,9 @@ k_finland = {
                 capital = 382 # Suomi
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_nyland = {
@@ -8624,11 +8863,13 @@ k_poland = {
         baltic_pagan_reformed = 10 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = polish
                         k_poland = {
@@ -8646,7 +8887,9 @@ k_poland = {
                 capital = 529 # Plock
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_plock = {
@@ -8700,7 +8943,9 @@ k_poland = {
                 capital = 429 # Gnieznenskie
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_lubusz = {
@@ -8790,7 +9035,9 @@ k_poland = {
                 capital = 435 # Upper Silesia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_lower_silesia = {
@@ -8880,7 +9127,9 @@ k_poland = {
                 capital = 527 # Krakowskie
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_krakowskie = {
@@ -8950,7 +9199,9 @@ k_poland = {
                 capital = 428 # Kujawy
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_sieradzko-leczyckie = {
@@ -9011,11 +9262,13 @@ k_lithuania = {
         culture = lithuanian
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = lithuanian
                         k_lithuania = {
@@ -9033,7 +9286,9 @@ k_lithuania = {
                 capital = 377 # Liivimaa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -9143,7 +9398,9 @@ k_lithuania = {
                 capital = 370 # Marienburg
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_marienburg = {
@@ -9216,7 +9473,9 @@ k_lithuania = {
                 capital = 419 # Polotsk
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_polotsk = {
@@ -9278,7 +9537,9 @@ k_lithuania = {
                 capital = 420 # Aukshayts
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_aukshayts = {
@@ -9350,7 +9611,9 @@ k_lithuania = {
                 capital = 424 # Grodno
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_jacwiez = { # Grodno
@@ -9404,7 +9667,9 @@ k_lithuania = {
                 capital = 373 # Kurzeme
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_zemigalians = {
@@ -9457,7 +9722,9 @@ k_lithuania = {
                 capital = 422 # Scalovia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_scalovia = {
@@ -9538,11 +9805,13 @@ k_novgorod = {
         capital = 414 # Novgorod
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = north_germanic
                         culture_group = east_slavic
@@ -9562,7 +9831,11 @@ k_novgorod = {
 
                 capital = 413 #Pskov
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_pskov = {
                         color={ 141 177 107 }
@@ -9613,7 +9886,9 @@ k_novgorod = {
                 capital = 408 # Beloozero
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_beloozero = {
@@ -9708,7 +9983,9 @@ k_novgorod = {
                 capital = 414 # Novgorod
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -9820,7 +10097,9 @@ k_novgorod = {
                 capital = 574 # Rostov
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_rostov = {
@@ -9872,7 +10151,9 @@ k_novgorod = {
                 capital = 572 # Yaroslavl
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_galich_mersky = {
@@ -9948,11 +10229,13 @@ k_muscovy = {
         culture = russian
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = north_germanic
                         culture_group = east_slavic
@@ -9972,7 +10255,9 @@ k_muscovy = {
                 capital = 417 # Vitebsk
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_minsk = {
@@ -10046,7 +10331,9 @@ k_muscovy = {
                 capital = 568 # Smolensk
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_smolensk = {
@@ -10107,7 +10394,9 @@ k_muscovy = {
                 capital = 570 # Tver
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_tver = {
@@ -10159,7 +10448,9 @@ k_muscovy = {
                 capital = 575 # Moskva
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_pereyaslavl_zalessky = {
@@ -10233,7 +10524,9 @@ k_muscovy = {
                 capital = 582 # Vladimir
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_gorodez = {
@@ -10327,7 +10620,9 @@ k_muscovy = {
                 capital = 567 # Novgorod Seversky
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_novgorod_seversky = {
@@ -10382,7 +10677,9 @@ k_muscovy = {
                 capital = 580 # Ryazan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_pronsk = {
@@ -10488,11 +10785,13 @@ k_rus = { # k_kiev
         finnish_pagan_reformed = 100
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = north_germanic
                         culture_group = east_slavic
@@ -10514,7 +10813,9 @@ k_rus = { # k_kiev
                 capital = 547 # Kiev
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -10582,7 +10883,9 @@ k_rus = { # k_kiev
                 capital = 536 # Galich
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_terebovl = {
@@ -10656,7 +10959,9 @@ k_rus = { # k_kiev
                 capital = 535 # Vladimir Volynsky
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_vladimir_volynsky = {
@@ -10708,7 +11013,9 @@ k_rus = { # k_kiev
                 capital = 552 # Turov
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_turov = {
@@ -10762,7 +11069,9 @@ k_rus = { # k_kiev
                 capital = 554 # Chernigov
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lyubech = {
@@ -10815,7 +11124,9 @@ k_rus = { # k_kiev
                 capital = 555 # Pereyaslavl
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_pereyaslavl = {
@@ -10856,11 +11167,13 @@ k_sames = {
         
         # Creation/usurpation trigger
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = finno_ugric
                         k_sames = {
@@ -10879,7 +11192,11 @@ k_sames = {
 
                 capital = 397 #samoyeds
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_ugra = {
                         color={ 139 82 60 }
@@ -10951,7 +11268,11 @@ k_sames = {
 
                 capital = 401 # Hlynov
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 c_hlynov = {
                         color={ 87 74 134 }
                         color2={ 255 255 255 }
@@ -11026,7 +11347,9 @@ k_sames = {
                 culture = komi
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_romny = {
@@ -11127,11 +11450,13 @@ k_cuman = {
         slavic_pagan_reformed = 50 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = cuman
                         k_cuman = {
@@ -11149,7 +11474,11 @@ k_cuman = {
 
                 capital = 619 # Saray
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_yaik = {
                         color={ 43 240 201 }
@@ -11241,7 +11570,11 @@ k_cuman = {
 
                 capital = 620 # Itil
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_itil = {
                         color={ 159 176 242 }
@@ -11294,7 +11627,9 @@ k_cuman = {
                 capital = 594 # Sarkel
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_khopyor = {
@@ -11389,7 +11724,9 @@ k_cuman = {
                 capital = 896 # Aktobe
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_ryn_desert = {
@@ -11464,7 +11801,9 @@ k_cuman = {
                 capital = 891 # Tyumen
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_tyumen = {
@@ -11544,11 +11883,13 @@ k_volga = {
         slavic_pagan_reformed = 10
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = altaic
                         k_volga = {
@@ -11566,7 +11907,11 @@ k_volga = {
 
                 capital = 590 #Chuvash
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_grassland_cheremisa = {
                         color={ 172 56 133 }
@@ -11640,7 +11985,9 @@ k_volga = {
                 capital = 893 #Surgut
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_surgut = {
@@ -11735,7 +12082,9 @@ k_volga = {
                 capital = 610 # Bulgar
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_bilyar = {
@@ -11850,7 +12199,9 @@ k_volga = {
                 capital = 589 # Grassland Cheremisa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_mountain_cheremisa = {
@@ -11924,7 +12275,9 @@ k_volga = {
                 capital = 886 # Perm
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_perm = {
@@ -12023,11 +12376,13 @@ k_crimea = {
         capital = 560 # Cherson
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = byzantine
                         culture_group = latin
@@ -12049,7 +12404,11 @@ k_crimea = {
 
                 capital = 565 #Sharukan
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_sharukan = {
                         color={ 203 138 227 }
@@ -12122,7 +12481,9 @@ k_crimea = {
                 capital = 560 # Cherson
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_theodosia = {
@@ -12195,7 +12556,9 @@ k_crimea = {
                 capital = 559 # Crimea
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_lower_don = {
@@ -12317,11 +12680,13 @@ k_alania = {
         capital = 603 # Alania
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = alan
                         k_alania = {
@@ -12341,7 +12706,9 @@ k_alania = {
                 capital = 603 # Alania
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_sarpa = {
@@ -12456,7 +12823,9 @@ k_alania = {
                 capital = 597 # Azov
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_tmutarakan = {
@@ -12553,11 +12922,13 @@ k_khwarizm = {
         capital = 623 # Khwarizm
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = turkish
                         culture = persian
@@ -12580,7 +12951,9 @@ k_khwarizm = {
                 capital = 626 # Samarkand
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_kyzylorda = {
@@ -12654,7 +13027,9 @@ k_khwarizm = {
                 capital = 903 # Samarkand
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_samarkand = {
@@ -12707,7 +13082,9 @@ k_khwarizm = {
                 capital = 628 # Bukhara
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_maverannahr = {
@@ -12785,7 +13162,9 @@ k_khwarizm = {
                 culture = turkish
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_khwarizm = {
@@ -12907,11 +13286,13 @@ k_persia = {
         zoroastrian_group = 100 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = persian
                         k_persia = {
@@ -12929,7 +13310,11 @@ k_persia = {
 
                 capital = 894 #Baluchistan
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_baluchistan = {
                         color={ 113 181 197 }
@@ -13022,7 +13407,9 @@ k_persia = {
                 capital = 630 # Merv
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_turkmen = { # Ashkabad
@@ -13116,7 +13503,9 @@ k_persia = {
                 capital = 632 # Khorasan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_khorasan = {
@@ -13211,7 +13600,9 @@ k_persia = {
                 capital = 662 # Mazandaran
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_qwivir = {
@@ -13284,7 +13675,9 @@ k_persia = {
                 capital = 646 # Esfahan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_esfahan = {
@@ -13380,7 +13773,9 @@ k_persia = {
                 capital = 641 # Hormuz
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_sistan = {
@@ -13494,7 +13889,9 @@ k_persia = {
                 capital = 643 # Fars
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_fars = {
@@ -13568,7 +13965,9 @@ k_persia = {
                 capital = 658 # Hamadan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_qom = {
@@ -13642,7 +14041,9 @@ k_persia = {
                 capital = 906 # Birjand
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_birjand = {
@@ -13757,7 +14158,11 @@ k_persia = {
 
                 capital = 687 #Kirkuk
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_qazwin = {
                         color={ 158 140 207 }
@@ -13809,7 +14214,9 @@ k_persia = {
                 capital = 657 # Luristan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kermanshah = {
@@ -13872,11 +14279,13 @@ k_mesopotamia = {
         zoroastrian_group = 50 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = arabic
                         culture = persian
@@ -13895,7 +14304,11 @@ k_mesopotamia = {
 
                 capital = 694 #Karbala
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_al_habbariyah = {
                         color={ 232 116 102 }
@@ -13989,7 +14402,9 @@ k_mesopotamia = {
                 capital = 656 # Tigris
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_ilam = {
@@ -14062,7 +14477,9 @@ k_mesopotamia = {
                 capital = 693 # Baghdad
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_baghdad = {
@@ -14157,7 +14574,9 @@ k_mesopotamia = {
                 capital = 697 # Mosul
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_mosul = {
@@ -14232,7 +14651,9 @@ k_mesopotamia = {
                 capital = 700 # Bira
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_bira = {
@@ -14330,11 +14751,13 @@ k_wallachia = {
         capital = 515 # Tirgoviste
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = romanian
                         k_wallachia = {
@@ -14352,7 +14775,9 @@ k_wallachia = {
                 capital = 515 # Tirgoviste
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_birlad = {
@@ -14448,7 +14873,9 @@ k_wallachia = {
                 capital = 545 # Torki
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_galaz = {
@@ -14573,11 +15000,13 @@ k_hungary = {
         slavic_pagan_reformed = 5 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = hungarian
                         k_hungary = {
@@ -14595,7 +15024,9 @@ k_hungary = {
                 capital = 452 # Pecs
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_pecs={
@@ -14689,7 +15120,9 @@ k_hungary = {
                 capital = 444 # Esztergom
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_sopron = {
@@ -14758,7 +15191,9 @@ k_hungary = {
                 capital = 443 # Nitra
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_nitra = {
@@ -14849,7 +15284,9 @@ k_hungary = {
                 capital = 538 # Abauj
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_saris = { # "Spis" in-game
@@ -14940,7 +15377,9 @@ k_hungary = {
                 capital = 522 # Pest
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_heves = {
@@ -15011,7 +15450,9 @@ k_hungary = {
                 capital = 519 # Feher
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_szekelyfold = {
@@ -15081,7 +15522,9 @@ k_hungary = {
                 capital = 505 # Belgrade
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_temes = {
@@ -15140,11 +15583,13 @@ k_france = {
 		celtic_pagan_reformed = 30 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = frankish
                         k_france = {
@@ -15163,7 +15608,9 @@ k_france = {
                 capital = 136 # Dijon
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_auxerre = {
@@ -15279,7 +15726,9 @@ k_france = {
                 capital = 140 # Tours
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_tourraine = {
@@ -15327,7 +15776,9 @@ k_france = {
                 capital = 107 # Anjou
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_vendome = {
@@ -15397,7 +15848,9 @@ k_france = {
                 culture = norman
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_ponthieu = {
@@ -15490,7 +15943,9 @@ k_france = {
                 capital = 138 # Orleans
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_orleans = {
@@ -15572,7 +16027,9 @@ k_france = {
                 capital = 114 # Reims
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_troyes = {
@@ -15651,7 +16108,11 @@ k_france = {
 
                 dignity = 10
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 				
                 c_chartres = {
                         color={ 203 151 210 }
@@ -15708,7 +16169,9 @@ k_france = {
                 capital = 95 # Amiens
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_vermandois = {
@@ -15780,7 +16243,9 @@ k_france = {
                 color2={ 255 0 0 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_evreux = {
@@ -15842,11 +16307,13 @@ k_aquitaine = {
         culture = occitan
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = occitan
                         k_aquitaine = {
@@ -15868,7 +16335,9 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-						war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_comminges = {
@@ -15933,7 +16402,9 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lusignan = {
@@ -16039,7 +16510,9 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_bordeaux = {
@@ -16134,7 +16607,9 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_montpellier = {
@@ -16263,7 +16738,9 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_bearn = {
@@ -16372,7 +16849,9 @@ k_aquitaine = {
                 culture = occitan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_auvergne = {
@@ -16432,7 +16911,9 @@ k_aquitaine = {
                 capital = 146 # Bourbon
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_bourbon = {
@@ -16513,11 +16994,13 @@ k_brittany = {
 		celtic_pagan_reformed = 30
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = breton
                         k_brittany = {
@@ -16538,7 +17021,9 @@ k_brittany = {
                 culture = breton
 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_nantes = {
@@ -16696,11 +17181,13 @@ k_burgundy = {
         catholic = 100 #Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = occitan
                         culture = frankish
@@ -16719,7 +17206,9 @@ k_burgundy = {
                 capital = 221 # Provence
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_provence = {
@@ -16791,7 +17280,9 @@ k_burgundy = {
                 capital = 237 # Savoie
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_savoie = {
@@ -16861,7 +17352,9 @@ k_burgundy = {
                 capital = 227 # Lyon
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_dauphine_viennois = {
@@ -16934,7 +17427,9 @@ k_burgundy = {
                 capital = 135 # Bourgogne
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_neuchatel = {
@@ -17063,11 +17558,13 @@ k_leon = {
 
         # Creation/usurpation trigger
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 religion_group = christian
                 FROM = {
                         any_previous_holder = {
@@ -17089,11 +17586,13 @@ k_castille = { #Spain
         catholic = 10 #Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = castillan
                         k_castille = {
@@ -17109,7 +17608,9 @@ k_castille = { #Spain
                 color2={ 255 255 255 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_toledo = {
@@ -17188,7 +17689,9 @@ k_castille = { #Spain
                 capital = 199 # Burgos
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_burgos = {
@@ -17292,11 +17795,13 @@ k_aragon = {
         culture = castillan
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = castillan
                         k_aragon = {
@@ -17314,7 +17819,9 @@ k_aragon = {
                 capital = 202 # Zaragoza
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_albarracin = {
@@ -17413,7 +17920,9 @@ k_aragon = {
                 culture = catalan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_barcelona = {
@@ -17526,7 +18035,9 @@ k_aragon = {
                 capital = 171 # Valencia               
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_castellon = {
@@ -17598,7 +18109,9 @@ k_aragon = {
                 capital = 827 # Mallorca
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_mallorca = {
@@ -17661,11 +18174,13 @@ k_navarra = {
         culture = basque
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = basque
                         k_navarra = {
@@ -17683,7 +18198,9 @@ k_navarra = {
                 capital = 152 # Navarra
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_viscaya = {
@@ -17764,11 +18281,13 @@ k_asturias = {
 
         # Creation/usurpation trigger
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 k_leon = {
                         has_holder = no
                         NOT = {
@@ -17785,7 +18304,9 @@ k_asturias = {
                 capital = 184 # Badajoz
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_plasencia = {
@@ -17878,7 +18399,9 @@ k_asturias = {
                 capital = 156 # Coruna
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_coruna = {
@@ -17931,7 +18454,9 @@ k_asturias = {
                 capital = 155 # Asturias
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_asturias_de_oviedo = {
@@ -17983,7 +18508,9 @@ k_asturias = {
                 capital = 190 # Leon
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_leon = {
@@ -18061,11 +18588,13 @@ k_spanish_galicia = {
         
         # Creation/usurpation trigger
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture_group = iberian
                         k_spanish_galicia = {
@@ -18093,11 +18622,13 @@ k_portugal = {
         culture = portuguese
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = portuguese
                         k_portugal = {
@@ -18118,7 +18649,9 @@ k_portugal = {
                 culture = portuguese
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_porto = {
@@ -18213,7 +18746,9 @@ k_portugal = {
                 capital = 160 #Lisboa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lisboa = {
@@ -18313,7 +18848,9 @@ k_portugal = {
                 capital = 163 # Faro
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_silves = {
@@ -18367,11 +18904,13 @@ k_andalusia = {
         color2={ 255 255 255 }
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         has_global_flag = umayyad_has_fallen
                         has_global_flag = 867_start_umayyad
@@ -18401,7 +18940,9 @@ k_andalusia = {
                 capital = 181 # Cordoba
                         
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_cordoba = {
@@ -18477,7 +19018,9 @@ k_andalusia = {
                 capital = 169 # Murcia
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_almansa = {
@@ -18529,7 +19072,9 @@ k_andalusia = {
                 
                 capital = 180 # Granada
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_granada = {
@@ -18604,7 +19149,9 @@ k_andalusia = {
                 capital = 182 # Sevilla
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_sevilla = {
@@ -18726,11 +19273,13 @@ k_arabia = {
         culture = bedouin_arabic
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = bedouin_arabic
                         k_arabia = {
@@ -18749,7 +19298,9 @@ k_arabia = {
                 capital = 649 # Basra
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kufa = {
@@ -18843,7 +19394,9 @@ k_arabia = {
                 capital = 722 # Petra
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_al_aqabah = {
@@ -18912,7 +19465,9 @@ k_arabia = {
                 capital = 783 # Maan
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }            
 				c_maan = {
                         color={ 189 15 184 }
@@ -18969,7 +19524,9 @@ k_arabia = {
                 muslim = 500 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_hijaz = {
@@ -19085,7 +19642,9 @@ k_arabia = {
                 capital = 860 # Sanaa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_bayda = {
@@ -19200,7 +19759,9 @@ k_arabia = {
                 capital = 868 # Muscat
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_hajar = {
@@ -19315,7 +19876,9 @@ k_arabia = {
                 capital = 716 # Ar'ar
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_ar_ar = {
@@ -19409,7 +19972,9 @@ k_arabia = {
                 capital = 863 # Hajr
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
 				c_hajr = {
@@ -19475,7 +20040,9 @@ k_arabia = {
                 capital = 652 # Al Hasa
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_dhu_zabi = {
@@ -19580,11 +20147,13 @@ k_egypt = {
         egyptian_pagan = 1000
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         has_global_flag = fatimid_has_fallen
                         has_global_flag = 867_start_fatimid
@@ -19641,7 +20210,9 @@ k_egypt = {
                 capital = 802 # Alexandria
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_alexandria = {
@@ -19761,7 +20332,9 @@ k_egypt = {
                 capital = 798 # Damietta
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_gabiyaha = {
@@ -19858,7 +20431,9 @@ k_egypt = {
                 capital = 796 # Cairo
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_cairo = {
@@ -19960,7 +20535,9 @@ k_egypt = {
                 capital = 788 # Farama
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_farama = {
@@ -20065,14 +20642,18 @@ k_jerusalem = {
         culture = levantine_arabic
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
-                NOT = {
-                        religion = jewish
-                }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				OR = {
+					AND = {
+						has_landed_title = e_byzantium
+						ai = yes
+					}
+					religion = jewish
+				}
+			}
                 OR = {
                         culture = levantine_arabic
                         k_jerusalem = {
@@ -20090,7 +20671,9 @@ k_jerusalem = {
                 capital = 723 # Madaba
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_monreal = {
@@ -20162,7 +20745,9 @@ k_jerusalem = {
                 capital = 780 # Ascalon
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_negev = {
@@ -20281,7 +20866,9 @@ k_jerusalem = {
                 muslim = 250 # Crusade target weight
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_tiberias = {
@@ -20383,7 +20970,9 @@ k_jerusalem = {
                 capital = 771 # Tyrus
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_irbid = {
@@ -20487,11 +21076,13 @@ k_syria = {
         capital = 728 # Damascus
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = levantine_arabic
                         k_syria = {
@@ -20509,7 +21100,11 @@ k_syria = {
 
                 capital = 730 #Palmyra
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                         
                 c_tadmor = {
                         color={ 16 219 48 }
@@ -20602,7 +21197,9 @@ k_syria = {
                 capital = 733 # Aleppo
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_aleppo = {
@@ -20677,7 +21274,9 @@ k_syria = {
                 capital = 764 # Antioch
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_antiocheia = {
@@ -20755,7 +21354,9 @@ k_syria = {
                 capital = 767 # Tripoli
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_tortosa = {
@@ -20828,7 +21429,9 @@ k_syria = {
                 capital = 728 # Damascus
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_damascus = {
@@ -20923,7 +21526,9 @@ k_syria = {
                 capital = 727 # Syria
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_syria = {
@@ -21002,11 +21607,13 @@ k_mauretania = {
         west_african_pagan_reformed = 100
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = maghreb_arabic
                         k_mauretania = {
@@ -21024,7 +21631,11 @@ k_mauretania = {
 
                 capital = 846 #Ifni
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_tharasset = {
                         color={ 116 209 160 }
@@ -21075,7 +21686,11 @@ k_mauretania = {
 
                 capital = 1032 #El Aaiun
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_el_aaiun = { #NorthV
                         color={ 80 91 230 }
@@ -21158,11 +21773,13 @@ k_morocco = {
         west_african_pagan_reformed = 10
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = maghreb_arabic
                         k_morocco = {
@@ -21181,7 +21798,9 @@ k_morocco = {
                 capital = 843 # Marrakech
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_marrakech = {
@@ -21258,7 +21877,9 @@ d_tangiers = {
                 capital = 841 # Tangiers
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_infa = {
@@ -21330,7 +21951,9 @@ d_tangiers = {
                 capital = 840 # Fes
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_fes = {
@@ -21401,7 +22024,11 @@ d_tangiers = {
                 color={ 146 45 92 }
                 color2={ 75 50 10 }
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 capital = 916 #Taghaza
                 c_taghaza = {
@@ -21444,11 +22071,13 @@ k_algiers = {
         culture = maghreb_arabic
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = maghreb_arabic
                         
@@ -21467,7 +22096,11 @@ k_algiers = {
 
                 capital = 828 #Ouled Nail
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_hanyan = {
                         color={ 159 49 86 }
@@ -21583,7 +22216,9 @@ k_algiers = {
                 capital = 825 # Beni Yanni
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_constantine = {
@@ -21655,7 +22290,9 @@ d_alger = {
                 capital = 831 # Al Djazir
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_lemdiyya = {
@@ -21749,7 +22386,9 @@ d_alger = {
                 capital = 834 # Tlemcen
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_tlemcen = {
@@ -21831,11 +22470,13 @@ k_africa = {
         egyptian_pagan = 50
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = maghreb_arabic
                         k_africa = {
@@ -21853,7 +22494,9 @@ k_africa = {
                 capital = 817 # Tunis
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_tunis = {
@@ -21989,7 +22632,9 @@ k_africa = {
                 capital = 811 # Tripolitania
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_tripolitana = {
@@ -22082,7 +22727,9 @@ k_africa = {
                 capital = 806 # Cyrenaica
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_cyrenaica = {
@@ -22182,11 +22829,13 @@ k_abyssinia = {
 		egyptian_pagan = 100 #crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = ethiopian
                         k_abyssinia = {
@@ -22204,7 +22853,11 @@ k_abyssinia = {
 			
 			capital = 1009 # Meroe
 			
-			allow = { war = no }
+			allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			}
 
 			c_janub = { # Nukhaylah
 				color={ 110 100 185 }
@@ -22261,7 +22914,11 @@ k_abyssinia = {
 
                 capital = 881 #Asosa
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
 				c_melut = { # Gorhan
 					color={ 30 180 200 }
@@ -22322,7 +22979,9 @@ k_abyssinia = {
                 capital = 875 # Aksum
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
 				c_barka = {
@@ -22400,7 +23059,9 @@ k_abyssinia = {
                 capital = 880 # Sennar
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 				
 				c_nahud = { # Ghurud
@@ -22477,7 +23138,9 @@ k_abyssinia = {
                 capital = 883 # Gondar
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_gondar = {
@@ -22568,11 +23231,13 @@ k_nubia = {
 		egyptian_pagan = 100 #Crusade Target Weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = nubian
                         k_nubia = {
@@ -22591,7 +23256,9 @@ k_nubia = {
                 capital = 1015 # Qasar Ibrim
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
 				c_shamal = { # Qasar Ibrim
@@ -22634,7 +23301,9 @@ k_nubia = {
                 capital = 793 # Makuria
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_makuria = {
@@ -22697,7 +23366,9 @@ k_nubia = {
 			capital = 985 # Aidhab
 			
 			allow = {
-					war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
 			}
 			
 			c_atbara = {
@@ -22749,7 +23420,9 @@ k_nubia = {
                 capital = 878 # Hayya
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_nubia = {
@@ -22823,12 +23496,18 @@ k_england = {
 		celtic_pagan_reformed = 50 # Crusade target weight
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
-				NOT = { has_global_flag = witan_abolished }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				OR = {
+					AND = {
+						has_landed_title = e_byzantium
+						ai = yes
+					}
+					has_global_flag = witan_abolished
+				}
+			}
                 OR = {
                         culture_group = west_germanic
                         culture_group = celtic
@@ -22849,7 +23528,9 @@ k_england = {
                 capital = 31 # Cornwall
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_cornwall = {
@@ -22899,7 +23580,9 @@ k_england = {
                 capital = 52 # Northumberland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_westmorland = {
@@ -22991,7 +23674,9 @@ k_england = {
                 capital = 58 # Lancaster
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_stafford = {
@@ -23086,7 +23771,9 @@ k_england = {
                 dignity = 2
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 pagan_coa = {
@@ -23176,7 +23863,9 @@ k_england = {
                 capital = 70 # Norfolk
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                         
                 c_norfolk = {
@@ -23226,7 +23915,9 @@ k_england = {
                 capital = 22 # Oxford
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_berks = {
@@ -23270,7 +23961,9 @@ k_england = {
                 capital = 72 # Essex
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_bedford = {
@@ -23369,7 +24062,9 @@ k_england = {
                 dignity = 5
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_hereford = {
@@ -23455,7 +24150,9 @@ k_england = {
                 capital = 21 # Gloucester
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_gloucester = {
@@ -23507,7 +24204,9 @@ k_england = {
                 capital = 73 # Kent
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_surrey = {
@@ -23579,7 +24278,9 @@ k_england = {
                 capital = 26 # Winchester
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_winchester = {
@@ -23652,7 +24353,9 @@ k_england = {
                 capital = 975 # Huntingdon
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_northampton = {
@@ -23700,11 +24403,13 @@ k_englandnorman = { #England of William the Conqueror
 		celtic_pagan_reformed = 50 # Crusade target weight
 
         allow = {
-            war = no
-			ruled_years = 5
 			is_adult = yes
-			independent = yes
-			NOT = { has_landed_title = e_byzantium }
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
             k_englandnorman = {
 				OR = {
 					is_titular = no
@@ -23723,11 +24428,13 @@ k_englandnorwegian = { #England of Harald the Conqueror
         norse_pagan_reformed = 20 # Crusade target weight
 		celtic_pagan_reformed = 50 #Crusade target weight
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 k_englandnorwegian = {
 					OR = {
 						is_titular = no
@@ -23750,11 +24457,13 @@ k_wales = {
         culture = welsh
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = welsh
                         k_wales = {
@@ -23772,7 +24481,9 @@ k_wales = {
                 capital = 64 # Gwynedd
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_gwynedd = {
@@ -23836,7 +24547,9 @@ k_wales = {
                 capital = 18 # Dyfed
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
 				
@@ -23908,7 +24621,9 @@ k_wales = {
                 color2={ 255 255 255 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_powys_fadog = {
@@ -23957,11 +24672,13 @@ k_scotland = {
         culture = scottish
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = scottish
                         k_scotland = {
@@ -23979,7 +24696,9 @@ k_scotland = {
                 capital = 50 # Galloway
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_galloway = {
@@ -24064,7 +24783,9 @@ k_scotland = {
                 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_innse_gall = {
@@ -24135,7 +24856,9 @@ k_scotland = {
                 capital = 48 # Lothian
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_lothian = {
@@ -24205,7 +24928,9 @@ k_scotland = {
                 capital = 43 # Gowrie
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_gowrie = {
@@ -24295,7 +25020,9 @@ k_scotland = {
                 capital = 982 # Sutherland
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
 
                 c_cromarty = {
@@ -24368,7 +25095,9 @@ k_scotland = {
                 capital = 40 # Moray
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_moray = {
@@ -24441,11 +25170,13 @@ k_ireland = {
         culture = irish
 
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = irish
                         k_ireland = {
@@ -24463,7 +25194,9 @@ k_ireland = {
                 capital = 5 # Ulster
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_ulster = {
@@ -24553,7 +25286,9 @@ k_ireland = {
                 capital = 9 # Connacht
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_connacht = {
@@ -24609,7 +25344,9 @@ k_ireland = {
                 }
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_kildare = {
@@ -24669,7 +25406,9 @@ k_ireland = {
                 capital = 16 # Leinster
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
                 
                 c_leinster = {
@@ -24720,7 +25459,9 @@ k_ireland = {
                 capital = 13 # Thomond
                 
                 allow = {
-                        war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 }
         
                 c_thomond = {
@@ -24801,11 +25542,13 @@ k_mali = {
         culture = manden
         
         allow = {
-                war = no
-				ruled_years = 5
-				is_adult = yes
-				independent = yes
-				NOT = { has_landed_title = e_byzantium }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
                 OR = {
                         culture = manden
                         k_mali = {
@@ -24820,7 +25563,11 @@ k_mali = {
                 color={ 136 90 74 }
                 color2={ 75 50 10 }
                 capital = 914 #Gao
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_gao = { #East
                         color={ 190 120 110 }
@@ -24861,7 +25608,11 @@ k_mali = {
                 color={ 112 75 13 }
                 color2={ 50 75 10 }
                 capital = 925 #Mali
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_mali = {
                         color={ 148 192 13 }
@@ -24908,11 +25659,13 @@ k_jolof = {
         color2={ 185 48 15 }
         capital = 1040 #Cayor
         allow = { 
-			war = no 
-			ruled_years = 5
 			is_adult = yes
-			independent = yes
-			NOT = { has_landed_title = e_byzantium }
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
 		}
 
         west_african_pagan_reformed = 100
@@ -24923,7 +25676,11 @@ k_jolof = {
 
                 capital = 1036 #Morfil
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_morfil = { #West
                         color={ 201 103 58 }
@@ -24984,7 +25741,11 @@ k_jolof = {
 
                 capital = 1040 #Cayor
 
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_cayor = { #West
                         color={ 198 94 21 }
@@ -25042,18 +25803,24 @@ k_ghana = {
         west_african_pagan_reformed = 100
 
         allow = { 
-			war = no
-			ruled_years = 5
 			is_adult = yes
-			independent = yes
-			NOT = { has_landed_title = e_byzantium }
+			ruled_years = 5
+			war = no
+			NOT = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
 		}
 
         d_diafanu = { #West
                 color={ 146 106 54 }
                 color2={ 51 66 10 }
                 capital = 912 #Aoudagast
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 
                 c_aoudagast = {
                         color={ 192 155 83 }
@@ -25085,7 +25852,11 @@ k_ghana = {
                 color={ 213 94 26 }
                 color2={ 68 164 51 }
                 capital = 917 #Soumpi
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
 
                 c_soumpi = { #East
                         color={ 161 90 21 }
@@ -25117,7 +25888,11 @@ k_ghana = {
         d_kangaba = {
                 color={ 198 159 54 }
                 color2={ 50 75 10 }
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 capital = 1050 #Niani
 
                 c_niani = { #West
@@ -25159,7 +25934,11 @@ k_ghana = {
                 color={ 198 165 24 }
                 color2={ 61 75 10 }
                 capital = 915 #Djenne
-                allow = { war = no }
+                allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+				}
                 c_djenne = {
                         color={ 162 136 54 }
                         color2={ 50 75 10 }
