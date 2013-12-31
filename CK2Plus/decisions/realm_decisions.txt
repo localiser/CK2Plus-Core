@@ -1666,11 +1666,10 @@ decisions = {
 				any_realm_lord = {
 					lower_tier_than = king
 					any_liege = { character = ROOT }
-# Commented by Minrog - There's something wrong with this
-#					AND = {
-#						tier = baron
-#						liege = { character = ROOT }
-#					}
+					AND = {
+						tier = baron
+						liege = { character = ROOT }
+					}
 					any_demesne_title = {
 						has_building = ct_jewish_community_1
 					}
@@ -1698,10 +1697,20 @@ decisions = {
 			if = {
 				limit = { has_character_modifier = borrowed_from_jews }
 				remove_character_modifier = borrowed_from_jews
+				any_demesne_title = {
+					limit = { tier = count }
+					location = {
+						add_province_modifier = {
+							name = offended_moneylenders
+							duration = 3650
+						}
+					}
+				}				
+				set_character_flag = offended_moneylenders
 			}
 			add_character_modifier = {
 				name = expelled_jewish
-				duration = -1
+				duration = 21900 #in days. 60 years
 				inherit = no
 			}
 			custom_tooltip = {
@@ -1711,8 +1720,9 @@ decisions = {
 				character_event = { id = SoA.105 }
 				add_character_modifier = {
 					name = expelled_jews_timer
-					duration = 7300
+					duration = 21900 #in days. 60 years
 					hidden = yes
+					inherit = yes
 				}
 				set_character_flag = pogrom	
 			}

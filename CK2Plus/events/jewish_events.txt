@@ -7,11 +7,19 @@ character_event = {
 
 	trigger = {
 		war = no
-		NOT = { has_character_flag = pogrom }
+		NOT = { 
+			has_character_flag = pogrom 
+			has_character_modifier = expelled_jews_timer
+		}
 		OR = {
 			is_patrician = yes
 			NOT = { tier = baron }
-			NOT = { liege = { has_character_flag = pogrom } }
+			NOT = { 
+				liege = { 
+					has_character_flag = pogrom 
+					has_character_modifier = expelled_jews_timer
+				}
+			}
 		}
 		any_demesne_title = {
 			tier = baron
@@ -229,10 +237,18 @@ character_event = {
 
 	trigger = {
 		war = no
-		NOT = { has_character_flag = pogrom }
+		NOT = { 					
+			has_character_flag = pogrom 
+			has_character_modifier = expelled_jews_timer 
+		}
 		OR = {
 			NOT = { tier = baron }
-			NOT = { liege = { has_character_flag = pogrom } }
+			NOT = { 
+				liege = { 					
+					has_character_flag = pogrom 
+					has_character_modifier = expelled_jews_timer 
+				} 
+			}
 		}
 		any_demesne_title = {
 			tier = baron
@@ -461,11 +477,15 @@ character_event = {
 		k_papal_state = {
 			holder_scope = { check_variable = { which = "jewish_refugees" value = 0.5 } }
 		}
-		NOT = { has_character_flag = pogrom }
+		NOT = { 				
+			has_character_flag = pogrom 
+			has_character_modifier = expelled_jews_timer 
+		}	
 		NOT = { has_character_flag = jews_not_welcome }
 		NOT = {
-			any_liege = {
-				has_character_flag = pogrom
+			any_liege = {			
+				has_character_flag = pogrom 
+				has_character_modifier = expelled_jews_timer 
 			}
 		}
 		OR = {
