@@ -901,6 +901,8 @@ decisions = {
 			has_dlc = "Sons of Abraham"		
 			is_playable = yes	
 			independent = yes
+			prisoner = no
+			age = 16
 			OR = {
 				religion_group = christian
 				religion_group = muslim
@@ -916,20 +918,13 @@ decisions = {
 					has_building = ct_jewish_community_1
 				}
 				any_realm_lord = {
-					lower_tier_than = king
-					any_liege = { character = ROOT }
-					AND = {
-						tier = baron
-						liege = { character = ROOT }
-					}
+					is_republic = yes
 					any_demesne_title = {
 						has_building = ct_jewish_community_1
 					}
 				}
 			}			
 			NOT = { has_character_modifier = borrowed_from_jews }
-			age = 16
-			prisoner = no
 		}
 		
 		allow = {

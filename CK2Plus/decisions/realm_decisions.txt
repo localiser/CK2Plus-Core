@@ -1650,9 +1650,13 @@ decisions = {
 			}
 		}
 	}
-	
+
 	expel_jews = {
 		potential = {
+			independent = yes
+			is_playable = yes
+			prisoner = no
+			age = 16
 			has_dlc = "Sons of Abraham"
 			OR = {
 				religion_group = christian
@@ -1664,12 +1668,7 @@ decisions = {
 					has_building = ct_jewish_community_1
 				}
 				any_realm_lord = {
-					lower_tier_than = king
-					any_liege = { character = ROOT }
-					AND = {
-						tier = baron
-						liege = { character = ROOT }
-					}
+					is_republic = yes
 					any_demesne_title = {
 						has_building = ct_jewish_community_1
 					}
@@ -1679,20 +1678,15 @@ decisions = {
 					religion_group = jewish_group
 				}
 			}
-			NOT = { 
+			NOT = {
 				religion_group = jewish_group
 				has_character_modifier = expelled_jewish
 				has_character_flag = pogrom
 				trait = incapable
 				any_realm_province = { religion = jewish }
 			}
-			independent = yes
-			is_playable = yes
-			age = 16
-			prisoner = no
 		}
-		allow = {
-		}
+		allow = { }
 		effect = {
 			if = {
 				limit = { has_character_modifier = borrowed_from_jews }
