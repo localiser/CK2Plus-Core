@@ -2193,7 +2193,7 @@ decisions = {
 			
 			NOT = {
 				has_character_flag = gone_pagan
-				religion_authority = 0.45				
+				religion_authority = 0.35				
 				trait = zealous 
 				trait = incapable
 				culture_group = iberian # No pagan religion to assign them to
@@ -2332,33 +2332,117 @@ decisions = {
 				AND = {
 					any_demesne_province = {
 						OR = {
-							religion_group = zoroastrian_group
-							religion_group = jewish_group
 							AND = {
+								religion_group = zoroastrian_group
+								ROOT = { culture_group = iranian }
+							}
+							AND = {
+								religion_group = jewish_group
+								ROOT = { culture_group = judaic }
+							}
+							AND = { # Make sure only the culturally relevant religion lowers the MA cost
 								religion_group = pagan_group
 								is_reformed_religion = no
+								OR = {
+									AND = {
+										OR = {
+											religion = egyptian_pagan
+											religion = aten_pagan
+										}
+										ROOT = { culture = egyptian_arabic }
+									}
+									AND = {
+										OR = {
+											religion = hellenic_pagan
+											religion = mystery_eleusinia
+											religion = mystery_mithras
+										}
+										ROOT = {
+											OR = {
+												culture = roman
+												culture = greek
+												culture = italian
+												culture = sicilian
+												culture = sicilian_greek
+												culture_group = byzantine
+											}
+										}
+									}
+									AND = {
+										religion = celtic_pagan
+										ROOT = {
+											OR = {
+												culture_group = celtic
+												culture_group = west_germanic
+												culture = frankish
+												culture = occitan
+											}
+										}
+									}
+									AND = {
+										religion = norse_pagan
+										ROOT = {
+											OR = {
+												culture_group = north_germanic
+												culture_group = west_germanic
+												culture_group = central_germanic
+												culture = norman
+											}
+										}
+									}
+									AND = {
+										religion = baltic_pagan
+										ROOT = {
+											OR = {
+												 culture_group = baltic
+												 culture = ugricbaltic
+											}
+										}
+									}
+									AND = {
+										religion = finnish_pagan
+										ROOT = { culture_group = finno_ugric }
+									}
+									AND = {
+										religion = tengri_pagan
+										ROOT = {
+											OR = {
+												culture_group = altaic
+												culture = hungarian
+											}
+										}
+									}
+									AND = {	
+										religion = aztec_pagan
+										ROOT = { culture_group = mesoamerican }
+									}	
+									AND = {	
+											religion = slavic_pagan
+											ROOT = {
+												OR = {
+													culture_group = east_slavic
+													culture_group = west_slavic
+													culture_group = south_slavic
+												}
+											}
+									}		
+									AND = {	
+											religion = west_african_pagan
+											ROOT = { culture_group = west_african }
+									}	
+								}
 							}
 						}
 					}
-					NOT = { religion_authority = 0.30 }
-				}
-				AND = {
-					any_demesne_province = {
-						OR = {
-							religion_group = zoroastrian_group
-							religion_group = jewish_group
-							AND = {
-								religion_group = pagan_group
-								is_reformed_religion = no
+					OR = {
+						AND = {
+							NOT = { religion_authority = 0.50 }
+							OR = {
+								trait = lunatic
 							}
 						}
+						NOT = { religion_authority = 0.30 }
 					}
-					NOT = { religion_authority = 0.40 }
-					trait = cynical
-				}
-				AND = {
-					NOT = { religion_authority = 0.30 }
-					trait = cynical
 				}
 				NOT = { religion_authority = 0.20 }
 			}
@@ -2373,13 +2457,6 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
-			modifier = {
-				factor = 0
-				NOT = {
-					learning = 8
-				}
-			}
 		}
 	}	
 }
