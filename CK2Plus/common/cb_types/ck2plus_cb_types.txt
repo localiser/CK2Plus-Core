@@ -1005,10 +1005,10 @@ free_family_cb = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		any_dynasty_member = {
 			limit = {
-				is_prisoner = yes
+				prisoner = yes
 				host = { character = FROM }
 			}
-			release = PREV
+			prisoner = no
 		}
 	}
 	
@@ -1022,8 +1022,8 @@ free_family_cb = {
 		ROOT = {
 			any_dynasty_member = {
 				limit = {
-					is_prisoner = yes
-					liege = FROM
+					prisoner = yes
+					host = { character = FROM }
 				}
 				death = {
 					death_reason = death_execution
