@@ -39,7 +39,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 24
+		months = 120
 	}	
 	
 	option = {
@@ -146,69 +146,6 @@ character_event = {
 				}
 			}
 		}
-	}
-}
-
-# Bishop asks character to reform Celtic ways
-character_event = {
-	id = 1000182175
-	desc = EVTDESC1000182175
-	picture = GFX_evt_scandal
-	
-	prisoner = no
-	capable_only = yes
-	
-	trigger = {
-		NOT = {
-			OR = {
-				religion = celtic_pagan
-				religion = celtic_pagan_reformed
-			}
-		}
-		has_character_modifier = celtic_ways
-	}
-	
-	mean_time_to_happen = {
-		months = 12
-	}
-	
-	option = {
-		name = EVTOPTA1000182175
-		ai_chance = { factor = 50 }
-		hidden_tooltip = { remove_character_modifier = celtic_ways }
-		if = {
-			limit = { 
-				OR = {
-					culture = scottish
-					culture = irish
-				}
-			}
-			religion = celtic_pagan
-		}
-		if = {
-			limit = { 
-				OR = {
-					culture = welsh
-					culture = breton
-					culture = cornish
-				}
-			}
-			religion = celtic_pagan
-		}
-		piety = 50
-	}
-	option = {
-		name = EVTOPTB1000182175
-		piety = 50
-		ai_chance = { factor = 50 }
-		religion_head = {
-			opinion = {
-				modifier = opinion_happy
-				who = ROOT
-				years = 2
-			}
-		}
-		hidden_tooltip = { remove_character_modifier = celtic_ways }
 	}
 }
 
