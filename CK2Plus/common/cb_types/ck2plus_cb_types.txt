@@ -981,31 +981,28 @@ free_family_cb = {
 	can_call_allies = yes # Can either side call allies
 	can_attack_vassals = no
 	
-	can_use = { 
+	can_use = {
 		ROOT = { NOT = { has_character_modifier = holding_epic_tournament }	}
 		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 	
 		any_dynasty_member = {
-			prisoner = yes
+			is_prisoner = yes
 		}
 	}
 	
 	is_valid_title = {
-		FROM = {
-			any_courtier = {
-				prisoner = yes
-				dynasty = ROOT
-			}
+		any_dynasty_member = {
+			is_prisoner = yes
+			host = { character = FROM }
 		}
-		
 	}
 	
 	on_success = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		any_dynasty_member = {
 			limit = {
-				prisoner = yes
+				is_prisoner = yes
 				host = { character = FROM }
 			}
 			prisoner = no
@@ -1022,7 +1019,7 @@ free_family_cb = {
 		ROOT = {
 			any_dynasty_member = {
 				limit = {
-					prisoner = yes
+					is_prisoner = yes
 					host = { character = FROM }
 				}
 				death = {
