@@ -345,7 +345,77 @@ decisions = {
 				}
 			}
 		}
-	}	
+	}
+	convert_to_roman = {
+		potential = {
+			is_ruler = yes
+			has_landed_title = e_roman_empire
+			NOT = { culture = roman }
+		}
+		allow = {
+			has_landed_title = e_roman_empire
+		}
+		effect = {
+			culture = roman
+			any_courtier = {
+				limit = {
+					employer = { character = ROOT }
+					dynasty = ROOT
+				}
+				culture = roman
+			}
+			revoke_allowed = {
+				always = no
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.2 # Slow it down a bit
+			}
+			modifier = {
+				factor = 0.01
+				capital_scope = {
+					NOT = { culture = roman }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 2
+					culture = roman
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 4
+					culture = roman
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 6
+					culture = roman
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 8
+					culture = roman
+				}
+			}
+			modifier = {
+				factor = 1.1
+				num_culture_realm_provs = {
+					num = 10
+					culture = roman
+				}
+			}
+		}
+	}
 	convert_to_icelandic = {
 		potential = {
 			culture = norse
