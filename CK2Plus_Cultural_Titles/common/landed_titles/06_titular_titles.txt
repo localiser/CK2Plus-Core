@@ -11,7 +11,15 @@ k_qarakhnid = { # Actually Khiva
         zoroastrian_group = 700 # Crusade target weight
         
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         culture = persian
                         k_qarakhnid = { 
@@ -31,7 +39,15 @@ k_gondar = {
         capital = 883 #Gondar
 
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         religion_group = jewish_group
                         k_gondar = { OR = { is_titular = no has_holder = yes } }
@@ -46,8 +62,16 @@ k_magna_graecia = {
         capital = 344 #Taranto
         assimilate = no
         allow = {
-                war = no
-                is_republic = yes
+			is_adult = yes
+			ruled_years = 5
+			war = no
+            is_republic = yes
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
         }
         culture = greek
         dignity = 10
@@ -68,34 +92,42 @@ k_bhutan = {
 }
 
 k_bavaria = {
-                color={ 91 91 202 }
-                color2={ 220 220 20 }
-                culture = german
-                capital = 360 #Oberbayern
-                
-                allow = {
-                        war = no
-                        OR = {
-                                culture = german
-                                k_bavaria = { 
-                                        OR = { 
-                                                is_titular = no 
-                                                has_holder = yes 
-                                        } 
-                                }
-                        }
-                }
-                
-                catholic = 700 # Crusade target weight
-                hungarian = "Bajorország"
-                frankish = "Bavière"
-                bohemian = "Bavorsko"
-                italian = "Baviera"
-                german = "Bayern"
-                greek = "Bavaría"
-                croatian = "Bavarska"
-                polish = "Bawaria"
-                dutch = "Beieren"
+	color={ 91 91 202 }
+	color2={ 220 220 20 }
+	culture = german
+	capital = 360 #Oberbayern
+
+	allow = {
+	is_adult = yes
+	ruled_years = 5
+	war = no
+	NOT = {
+		AND = {
+			ai = yes
+			has_landed_title = e_byzantium
+		}
+	}
+			OR = {
+					culture = german
+					k_bavaria = { 
+							OR = { 
+									is_titular = no 
+									has_holder = yes 
+							} 
+					}
+			}
+	}
+
+	catholic = 700 # Crusade target weight
+	hungarian = "Bajorország"
+	frankish = "Bavière"
+	bohemian = "Bavorsko"
+	italian = "Baviera"
+	german = "Bayern"
+	greek = "Bavaría"
+	croatian = "Bavarska"
+	polish = "Bawaria"
+	dutch = "Beieren"
 }
 
 k_cornwall = {
@@ -121,7 +153,15 @@ k_cornwall = {
         sicilian = "Curnuvagghia"
         
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         culture = cornish
                         k_cornwall = { OR = { is_titular = no has_holder = yes } }
@@ -138,12 +178,20 @@ k_dublin = {
         capital = 11 # Dublin
         culture = danish
         allow = {
-                war = no
-                OR = {
-                        culture = english_norse
-                        culture_group = north_germanic
-                        k_dublin = { OR = { is_titular = no has_holder = yes } }
-                }
+            is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
+			OR = {
+					culture = english_norse
+					culture_group = north_germanic
+					k_dublin = { OR = { is_titular = no has_holder = yes } }
+			}
         }
         irish = "Dubhlinn"
         saxon = "Difelin"
@@ -161,7 +209,15 @@ k_epirus = {
         capital = 472
         culture = greek
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         culture_group = byzantine
                         k_epirus = { OR = { is_titular = no has_holder = yes } }
@@ -181,6 +237,15 @@ k_holland = {
 	capital = 80
 	allow = {
 		lower_tier_than = king
+		is_adult = yes
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				ai = yes
+				has_landed_title = e_byzantium
+			}
+		}
 		OR = {
 				culture = dutch
 				k_holland = { OR = { is_titular = no has_holder = yes } }
@@ -218,7 +283,15 @@ k_iceland = {
 	welsh = "Ynys yr Iâ"
 	
 	allow = {
+		is_adult = yes
+		ruled_years = 5
 		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
 		OR = {
 			culture_group = north_germanic
 			k_iceland = {
@@ -240,7 +313,16 @@ k_israel = {
 	dignity = 100 # Counted as having this many more counties than it does
 
 	allow = {
+		is_adult = yes
+		ruled_years = 5
+		war = no
 		religion_group = jewish_group
+		NOT = {
+			AND = {
+				ai = yes
+				has_landed_title = e_byzantium
+			}
+		}
 		k_israel = { 
 			OR = { 
 				is_titular = no 
@@ -255,7 +337,15 @@ k_livonia = {
         capital = 377 #livs
         culture = german
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         religion = catholic
                         k_livonia = { OR = { is_titular = no has_holder = yes } }
@@ -279,7 +369,15 @@ k_mercia = {
         capital = 63 # Derby
         culture = saxon
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         AND = {
                                 culture = saxon
@@ -311,7 +409,15 @@ k_northumbria = {
         capital = 57 # York
         culture = saxon
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
                 OR = {
                         AND = {
                                 culture = saxon
@@ -336,7 +442,15 @@ k_prussia = {
 	capital = 370 # Marienburg
 	culture = german
 	allow = {
+		is_adult = yes
+		ruled_years = 5
 		war = no
+		NOT = {
+			AND = {
+				ai = yes
+				has_landed_title = e_byzantium
+			}
+		}
 		OR = {
 			culture = german
 			culture_group = baltic
@@ -362,6 +476,15 @@ k_sami = {
         tribe = yes
         
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         AND = {
                                 culture = lappish
@@ -391,7 +514,13 @@ k_sardinia = {
         capital = 326 # Cagliari
         culture = italian
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				ai = yes
+				has_landed_title = e_byzantium
+			}
                 OR = {
                         culture_group = latin
                         culture_group = iberian
@@ -413,7 +542,15 @@ k_saxony = {
 
         culture = german
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         AND = {
                                 culture = german
@@ -441,8 +578,16 @@ k_thessalonika = {
         color2={ 255 255 23 }
 
         allow = {
-                war = no
-                religion = catholic
+			is_adult = yes
+			ruled_years = 5
+			war = no
+            religion = catholic
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
         }
         capital = 490 #Thessalonica
         turkish = "Salonika"
@@ -462,18 +607,27 @@ k_roma = {
         short_name = yes
 
         allow = {
-                war = no
-                OR = {
-                        is_republic = yes
-                        k_roma = { OR = { is_titular = no has_holder = yes } }
-                }
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
+			OR = {
+				religion = hellenic_pagan
+				is_republic = yes
+				k_roma = { OR = { is_titular = no has_holder = yes } }
+			}
         }
         german = "Rom"
         frankish = "Rome"
         italian = "Roma"
         greek = "Romi"
         dutch = "Rome"
-	welsh = "Rhufain"
+		welsh = "Rhufain"
 }
 
 k_gotland = {
@@ -487,7 +641,15 @@ k_gotland = {
         dignity = 200 # Never want the Republic of Gotland to change primary title
 
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         is_republic = yes
                         k_gotland = { OR = { is_titular = no has_holder = yes } }
@@ -508,7 +670,15 @@ k_ancona = {
         dignity = 200 # Never want the Republic of Ancona to change primary title
 
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         is_republic = yes
                         k_ancona = { OR = { is_titular = no has_holder = yes } }
@@ -525,7 +695,15 @@ k_wend = {
         culture = pommeranian
 
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         culture = pommeranian
                         k_wend = { OR = { is_titular = no has_holder = yes } }
@@ -544,7 +722,15 @@ k_wessex = {
         capital = 26 # Winchester
         culture = saxon
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
                 OR = {
                         AND = {
                                 culture = saxon
@@ -592,6 +778,15 @@ k_cyprus = {
         italian = "Cipro"
         sicilian = "Cipru"
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
                 OR = {
                         religion = catholic
                         is_heresy_of = catholic
@@ -616,7 +811,16 @@ k_khazaria = {
         
         # Creation/Usurp Trigger
         allow = {
-                culture = khazar
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
+            culture = khazar
         }
 }
 
@@ -735,6 +939,15 @@ k_trinacria = {
 #        capital = 340 #        Palermo
         
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
                 OR = {
                         religion = catholic
                         is_heresy_of = catholic
@@ -751,7 +964,16 @@ k_genoa = {
         dignity = 200 # Never want the Republic of Genoa to change primary title
         
         allow = {
-                is_republic = yes
+			is_adult = yes
+			ruled_years = 5
+			war = no
+            is_republic = yes
+			NOT = {
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
         }
 }
 
@@ -765,7 +987,16 @@ k_pisa = {
         dignity = 200 # Never want the Republic of Pisa to change primary title
         
         allow = {
-                is_republic = yes
+			is_adult = yes
+			ruled_years = 5
+			war = no
+            is_republic = yes
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
         }
 }
 
@@ -790,6 +1021,11 @@ d_limburg = {
         castillan = "Limburgo"
         capital = 939 #Limburg
         culture = dutch
+		allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
+		}
 }
         
 d_dublin = {
@@ -797,12 +1033,14 @@ d_dublin = {
         capital = 11 # Dublin
         culture = danish
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 OR = {
-                        culture = english_norse
-                        culture_group = north_germanic
-                        d_dublin = { OR = { is_titular = no has_holder = yes } }
-                }
+					culture = english_norse
+					culture_group = north_germanic
+					d_dublin = { OR = { is_titular = no has_holder = yes } }
+				}
         }
 }
 
@@ -1525,6 +1763,9 @@ d_amalfi = {
         dignity = 10
         
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
         }
 }
@@ -1535,6 +1776,9 @@ d_gaete = {
         greek = "Gaeta"
         capital = 1019 # Gaète
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
         }
         dignity = 5
@@ -1545,6 +1789,9 @@ d_noli = {
         color2={ 250 250 250 }                
         capital = 1020 # Noli
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
         }
         dignity = 5
@@ -1557,6 +1804,9 @@ d_raguse = {
         serbian = "Dubrovnik"
         capital = 468 # Ragusa
         allow = {
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
         }
         dignity = 5
@@ -1870,7 +2120,9 @@ d_aquileia = {
 
         capital = 358 #Aquileia
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 religion_group = christian
                 is_theocracy = yes
         }
@@ -1885,7 +2137,9 @@ d_bologna = {
         capital = 352 # Bologna
         culture = italian
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
                 lower_tier_than = duke
                 OR = {
@@ -1908,7 +2162,9 @@ d_foix = {
 d_hamburg = {
         color = { 147 177 125 }
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
                 lower_tier_than = duke
                 OR = {
@@ -1929,7 +2185,9 @@ d_galatia = {
         color = { 244 75 185 }
         capital = 752
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
                 lower_tier_than = duke
                 OR = {
@@ -1971,7 +2229,9 @@ d_mainz = {
 
         capital = 123 # Mainz
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 religion_group = christian
                 is_theocracy = yes
         }
@@ -1983,7 +2243,9 @@ d_marino = {
         capital = 329 # Urbino
         culture = italian
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 is_republic = yes
                 lower_tier_than = duke
                 OR = {
@@ -2021,7 +2283,9 @@ d_ravenna = {
 
         capital = 351 #Ravenna
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 religion_group = christian
                 is_theocracy = yes
         }
@@ -2048,7 +2312,9 @@ d_tobruk = {
 d_trier = {
         color={ 10 48 243 }
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 religion_group = christian
                 is_theocracy = yes
         }
@@ -2063,7 +2329,9 @@ d_salzburg = {
         color={ 220 220 250 }
         capital = 448
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 religion_group = christian
                 is_theocracy = yes
         }
@@ -2082,7 +2350,9 @@ d_syracuse = {
         color = { 226 204 28 }
         capital = 343
         allow = {
-                war = no
+			is_adult = yes
+			ruled_years = 5
+			war = no
                 culture_group = byzantine
         }
         greek = "Syrakousa"
