@@ -126,9 +126,15 @@ narrative_event = {
 	
 	option = {
 		trigger = {
-			has_character_flag = event_1000182322
+			OR = {
+				has_character_flag = event_1000182322
+				religion = egyptian_pagan
+				religion = aten_pagan
 		}
-		clr_character_flag = event_1000182322
+		if = {
+			limit = { has_character_flag = event_1000182322 }
+			clr_character_flag = event_1000182322
+		}
 		name = "1000182008.a"
 	}
 	

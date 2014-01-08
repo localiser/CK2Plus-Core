@@ -3,7 +3,11 @@ decisions = {
 	restore_luxor = {
 		is_high_prio = yes
 		potential = {
-			is_ruler = yes
+			is_playable = yes
+			
+			independent = yes
+			higher_tier_than = duke
+			
 			age = 16
 			OR = {
 				religion = egyptian_pagan
@@ -11,10 +15,6 @@ decisions = {
 			}
 			NOT = { has_global_flag = luxor_restored }
 			NOT = { has_global_flag = luxor_restoring }
-			OR = {
-				has_landed_title = k_egypt
-				has_landed_title = e_egypt
-			}
 		}	
 		allow = {
 			wealth = 1000
@@ -59,9 +59,10 @@ decisions = {
 		is_high_prio = yes
 		
 		potential = {
-			is_ruler = yes
-			age = 16
+			is_playable = yes
+			
 			higher_tier_than = duke
+			age = 16
 			
 			OR = {
 				religion = egyptian_pagan
@@ -74,10 +75,6 @@ decisions = {
 					has_province_flag = pyramid_building_prov
 				}
 				trait = incapable
-			}
-			OR = {
-				has_landed_title = k_egypt
-				has_landed_title = e_egypt
 			}
 		}
 		allow = {
@@ -115,11 +112,13 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "The Old Gods"
+			
+			is_playable = yes
+			higher_tier_than = king
 			religion = egyptian_pagan
 			NOT = { has_global_flag = egyptian_priesthood_founded }
 			age = 16
-			prisoner = no	
-			has_landed_title = e_egypt
+			prisoner = no		
 		}
 		allow = {
 			realm_learning = 25
@@ -127,7 +126,10 @@ decisions = {
 			wealth = 500
 			war = no
 			religion_authority = 0.6	
-			b_luxor = { has_holder = yes }
+			b_luxor = { 
+				has_holder = yes 
+				holder_scope = { top_liege = { character = ROOT } }
+			}
 		}
 		effect = {
 			set_global_flag = egyptian_priesthood_founded
@@ -141,23 +143,14 @@ decisions = {
 					religion = egyptian_pagan
 					culture = egyptian_arabic
 					dynasty = random
-					female = no
 					age = 41
 				}
 				new_character = {
 					d_egyptian_pagan = {
 						grant_title = PREV
 					}
-					narrative_event = { id = TOG.6004 days = 2 }
-				}
-			}
-			d_egyptian_pagan = {
-				holder_scope = {
-					e_egypt = {
-						holder_scope = {
-							set_defacto_vassal = PREVPREV
-						}
-					}
+					set_defacto_liege = ROOT
+					narrative_event = { id = 1000182330 }
 				}
 			}
 		}
@@ -169,7 +162,9 @@ decisions = {
 	organize_anubis = {
 		is_high_prio = yes
 		potential = {
-			has_landed_title = k_egypt
+			is_playable = yes
+		
+			higher_tier_than = duke
 			prisoner = no
 			age = 16
 			OR = {
@@ -221,7 +216,9 @@ decisions = {
 	organize_horus = {
 		is_high_prio = yes
 		potential = {
-			has_landed_title = e_egypt
+			is_playable = yes
+			
+			higher_tier_than = king
 			prisoner = no
 			age = 16
 			OR = {
