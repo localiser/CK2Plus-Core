@@ -1,6 +1,7 @@
 namespace = AND
 
-###Ruler conversion from ancestry
+###Folow-up events
+#Ruler conversion from ancestry
 character_event = {
 	id = AND.1
 	desc = AND.1.desc
@@ -14,7 +15,30 @@ character_event = {
 		}
 	}
 	option = {
+		trigger = {
+			ai = no
+		}
 		name = AND.1.b
+	}
+}
+#Ruler conversion from Tribal  (make it more elaborate in the future)
+character_event = {
+	id = AND.2
+	desc = AND.2.desc
+	picture = "GFX_evt_council"
+	is_triggered_only = yes
+	
+	option = {
+		name = AND.2.a
+		FROM = {
+			reverse_culture = ROOT
+		}
+	}
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = AND.2.b
 	}
 }
 ###Spontaneous religious spawning
@@ -501,4 +525,458 @@ province_event = {
 		}
 	}
 }
-#Mingling event
+
+###Spontaneous cultural spawning
+# North-Germanic
+province_event = {
+	id = AND.110
+	desc = AND.110.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = norse_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = norse_founded
+	}
+	option = {
+		name = AND.110.a
+		ROOT = {
+			culture = norse
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.111
+	desc = AND.111.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = swedish_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = swedish_founded
+	}
+	option = {
+		name = AND.111.a
+		ROOT = {
+			culture = swedish
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.112
+	desc = AND.112.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = norwegian_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = norwegian_founded
+	}
+	option = {
+		name = AND.112.a
+		ROOT = {
+			culture = norwegian
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.113
+	desc = AND.113.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = danish_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = danish_founded
+	}
+	option = {
+		name = AND.113.a
+		ROOT = {
+			culture = danish
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.114
+	desc = AND.114.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = icelandic_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = icelandic_founded
+	}
+	option = {
+		name = AND.114.a
+		ROOT = {
+			culture = icelandic
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+# central germanic
+province_event = {
+	id = AND.115
+	desc = AND.115.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = german_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = german_founded
+	}
+	option = {
+		name = AND.115.a
+		ROOT = {
+			culture = german
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.116
+	desc = AND.116.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = dutch_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = dutch_founded
+	}
+	option = {
+		name = AND.116.a
+		ROOT = {
+			culture = dutch
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+# west-germanic
+province_event = {
+	id = AND.117
+	desc = AND.117.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = english_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = english_founded
+	}
+	option = {
+		name = AND.117.a
+		ROOT = {
+			culture = english
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.118
+	desc = AND.118.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = saxon_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = saxon_founded
+	}
+	option = {
+		name = AND.118.a
+		ROOT = {
+			culture = saxon
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+#province_event = {
+#	id = AND.119
+#	desc = AND.119.desc
+#	picture = GFX_evt_council
+#	
+#	trigger = {
+#		has_global_flag = another_new_dawn
+#		NOT = { has_global_flag = english_norse_founded }
+#		culture = tribal
+#	}
+#	mean_time_to_happen = {
+#		days = 3650
+#	}
+#	immediate = {
+#		set_global_flag = english_norse_founded
+#	}
+#	option = {
+#		name = AND.119.a
+#		ROOT = {
+#			culture = english_norse
+#		}
+#		ROOT = {
+#			owner = {
+#				character_event = { id = AND.2 }
+#			}
+#		}
+#	}
+#}
+# latin
+province_event = {
+	id = AND.120
+	desc = AND.120.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = frankish_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = frankish_founded
+	}
+	option = {
+		name = AND.120.a
+		ROOT = {
+			culture = frankish
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.121
+	desc = AND.121.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = norman_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = norman_founded
+	}
+	option = {
+		name = AND.121.a
+		ROOT = {
+			culture = norman
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.122
+	desc = AND.122.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = italian_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = italian_founded
+	}
+	option = {
+		name = AND.122.a
+		ROOT = {
+			culture = italian
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.123
+	desc = AND.123.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = occitan_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = occitan_founded
+	}
+	option = {
+		name = AND.123.a
+		ROOT = {
+			culture = occitan
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.124
+	desc = AND.124.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = roman_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = roman_founded
+	}
+	option = {
+		name = AND.124.a
+		ROOT = {
+			culture = roman
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+province_event = {
+	id = AND.125
+	desc = AND.125.desc
+	picture = GFX_evt_council
+	
+	trigger = {
+		has_global_flag = another_new_dawn
+		NOT = { has_global_flag = sicilian_founded }
+		culture = tribal
+	}
+	mean_time_to_happen = {
+		days = 3650
+	}
+	immediate = {
+		set_global_flag = sicilian_founded
+	}
+	option = {
+		name = AND.125.a
+		ROOT = {
+			culture = sicilian
+		}
+		ROOT = {
+			owner = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+}
+# iberian
