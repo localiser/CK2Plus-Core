@@ -2739,7 +2739,7 @@ holy_war = {
 		if = {
 			limit = {
 				has_global_flag = hardcore_mode
-				ai = no
+				ROOT = { ai = no }
 			}
 			hidden_tooltip = { ROOT = { add_character_modifier = { name = "holy_war_timer" duration = 3650 } } }
 		}
@@ -2747,7 +2747,7 @@ holy_war = {
 			limit = {
 				OR = {
 					NOT = { has_global_flag = hardcore_mode }
-					ai = yes
+					ROOT = { ai = yes }
 				}
 			}
 			hidden_tooltip = { ROOT = { add_character_modifier = { name = "holy_war_timer" duration = 1825 } } }
@@ -6995,7 +6995,7 @@ county_conquest = {
 		if = {
 			limit = {
 				has_global_flag = hardcore_mode
-				ai = no
+				ROOT = { ai = no }
 			}
 			hidden_tooltip = { ROOT = { add_character_modifier = { name = "holy_war_timer" duration = 3650 } } }
 		}			
