@@ -1052,6 +1052,8 @@ character_event = {
 	id = 1000188003
 	desc = EVTDESC1000188003
 	
+	hide_window = yes
+	
 	only_rulers = yes
 
 	trigger = {
@@ -1062,7 +1064,7 @@ character_event = {
 			liege = { character = ROOT }
 			liege = { war = no }
 		}
-	any_playable_ruler = {
+		any_playable_ruler = {
 		reverse_has_opinion_modifier = { who = ROOT modifier = guelf }
 		}	
 	}
@@ -1071,10 +1073,8 @@ character_event = {
 		months = 1
 	}
 
-	
-
-	option = {
-		name = OK
+	immediate = {
+		remove_trait = guelf
 		if = {
 			limit = {
 				any_playable_ruler = {
@@ -1099,8 +1099,7 @@ character_event = {
 			}
 			remove_opinion = { who = liege modifier = guelf }
 			reverse_remove_opinion = { who = liege modifier = guelf }
-			remove_trait = guelf
-		}
+		}		
 	}
 }
 
