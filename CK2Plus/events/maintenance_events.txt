@@ -684,7 +684,7 @@ character_event = {
 	}
 }
 
-character_event = {
+character_event = { #Shatter Empire if too small
 	id = 110033
 	is_triggered_only = yes
 	only_rulers = yes
@@ -782,9 +782,10 @@ character_event = {
 	}
 }
 
-character_event = {
+character_event = { # Remove Crowned by Pope if not the Kaiser
 	id = 110043
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		trait = crowned_by_pope
@@ -797,9 +798,7 @@ character_event = {
 		days = 1
 	}
 
-
-	option = {
-		name = "EVTOPTA110043"
+	immediate = {
 		remove_trait = crowned_by_pope
 	}
 }
@@ -2219,7 +2218,7 @@ character_event = {
 	}
 }
 
-character_event = {
+character_event = { #Byzantium is reclaimed by an Orthodox ruler
 	id = 110068
 	picture = "GFX_evt_council"
 
@@ -2228,7 +2227,13 @@ character_event = {
 		is_ruler = yes
 		independent = yes
 		culture_group = byzantine
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = bogomilist
+			religion = nestorian
+			religion = monothelite
+			religion = iconoclast
+		}
 		c_byzantion = { holder_scope = { same_realm = ROOT } }
 		NOT = { tier = emperor }
 		e_byzantium = { has_holder = no }
@@ -2264,7 +2269,7 @@ character_event = {
 	}
 }
 
-character_event = {
+character_event = { #Convert Latin Empire to Byzantine Empire if the holder is no longer Catholic
 	id = 110069
 
 	trigger = {
@@ -2274,7 +2279,10 @@ character_event = {
 		NOT = {
 			OR = {
 				religion = catholic
-				is_heresy_of = catholic
+				religion = cathar
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
 			}
 		}
 	}
@@ -2291,7 +2299,10 @@ character_event = {
 			limit = {
 				OR = {
 					religion = orthodox
-					is_heresy_of = orthodox
+					religion = bogomilist
+					religion = nestorian
+					religion = monothelite
+					religion = iconoclast
 				}
 				e_byzantium = { has_holder = no }
 			}
@@ -9378,7 +9389,7 @@ character_event = {
 	}
 }
 
-character_event = {
+character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the title holder is not Orthodox or Hellenic
 	id = 110074
 
 	trigger = {
@@ -9386,11 +9397,14 @@ character_event = {
 		is_ruler = yes
 		has_landed_title = e_byzantium
 		NOT = {
-			OR = {
-				religion = orthodox
-				is_heresy_of = orthodox
-				religion = hellenic_pagan
-			}
+			religion = orthodox
+			religion = bogomilist
+			religion = nestorian
+			religion = monothelite
+			religion = iconoclast
+			religion = hellenic_pagan
+			religion = mystery_eleusinia
+			religion = mystery_mithras
 		}
 	}
 
@@ -9406,7 +9420,10 @@ character_event = {
 			limit = {
 				OR = {
 					religion = catholic
-					is_heresy_of = catholic
+					religion = cathar
+					religion = fraticelli
+					religion = waldensian
+					religion = lollard
 				}
 				e_latin_empire = { has_holder = no }
 			}
@@ -9536,14 +9553,23 @@ character_event = {
 	}
 }
 
-character_event = {
+character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the Kingdom of Jerusalem if held by a non-heretic Catholic
 	id = 110076
 	is_triggered_only = yes
 
 	trigger = {
 		ai = yes
 		is_ruler = yes
-		religion = catholic
+		AND = {
+			OR = {
+				religion = catholic
+				religion = cathar
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
+			}
+			is_heretic = no
+		}
 		lower_tier_than = KING
 		independent = yes
 		primary_title = {
@@ -9561,7 +9587,16 @@ character_event = {
 		k_jerusalem = {
 			has_holder = yes
 			holder_scope = {
-				religion = catholic
+				AND = {
+					OR = {
+						religion = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
+					}
+					is_heretic = no
+				}
 			}
 		}
 	}
@@ -9583,16 +9618,25 @@ character_event = {
 }
 
 character_event = {
-	id = 1000182162
+	id = 1000182162 #Add Bloodlust trait
 	
 	hide_window = yes
 	hide_from = yes	
 
 	trigger = {
 		OR = {
-			has_global_flag = golden_horde_arrival
-			has_global_flag = il_khanate_arrival
-			has_global_flag = aztec_arrival
+			AND = {
+				has_global_flag = golden_horde_arrival
+				NOT = { has_global_flag = golden_horde_converts }
+			}
+			AND = {
+				has_global_flag = il_khanate_arrival
+				NOT = { has_global_flag = il_khanate_converts }
+			}
+			AND = {
+				has_global_flag = aztec_arrival
+				NOT = { has_global_flag = aztecs_defeated }
+			}
 		}	
 		ai = yes
 		OR = {
@@ -9628,7 +9672,7 @@ character_event = {
 	desc = "AI_EVENT"
 }
 
-character_event = {
+character_event = { #Remove Bloodlust Trait
 	id = 1000182163
 
 	hide_window = yes
