@@ -557,6 +557,7 @@ character_event = { # make vassals pledge allegiance to daughter
 		name = EVTOPTA1000182579
 		ai_chance = { factor  = 90 } # TODO teach the AI to decide more intelligently
 		any_vassal = {
+			limit = { NOT = { is_primary_heir = ROOT }}
 			letter_event = { id = 1000182580 days = 1 } 
 		}
 	}
