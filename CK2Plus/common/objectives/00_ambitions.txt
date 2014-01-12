@@ -596,10 +596,17 @@ obj_become_spiritual = {
 #			liege = { lower_tier_than = KING }
 			AND = {
 				is_ruler = no
-				NOT = { religion = orthodox }
-				NOT = { is_heresy_of = orthodox }
-				NOT = { religion = miaphysite }
-				NOT = { is_heresy_of = miaphysite }
+				NOT = { 
+					religion = orthodox
+					religion = bogomilist
+					religion = nestorian
+					religion = monothelite
+					religion = iconoclast
+				}
+				NOT = { 
+					religion = miaphysite 
+					religion = monophysite
+				}
 			}
 		}
 
