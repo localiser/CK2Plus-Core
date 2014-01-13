@@ -798,7 +798,7 @@ restore_papacy = {
 	}
 }
 
-restore_byzantium = {
+restore_byzantium = { #Restore Byzantium
 	name = CB_NAME_RESTOREBYZANTIUM
 	war_name = WAR_NAME_RESTOREBYZANTIUM
 	sprite = 16
@@ -815,7 +815,13 @@ restore_byzantium = {
 		e_byzantium = { has_holder = no }
 
 		ROOT = {
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = bogomilist
+				religion = nestorian
+				religion = monothelite
+				religion = iconoclast
+			}
 			culture_group = byzantine
 			independent = yes
 			higher_tier_than = duke
@@ -823,7 +829,13 @@ restore_byzantium = {
 
 		FROM = {
 			OR = {
-				NOT = { religion = orthodox }
+				NOT = { 
+					religion = orthodox
+					religion = bogomilist
+					religion = nestorian
+					religion = monothelite
+					religion = iconoclast
+				}
 				NOT = { culture_group = byzantine }
 			}
 		}
@@ -846,14 +858,26 @@ restore_byzantium = {
 
 	is_valid_title = {
 		ROOT = {
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = bogomilist
+				religion = nestorian
+				religion = monothelite
+				religion = iconoclast
+			}
 			culture_group = byzantine
 			independent = yes
 		}
 
 		FROM = {
 			OR = {
-				NOT = { religion = orthodox }
+				NOT = {
+					religion = orthodox
+					religion = bogomilist
+					religion = nestorian
+					religion = monothelite
+					religion = iconoclast
+				}
 				NOT = { culture_group = byzantine }
 			}
 		}
