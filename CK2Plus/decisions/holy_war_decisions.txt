@@ -446,7 +446,16 @@ decisions = {
 	fourth_crusade = {
 		potential = {
 			ai = yes
-			religion = catholic
+			AND = {
+				OR = {
+					religion = catholic
+					religion = cathar
+					religion = fraticelli
+					religion = waldensian
+					religion = lollard
+				}
+				is_heretic = no
+			}
 			has_global_flag = catholic_crusade_failed
 			NOT = { has_global_flag = fourth_crusade_happened }
 			NOT = { has_character_modifier = holy_truce_timer }

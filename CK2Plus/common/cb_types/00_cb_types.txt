@@ -2009,7 +2009,20 @@ crusade = {
 					independent = yes # Don't declare Crusades on revolters - chances are high the war will invalidate
 				}
 				OR = {
-					ROOT = { NOT = { religion = catholic } }
+					ROOT = { 
+						NOT = {
+							AND = {
+								OR = {
+									religion = catholic
+									religion = cathar
+									religion = fraticelli
+									religion = waldensian
+									religion = lollard
+								}
+								is_heretic = no
+							}						
+						} 
+					}
 					title = k_jerusalem
 					has_global_flag = crusade_for_jerusalem
 				}
@@ -2029,7 +2042,18 @@ crusade = {
 							}
 						}
 					}
-					ROOT = { religion = catholic }
+					ROOT = { 
+						AND = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}					
+					}
 					ROOT = { ai = no }
 					FROM = {
 						any_realm_province = {
@@ -2068,7 +2092,18 @@ crusade = {
 			OR = {
 				NOT = { religion_group = ROOT }
 				AND = {
-					ROOT = { religion = catholic }
+					ROOT = { 			
+						AND = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}
+					}
 					FROM = { NOT = { religion = ROOT } }
 					PREV = { title = k_byzantium }
 				}
@@ -2120,7 +2155,18 @@ crusade = {
 		}
 		if = {
 			limit = {
-					ROOT = { religion = catholic }
+					ROOT = { 
+						AND = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}
+					}
 					title = k_jerusalem
 			}
 			set_global_flag = crusade_for_jerusalem
@@ -2153,7 +2199,18 @@ crusade = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					ROOT = { religion = catholic }
+					ROOT = {
+						AND = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}					
+					}
 				}
 				clr_global_flag = catholic_crusade_failed
 			}
@@ -2350,7 +2407,18 @@ crusade = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					ROOT = { religion = catholic }
+					ROOT = { 
+						AND = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}					
+					}
 				}
 				set_global_flag = catholic_crusade_failed
 			}
@@ -2409,7 +2477,18 @@ crusade = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					ROOT = { religion = catholic }
+					ROOT = { 
+						AND = {
+							OR = {
+								religion = catholic
+								religion = cathar
+								religion = fraticelli
+								religion = waldensian
+								religion = lollard
+							}
+							is_heretic = no
+						}					
+					}
 				}
 				set_global_flag = catholic_crusade_failed
 			}
@@ -2684,8 +2763,15 @@ holy_war = {
 			OR = {
 				ai = no				
 				AND = {
-					NOT = { religion = orthodox }
-					NOT = { is_heresy_of = orthodox }
+					NOT = {
+						OR = {
+							religion = orthodox
+							religion = bogomilist
+							religion = nestorian
+							religion = monothelite
+							religion = iconoclast
+						}					
+					}
 				}
 				FROM = { religion_group = muslim }
 				piety = 400
@@ -5074,13 +5160,19 @@ dejure_county_claim = {
 				FROM = { 
 					OR = {
 						religion = catholic
-						is_heresy_of = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
 					}
 				}
 				ROOT = { 
 					OR = {
 						religion = orthodox
-						is_heresy_of = orthodox
+						religion = bogomilist
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
 					}
 				}
 			}
@@ -5088,13 +5180,20 @@ dejure_county_claim = {
 				ROOT = { 
 					OR = {
 						religion = catholic
-						is_heresy_of = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
 					}
+
 				}
 				FROM = { 
 					OR = {
 						religion = orthodox
-						is_heresy_of = orthodox
+						religion = bogomilist
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
 					}
 				}
 			}
@@ -5783,13 +5882,19 @@ other_dejure_county_claim = {
 				FROM = { 
 					OR = {
 						religion = catholic
-						is_heresy_of = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
 					}
 				}
 				ROOT = { 
 					OR = {
 						religion = orthodox
-						is_heresy_of = orthodox
+						religion = bogomilist
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
 					}
 				}
 			}
@@ -5797,13 +5902,19 @@ other_dejure_county_claim = {
 				ROOT = { 
 					OR = {
 						religion = catholic
-						is_heresy_of = catholic
+						religion = cathar
+						religion = fraticelli
+						religion = waldensian
+						religion = lollard
 					}
 				}
 				FROM = { 
 					OR = {
 						religion = orthodox
-						is_heresy_of = orthodox
+						religion = bogomilist
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
 					}
 				}
 			}
