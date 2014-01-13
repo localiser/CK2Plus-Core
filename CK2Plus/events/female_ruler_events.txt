@@ -323,6 +323,12 @@ character_event = { # No sons, should I change my laws?
 			is_female = yes
 		}
 		NOT = { trait = immortal } 
+		current_heir = {
+			OR = {
+				NOT = { has_character_flag = law_change_considered }
+				had_character_flag = { flag = law_change_considered days = 3650 }
+			}
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -376,6 +382,7 @@ character_event = { # No sons, should I change my laws?
 		}
 		current_heir = { #WOOT for executing stuff in order
 			opinion = { who = ROOT modifier = favoured_heiress years = 100 }
+			set_character_flag = law_change_considered
 		}
 	}
 	
@@ -419,6 +426,7 @@ character_event = { # No sons, should I change my laws?
 		}
 		current_heir = {
 			opinion = { who = ROOT modifier = chosen_heir years = 100 }
+			set_character_flag = law_change_considered
 		}
 	}
 	option = { # God's will be done
@@ -428,6 +436,9 @@ character_event = { # No sons, should I change my laws?
 		}
 		any_vassal = {
 			opinion = { who = ROOT modifier = opinion_worried years = 100 }
+		}
+		current_heir = {
+			set_character_flag = law_change_considered
 		}
 	}
 }
