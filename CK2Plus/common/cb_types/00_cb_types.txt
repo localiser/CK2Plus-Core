@@ -2043,16 +2043,14 @@ crusade = {
 						}
 					}
 					ROOT = { 
-						AND = {
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
-							is_heretic = no
-						}					
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
+						is_heretic = no
 					}
 					ROOT = { ai = no }
 					FROM = {
@@ -2092,17 +2090,15 @@ crusade = {
 			OR = {
 				NOT = { religion_group = ROOT }
 				AND = {
-					ROOT = { 			
-						AND = {
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
-							is_heretic = no
+					ROOT = {
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
 						}
+						is_heretic = no
 					}
 					FROM = { NOT = { religion = ROOT } }
 					PREV = { title = k_byzantium }
@@ -2156,16 +2152,14 @@ crusade = {
 		if = {
 			limit = {
 					ROOT = { 
-						AND = {
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
-							is_heretic = no
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
 						}
+						is_heretic = no
 					}
 					title = k_jerusalem
 			}
@@ -2200,16 +2194,14 @@ crusade = {
 			if = {
 				limit = {
 					ROOT = {
-						AND = {
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
-							is_heretic = no
-						}					
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
+						is_heretic = no
 					}
 				}
 				clr_global_flag = catholic_crusade_failed
@@ -2408,16 +2400,14 @@ crusade = {
 			if = {
 				limit = {
 					ROOT = { 
-						AND = {
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
-							is_heretic = no
-						}					
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
+						is_heretic = no
 					}
 				}
 				set_global_flag = catholic_crusade_failed
@@ -2477,17 +2467,15 @@ crusade = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					ROOT = { 
-						AND = {
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
-							is_heretic = no
-						}					
+					ROOT = {
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
+						is_heretic = no
 					}
 				}
 				set_global_flag = catholic_crusade_failed
@@ -2762,7 +2750,6 @@ holy_war = {
 			#orthodox AI should avoid holy wars for the most part
 			OR = {
 				ai = no				
-				AND = {
 					NOT = {
 						OR = {
 							religion = orthodox
@@ -2772,7 +2759,6 @@ holy_war = {
 							religion = iconoclast
 						}					
 					}
-				}
 				FROM = { religion_group = muslim }
 				piety = 400
 			}
@@ -3759,54 +3745,11 @@ overthrow_ruler_no_calls = {
 
 	on_add = {
 		FROM = {
-			#any faction might join
 			hidden_tooltip = {
 				ROOT = { add_trait = rebel hidden_tooltip = { opinion = { who = LIEGE modifier = revolting_against years = 100 } } }
-				any_vassal = {
-					limit = {
-						OR = {
-							leads_faction = faction_feudal_emperor
-							leads_faction = faction_feudal_king
-							leads_faction = faction_feudal_duke
-						}
-					}
-					character_event = { id = 1000182394 }
-				}
-				any_vassal = {
-					limit = {
-						OR = {
-							leads_faction = faction_court_emperor
-							leads_faction = faction_court_king
-							leads_faction = faction_court_duke
-						}
-					}
-					character_event = { id = 1000182400 }
-				}
-				any_vassal = {
-					limit = { 
-						OR = {
-							leads_faction = faction_religious_emperor
-							leads_faction = faction_religious_king
-							leads_faction = faction_religious_duke
-						}
-					}
-					character_event = { id = 1000182406 }
-				}
-				any_vassal = {
-					limit = {
-						OR = {
-							leads_faction = faction_republican_emperor
-							leads_faction = faction_republican_king
-							leads_faction = faction_republican_duke
-						}
-					}
-					character_event = { id = 1000182412 }
-				}
-				any_vassal = { character_event = { id = 1000182418 } }
 			}
 		}
 	}
-
 	on_success = {
 		hidden_tooltip = { any_attacker = { set_character_flag = rebel_attacker } }
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }

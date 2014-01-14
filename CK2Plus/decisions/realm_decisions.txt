@@ -3,20 +3,21 @@ decisions = {
 	hold_a_epic_tournament  = {
 		is_high_prio = yes
 		potential = {
-			NOT = {
-				religion_group = muslim
-				has_character_flag = epic_tournament
-			}
+			is_ruler = yes
 			independent = yes
 			OR = {
 				tier = king
 				tier = emperor
 			}
+			NOT = {
+				religion_group = muslim
+				has_character_flag = epic_tournament
+			}
 			NOT = { has_character_modifier = holding_epic_tournament }
 		}
 		allow = {
+			is_adult = yes
 			war = no
-			age = 16
 			ruled_years = 5
 			prestige = 500
 			wealth = 200
@@ -57,7 +58,11 @@ decisions = {
 				character_event = { id = 70001 days = 60 } # Tournament start
 				any_realm_character = {
 					limit = {
+						is_adult = yes
 						is_feudal = yes
+						prisoner = no
+						NOT = { health_traits = 1 }
+						NOT = { is_female = yes	}
 						NOT = { 
 							AND = {
 								has_job_title = job_spiritual 
@@ -67,18 +72,14 @@ decisions = {
 								}
 							}
 						}
-						age = 16
-						NOT = { health_traits = 1 }
-						prisoner = no
-						NOT = { is_female = yes	}
 					}
 					character_event = { id = 70000 }
 				}
 				any_realm_character = {
 					limit = {
 						is_feudal = yes
-						age = 16
 						is_female = yes
+						is_adult = yes
 					}
 					character_event = { id = 1000182583 }
 				}
@@ -100,8 +101,9 @@ decisions = {
 
 	buy_indulgence_for_sins = {
 		potential = {
+			is_ruler = yes
+			is_adult = yes
 			religion = catholic
-			age = 16
 			demesne_size = 1
 			NOT = { trait = excommunicated }
 			rightful_religious_head_scope = {
@@ -155,18 +157,6 @@ decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { treasury = 200 }
-			}
-			modifier = {
-				factor = 0
-				piety = 100
-			}
-			modifier = {
-				factor = 0
-				lower_tier_than = duke
-			}
-			modifier = {
-				factor = 0
 				trait = cynical
 			}
 			modifier = {
@@ -177,11 +167,26 @@ decisions = {
 				factor = 0
 				trait = greedy
 			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}
 		}
 	}
 
 	give_to_charity = {
 		potential = {
+			is_ruler = yes
+			is_adult = yes
+			demesne_size = 1
 			OR = {
 				AND = {
 					NOT = { religion = catholic }
@@ -197,12 +202,10 @@ decisions = {
 					}
 				}
 			}
-			age = 16
-			demesne_size = 1
 		}
 		allow = {
-			NOT = { has_character_modifier = charity_timer }
 			treasury = 50
+			NOT = { has_character_modifier = charity_timer }
 		}
 		effect = {
 			treasury = -50
@@ -244,18 +247,6 @@ decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { treasury = 200 }
-			}
-			modifier = {
-				factor = 0
-				piety = 100
-			}
-			modifier = {
-				factor = 0
-				lower_tier_than = duke
-			}
-			modifier = {
-				factor = 0
 				trait = cynical
 			}
 			modifier = {
@@ -266,11 +257,24 @@ decisions = {
 				factor = 0
 				trait = greedy
 			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}
 		}
 	}
 
 	issue_declaration_of_repentance = {
 		potential = {
+			is_ruler = yes
 			religion = catholic
 			is_adult = yes
 			demesne_size = 1
@@ -288,8 +292,8 @@ decisions = {
 			}
 		}
 		allow = {
-			scaled_wealth = 2.0
 			is_heretic = no
+			scaled_wealth = 2.0
 		}
 		effect = {
 			set_character_flag = ask_for_repentance
@@ -311,6 +315,11 @@ decisions = {
 	demand_liege_title = {
 		is_high_prio = yes
 		potential = {
+			is_playable = yes
+			is_adult = yes
+			prisoner = no
+			tier = count
+			NOT = { trait = incapable }
 			NOT = { has_character_flag = requested_de_jure_title }
 			liege = {
 				NOT = { character = ROOT }
@@ -333,11 +342,6 @@ decisions = {
 					}
 				}
 			}
-			age = 16
-			prisoner = no
-			is_playable = yes
-			tier = count
-			NOT = { trait = incapable }
 		}
 		allow = {
 			liege = {
@@ -358,11 +362,12 @@ decisions = {
 
 	sadaqah_saddka  = {
 		potential = {
+			is_ruler = yes
+			is_adult = yes
 			OR = {
 				religion = shiite
 				religion = sunni
 			}
-			age = 16
 			demesne_size = 1
 			rightful_religious_head_scope = {
 				is_alive = yes
@@ -372,8 +377,8 @@ decisions = {
 			}
 		}
 		allow = {
-			NOT = { has_character_modifier = charity_timer }
 			treasury = 50
+			NOT = { has_character_modifier = charity_timer }
 		}
 		effect = {
 			treasury = -50
@@ -415,18 +420,6 @@ decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { treasury = 200 }
-			}
-			modifier = {
-				factor = 0
-				piety = 100
-			}
-			modifier = {
-				factor = 0
-				lower_tier_than = duke
-			}
-			modifier = {
-				factor = 0
 				trait = cynical
 			}
 			modifier = {
@@ -437,16 +430,29 @@ decisions = {
 				factor = 0
 				trait = greedy
 			}
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				piety = 100
+			}
+			modifier = {
+				factor = 0
+				lower_tier_than = duke
+			}
 		}
 	}
 
 	hold_a_furusiyya  = {
 		potential = {
+			independent = yes
+			is_adult = yes
+			religion_group = muslim
 			NOT = {
 				has_character_flag = epic_tournament_furusiyya
 			}
-			religion_group = muslim
-			independent = yes
 #			NOT = { is_female = yes	}
 			OR = {
 				tier = king
@@ -456,7 +462,6 @@ decisions = {
 		}
 		allow = {
 			war = no
-			age = 16
 			ruled_years = 5
 			prestige = 500
 			wealth = 200
@@ -515,7 +520,8 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
-			age = 16
+			independent = yes
+			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }
 			NOT = { has_global_flag = rome_restored }
@@ -562,22 +568,21 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
+			independent = yes
 			is_adult = yes
 			prisoner = no
+			is_heretic = no
 			NOT = { trait = incapable }
 			OR = {
 				has_landed_title = e_byzantium
 				has_landed_title = e_roman_empire
 			}
-			AND = {
-				OR = {
-					religion = orthodox
-					religion = bogomilist
-					religion = nestorian
-					religion = monothelite
-					religion = iconoclast
-				}
-				is_heretic = no
+			OR = {
+				religion = orthodox
+				religion = bogomilist
+				religion = nestorian
+				religion = monothelite
+				religion = iconoclast
 			}
 			NOT = { has_global_flag = schism_mended }
 		}
@@ -663,22 +668,21 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
-			age = 16
+			independent = yes
+			is_adult = yes
 			prisoner = no
+			is_heretic = no
 			NOT = { trait = incapable }
 			OR = {
 				has_landed_title = k_papal_state
 				num_of_emperor_titles = 1
 			}
-			AND = {
-				OR = {
-					religion = catholic
-					religion = cathar
-					religion = fraticelli
-					religion = waldensian
-					religion = lollard
-				}
-				is_heretic = no
+			OR = {
+				religion = catholic
+				religion = cathar
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
 			}
 			NOT = { has_global_flag = schism_mended }
 		}
@@ -774,6 +778,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
+			independent = yes
 			NOT = { has_landed_title = c_byzantion }
 			has_landed_title = e_byzantium
 			any_realm_lord = {
@@ -803,6 +808,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
+			independent = yes
 			has_landed_title = e_roman_empire
 			capital_scope = {
 				NOT = { province_id = 333 }
@@ -968,7 +974,7 @@ decisions = {
 		potential = {
 			has_dlc = "The Old Gods"
 			is_ruler = yes
-			age = 16
+			is_adult = yes
 			prisoner = no
 			OR = {
 				culture_group = north_germanic
@@ -980,7 +986,6 @@ decisions = {
 		}
 		allow = {
 			wealth = 100
-			prisoner = no
 		}
 		effect = {
 			wealth = -100
@@ -1001,7 +1006,7 @@ decisions = {
 		potential = {
 			has_dlc = "The Old Gods"
 			is_ruler = yes
-			age = 16
+			is_adult = yes
 			is_female = no
 			prisoner = no
 			culture = mongol
@@ -1022,7 +1027,6 @@ decisions = {
 			month = 8
 			scaled_wealth = 0.20
 			NOT = { month = 10 }
-			prisoner = no
 		}
 		effect = {
 			scaled_wealth = -0.20
@@ -1054,7 +1058,7 @@ decisions = {
 		potential = {
 			has_dlc = "The Old Gods"
 			is_ruler = yes
-			age = 16
+			is_adult = yes
 			prisoner = no
 			OR = {
 				religion = norse_pagan
@@ -1074,7 +1078,6 @@ decisions = {
 				month = 10
 			}
 			scaled_wealth = 0.20
-			prisoner = no
 		}
 		effect = {
 			scaled_wealth = -0.20
@@ -1106,7 +1109,7 @@ decisions = {
 		potential = {
 			has_dlc = "The Old Gods"
 			is_ruler = yes
-			age = 16
+			is_adult = yes
 			prisoner = no
 			OR = {
 				religion = finnish_pagan
@@ -1124,7 +1127,6 @@ decisions = {
 			NOT = { month = 7 }
 			month = 4
 			scaled_wealth = 0.20
-			prisoner = no
 		}
 		effect = {
 			scaled_wealth = -0.20
@@ -1156,7 +1158,7 @@ decisions = {
 		potential = {
 			has_dlc = "The Old Gods"
 			is_ruler = yes
-			age = 16
+			is_adult = yes
 			prisoner = no
 			OR = {
 				religion = baltic_pagan
@@ -1174,7 +1176,6 @@ decisions = {
 			NOT = { month = 7 }
 			month = 4
 			scaled_wealth = 0.20
-			prisoner = no
 		}
 		effect = {
 			scaled_wealth = -0.20
@@ -1206,7 +1207,7 @@ decisions = {
 		potential = {
 			has_dlc = "The Old Gods"
 			is_ruler = yes
-			age = 16
+			is_adult = yes
 			prisoner = no
 			OR = {
 				religion = slavic_pagan
@@ -1224,7 +1225,6 @@ decisions = {
 			NOT = { month = 7 }
 			month = 4
 			scaled_wealth = 0.20
-			prisoner = no
 		}
 		effect = {
 			scaled_wealth = -0.20
@@ -1255,10 +1255,11 @@ decisions = {
 	organize_varangian_guard = {
 		is_high_prio = yes
 		potential = {
-			has_landed_title = e_byzantium
+			independent = yes
+			is_adult = yes
 			is_female = no
 			prisoner = no
-			age = 16
+			has_landed_title = e_byzantium
 			NOT = { has_global_flag = varangian_guard_founded }
 		}
 		allow = {
@@ -1297,6 +1298,7 @@ decisions = {
 	create_hungary = {
 		is_high_prio = yes
 		potential = {
+			independent = yes
 			has_landed_title = k_magyar
 			culture = hungarian
 			k_hungary = {
@@ -1362,6 +1364,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "The Old Gods"
+			is_adult = yes
 			religion_group = zoroastrian_group
 			NOT = { has_global_flag = saoshyant_appears }
 			has_landed_title = e_persia
@@ -1418,6 +1421,7 @@ decisions = {
 	create_leon = {
 		is_high_prio = yes
 		potential = {
+			is_ruler = yes
 			has_landed_title = k_asturias
 			k_leon = {
 				has_holder = no
@@ -1447,10 +1451,11 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "The Old Gods"
+			independent = yes
+			is_adult = yes
+			prisoner = no	
 			religion_group = zoroastrian_group
 			NOT = { has_global_flag = zoroastrian_priesthood_founded }
-			age = 16
-			prisoner = no	
 			has_landed_title = e_persia
 		}
 		allow = {
@@ -1500,6 +1505,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Sons of Abraham"
+			is_ruler = yes
 			religion_group = jewish_group
 			NOT = { has_global_flag = third_temple_built }
 			NOT = { has_global_flag = building_third_temple }
@@ -1531,6 +1537,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Sons of Abraham"
+			is_ruler = yes
 			religion_group = jewish_group
 			has_landed_title = k_israel
 			has_global_flag = third_temple_built
@@ -1581,6 +1588,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Sons of Abraham"
+			is_ruler = yes
 			religion_group = jewish_group
 			k_israel = {
 				has_holder = no
@@ -1607,8 +1615,8 @@ decisions = {
 					copy_title_laws = k_jerusalem
 				}
 				gain_title = ROOT				
-				clr_character_flag = centralize_without_penalties
 			}
+			clr_character_flag = centralize_without_penalties
 			hidden_tooltip = {
 				any_playable_ruler = {
 				  any_realm_character = {
@@ -1643,13 +1651,14 @@ decisions = {
 	welcome_jews = {
 		potential = {
 			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			primary_title = { higher_tier_than = DUKE }
 			NOT = { 
 				religion_group = jewish_group 
 				has_character_modifier = expelled_jews_timer
 				has_character_flag = pogrom
 			}
 			has_character_modifier = expelled_jewish
-			primary_title = { higher_tier_than = DUKE }
 		}
 		allow = {
 		}
@@ -1680,7 +1689,7 @@ decisions = {
 			independent = yes
 			is_playable = yes
 			prisoner = no
-			age = 16
+			is_adult = yes
 			has_dlc = "Sons of Abraham"
 			OR = {
 				religion_group = christian
@@ -1747,16 +1756,9 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			
-			modifier = {
-				factor = 0.001 # Less likely to do it
-			}
 			modifier = {
 				factor = 0
-				any_courtier = {
-					religion = jewish
-					reverse_opinion = { who = ROOT value = 20 }
-				}
+				trait = kind
 			}
 			modifier = {
 				factor = 0
@@ -1772,7 +1774,13 @@ decisions = {
 			}
 			modifier = {
 				factor = 0
-				trait = kind
+				any_courtier = {
+					religion = jewish
+					reverse_opinion = { who = ROOT value = 20 }
+				}
+			}
+			modifier = {
+				factor = 0.001 # Less likely to do it
 			}
 			modifier = {
 				factor = 1.2
@@ -1790,6 +1798,9 @@ decisions = {
 	embrace_mutazila = {
 		potential = {
 			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			is_adult = yes
+			prisoner = no
 			religion = sunni
 			NOT = { 
 				OR = {
@@ -1797,9 +1808,6 @@ decisions = {
 					trait = ashari
 				}
 			}
-			is_ruler = yes
-			age = 16
-			prisoner = no
 		}
 		
 		allow = {
@@ -1838,6 +1846,9 @@ decisions = {
 	embrace_ashari = {
 		potential = {	
 			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			is_adult = yes
+			prisoner = no
 			religion = sunni
 			NOT = { 
 				OR = {
@@ -1845,9 +1856,6 @@ decisions = {
 					trait = ashari
 				}
 			}
-			is_ruler = yes
-			age = 16
-			prisoner = no
 		}
 		
 		allow = {

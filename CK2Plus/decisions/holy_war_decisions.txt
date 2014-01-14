@@ -445,36 +445,34 @@ decisions = {
 	}
 	fourth_crusade = {
 		potential = {
-			ai = yes
-			AND = {
-				OR = {
-					religion = catholic
-					religion = cathar
-					religion = fraticelli
-					religion = waldensian
-					religion = lollard
-				}
-				is_heretic = no
-			}
-			has_global_flag = catholic_crusade_failed
-			NOT = { has_global_flag = fourth_crusade_happened }
-			NOT = { has_character_modifier = holy_truce_timer }
-			NOT = {
-				trait = loyalist
-				trait = rebel
-			}
-			NOT = { piety = 50 }
-			NOT = {
-				has_character_modifier = crusade_timer
-			}
 			can_call_crusade = yes
 			has_called_crusade = no
+			is_heretic = no
+			ai = yes
 			religion_authority = 0.4
+			NOT = { piety = 50 }
+			OR = {
+				religion = catholic
+				religion = cathar
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
+			}
 			OR = {
 				trait = cynical
 				trait = lunatic
 				trait = possessed
 				trait = greedy
+			}
+			NOT = {
+				trait = loyalist
+				trait = rebel
+			}
+			has_global_flag = catholic_crusade_failed
+			NOT = { has_global_flag = fourth_crusade_happened }
+			NOT = { has_character_modifier = holy_truce_timer }
+			NOT = {
+				has_character_modifier = crusade_timer
 			}
 			496 = {
 				kingdom = {
