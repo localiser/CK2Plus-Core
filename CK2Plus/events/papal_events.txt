@@ -6,7 +6,13 @@ character_event = {
 
 	trigger = {
 		has_landed_title = c_roma
-		religion = catholic
+		AND = {
+			OR = {
+				religion = catholic
+				religion = fraticelli
+			}
+			is_heretic = no
+		}
 		rightful_religious_head_scope = { has_landed_title = k_papal_state }
 		religion_head = { NOT = { opinion = { who = ROOT value = 50 } } }
 		NOT = { trait = excommunicated }

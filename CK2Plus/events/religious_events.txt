@@ -3158,7 +3158,16 @@ character_event = {
 				NOT = { year = 930 }
 				culture_group = north_germanic # Historical outcome
 				FROM = {
-					religion = catholic
+					AND = {
+ 						OR = {
+ 							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+ 						}
+						is_heretic = no
+					}
 				}
 			}
 			modifier = {
@@ -3197,7 +3206,16 @@ character_event = {
 				factor = 3
 				culture_group = east_slavic # Historical outcome
 				FROM = {
-					religion = orthodox
+					AND = {
+						OR = {
+							religion = orthodox
+							religion = bogomilist
+							religion = nestorian
+							religion = monothelite
+							religion = iconoclast
+						}
+						is_heretic = no
+					}
 				}
 			}
 			modifier = {
@@ -3259,7 +3277,16 @@ character_event = {
 				factor = 2
 				culture_group = east_slavic # Historical
 				FROM = {
-					religion = orthodox
+					AND = {
+						OR = {
+							religion = orthodox
+							religion = bogomilist
+							religion = nestorian
+							religion = monothelite
+							religion = iconoclast
+						}
+						is_heretic = no
+					}
 				}
 			}
 			
