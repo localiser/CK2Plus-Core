@@ -907,6 +907,10 @@ decisions = {
 				religion_group = christian
 				religion_group = muslim
 				religion_group = zoroastrian_group
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = yes
+				}
 			}	
 			NOT = { 
 				has_character_modifier = expelled_jewish
@@ -936,7 +940,12 @@ decisions = {
 				duration = -1
 				inherit = yes
 			}
+			add_character_modifier = {
+				name = "loan_timer_jews"
+				duration = 730
+			}
 			wealth = 300
+			set_character_flag = loan_taken_jew
 		}
 		
 		revoke_allowed = {
@@ -956,12 +965,10 @@ decisions = {
 	}
 	repay_money_jews = {
 		potential = {	
-			NOT = { 
-				has_character_modifier = expelled_jewish
-				has_character_flag = pogrom
-			}
-			has_character_modifier = borrowed_from_jews
 			has_dlc = "Sons of Abraham"
+			
+			has_character_modifier = borrowed_from_jews
+			has_character_modifier = loan_timer_jews
 		}
 		
 		allow = {
@@ -970,6 +977,7 @@ decisions = {
 		
 		effect = {
 			remove_character_modifier = borrowed_from_jews
+			remove_character_modifier = loan_timer_jews		
 			wealth = -350
 		}
 		
