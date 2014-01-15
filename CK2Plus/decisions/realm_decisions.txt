@@ -564,7 +564,7 @@ decisions = {
 		}
 	}
 
-	mend_great_schism = {
+	mend_great_schism = { #Mend the Schism (Orthodox)
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
@@ -664,7 +664,7 @@ decisions = {
 		}
 	}
 	
-	mend_great_schism_catholic = {
+	mend_great_schism_catholic = { #Mend the Schism (Catholic)
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
@@ -773,6 +773,150 @@ decisions = {
 			factor = 1
 		}
 	}
+	
+	mend_great_schism_miaphysite = { #Mend the Schism (Miaphysite)
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			independent = yes
+			is_adult = yes
+			prisoner = no
+			is_heretic = no
+			NOT = { trait = incapable }
+		
+			num_of_emperor_titles = 1
+			
+			AND = {
+				OR = {
+					religion = miaphysite
+					religion = monophysite
+				}
+				is_heretic = no
+			}
+		
+			NOT = { has_global_flag = schism_mended }
+		
+		}
+		allow = {
+			piety = 2000
+			religion_authority = 0.5
+			completely_controls = c_byzantion
+			b_hagiasophia = {
+				holder_scope = {
+					OR = {
+						religion = miaphysite
+						religion = monophysite
+					}
+					is_heretic = no
+				}
+			}
+			completely_controls = c_antiocheia
+			b_antiocheia = {
+				holder_scope = {
+					OR = {
+						religion = miaphysite
+						religion = monophysite
+					}
+					is_heretic = no
+				}
+			}
+			completely_controls = c_jerusalem
+			b_jerusalem = {
+				holder_scope = {
+					OR = {
+						religion = miaphysite
+						religion = monophysite
+					}
+					is_heretic = no
+				}
+			}
+			completely_controls = c_alexandria
+			b_alexandria = {
+				holder_scope = {
+					OR = {
+						religion = miaphysite
+						religion = monophysite
+					}
+					is_heretic = no
+				}
+			}
+			completely_controls = c_roma
+			b_roma = {
+				holder_scope = {
+					OR = {
+						religion = miaphysite
+						religion = monophysite
+					}
+					is_heretic = no
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { religion = miaphysite }
+				create_character = {
+					religion = ROOT
+					culture = ROOT
+					random_traits = no
+					trait = mastermind_theologian
+					trait = patient
+					trait = mystic
+					dynasty = NONE
+					age = 34
+					attributes = {
+						martial = 2
+						diplomacy = 8
+						intrigue = 2
+						learning = 9
+						stewardship = 2
+					}
+				}
+				new_character = {
+					d_miaphysite = {
+						grant_title = PREV						
+					}
+					b_alexandria = {
+						grant_title = PREV
+					}					
+					set_defacto_liege = ROOT
+				}
+			}	
+			if = {
+				limit = { religion = monophysite }
+				create_character = {
+					religion = ROOT
+					culture = ROOT
+					random_traits = no
+					trait = mastermind_theologian
+					trait = patient
+					trait = mystic
+					dynasty = NONE
+					age = 34
+					attributes = {
+						martial = 2
+						diplomacy = 8
+						intrigue = 2
+						learning = 9
+						stewardship = 2
+					}
+				}
+				new_character = {
+					d_monophysite = {
+						grant_title = PREV						
+					}
+					b_alexandria = {
+						grant_title = PREV
+					}
+					set_defacto_liege = ROOT
+				}
+			}					
+			narrative_event = { id = 1000182638 tooltip = EVTTOOLTIPLoR.210 }
+			set_global_flag = schism_mended
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 
 	claim_constantinople = {
 		is_high_prio = yes
