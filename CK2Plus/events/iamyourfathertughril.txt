@@ -1,0 +1,21 @@
+character_event = {  #I am your father, Muhammad
+	id = 332000
+	picture = "GFX_evt_mongols"
+
+	hide_window = yes
+	
+	trigger = {
+    NOT = { is_female = yes	}
+		father_even_if_dead = {
+            has_character_flag = horde_seljuk
+		}		
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_character_flag = horde_seljuk2
+	}
+}

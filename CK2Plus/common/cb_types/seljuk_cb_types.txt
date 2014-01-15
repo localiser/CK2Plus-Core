@@ -32,35 +32,14 @@ seljuk_invasion = {
 		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		ROOT = {
-			has_landed_title = k_seljuk_turks
+      OR = {
+			  has_character_flag = horde_seljuk
+			  has_character_flag = horde_seljuk2
+			  has_character_flag = alp_arslan
+      }  
 			independent = yes
 			NOT = { religion_group = christian }
 			culture_group = altaic
-			NOT = { realm_size = 200 }
-			has_character_flag = horde_invader
-		}
-
-		ROOT = {
-			NOT = { is_liege_or_above = FROM }
-		}
-	}
-
-	is_valid_title = {
-		FROM = {
-			any_realm_title = {
-				de_jure_liege_or_above = PREVPREV
-			}
-		}
-		NOT = { title = k_cuman }
-		OR = {
-			ROOT = {
-				has_landed_title = k_persia
-			}
-			title = k_persia
-		}
-		OR = {
-			title = k_persia
-			ROOT = {
 				OR = {
 					any_realm_province = {
 						any_neighbor_province = {
@@ -84,13 +63,30 @@ seljuk_invasion = {
 				}
 			}
 		}
+  
+  can_use_title = {
+      or = {
+  		 title = k_nikaea
+  		 title = k_armenia
+  		 title = k_syria
+       title = k_jerusalem
+			 title = k_egypt 
+  		 title = k_persia 
+  		 title = k_mesopotamia
+  		 title = k_trebizond
+  		 title = k_azerbaijan  
+  		 title = k_cairo
+      } 
 	}
 
-	on_success = {
+  is_valid = {
 		ROOT = {
-			add_character_modifier = { name = victory_timer duration = 3 hidden = yes }
+			NOT = { same_realm = FROM }
+		}
 		}
 
+	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = 100
@@ -125,26 +121,6 @@ seljuk_invasion = {
 		}
 	}
 
-	on_success_posttitle = {
-		hidden_tooltip = {
-			if = {
-				limit = {
-					title = k_persia
-				}
-				ROOT = {
-					any_demesne_title = {
-						limit = {
-							tier = BARON
-							kingdom = {
-								title = k_persia
-							}
-						}
-						remove_holding_modifier = recently_conquered
-					}
-				}
-			}
-		}
-	}
 
 	on_fail = {
 		ROOT = {
@@ -176,8 +152,19 @@ seljuk_invasion = {
 					OR = {
 						has_landed_title = e_byzantium
 						has_landed_title = e_roman_empire
+					AND = {
+							independent = yes
+							higher_tier_than = COUNT
+							OR = {
+								culture = roman
+								religion = hellenic_pagan
 					}
+						}
+					}
+					OR = {
 					religion_group = christian
+						religion_group = pagan_group
+					}
 				}
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
