@@ -848,35 +848,93 @@ decisions = {
 		}
 	}
 
-	celebrate_passover = {
-		is_high_prio = yes
+	plan_passover = {
 		potential = {
 			has_dlc = "Sons of Abraham"
+			ai = no
 			is_ruler = yes
 			age = 16
 			prisoner = no
 			religion_group = jewish_group
-			NOT = { has_character_modifier = held_passover_timer }
-			NOT = {	has_character_flag = holding_passover }
-			NOT = {	has_character_flag = do_not_disturb }
+			NOT = { 
+				has_character_modifier = planning_passover_mod			
+				has_character_flag = planning_passover
+				has_character_flag = holding_passover
+				has_character_flag = do_not_disturb
+				has_character_modifier = held_passover_timer				
+			}
+			OR = {
+				month = 5
+				NOT = {
+					month = 3 # Planning can only occur outside of March and April
+				}
+			}
 		}
 		allow = {
 			war = no
 			any_demesne_title = {
 				is_occupied = no
 			}
-			NOT = { month = 6 }
-			month = 3
-			scaled_wealth = 0.20
+			wealth = 5
 			prisoner = no
 		}
 		effect = {
-			scaled_wealth = -0.20
+			treasury = -5
+			set_character_flag = planning_passover
+			hidden_tooltip = {
+				character_event = { id = 1000182646 }
+			}
+			set_character_flag = ai_passover_cooldown
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}	
+	}
+	
+	celebrate_passover = {
+		potential = {
+			has_dlc = "Sons of Abraham"
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			religion_group = jewish_group
+			NOT = { 
+				has_character_modifier = planning_passover_mod
+				has_character_modifier = held_passover_timer	
+				had_character_flag = {
+					flag = ai_passover_cooldown
+					days = 3650
+				}
+				has_character_flag = holding_passover
+				has_character_flag = do_not_disturb
+			}
+			AND = {
+				month = 3
+				NOT = { month = 5 } # March and April is when you can hold it, no need to plan it then
+			}			
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
+			wealth = 5
+			prisoner = no
+		}
+		effect = {
+			wealth = -5
 			set_character_flag = holding_passover
 			set_character_flag = do_not_disturb
 			custom_tooltip = {
 				text = passover_celebrations
 				hidden_tooltip = { 
+					add_character_modifier = {
+						name = holding_passover_mod
+						duration = -1
+					}				
 					character_event = { id = SoA.500 } 
 				}
 			}
@@ -890,7 +948,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					wealth = 15
 				}
 			}
 		}

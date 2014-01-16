@@ -409,6 +409,7 @@ character_event = {
 			religion_group = jewish_group
 		}	
 		NOT = { 
+		    has_character_flag = jewish_chancellor
 			has_character_modifier = expelled_jewish
 			has_character_flag = pogrom
 			trait = incapable
@@ -416,11 +417,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1100
+		years = 120
 	}
 	
 	option = {
 		name = EVTOPTA_SoA_200
+		set_character_flag = jewish_chancellor
 		create_character = {
 			random_traits = yes
 			culture = ashkenazi
@@ -458,7 +460,8 @@ character_event = {
 			religion_group = zoroastrian_group
 			religion_group = jewish_group
 		}	
-		NOT = { 
+		NOT = {
+			has_character_flag = jewish_chancellor
 			has_character_modifier = expelled_jewish
 			has_character_flag = pogrom
 			trait = incapable
@@ -466,11 +469,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1100
+		years = 120
 	}
 	
 	option = {
 		name = EVTOPTA_SoA_200
+		set_character_flag = jewish_chancellor
 		create_character = {
 			random_traits = yes
 			culture = ashkenazi
@@ -508,7 +512,8 @@ character_event = {
 			religion_group = zoroastrian_group
 			religion_group = jewish_group
 		}	
-		NOT = { 
+		NOT = {
+			has_character_flag = jewish_chancellor
 			has_character_modifier = expelled_jewish
 			has_character_flag = pogrom
 			trait = incapable
@@ -516,11 +521,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1100
+		years = 120
 	}
 	
 	option = {
 		name = EVTOPTA_SoA_200
+		set_character_flag = jewish_chancellor
 		create_character = {
 			random_traits = yes
 			culture = ashkenazi
@@ -558,7 +564,8 @@ character_event = {
 			religion_group = zoroastrian_group
 			religion_group = jewish_group
 		}	
-		NOT = { 
+		NOT = {
+			has_character_flag = jewish_chancellor
 			has_character_modifier = expelled_jewish
 			has_character_flag = pogrom
 			trait = incapable
@@ -566,11 +573,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 750
+		years = 120
 	}
 	
 	option = {
 		name = EVTOPTA_SoA_200
+		set_character_flag = jewish_chancellor
 		create_character = {
 			random_traits = yes
 			culture = sephardic
@@ -608,7 +616,8 @@ character_event = {
 			religion_group = zoroastrian_group
 			religion_group = jewish_group
 		}	
-		NOT = { 
+		NOT = {
+			has_character_flag = jewish_chancellor
 			has_character_modifier = expelled_jewish
 			has_character_flag = pogrom
 			trait = incapable
@@ -616,11 +625,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 750
+		years = 120
 	}
 	
 	option = {
 		name = EVTOPTA_SoA_200
+		set_character_flag = jewish_chancellor
 		create_character = {
 			random_traits = yes
 			culture = sephardic
@@ -658,7 +668,8 @@ character_event = {
 			religion_group = zoroastrian_group
 			religion_group = jewish_group
 		}	
-		NOT = { 
+		NOT = {
+			has_character_flag = jewish_chancellor
 			has_character_modifier = expelled_jewish
 			has_character_flag = pogrom
 			trait = incapable
@@ -666,11 +677,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 750
+		years = 120
 	}
 	
 	option = {
 		name = EVTOPTA_SoA_200
+		set_character_flag = jewish_chancellor
 		create_character = {
 			random_traits = yes
 			culture = sephardic
@@ -687,72 +699,77 @@ character_event = {
 	}
 }
 
-### Jewish Expulsion Events
-
-# Loss of economic tech
-character_event = {
-	id = SoA.300
-	desc = EVTDESC_SoA_300
-	picture = GFX_evt_bad_news
-	border = GFX_event_normal_frame_religion
-	
-	trigger = {
-		has_character_modifier = expelled_jewish
-	}
-	
-	mean_time_to_happen = {
-		months = 680
-	}
-	
-	option = {
-		name = EVTOPTA_SoA_300
-		economy_techpoints = -50
-	}
-}
-
-# Loss of cultural tech
-character_event = {
-	id = SoA.301
-	desc = EVTDESC_SoA_301
-	picture = GFX_evt_bad_news
-	border = GFX_event_normal_frame_religion
-	
-	trigger = {
-		has_character_modifier = expelled_jewish
-	}
-	
-	mean_time_to_happen = {
-		months = 680
-	}
-	
-	option = {
-		name = EVTOPTA_SoA_301
-		culture_techpoints = -50
-	}
-}
-
-# Loss of military tech
-character_event = {
-	id = SoA.302
-	desc = EVTDESC_SoA_302
-	picture = GFX_evt_bad_news
-	border = GFX_event_normal_frame_religion
-	
-	trigger = {
-		has_character_modifier = expelled_jewish
-	}
-	
-	mean_time_to_happen = {
-		months = 680
-	}
-	
-	option = {
-		name = EVTOPTA_SoA_302
-		military_techpoints = -50
-	}
-}
-
 ### Jewish Passover
+
+#Plan Passover
+character_event = {
+	id = 1000182646
+	desc = "EVTDESC1000182646"
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72109"
+	}
+}
+
+#Planned Event Begins
+character_event = {
+	id = 1000182647
+	desc = "EVTDESC1000182647"
+	picture = GFX_evt_feast
+
+	trigger = {
+		ai = no #AI will never plan a passover, no need to check for them
+		has_character_flag = planning_passover
+		OR = {
+			NOT = { has_character_flag = recent_passover }
+			had_character_flag = {
+				flag = recent_passover
+				days = 100
+			}
+		}
+		war = no
+		prisoner = no
+		AND = {
+			month = 3
+			NOT = { month = 5 } # March and April is when you can hold it so it should trigger in that window
+		}
+		NOT = { has_character_modifier = holding_large_feast }
+		NOT = { has_character_modifier = holding_summer_fair }
+		NOT = { has_character_modifier = holding_grand_hunt }
+		NOT = { has_character_modifier = holding_epic_tournament }
+	}
+
+	immediate = {
+		add_character_modifier = {
+			name = holding_passover_mod
+			duration = -1
+		}
+
+		clr_character_flag = planning_passover
+		set_character_flag = holding_passover
+		set_character_flag = do_not_disturb		
+		
+		hidden_tooltip = {
+			character_event = {
+				id = SoA.500
+				days = 5
+				random = 10
+			}
+
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "EVTOPTA72109"
+	}
+}
 
 # Invitation Sent
 character_event = {
@@ -869,7 +886,23 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
+	immediate = {
+		add_character_modifier = {
+			name = held_passover_timer
+			duration = 30
+			hidden = yes
+			inherit = yes
+		}	
+	}
+	
+	option = { # Next Time in Jerusalem!
+		trigger = {
+			NOT = {
+				any_realm_title = {
+					title = c_jerusalem
+				}
+			}
+		}
 		name = EVTOPTA_SoA_504
 		any_vassal = {
 			limit = { has_character_flag = attending_passover }
@@ -884,16 +917,66 @@ character_event = {
 				character_event = { id = SoA.505 }
 			}
 		}
-		add_character_modifier = {
-			name = held_passover_timer
-			duration = 1825
-			hidden = yes
-		}
 		prestige = 100
 		piety = 100
+		custom_tooltip = {
+			text = COURTFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_court" value = 0.5 }
+			hidden_tooltip = { 			
+				random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } 
+			}
+		}		
+		set_character_flag = ai_passover_cooldown	
+		remove_character_modifier = holding_passover_mod
 		clr_character_flag = holding_passover
 		clr_character_flag = do_not_disturb
 	}
+	
+	option = { # Once More in Jerusalem!
+		trigger = {
+			any_realm_title = {
+				title = c_jerusalem
+			}
+		}
+		name = EVTOPTB_SoA_504
+		any_vassal = {
+			limit = { has_character_flag = attending_passover }
+			opinion = {
+				modifier = opinion_passover
+				who = ROOT
+			}
+		}
+		hidden_tooltip = {
+			any_vassal = {
+				limit = { has_character_flag = attending_passover }
+				character_event = { id = SoA.505 }
+			}
+		}
+		piety = 5
+		prestige = 5
+		if = {
+			limit = { 
+				OR = {
+					NOT = { has_character_flag = passover_mood_boost }
+					had_character_flag = {
+						flag = passover_mood_boost
+						days = 1825
+					}
+				}
+			}
+			custom_tooltip = {
+				text = COURTFACTIONMOODPLUS
+				change_variable = { which = "faction_mood_court" value = 0.5 }
+				hidden_tooltip = { 			
+					random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } 
+				}	
+			}	
+		}
+		set_character_flag = ai_passover_cooldown	
+		remove_character_modifier = holding_passover_mod
+		clr_character_flag = holding_passover
+		clr_character_flag = do_not_disturb
+	}	
 }
 
 # Passover Sedar Ends (Guest)
@@ -944,136 +1027,5 @@ narrative_event = {
 		trigger = {
 			religion_group = muslim
 		}
-	}
-}
-
-### Jewish Councillor Events
-
-# Chancellor (Hidden)
-character_event = {
-	id = SoA.560
-	hide_window = yes
-	
-	trigger = {
-		religion_group = jewish_group
-		has_job_title = job_chancellor
-		employer = {
-			NOT = { religion_group = jewish_group }
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 280
-	}
-	
-	immediate = {
-		employer = {
-			character_event = { id = SoA.561 }
-		}
-	}
-	
-	option = {
-		name = OK
-	}
-}
-
-# Chancellor
-character_event = {
-	id = SoA.561
-	desc = EVTDESC_SoA_561
-	picture = GFX_evt_jewish_market
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_SoA_561
-		culture_techpoints = 50
-	}
-}
-
-# Steward (Hidden)
-character_event = {
-	id = SoA.562
-	hide_window = yes
-	
-	trigger = {
-		religion_group = jewish_group
-		has_job_title = job_treasurer
-		employer = {
-			NOT = { religion_group = jewish_group }
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 280
-	}
-	
-	immediate = {
-		employer = {
-			character_event = { id = SoA.563 }
-		}
-	}
-	
-	option = {
-		name = OK
-	}
-}
-
-# Steward
-character_event = {
-	id = SoA.563
-	desc = EVTDESC_SoA_563
-	picture = GFX_evt_jewish_market
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_SoA_561
-		economy_techpoints = 50
-	}
-}
-
-# Spymaster (Hidden)
-character_event = {
-	id = SoA.564
-	hide_window = yes
-	
-	trigger = {
-		religion_group = jewish_group
-		has_job_title = job_spymaster
-		employer = {
-			NOT = { religion_group = jewish_group }
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 280
-	}
-	
-	immediate = {
-		employer = {
-			character_event = { id = SoA.565 }
-		}
-	}
-	
-	option = {
-		name = OK
-	}
-}
-
-# Spymaster
-character_event = {
-	id = SoA.565
-	desc = EVTDESC_SoA_565
-	picture = GFX_evt_jewish_market
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_SoA_561
-		military_techpoints = 50
 	}
 }
