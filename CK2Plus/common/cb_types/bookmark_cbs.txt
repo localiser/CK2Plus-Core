@@ -214,6 +214,7 @@ invasion_nc = {
 	truce_days = 3650
 	hostile_against_others = yes
 	can_call_allies = no
+	can_ask_to_join_war = no
 
 	can_use_title = {
 		always = no
@@ -229,6 +230,7 @@ invasion_nc = {
 
 	on_success = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		ROOT = { add_character_modifier = { name = "holy_truce_timer" duration = 1820 } }
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = 200
