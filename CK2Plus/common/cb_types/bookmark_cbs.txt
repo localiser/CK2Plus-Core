@@ -205,3 +205,187 @@ aghlabid_867 = {
 		factor = 100
 	}
 }
+
+#This is a duplicate of the CK2+ Invasion CB, with the ability to call allies removed.  Used for historical Invasions like 1066 William/Harald attacking England.
+invasion_nc = {
+	name = CB_NAME_INVASION_NO_CALLS
+	war_name = WAR_NAME_INVASION_NO_CALLS
+	sprite = 7
+	truce_days = 3650
+	hostile_against_others = yes
+	can_call_allies = no
+
+	can_use_title = {
+		always = no
+	}
+
+	can_use = {
+		always = no
+	}
+
+	is_valid = {
+		always = yes
+	}
+
+	on_success = {
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 200
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
+		}
+		ROOT = {
+			give_nickname = nick_the_conqueror
+		}
+	}
+
+	on_success_title = {
+		hidden_tooltip = {
+			any_de_jure_vassal = {
+				any_demesne_title = {
+					limit = {
+						NOT = { tier = BARON }
+						kingdom = { title = PREVPREVPREV }
+					}
+					add_pressed_claim = ROOT
+				}
+			}
+			FROM = {
+				any_demesne_title = {
+					limit = {
+						kingdom = { title = PREVPREVPREV }
+					}
+					usurp_title_plus_barony_if_unlanded = ROOT
+				}
+			}
+			ROOT = {
+				if = {
+					limit = {
+						has_dlc = "Legacy of Rome"
+						OR = { 
+							has_landed_title = e_byzantium
+							has_landed_title = e_roman_empire
+							AND = {
+								independent = yes
+								higher_tier_than = COUNT
+								OR = {
+									culture = roman
+									religion = hellenic_pagan
+								}
+							}
+						}
+						OR = {
+							religion_group = christian
+							religion_group = pagan_group
+						}
+					}
+					character_event = { id = LoR.30 days = 12 }
+				}
+			}
+		}
+		usurp_title_plus_barony_if_unlanded = ROOT
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					ROOT = { ai = yes always = no }
+				}
+				ROOT = { add_character_modifier = { name = "holy_truce_timer" duration = 3650 }	}
+			}
+		}
+		if = {
+			limit = {
+				higher_tier_than = BARON
+				NOT = { culture = ROOT }
+			}
+			hidden_tooltip = { conquest_culture = ROOT }
+		}
+	}
+
+	on_fail = {
+		ROOT = {
+			prestige = -100
+		}
+	}
+
+	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		ROOT = {
+			prestige = -200
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_prestige = 200
+		}
+		FROM = {
+			if = {
+				limit = { 
+					has_dlc = "Legacy of Rome"
+					OR = { 
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+
+						AND = {
+							independent = yes
+							higher_tier_than = COUNT
+							OR = {
+								culture = roman
+								religion = hellenic_pagan
+							}
+						}
+					}
+					OR = {
+						religion_group = christian
+						religion_group = pagan_group
+					}
+				}
+				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
+			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
+		}
+	}
+
+	on_reverse_demand_title = {
+		ROOT = {
+			remove_claim = PREV
+		}
+	}
+
+	on_attacker_leader_death = {
+		hidden_tooltip = {
+			any_defender = {
+				letter_event = {
+					id = 251
+				}
+			}
+		}
+
+		end_war = whitepeace
+	}
+
+	attacker_ai_victory_worth = {
+		factor = 150
+	}
+
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
