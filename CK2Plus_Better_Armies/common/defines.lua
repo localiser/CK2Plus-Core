@@ -696,7 +696,7 @@ NMilitary = {
 	CAPTURED_CLOSE_MALE_RELATIVE_WAR_SCORE = 5.0,	-- War score for holding a close male relative prisoner
 	CAPTURED_HEIR_WAR_SCORE = 50.0,					-- War score for holding the heir prisoner
 	
-	EVENT_TROOPS_SIZE_MULT = 0.7,					-- Applied to match_mult to determine size of troops spawned from events & history
+	EVENT_TROOPS_SIZE_MULT = 0.85,					-- Applied to match_mult to determine size of troops spawned from events & history
 	
 	OCCUPATION_PENALTY_MONTHS = 60,					-- This and below are different modifier lengths applied to settlements upon conquest
 	OCCUPATION_PENALTY_MONTHS_DIFFERENT_RELIGION = 0,

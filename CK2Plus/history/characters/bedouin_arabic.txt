@@ -6984,6 +6984,12 @@
 	father = 163145
 	830.1.1={
 		birth=yes
+		trait = strong
+		trait = brilliant_strategist
+		trait = holy_warrior
+		trait = wroth
+		trait = ambitious
+		trait = arbitrary
 	}
 	867.1.1={
 		raise_levies = {
@@ -6996,19 +7002,10 @@
 				owner = ROOT
 				leader = THIS
 				match_character = ROOT
-				match_mult = 1.25
+				match_mult = 0.73
 				attrition = 0.25
-			}				
-			new_character = {
-				spawn_unit = {
-					province = 340 # Palermo
-					owner = ROOT
-					leader = THIS
-					match_character = ROOT
-					match_mult = 1
-					attrition = 0.25
-				}
-			}
+				disband_on_peace = yes
+			}	
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7020,6 +7017,17 @@
 					martial = 6
 				}
 				trait = skilled_tactician
+			}			
+			new_character = {
+				spawn_unit = {
+					province = 340 # Palermo
+					owner = ROOT
+					leader = THIS
+					match_character = ROOT
+					match_mult = 0.72
+					attrition = 0.25
+					disband_on_peace = yes
+				}
 			}
 		}
 	}
