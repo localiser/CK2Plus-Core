@@ -1,0 +1,45 @@
+decisions = {
+	sicily_falls = {
+		potential = {
+			has_landed_title = k_papal_state # He always exists		
+			NOT = { # Don't fire if  independent Christians still inhabit k_sicily
+				has_global_flag = sicily_falls
+				has_global_flag = christian_crusades_unlocked # This event unlocks them
+				
+				any_playable_ruler = {
+					AND = {
+						capital_scope = {
+							kingdom = { title = k_sicily }
+						}
+						religion_group = christian
+						OR = {
+							independent = yes
+							AND = {
+								independent = no
+								top_liege = { religion_group = christian }
+							}
+						}
+					}
+				}
+				k_sicily = { 
+					AND = {
+						has_holder = yes 
+						holder_scope = {
+							religion_group = christian
+						}
+					}
+				}	
+			}
+		}
+		effect = {
+			set_global_flag = sicily_falls
+			any_playable_ruler = { narrative_event = { id = 1000182648 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1000
+		}		
+	}
+}
