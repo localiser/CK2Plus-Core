@@ -311,9 +311,9 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
-		prisoner = no
 		is_adult = yes
+		prisoner = no
+		ai = yes
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = allow_plotting }
 		NOT = {
@@ -829,9 +829,9 @@ character_event = {
 			#fix wrong religion heirs
 			if = {
 				limit = {
-					ai = yes
 					is_ruler = yes
 					is_feudal = no
+					ai = yes
 					current_heir = {
 						NOT = { religion_group = ROOT }
 					}
@@ -1650,7 +1650,6 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
 		is_married = no
 		is_consort = no
 		is_betrothed = no
@@ -1667,9 +1666,10 @@ character_event = {
 		NOT = { trait = infirm }
 		NOT = { trait = incapable }
 		mercenary = no
+		ai = yes
 		OR = {
-			is_ruler = yes
 			liege = { ai = no }
+			is_ruler = yes
 		}
 		OR = {
 			is_ruler = yes
@@ -2084,7 +2084,6 @@ character_event = {
 	is_triggered_only = yes
 	only_rulers = yes
 	trigger = {
-		ai = yes
 		has_ambition = obj_find_lover
 		is_female = no
 		is_ruler = yes
@@ -2092,6 +2091,7 @@ character_event = {
 		NOT = { religion_group = muslim }
 		demesne_size = 1
 		treasury = 5
+		ai = yes
 		NOT = { has_character_flag = employed_debutante }
 	}
 
@@ -2405,11 +2405,11 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		independent = yes
 		is_ruler = yes
 		tier = baron
 		war = no
-		independent = yes
+		ai = yes
 	}
 
 	desc = "AI_EVENT"
@@ -2514,11 +2514,11 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
 		is_ruler = yes
 		is_patrician = no
 		controls_religion = no
-		NOT = { mercenary = yes }
+		mercenary = no
+		ai = yes
 		NOT = { any_liege = { ai = no } }
 		primary_title = {
 			NOT = {
@@ -2609,8 +2609,9 @@ character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		independent = yes
 		is_ruler = yes
+		ai = yes
 		AND = {
 			OR = {
 				religion = catholic
@@ -2622,7 +2623,6 @@ character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the
 			is_heretic = no
 		}
 		lower_tier_than = KING
-		independent = yes
 		primary_title = {
 			OR = {
 				AND = {
@@ -2675,7 +2675,6 @@ character_event = {
 	hide_from = yes	
 
 	trigger = {
-		ai = yes
 		is_adult = yes
 		OR = {
 			culture = mongol
@@ -2685,6 +2684,7 @@ character_event = {
 			religion = tengri_pagan
 			religion = aztec_pagan
 		}
+		ai = yes
 		NOT = { trait = bloodlust }
 		NOT = { trait = incapable }
 		primary_title = {
@@ -2737,7 +2737,6 @@ character_event = { #Remove Bloodlust Trait
 			independent = no
 			trait = incapable
 			AND = {
-				ai = yes
 				OR = {
 					culture = mongol
 					culture = nahuatl
@@ -2748,6 +2747,7 @@ character_event = { #Remove Bloodlust Trait
 						religion = aztec_pagan
 					}
 				}
+				ai = yes
 			}
 		}
 		OR = {
