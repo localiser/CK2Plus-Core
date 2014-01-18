@@ -492,8 +492,8 @@ NTitle = {
 	REQ_KINGDOMS_FOR_EMPIRE_CREATION = 3, 		-- Number of held kingdoms required to create an Empire (for rulers who are not already emperors)
 	TITULAR_TITLE_CREATION_COST_MULT = 1,		-- Titular titles are more expensive to create
 	ENFORCE_ONE_OF_EACH_HOLDING = 1,			-- Require players to build at least one City, Temple and Castle in each province
-	MAX_REPUBLIC_COUNTIES_IN_REALM = 0.1,		-- 10% of a feudal realm is allowed to be under vassal republics (affects title grants)
-	MAX_THEOCRACY_COUNTIES_IN_REALM = 0.1,		-- 10% of a feudal realm is allowed to be under vassal theocracies/bishoprics (affects title grants)
+	MAX_REPUBLIC_COUNTIES_IN_REALM = 0.2,		-- 10% of a feudal realm is allowed to be under vassal republics (affects title grants)
+	MAX_THEOCRACY_COUNTIES_IN_REALM = 0.2,		-- 10% of a feudal realm is allowed to be under vassal theocracies/bishoprics (affects title grants)
 	THEOCRACY_COUNTIES_CAN_BORDER = 1,			-- Can feudal lords create neighboring theocracy counties?
 	REPUBLIC_COUNTIES_CAN_BORDER = 1,				-- Can feudal lords create neighboring republic counties?
 	MIN_REVOKE_MONTHS_AFTER_GRANT = 12,			-- Months that must pass before you can revoke the title off someone you granted it to	
@@ -832,7 +832,7 @@ NMilitary = {
 	CAPITAL_EMPIRE_LEVY_MULT = 1,
 	CAPITAL_EMPIRE_LIEGE_LEVY_MULT = 0.35,
 	OUTSIDE_LEVY_MULT = 1,						-- Multiplier to direct levies outside all capital regions
-	OUTSIDE_LIEGE_LEVY_MULT = 0.25				-- Multiplier to liege levies outside all capital regions	
+	OUTSIDE_LIEGE_LEVY_MULT = 0.35				-- Multiplier to liege levies outside all capital regions	
 },
 
 NTechnology = {

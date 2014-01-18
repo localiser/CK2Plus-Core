@@ -41,7 +41,6 @@ shattered_world_conquest = {
 			primary_title = { tier = COUNT }
 			independent = yes
 		}
-		has_global_flag = enable_casusbellis
 		has_global_flag = shattered_world
 		NOT = { has_global_flag = reign_of_princes }
 	}
@@ -65,15 +64,12 @@ shattered_world_conquest = {
 			}
 		}
 	}
-	
 	on_add = {
 	}
-	
 	on_success = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 	}
 		
-	
 	on_success_title = {	
 		usurp_title_plus_barony_if_unlanded = ROOT
 		any_de_jure_vassal_title = { # take all baronies under the one we're fighting for
@@ -89,17 +85,14 @@ shattered_world_conquest = {
 					}
 				}
 			}
-
 			usurp_title_plus_barony_if_unlanded = ROOT
 		}
 	}
-
 	on_fail = {
 		ROOT = {
 			prestige = -100
 		}
 	}
-
 	on_reverse_demand = {
 		ROOT = {
 			prestige = -200
@@ -108,19 +101,15 @@ shattered_world_conquest = {
 			prestige = 100
 		}
 	}
-	
 	attacker_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-	
 	attacker_ai_defeat_worth = {
 		factor = 100
 	}
-
 	defender_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-	
 	defender_ai_defeat_worth = {
 		factor = 100
 	}
@@ -137,7 +126,6 @@ reign_of_princes_conquest = {
 	can_attack_vassals = yes
 	check_all_titles = yes # if permanent, setting this to true will check against all of someones titles, including vassal held titles
 	can_ask_to_join_war = yes
-	
 	can_use = {
 		ROOT = { NOT = { has_character_modifier = holding_epic_tournament }	}
 		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
@@ -150,11 +138,9 @@ reign_of_princes_conquest = {
 		FROM = {
 			tier = DUKE
 		}
-		has_global_flag = enable_casusbellis
 		has_global_flag = reign_of_princes
 		NOT = { has_global_flag = shattered_world }
 	}
-	
 	can_use_title = {
 		tier = count
 		location = {   # target province

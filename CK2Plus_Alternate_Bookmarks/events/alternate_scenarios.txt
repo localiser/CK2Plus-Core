@@ -2,6 +2,7 @@ namespace = temp
 character_event = {  ### set global flags
 	id = temp.7110010
 	hide_window = yes
+	hide_from = yes
 		
 	trigger = {
 		ai = no
@@ -83,59 +84,5 @@ character_event = {  ### set global flags
 				add_trait = bloodlust
 			}
 		}
-	}
-
-	option = {
-		name = "Set global flags"
-	}
-}
-
-character_event = { ### Options event
-	id = temp.7110011
-	desc = startup_event2_desc
-		
-	trigger = {
-		ai = no
-		NOT = { has_global_flag = options_done }
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-		modifier = {
-			factor = 0.01
-			always = yes
-		}
-	}
-	
-	immediate = {
-		set_global_flag = options_done
-	}
-	
-	option = {
-		name = "RoA: <N/A>"
-		trigger = {
-			has_global_flag = reign_ancients
-		}
-	}
-	
-	option = {
-		name = "SW/RoP/AND: Extra casus belli for a more hectic start"
-		trigger = {
-			OR = {
-				has_global_flag = shattered_world
-				has_global_flag = reign_of_princes	
-				has_global_flag = another_new_dawn
-			}
-		}
-		set_global_flag = enable_casusbellis
-	}
-	option = {
-		name = "DM: <N/A>"
-		trigger = {
-			has_global_flag = divided_muslims
-		}
-	}
-	option = {
-		name = "No alterations"
 	}
 }
