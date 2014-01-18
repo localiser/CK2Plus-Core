@@ -224,8 +224,15 @@ invasion_nc = {
 		always = no
 	}
 
-	is_valid = {
-		always = yes
+	is_valid_title = {
+		OR = {
+			FROM = {
+				has_landed_title = PREV
+			}
+			holder_scope = {
+				is_liege_or_above = FROM
+			}
+		}
 	}
 
 	on_success = {
