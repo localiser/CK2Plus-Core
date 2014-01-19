@@ -925,3 +925,139 @@ religious_revolt = {
 		factor = 150
 	}
 }
+
+italian_reconquest = {
+	name = CB_NAME_DUCHY_ADVENTURE
+	war_name = WAR_DUCHY_ADVENTURE
+	sprite = 9
+	truce_days = 3650
+	is_permanent = yes
+	hostile_against_others = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		always = no
+	}
+
+	is_valid = {
+		always = yes
+	}
+
+	on_success = {
+		ROOT = {
+			prestige = 250
+			hidden_tooltip = {
+				clr_character_flag = duchy_adventurer
+			}
+		}
+		FROM = {
+			prestige = -250
+		}
+	}
+
+	on_success_title = {
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					has_holder = yes
+					holder_scope = { 
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+				set_global_flag = usurp_duchy
+			}
+		}
+		ROOT = {
+			gain_settlements_under_title = {
+				title = PREV
+				enemy = FROM
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					has_global_flag = usurp_duchy
+				}
+				destroy_landed_title = yes
+				usurp_title = ROOT
+				clr_global_flag = usurp_duchy
+			}
+		}
+	}
+
+	on_fail = {
+		FROM = {
+			prestige = 100
+			hidden_tooltip = {
+				opinion = {
+					modifier = opinion_rebel_traitor
+					who = ROOT
+					months = 1200
+				}
+			}
+		}
+		ROOT = {
+			banish = FROM
+			wealth = -500
+			hidden_tooltip = {
+				disband_event_forces = yes
+				clr_character_flag = duchy_adventurer
+			}
+		}
+
+		ROOT = { prestige = -100 }
+	}
+
+	on_reverse_demand = {
+		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		ROOT = {
+			transfer_wealth = {
+				to = FROM
+				value = 100
+			}
+			wealth = -500
+		}
+
+		FROM = {
+			prestige = 200
+		}
+
+		ROOT = {
+			banish = FROM
+			prestige = -200
+			hidden_tooltip = {
+				disband_event_forces = yes
+				clr_character_flag = duchy_adventurer
+			}
+		}
+	}
+
+	on_attacker_leader_death = {
+		ROOT = {
+			hidden_tooltip = {
+				disband_event_forces = yes
+				clr_character_flag = duchy_adventurer
+			}
+		}
+		end_war = invalid
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}

@@ -7,8 +7,11 @@ narrative_event = {
 	
 	is_triggered_only = yes
 	
-	#immediate = {
-	#}
+	immediate = {
+		k_papal_state = {
+			holder_scope = { character_event = 1000182649 }
+		}
+	}
 	
 	option = {
 		trigger = {
@@ -22,4 +25,110 @@ narrative_event = {
 		}
 		name = EVTOPTA1000182648
 	}	
+}
+
+character_event = {
+	id = 1000182649
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			100 = {
+				create_character = {
+					random_traits = no
+					religion = ROOT
+					culture = italian
+					dynasty = culture
+					female = no
+					age = 24
+					trait = brilliant_strategist
+					trait = holy_warrior
+					trait = strong
+					trait = zealous
+					trait = gregarious
+					attributes = {
+						martial = 8
+						diplomacy = 5
+						stewardship = 5
+						learning = 5
+						intrigue = 5
+					}
+				}
+				new_character = {
+					add_claim = "k_sicily"
+					add_claim = "d_benevento"
+					add_claim = "d_sicily"
+					set_character_flag = duchy_adventurer		
+					set_defacto_liege = THIS
+					create_title = {
+						tier = DUKE
+						landless = yes
+						temporary = yes
+						culture = THIS
+						name = "CLAIMANT_ADVENTURE"
+						holder = THIS
+					}
+					spawn_unit = {
+						province = 333
+						home = 333
+						owner = THIS
+						leader = THIS
+						match_character = ROOT
+						match_mult = 0.2
+						match_min = 4000
+						match_max = 5000
+						attrition = 0.25
+						earmark = claimant_adventure
+					}
+					# Create some decent commander characters
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = THIS
+						female = no
+						age = 30
+					}
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = THIS
+						female = no
+						age = 25
+					}
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = THIS
+						female = no
+						age = 33
+					}
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = THIS
+						female = no
+						age = 29
+					}					
+					335 = { # Benevento
+						duchy = {
+							PREVPREVPREV = { # The New Character
+								war = {
+									casus_belli = italian_reconquest							
+									target = PREVPREV # Benevento
+									thirdparty_title = PREV # The Duchy of Benevento
+								}
+							}
+						}
+					}					
+				}
+			}		
+		}		
+	}
 }
