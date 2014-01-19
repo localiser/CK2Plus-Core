@@ -423,29 +423,19 @@ magyar_invasion = {
 		prestige = 1000
 		wealth = 1000
 
-		ROOT = { character_event = { id = 1000182686 days = 1 }
 	}
 
 	on_success_title = {
-		ROOT = {
-			gain_settlements_under_title = {
-				title = PREV
-				enemy = FROM
-			}
-		}
-		hidden_tooltip = {
-			if = {
-				limit = { 
-					has_holder = yes
-					holder_scope = { 
-						OR = {
-							character = FROM
-							is_liege_or_above = FROM
-						}
+		custom_tooltip = {
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					gain_settlements_under_title = {
+						title = PREV
+						enemy = FROM
 					}
+					character_event = { id = 1000182686 }				
 				}
-				destroy_landed_title = yes
-				usurp_title = ROOT
 			}
 		}
 	}
