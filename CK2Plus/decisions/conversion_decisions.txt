@@ -349,11 +349,38 @@ decisions = {
 	convert_to_roman = {
 		potential = {
 			is_ruler = yes
-			has_landed_title = e_roman_empire
-			NOT = { culture = roman }
+			OR = {
+				AND = {
+					has_landed_title = e_roman_empire
+					NOT = { culture = roman }
+				}
+				AND = {
+					is_ruler = yes
+					liege = {
+						AND = {
+							has_landed_title = e_roman_empire
+							culture = roman
+						}
+					}
+				}
+			}
 		}
 		allow = {
-			has_landed_title = e_roman_empire
+			OR = {
+				AND = {
+					has_landed_title = e_roman_empire
+					NOT = { culture = roman }
+				}
+				AND = {
+					is_ruler = yes
+					liege = {
+						AND = {
+							has_landed_title = e_roman_empire
+							culture = roman
+						}
+					}
+				}
+			}	
 		}
 		effect = {
 			culture = roman
