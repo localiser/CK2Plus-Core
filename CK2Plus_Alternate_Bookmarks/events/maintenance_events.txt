@@ -8,6 +8,7 @@ character_event = {
 	trigger = {
 		ai = no
 		OR = {
+			check_variable = { which = "loan_amount" value = 0.1 }
 			AND = {
 				check_variable = { which = "mercenaries_raised" value = 0.1 }
 				NOT = { has_landed_title = e_mexikha }
@@ -15,7 +16,6 @@ character_event = {
 				NOT = { has_landed_title = e_il-khanate }
 				NOT = { has_landed_title = e_timurids }
 			}
-			check_variable = { which = "loan_amount" value = 0.1 }
 		}
 	}
 
@@ -311,9 +311,9 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		is_adult = yes
 		prisoner = no
-		age = 16
+		ai = yes
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = allow_plotting }
 		NOT = {
@@ -829,9 +829,9 @@ character_event = {
 			#fix wrong religion heirs
 			if = {
 				limit = {
-					ai = yes
 					is_ruler = yes
-					NOT = { is_feudal = yes }
+					is_feudal = no
+					ai = yes
 					current_heir = {
 						NOT = { religion_group = ROOT }
 					}
@@ -1650,7 +1650,11 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		is_married = no
+		is_consort = no
+		is_betrothed = no
+		is_patrician = no
+		can_marry = yes
 		age = 18
 		OR = {
 			is_female = no
@@ -1661,15 +1665,11 @@ character_event = {
 		NOT = { trait = celibate }
 		NOT = { trait = infirm }
 		NOT = { trait = incapable }
-		is_married = no
-		is_consort = no
-		is_betrothed = no
-		is_patrician = no
-		can_marry = yes
-		NOT = { mercenary = yes }
+		mercenary = no
+		ai = yes
 		OR = {
-			is_ruler = yes
 			liege = { ai = no }
+			is_ruler = yes
 		}
 		OR = {
 			is_ruler = yes
@@ -1752,10 +1752,6 @@ character_event = {
 						limit = {
 							age = 16
 							NOT = { age = 20 }
-							NOT = { trait = eunuch }
-							NOT = { trait = celibate }
-							NOT = { trait = infirm }
-							NOT = { trait = incapable }
 							prisoner = no
 							is_married = no
 							is_betrothed = no
@@ -1764,6 +1760,10 @@ character_event = {
 							is_female = yes
 							is_ruler = no
 							is_primary_heir = no
+							NOT = { trait = eunuch }
+							NOT = { trait = celibate }
+							NOT = { trait = infirm }
+							NOT = { trait = incapable }
 							NOT = { has_global_flag = spouse_found }
 							liege = { NOT = { is_close_relative = PREV } }
 							NOT = { is_close_relative = ROOT }
@@ -1775,10 +1775,6 @@ character_event = {
 						limit = {
 							age = 20
 							NOT = { age = 30 }
-							NOT = { trait = eunuch }
-							NOT = { trait = celibate }
-							NOT = { trait = infirm }
-							NOT = { trait = incapable }
 							prisoner = no
 							is_married = no
 							is_betrothed = no
@@ -1787,6 +1783,10 @@ character_event = {
 							is_female = yes
 							is_ruler = no
 							is_primary_heir = no
+							NOT = { trait = eunuch }
+							NOT = { trait = celibate }
+							NOT = { trait = infirm }
+							NOT = { trait = incapable }
 							NOT = { has_global_flag = spouse_found }
 							liege = { NOT = { is_close_relative = PREV } }
 							NOT = { is_close_relative = ROOT }
@@ -1820,10 +1820,6 @@ character_event = {
 					limit = {
 						age = 16
 						NOT = { age = 20 }
-						NOT = { trait = eunuch }
-						NOT = { trait = celibate }
-						NOT = { trait = infirm }
-						NOT = { trait = incapable }
 						prisoner = no
 						is_married = no
 						is_betrothed = no
@@ -1832,8 +1828,12 @@ character_event = {
 						is_female = yes
 						is_ruler = no
 						is_primary_heir = no
-						NOT = { has_global_flag = spouse_found }
+						NOT = { trait = eunuch }
+						NOT = { trait = celibate }
+						NOT = { trait = infirm }
+						NOT = { trait = incapable }
 						NOT = { is_close_relative = ROOT }
+						NOT = { has_global_flag = spouse_found }
 					}
 					add_spouse = ROOT
 					set_global_flag = spouse_found
@@ -1842,10 +1842,6 @@ character_event = {
 					limit = {
 						age = 20
 						NOT = { age = 30 }
-						NOT = { trait = eunuch }
-						NOT = { trait = celibate }
-						NOT = { trait = infirm }
-						NOT = { trait = incapable }
 						prisoner = no
 						is_married = no
 						is_betrothed = no
@@ -1854,8 +1850,12 @@ character_event = {
 						is_female = yes
 						is_ruler = no
 						is_primary_heir = no
-						NOT = { has_global_flag = spouse_found }
+						NOT = { trait = eunuch }
+						NOT = { trait = celibate }
+						NOT = { trait = infirm }
+						NOT = { trait = incapable }
 						NOT = { is_close_relative = ROOT }
+						NOT = { has_global_flag = spouse_found }
 					}
 					add_spouse = ROOT
 					set_global_flag = spouse_found
@@ -2084,8 +2084,6 @@ character_event = {
 	is_triggered_only = yes
 	only_rulers = yes
 	trigger = {
-		ai = yes
-		NOT = { has_character_flag = employed_debutante }
 		has_ambition = obj_find_lover
 		is_female = no
 		is_ruler = yes
@@ -2093,6 +2091,8 @@ character_event = {
 		NOT = { religion_group = muslim }
 		demesne_size = 1
 		treasury = 5
+		ai = yes
+		NOT = { has_character_flag = employed_debutante }
 	}
 
 	desc = "AI_EVENT"
@@ -2227,7 +2227,11 @@ character_event = { #Byzantium is reclaimed by an Orthodox ruler
 		is_ruler = yes
 		independent = yes
 		culture_group = byzantine
-		realm_size = 150		# So e_byzantium is not recreated quickly in shattered worlds
+		NOT = { # So e_byzantium is not recreated quickly in shattered worlds
+			has_global_flag = shattered_world
+			has_global_flag = reign_of_princes
+			has_global_flag = another_new_dawn
+		}
 		OR = {
 			religion = orthodox
 			religion = bogomilist
@@ -2406,11 +2410,11 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		independent = yes
 		is_ruler = yes
 		tier = baron
 		war = no
-		independent = yes
+		ai = yes
 	}
 
 	desc = "AI_EVENT"
@@ -2515,11 +2519,11 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
 		is_ruler = yes
 		is_patrician = no
 		controls_religion = no
-		NOT = { mercenary = yes }
+		mercenary = no
+		ai = yes
 		NOT = { any_liege = { ai = no } }
 		primary_title = {
 			NOT = {
@@ -2610,8 +2614,9 @@ character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the
 	is_triggered_only = yes
 
 	trigger = {
-		ai = yes
+		independent = yes
 		is_ruler = yes
+		ai = yes
 		AND = {
 			OR = {
 				religion = catholic
@@ -2623,7 +2628,6 @@ character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the
 			is_heretic = no
 		}
 		lower_tier_than = KING
-		independent = yes
 		primary_title = {
 			OR = {
 				AND = {
@@ -2676,6 +2680,27 @@ character_event = {
 	hide_from = yes	
 
 	trigger = {
+		is_adult = yes
+		OR = {
+			culture = mongol
+			culture = nahuatl
+		}
+		OR = {
+			religion = tengri_pagan
+			religion = aztec_pagan
+		}
+		ai = yes
+		NOT = { trait = bloodlust }
+		NOT = { trait = incapable }
+		primary_title = {
+			OR = {
+				title = e_golden_horde
+				title = e_il-khanate
+				title = e_timurids
+				title = e_mongol_empire
+				title = e_mexikha
+			}
+		}
 		OR = {
 			AND = {
 				has_global_flag = golden_horde_arrival
@@ -2690,27 +2715,6 @@ character_event = {
 				NOT = { has_global_flag = aztecs_defeated }
 			}
 		}	
-		ai = yes
-		OR = {
-			culture = mongol
-			culture = nahuatl
-		}
-		OR = {
-			religion = tengri_pagan
-			religion = aztec_pagan
-		}
-		age = 16
-		NOT = { trait = bloodlust }
-		NOT = { trait = incapable }
-		primary_title = {
-			OR = {
-				title = e_golden_horde
-				title = e_il-khanate
-				title = e_timurids
-				title = e_mongol_empire
-				title = e_mexikha
-			}
-		}
 	}
 	
 	immediate = {
@@ -2731,16 +2735,13 @@ character_event = { #Remove Bloodlust Trait
 	hide_from = yes	
 	
 	trigger = {
-		OR = {
-			has_global_flag = golden_horde_arrival
-			has_global_flag = il_khanate_arrival
-			has_global_flag = aztec_arrival
-		}
+		
 		trait = bloodlust
 		OR = {
 			ai = no
+			independent = no
+			trait = incapable
 			AND = {
-				ai = yes
 				OR = {
 					culture = mongol
 					culture = nahuatl
@@ -2751,9 +2752,13 @@ character_event = { #Remove Bloodlust Trait
 						religion = aztec_pagan
 					}
 				}
+				ai = yes
 			}
-			trait = incapable
-			independent = no
+		}
+		OR = {
+			has_global_flag = golden_horde_arrival
+			has_global_flag = il_khanate_arrival
+			has_global_flag = aztec_arrival
 		}
 	}
 	
