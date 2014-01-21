@@ -8,6 +8,7 @@ narrative_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		#set_global_flag = italian_reconquest_planning
 		k_papal_state = {
 			holder_scope = { character_event = { id = 1000182649 } }
 		}
@@ -28,54 +29,257 @@ narrative_event = {
 }
 
 character_event = {
-	id = 1000182649
+	id = 1000182649 # The pope has found his champions
 	
 	hide_window = yes
 	
 	is_triggered_only = yes
 	
 	immediate = {
-		random_list = {
-			100 = {
-				create_character = {	
-					random_traits = no
-					religion = ROOT
-					culture = italian
-					dynasty = culture
-					female = no
-					age = 24
-					trait = brilliant_strategist
-					trait = holy_warrior
-					trait = strong
-					trait = zealous
-					trait = gregarious
-					attributes = {
-						martial = 8
-						diplomacy = 5
-						stewardship = 5
-						learning = 5
-						intrigue = 5
+		set_global_flag = italian_reconquest_started
+		if = {
+			limit = {
+				NOT = { has_global_flag = neustria_renamed }
+			}
+			random_list = {
+				40 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = italian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
 					}
 				}
-				new_character = { character_event = { id = 1000182650 } }				
+				30 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = norman
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				10 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = croatian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				10 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = serbian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				10 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = greek
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = neustria_renamed
+			}
+			random_list = {
+				40 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = italian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				30 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = norman
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				10 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = croatian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				10 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = serbian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				10 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = greek
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
 			}			
 		}
-	}
-}
-
-character_event = {
-	id = 1000182650
-	
-	hide_window = yes
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		ROOT = {
-			#add_claim = "k_sicily"
-			add_claim = "d_benevento"
-			#add_claim = "d_sicily"
-			set_character_flag = duchy_adventurer		
+		new_character = {
+			add_pressed_claim = "k_sicily"
+			set_character_flag = duchy_adventurer
+			add_character_modifier = {
+				name = italian_reconquest
+				hidden = yes
+				duration = -1
+				inherit = yes
+			}
 			set_defacto_liege = THIS
 			create_title = {
 				tier = DUKE
@@ -97,6 +301,20 @@ character_event = {
 				attrition = 0.25
 				earmark = claimant_adventure
 			}				
+			character_event = { id = 1000182650 } 
+		}
+	}
+}
+
+character_event = {
+	id = 1000182650 # The champions head out
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		ROOT = {
 		}
 		# Create some decent commander characters
 		create_random_soldier = {
@@ -135,7 +353,7 @@ character_event = {
 			holder_scope = {
 				reverse_war = {
 					target = ROOT
-					casus_belli = claim
+					casus_belli = italian_reconquest
 					thirdparty_title = PREV
 				}
 				reverse_remove_opinion = {
@@ -143,6 +361,44 @@ character_event = {
 					modifier = opinion_claimant_adventure_target
 				}
 			}
+		}
+	}
+}
+
+character_event = { # The pope helps on the offensive!
+	id = 1000182687
+	
+	is_triggered_only = yes
+	hide_window = yes
+ 
+	immediate = {
+		religion_head = {
+			join_attacker_wars = FROM
+		}
+	}
+}
+
+character_event = { # The pope helps on the defensive!
+	id = 1000182688
+	
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = italian_reconquest_started
+		NOT = { 
+			has_global_flag = italian_rec_success
+			has_global_flag = italian_rec_failure
+		}
+		war = yes
+		is_playable = yes		
+		is_feudal = yes
+		
+		has_character_modifier = italian_reconquest
+	}
+ 
+	immediate = {
+		religion_head = {
+			join_defender_wars = FROM
 		}
 	}
 }

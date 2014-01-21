@@ -927,8 +927,8 @@ religious_revolt = {
 }
 
 italian_reconquest = {
-	name = CB_NAME_DUCHY_ADVENTURE
-	war_name = WAR_DUCHY_ADVENTURE
+	name = CB_NAME_ITALIAN_RECONQUEST
+	war_name = WAR_ITALIAN_RECONQUEST
 	sprite = 9
 	truce_days = 3650
 	is_permanent = yes
@@ -936,22 +936,98 @@ italian_reconquest = {
 	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
 
 	can_use = {
-		always = no
+		ROOT = {
+			has_character_modifier = italian_reconquest
+		}
+		has_global_flag = italian_reconquest_started
+		NOT = { 
+			has_global_flag = italian_rec_success
+			has_global_flag = italian_rec_failure
+		}
+	}
+	
+	can_use_title = {
+		ROOT = { NOT = { has_character_modifier = holding_epic_tournament }	}
+		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
+		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
+		
+		FROM = {
+			any_realm_province = {
+				kingdom = { title = k_sicily }
+			}
+		}
+	}
+	
+	on_add = {
+		ROOT = {
+			character_event = { id = 1000182687 }
+		}
 	}
 
 	is_valid = {
-		always = yes
+		ROOT = {
+			has_character_modifier = italian_reconquest
+		}
+		NOT = { 
+			has_global_flag = italian_rec_success
+			has_global_flag = italian_rec_failure
+		}
 	}
 
 	on_success = {
-		ROOT = {
-			prestige = 250
-			hidden_tooltip = {
-				clr_character_flag = duchy_adventurer
+		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } } }
+		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } } } }
+		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_piety = 50
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_piety = 50 participation_scaled_prestige = 100 }
+		}
+		if = {
+			limit = {
+				ROOT = {
+					religion_group = muslim
+					NOT = { 
+						any_liege = {
+							dynasty = ROOT
+						}
+					}
+				}
 			}
 		}
-		FROM = {
-			prestige = -250
+		if = {
+			limit = {
+				ROOT = { is_heretic = no }
+			}
+			ROOT = {
+				religion_authority = {
+					modifier = won_holy_war
+					years = 20
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = { is_heretic = no }
+			}
+			FROM = { 
+				religion_authority = {
+					modifier = lost_holy_war
+					years = 20
+				}
+			}
+		}
+		ROOT = {
+			hidden_tooltip = {
+				if = {
+					limit = { has_character_flag = duchy_adventurer }
+					clr_character_flag = duchy_adventurer
+				}
+			}
 		}
 	}
 
