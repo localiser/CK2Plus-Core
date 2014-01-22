@@ -6,7 +6,7 @@ decisions = {
 				has_global_flag = sicily_falls
 				has_global_flag = christian_crusades_unlocked # This event unlocks them
 				
-				any_playable_ruler = {
+				any_playable_ruler = { # There are no independent Christian Rulers in the Kingdom of Sicily
 					AND = {
 						capital_scope = {
 							kingdom = { title = k_sicily }
@@ -21,7 +21,7 @@ decisions = {
 						}
 					}
 				}
-				k_sicily = { 
+				k_sicily = { # There is no Christian King of Sicily
 					AND = {
 						has_holder = yes 
 						holder_scope = {
@@ -31,15 +31,76 @@ decisions = {
 				}	
 			}
 		}
+		allow = {
+		}		
 		effect = {
 			set_global_flag = sicily_falls
+			set_global_flag = italian_reconquest_planning
+			k_papal_state = {
+				holder_scope = { character_event = { id = 1000182649 } }
+			}			
 			any_playable_ruler = { narrative_event = { id = 1000182648 } }
 		}
 		revoke_allowed = {
 			always = no
 		}
 		ai_will_do = {
-			factor = 1000
+			factor = 1
 		}		
+	}
+	sicily_regained = {
+		is_high_prio = yes
+		potential = {
+			has_global_flag = italian_reconquest_started
+			NOT = { 
+				has_global_flag = italian_rec_success
+				has_global_flag = italian_rec_failure
+			}
+			war = no
+			
+			has_character_modifier = italian_reconquest 
+			OR = {
+				has_landed_title = d_benevento
+				has_landed_title = d_capua
+				has_landed_title = d_apulia
+				has_landed_title = d_salerno
+				has_landed_title = d_calabria
+				has_landed_title = d_sicily
+			}		
+		}
+		allow = {
+			any_playable_ruler = { # There are no independent non-Christian Rulers left in the Kingdom of Sicily
+				AND = {
+					capital_scope = {
+						kingdom = { title = k_sicily }
+					}
+					OR = {
+						AND = {
+							religion_group = christian
+							independent = yes
+						}
+						AND = {
+							top_liege = { religion_group = christian }
+							independent = no
+						}						
+					}
+				}
+			}				
+		}
+		effect = {
+			k_sicily = {
+				gain_title = ROOT
+			}
+			remove_character_modifier = sicilian_reconquest
+			set_global_flag = italian_rec_success
+			set_global_flag = christian_crusades_unlocked
+			any_playable_ruler = { narrative_event = { id = 1000182690 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}	
 	}
 }

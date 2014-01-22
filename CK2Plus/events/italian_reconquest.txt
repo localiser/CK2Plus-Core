@@ -7,13 +7,6 @@ narrative_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		#set_global_flag = italian_reconquest_planning
-		k_papal_state = {
-			holder_scope = { character_event = { id = 1000182649 } }
-		}
-	}
-	
 	option = {
 		trigger = {
 			religion_group = christian
@@ -272,7 +265,9 @@ character_event = {
 			}			
 		}
 		new_character = {
-			add_pressed_claim = "k_sicily"
+			add_pressed_claim = "d_benevento"
+			add_pressed_claim = "d_apulia"
+			add_pressed_claim = "d_capua"
 			set_character_flag = duchy_adventurer
 			add_character_modifier = {
 				name = italian_reconquest
@@ -315,55 +310,57 @@ character_event = {
 	
 	immediate = {
 		ROOT = {
-		}
-		# Create some decent commander characters
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = THIS
-			female = no
-			age = 30
-		}
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = THIS
-			female = no
-			age = 25
-		}
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none	
-			religion = ROOT
-			culture = THIS
-			female = no
-			age = 33
-		}
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = THIS
-			female = no
-			age = 29
-		}			
-		random_claim = {
-			holder_scope = {
-				reverse_war = {
-					target = ROOT
-					casus_belli = italian_reconquest
-					thirdparty_title = PREV
-				}
-				reverse_remove_opinion = {
-					who = ROOT
-					modifier = opinion_claimant_adventure_target
+			# Create some decent commander characters
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 30
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 25
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none	
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 33
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 29
+			}			
+			random_claim = {
+				holder_scope = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = italian_reconquest
+						thirdparty_title = PREV
+					}
+					reverse_remove_opinion = {
+						who = ROOT
+						modifier = opinion_claimant_adventure_target
+					}
 				}
 			}
 		}
+		any_playable_ruler = { narrative_event = { id = 1000182689 } }
 	}
 }
+
 
 character_event = { # The pope helps on the offensive!
 	id = 1000182687
@@ -401,4 +398,26 @@ character_event = { # The pope helps on the defensive!
 			join_defender_wars = FROM
 		}
 	}
+}
+
+character_event = { # The Champions head out (Narrative event)
+	id = 1000182689
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The King of Sicily is Crowned
+	id = 1000182690
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
 }

@@ -13,6 +13,25 @@ k_frisia = {
 	catholic = 700 # Crusade target weight
 	norse_pagan_reformed = 200 # Crusade target weight
 	allow = {
+	
+		hidden_tooltip = {
+			AND = {
+				religion_group = christian
+				OR = {
+					NOT = {
+						AND = {
+							has_global_flag = sicily_falls			
+							NOT = {
+								has_global_flag = italian_rec_success
+								has_global_flag = italian_rec_failure					
+							}
+						}
+					}
+					has_global_flag = christian_crusades_unlocked
+				}
+			}
+		}	
+	
 		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
