@@ -56,7 +56,6 @@ decisions = {
 				has_global_flag = italian_rec_success
 				has_global_flag = italian_rec_failure
 			}
-			war = no
 			
 			has_character_modifier = italian_reconquest 
 			OR = {
@@ -69,31 +68,17 @@ decisions = {
 			}		
 		}
 		allow = {
-			any_playable_ruler = { # There are no independent non-Christian Rulers left in the Kingdom of Sicily
-				AND = {
-					capital_scope = {
-						kingdom = { title = k_sicily }
-					}
-					OR = {
-						AND = {
-							religion_group = christian
-							independent = yes
-						}
-						AND = {
-							top_liege = { religion_group = christian }
-							independent = no
-						}						
-					}
-				}
-			}				
+			war = no
+			
+			always = no # Placeholder
 		}
 		effect = {
-			k_sicily = {
-				gain_title = ROOT
-			}
-			remove_character_modifier = sicilian_reconquest
 			set_global_flag = italian_rec_success
 			set_global_flag = christian_crusades_unlocked
+			hidden_tooltip = {
+				remove_character_modifier = sicilian_reconquest
+				narrative_event = { id = 1000182696 }
+			}
 			any_playable_ruler = { narrative_event = { id = 1000182690 } }
 		}
 		revoke_allowed = {

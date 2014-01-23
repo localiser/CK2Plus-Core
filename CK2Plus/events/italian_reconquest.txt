@@ -357,7 +357,35 @@ character_event = {
 				}
 			}
 		}
-		any_playable_ruler = { narrative_event = { id = 1000182689 } }
+		any_playable_ruler = {
+			if = {
+				limit = { religion_group = christian }
+				if = {
+					limit = { ROOT = { culture = italian } }
+					narrative_event = { id = 1000182689 } 
+				}
+				if = {
+					limit = { ROOT = { culture = norse } }
+					narrative_event = { id = 1000182691 } 
+				}	
+				if = {
+					limit = { ROOT = { culture = norman } }
+					narrative_event = { id = 1000182692 } 
+				}
+				if = {
+					limit = { ROOT = { culture = croatian } }
+					narrative_event = { id = 1000182693 } 
+				}
+				if = {
+					limit = { ROOT = { culture = serbian } }
+					narrative_event = { id = 1000182694 } 
+				}	
+				if = {
+					limit = { ROOT = { culture = greek } }
+					narrative_event = { id = 1000182695 } 
+				}
+			}
+		}
 	}
 }
 
@@ -400,8 +428,12 @@ character_event = { # The pope helps on the defensive!
 	}
 }
 
-character_event = { # The Champions head out (Narrative event)
+narrative_event = { # The Champions head out, Italian (Narrative event)
 	id = 1000182689
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182689
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
 	
 	is_triggered_only = yes
 	
@@ -413,11 +445,113 @@ character_event = { # The Champions head out (Narrative event)
 
 narrative_event = { # The King of Sicily is Crowned
 	id = 1000182690
+	title = EVTTITLE1000182690
+	desc = EVTDESC1000182690
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
 	
 	is_triggered_only = yes
 	
 	option = {
 		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Norse (Narrative event)
+	id = 1000182691
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182691
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Norman (Narrative event)
+	id = 1000182692
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182692
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Croatian (Narrative event)
+	id = 1000182693
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182693
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Serbian (Narrative event)
+	id = 1000182694
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182694
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Greek (Narrative event)
+	id = 1000182695
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182695
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The King of Sicily is Crowned (Recipient)
+	id = 1000182696
+	title = EVTTITLE1000182696
+	desc = EVTDESC1000182696
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy
+	sound = church_bells	
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		k_sicily = {
+			gain_title = ROOT
+		}
+		prestige = 500
+	}
+	
+	option = {
+		name = EVTOPTA1000182696
 	}
 	
 }
