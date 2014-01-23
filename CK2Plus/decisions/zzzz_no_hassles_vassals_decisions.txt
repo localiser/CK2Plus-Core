@@ -1,6 +1,6 @@
 decisions = {
 
-	1000182046 = {
+	1000182046 = { # Vassalize All
 		potential = {
 			age = 0
 			NOT = {
@@ -49,7 +49,7 @@ decisions = {
 		}
 	}
 	
-	1000182047 = {
+	1000182047 = { # Vassalize All Barons
 		potential = {
 			age = 0
 			NOT = {
@@ -200,14 +200,20 @@ decisions = {
 		}
 	}
 
-	1000182042 = {
+	1000182042 = { # Flag Province
 		potential = {
 			NOT = { has_job_title = job_chancellor }
 			NOT = { has_job_title = job_marshal }
 			NOT = { has_job_title = job_treasurer }
 			NOT = { has_job_title = job_spymaster }
 			NOT = { has_job_title = job_spiritual }
-			is_female = no
+			OR = {
+				is_female = no
+				AND = {
+					is_female = yes
+					independent = yes
+				}
+			}
 			has_regent = no
 			location  = {
 				NOT = { has_province_flag = keep_it }
@@ -229,14 +235,20 @@ decisions = {
 		}
 	}
 
-	1000182043  = {
+	1000182043  = { # Unflag Province
 		potential = {
 			NOT = { has_job_title = job_chancellor }
 			NOT = { has_job_title = job_marshal }
 			NOT = { has_job_title = job_treasurer }
 			NOT = { has_job_title = job_spymaster }
 			NOT = { has_job_title = job_spiritual }
-			is_female = no
+			OR = {
+				is_female = no
+				AND = {
+					is_female = yes
+					independent = yes
+				}
+			}
 			has_regent = no
 			location  = {
 				has_province_flag = keep_it
@@ -258,7 +270,7 @@ decisions = {
 		}
 	}
 
-	1000182044 = {
+	1000182044 = { # Flag Province (Marshal)
 		potential = {
 			OR = {
 				has_job_title = job_chancellor
@@ -267,7 +279,10 @@ decisions = {
 				has_job_title = job_spymaster
 				has_job_title = job_spiritual
 				has_regent = yes
-				is_female = yes
+				AND = {
+					is_female = yes
+					independent = no
+				}
 			}
 			OR = {
 				any_vassal = {
@@ -312,7 +327,7 @@ decisions = {
 	}
 
 	1000182045 = {
-		potential = {
+		potential = { # Unflag Province (Marshal)
 			OR = {
 				has_job_title = job_chancellor
 				has_job_title = job_marshal
@@ -321,7 +336,10 @@ decisions = {
 				has_job_title = job_spiritual
 				has_job_action = yes
 				has_regent = yes
-				is_female = yes
+				AND = {
+					is_female = yes
+					independent = no
+				}
 			}
 			OR = {
 				any_vassal = {
