@@ -6402,6 +6402,17 @@ k_sicily = {
 		hellenic_pagan = 100 #Crusade target weight
         shiite = 50 #Crusade target weight
         allow = {
+		
+		hidden_tooltip = {
+			OR = {
+				NOT = { religion_group = christian }
+				AND = {
+					religion_group = christian
+					NOT = { has_character_modifier = italian_reconquest }
+				}
+			}
+		}		
+		
 			is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
