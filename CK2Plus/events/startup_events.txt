@@ -1,15 +1,14 @@
-character_event = {
+# Wiz Event Range
+character_event = { # Start up events
 	id = 7110000
 	picture = "GFX_evt_council"
 	is_triggered_only = yes
 
-	hide_from = yes
+	hide_window = yes
 
 	trigger = {
 		NOT = { has_global_flag = startup }
 	}
-
-	desc = "AI_EVENT"
 
 	mean_time_to_happen = {
 		days = 1
@@ -19,8 +18,7 @@ character_event = {
 		}
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		set_global_flag = startup
 		character_event = { id = 1000046500 } #family relations
 		character_event = { id = 110050 } #remove undesirable claims
