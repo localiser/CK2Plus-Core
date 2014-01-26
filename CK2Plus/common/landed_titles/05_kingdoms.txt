@@ -4675,20 +4675,12 @@ k_sicily = {
         shiite = 50 #Crusade target weight
         allow = {
 		
-		hidden_tooltip = {
-			AND = {
-				religion_group = christian
-				OR = {
-					NOT = {
-						AND = {
-							has_global_flag = sicily_falls			
-							NOT = {
-								has_global_flag = italian_rec_success
-								has_global_flag = italian_rec_failure					
-							}
-						}
-					}
-					has_global_flag = christian_crusades_unlocked
+		hidden_tooltip = { # If
+			OR = {
+				NOT = { religion_group = christian }
+				AND = {
+					religion_group = christian
+					NOT = { has_character_modifier = italian_reconquest }
 				}
 			}
 		}

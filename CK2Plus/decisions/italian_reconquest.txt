@@ -1,43 +1,176 @@
 decisions = {
 	sicily_falls = {
+		is_high_prio = yes
 		potential = {
 			has_landed_title = k_papal_state # He always exists		
-			NOT = { # Don't fire if  independent Christians still inhabit k_sicily
+			NOT = { 
 				has_global_flag = sicily_falls
+				has_global_flag = italian_rec_success
+				has_global_flag = italian_rec_failure
 				has_global_flag = christian_crusades_unlocked # This event unlocks them
-				
-				any_playable_ruler = { # There are no independent Christian Rulers in the Kingdom of Sicily
-					AND = {
-						capital_scope = {
-							kingdom = { title = k_sicily }
-						}
-						religion_group = christian
-						OR = {
-							independent = yes
-							AND = {
-								independent = no
-								top_liege = { religion_group = christian }
-							}
-						}
-					}
-				}
-				k_sicily = { # There is no Christian King of Sicily
-					AND = {
-						has_holder = yes 
-						holder_scope = {
-							religion_group = christian
-						}
-					}
-				}	
 			}
 		}
-		allow = {
+		allow = { # Don't fire if  independent Christians still inhabit k_sicily
+			c_benevento = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_teate = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_foggia = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_teate = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_capua = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_napoli = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_gaete = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_apulia = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_bari = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_lecce = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_salerno = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_taranto = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_amalfi = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_consenza = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_reggio = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_palermo = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_messina = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_siracusa = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_agrigento = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_trapani = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}
+			c_malta = {
+				holder_scope = {
+					top_liege = {
+						NOT = { religion_group = christian }
+					}
+				}
+			}		
 		}		
 		effect = {
 			set_global_flag = sicily_falls
 			set_global_flag = italian_reconquest_planning
 			k_papal_state = {
-				holder_scope = { character_event = { id = 1000182649 } }
+				holder_scope = {
+					add_character_modifier = {
+						name = italian_reconquest_pope
+						duration = -1
+						inherit = yes
+						hidden = yes
+					}
+				}
 			}			
 			any_playable_ruler = { narrative_event = { id = 1000182648 } }
 		}
@@ -57,7 +190,6 @@ decisions = {
 				has_global_flag = italian_rec_failure
 			}
 			
-			has_character_modifier = italian_reconquest 
 			OR = {
 				has_landed_title = d_benevento
 				has_landed_title = d_capua
@@ -65,12 +197,163 @@ decisions = {
 				has_landed_title = d_salerno
 				has_landed_title = d_calabria
 				has_landed_title = d_sicily
-			}		
+			}			
+			
+			has_character_modifier = italian_reconquest 
 		}
 		allow = {
 			war = no
 			
-			always = no # Placeholder
+			custom_tooltip = {
+				text = italian_reconq_ctt
+				c_benevento = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_teate = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_foggia = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_teate = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_capua = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_napoli = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_gaete = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_apulia = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_bari = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_lecce = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_salerno = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_taranto = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_amalfi = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_consenza = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_reggio = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_palermo = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_messina = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_siracusa = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_agrigento = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_trapani = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+				c_malta = {
+					holder_scope = {
+						top_liege = {
+							religion_group = christian
+						}
+					}
+				}
+			}
 		}
 		effect = {
 			set_global_flag = italian_rec_success

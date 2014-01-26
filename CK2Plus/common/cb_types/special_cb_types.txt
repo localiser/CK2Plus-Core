@@ -938,6 +938,7 @@ italian_reconquest = {
 	can_use = {
 		ROOT = {
 			has_character_modifier = italian_reconquest
+			religion_group = christian
 		}
 		has_global_flag = italian_reconquest_started
 		NOT = { 
@@ -952,10 +953,9 @@ italian_reconquest = {
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		
 		FROM = {
-			any_realm_province = {
-				kingdom = { title = k_sicily }
-			}
-		}
+			NOT = { religion_group = christian }
+			independent = yes # Don't attack revolters - chances are high the war will invalidate
+		}	
 		OR = {
 			title = d_benevento
 			title = d_capua
@@ -994,6 +994,16 @@ italian_reconquest = {
 		any_attacker = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { participation_scaled_piety = 50 participation_scaled_prestige = 100 }
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = first_war_success }
+			}
+			set_global_flag = first_war_success
+			ROOT = { 
+				add_character_modifier = { name = "holy_truce_timer" duration = 3650 } 
+				add_pressed_claim = k_sicily
+			}
 		}
 		if = {
 			limit = {
@@ -1069,10 +1079,26 @@ italian_reconquest = {
 				usurp_title = ROOT
 				clr_global_flag = usurp_duchy
 			}
+			if = {
+				limit = {
+					b_tivoli = {
+						owner = {
+							character = ROOT
+						}
+					}
+				}
+				ROOT = {
+					religion_head = {
+						b_tivoli = {
+							gain_title = PREV
+						}
+					}
+				}
+			}			
 		}
 	}
 
-	on_fail = {
+	on_fail = {	
 		FROM = {
 			prestige = 100
 			hidden_tooltip = {
@@ -1083,16 +1109,33 @@ italian_reconquest = {
 				}
 			}
 		}
-		ROOT = {
-			banish = FROM
-			wealth = -500
-			hidden_tooltip = {
-				disband_event_forces = yes
-				clr_character_flag = duchy_adventurer
+		if = {
+			limit = {
+				b_tivoli = {
+					holder_scope = {
+						character = ROOT
+					}
+				}
 			}
+			ROOT = {
+				religion_head = {
+					b_tivoli = {
+						give_title = PREV
+					}
+				}
+			}
+		}		
+		ROOT = {
+			wealth = -500
+			prestige = -100 
 		}
-
-		ROOT = { prestige = -100 }
+		if = {
+			limit = {
+				NOT = { has_global_flag = first_war_success }
+			}
+			set_global_flag = italian_rec_failure
+			any_playable_ruler = { narrative_event = { id = 1000182697 } }
+		}		
 	}
 
 	on_reverse_demand = {
@@ -1105,28 +1148,30 @@ italian_reconquest = {
 			wealth = -500
 		}
 
+		if = {
+			limit = {
+				b_tivoli = {
+					holder_scope = {
+						character = ROOT
+					}
+				}
+			}
+			ROOT = {
+				religion_head = {
+					b_tivoli = {
+						give_title = PREV
+					}
+				}
+			}
+		}		
+
 		FROM = {
 			prestige = 200
 		}
 
 		ROOT = {
-			banish = FROM
 			prestige = -200
-			hidden_tooltip = {
-				disband_event_forces = yes
-				clr_character_flag = duchy_adventurer
-			}
 		}
-	}
-
-	on_attacker_leader_death = {
-		ROOT = {
-			hidden_tooltip = {
-				disband_event_forces = yes
-				clr_character_flag = duchy_adventurer
-			}
-		}
-		end_war = invalid
 	}
 
 	attacker_ai_victory_worth = {
