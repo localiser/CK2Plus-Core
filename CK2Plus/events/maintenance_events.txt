@@ -3150,29 +3150,51 @@ character_event = {
 		set_global_flag = uppland_cleanup_done
 	}
 }
-# War of Two Eriks fix - make sure Uppland becomes a vassal again on loss
+
+# Maintenance Event, Republic CA
 character_event = {
-	id = 1000182630
-	desc = "Rightful liege restored"
-	picture = "GFX_evt_spymaster"
+	id = 1000182702
 	hide_window = yes
 	
 	trigger = {
-		year = 1066
-		NOT = { year = 1075 }
-		is_ruler = yes
-		independent = yes
-		has_landed_title = d_uppland
-		NOT = { has_landed_title = k_sweden }
-		k_sweden = { holder_scope = { has_claim = d_uppland } }
-		war = no
-		NOT = { has_global_flag = uppland_cleanup_done }
+		is_ruler = yes	
+		higher_tier_than = duke		
+		OR = {
+			is_republic = yes
+			is_merchant_republic = yes
+		}
+		any_demesne_title = {
+			higher_tier_than = duke
+			OR = {
+				has_law = centralization_3
+				has_law = centralization_4
+				NOT = { has_law = succ_patrician_elective }
+			}
+		}
 	}
 	
-	mean_time_to_happen = {	days = 10 }
+	mean_time_to_happen = {	days = 1 }
 	
 	immediate = {
-		set_defacto_liege = k_sweden
-		set_global_flag = uppland_cleanup_done
+		set_character_flag = centralize_without_penalties
+		any_demesne_title = {
+			higher_tier_than = duke
+			if = {
+				limit = {
+					OR = {
+						has_law = centralization_3
+						has_law = centralization_4
+					}
+				}
+				add_law = centralization_2
+			}
+			if = {
+				limit = {
+					NOT = { has_law = succ_patrician_elective }
+				}
+				add_law = succ_patrician_elective
+			}			
+		}
+		clr_character_flag = centralize_without_penalties
 	}
 }
