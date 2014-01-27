@@ -84,7 +84,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_002
-		wealth = -50
+		scaled_wealth = -0.25
 	}
 }
 
@@ -107,7 +107,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_003
-		wealth = -50
+		scaled_wealth = -0.25
 	}
 }
 
@@ -184,7 +184,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_005
-		wealth = -50
+		wealth = -100
 	}
 }
 
@@ -207,7 +207,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_006
-		wealth = -50
+		scaled_wealth = -0.25
 	}
 }
 
@@ -253,7 +253,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_008
-		wealth = 100
+		scaled_wealth = 0.25
 	}
 }
 
@@ -276,7 +276,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_009
-		wealth = 100
+		scaled_wealth = 0.25
 	}
 }
 
@@ -322,7 +322,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_011
-		wealth = -50
+		scaled_wealth = -0.25
 	}
 }
 
@@ -345,7 +345,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_012
-		wealth = -50
+		scaled_wealth = -0.25
 	}
 }
 
@@ -422,7 +422,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_014
-		wealth = 100
+		wealth = 50
 	}
 }
 
@@ -445,7 +445,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_015
-		wealth = 100
+		scaled_wealth = 0.25
 	}
 }
 
@@ -491,7 +491,7 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_REP_017
-		wealth = 100
+		scaled_wealth = 0.25
 	}
 }
 
@@ -525,7 +525,7 @@ character_event = {
 		trigger = {
 			trait = drunkard
 		}
-		wealth = -50
+		scaled_wealth = -0.25
 	}
 }
 
@@ -3772,14 +3772,14 @@ character_event = {
 	option = { # Bribe
 		name = EVTOPTB_REP_602
 		trigger = {
-			wealth = 100
+			scaled_wealth = 0.50
 		}
-		wealth = -100
+		scaled_wealth = -0.50
 		FROMFROM = {
 			province_event = { id = REP.608 days = 6 tooltip = EVTTOOLTIP_REP_604 }
 		}
 		tooltip = {
-			FROM = { wealth = 100 }
+			FROM = { scaled_wealth = 0.50 }
 		}
 	}
 	option = { # Stewardship
@@ -3835,14 +3835,14 @@ character_event = {
 	option = {
 		name = EVTOPTA_REP_604
 		ai_chance = { factor = 70 }
-		wealth = 100
+		scaled_wealth = 0.50
 		opinion = {
 			modifier = opinion_bribed_tp
 			who = FROMFROM
 		}
 		tooltip = {
 			FROMFROM = {
-				wealth = -100
+				scaled_wealth = 0.50
 			}
 		}
 	}
@@ -3852,7 +3852,7 @@ character_event = {
 		wealth = 100
 		tooltip = {
 			FROMFROM = {
-				wealth = -100
+				scaled_wealth = -0.50
 			}
 		}
 		piety = -50
