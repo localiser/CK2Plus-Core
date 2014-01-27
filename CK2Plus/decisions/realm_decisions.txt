@@ -1445,16 +1445,20 @@ decisions = {
 			independent = yes
 			has_landed_title = k_magyar
 			culture = hungarian
-			OR = {
-				NOT = { religion_group = pagan_group }
-				is_reformed_religion = yes
-			}
 			k_hungary = {
 				has_holder = no
 			}
+			NOT = { has_global_flag = hungary_formed }
 		}
 		allow = {
 			war = no
+			custom_tooltip = {
+				text = CTT_MUST_BE_REFORMED
+				OR = {
+					NOT = { religion_group = pagan_group }
+					is_reformed_religion = yes
+				}
+			}
 			completely_controls = d_pest
 			OR = {
 				completely_controls = d_transylvania
@@ -1463,21 +1467,43 @@ decisions = {
 			}
 		}
 		effect = {
-			custom_tooltip = {
-				text = EVTOPTA62910_CUSTOM
-			}
-			narrative_event = { id = 62910 tooltip = EVTTOOLTIP62910 }
+			set_global_flag = hungary_formed
 			hidden_tooltip = {
-				if = {
-					limit = { has_landed_title = k_magyar }
-					k_magyar = {
-						destroy_landed_title = yes
+				any_playable_ruler = {
+				  any_realm_character = {
+						limit = {
+							has_claim = k_magyar
+						}
+						add_pressed_claim = k_hungary
+						remove_claim = k_magyar
 					}
 				}
+				d_pecs = {
+					de_jure_liege = k_hungary
+				}
+				d_esztergom = {
+					de_jure_liege = k_hungary
+				}	
+				d_nyitra = {
+					de_jure_liege = k_hungary
+				}	
+				d_ungvar = {
+					de_jure_liege = k_hungary
+				}	
+				d_pest = {
+					de_jure_liege = k_hungary
+				}	
+				d_transylvania = {
+					de_jure_liege = k_hungary
+				}	
+				d_temes = {
+					de_jure_liege = k_hungary
+				}
+				narrative_event = { id = 62910 tooltip = EVTTOOLTIP62910 }
 			}
 		}
 		ai_will_do = {
-			factor = 1.0
+			factor = 10.0
 		}
 	}
 

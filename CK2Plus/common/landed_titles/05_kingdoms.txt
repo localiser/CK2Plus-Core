@@ -14537,7 +14537,7 @@ k_wallachia = {
                 }
         }
 } # k_dacia
-k_hungary = {
+k_carpathia = {
         color={ 187 70 70 }
         color2={ 255 255 255 }
         catholic = 10 #Crusade target weight
@@ -14546,6 +14546,14 @@ k_hungary = {
         tengri_pagan_reformed = 10
         slavic_pagan_reformed = 5 # Crusade target weight
         allow = {
+		
+			hidden_tooltip = {
+				NOT = {
+					has_global_flag = hungary_formed
+					has_global_flag = magyar_victory
+				}
+			}
+		
 			is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
@@ -14559,7 +14567,7 @@ k_hungary = {
 			}
                 OR = {
                         culture = hungarian
-                        k_hungary = {
+                        k_carpathia = {
                                 OR = {
                                         is_titular = no
                                         has_holder = yes

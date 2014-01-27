@@ -972,9 +972,18 @@ narrative_event = {
 	option = {
 		name = EVTOPTA62910
 		hidden_tooltip = {
-			k_magyar = {
-				any_direct_de_jure_vassal_title = {
-					de_jure_liege = k_hungary
+				k_magyar = {
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = k_hungary
+					}
+				}
+			any_playable_ruler = {
+			  any_realm_character = {
+					limit = {
+						has_claim = k_magyar
+					}
+					add_pressed_claim = k_hungary
+					remove_claim = k_magyar
 				}
 			}
 		}
@@ -983,12 +992,13 @@ narrative_event = {
 			copy_title_laws = k_magyar
 			copy_title_history = k_magyar
 		}
-		k_magyar = {
-			destroy_landed_title = THIS
+		hidden_tooltip = {
+			k_magyar = {
+				destroy_landed_title = THIS
+			}
 		}
 
 		custom_tooltip = {
-			text = EVTOPTA62910_CUSTOM
 		
 			hidden_tooltip = {
 				any_playable_ruler = {

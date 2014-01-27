@@ -17801,7 +17801,7 @@ k_wallachia = {
                 }
         }
 } # k_dacia
-k_hungary = {
+k_carpathia = {
         color={ 187 70 70 }
         color2={ 255 255 255 }
         catholic = 10 #Crusade target weight
@@ -17810,6 +17810,14 @@ k_hungary = {
         tengri_pagan_reformed = 10
         slavic_pagan_reformed = 5 # Crusade target weight
         allow = {
+		
+			hidden_tooltip = {
+				NOT = {
+					has_global_flag = hungary_formed
+					has_global_flag = magyar_victory
+				}
+			}
+		
 			is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
@@ -17823,7 +17831,7 @@ k_hungary = {
 			}
                 OR = {
                         culture = hungarian
-                        k_hungary = {
+                        k_carpathia = {
                                 OR = {
                                         is_titular = no
                                         has_holder = yes
@@ -17831,21 +17839,6 @@ k_hungary = {
                         }
                 }
         }
-        hungarian = "Magyarorszag"
-        bohemian = "Madarsko"
-        german = "Ungarn"
-        croatian = "Madarska"
-        serbian = "Madarska"
-        polish = "Wegry"
-        romanian = "Ungaria"
-        dutch = "Hongarije"
-        italian = "Ungheria"
-        frankish = "Hongrie"
-        norwegian = "Ungarn"
-        danish = "Ungarn"
-        norse = "Ungarn"
-        swedish = "Ungarn"
-        welsh = "Hwngari"
         d_pecs = {
                 color={ 117 127 174 }
                 color2={ 255 255 255 }
