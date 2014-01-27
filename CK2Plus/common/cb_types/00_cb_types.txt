@@ -1727,6 +1727,21 @@ crusade = {
 		ROOT = {
 			has_called_crusade = no
 			religion_authority = 0.4
+			custom_tooltip = {
+				text = PLAYER_CRUSADE_REQ_PIETY
+				AND = {
+					ai = no
+					piety = 1000
+				}
+			}
+			custom_tooltip = {
+				text = PLAYER_CRUSADE_REQ_NO_CALLED
+				NOT = {
+					ai = no
+					has_character_modifier = crusade_timer
+				}			
+			}
+			
 			OR = {
 				religion_group = zoroastrian_group
 				religion_group = jewish_group
@@ -1763,41 +1778,49 @@ crusade = {
 				FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 				FROM = { prisoner = no }
 				ROOT = {
-					piety = 100
 					OR = {
-						year = 1100
-						piety = 300
-					}
-					OR = {
-						NOT = { year = 1150 }
-						piety = 150
-					}
-					OR = {
-						NOT = { year = 1200 }
-						piety = 200
-					}
-					OR = {
-						NOT = { year = 1250 }
-						piety = 300
-					}
-					OR = {
-						NOT = { year = 1300 }
-						piety = 400
-					}
-					OR = {
-						NOT = { year = 1350 }
-						piety = 500
-					}
-					OR = {
-						ai = yes
-						piety = 500
+						AND = {
+							ai = no
+							piety = 1000
+						}
+						AND = {
+							ai = yes
+							piety = 100
+							OR = {
+								year = 1100
+								piety = 150
+							}
+							OR = {
+								NOT = { year = 1150 }
+								piety = 200
+							}
+							OR = {
+								NOT = { year = 1200 }
+								piety = 200
+							}
+							OR = {
+								NOT = { year = 1250 }
+								piety = 300
+							}
+							OR = {
+								NOT = { year = 1300 }
+								piety = 400
+							}
+							OR = {
+								NOT = { year = 1350 }
+								piety = 500
+							}
+							OR = {
+								piety = 500
+							}
+						}
 					}
 					NOT = {
 						has_character_modifier = crusade_timer
-					}
+					}					
 					can_call_crusade = yes
 					has_called_crusade = no
-					religion_authority = 0.4
+					religion_authority = 0.4					
 				}
 			}
 		}
@@ -1945,6 +1968,10 @@ crusade = {
 				limit = { OR = { year = 1350 has_global_flag = fourth_crusade_begin ai = no } }
 				piety = -500
 			}
+			if = {
+				limit = { ROOT = { ai = no }
+				piety = -1000
+			}		
 		}
 		clr_global_flag = fourth_crusade_begin
 	}
@@ -1983,7 +2010,7 @@ crusade = {
 				}
 				add_character_modifier = {
 					name = "crusade_timer"
-					duration = 7300
+					duration = -1
 					hidden = yes
 				}
 			}
