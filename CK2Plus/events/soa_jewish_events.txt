@@ -917,8 +917,8 @@ character_event = {
 				character_event = { id = SoA.505 }
 			}
 		}
-		prestige = 100
-		piety = 100
+		prestige = 5
+		piety = 5
 		custom_tooltip = {
 			text = COURTFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_court" value = 0.5 }
@@ -926,7 +926,10 @@ character_event = {
 				random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } 
 			}
 		}		
-		set_character_flag = ai_passover_cooldown	
+		if = {
+			limit = { ai = yes }
+			set_character_flag = ai_passover_cooldown	
+		}	
 		remove_character_modifier = holding_passover_mod
 		clr_character_flag = holding_passover
 		clr_character_flag = do_not_disturb
@@ -972,7 +975,10 @@ character_event = {
 				}	
 			}	
 		}
-		set_character_flag = ai_passover_cooldown	
+		if = {
+			limit = { ai = yes }
+			set_character_flag = ai_passover_cooldown	
+		}
 		remove_character_modifier = holding_passover_mod
 		clr_character_flag = holding_passover
 		clr_character_flag = do_not_disturb

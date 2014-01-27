@@ -6,6 +6,76 @@
 #
 #######################################
 
+#Plan Ramadan
+character_event = {
+	id = 1000182700
+	desc = "EVTDESC1000182700"
+	picture = GFX_evt_bishop_muslim
+	hide_from = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA1000182700"
+	}
+}
+
+#Planned Event Begins
+character_event = {
+	id = 1000182701
+	desc = "EVTDESC1000182701"
+	picture = GFX_evt_bishop_muslim
+
+	trigger = {
+		ai = no #AI will never plan a Ramadan, no need to check for them
+		has_character_flag = planning_ramadan
+		OR = {
+			NOT = { has_character_flag = recent_ramadan }
+			had_character_flag = {
+				flag = recent_ramadan
+				days = 140
+			}
+		}
+		war = no
+		prisoner = no
+		AND = {
+			month = 3
+			NOT = { month = 5 } # March and April is when you can hold it so it should trigger in that window
+		}
+		NOT = { has_character_modifier = holding_large_feast }
+		NOT = { has_character_modifier = holding_summer_fair }
+		NOT = { has_character_modifier = holding_grand_hunt }
+		NOT = { has_character_modifier = holding_epic_tournament }
+	}
+
+	immediate = {
+		add_character_modifier = {
+			name = holding_ramadan_mod
+			duration = -1
+		}
+
+		set_character_flag = ramadan	
+		clr_character_flag = planning_ramadan
+		
+		hidden_tooltip = {
+			character_event = {
+				id = 88500
+				days = 5
+				random = 10
+			}
+
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "EVTOPTA1000182701"
+	}
+}
+
 # The Fast Begins
 character_event = {
 	id = 88500
@@ -18,7 +88,14 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA88500"
+		random_list = {
+			40 = {
+				decadence = -1
+			}
+			60 = {}
+		}		
 		hidden_tooltip = {
+			set_character_flag = recent_ramadan
 			character_event = { id = 88510 days = 26 }
 			character_event = { id = 88515 days = 31 }
 			character_event = { id = 88516 days = 31 }
@@ -42,7 +119,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -60,9 +137,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = -1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
-		piety = 15
+		piety = 5
 	}
 	option = {
 		name = "EVTOPTB88501"
@@ -75,9 +157,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 	}
 }
 
@@ -91,17 +178,17 @@ character_event = {
 
 	trigger = {
 		has_character_flag = ramadan
-		scaled_wealth = 0.20
+		wealth = 5
 		NOT = { has_character_flag = ramadan_charity }
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
 		name = "EVTOPTA88502"
-		scaled_wealth = -0.25
+		wealth = -5
 		if = {
 			limit = {
 				NOT = {
@@ -110,10 +197,15 @@ character_event = {
 					}
 				}
 			}
-			decadence = -1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
 		set_character_flag = ramadan_charity
-		piety = 15
+		piety = 5
 	}
 	option = {
 		name = "EVTOPTB88502"
@@ -125,10 +217,15 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
 		set_character_flag = ramadan_charity
-		piety = -15
+		piety = -5
 	}
 }
 
@@ -146,7 +243,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -160,9 +257,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = -1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
-		piety = 15
+		piety = 5
 	}
 	option = {
 		name = "EVTOPTB88503"
@@ -175,9 +277,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 	}
 }
 
@@ -199,7 +306,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -218,9 +325,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = -1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
-		piety = 15
+		piety = 5
 		set_character_flag = ramadan_ill
 	}
 }
@@ -240,7 +352,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 8
+		days = 50
 	}
 
 	option = {
@@ -267,7 +379,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 100
+		days = 140
 	}
 
 	option = {
@@ -281,9 +393,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = -1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
-		piety = 15
+		piety = 5
 	}
 }
 
@@ -304,7 +421,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 100
+		days = 140
 	}
 
 	option = {
@@ -318,9 +435,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = -1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
-		piety = 15
+		piety = 5
 	}
 }
 
@@ -396,7 +518,7 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA88510"
-		scaled_wealth = -0.3
+		wealth = -5
 		any_vassal = {
 			limit = {
 				prisoner = no
@@ -510,7 +632,7 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA88515"
-		scaled_wealth = -0.25
+		wealth = -10
 		spouse = {
 			opinion = {
 				modifier = opinion_happy
@@ -549,7 +671,7 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA88516"
-		scaled_wealth = -0.25
+		wealth = -10
 		any_spouse = {
 			limit = { is_main_spouse = yes }
 			opinion = {
@@ -569,7 +691,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB88516"
-		scaled_wealth = -0.5
+		wealth = -20
 		any_spouse = {
 			opinion = {
 				modifier = opinion_happy
@@ -605,7 +727,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -619,9 +741,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 	}
 }
 
@@ -643,7 +770,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -657,9 +784,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 	}
 }
 
@@ -678,7 +810,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -691,9 +823,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = -1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 		set_character_flag = ramadan_drunkard
 	}
 }
@@ -716,7 +853,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -729,9 +866,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 		set_character_flag = ramadan_greedy
 	}
 }
@@ -751,7 +893,7 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 30
+		days = 50
 	}
 
 	option = {
@@ -764,9 +906,14 @@ character_event = {
 					}
 				}
 			}
-			decadence = 1
+			random_list = {
+				20 = {
+					decadence = 1
+				}
+				80 = {}
+			}
 		}
-		piety = -15
+		piety = -5
 		set_character_flag = ramadan_cynical
 	}
 }
@@ -785,6 +932,21 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA88522"
+		hidden_tooltip = {
+			if = {
+				limit = { ai = yes }
+				set_character_flag = ai_ramadan_cooldown	
+			}
+			remove_character_modifier = holding_ramadan_mod
+		}
+		custom_tooltip = {
+			text = RELIGIOUSFACTIONMOODPLUS
+			change_variable = { which = "faction_mood_religious" value = 0.5 }
+			hidden_tooltip = { 			
+				random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } 
+			}	
+		}		
+		clr_character_flag = recent_ramadan		
 		clr_character_flag = ramadan
 		clr_character_flag = ramadan_ill
 		clr_character_flag = ramadan_cynical
@@ -797,5 +959,4 @@ character_event = {
 		clr_character_flag = ramadan_prisoners
 	}
 }
-
 

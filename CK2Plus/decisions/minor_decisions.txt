@@ -767,6 +767,49 @@ decisions = {
 		}
 	}
 
+	
+	plan_ramadan = {
+		potential = {
+			is_ruler = yes
+			is_feudal = yes
+			prisoner = no
+			age = 16
+			religion_group = muslim
+			NOT = {
+				trait = on_hajj
+				trait = incapable
+				has_character_modifier = planning_ramadan_mod			
+				has_character_flag = planning_ramadan
+				has_character_flag = ramadan 
+				has_character_modifier = holding_ramadan_mod			
+			}				
+			OR = {
+				month = 5
+				NOT = {
+					month = 3 # Planning can only occur outside of March and April
+				}
+			}			
+		}
+		allow = {
+			war = no
+			prisoner = no
+			wealth = 12
+		}
+		effect = {
+			wealth = -12
+			set_character_flag = planning_ramadan
+			hidden_tooltip = {
+				character_event = { id = 1000182700 }
+			}
+			set_character_flag = ai_ramadan_cooldown
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}		
+	}
 	observe_ramadan = {
 		potential = {
 			is_ruler = yes
@@ -777,14 +820,23 @@ decisions = {
 			NOT = {
 				trait = on_hajj
 				trait = incapable
-			}
-			NOT = { has_character_flag = ramadan }
+				has_character_flag = planning_ramadan
+				has_character_flag = ramadan 
+				has_character_modifier = holding_ramadan_mod	
+				had_character_flag = {
+					flag = ai_ramadan_cooldown
+					days = 3650
+				}				
+			}	
+			AND = {
+				month = 3
+				NOT = { month = 5 } # March and April is when you can hold it, no need to plan it then
+			}	
 		}
 		allow = {
 			war = no
 			prisoner = no
 			wealth = 60
-			NOT = { has_character_modifier = ramadan_timer }
 		}
 		effect = {
 			character_event = { id = 88500 tooltip = "begin_fast" }
@@ -797,15 +849,9 @@ decisions = {
 						}
 					}
 				}
-				decadence = -2
 			}
-			piety = 15
-			wealth = -60
-			add_character_modifier = {
-				name = ramadan_timer
-				duration = 1825
-				hidden = yes
-			}
+			piety = 5
+			wealth = -12
 		}
 		revoke_allowed = {
 			always = no
@@ -884,7 +930,6 @@ decisions = {
 			hidden_tooltip = {
 				character_event = { id = 1000182646 }
 			}
-			set_character_flag = ai_passover_cooldown
 		}
 		revoke_allowed = {
 			always = no
@@ -903,7 +948,7 @@ decisions = {
 			religion_group = jewish_group
 			NOT = { 
 				has_character_modifier = planning_passover_mod
-				has_character_modifier = held_passover_timer	
+				has_character_modifier = held_passover_timer
 				had_character_flag = {
 					flag = ai_passover_cooldown
 					days = 3650
