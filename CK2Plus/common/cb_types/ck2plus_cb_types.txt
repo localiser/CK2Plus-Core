@@ -1149,9 +1149,12 @@ coastal_city_republic = { #Take a coastal city (Barony Tier)
 				is_merchant_republic = yes
 				is_patrician = yes
 			}
-			NOT = { is_liege_or_above = FROM }
-			NOT = { is_vassal_or_below = FROM }
-			NOT = { same_liege = FROM }
+			NOT = { 
+				is_liege_or_above = FROM
+				is_vassal_or_below = FROM 
+				same_liege = FROM
+				has_character_modifier = rep_cb_cd
+			}
 			prisoner = no
 			has_regent = no
 		}
@@ -1232,6 +1235,17 @@ coastal_city_republic = { #Take a coastal city (Barony Tier)
 	is_valid_title = {
 		NOT = { owner = { character = FROM } } # Can't take the primary holding away from someone
 	}
+	
+	on_add = {
+		ROOT = {
+			add_character_modifier = {
+				name = rep_cb_cd
+				duration = 1825
+				hidden = no
+				inherit = yes
+			}
+		}
+	}
 
 	on_success_title = {
 		usurp_title = ROOT
@@ -1279,6 +1293,18 @@ coastal_city_republic = { #Take a coastal city (Barony Tier)
 			}			
 		}		
 		
+		hidden_tooltip = {
+			ROOT = {
+				remove_character_modifier = rep_cb_cd
+				add_character_modifier = {
+					name = rep_cb_cd
+					duration = 1825
+					hidden = no
+					inherit = yes
+				}
+			}
+		}
+		
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = 100
@@ -1301,6 +1327,10 @@ coastal_city_republic = { #Take a coastal city (Barony Tier)
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 50 }
 		}
+		
+		hidden_tooltip = {
+			ROOT = { remove_character_modifier = rep_cb_cd }
+		}
 	}
 
 	on_reverse_demand = {
@@ -1319,6 +1349,9 @@ coastal_city_republic = { #Take a coastal city (Barony Tier)
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 100 }
 		}
+		hidden_tooltip = {
+			ROOT = { remove_character_modifier = rep_cb_cd }
+		}		
 	}
 
 	attacker_ai_victory_worth = {
@@ -1355,9 +1388,12 @@ coastal_county_republic = { # Take a county if we have a city (barony) here
 				is_merchant_republic = yes
 				is_patrician = yes
 			}
-			NOT = { is_liege_or_above = FROM }
-			NOT = { is_vassal_or_below = FROM }
-			NOT = { same_liege = FROM }
+			NOT = { 
+				is_liege_or_above = FROM
+				is_vassal_or_below = FROM 
+				same_liege = FROM
+				has_character_modifier = rep_cb_cd
+			}
 		}
 	}
 
@@ -1402,6 +1438,17 @@ coastal_county_republic = { # Take a county if we have a city (barony) here
 			}
 		}
 	}
+	
+	on_add = {
+		ROOT = {
+			add_character_modifier = {
+				name = rep_cb_cd
+				duration = 1825
+				hidden = no
+				inherit = yes
+			}
+		}
+	}	
 
 	on_success_title = {
 		if = {
@@ -1473,6 +1520,18 @@ coastal_county_republic = { # Take a county if we have a city (barony) here
 			}
 		}
 		
+		hidden_tooltip = {
+			ROOT = {
+				remove_character_modifier = rep_cb_cd
+				add_character_modifier = {
+					name = rep_cb_cd
+					duration = 1825
+					hidden = no
+					inherit = yes
+				}
+			}
+		}		
+		
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = 100
@@ -1495,6 +1554,11 @@ coastal_county_republic = { # Take a county if we have a city (barony) here
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 50 }
 		}
+		
+		hidden_tooltip = {
+			ROOT = { remove_character_modifier = rep_cb_cd }
+		}			
+		
 	}
 
 	on_reverse_demand = {
@@ -1513,6 +1577,11 @@ coastal_county_republic = { # Take a county if we have a city (barony) here
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 100 }
 		}
+		
+		hidden_tooltip = {
+			ROOT = { remove_character_modifier = rep_cb_cd }
+		}			
+		
 	}
 
 	attacker_ai_victory_worth = {
@@ -1550,7 +1619,10 @@ seize_trade_post = {
 				is_merchant_republic = yes
 				is_patrician = yes
 			}
-			NOT = { is_liege_or_above = FROM }
+			NOT = { 
+				is_liege_or_above = FROM 
+				has_character_modifier = rep_tp_cd
+			}
 
 			OR = {
 				NOT = { same_realm = FROM }
@@ -1639,6 +1711,17 @@ seize_trade_post = {
 		}
 	}
 
+	on_add = {
+		ROOT = {
+			add_character_modifier = {
+				name = rep_tp_cd
+				duration = 1825
+				hidden = no
+				inherit = yes
+			}
+		}
+	}	
+	
 	on_success_title = {
 		
 		seize_trade_post = ROOT
@@ -1651,11 +1734,26 @@ seize_trade_post = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { participation_scaled_prestige = 50 }
 		}
+		
+		hidden_tooltip = {
+			ROOT = {
+				remove_character_modifier = rep_tp_cd
+				add_character_modifier = {
+					name = rep_tp_cd
+					duration = 1825
+					hidden = no
+					inherit = yes
+				}
+			}
+		}		
 	}
 
 	on_fail = {
 		ROOT = {
 			prestige = -50
+			hidden_tooltip = {
+				remove_character_modifier = rep_tp_cd
+			}
 		}
 		any_defender = {
 			limit = { character = FROM }
@@ -1674,6 +1772,9 @@ seize_trade_post = {
 				to = FROM
 				value = 2.0
 			}
+			hidden_tooltip = {
+				remove_character_modifier = rep_tp_cd
+			}			
 		}
 		any_defender = {
 			limit = { character = FROM }
