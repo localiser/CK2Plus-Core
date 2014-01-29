@@ -4,6 +4,7 @@ character_event = {
 	picture = "GFX_evt_council"
 
 	only_rulers = yes
+	hide_window = yes
 
 	trigger = {
 		ai = no
@@ -25,10 +26,8 @@ character_event = {
 		days = 1
 	}
 
-	immediate = { disband_event_forces = yes }
-
-	option = {
-		name = "EVTOPTA110000"
+	immediate = { 
+		disband_event_forces = yes
 		if = {
 			limit = {
 				NOT = { has_landed_title = e_mexikha }
@@ -50,7 +49,7 @@ character_event = {
 	is_triggered_only = yes
 	only_rulers = yes
 
-	trigger = {
+	trigger = {	
 		primary_title = { tier = EMPEROR }
 		any_demesne_title = {
 			tier = KING
@@ -182,7 +181,7 @@ character_event = {
 character_event = {
 	id = 110018
 	is_triggered_only = yes
-	hide_from = yes
+	hide_window = yes
 
 	trigger = {
 		ai = yes
@@ -204,14 +203,11 @@ character_event = {
 		}
 	}
 
-	desc = "AI_EVENT"
-
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		set_character_flag = plot_check
 		plot_target_char = {
 			any_courtier = {
@@ -271,6 +267,7 @@ character_event = {
 character_event = {
 	id = 110019
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		ai = yes
@@ -294,14 +291,12 @@ character_event = {
 		}
 	}
 
-	desc = "AI_EVENT"
 
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		cancel_plot = yes
 	}
 }
@@ -309,6 +304,7 @@ character_event = {
 character_event = {
 	id = 110020
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		is_adult = yes
@@ -332,8 +328,6 @@ character_event = {
 			has_plot = plot_seize_trade_post
 		}
 	}
-
-	desc = "AI_EVENT"
 
 	mean_time_to_happen = {
 		days = 1
@@ -366,8 +360,7 @@ character_event = {
 		}
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		set_character_flag = allow_plotting
 	}
 }
@@ -626,6 +619,7 @@ character_event = {
 character_event = {
 	id = 110031
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		is_ruler = no
@@ -653,14 +647,12 @@ character_event = {
 		}
 	}
 
-	desc = "AI_EVENT"
 
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		remove_trait = tyrant1
 		remove_trait = tyrant2
 		remove_trait = tyrant3
@@ -792,8 +784,6 @@ character_event = { # Remove Crowned by Pope if not the Kaiser
 		NOT = { has_landed_title = e_hre }
 	}
 
-	desc = "EVTDESC110043"
-
 	mean_time_to_happen = {
 		days = 1
 	}
@@ -809,8 +799,6 @@ character_event = {
 
 	hide_window = yes
 	is_triggered_only = yes
-
-	desc = "EVTDESC110044"
 
 	immediate = {
 		hidden_tooltip = {
@@ -1648,6 +1636,7 @@ character_event = {
 character_event = {
 	id = 110049
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		is_married = no
@@ -1734,10 +1723,7 @@ character_event = {
 		days = 1
 	}
 
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
+	immediate = {
 		treasury = -10
 		set_character_flag = event_110049
 		if = {
@@ -1899,7 +1885,6 @@ character_event = {
 # Remove claims
 character_event = {
 	id = 110050
-	desc = "AI_EVENT"
 
 	hide_window = yes
 	is_triggered_only = yes
@@ -2049,40 +2034,13 @@ character_event = {
 	}
 }
 
-#Sanction for holy wars
-character_event = {
-	id = 110051
-	desc = "EVTDESC110051"
-	picture = GFX_evt_pope
-
-	is_triggered_only = yes
-
-	option = {
-		name = "EVTOPTA110051"
-		add_character_modifier = {
-			name = "sanctioned_holy_war"
-			duration = 730
-		}
-	}
-}
-
-character_event = {
-	id = 110052
-	desc = "EVTDESC110052"
-	picture = GFX_evt_pope
-
-	is_triggered_only = yes
-
-	option = {
-		name = "EVTOPTA110052"
-	}
-}
 
 #AI employs debutante
 character_event = {
 	id = 110058
 	is_triggered_only = yes
 	only_rulers = yes
+	hide_window = yes
 	trigger = {
 		has_ambition = obj_find_lover
 		is_female = no
@@ -2095,14 +2053,11 @@ character_event = {
 		NOT = { has_character_flag = employed_debutante }
 	}
 
-	desc = "AI_EVENT"
-
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		treasury = -5
 		create_character = {
 			random_traits = yes
@@ -2141,6 +2096,7 @@ character_event = {
 character_event = {
 	id = 110063
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		trait = loyalist
@@ -2156,16 +2112,14 @@ character_event = {
 		days = 1
 	}
 
-	desc = "EVTDESC110063"
-
-	option = {
-		name = "EVTOPTA110063"
+	immediate = {
 		remove_trait = loyalist
 	}
 }
 
 character_event = {
 	id = 110064
+	hide_window = yes
 
 	trigger = {
 		trait = rebel
@@ -2181,10 +2135,7 @@ character_event = {
 		days = 1
 	}
 
-	desc = "EVTDESC110064"
-
-	option = {
-		name = "EVTOPTA110064"
+	immediate = {
 		remove_trait = rebel
 		if = {
 			limit = {
@@ -2348,11 +2299,9 @@ character_event = {
 	id = 110070
 
 	is_triggered_only = yes
+	hide_window = yes
 
-	desc = "AI_EVENT"
-
-	option = {
-		name = "OK"
+	immediate = {
 		any_playable_ruler = {
 			any_demesne_title = {
 				limit = { tier = count }
@@ -2371,6 +2320,7 @@ character_event = {
 	id = 110071
 
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		any_playable_ruler = {
@@ -2383,10 +2333,8 @@ character_event = {
 			}
 		}
 	}
-
-	desc = "AI_EVENT"
-
-	option = {
+	
+	immediate = {
 		name = "OK"
 		any_playable_ruler = {
 			random_demesne_province = {
@@ -2408,6 +2356,7 @@ character_event = {
 	id = 110072
 
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		independent = yes
@@ -2417,12 +2366,9 @@ character_event = {
 		ai = yes
 	}
 
-	desc = "AI_EVENT"
-
 	mean_time_to_happen = { days = 1 }
 
-	option = {
-		name = "OK"
+	immediate = {
 		primary_title = {
 			location = {
 				county = {
@@ -2517,6 +2463,7 @@ character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the
 character_event = {
 	id = 110075
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		is_ruler = yes
@@ -2569,14 +2516,11 @@ character_event = {
 		}
 	}
 
-	desc = "AI_EVENT"
-
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		any_demesne_title = {
 			limit = {
 				tier = baron
@@ -2612,6 +2556,7 @@ character_event = {
 character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the Kingdom of Jerusalem if held by a non-heretic Catholic
 	id = 110076
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		independent = yes
@@ -2657,14 +2602,11 @@ character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the
 		}
 	}
 
-	desc = "AI_EVENT"
-
 	mean_time_to_happen = {
 		days = 1
 	}
 
-	option = {
-		name = "OK"
+	immediate = {
 		k_jerusalem = {
 			holder_scope = {
 				ROOT = { set_defacto_liege = PREV }
@@ -2676,8 +2618,7 @@ character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the
 character_event = {
 	id = 1000182162 #Add Bloodlust trait
 	
-	hide_window = yes
-	hide_from = yes	
+	hide_window = yes	
 
 	trigger = {
 		is_adult = yes
@@ -2724,16 +2665,13 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-
-	desc = "AI_EVENT"
 }
 
 character_event = { #Remove Bloodlust Trait
 	id = 1000182163
 
 	hide_window = yes
-	hide_from = yes	
-	
+
 	trigger = {
 		
 		trait = bloodlust
@@ -2770,7 +2708,6 @@ character_event = { #Remove Bloodlust Trait
 		days = 1
 	}
 	
-	desc = "AI_EVENT"
 }
 # Norman conquest cleanup - Victory: France loses claims
 character_event = {
@@ -3199,7 +3136,6 @@ character_event = {
 	id = 1000182629
 	desc = "Sweden is ours!"
 	picture = "GFX_evt_spymaster"
-	hide_from = yes
 	hide_window = yes
 	
 	trigger = {
@@ -3219,30 +3155,51 @@ character_event = {
 		set_global_flag = uppland_cleanup_done
 	}
 }
-# War of Two Eriks fix - make sure Uppland becomes a vassal again on loss
+
+# Maintenance Event, Republic CA
 character_event = {
-	id = 1000182630
-	desc = "Rightful liege restored"
-	picture = "GFX_evt_spymaster"
-	hide_from = yes
+	id = 1000182702
 	hide_window = yes
 	
 	trigger = {
-		year = 1066
-		NOT = { year = 1075 }
-		is_ruler = yes
-		independent = yes
-		has_landed_title = d_uppland
-		NOT = { has_landed_title = k_sweden }
-		k_sweden = { holder_scope = { has_claim = d_uppland } }
-		war = no
-		NOT = { has_global_flag = uppland_cleanup_done }
+		is_ruler = yes	
+		higher_tier_than = duke		
+		OR = {
+			is_republic = yes
+			is_merchant_republic = yes
+		}
+		any_demesne_title = {
+			higher_tier_than = duke
+			OR = {
+				has_law = centralization_3
+				has_law = centralization_4
+				NOT = { has_law = succ_patrician_elective }
+			}
+		}
 	}
 	
-	mean_time_to_happen = {	days = 10 }
+	mean_time_to_happen = {	days = 1 }
 	
 	immediate = {
-		set_defacto_liege = k_sweden
-		set_global_flag = uppland_cleanup_done
+		set_character_flag = centralize_without_penalties
+		any_demesne_title = {
+			higher_tier_than = duke
+			if = {
+				limit = {
+					OR = {
+						has_law = centralization_3
+						has_law = centralization_4
+					}
+				}
+				add_law = centralization_2
+			}
+			if = {
+				limit = {
+					NOT = { has_law = succ_patrician_elective }
+				}
+				add_law = succ_patrician_elective
+			}			
+		}
+		clr_character_flag = centralize_without_penalties
 	}
 }
