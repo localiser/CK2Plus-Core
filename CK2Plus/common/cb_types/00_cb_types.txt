@@ -4893,7 +4893,7 @@ other_succession_on_liege = {
 	}
 }
 
-dejure_county_claim = {
+dejure_county_claim = { #ducal
 	name = CB_NAME_DEJURECLAIM
 	war_name = WAR_NAME_DEJURECLAIM
 	sprite = 16
@@ -4925,17 +4925,13 @@ dejure_county_claim = {
 		}	
 		ROOT = {
 			OR = {
-				religion = FROM
 				AND = {
 					OR = {
 						religion_group = muslim
-						AND = {
-							religion_group = pagan_group
-							is_reformed_religion = yes
-						}
+						religion_group = pagan_group
 					}
 					religion = FROM
-				}
+				}			
 				NOT = {
 					religion_group = muslim
 					religion_group = pagan_group
@@ -5069,7 +5065,10 @@ dejure_county_claim = {
 						has_landed_title = d_sons_kaleva
 						has_landed_title = d_huitzilopochtli
 						has_landed_title = d_knights_santiago
-						has_landed_title = d_knights_calatrava							
+						has_landed_title = d_knights_calatrava
+						has_landed_title = d_braedralag
+						has_landed_title = d_herculean
+						has_landed_title = d_sacred_band						
 					}
 				}
 			}
@@ -5600,10 +5599,7 @@ other_dejure_county_claim = {
 				AND = {
 					OR = {
 						religion_group = muslim
-						AND = {
-							religion_group = pagan_group
-							is_reformed_religion = yes
-						}
+						religion_group = pagan_group
 					}
 					religion = FROM
 				}
