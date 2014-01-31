@@ -4923,20 +4923,22 @@ dejure_county_claim = {
 				same_realm = ROOT
 			}
 		}	
-		OR = {
-			AND = {
-				OR = {
-					religion_group = muslim
-					AND = {
-						religion_group = pagan_group
-						is_reformed_religion = yes
+		ROOT = {
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						AND = {
+							religion_group = pagan_group
+							is_reformed_religion = yes
+						}
 					}
+					religion = FROM
 				}
-				religion = FROM
-			}
-			NOT = {
-				religion_group = muslim
-				religion_group = pagan_group
+				NOT = {
+					religion_group = muslim
+					religion_group = pagan_group
+				}
 			}
 		}
 		
@@ -5592,22 +5594,24 @@ other_dejure_county_claim = {
 				same_realm = ROOT
 			}
 		}	
-		OR = {
-			AND = {
-				OR = {
-					religion_group = muslim
-					AND = {
-						religion_group = pagan_group
-						is_reformed_religion = yes
+		ROOT = {
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						AND = {
+							religion_group = pagan_group
+							is_reformed_religion = yes
+						}
 					}
+					religion = FROM
 				}
-				religion = FROM
-			}
-			NOT = {
-				religion_group = muslim
-				religion_group = pagan_group
-			}
-		}	
+				NOT = {
+					religion_group = muslim
+					religion_group = pagan_group
+				}
+			}	
+		}
 	
 		tier = count
 		OR = {

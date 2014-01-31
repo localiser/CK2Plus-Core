@@ -94,22 +94,24 @@ dejure_duchy_claim = {
 				same_realm = ROOT
 			}
 		}	
-		OR = {
-			AND = {
-				OR = {
-					religion_group = muslim
-					AND = {
-						religion_group = pagan_group
-						is_reformed_religion = yes
+		ROOT = {
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						AND = {
+							religion_group = pagan_group
+							is_reformed_religion = yes
+						}
 					}
+					religion = FROM
 				}
-				religion = FROM
-			}
-			NOT = {
-				religion_group = muslim
-				religion_group = pagan_group
-			}
-		}		
+				NOT = {
+					religion_group = muslim
+					religion_group = pagan_group
+				}
+			}	
+		}
 		
 		is_titular = no
 		tier = duke
@@ -1069,13 +1071,13 @@ free_family_cb = {
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 	
 		any_dynasty_member = {
-			is_prisoner = yes
+			prisoner = yes
 		}
 	}
 	
 	is_valid_title = {
 		any_dynasty_member = {
-			is_prisoner = yes
+			prisoner = yes
 			host = { character = FROM }
 		}
 	}
@@ -1084,7 +1086,7 @@ free_family_cb = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		any_dynasty_member = {
 			limit = {
-				is_prisoner = yes
+				prisoner = yes
 				host = { character = FROM }
 			}
 			prisoner = no
@@ -1101,7 +1103,7 @@ free_family_cb = {
 		ROOT = {
 			any_dynasty_member = {
 				limit = {
-					is_prisoner = yes
+					prisoner = yes
 					host = { character = FROM }
 				}
 				death = {
@@ -1198,8 +1200,8 @@ coastal_city_republic = { #Take a coastal city (Barony Tier)
 			}
 			NOT = { # Prevent the AI from overextending itself, it won't understand the mechanic anyways
 				AND = {
-					ai = yes
 					ROOT = {
+						ai = yes
 						capital_scope = {
 							location = {
 								distance = {
