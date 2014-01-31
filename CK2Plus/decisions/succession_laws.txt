@@ -56,22 +56,22 @@ succession_laws = {
 
 		potential = {
 			holder_scope = {
-				NOT = { religion = norse_pagan }
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = baltic_pagan }
-				NOT = { religion = finnish_pagan }
-				NOT = { religion = aztec_pagan }
-				NOT = { religion = slavic_pagan }
+				OR = {
+					AND = {
+						religion_group = pagan_group
+						is_reformed_religion = yes
+					}
+					NOT = { religion_group = pagan_group }
+				}
 			}
 			holder_scope = {
-				OR = {
-					NOT = { religion_group = muslim }
-					is_patrician = yes
+				NOT = {
+					religion_group = muslim
 				}
 				is_merchant_republic = no
 
-				OR = {
-					is_republic = no
+				NOT = {
+					is_republic = yes
 					is_patrician = yes
 				}
 			}
@@ -114,12 +114,13 @@ succession_laws = {
 		child_opinion = -20
 		potential = {
 			holder_scope = {
-				NOT = { religion = norse_pagan }
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = baltic_pagan }
-				NOT = { religion = finnish_pagan }
-				NOT = { religion = aztec_pagan }
-				NOT = { religion = slavic_pagan }
+				OR = {
+					AND = {
+						religion_group = pagan_group
+						is_reformed_religion = yes
+					}
+					NOT = { religion_group = pagan_group }
+				}
 			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
@@ -162,12 +163,13 @@ succession_laws = {
 
 		potential = {
 			holder_scope = {
-				NOT = { religion = norse_pagan }
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = baltic_pagan }
-				NOT = { religion = finnish_pagan }
-				NOT = { religion = aztec_pagan }
-				NOT = { religion = slavic_pagan }
+				OR = {
+					AND = {
+						religion_group = pagan_group
+						is_reformed_religion = yes
+					}
+					NOT = { religion_group = pagan_group }
+				}
 			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
@@ -374,12 +376,13 @@ succession_laws = {
 		vassal_opinion = 5
 		potential = {
 			holder_scope = {
-				NOT = { religion = norse_pagan }
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = baltic_pagan }
-				NOT = { religion = finnish_pagan }
-				NOT = { religion = aztec_pagan }
-				NOT = { religion = slavic_pagan }
+				OR = {
+					AND = {
+						religion_group = pagan_group
+						is_reformed_religion = yes
+					}
+					NOT = { religion_group = pagan_group }
+				}
 			}
 			holder_scope = {
 				NOT = { religion_group = muslim }
@@ -424,14 +427,13 @@ succession_laws = {
 		dynasty_opinion = -5
 		potential = {
 			holder_scope = {
-				NOT = { religion = norse_pagan }
-				NOT = { religion = tengri_pagan }
-				NOT = { religion = baltic_pagan }
-				NOT = { religion = finnish_pagan }
-				NOT = { religion = aztec_pagan }
-				NOT = { religion = slavic_pagan }
-				NOT = { religion = west_african_pagan }
-				NOT = { religion = pagan }
+				OR = {
+					AND = {
+						religion_group = pagan_group
+						is_reformed_religion = yes
+					}
+					NOT = { religion_group = pagan_group }
+				}
 			}
 			holder_scope = {
 				OR = {
