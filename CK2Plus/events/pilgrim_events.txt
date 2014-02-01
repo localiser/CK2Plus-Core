@@ -2786,7 +2786,7 @@ character_event = {
 						OR = {
 							trait = ill
 							trait = pneumonic
-							trait = syphilitic
+							trait = gonorrhea
 						}
 					}
 					narrative_event = { id = SoA.5064 }
@@ -2797,7 +2797,7 @@ character_event = {
 							OR = {
 								trait = ill
 								trait = pneumonic
-								trait = syphilitic
+								trait = gonorrhea
 							}
 						}
 					}
@@ -3049,10 +3049,10 @@ character_event = {
 
 
 		if = {
-			limit = { NOT = { trait = syphilitic } }
+			limit = { NOT = { trait = gonorrhea } }
 			random = {
 				chance = 5
-				add_trait = syphilitic
+				add_trait = gonorrhea
 				clr_character_flag = good_pilgrimage
 				set_character_flag = bad_pilgrimage
 			}
@@ -3130,8 +3130,8 @@ narrative_event = {
 			remove_trait = pneumonic
 		}
 		if = {
-			limit = { trait = syphilitic }
-			remove_trait = syphilitic
+			limit = { trait = gonorrhea }
+			remove_trait = gonorrhea
 		}
 		if = {
 			limit = { trait = wounded }
@@ -3157,8 +3157,8 @@ narrative_event = {
 			remove_trait = pneumonic
 		}
 		if = {
-			limit = { trait = syphilitic }
-			remove_trait = syphilitic
+			limit = { trait = gonorrhea }
+			remove_trait = gonorrhea
 		}
 		if = {
 			limit = { trait = wounded }
@@ -3184,8 +3184,8 @@ narrative_event = {
 			remove_trait = pneumonic
 		}
 		if = {
-			limit = { trait = syphilitic }
-			remove_trait = syphilitic
+			limit = { trait = gonorrhea }
+			remove_trait = gonorrhea
 		}
 		if = {
 			limit = { trait = wounded }
