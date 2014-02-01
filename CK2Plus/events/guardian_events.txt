@@ -3688,7 +3688,7 @@ character_event = {
 			}
 			any_child = {
 				age = 6
-				NOT = { age = 16 }
+				is_adult = no
 				has_guardian = no
 			}
 		}
@@ -3785,7 +3785,7 @@ letter_event = {
 				liege = {
 					any_child = {
 						age = 6
-						NOT = { age = 16}
+						NOT = { is_adult = yes}
 						has_guardian = no
 					}
 				}
@@ -3794,7 +3794,7 @@ letter_event = {
 				random_child = {
 					limit = {
 						age = 6
-						NOT = { age = 16}
+						NOT = { is_adult = yes}
 						has_guardian = no
 					}
 					character_event = {
@@ -5661,13 +5661,13 @@ character_event = {
 		trigger = {
 			any_courtier = {
 				age = 8
-				NOT = { age = 16}
+				NOT = { is_adult = yes}
 			}
 		}
 		any_courtier = {
 			limit = {
 				age = 8
-				NOT = { age = 16}
+				NOT = { is_adult = yes}
 			}
 			opinion = {
 				modifier = opinion_coward
@@ -7534,7 +7534,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA2490"
 		trigger = {
-			age = 16
+			is_adult = yes
 		}
 		FROM = {
 			set_guardian = ROOT

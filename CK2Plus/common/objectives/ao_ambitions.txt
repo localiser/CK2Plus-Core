@@ -23,7 +23,7 @@ obj_make_a_friend = {
 
 	allow = {
 		prisoner = no
-		age = 16
+		is_adult = yes
 		diplomacy = 8
 		NOT = { 
 			age = 70
@@ -144,7 +144,7 @@ obj_get_nick = {
 	allow = {
 		prisoner = no
 		is_ruler = yes
-		age = 16
+		is_adult = yes
 		NOT = { trait = incapable }
 		NOT = { trait = humble }
 		has_nickname = no
@@ -190,7 +190,7 @@ obj_change_nick = {
 	allow = {
 		prisoner = no
 		is_ruler = yes
-		age = 16
+		is_adult = yes
 		NOT = { trait = incapable }
 		NOT = { trait = humble }
 		has_nickname = yes
@@ -222,13 +222,13 @@ obj_spouse_councillor = {
 	allow = {
 		is_female = yes
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_married = yes
 		independent = no
 		NOT = { trait = incapable }
 		spouse = {
 			prisoner = no
-			age = 16
+			is_adult = yes
 			is_councillor = no
 			independent = no
 			is_female = no
@@ -319,7 +319,7 @@ obj_ward_liege_child = {
 
 	allow = {
 		prisoner = no
-		age = 16
+		is_adult = yes
 		independent = no
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = teacher_1 }
@@ -333,7 +333,7 @@ obj_ward_liege_child = {
 			religion = ROOT
 			any_child = {
 				age = 6
-				NOT = { age = 16 }
+				is_adult = no
 			}
 		}
 	}
@@ -430,7 +430,7 @@ obj_ward_liege_child = {
 				NOT = {
 					any_child = {
 						age = 6
-						NOT = { age = 16 }
+						is_adult = no
 					}
 				}
 			}
@@ -454,7 +454,7 @@ obj_mentor_liege_child = {
 
 	allow = {
 		prisoner = no
-		age = 16
+		is_adult = yes
 		independent = no
 		NOT = { trait = incapable }
 		has_character_flag = teacher_1
@@ -462,7 +462,7 @@ obj_mentor_liege_child = {
 		liege = {
 				any_child = {
 					age = 6
-					NOT = { age = 16 }
+					is_adult = no
 				}
 			}
 	}
@@ -590,7 +590,7 @@ obj_become_regent = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult = yes
 		prisoner = no
 		independent = no
 		NOT = { trait = incapable }
@@ -686,7 +686,7 @@ obj_church_career = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult = yes
 		is_female = no
 		prisoner = no
 		is_ruler = no
@@ -785,7 +785,7 @@ obj_lead_troops = {
 
 	allow = {
 		is_female = no
-		age = 16
+		is_adult = yes
 		martial = 8
 		NOT = { trait = craven }
 		NOT = { trait = incapable }
@@ -903,7 +903,7 @@ obj_lead_troops_infidel = {
 
 	allow = {
 		is_female = no
-		age = 16
+		is_adult = yes
 		martial = 8
 		NOT = { religion_group = muslim }
 		NOT = { OR = { religion = norse_pagan religion = norse_pagan_reformed } }
@@ -1050,7 +1050,7 @@ obj_lead_troops_muslim = {
 
 	allow = {
 		is_female = no
-		age = 16
+		is_adult = yes
 		martial = 8
 		religion_group = muslim
 		trait = veteran
@@ -1197,7 +1197,7 @@ obj_uncover_plot = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult = yes
 		prisoner = no
 		intrigue = 8
 		NOT = { trait = deceitful }
@@ -1289,7 +1289,7 @@ obj_bastard_legit = {
 	type = character
 
 	allow = {
-		age = 16
+		is_adult = yes
 		is_female = yes
 		prisoner = no
 		NOT = { trait = content }

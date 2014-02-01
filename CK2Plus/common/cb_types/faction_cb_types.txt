@@ -2601,8 +2601,8 @@ cb_faction_overthrow_ruler = {
 			any_attacker = {
 				limit = {
 					FROM = {
-						age = 16
-						current_heir = { dynasty = PREV age = 16 }
+						is_adult = yes
+						current_heir = { dynasty = PREV is_adult = yes }
 					}
 					trait = rebel
 				}
@@ -2620,8 +2620,8 @@ cb_faction_overthrow_ruler = {
 			if = {
 				limit = {
 					FROM = {
-						age = 16
-						current_heir = { dynasty = PREV age = 16 }
+						is_adult = yes
+						current_heir = { dynasty = PREV is_adult = yes }
 					}
 				}
 				hidden_tooltip = {
@@ -2666,8 +2666,8 @@ cb_faction_overthrow_ruler = {
 					FROM = {
 						NOT = {
 							AND = {
-								age = 16
-								current_heir = { dynasty = PREV age = 16 }
+								is_adult = yes
+								current_heir = { dynasty = PREV is_adult = yes }
 							}
 						}
 					}

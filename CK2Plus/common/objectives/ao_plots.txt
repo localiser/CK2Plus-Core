@@ -6,7 +6,7 @@ plot_seduce_liege = {
 	# Plotter scope
 	potential = {
 		prisoner = no
-		age = 16
+		is_adult = yes
 		NOT = { age = 45 }
 		is_female = yes
 		has_lover = no
@@ -28,7 +28,7 @@ plot_seduce_liege = {
 
 	# Target allow trigger for when players target a specific character in the GUI
 	player_allow = {
-		age = 16
+		is_adult = yes
 		is_female = no
 		has_lover = no
 		
@@ -51,7 +51,7 @@ plot_seduce_liege = {
 	# Target character scope
 	allow = {
 		# Must be male liege with no lover already
-		age = 16
+		is_adult = yes
 		is_female = no
 		has_lover = no
 		
@@ -259,7 +259,7 @@ plot_seduce_for_men = {
 	# Plotter scope
 	potential = {
 		prisoner = no
-		age = 16
+		is_adult = yes
 		NOT = { age = 55 }
 		is_female = no
 		has_lover = no
@@ -288,7 +288,7 @@ plot_seduce_for_men = {
 	# Target allow trigger for when players target a specific character in the GUI
 	player_allow = {
 		is_female = yes
-		age = 16
+		is_adult = yes
 		NOT = { age = 45 }
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
@@ -317,7 +317,7 @@ plot_seduce_for_men = {
 			}
 		}
 		NOT = { spouse = { character = FROM } }
-		age = 16
+		is_adult = yes
 		NOT = { age = 45 }
 		NOT = { trait = celibate }
 		NOT = { trait = homosexual }
@@ -568,18 +568,18 @@ plot_fabricate_evidence_betrayal_same_realm = {
 	potential = {
 		NOT = { OR = { trait = incapable trait = imbecile } }
 		prisoner = no
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 	}
 	player_allow = {
 		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		same_realm = FROM
 	}
 	allow = {
 		NOT = { has_opinion_modifier = { who = FROM modifier = opinion_recent_plot } }
-		age = 16
+		is_adult = yes
 		is_ruler = yes
 		same_realm = FROM
 	}
