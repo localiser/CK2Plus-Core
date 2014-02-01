@@ -25,10 +25,13 @@ obj_make_a_friend = {
 		prisoner = no
 		age = 16
 		diplomacy = 8
-		NOT = { age = 70 }
-		NOT = { trait = incapable }
-		NOT = { trait = shy }
-		NOT = { num_of_friends = 1 }
+		NOT = { 
+			age = 70
+			trait = incapable
+			trait = shy
+			num_of_friends = 1
+			has_character_flag = friend_ambition
+		}
 	}
 
 	chance = {
@@ -130,6 +133,7 @@ obj_make_a_friend = {
 
 	effect = {
 		change_diplomacy = 1
+		set_character_flag = friend_ambition
 	}
 }
 
