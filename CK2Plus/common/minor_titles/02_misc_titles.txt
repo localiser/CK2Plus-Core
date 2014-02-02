@@ -26,3 +26,45 @@ title_favored_son={
 	}
 	message = no
 }
+
+# title_sir ={
+	# grant_limit = 4
+	# opinion_effect = 20
+	# monthly_salary = 0
+	# monthly_prestige = 0
+	# allow = {
+		# is_adult = yes
+		# is_ruler = no
+		
+		# OR = {
+			# AND = {
+				# is_female = no
+				# liege = {
+					# NOT = { 
+						# has_law = enatic_succession
+						# has_law = enatic_cognatic_succession
+					# }
+				# }
+			# }
+			# AND = {
+				# is_female = yes
+				# liege = {
+					# OR = {
+						# has_law = cognatic_succession
+						# has_law = true_cognatic_succession
+						# has_law = enatic_succession
+						# has_law = enatic_cognatic_succession
+					# }
+				# }
+			# }
+		# }		
+		
+		# dynasty = 0
+		# NOT = { has_minor_title = title_sir }
+	# }
+	# gain_effect = {
+		# FROM = { character_event = { id = 1000182704 } }
+	# }
+	# lose_effect = {
+	# }
+# }
