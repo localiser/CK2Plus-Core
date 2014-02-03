@@ -1,0 +1,1654 @@
+namespace = AND
+
+### Prophets appear
+#Liege conversion in response to courtier/vassal conversion
+character_event = {
+	id = AND.1
+	desc = AND.1.desc
+	picture = "GFX_evt_council"
+	is_triggered_only = yes
+	
+	option = {
+		name = AND.1.a
+		ROOT = {
+			religion = FROM
+		}
+		FROM = {
+			IF = {
+				limit = {
+					NOT = {
+						has_job_title = job_spiritual
+					}
+				}
+				remove_title = job_chancellor
+				remove_title = job_marshal
+				remove_title = job_steward
+				remove_title = job_spymaster
+				give_job_title = job_spiritual
+			}
+		}
+		any_realm_province = {
+			limit = {
+				any_province_character = {
+					AND = {
+						has_character_modifier = prophet
+						religion = FROM
+					}
+				}
+			}
+			religion = FROM
+			any_province_character = { religion = FROM }
+		}
+		IF = {
+			limit = {
+				independent = no
+			}
+			liege = {
+				character_event = { id = AND.2 }
+			}
+		}
+	}
+	option = {
+		name = AND.1.b
+		trigger = {
+			ai = no
+		}
+		FROM = {
+			banish = yes
+			hidden_tooltip = {
+				character_event = { id = AND.3 }
+			}
+		}
+	}
+}
+#Liege's liege conversion
+character_event = {
+	id = AND.2
+	desc = AND.2.desc
+	picture = "GFX_evt_council"
+	is_triggered_only = yes
+	
+	option = {
+		name = AND.2.a
+		FROM = {
+			reverse_religion = ROOT
+		}
+	}
+	option = {
+		name = AND.2.b
+	}
+}
+# banished prophet settles somewhere else
+character_event = {
+	id = AND.3
+	hide_window = yes
+	hide_from = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+
+# neighbouring province conversion
+province_event = {
+	id = AND.4
+	desc = AND.4.desc
+	picture = "GFX_evt_council"
+	
+	trigger = {
+		religion = ancestry
+		any_neighbor_province = { # Only when the neighbouring province has a new religion and within the same realm
+			has_owner = yes
+			owner = {
+				ROOT = {
+					owner = {
+						same_realm = PREVPREV
+					}
+				}
+			}
+			NOT = {
+				religion = ancestry
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 3650
+	}
+	
+	immediate = {
+		random_neighbor_province = {
+			limit = {
+				NOT = { religion = ancestry }
+				owner = { # which is within the same realm
+					ROOT = {
+						owner = {
+							same_realm = PREVPREV
+						}
+					}
+				}
+			}
+			reverse_religion = ROOT
+		}
+	}
+	
+	option = {
+		name = AND.4.a
+		if = {
+			limit = { 
+				ruler = { religion = ancestry }
+			}
+			ruler = {
+				religion = ROOT
+			}
+		}
+	}
+}
+
+province_event = {
+	id = AND.9
+	hide_window = yes
+	hide_from = yes
+	
+	trigger = {
+		has_province_flag = prophet
+	}
+	
+	immediate = {
+		clr_province_flag = prophet
+		IF = {
+			limit = {
+				has_global_flag = ancestral_founded
+				has_global_flag = astrolatry_founded
+				has_global_flag = pantheism_founded
+			}
+			set_global_flag = basic_religions_founded
+			clr_global_flag = ancestral_founded
+			clr_global_flag = astrolatry_founded
+			clr_global_flag = pantheism_founded
+		}
+		IF = {
+			limit = {
+				NOT = {
+					any_realm_character = {
+						has_character_modifier = prophet
+					}
+				}
+			}
+			random_list = {	# random allocation of religions. The follow-up events can result in failure if the religion already has been founded
+				33 = {	# astrolatry
+					random_province_character = {
+						limit = {
+							ai = yes
+							OR = {
+								trait = detached_priest
+								trait = martial_cleric
+								trait = scholarly_theologian
+								trait = mastermind_theologian
+								trait = scholar
+							}
+						}
+						character_event = { id = AND.20 }
+					}
+				}
+				34 = {	# Pantheistic
+					random_province_character = {
+						limit = {
+							ai = yes
+							OR = {
+								trait = detached_priest
+								trait = martial_cleric
+								trait = scholarly_theologian
+								trait = mastermind_theologian
+								trait = scholar
+							}
+						}
+						character_event = { id = AND.40 }
+					}
+				}
+				33 = {	# Ancestral
+					random_province_character = {
+						limit = {
+							ai = yes
+							OR = {
+								trait = detached_priest
+								trait = martial_cleric
+								trait = scholarly_theologian
+								trait = mastermind_theologian
+								trait = scholar
+							}
+						}
+						character_event = { id = AND.60 }
+					}
+				}
+			}
+		}
+	}
+}
+## Actual religion change of a random character. The events do nothing when the religion already is founded.
+# astrolatry
+character_event = {
+	id = AND.20
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				has_global_flag = selenism_founded
+				has_global_flag = heliosism_founded
+				has_global_flag = polarism_founded
+				has_global_flag = orionism_founded
+				year = 875
+			}
+			set_global_flag = astrolatry_founded
+			clr_global_flag = heliosism_founded
+			clr_global_flag = polarism_founded
+			clr_global_flag = orionism_founded
+			clr_global_flag = selenism_founded
+		}
+		random_list = {
+			25 = {
+				ROOT = {
+					character_event = { id = AND.21 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.22 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.23 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.24 }
+				}
+			}
+
+		}
+	}
+}
+character_event = {
+	id = AND.21
+	desc = AND.21.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = astrolatry_founded
+				}
+			}
+			set_global_flag = selenism_founded
+			ROOT = {
+				religion = selenism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.21.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.22
+	desc = AND.22.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = astrolatry_founded
+				}
+			}
+			set_global_flag = heliosism_founded
+			ROOT = {
+				religion = heliosism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.22.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.23
+	desc = AND.23.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = astrolatry_founded
+				}
+			}
+			set_global_flag = polarism_founded
+			ROOT = {
+				religion = polarism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.23.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.24
+	desc = AND.24.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = astrolatry_founded
+				}
+			}
+			set_global_flag = orionism_founded
+			ROOT = {
+				religion = orionism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.24.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+
+# pantheism
+character_event = {
+	id = AND.40
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				has_global_flag = animism_founded
+				has_global_flag = shamanism_founded
+				has_global_flag = gaia_founded
+				has_global_flag = panvitalism_founded
+				year = 875
+			}
+			set_global_flag = pantheism_founded
+			clr_global_flag = animism_founded
+			clr_global_flag = shamanism_founded
+			clr_global_flag = gaia_founded
+			clr_global_flag = panvitalism_founded
+		}
+		random_list = {
+			25 = {
+				ROOT = {
+					character_event = { id = AND.41 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.42 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.43 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.44 }
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.41
+	desc = AND.41.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = pantheism_founded
+				}
+			}
+			set_global_flag = animism_founded
+			ROOT = {
+				religion = animism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.41.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.42
+	desc = AND.42.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = pantheism_founded
+				}
+			}
+			set_global_flag = shamanism_founded
+			ROOT = {
+				religion = shamanism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.42.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.43
+	desc = AND.43.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = pantheism_founded
+				}
+			}
+			set_global_flag = gaia_founded
+			ROOT = {
+				religion = gaia
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.43.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.44
+	desc = AND.44.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = pantheism_founded
+				}
+			}
+			set_global_flag = panvitalism_founded
+			ROOT = {
+				religion = panvitalism
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.44.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+
+# Ancestral
+character_event = {
+	id = AND.60
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				has_global_flag = ancestry_founded
+				has_global_flag = overlord_founded
+				has_global_flag = descendic_founded
+				has_global_flag = ancient_ancestors_founded
+				year = 875
+			}
+			set_global_flag = ancestral_founded
+			clr_global_flag = ancestry_founded
+			clr_global_flag = overlord_founded
+			clr_global_flag = descendic_founded
+			clr_global_flag = ancient_ancestors_founded
+		}
+		random_list = {
+			25 = {
+				ROOT = {
+					character_event = { id = AND.61 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.62 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.63 }
+				}
+			}
+			25 = {
+				ROOT = {
+					character_event = { id = AND.64 }
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.61
+	desc = AND.61.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = ancestral_founded
+				}
+			}
+			set_global_flag = ancestry_founded
+			ROOT = {
+				religion = ancestry
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.61.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.62
+	desc = AND.62.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = ancestral_founded
+				}
+			}
+			set_global_flag = overlord_founded
+			ROOT = {
+				religion = overlord
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.62.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.63
+	desc = AND.63.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = ancestral_founded
+				}
+			}
+			set_global_flag = descendic_founded
+			ROOT = {
+				religion = descendic
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.63.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.64
+	desc = AND.64.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = ancestral_founded
+				}
+			}
+			set_global_flag = ancient_ancestors_founded
+			ROOT = {
+				religion = ancient_ancestors
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.64.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+# polytheistic
+province_event = {
+	id = AND.101
+	hide_window = yes
+	hide_from = yes
+	
+	trigger = {
+		NOT = { has_global_flag = polytheism_founded }
+		owner = {
+			tier = duke
+			num_of_duke_titles = 2
+			religion = ROOT
+		}
+	}
+	
+	immediate = {
+		IF = {
+			limit = {
+				has_global_flag = norse_pagan_founded
+				has_global_flag = tengri_pagan_founded
+				has_global_flag = baltic_pagan_founded
+				has_global_flag = slavic_pagan_founded
+				has_global_flag = finnish_pagan_founded
+			}
+			set_global_flag = polytheism_founded
+			clr_global_flag = norse_pagan_founded
+			clr_global_flag = tengri_pagan_founded
+			clr_global_flag = baltic_pagan_founded
+			clr_global_flag = slavic_pagan_founded
+			clr_global_flag = finnish_pagan_founded
+		}
+		IF = {
+			limit = {
+				ROOT = {
+					OR = {
+						religion = heliosism
+						religion = polarism
+						religion = orionism
+						religion = selenism
+					}
+				}
+				NOT = { has_global_flag = polytheism_founded }
+			}
+			random_province_character = {
+				limit = {
+					ai = yes
+					OR = {
+						trait = detached_priest
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+						trait = scholar
+					}
+					religion = ROOT
+					NOT = { has_character_modifier = prophet }
+				}
+				character_event = { id = AND.110 }
+			}
+		}
+		IF = {
+			limit = {
+				ROOT = {
+					OR = {
+						religion = animism
+						religion = shamanism
+						religion = gaia
+						religion = panvitalism
+					}
+				}
+				NOT = { has_global_flag = polytheism_founded }
+			}
+			random_province_character = {
+				limit = {
+					ai = yes
+					OR = {
+						trait = detached_priest
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+						trait = scholar
+					}
+					religion = ROOT
+					NOT = { has_character_modifier = prophet }
+				}
+				character_event = { id = AND.210 }
+			}
+		}
+		IF = {
+			limit = {
+				ROOT = {
+					OR = {
+						religion = ancestry
+						religion = overlord
+						religion = descendic
+						religion = ancient_ancestors
+					}
+				}
+				NOT = { has_global_flag = polytheism_founded }
+			}
+			random_province_character = {
+				limit = {
+					ai = yes
+					OR = {
+						trait = detached_priest
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+						trait = scholar
+					}
+					religion = ROOT
+					NOT = { has_character_modifier = prophet }
+				}
+				character_event = { id = AND.310 }
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.110
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			20 = {
+				ROOT = {
+					character_event = { id = AND.111 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.112 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.113 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.114 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.115 }
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.111
+	desc = AND.111.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = norse_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = norse_pagan_founded
+			ROOT = {
+				religion = celestial_norse_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.111.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.112
+	desc = AND.112.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = tengri_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = tengri_pagan_founded
+			ROOT = {
+				religion = celestial_tengri_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.112.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.113
+	desc = AND.113.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = baltic_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = baltic_pagan_founded
+			ROOT = {
+				religion = celestial_baltic_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.113.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.114
+	desc = AND.114.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = slavic_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = slavic_pagan_founded
+			ROOT = {
+				religion = celestial_slavic_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.114.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.115
+	desc = AND.115.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = finnish_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = finnish_pagan_founded
+			ROOT = {
+				religion = celestial_finnish_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.115.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.210
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			20 = {
+				ROOT = {
+					character_event = { id = AND.211 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.212 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.213 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.214 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.215 }
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.211
+	desc = AND.211.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = norse_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = norse_pagan_founded
+			ROOT = {
+				religion = ancestral_norse_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.211.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.212
+	desc = AND.212.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = tengri_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = tengri_pagan_founded
+			ROOT = {
+				religion = ancestral_tengri_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.212.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.213
+	desc = AND.213.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = baltic_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = baltic_pagan_founded
+			ROOT = {
+				religion = ancestral_baltic_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.213.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.214
+	desc = AND.214.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = slavic_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = slavic_pagan_founded
+			ROOT = {
+				religion = ancestral_slavic_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.214.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.215
+	desc = AND.215.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = finnish_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = finnish_pagan_founded
+			ROOT = {
+				religion = ancestral_finnish_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.215.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.310
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			20 = {
+				ROOT = {
+					character_event = { id = AND.311 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.312 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.313 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.314 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.315 }
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.311
+	desc = AND.311.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = norse_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = norse_pagan_founded
+			ROOT = {
+				religion = natural_norse_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.311.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.312
+	desc = AND.312.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = tengri_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = tengri_pagan_founded
+			ROOT = {
+				religion = natural_tengri_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.312.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.313
+	desc = AND.313.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = baltic_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = baltic_pagan_founded
+			ROOT = {
+				religion = natural_baltic_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.313.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.314
+	desc = AND.314.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = slavic_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = slavic_pagan_founded
+			ROOT = {
+				religion = natural_slavic_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.314.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.315
+	desc = AND.315.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = finnish_pagan_founded
+					has_global_flag = polytheism_founded
+				}
+			}
+			set_global_flag = finnish_pagan_founded
+			ROOT = {
+				religion = natural_finnish_pagan
+				add_character_modifier = {
+					name = prophet
+					days = -1
+				}
+			}
+		}
+	}
+	option = {
+		name = AND.315.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+# monotheistic
+character_event = {
+	id = AND.200
+	hide_window = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				has_global_flag = orthodox_founded
+				has_global_flag = shiite_founded
+				has_global_flag = sunni_founded
+				has_global_flag = jewish_founded
+				has_global_flag = catholic_founded
+			}
+			set_global_flag = monotheism_founded
+			clr_global_flag = orthodox_founded
+			clr_global_flag = shiite_founded
+			clr_global_flag = sunni_founded
+			clr_global_flag = jewish_founded
+			clr_global_flag = catholic_founded
+		}
+		random_list = {
+			20 = {
+				ROOT = {
+					character_event = { id = AND.201 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.202 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.203 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.204 }
+				}
+			}
+			20 = {
+				ROOT = {
+					character_event = { id = AND.205 }
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = AND.201
+	desc = AND.201.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = orthodox_founded
+					has_global_flag = monotheism_founded
+				}
+			}
+			set_global_flag = orthodox_founded
+			ROOT = {
+				religion = orthodox
+			}
+
+		}
+	}
+	option = {
+		name = AND.201.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.202
+	desc = AND.202.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = shiite_founded
+					has_global_flag = monotheism_founded
+				}
+			}
+			set_global_flag = shiite_founded
+			ROOT = {
+				religion = shiite
+			}
+
+		}
+	}
+	option = {
+		name = AND.202.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.203
+	desc = AND.203.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = sunni_founded
+					has_global_flag = monotheism_founded
+				}
+			}
+			set_global_flag = sunni_founded
+			ROOT = {
+				religion = sunni
+			}
+
+		}
+	}
+	option = {
+		name = AND.203.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.204
+	desc = AND.204.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = jewish_founded
+					has_global_flag = monotheism_founded
+				}
+			}
+			set_global_flag = jewish_founded
+			ROOT = {
+				religion = jewish
+			}
+
+		}
+	}
+	option = {
+		name = AND.204.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+character_event = {
+	id = AND.205
+	desc = AND.205.desc
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_global_flag = catholic_founded
+					has_global_flag = monotheism_founded
+				}
+			}
+			set_global_flag = catholic_founded
+			ROOT = {
+				religion = catholic
+			}
+
+		}
+	}
+	option = {
+		name = AND.205.a
+		liege = {
+			character_event = { id = AND.1 }
+		}
+	}
+}
+

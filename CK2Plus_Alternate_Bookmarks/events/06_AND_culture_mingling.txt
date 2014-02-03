@@ -1,0 +1,2352 @@
+#Mingling event
+#Unreformed culture provinces converting
+province_event = {
+	id = AND.5000
+	desc = AND.5000.desc
+	trigger = {
+		AND = {
+		OR = {
+		culture = tribal
+		culture = germanic
+		culture = slavic
+		culture = italic
+		culture = celtic
+		culture = nordic
+		culture = baltic
+		culture = ugric
+		culture = altaic
+		culture = kartvelian
+		culture = hellenic
+		culture = iranian
+		culture = hamitic
+		culture = west_african
+		}
+		AND = {
+		NOT = {owner = { culture = tribal}}
+		NOT = {owner = { culture = germanic}}
+		NOT = {owner = { culture = slavic}}
+		NOT = {owner = { culture = italic}}
+		NOT = {owner = { culture = celtic}}
+		NOT = {owner = { culture = nordic}}
+		NOT = {owner = { culture = baltic}}
+		NOT = {owner = { culture = ugric}}
+		NOT = {owner = { culture = altaic}}
+		NOT = {owner = { culture = kartvelian}}
+		NOT = {owner = { culture = hellenic}}
+		NOT = {owner = { culture = iberian}}
+		NOT = {owner = { culture = iranian}}
+		NOT = {owner = { culture = semitic}}
+		NOT = {owner = { culture = hamitic}}
+		NOT = {owner = { culture = west_african}}
+		}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		owner = {
+			reverse_culture = ROOT
+		}
+	}
+	option = {
+		name = PERFECT
+	}
+}
+
+
+# Polabian (Germanic/Slavic)
+character_event = {
+	id = AND.5001
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = slavic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = slavic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_slavic}
+		ROOT = {any_realm_character = {culture = germano_slavic}}
+		ROOT = {any_realm_lord = {culture = germano_slavic}}
+		ROOT = {any_realm_province = {culture = germano_slavic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Danish (Germanic/Nordic)
+character_event = {
+	id = AND.5002
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = nordic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = nordic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_nordic}
+		ROOT = {any_realm_character = {culture = germano_nordic}}
+		ROOT = {any_realm_lord = {culture = germano_nordic}}
+		ROOT = {any_realm_province = {culture = germano_nordic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Longobard (Germanic/Italic)
+character_event = {
+	id = AND.5003
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = italic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = italic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_italic}
+		ROOT = {any_realm_character = {culture = germano_italic}}
+		ROOT = {any_realm_lord = {culture = germano_italic}}
+		ROOT = {any_realm_province = {culture = germano_italic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Frankish (Germanic/Celtic)
+character_event = {
+	id = AND.5004
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = celtic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = celtic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_celtic}
+		ROOT = {any_realm_character = {culture = germano_celtic}}
+		ROOT = {any_realm_lord = {culture = germano_celtic}}
+		ROOT = {any_realm_province = {culture = germano_celtic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Ostrogoth (Germanic/Hellenic)
+character_event = {
+	id = AND.5005
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hellenic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = hellenic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_hellenic}
+		ROOT = {any_realm_character = {culture = germano_hellenic}}
+		ROOT = {any_realm_lord = {culture = germano_hellenic}}
+		ROOT = {any_realm_province = {culture = germano_hellenic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Visigoth (Germanic/Iberian)
+character_event = {
+	id = AND.5006
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iberian }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = iberian
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_iberian}
+		ROOT = {any_realm_character = {culture = germano_iberian}}
+		ROOT = {any_realm_lord = {culture = germano_iberian}}
+		ROOT = {any_realm_province = {culture = germano_iberian}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Germano-hamitic (Germanic/Hamitic)
+character_event = {
+	id = AND.5007
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hamitic }
+			any_realm_province = { culture = germanic }
+			OR = {
+			culture = hamitic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_hamitic}
+		ROOT = {any_realm_character = {culture = germano_hamitic}}
+		ROOT = {any_realm_lord = {culture = germano_hamitic}}
+		ROOT = {any_realm_province = {culture = germano_hamitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+
+# Vandal (Germanic/Sahelian)
+character_event = {
+	id = AND.5008
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = west_african }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = west_african
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_sahelian}
+		ROOT = {any_realm_character = {culture = germano_sahelian}}
+		ROOT = {any_realm_lord = {culture = germano_sahelian}}
+		ROOT = {any_realm_province = {culture = germano_sahelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Germano-semitic (Germanic/Semetic)
+character_event = {
+	id = AND.5009
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = semitic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = PERFECT
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_semitic}
+		ROOT = {any_realm_character = {culture = germano_semitic}}
+		ROOT = {any_realm_lord = {culture = germano_semitic}}
+		ROOT = {any_realm_province = {culture = germano_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Aryan (Germanic/Iranian)
+character_event = {
+	id = AND.5010
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iranian }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = iranian
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_iranian}
+		ROOT = {any_realm_character = {culture = germano_iranian}}
+		ROOT = {any_realm_lord = {culture = germano_iranian}}
+		ROOT = {any_realm_province = {culture = germano_iranian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Curlandian (Germanic/Baltic)
+character_event = {
+	id = AND.5011
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = baltic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = baltic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_baltic}
+		ROOT = {any_realm_character = {culture = germano_baltic}}
+		ROOT = {any_realm_lord = {culture = germano_baltic}}
+		ROOT = {any_realm_province = {culture = germano_baltic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Hunnic (Germanic/Altaic)
+character_event = {
+	id = AND.5012
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = altaic
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_altaic}
+		ROOT = {any_realm_character = {culture = germano_altaic}}
+		ROOT = {any_realm_lord = {culture = germano_altaic}}
+		ROOT = {any_realm_province = {culture = germano_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Estonian (Germanic/Ugric)
+character_event = {
+	id = AND.5013
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = ugric }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = ugric
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_ugric}
+		ROOT = {any_realm_character = {culture = germano_ugric}}
+		ROOT = {any_realm_lord = {culture = germano_ugric}}
+		ROOT = {any_realm_province = {culture = germano_ugric}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Germano-kartvelian (Germanic/Kartvelian)
+character_event = {
+	id = AND.5014
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = germanic }
+		
+		OR = {
+			culture = kartvelian
+			culture = germanic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = germano_kartvelian}
+		ROOT = {any_realm_character = {culture = germano_kartvelian}}
+		ROOT = {any_realm_lord = {culture = germano_kartvelian}}
+		ROOT = {any_realm_province = {culture = germano_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+#NORDIC CREOLE
+# Pommeranian (Nordic/Slavic)
+character_event = {
+	id = AND.5015
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = slavic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = slavic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_slavic}
+		ROOT = {any_realm_character = {culture = nordic_slavic}}
+		ROOT = {any_realm_lord = {culture = nordic_slavic}}
+		ROOT = {any_realm_province = {culture = nordic_slavic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Scandian (nordic/Italic)
+character_event = {
+	id = AND.5016
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = italic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = italic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_italic}
+		ROOT = {any_realm_character = {culture = nordic_italic}}
+		ROOT = {any_realm_lord = {culture = nordic_italic}}
+		ROOT = {any_realm_province = {culture = nordic_italic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Faroese (Germanic/Celtic)
+character_event = {
+	id = AND.5017
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = celtic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = celtic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_celtic}
+		ROOT = {any_realm_character = {culture = nordic_celtic}}
+		ROOT = {any_realm_lord = {culture = nordic_celtic}}
+		ROOT = {any_realm_province = {culture = nordic_celtic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Hyperborean (nordic/Hellenic)
+character_event = {
+	id = AND.5018
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hellenic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = hellenic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_hellenic}
+		ROOT = {any_realm_character = {culture = nordic_hellenic}}
+		ROOT = {any_realm_lord = {culture = nordic_hellenic}}
+		ROOT = {any_realm_province = {culture = nordic_hellenic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Asturian (nordic/Iberian)
+character_event = {
+	id = AND.5019
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iberian }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = iberian
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_iberian}
+		ROOT = {any_realm_character = {culture = nordic_iberian}}
+		ROOT = {any_realm_lord = {culture = nordic_iberian}}
+		ROOT = {any_realm_province = {culture = nordic_iberian}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Norse-hamitic (nordic/Hamitic)
+character_event = {
+	id = AND.5020
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hamitic }
+			any_realm_province = { culture = nordic }
+			OR = {
+			culture = hamitic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_hamitic}
+		ROOT = {any_realm_character = {culture = nordic_hamitic}}
+		ROOT = {any_realm_lord = {culture = nordic_hamitic}}
+		ROOT = {any_realm_province = {culture = nordic_hamitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+
+# Norse-Sahelian (nordic/Sahelian)
+character_event = {
+	id = AND.5021
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = west_african }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = west_african
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_sahelian}
+		ROOT = {any_realm_character = {culture = nordic_sahelian}}
+		ROOT = {any_realm_lord = {culture = nordic_sahelian}}
+		ROOT = {any_realm_province = {culture = nordic_sahelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Norse-Semitic (nordic/Semetic)
+character_event = {
+	id = AND.5022
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = semitic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = PERFECT
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_semitic}
+		ROOT = {any_realm_character = {culture = nordic_semitic}}
+		ROOT = {any_realm_lord = {culture = nordic_semitic}}
+		ROOT = {any_realm_province = {culture = nordic_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Norse-Iranian (nordic/Iranian)
+character_event = {
+	id = AND.5023
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iranian }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = iranian
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_iranian}
+		ROOT = {any_realm_character = {culture = nordic_iranian}}
+		ROOT = {any_realm_lord = {culture = nordic_iranian}}
+		ROOT = {any_realm_province = {culture = nordic_iranian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Lettigallish (nordic/Baltic)
+character_event = {
+	id = AND.5024
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = baltic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = baltic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_baltic}
+		ROOT = {any_realm_character = {culture = nordic_baltic}}
+		ROOT = {any_realm_lord = {culture = nordic_baltic}}
+		ROOT = {any_realm_province = {culture = nordic_baltic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Norse-Mongol (nordic/Altaic)
+character_event = {
+	id = AND.5025
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = altaic
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_altaic}
+		ROOT = {any_realm_character = {culture = nordic_altaic}}
+		ROOT = {any_realm_lord = {culture = nordic_altaic}}
+		ROOT = {any_realm_province = {culture = nordic_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Saami (nordic/Ugric)
+character_event = {
+	id = AND.5026
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = ugric }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = ugric
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_ugric}
+		ROOT = {any_realm_character = {culture = nordic_ugric}}
+		ROOT = {any_realm_lord = {culture = nordic_ugric}}
+		ROOT = {any_realm_province = {culture = nordic_ugric}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Norse-kartvelian (nordic/Kartvelian)
+character_event = {
+	id = AND.5027
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = nordic }
+		
+		OR = {
+			culture = kartvelian
+			culture = nordic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = nordic_kartvelian}
+		ROOT = {any_realm_character = {culture = nordic_kartvelian}}
+		ROOT = {any_realm_lord = {culture = nordic_kartvelian}}
+		ROOT = {any_realm_province = {culture = nordic_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+#ITALIC CREOLE
+# Vlach (italic/Slavic)
+character_event = {
+	id = AND.5028
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = slavic }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = slavic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_slavic}
+		ROOT = {any_realm_character = {culture = italic_slavic}}
+		ROOT = {any_realm_lord = {culture = italic_slavic}}
+		ROOT = {any_realm_province = {culture = italic_slavic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+
+# Aquitanian (italic/Celtic)
+character_event = {
+	id = AND.5029
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = celtic }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = celtic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_celtic}
+		ROOT = {any_realm_character = {culture = italic_celtic}}
+		ROOT = {any_realm_lord = {culture = italic_celtic}}
+		ROOT = {any_realm_province = {culture = italic_celtic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Byzantine (italic/Hellenic)
+character_event = {
+	id = AND.5030
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hellenic }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = hellenic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_hellenic}
+		ROOT = {any_realm_character = {culture = italic_hellenic}}
+		ROOT = {any_realm_lord = {culture = italic_hellenic}}
+		ROOT = {any_realm_province = {culture = italic_hellenic}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Hispanic (italic/Iberian)
+character_event = {
+	id = AND.5031
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iberian }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = iberian
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_iberian}
+		ROOT = {any_realm_character = {culture = italic_iberian}}
+		ROOT = {any_realm_lord = {culture = italic_iberian}}
+		ROOT = {any_realm_province = {culture = italic_iberian}}
+	}
+	
+	option = {
+		name = PERFECT
+	}
+}
+
+# Egyptian (italic/Hamitic)
+character_event = {
+	id = AND.5032
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hamitic }
+			any_realm_province = { culture = italic }
+			OR = {
+			culture = hamitic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_hamitic}
+		ROOT = {any_realm_character = {culture = italic_hamitic}}
+		ROOT = {any_realm_lord = {culture = italic_hamitic}}
+		ROOT = {any_realm_province = {culture = italic_hamitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+
+# italic-Sahelian (italic/Sahelian)
+character_event = {
+	id = AND.5033
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = west_african }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = west_african
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_sahelian}
+		ROOT = {any_realm_character = {culture = italic_sahelian}}
+		ROOT = {any_realm_lord = {culture = italic_sahelian}}
+		ROOT = {any_realm_province = {culture = italic_sahelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Levantine (italic/Semetic)
+character_event = {
+	id = AND.5034
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = semitic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = PERFECT
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_semitic}
+		ROOT = {any_realm_character = {culture = italic_semitic}}
+		ROOT = {any_realm_lord = {culture = italic_semitic}}
+		ROOT = {any_realm_province = {culture = italic_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Persian (italic/Iranian)
+character_event = {
+	id = AND.5035
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iranian }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = iranian
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_iranian}
+		ROOT = {any_realm_character = {culture = italic_iranian}}
+		ROOT = {any_realm_lord = {culture = italic_iranian}}
+		ROOT = {any_realm_province = {culture = italic_iranian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Livonian (italic/Baltic)
+character_event = {
+	id = AND.5036
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = baltic }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = baltic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_baltic}
+		ROOT = {any_realm_character = {culture = italic_baltic}}
+		ROOT = {any_realm_lord = {culture = italic_baltic}}
+		ROOT = {any_realm_province = {culture = italic_baltic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Avar (italic/Altaic)
+character_event = {
+	id = AND.5037
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = altaic
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_altaic}
+		ROOT = {any_realm_character = {culture = italic_altaic}}
+		ROOT = {any_realm_lord = {culture = italic_altaic}}
+		ROOT = {any_realm_province = {culture = italic_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Kolan (italic/Ugric)
+character_event = {
+	id = AND.5038
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = ugric }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = ugric
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_ugric}
+		ROOT = {any_realm_character = {culture = italic_ugric}}
+		ROOT = {any_realm_lord = {culture = italic_ugric}}
+		ROOT = {any_realm_province = {culture = italic_ugric}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Armenian (italic/Kartvelian)
+character_event = {
+	id = AND.5039
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = italic }
+		
+		OR = {
+			culture = kartvelian
+			culture = italic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = italic_kartvelian}
+		ROOT = {any_realm_character = {culture = italic_kartvelian}}
+		ROOT = {any_realm_lord = {culture = italic_kartvelian}}
+		ROOT = {any_realm_province = {culture = italic_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Zakynthian (iberian/hellenic)
+character_event = {
+	id = AND.5040
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hellenic }
+			any_realm_province = { culture = iberian }
+		
+		OR = {
+			culture = hellenic
+			culture = iberian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iberian_hellenic}
+		ROOT = {any_realm_character = {culture = iberian_hellenic}}
+		ROOT = {any_realm_lord = {culture = iberian_hellenic}}
+		ROOT = {any_realm_province = {culture = iberian_hellenic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Zakynthian (iberian/hellenic)
+character_event = {
+	id = AND.5040
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hellenic }
+			any_realm_province = { culture = iberian }
+		
+		OR = {
+			culture = hellenic
+			culture = iberian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iberian_hellenic}
+		ROOT = {any_realm_character = {culture = iberian_hellenic}}
+		ROOT = {any_realm_lord = {culture = iberian_hellenic}}
+		ROOT = {any_realm_province = {culture = iberian_hellenic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Galician (iberian/celtic)
+character_event = {
+	id = AND.5041
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = celtic }
+			any_realm_province = { culture = iberian }
+		
+		OR = {
+			culture = celtic
+			culture = iberian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iberian_celtic}
+		ROOT = {any_realm_character = {culture = iberian_celtic}}
+		ROOT = {any_realm_lord = {culture = iberian_celtic}}
+		ROOT = {any_realm_province = {culture = iberian_celtic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Ibero-Hamitic (iberian/hamitic)
+character_event = {
+	id = AND.5042
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hamitic }
+			any_realm_province = { culture = iberian }
+		
+		OR = {
+			culture = hamitic
+			culture = iberian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iberian_hamitic}
+		ROOT = {any_realm_character = {culture = iberian_hamitic}}
+		ROOT = {any_realm_lord = {culture = iberian_hamitic}}
+		ROOT = {any_realm_province = {culture = iberian_hamitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Moroccan (iberian/sahelian)
+character_event = {
+	id = AND.5044
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = west_african }
+			any_realm_province = { culture = iberian }
+		
+		OR = {
+			culture = west_african
+			culture = iberian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iberian_sahelian}
+		ROOT = {any_realm_character = {culture = iberian_sahelian}}
+		ROOT = {any_realm_lord = {culture = iberian_sahelian}}
+		ROOT = {any_realm_province = {culture = iberian_sahelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Andalusian (iberian/semitic)
+character_event = {
+	id = AND.5045
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = iberian }
+		
+		OR = {
+			culture = semitic
+			culture = iberian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iberian_semitic}
+		ROOT = {any_realm_character = {culture = iberian_semitic}}
+		ROOT = {any_realm_lord = {culture = iberian_semitic}}
+		ROOT = {any_realm_province = {culture = iberian_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Syriac (hellenic/semitic)
+character_event = {
+	id = AND.5046
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = hellenic }
+		
+		OR = {
+			culture = semitic
+			culture = hellenic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hellenic_semitic}
+		ROOT = {any_realm_character = {culture = hellenic_semitic}}
+		ROOT = {any_realm_lord = {culture = hellenic_semitic}}
+		ROOT = {any_realm_province = {culture = hellenic_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Ptolemaic (hellenic/hamitic)
+character_event = {
+	id = AND.5047
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = hamitic }
+			any_realm_province = { culture = hellenic }
+		
+		OR = {
+			culture = hamitic
+			culture = hellenic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hellenic_hamitic}
+		ROOT = {any_realm_character = {culture = hellenic_hamitic}}
+		ROOT = {any_realm_lord = {culture = hellenic_hamitic}}
+		ROOT = {any_realm_province = {culture = hellenic_hamitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Georgian (hellenic/kartvelian)
+character_event = {
+	id = AND.5048
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = hellenic }
+		
+		OR = {
+			culture = kartvelian
+			culture = hellenic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hellenic_kartvelian}
+		ROOT = {any_realm_character = {culture = hellenic_kartvelian}}
+		ROOT = {any_realm_lord = {culture = hellenic_kartvelian}}
+		ROOT = {any_realm_province = {culture = hellenic_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Khazar (hellenic/altaic)
+character_event = {
+	id = AND.5049
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = hellenic }
+		
+		OR = {
+			culture = altaic
+			culture = hellenic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hellenic_altaic}
+		ROOT = {any_realm_character = {culture = hellenic_altaic}}
+		ROOT = {any_realm_lord = {culture = hellenic_altaic}}
+		ROOT = {any_realm_province = {culture = hellenic_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Bulgarian (hellenic/slavic)
+character_event = {
+	id = AND.5050
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = slavic }
+			any_realm_province = { culture = hellenic }
+		
+		OR = {
+			culture = slavic
+			culture = hellenic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hellenic_slavic}
+		ROOT = {any_realm_character = {culture = hellenic_slavic}}
+		ROOT = {any_realm_lord = {culture = hellenic_slavic}}
+		ROOT = {any_realm_province = {culture = hellenic_slavic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Seleukid (hellenic/iranian)
+character_event = {
+	id = AND.5051
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iranian }
+			any_realm_province = { culture = hellenic }
+		
+		OR = {
+			culture = iranian
+			culture = hellenic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hellenic_iranian}
+		ROOT = {any_realm_character = {culture = hellenic_iranian}}
+		ROOT = {any_realm_lord = {culture = hellenic_iranian}}
+		ROOT = {any_realm_province = {culture = hellenic_iranian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Mashriqi (hamitic/semitic)
+character_event = {
+	id = AND.5052
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = hamitic }
+		
+		OR = {
+			culture = semitic
+			culture = hamitic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hamitic_semitic}
+		ROOT = {any_realm_character = {culture = hamitic_semitic}}
+		ROOT = {any_realm_lord = {culture = hamitic_semitic}}
+		ROOT = {any_realm_province = {culture = hamitic_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Libyan (hamitic/sahelian)
+character_event = {
+	id = AND.5053
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = west_african }
+			any_realm_province = { culture = hamitic }
+		
+		OR = {
+			culture = west_african
+			culture = hamitic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = hamitic_sahelian}
+		ROOT = {any_realm_character = {culture = hamitic_sahelian}}
+		ROOT = {any_realm_lord = {culture = hamitic_sahelian}}
+		ROOT = {any_realm_province = {culture = hamitic_sahelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Maghrebian (sahelian/semitic)
+character_event = {
+	id = AND.5054
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = semitic }
+			any_realm_province = { culture = sahelian }
+		
+		OR = {
+			culture = semitic
+			culture = sahelian
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = sahelian_semitic}
+		ROOT = {any_realm_character = {culture = sahelian_semitic}}
+		ROOT = {any_realm_lord = {culture = sahelian_semitic}}
+		ROOT = {any_realm_province = {culture = sahelian_semitic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Farsi (semitic/iranian)
+character_event = {
+	id = AND.5055
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = iranian }
+			any_realm_province = { culture = semitic }
+		
+		OR = {
+			culture = iranian
+			culture = semitic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = semitic_iranian}
+		ROOT = {any_realm_character = {culture = semitic_iranian}}
+		ROOT = {any_realm_lord = {culture = semitic_iranian}}
+		ROOT = {any_realm_province = {culture = semitic_iranian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Turkic (semitic/altaic)
+character_event = {
+	id = AND.5056
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = turkic }
+			any_realm_province = { culture = semitic }
+		
+		OR = {
+			culture = turkic
+			culture = semitic
+			}
+		
+		}
+			
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = semitic_altaic}
+		ROOT = {any_realm_character = {culture = semitic_altaic}}
+		ROOT = {any_realm_lord = {culture = semitic_altaic}}
+		ROOT = {any_realm_province = {culture = semitic_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Semitic Caucasian (semitic/kartvelian)
+character_event = {
+	id = AND.5057
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = semitic }
+		
+		OR = {
+			culture = kartvelian
+			culture = semitic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = semitic_kartvelian}
+		ROOT = {any_realm_character = {culture = semitic_kartvelian}}
+		ROOT = {any_realm_lord = {culture = semitic_kartvelian}}
+		ROOT = {any_realm_province = {culture = semitic_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Kurdish (iranian/kartvelian)
+character_event = {
+	id = AND.5058
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = iranian }
+		
+		OR = {
+			culture = kartvelian
+			culture = iranian
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iranian_kartvelian}
+		ROOT = {any_realm_character = {culture = iranian_kartvelian}}
+		ROOT = {any_realm_lord = {culture = iranian_kartvelian}}
+		ROOT = {any_realm_province = {culture = iranian_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Scythian (iranian/altaic)
+character_event = {
+	id = AND.5059
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = iranian }
+		
+		OR = {
+			culture = altaic
+			culture = iranian
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = iranian_altaic}
+		ROOT = {any_realm_character = {culture = iranian_altaic}}
+		ROOT = {any_realm_lord = {culture = iranian_altaic}}
+		ROOT = {any_realm_province = {culture = iranian_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Prussian (slavic/baltic)
+character_event = {
+	id = AND.5060
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = baltic }
+			any_realm_province = { culture = slavic }
+		
+		OR = {
+			culture = baltic
+			culture = slavic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = slavic_baltic}
+		ROOT = {any_realm_character = {culture = slavic_baltic}}
+		ROOT = {any_realm_lord = {culture = slavic_baltic}}
+		ROOT = {any_realm_province = {culture = slavic_baltic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Prussian (slavic/baltic)
+character_event = {
+	id = AND.5061
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = slavic }
+		
+		OR = {
+			culture = altaic
+			culture = slavic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = slavic_altaic}
+		ROOT = {any_realm_character = {culture = slavic_altaic}}
+		ROOT = {any_realm_lord = {culture = slavic_altaic}}
+		ROOT = {any_realm_province = {culture = slavic_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Mordvin (slavic/ugric)
+character_event = {
+	id = AND.5062
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = ugric }
+			any_realm_province = { culture = slavic }
+		
+		OR = {
+			culture = ugric
+			culture = slavic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = slavic_ugric}
+		ROOT = {any_realm_character = {culture = slavic_ugric}}
+		ROOT = {any_realm_lord = {culture = slavic_ugric}}
+		ROOT = {any_realm_province = {culture = slavic_ugric}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Permian (baltic/ugric)
+character_event = {
+	id = AND.5063
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = ugric }
+			any_realm_province = { culture = baltic }
+		
+		OR = {
+			culture = ugric
+			culture = baltic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = baltic_ugric}
+		ROOT = {any_realm_character = {culture = baltic_ugric}}
+		ROOT = {any_realm_lord = {culture = baltic_ugric}}
+		ROOT = {any_realm_province = {culture = baltic_ugric}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Cuman (baltic/altaic)
+character_event = {
+	id = AND.5064
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = altaic }
+			any_realm_province = { culture = baltic }
+		
+		OR = {
+			culture = altaic
+			culture = baltic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = baltic_altaic}
+		ROOT = {any_realm_character = {culture = baltic_altaic}}
+		ROOT = {any_realm_lord = {culture = baltic_altaic}}
+		ROOT = {any_realm_province = {culture = baltic_altaic}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Bolghar (altaic/ugric)
+character_event = {
+	id = AND.5065
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = ugric }
+			any_realm_province = { culture = altaic }
+		
+		OR = {
+			culture = ugric
+			culture = altaic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = altaic_ugric}
+		ROOT = {any_realm_character = {culture = altaic_ugric}}
+		ROOT = {any_realm_lord = {culture = altaic_ugric}}
+		ROOT = {any_realm_province = {culture = altaic_ugric}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+
+# Alan (altaic/kartvelian)
+character_event = {
+	id = AND.5066
+	desc = AND.5001.desc
+	picture = GFX_evt_council
+	trigger = {
+		AND = {
+			tier = DUKE
+			any_realm_province = { culture = kartvelian }
+			any_realm_province = { culture = altaic }
+		
+		OR = {
+			culture = kartvelian
+			culture = altaic
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		ROOT = {culture = altaic_kartvelian}
+		ROOT = {any_realm_character = {culture = altaic_kartvelian}}
+		ROOT = {any_realm_lord = {culture = altaic_kartvelian}}
+		ROOT = {any_realm_province = {culture = altaic_kartvelian}}
+		}
+	
+	option = {
+		name = PERFECT
+		}
+}
+

@@ -65,6 +65,19 @@ shattered_world_conquest = {
 		}
 	}
 	on_add = {
+		IF = {
+			limit = {
+				has_global_flag = another_new_dawn
+			}
+			ROOT = {
+				random_realm_province = {
+					limit = {
+						religion = ancestry
+					}
+					set_province_flag = prophet
+				}
+			}
+		}
 	}
 	on_success = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
@@ -86,6 +99,17 @@ shattered_world_conquest = {
 				}
 			}
 			usurp_title_plus_barony_if_unlanded = ROOT
+		}
+		IF = {
+			limit = {
+				has_global_flag = another_new_dawn
+			}
+			hidden_tooltip = {
+				location = {
+					religion = ROOT
+					any_province_character = { religion = ROOT }
+				}
+			}
 		}
 	}
 	on_fail = {
