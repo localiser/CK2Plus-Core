@@ -1,15 +1,13 @@
-namespace = AND
-
-### Prophets appear
-#Liege conversion in response to courtier/vassal conversion
+### Relative conversion events
+# Liege conversion in response to courtier/vassal conversion
 character_event = {
-	id = AND.1
-	desc = AND.1.desc
+	id = 1000190001
+	desc = EVTDESC1000190001
 	picture = "GFX_evt_council"
 	is_triggered_only = yes
 	
 	option = {
-		name = AND.1.a
+		name = EVTOPTA1000190001
 		ROOT = {
 			religion = FROM
 		}
@@ -44,58 +42,58 @@ character_event = {
 				independent = no
 			}
 			liege = {
-				character_event = { id = AND.2 }
+				character_event = { id = 1000190002 }
 			}
 		}
 	}
 	option = {
-		name = AND.1.b
+		name = EVTOPTB1000190001
 		trigger = {
 			ai = no
 		}
 		FROM = {
 			banish = yes
 			hidden_tooltip = {
-				character_event = { id = AND.3 }
+				character_event = { id = 1000190003 }
 			}
 		}
 	}
 }
-#Liege's liege conversion
+# Liege's liege conversion
 character_event = {
-	id = AND.2
-	desc = AND.2.desc
+	id = 1000190002
+	desc = EVTDESC1000190002
 	picture = "GFX_evt_council"
 	is_triggered_only = yes
 	
 	option = {
-		name = AND.2.a
+		name = EVTOPTA1000190002
 		FROM = {
 			reverse_religion = ROOT
 		}
 	}
 	option = {
-		name = AND.2.b
+		name = EVTOPTB1000190002
 	}
 }
-# banished prophet settles somewhere else
+# Banished prophet settles somewhere else
 character_event = {
-	id = AND.3
+	id = 1000190003
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
 	
 	immediate = {
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
 
-# neighbouring province conversion
+# Religion spread event
 province_event = {
-	id = AND.4
-	desc = AND.4.desc
+	id = 1000190004
+	desc = EVTDESC1000190004
 	picture = "GFX_evt_council"
 	
 	trigger = {
@@ -136,7 +134,7 @@ province_event = {
 	}
 	
 	option = {
-		name = AND.4.a
+		name = EVTOPTA1000190004
 		if = {
 			limit = { 
 				ruler = { religion = folklore }
@@ -148,8 +146,9 @@ province_event = {
 	}
 }
 
+# Prophet appears
 province_event = {
-	id = AND.9
+	id = 1000190009
 	hide_window = yes
 	hide_from = yes
 	
@@ -179,7 +178,7 @@ province_event = {
 				}
 			}
 			random_list = {	# random allocation of religions. The follow-up events can result in failure if the religion already has been founded
-				33 = {	# astrolatry
+				33 = {	# Astrolatry
 					random_province_character = {
 						limit = {
 							ai = yes
@@ -191,7 +190,7 @@ province_event = {
 								trait = scholar
 							}
 						}
-						character_event = { id = AND.20 }
+						character_event = { id = 1000190020 }
 					}
 				}
 				34 = {	# Pantheistic
@@ -206,7 +205,7 @@ province_event = {
 								trait = scholar
 							}
 						}
-						character_event = { id = AND.40 }
+						character_event = { id = 1000190040 }
 					}
 				}
 				33 = {	# Ancestral
@@ -221,7 +220,7 @@ province_event = {
 								trait = scholar
 							}
 						}
-						character_event = { id = AND.60 }
+						character_event = { id = 1000190060 }
 					}
 				}
 			}
@@ -229,9 +228,9 @@ province_event = {
 	}
 }
 ## Actual religion change of a random character. The events do nothing when the religion already is founded.
-# astrolatry
+# Astrolatry spawning
 character_event = {
-	id = AND.20
+	id = 1000190020
 	hide_window = yes
 	hide_from = yes
 	
@@ -255,31 +254,31 @@ character_event = {
 		random_list = {
 			25 = {
 				ROOT = {
-					character_event = { id = AND.21 }
+					character_event = { id = 1000190021 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.22 }
+					character_event = { id = 1000190022 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.23 }
+					character_event = { id = 1000190023 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.24 }
+					character_event = { id = 1000190024 }
 				}
 			}
 
 		}
 	}
 }
-character_event = {
-	id = AND.21
-	desc = AND.21.desc
+character_event = { # Selenism spawning
+	id = 1000190021
+	desc = EVTDESC1000190021
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -302,15 +301,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.21.a
+		name = EVTOPTA1000190021
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.22
-	desc = AND.22.desc
+character_event = { # Heliosism spawning
+	id = 1000190022
+	desc = EVTDESC1000190022
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -333,15 +332,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.22.a
+		name = EVTOPTA1000190022
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.23
-	desc = AND.23.desc
+character_event = { # Polarism spawning
+	id = 1000190023
+	desc = EVTDESC1000190023
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -364,15 +363,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.23.a
+		name = EVTOPTA1000190023
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.24
-	desc = AND.24.desc
+character_event = { # Selenism spawning
+	id = 1000190024
+	desc = EVTDESC1000190024
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -395,16 +394,16 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.24.a
+		name = EVTOPTA1000190024
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
 
-# pantheism
+# Pantheism spawning
 character_event = {
-	id = AND.40
+	id = 1000190040
 	hide_window = yes
 	hide_from = yes
 	
@@ -428,30 +427,30 @@ character_event = {
 		random_list = {
 			25 = {
 				ROOT = {
-					character_event = { id = AND.41 }
+					character_event = { id = 1000190041 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.42 }
+					character_event = { id = 1000190042 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.43 }
+					character_event = { id = 1000190043 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.44 }
+					character_event = { id = 1000190044 }
 				}
 			}
 		}
 	}
 }
-character_event = {
-	id = AND.41
-	desc = AND.41.desc
+character_event = { # Animism spawning
+	id = 1000190041
+	desc = EVTDESC1000190041
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -474,15 +473,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.41.a
+		name = EVTOPTA1000190041
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.42
-	desc = AND.42.desc
+character_event = { # Shamanism spawning
+	id = 1000190042
+	desc = EVTDESC1000190042
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -505,15 +504,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.42.a
+		name = EVTOPTA1000190042
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.43
-	desc = AND.43.desc
+character_event = { # Gaia spawning
+	id = 1000190043
+	desc = EVTDESC1000190043
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -536,15 +535,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.43.a
+		name = EVTOPTA1000190043
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.44
-	desc = AND.44.desc
+character_event = { # Panvitalism spawning
+	id = 1000190044
+	desc = EVTDESC1000190044
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -567,16 +566,16 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.44.a
+		name = EVTOPTA1000190044
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
 
-# Ancestral
+# Ancestral spawning
 character_event = {
-	id = AND.60
+	id = 1000190060
 	hide_window = yes
 	hide_from = yes
 	
@@ -600,30 +599,30 @@ character_event = {
 		random_list = {
 			25 = {
 				ROOT = {
-					character_event = { id = AND.61 }
+					character_event = { id = 1000190061 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.62 }
+					character_event = { id = 1000190062 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.63 }
+					character_event = { id = 1000190063 }
 				}
 			}
 			25 = {
 				ROOT = {
-					character_event = { id = AND.64 }
+					character_event = { id = 1000190064 }
 				}
 			}
 		}
 	}
 }
-character_event = {
-	id = AND.61
-	desc = AND.61.desc
+character_event = { # Ancestry spawning
+	id = 1000190061
+	desc = EVTDESC1000190061
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -646,15 +645,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.61.a
+		name = EVTOPTA1000190061
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.62
-	desc = AND.62.desc
+character_event = { # Overlord spawning
+	id = 1000190062
+	desc = EVTDESC1000190062
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -677,15 +676,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.62.a
+		name = EVTOPTA1000190062
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.63
-	desc = AND.63.desc
+character_event = { # Descendic spawning
+	id = 1000190063
+	desc = EVTDESC1000190063
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -708,15 +707,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.63.a
+		name = EVTOPTA1000190063
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.64
-	desc = AND.64.desc
+character_event = { # Ancient Ancestors spawning
+	id = 1000190064
+	desc = EVTDESC1000190064
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -739,15 +738,16 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.64.a
+		name = EVTOPTA1000190064
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-# polytheistic
+
+# Basic religion recognition for polytheistic spawning
 province_event = {
-	id = AND.101
+	id = 1000190100
 	hide_window = yes
 	hide_from = yes
 	
@@ -761,7 +761,7 @@ province_event = {
 	}
 	
 	immediate = {
-		IF = {
+		IF = { # If all the polytheistic faiths have spawned, delete individual global flags and set the 'all polytheistic faiths have been founded' flag
 			limit = {
 				has_global_flag = norse_pagan_founded
 				has_global_flag = tengri_pagan_founded
@@ -801,7 +801,7 @@ province_event = {
 					religion = ROOT
 					NOT = { has_character_modifier = prophet }
 				}
-				character_event = { id = AND.110 }
+				character_event = { id = 1000190101 }
 			}
 		}
 		IF = {
@@ -829,7 +829,7 @@ province_event = {
 					religion = ROOT
 					NOT = { has_character_modifier = prophet }
 				}
-				character_event = { id = AND.210 }
+				character_event = { id = 1000190201 }
 			}
 		}
 		IF = {
@@ -857,13 +857,13 @@ province_event = {
 					religion = ROOT
 					NOT = { has_character_modifier = prophet }
 				}
-				character_event = { id = AND.310 }
+				character_event = { id = 1000190301 }
 			}
 		}
 	}
 }
-character_event = {
-	id = AND.110
+character_event = { # Random Celestial polytheistic faith
+	id = 1000190101
 	hide_window = yes
 	hide_from = yes
 	
@@ -873,35 +873,35 @@ character_event = {
 		random_list = {
 			20 = {
 				ROOT = {
-					character_event = { id = AND.111 }
+					character_event = { id = 1000190111 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.112 }
+					character_event = { id = 1000190112 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.113 }
+					character_event = { id = 1000190113 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.114 }
+					character_event = { id = 1000190114 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.115 }
+					character_event = { id = 1000190115 }
 				}
 			}
 		}
 	}
 }
-character_event = {
-	id = AND.111
-	desc = AND.111.desc
+character_event = { # Celestial Norse spawning
+	id = 1000190111
+	desc = EVTDESC1000190111
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -925,15 +925,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.111.a
+		name = EVTOPTA1000190111
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.112
-	desc = AND.112.desc
+character_event = { # Celestial Tengri spawning
+	id = 1000190112
+	desc = EVTDESC1000190112
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -957,15 +957,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.112.a
+		name = EVTOPTA1000190112
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.113
-	desc = AND.113.desc
+character_event = { # Celestial Baltic spawning
+	id = 1000190113
+	desc = EVTDESC1000190113
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -989,15 +989,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.113.a
+		name = EVTOPTA1000190113
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.114
-	desc = AND.114.desc
+character_event = { # Celestial Slavic spawning
+	id = 1000190114
+	desc = EVTDESC1000190114
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1021,15 +1021,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.114.a
+		name = EVTOPTA1000190114
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.115
-	desc = AND.115.desc
+character_event = { # Celestial Finnish spawning
+	id = 1000190115
+	desc = EVTDESC1000190115
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1053,14 +1053,14 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.115.a
+		name = EVTOPTA1000190115
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.210
+character_event = { # Random Ancestral polytheistic faith
+	id = 1000190201
 	hide_window = yes
 	hide_from = yes
 	
@@ -1070,35 +1070,35 @@ character_event = {
 		random_list = {
 			20 = {
 				ROOT = {
-					character_event = { id = AND.211 }
+					character_event = { id = 1000190211 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.212 }
+					character_event = { id = 1000190212 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.213 }
+					character_event = { id = 1000190213 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.214 }
+					character_event = { id = 1000190214 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.215 }
+					character_event = { id = 1000190214 }
 				}
 			}
 		}
 	}
 }
-character_event = {
-	id = AND.211
-	desc = AND.211.desc
+character_event = { # Ancestral Norse spawning
+	id = 1000190211
+	desc = EVTDESC1000190211
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1122,15 +1122,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.211.a
+		name = EVTOPTA1000190211
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.212
-	desc = AND.212.desc
+character_event = { # Ancestral Tengri spawning
+	id = 1000190212
+	desc = EVTDESC1000190212
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1154,15 +1154,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.212.a
+		name = EVTOPTA1000190212
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.213
-	desc = AND.213.desc
+character_event = { # Ancestral Baltic spawning
+	id = 1000190213
+	desc = EVTDESC1000190213
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1186,15 +1186,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.213.a
+		name = EVTOPTA1000190213
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.214
-	desc = AND.214.desc
+character_event = { # Ancestral Slavic spawning
+	id = 1000190214
+	desc = EVTDESC1000190214
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1218,15 +1218,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.214.a
+		name = EVTOPTA1000190214
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.215
-	desc = AND.215.desc
+character_event = { # Ancestral Finnish spawning
+	id = 1000190215
+	desc = EVTDESC1000190215
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1250,14 +1250,14 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.215.a
+		name = EVTOPTA1000190215
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.310
+character_event = { # Random Natural polytheistic faith
+	id = 1000190301
 	hide_window = yes
 	hide_from = yes
 	
@@ -1267,35 +1267,35 @@ character_event = {
 		random_list = {
 			20 = {
 				ROOT = {
-					character_event = { id = AND.311 }
+					character_event = { id = 1000190311 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.312 }
+					character_event = { id = 1000190312 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.313 }
+					character_event = { id = 1000190313 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.314 }
+					character_event = { id = 1000190314 }
 				}
 			}
 			20 = {
 				ROOT = {
-					character_event = { id = AND.315 }
+					character_event = { id = 1000190315 }
 				}
 			}
 		}
 	}
 }
-character_event = {
-	id = AND.311
-	desc = AND.311.desc
+character_event = { # Natural Norse spawning
+	id = 1000190311
+	desc = EVTDESC1000190311
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1319,15 +1319,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.311.a
+		name = EVTOPTA1000190311
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.312
-	desc = AND.312.desc
+character_event = { # Natural Tengri spawning
+	id = 1000190312
+	desc = EVTDESC1000190312
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1351,15 +1351,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.312.a
+		name = EVTOPTA1000190312
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.313
-	desc = AND.313.desc
+character_event = { # Natural Baltic spawning
+	id = 1000190313
+	desc = EVTDESC1000190313
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1383,15 +1383,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.313.a
+		name = EVTOPTA1000190313
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.314
-	desc = AND.314.desc
+character_event = { # Natural Slavic spawning
+	id = 1000190314
+	desc = EVTDESC1000190314
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1415,15 +1415,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.314.a
+		name = EVTOPTA1000190314
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
-character_event = {
-	id = AND.315
-	desc = AND.315.desc
+character_event = { # Natural Finnish spawning
+	id = 1000190315
+	desc = EVTDESC1000190315
 	picture = GFX_evt_council
 	
 	is_triggered_only = yes
@@ -1447,208 +1447,11 @@ character_event = {
 		}
 	}
 	option = {
-		name = AND.315.a
+		name = EVTOPTA1000190315
 		liege = {
-			character_event = { id = AND.1 }
+			character_event = { id = 1000190001 }
 		}
 	}
 }
+
 # monotheistic
-character_event = {
-	id = AND.200
-	hide_window = yes
-	hide_from = yes
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		IF = {
-			limit = {
-				has_global_flag = orthodox_founded
-				has_global_flag = shiite_founded
-				has_global_flag = sunni_founded
-				has_global_flag = jewish_founded
-				has_global_flag = catholic_founded
-			}
-			set_global_flag = monotheism_founded
-			clr_global_flag = orthodox_founded
-			clr_global_flag = shiite_founded
-			clr_global_flag = sunni_founded
-			clr_global_flag = jewish_founded
-			clr_global_flag = catholic_founded
-		}
-		random_list = {
-			20 = {
-				ROOT = {
-					character_event = { id = AND.201 }
-				}
-			}
-			20 = {
-				ROOT = {
-					character_event = { id = AND.202 }
-				}
-			}
-			20 = {
-				ROOT = {
-					character_event = { id = AND.203 }
-				}
-			}
-			20 = {
-				ROOT = {
-					character_event = { id = AND.204 }
-				}
-			}
-			20 = {
-				ROOT = {
-					character_event = { id = AND.205 }
-				}
-			}
-		}
-	}
-}
-character_event = {
-	id = AND.201
-	desc = AND.201.desc
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		IF = {
-			limit = {
-				NOT = {
-					has_global_flag = orthodox_founded
-					has_global_flag = monotheism_founded
-				}
-			}
-			set_global_flag = orthodox_founded
-			ROOT = {
-				religion = orthodox
-			}
-
-		}
-	}
-	option = {
-		name = AND.201.a
-		liege = {
-			character_event = { id = AND.1 }
-		}
-	}
-}
-character_event = {
-	id = AND.202
-	desc = AND.202.desc
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		IF = {
-			limit = {
-				NOT = {
-					has_global_flag = shiite_founded
-					has_global_flag = monotheism_founded
-				}
-			}
-			set_global_flag = shiite_founded
-			ROOT = {
-				religion = shiite
-			}
-
-		}
-	}
-	option = {
-		name = AND.202.a
-		liege = {
-			character_event = { id = AND.1 }
-		}
-	}
-}
-character_event = {
-	id = AND.203
-	desc = AND.203.desc
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		IF = {
-			limit = {
-				NOT = {
-					has_global_flag = sunni_founded
-					has_global_flag = monotheism_founded
-				}
-			}
-			set_global_flag = sunni_founded
-			ROOT = {
-				religion = sunni
-			}
-
-		}
-	}
-	option = {
-		name = AND.203.a
-		liege = {
-			character_event = { id = AND.1 }
-		}
-	}
-}
-character_event = {
-	id = AND.204
-	desc = AND.204.desc
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		IF = {
-			limit = {
-				NOT = {
-					has_global_flag = jewish_founded
-					has_global_flag = monotheism_founded
-				}
-			}
-			set_global_flag = jewish_founded
-			ROOT = {
-				religion = jewish
-			}
-
-		}
-	}
-	option = {
-		name = AND.204.a
-		liege = {
-			character_event = { id = AND.1 }
-		}
-	}
-}
-character_event = {
-	id = AND.205
-	desc = AND.205.desc
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		IF = {
-			limit = {
-				NOT = {
-					has_global_flag = catholic_founded
-					has_global_flag = monotheism_founded
-				}
-			}
-			set_global_flag = catholic_founded
-			ROOT = {
-				religion = catholic
-			}
-
-		}
-	}
-	option = {
-		name = AND.205.a
-		liege = {
-			character_event = { id = AND.1 }
-		}
-	}
-}
-
