@@ -2658,7 +2658,7 @@ cb_faction_overthrow_ruler = {
 				hidden_tooltip = { character_event = { id = 110044 } }
 				current_heir = {
 					prestige = -500
-					FROM = { abdicate_to = PREV }
+					FROM = { abdicate = yes }
 				}
 			}
 			if = {
@@ -2728,14 +2728,14 @@ cb_faction_overthrow_ruler = {
 									limit = { title = PREVPREV }
 									if = {
 										limit = {
-											has_global_flag = is_primary_title
+											is_primary_holder_title = yes
 										}
 										PREV = { set_character_flag = primary_title_usurper }
 										set_global_flag = primary_title_usurper_found
 									}
 									if = {
 										limit = {
-											NOT = { has_global_flag = is_primary_title }
+											NOT = { is_primary_holder_title = yes }
 										}
 										usurp_title_plus_barony_if_unlanded = PREV
 									}
@@ -2765,14 +2765,14 @@ cb_faction_overthrow_ruler = {
 										limit = { title = PREVPREVPREV }
 										if = {
 											limit = {
-												has_global_flag = is_primary_title
+												is_primary_holder_title = yes
 											}
 											PREV = { PREV = { set_character_flag = primary_title_usurper } }
 											set_global_flag = primary_title_usurper_found
 										}
 										if = {
 											limit = {
-												NOT = { has_global_flag = is_primary_title }
+												NOT = { is_primary_holder_title = yes }
 											}
 											usurp_title_plus_barony_if_unlanded = PREVPREV
 										}
