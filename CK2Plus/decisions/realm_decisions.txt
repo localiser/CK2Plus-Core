@@ -1598,12 +1598,9 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "The Old Gods"
+			NOT = { has_global_flag = zoroastrian_priesthood_founded }			
 			independent = yes
-			is_adult = yes
-			prisoner = no	
 			religion_group = zoroastrian_group
-			has_landed_title = e_persia
-			NOT = { has_global_flag = zoroastrian_priesthood_founded }
 		}
 		allow = {
 			realm_learning = 25
@@ -1611,6 +1608,9 @@ decisions = {
 			wealth = 500
 			war = no
 			religion_authority = 0.6
+			tier = emperor
+			is_heretic = no
+			NOT = { has_regent = yes } # Redundant code, but produces a much clearer tooltip			
 		}
 		effect = {
 			set_global_flag = zoroastrian_priesthood_founded
@@ -1621,8 +1621,8 @@ decisions = {
 			hidden_tooltip = {
 				create_random_priest = {
 					random_traits = yes
-					religion = zoroastrian
-					culture = persian
+					religion = ROOT
+					culture = ROOT
 					dynasty = random
 					female = no
 					age = 41
@@ -1636,9 +1636,11 @@ decisions = {
 			}
 			d_zoroastrian = {
 				holder_scope = {
-					e_persia = {
-						holder_scope = {
-							set_defacto_vassal = PREVPREV
+					ROOT = {
+						primary_title = {
+							holder_scope = {
+								set_defacto_vassal = PREVPREVPREV
+							}
 						}
 					}
 				}
@@ -1652,18 +1654,20 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Sons of Abraham"
+			NOT = { 
+					has_global_flag = third_temple_built
+					has_global_flag = building_third_temple 
+			}			
 			is_ruler = yes
 			religion_group = jewish_group
-			NOT = { has_global_flag = third_temple_built }
-			NOT = { has_global_flag = building_third_temple }
+			higher_tier_than = DUKE
 		}
 		allow = {
 			wealth = 1500
 			piety = 1500
-			774 = {
-				religion = jewish
-			}
 			completely_controls = c_jerusalem
+			is_heretic = no
+			NOT = { has_regent = yes } # Redundant code, but produces a much clearer tooltip			
 		}
 		effect = {
 			hidden_tooltip = {
@@ -1684,47 +1688,70 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Sons of Abraham"
+			NOT = { has_global_flag = jewish_priesthood_founded }			
 			is_ruler = yes
 			religion_group = jewish_group
 			has_landed_title = k_israel
 			has_global_flag = third_temple_built
-			NOT = { has_global_flag = jewish_priesthood_founded }
 		}
 		allow = {
+			NOT = { has_regent = yes } # Redundant code, but produces a much clearer tooltip
 			piety = 1000
-			774 = {
-				religion = jewish
-			}
+			tier = emperor
+			is_heretic = no			
 			completely_controls = c_jerusalem
 		}
 		effect = {
 			set_global_flag = jewish_priesthood_founded
-			activate_title = { title = d_jewish status = yes }
-			hidden_tooltip = {
-				create_random_priest = {
-					random_traits = yes
-					religion = ROOT
-					culture = ROOT
-					dynasty = random
-					female = no
-					age = 41
-				}
-				new_character = {
-					d_jewish = {
-						grant_title = PREV
+			if = {
+				limit = {
+					AND = {
+						religion_group = jewish_group
+						NOT = { religion = samaritan }
 					}
-					narrative_event = { id = SoA.550 }
 				}
-			}
-			d_jewish = {
-				holder_scope = {
-					k_israel = {
-						holder_scope = {
-							set_defacto_vassal = PREVPREV
+				activate_title = { title = d_jewish status = yes }
+				hidden_tooltip = {
+					create_random_priest = {
+						random_traits = yes
+						religion = ROOT
+						culture = ROOT
+						dynasty = random
+						female = no
+						age = 41
+					}
+					new_character = {
+						d_jewish = {
+							grant_title = PREV
+						}
+						narrative_event = { id = SoA.550 }
+					}
+				}
+				d_jewish = {
+					holder_scope = {
+						k_israel = {
+							holder_scope = {
+								set_defacto_vassal = PREVPREV
+							}
 						}
 					}
 				}
 			}
+			if = {
+				limit = {
+					religion = samaritan
+				}
+				d_samaritan = {
+					holder_scope = {
+						narrative_event = { id = 1000182705 }
+						k_israel = {
+							holder_scope = {
+								set_defacto_vassal = PREVPREV
+							}
+						}
+					}
+				}
+			}			
 		}
 		ai_will_do = {
 			factor = 1
@@ -1737,6 +1764,7 @@ decisions = {
 			has_dlc = "Sons of Abraham"
 			is_ruler = yes
 			religion_group = jewish_group
+			independent = yes			
 			k_israel = {
 				has_holder = no
 			}
@@ -1749,6 +1777,8 @@ decisions = {
 				has_landed_title = k_jerusalem
 				k_jerusalem = { is_titular = yes }
 			}
+			is_heretic = no
+			NOT = { has_regent = yes } # Redundant code, but produces a much clearer tooltip		
 			completely_controls = d_jerusalem
 			completely_controls = d_ascalon
 			completely_controls = d_galilee

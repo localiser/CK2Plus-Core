@@ -1035,3 +1035,38 @@ narrative_event = {
 		}
 	}
 }
+
+# The Priesthood Restored (Samaritan)
+narrative_event = {
+	id = 1000182705
+	title = EVTNAME_SoA_550
+	desc = EVTDESC1000182705
+	picture = GFX_evt_synagogue
+	border = GFX_event_narrative_frame_religion
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SoA_550
+		trigger = {
+			religion_group = jewish_group
+		}
+	}
+	option = {
+		name = EVTOPTB_TOG_6004
+		trigger = {
+			NOT = {
+				religion_group = jewish_group
+				religion_group = muslim
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_TOG_6004
+		trigger = {
+			religion_group = muslim
+		}
+	}
+}

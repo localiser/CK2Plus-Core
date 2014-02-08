@@ -3,8 +3,6 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_landed_title = k_persia
-			prisoner = no
-			is_adult = yes
 			religion_group = zoroastrian_group
 			NOT = { has_global_flag = zhayedan_founded_1 }
 			NOT = { has_global_flag = zhayedan_founded_2 }
@@ -12,6 +10,8 @@ decisions = {
 		allow = {
 			prestige = 300
 			wealth = 300
+			NOT = { has_regent = yes }
+			is_heretic = no
 		}
 		effect = {
 			set_global_flag = zhayedan_founded_1
@@ -25,8 +25,8 @@ decisions = {
 				}
 				create_character = {
 					random_traits = no
-					religion = zoroastrian
-					culture = persian
+					religion = ROOT
+					culture = ROOT
 					dynasty = NONE
 					age = 34
 					trait = brilliant_strategist
@@ -58,15 +58,15 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_landed_title = e_persia
-			prisoner = no
-			is_adult = yes
-			religion_group = zoroastrian_group
+			religion_group = zoroastrian_group		
 			NOT = { has_global_flag = zhayedan_founded_2 }
 		}
 		allow = {
 			has_global_flag = zoroastrian_priesthood_founded
 			prestige = 300
 			wealth = 300
+			NOT = { has_regent = yes }
+			is_heretic = no			
 		}
 		effect = {
 			set_global_flag = zhayedan_founded_2
@@ -78,8 +78,8 @@ decisions = {
 				narrative_event = { id = 1000182158 }
 				create_character = {
 					random_traits = no
-					religion = zoroastrian
-					culture = persian
+					religion = ROOT
+					culture = ROOT
 					dynasty = NONE
 					age = 34
 					trait = brilliant_strategist
