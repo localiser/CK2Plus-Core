@@ -38,10 +38,15 @@ decisions = {
 						}
 					}
 				}
-			}		
+			}
 			NOT = { has_character_modifier = holding_large_feast }
 			NOT = { has_character_modifier = holding_summer_fair }
-			NOT = { has_character_modifier = holding_grand_hunt }
+			NOT = { 
+				has_character_modifier = holding_grand_hunt
+				has_character_modifier = planning_grand_banquet
+				has_character_modifier = holding_grand_banquet
+				has_character_flag = held_grand_banquet				
+			}
 		}
 		effect = {
 			set_character_flag = epic_tournament
@@ -459,6 +464,11 @@ decisions = {
 				has_character_flag = epic_tournament_furusiyya
 			}
 			NOT = { has_character_modifier = holding_epic_tournament }
+			NOT = { 
+				has_character_modifier = planning_grand_banquet
+				has_character_modifier = holding_grand_banquet
+				has_character_flag = held_grand_banquet				
+			}			
 		}
 		allow = {
 			war = no
@@ -2080,4 +2090,120 @@ decisions = {
 			}
 		}
 	}	
+	hold_grand_banquet = {
+		is_high_prio = yes
+		potential = {
+			independent = yes
+			NOT = {
+				has_character_modifier = planning_grand_banquet
+				has_character_modifier = holding_grand_banquet
+				has_character_flag = held_grand_banquet
+			}
+			OR = {
+				higher_tier_than = duke
+				AND = {
+					higher_tier_than = count
+					is_patrician = yes
+				}
+			}
+			ai = no # Disabled for AI for testing period
+		}
+		allow = {
+			NOT = {
+				has_regent = yes
+			}
+			wealth = 500
+			prestige = 2000
+			# ruled_years = 10 # Temp. disabled for testing WIP
+			NOT = { 
+				has_character_modifier = holding_epic_tournament
+				has_character_modifier = holding_large_feast
+				has_character_modifier = holding_summer_fair
+				has_character_modifier = holding_grand_hunt 
+			}			
+		}
+		effect = {
+			add_character_modifier = {
+				name = planning_grand_banquet
+				duration = -1
+			}
+			wealth = -500
+			
+			any_independent_ruler = { # Word spreads of a Grand Banquet to the neighbours & Vassals
+				if = {
+					limit = {
+						religion_group = ROOT
+						any_realm_province = {
+							any_neighbor_province = {
+								owner = {
+									OR = {
+										same_realm = ROOT
+										character = ROOT
+									}
+								}
+							}
+						}
+					}
+					ROOT = { 
+						PREV = {
+							character_event = { id = 1000182706 }
+							hidden_tooltip = {
+								any_spouse = { # Even the spouse(s) hear of this
+									character_event = { id = 1000182712 }
+								}
+							}
+						}
+					}
+				}
+			}
+			any_vassal = { # The vassals hear of this
+				if = {
+					limit = {
+						religion_group = ROOT
+						has_regent = no
+					}
+					ROOT = { PREV = { character_event = { id = 1000182707 } } }
+				}
+			}
+			any_friend = { # Friends hear of this
+				if = {
+					limit = {
+						age = 16
+						NOT = {
+							trait = incapable
+						}				
+					}
+					ROOT = { PREV = { character_event = { id = 1000182711 } } }
+				}
+			}
+			lover = { # Lover hears of this
+				if {
+					limit = { 
+						NOT = {
+							trait = incapable
+						}
+					}
+					ROOT = { PREV = { character_event = { id = 1000182710 } } }
+				}
+			}		
+			current_heir = { # The current heir hears of this
+				if = {
+					limit = { 
+						NOT = { 
+							trait = incapable
+						} 
+						age = 16
+					}
+					ROOT = { PREV = { character_event = { id = 1000182709 } } }
+				}
+			}
+			character_event = { id = 1000182708 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
 }
