@@ -1682,7 +1682,22 @@ decisions = {
 		effect = {
 			hidden_tooltip = {
 				character_event = { id = SoA.100 }
-				narrative_event = { id = SoA.101 days = 1460 random = 50 }
+				add_character_modifier = {
+					name = third_temple_builder
+					hidden = yes
+					inherit = yes
+					duration = -1
+				}				
+				k_papal_state = {
+					holder_scope = {
+						add_character_modifier = {
+							name = third_temple_timer
+							hidden = yes
+							inherit = yes
+							duration = 1460
+						}
+					}
+				}
 			}
 			set_global_flag = building_third_temple
 			wealth = -1500

@@ -3300,3 +3300,37 @@ character_event = {
 		}		
 	}
 }
+
+character_event = {
+
+	id = 1000182714
+
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = third_temple_built }
+		has_global_flag = building_third_temple
+		k_papal_state = {
+			holder_scope = {
+				NOT = { has_character_modifier = third_temple_timer }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_global_flag = third_temple_built
+		clr_global_flag = building_third_temple
+		
+		any_playable_ruler = {
+			if = {
+				limit = { has_character_modifier = third_temple_builder }
+				narrative_event = { id = SoA.101 }
+				remove_character_modifier = third_temple_builder
+			}
+		}
+	}
+}
