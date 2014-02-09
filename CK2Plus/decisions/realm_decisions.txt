@@ -2128,7 +2128,7 @@ decisions = {
 				duration = -1
 			}
 			wealth = -500
-			
+			# This big block of code extends rumours to any independent neighbours, vassals, friends and lovers as well as their spouses (except for lovers)
 			any_independent_ruler = { # Word spreads of a Grand Banquet to the neighbours & Vassals
 				if = {
 					limit = {
@@ -2218,7 +2218,36 @@ decisions = {
 							} 
 						}						
 					}
-					hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182707 } } } }
+					hidden_tooltip = {
+						ROOT = {
+							PREV = {
+								character_event = { id = 1000182707 }
+								any_spouse = { # Even the spouse(s) hear of this
+									if = {
+										limit = {
+											ROOT = {
+												NOT = { 
+													current_heir = { 
+														character = PREVPREV # Don't pulse for heirs, they get a different event
+													}
+													any_friend = { 
+														character = PREVPREV # Don't pulse for friends, they get a different event
+													}
+													lover = { 
+														character = PREVPREV # Don't pulse for heirs, they get a different event
+													}
+													any_sibling = { 
+														character = PREVPREV # Don't pulse for siblings, they get a different event
+													}													
+												} 
+											}										
+										}
+										character_event = { id = 1000182712 }
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			custom_tooltip = { text = ctt_gb_rumours_neighbours} 
@@ -2245,10 +2274,36 @@ decisions = {
 									character = PREVPREV # Don't pulse for their children, they get a different event
 								}								
 							} 
-						}						
+						}
 					}
 					custom_tooltip = { text = ctt_gb_rumours_friend} 
 					hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182711 } } } }
+				}
+			}
+			any_friend = { # Spouse of  friend
+				any_spouse = {
+					if {
+						limit = { 
+							NOT = {
+								trait = incapable
+							}
+							age = 16
+							ROOT = {
+								NOT = { 
+									current_heir = { 
+										character = PREVPREVPREV # Don't pulse for heirs, they get a different event
+									}
+									any_friend = { 
+										character = PREVPREVPREV # Don't pulse for friends, they get a different event
+									}
+									lover = {
+										character = PREVPREVPREV # Don't pulse for lovers, they get a different event
+									}
+								} 
+							}						
+						}
+						hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182713 } } } }
+					}
 				}
 			}
 			lover = { # Lover hears of this
@@ -2302,6 +2357,32 @@ decisions = {
 					hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182713 } } } }
 				}
 			}
+			any_sibling = { # Spouse of sibling
+				any_spouse = {
+					if {
+						limit = { 
+							NOT = {
+								trait = incapable
+							}
+							age = 16
+							ROOT = {
+								NOT = { 
+									current_heir = { 
+										character = PREVPREVPREV # Don't pulse for heirs, they get a different event
+									}
+									any_friend = { 
+										character = PREVPREVPREV # Don't pulse for friends, they get a different event
+									}
+									lover = {
+										character = PREVPREVPREV # Don't pulse for lovers, they get a different event
+									}
+								} 
+							}						
+						}
+						hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182713 } } } }
+					}
+				}
+			}			
 			any_child = {
 				if {
 					limit = { 
@@ -2317,6 +2398,9 @@ decisions = {
 								any_friend = { 
 									character = PREVPREV # Don't pulse for friends, they get a different event
 								}
+								lover = {
+									character = PREVPREV # Don't pulse for lovers, they get a different event
+								}							
 							} 
 							any_child = {
 									NOT = {
@@ -2347,7 +2431,10 @@ decisions = {
 									any_friend = { 
 										character = PREVPREV # Don't pulse for friends, they get a different event
 									}
-								} 
+									lover = {
+										character = PREVPREV # Don't pulse for lovers, they get a different event
+									}									
+								}								
 							}						
 						}
 						hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182713 } } } }
@@ -2366,6 +2453,29 @@ decisions = {
 					hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182709 } } } }
 				}
 			}
+			current_heir = { # Spouse of heir
+				any_spouse = {
+					if {
+						limit = { 
+							NOT = {
+								trait = incapable
+							}
+							age = 16
+							ROOT = {
+								NOT = { 
+									any_friend = { 
+										character = PREVPREV # Don't pulse for friends, they get a different event
+									}
+									lover = {
+										character = PREVPREV # Don't pulse for lovers, they get a different event
+									}									
+								}								
+							}						
+						}
+						hidden_tooltip = { ROOT = { PREV = { character_event = { id = 1000182713 } } } }
+					}
+				}
+			}				
 			character_event = { id = 1000182708 }
 		}
 		revoke_allowed = {
