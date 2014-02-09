@@ -2,16 +2,16 @@
 #newborn characters
 character_event = {
 	id = 300002
-	desc = "EVTDESC300001"
+
 	is_triggered_only = yes
+	hide_window = yes
 
 	trigger = {
 		NOT = { age = 1 }
 		NOT = { has_character_flag = genetics_check }
 	}
 
-	option = {
-		name = "EVTOPTA300001"
+	immediate = {
 		set_character_flag = genetics_check
 		hidden_tooltip = {
 			add_trait = young1
