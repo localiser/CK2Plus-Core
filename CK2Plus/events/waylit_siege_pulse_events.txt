@@ -59,15 +59,25 @@ character_event = {
 		remove_character_modifier = modifier_hidden
 		remove_character_modifier = left_at_siege
 		
-		random = { 
-			chance = 66
-			add_trait = zealous
-			remove_trait = cynical
-		}
-		random = {
-			chance = 25
-			add_trait = proud
-			remove_trait = humble
+		hidden_tooltip = {
+			random = { 
+				chance = 66
+				if = { 
+					limit = { trait = cynical }
+					remove_trait = cynical
+				}
+				add_trait = zealous
+				character_event = { id = 38269 }
+			}
+			random = {
+				chance = 25
+				if = { 
+					limit = { trait = humble }
+					remove_trait = humble
+				}
+				add_trait = proud
+				character_event = { id = 38261 }
+			}
 		}
 
 		
@@ -184,21 +194,34 @@ character_event = {
 		}
 				
 		scaled_wealth = -0.75
-		random = { 
-			chance = 66
-			add_trait = craven
-			remove_trait = brave
-		}
-		
-		random = { 
-			chance = 66
-			remove_trait = proud
-		}
-		 
-		random = {
-			chance = 5
-			add_trait = diligent
-			remove_trait = slothful
+		hidden_tooltip = {
+			random = { 
+				chance = 66
+				
+				if = { 
+					limit = { trait = brave }
+					remove_trait = brave
+				}
+				add_trait = craven
+				character_event = { id = 38257 }
+			}
+			
+			random = { 
+				chance = 66
+				remove_trait = proud
+				character_event = { id = 38300 }
+			}
+			 
+			random = {
+				chance = 5
+				
+				if = { 
+					limit = { trait = slothful }
+					remove_trait = slothful
+				}
+				add_trait = diligent
+				character_event = { id = 38256 }
+			}
 		}
 		
 		ROOT = {
@@ -363,43 +386,60 @@ character_event = {
 
 		}
 		
-		random = { 
-			chance = 25
-			add_trait = brave
-			remove_trait = craven
-		}
-		random = { 
-			chance = 25
-			remove_trait = proud
-			add_trait = humble
-		}
-		random = { 
-			chance = 10
-			remove_trait = slothful
-		}
-		random = { 
-			chance = 10
-			remove_trait = content
-		}
-		random = { 
-			chance = 10
-			add_trait = ill
-		}
-		random = { 
-			chance = 5
-			add_trait = wounded
-		}
-		random = { 
-			chance = 5
-			add_trait = pneumonic
-		}
-		random = { 
-			chance = 5
-			add_trait = infirm
-		}
-		random = { 
-			chance = 1
-			add_trait = maimed
+		hidden_tooltip = {
+			random = { 
+				chance = 25
+				if = { 
+					limit = { trait = craven }
+					remove_trait = craven
+				}
+				add_trait = brave
+				character_event = { id = 38270 }
+			}
+			random = { 
+				chance = 25
+				if = { 
+					limit = { trait = proud }
+					remove_trait = proud
+				}
+				add_trait = humble
+				character_event = { id = 38260 }				
+			}
+			random = { 
+				chance = 10
+				remove_trait = slothful
+				character_event = { id = 38298 }
+			}
+			random = { 
+				chance = 10
+				remove_trait = content
+				character_event = { id = 38299 }
+			}
+			random = { 
+				chance = 10
+				add_trait = ill
+				character_event = { id = 38290 }
+			}
+			random = { 
+				chance = 5
+				add_trait = wounded
+				character_event = { id = 38280 }
+			}
+			random = { 
+				chance = 5
+				add_trait = pneumonic
+				character_event = { id = 38290 }
+			}
+			random = { 
+				chance = 5
+				add_trait = infirm
+				character_event = { id = 38284 }
+			}
+			random = { 
+				chance = 1
+				add_trait = maimed
+				character_event = { id = 38281 }
+			}
 		}
 		custom_tooltip = { text = "dis_chance" }
 		hidden_tooltip = {
@@ -581,26 +621,48 @@ character_event = {
 				trait = slothful 
 			}
 		}
-		random = { 
-			chance = 25
-			add_trait = patient
-		}
-		random = { 
-			chance = 25
-			add_trait = stressed
-		}
-		random = { 
-			chance = 5
-			remove_trait = brave
-			add_trait = craven
-		}
-		random = { 
-			chance = 5
-			add_trait = temperate
-		}
-		random = { 
-			chance = 5
-			add_trait = paranoid
+		hidden_tooltip = {
+			random = { 
+				chance = 25
+				if = {
+					limit = { trait = wroth }
+					remove_trait = wroth
+				}
+				add_trait = patient
+				character_event { id = 38264 }
+			}
+			random = { 
+				chance = 25
+				add_trait = stressed
+				character_event { id = 38282 }
+			}
+			random = { 
+				chance = 5
+				if = {
+					limit = { trait = brave }
+					remove_trait = brave
+				}
+				add_trait = craven
+				character_event { id = 38257 }
+			}
+			random = { 
+				chance = 5
+				if = {
+					limit = { trait = greedy }
+					remove_trait = greedy
+				}
+				add_trait = temperate
+				character_event { id = 38276 }
+			}
+			random = { 
+				chance = 5
+				if = {
+					limit = { trait = trusting }
+					remove_trait = trusting
+				}
+				add_trait = paranoid
+				character_event { id = 38275 }
+			}
 		}
 	}
 }
