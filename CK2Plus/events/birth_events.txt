@@ -1510,14 +1510,15 @@ character_event = {
 
 	immediate = {
 		random_list = {
-			80 = {
+			50 = {
 				# All is well
 			}
-			10 = {
-				add_trait = sickly
-			}
-			10 = {
+			30 = {
 				add_trait = ill
+			}
+			20 = {
+				add_trait = sickly
+				
 			}
 		}
 		mother = {
@@ -1533,7 +1534,7 @@ character_event = {
 	option = { # No complications
 		name = OK
 		ai_chance = {
-			factor = 80
+			factor = 65
 			modifier = {
 				factor = 2.0
 				mother = {
@@ -1569,23 +1570,23 @@ character_event = {
 	option = { # Mother gets ill
 		name = OK
 		ai_chance = {
-			factor = 12
+			factor = 25
 			modifier = {
 				factor = 0
 				mother = {
-					trait = pneumonic
+					trait = ill
 				}
 			}
 			modifier = {
-				factor = 2.0
+				factor = 25
 				mother = {
 					NOT = { health = 4.1 }
 				}
 			}
 			modifier = {
-				factor = 1.5
+				factor = 10
 				mother = {
-					NOT = { num_of_children = 2 }
+					NOT = { num_of_children = 1 }
 				}
 			}
 		}
@@ -1608,16 +1609,15 @@ character_event = {
 	option = { # Mother gets pneumonia
 		name = OK
 		ai_chance = {
-			factor = 8
-			
+			factor = 3
 			modifier = {
-				factor = 2.0
+				factor = 1.5
 				mother = {
 					NOT = { health = 4.1 }
 				}
 			}
 			modifier = {
-				factor = 6.0
+				factor = 2
 				mother = {
 					NOT = { health = 3.1 }
 				}
@@ -1658,23 +1658,29 @@ character_event = {
 	option = { # Mother dies
 		name = OK
 		ai_chance = {
-			factor = 2
+			factor = 13
 			modifier = {
-				factor = 2.0
+				factor = 10
 				mother = {
 					NOT = { health = 4.1 }
 				}
 			}
 			modifier = {
-				factor = 6.0
+				factor = 25
 				mother = {
 					NOT = { health = 3.1 }
 				}
 			}
 			modifier = {
-				factor = 1.5
+				factor = 15
 				mother = {
-					NOT = { num_of_children = 2 }
+					NOT = { num_of_children = 1 }
+				}
+			}
+			modifier = {
+				factor = .4
+				mother = {
+					num_of_children = 2
 				}
 			}
 		}
@@ -1733,7 +1739,7 @@ character_event = {
 				age = 25
 			}
 			modifier = {
-				factor = 1.2
+				factor = 1.1
 				age = 30
 			}
 		}
@@ -1741,9 +1747,9 @@ character_event = {
 	option = { # Mother gets ill
 		name = OK
 		ai_chance = {
-			factor = 22
+			factor = 75
 			modifier = {
-				factor = 0
+				factor = 1.5
 				trait = pneumonic
 			}
 			modifier = {
@@ -1772,14 +1778,14 @@ character_event = {
 	option = { # Mother gets pneumonia
 		name = OK
 		ai_chance = {
-			factor = 10
+			factor = 4
 			
 			modifier = {
 				factor = 2.0
 				NOT = { health = 4.1 }
 			}
 			modifier = {
-				factor = 6.0
+				factor = 3
 				NOT = { health = 3.1 }
 			}
 			modifier = {
@@ -1814,18 +1820,18 @@ character_event = {
 	option = { # Mother dies
 		name = OK
 		ai_chance = {
-			factor = 2
+			factor = 13
 			modifier = {
-				factor = 2.0
+				factor = 10
 				NOT = { health = 4.1 }
 			}
 			modifier = {
-				factor = 6.0
+				factor = 25
 				NOT = { health = 3.1 }
 			}
 			modifier = {
-				factor = 1.5
-				NOT = { num_of_children = 2 }
+				factor = 4
+				NOT = { num_of_children = 1 }
 			}
 		}
 		death = {
