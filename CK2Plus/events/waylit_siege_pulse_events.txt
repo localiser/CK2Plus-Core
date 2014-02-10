@@ -56,10 +56,10 @@ character_event = {
 			name = stalwart_defender
 			duration = 730
 		}
-		remove_character_modifier = modifier_hidden
-		remove_character_modifier = left_at_siege
 		
 		hidden_tooltip = {
+			remove_character_modifier = modifier_hidden
+			remove_character_modifier = left_at_siege		
 			random = { 
 				chance = 66
 				if = { 
@@ -91,8 +91,10 @@ character_event = {
 					name = left_at_siege
 					duration = 180
 				}
-				remove_character_modifier = modifier_hidden
-				remove_character_modifier = stalwart_defender
+				hidden_tooltip = {
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
 			}
 			
 			any_spouse = {								
@@ -103,8 +105,10 @@ character_event = {
 					name = left_at_siege
 					duration = 180
 				}
-				remove_character_modifier = modifier_hidden	
-				remove_character_modifier = stalwart_defender
+				hidden_tooltip = {
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
 			}
 		}
 	}
@@ -141,12 +145,39 @@ character_event = {
 			name = stalwart_defender
 			duration = 730
 		}
-		remove_character_modifier = modifier_hidden	
-		remove_character_modifier = left_at_siege
 		
-		random = { chance = 25 add_trait = just remove_trait = arbitrary }
-		random = { chance = 20 add_trait = proud remove_trait = humble }
-		random = { chance = 5 add_trait = diligent remove_trait = slothful}
+		hidden_tooltip = {
+			remove_character_modifier = modifier_hidden	
+			remove_character_modifier = left_at_siege
+			
+			random = { 
+				chance = 25 
+				if = {
+					limit = { trait = arbitrary }
+					remove_trait = arbitrary
+				}
+				add_trait = just 
+				character_event = { id = 38267 }
+			}
+			random = { 
+				chance = 20 
+				if = {
+					limit = { trait = humble }
+					remove_trait = humble
+				}
+				add_trait = proud 
+				character_event = { id = 38261 }
+			}
+			random = { 
+				chance = 5 
+				if = {
+					limit = { trait = slothful }
+					remove_trait = slothful
+				}
+				add_trait = diligent 
+				character_event = { id = 38256 }
+			}
+		}
 		
 		ROOT = {
 			any_dynasty_member = {
@@ -158,8 +189,10 @@ character_event = {
 					name = modifier_hidden
 					duration = 730
 				}
-				remove_character_modifier = left_at_siege
-				remove_character_modifier = stalwart_defender
+				hidden_tooltip = {
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
 			}	 
 			any_spouse = {								
 				limit = { 
@@ -169,8 +202,10 @@ character_event = {
 					name = modifier_hidden
 					duration = 730
 				}
-				remove_character_modifier = left_at_siege	
-				remove_character_modifier = stalwart_defender
+				hidden_tooltip = {
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
 			}	 
 		}
 	}
@@ -236,8 +271,10 @@ character_event = {
 					name = modifier_hidden
 					duration = 730
 				}
-				remove_character_modifier = left_at_siege
-				remove_character_modifier = stalwart_defender
+				hidden_tooltip = {
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
 			}
 			any_spouse = {								
 				limit = { 
@@ -247,8 +284,10 @@ character_event = {
 					name = modifier_hidden
 					duration = 730
 				}
-				remove_character_modifier = left_at_siege
-				remove_character_modifier = stalwart_defender
+				hidden_tooltip = {
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
 			}	 
 		}
 	}
@@ -317,18 +356,32 @@ character_event = {
 			}
 		}
 		
-		random = { 
-			chance = 25
-			add_trait = brave
-			remove_trait = craven
-		}
-		random = { 
-			chance = 10
-			remove_trait = slothful
-		}
-		random = { 
-			chance = 10
-			remove_trait = content
+		hidden_tooltip = {
+			random = { 
+				chance = 25
+				if = {
+					limit = { trait = craven }
+					remove_trait = craven
+				}
+				add_trait = brave 
+				character_event = { id = 38270 }
+			}
+			random = { 
+				chance = 10
+				if = {
+					limit = { trait = slothful }
+					remove_trait = slothful
+					character_event = { id = 38298 }	
+				}
+			}
+			random = { 
+				chance = 10
+				if = {
+					limit = { trait = content }
+					remove_trait = content
+					character_event = { id = 38299 }	
+				}
+			}
 		}		
 
 		random_list = {
@@ -535,33 +588,58 @@ character_event = {
 		
 		random = { 
 			chance = 50
-			add_trait = brave
-			remove_trait = craven
+			if = {
+				limit = { trait = craven }
+				remove_trait = craven
+			}
+			add_trait = brave 
+			character_event = { id = 38270 }
 		}
 		random = {
 			chance = 50
-			add_trait = proud
+			if = {
+				limit = { trait = humble }
+				remove_trait = humble
+			}
+			add_trait = proud 
+			character_event = { id = 38261 }
 		}
 		random = { 
 			chance = 20
 			add_trait = lunatic
+			character_event = { id = 38304 }
 		}
 		random = { 
 			chance = 20
-			add_trait = trusting
+				if = {
+					limit = { trait = paranoid }
+					remove_trait = paranoid
+				}
+				add_trait = trusting
+				character_event = { id = 38250 }
 		}
 		random = { 
 			chance = 20
-			remove_trait = slothful
-			remove_trait = content
+			if = {
+				limit = { trait = slothful }
+				remove_trait = slothful
+				character_event = { id = 38298 }
+			}
+			if = {
+				limit = { trait = content }
+				remove_trait = content
+				character_event = { id = 38299 }
+			}
 		}
 		random = { 
 			chance = 5
 			add_trait = wounded
+			character_event = { id = 38280 }
 		}
 		random = { 
 			chance = 10
 			add_trait = maimed
+			character_event = { id = 38281 }
 		}
 		
 
@@ -710,8 +788,10 @@ character_event = {
 			name = modifier_hidden
 			duration = 730
 		}
-		remove_character_modifier = left_at_siege
-		remove_character_modifier = stalwart_defender
+		hidden_tooltip = {
+			remove_character_modifier = left_at_siege
+			remove_character_modifier = stalwart_defender
+		}
 		
 		add_character_modifier = {
 			name = escaped_siege
