@@ -2281,14 +2281,24 @@ decisions = {
 		is_high_prio = yes	
 
 		potential = {
-			is_adult = yes
-			prisoner = no
+			has_regent = no
 			is_heretic = no
 			piety = 0	
 			
 			NOT = {
 				has_character_flag = gone_pagan
-				religion_authority = 0.25				
+				OR = {
+					AND = {
+						religion_authority = 0.25
+						NOT = {
+							religion = shiite
+							religion = bektashi
+							religion = druze
+							religion = hurufi
+						}
+					}
+					religion_authority = 0.15
+				}
 				trait = zealous 
 				trait = incapable
 				culture_group = iberian # No pagan religion to assign them to
@@ -2298,11 +2308,17 @@ decisions = {
 					NOT = { culture = egyptian_arabic }
 				}
 			}
-			NOT = {
+			NOT = { # Unreformed Pagans don't have to change
 				AND = {
 					religion_group = pagan_group
 					is_reformed_religion = no
 				}
+			}
+			
+			NOT = {
+				religion = pagan # No reason for generic pagans to change
+				religion = monophysite # Historically very resilient despite size
+				religion = miaphysite # Historically very resilient despite size
 			}
 			
 			# Specific Lock outs. Don't want the option to appear for someone who can only go pagan to their current religion
