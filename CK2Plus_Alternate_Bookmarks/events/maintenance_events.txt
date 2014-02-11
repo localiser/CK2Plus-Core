@@ -3203,3 +3203,139 @@ character_event = {
 		clr_character_flag = centralize_without_penalties
 	}
 }
+
+character_event = {
+	id = 1000182703
+	desc = EVTDESC1000182703
+	
+	trigger = {
+		is_ruler = yes
+		war = no
+		prisoner = no
+		NOT = { any_liege = { war = yes } }		
+		NOT = { has_character_flag = returning_family }
+		OR = {
+			has_character_modifier = stalwart_defender
+			has_character_modifier = left_at_siege
+			has_character_modifier = modifier_hidden 
+			any_dynasty_member = {
+				at_location = ROOT
+				OR = {
+					has_character_modifier = modifier_hidden
+					has_character_modifier = left_at_siege
+					has_character_modifier = stalwart_defender
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+	immediate = {	
+		set_character_flag = returning_family
+	}
+	option = {
+		name = OK
+		
+		if = {
+			any_courtier = {
+				limit = { 
+					at_location = ROOT
+					has_character_modifier = modifier_hidden
+				}
+				remove_character_modifier = modifier_hidden
+			}
+		}
+		if = {
+			any_courtier = {
+				limit = { 
+					at_location = ROOT
+					has_character_modifier = left_at_siege
+				}
+				remove_character_modifier = left_at_siege
+			}
+		}
+		if = {
+			limit = { 
+				has_character_modifier = modifier_hidden
+			}
+			remove_character_modifier = modifier_hidden
+		}
+		if = {
+			any_dynasty_member = {
+				limit = { 
+					at_location = ROOT
+					has_character_modifier = modifier_hidden
+				}
+				remove_character_modifier = modifier_hidden
+			}
+		}
+		if = {
+			any_spouse = {
+				limit = { 
+					at_location = ROOT
+					has_character_modifier = modifier_hidden
+				}
+				remove_character_modifier = modifier_hidden
+			}
+		}
+		if = {
+			any_dynasty_member = {
+				limit = { 
+					at_location = ROOT
+					has_character_modifier = left_at_siege
+				}
+				remove_character_modifier = left_at_siege
+			}
+		}
+		if = {
+			any_spouse = {
+				limit = { 
+					at_location = ROOT
+					has_character_modifier = left_at_siege
+					}
+				remove_character_modifier = left_at_siege
+			}
+		}
+		hidden_tooltip = {
+			remove_character_modifier = stalwart_defender
+			clr_character_flag = returning_family
+		}		
+	}
+}
+
+character_event = {
+
+	id = 1000182714
+
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = third_temple_built }
+		has_global_flag = building_third_temple
+		k_papal_state = {
+			holder_scope = {
+				NOT = { has_character_modifier = third_temple_timer }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_global_flag = third_temple_built
+		clr_global_flag = building_third_temple
+		
+		any_playable_ruler = {
+			if = {
+				limit = { has_character_modifier = third_temple_builder }
+				narrative_event = { id = SoA.101 }
+				remove_character_modifier = third_temple_builder
+			}
+		}
+	}
+}
