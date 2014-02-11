@@ -2422,18 +2422,17 @@ holy_war = {
 		FROM = { NOT = { has_character_modifier = holy_truce_timer } }
 		ROOT = {
 			NOT = {
-				religion = norse_pagan
-				religion = tengri_pagan
-				religion = baltic_pagan
-				religion = slavic_pagan
-				religion = finnish_pagan
-				religion = west_african_pagan
-				religion = aztec_pagan
-				religion = celtic_pagan
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = no
+				}
 			}
 			OR = {
+				AND = {
+					is_patrician = yes
+					independent = yes
+				}
 				is_patrician = no
-				independent = yes
 			}
 		}
 		ROOT = {
@@ -2469,12 +2468,28 @@ holy_war = {
 			#ai needs some piety before it starts holy warring
 			OR = {
 				ai = no
-				piety = 50
+				OR = {
+					piety = 50
+					FROM = {
+						dejure_liege_title = {
+							holder_scope = {
+								character = ROOT
+							}
+						}
+					}
+				}
 			}
 			#must be contingent neighbour OR 100 piety
 			OR = {
 				ai = no
 				piety = 100
+				FROM = {
+					dejure_liege_title = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
 				any_realm_province = {
 					has_province_flag = contingent_territory
 					any_neighbor_province = {
@@ -2491,6 +2506,13 @@ holy_war = {
 			OR = {
 				ai = no
 				piety = 500
+				FROM = {
+					dejure_liege_title = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}				
 				any_realm_province = {
 					any_neighbor_province = {
 						owner = {
@@ -2507,6 +2529,13 @@ holy_war = {
 				ai = no
 				NOT = { FROM = { religion_group = pagan_group } }
 				piety = 200
+				FROM = {
+					dejure_liege_title = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}				
 				AND = {
 					religion_group = christian
 					has_global_flag = christian_crusades_unlocked
@@ -2533,6 +2562,13 @@ holy_war = {
 					}
 				}
 				piety = 200
+				FROM = {
+					dejure_liege_title = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}				
 				AND = {
 					religion_group = christian
 					has_global_flag = christian_crusades_unlocked
@@ -2585,23 +2621,17 @@ holy_war = {
 			#orthodox AI should avoid holy wars for the most part
 			OR = {
 				ai = no				
-					NOT = {
-						OR = {
-							religion = orthodox
-							religion = bogomilist
-							religion = nestorian
-							religion = monothelite
-							religion = iconoclast
-						}					
-					}
+				NOT = {
+					OR = {
+						religion = orthodox
+						religion = bogomilist
+						religion = nestorian
+						religion = monothelite
+						religion = iconoclast
+					}					
+				}
 				FROM = { religion_group = muslim }
-				piety = 400
-			}
-			#tengri AI should avoid holy wars for the most part
-			OR = {
-				ai = no
-				NOT = { religion = tengri_pagan }
-				piety = 400
+				piety = 400			
 			}
 			#christians should leave tengris alone
 			OR = {
