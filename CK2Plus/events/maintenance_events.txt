@@ -3334,3 +3334,32 @@ character_event = {
 		}
 	}
 }
+
+character_event = { # Remove Papal Claims on children that have them, as well as those under the Papacy
+
+	id = 1000182715
+
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			NOT = { 
+				age = 16
+			}
+			k_papal_state = {
+				same_realm = ROOT
+			}
+		}
+		any_claim = {
+			title = k_papal_state
+		}		
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_claim = k_papal_state
+	}
+}
