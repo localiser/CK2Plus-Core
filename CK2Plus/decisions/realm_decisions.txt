@@ -703,12 +703,14 @@ decisions = {
 			b_hagiasophia = {
 				holder_scope = {
 					is_heretic = no
-					OR = {
-						religion = catholic
-						religion = cathar
-						religion = fraticelli
-						religion = waldensian
-						religion = lollard
+					hidden_tooltip = {
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
 					}
 				}
 			}
@@ -716,12 +718,14 @@ decisions = {
 			b_antiocheia = {
 				holder_scope = {
 					is_heretic = no
-					OR = {
-						religion = catholic
-						religion = cathar
-						religion = fraticelli
-						religion = waldensian
-						religion = lollard
+					hidden_tooltip = {
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
 					}
 				}
 			}
@@ -729,12 +733,14 @@ decisions = {
 			b_jerusalem = {
 				holder_scope = {
 					is_heretic = no
-					OR = {
-						religion = catholic
-						religion = cathar
-						religion = fraticelli
-						religion = waldensian
-						religion = lollard
+					hidden_tooltip = {
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
+						}
 					}
 				}
 			}
@@ -742,35 +748,39 @@ decisions = {
 			b_alexandria = {
 				holder_scope = {
 					is_heretic = no
-					OR = {
-						religion = catholic
-						religion = cathar
-						religion = fraticelli
-						religion = waldensian
-						religion = lollard
-					}
-				}
-			}
-			completely_controls = c_roma
-			OR = {
-				AND = {
-				completely_controls = c_roma
-					b_roma = { 
-						holder_scope = {
-							is_heretic = no
-							OR = {
-								religion = catholic
-								religion = cathar
-								religion = fraticelli
-								religion = waldensian
-								religion = lollard
-							}
+					hidden_tooltip = {
+						OR = {
+							religion = catholic
+							religion = cathar
+							religion = fraticelli
+							religion = waldensian
+							religion = lollard
 						}
 					}
 				}
-				c_roma = {
-					holder_scope = {
-						has_landed_title = k_papal_state
+			}
+			custom_tooltip = {
+				text = ctt_schism_catholic_rome
+				OR = {
+					AND = {
+						completely_controls = c_roma
+						b_roma = { 
+							holder_scope = {
+								is_heretic = no
+								OR = {
+									religion = catholic
+									religion = cathar
+									religion = fraticelli
+									religion = waldensian
+									religion = lollard
+								}
+							}
+						}
+					}
+					c_roma = {
+						holder_scope = {
+							has_landed_title = k_papal_state
+						}
 					}
 				}
 			}
