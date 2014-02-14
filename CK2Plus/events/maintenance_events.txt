@@ -3208,7 +3208,10 @@ character_event = {
 		war = no
 		prisoner = no
 		NOT = { any_liege = { war = yes } }		
-		NOT = { has_character_flag = returning_family }
+		NOT = { 
+			has_character_flag = returning_family 
+			has_character_modifier = waylit_cd
+		}
 		OR = {
 			has_character_modifier = stalwart_defender
 			has_character_modifier = left_at_siege
@@ -3225,7 +3228,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 20
+		days = 1
 	}
 	
 	immediate = {	
@@ -3297,6 +3300,11 @@ character_event = {
 		hidden_tooltip = {
 			remove_character_modifier = stalwart_defender
 			clr_character_flag = returning_family
+			add_character_modifier = {
+				name = waylit_cd
+				hidden = yes
+				duration = 180
+			}
 		}		
 	}
 }
