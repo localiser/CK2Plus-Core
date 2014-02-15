@@ -412,15 +412,12 @@ duchy_adventure = {
 	on_reverse_demand = {
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
-			transfer_wealth = {
-				to = FROM
-				value = 100
-			}
-			wealth = -500
+			wealth = -100
 		}
 
 		FROM = {
 			prestige = 200
+			wealth = 100
 		}
 
 		ROOT = {
