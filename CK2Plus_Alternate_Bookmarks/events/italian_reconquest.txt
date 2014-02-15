@@ -1,0 +1,861 @@
+narrative_event = {
+	id = 1000182648 # Christians lament the fall of Sicily and pleads for assistance in the peninsula
+	title = EVTNAME1000182648
+	desc = EVTDESC1000182648
+	picture = GFX_evt_heretic
+	border = GFX_event_narrative_frame_religion
+	
+	is_triggered_only = yes
+	trigger = {
+		has_global_flag = divided_muslims
+	}
+	option = {
+		trigger = {
+			religion_group = christian
+		}
+		name = EVTOPTA1000182648
+	}
+	option = {
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+		name = EVTOPTA1000182648
+	}	
+}
+
+character_event = {
+	id = 1000182649 # The pope has found his champions
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = neustria_renamed }
+			}
+			random_list = {
+				50 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = italian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				40 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = norse
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				3 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = croatian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				2 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = serbian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				5 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = greek
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = neustria_renamed
+			}
+			random_list = {
+				50 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = italian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				40 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = norman
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				3 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = croatian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				2 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = serbian
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+				5 = {
+					create_character = {	
+						random_traits = no
+						religion = ROOT
+						culture = greek
+						dynasty = culture
+						female = no
+						age = 24
+						trait = brilliant_strategist
+						trait = holy_warrior
+						trait = strong
+						trait = zealous
+						trait = gregarious
+						attributes = {
+							martial = 8
+							diplomacy = 5
+							stewardship = 5
+							learning = 5
+							intrigue = 5
+						}
+					}
+				}
+			}			
+		}
+		new_character = {
+			opinion = {
+				who = FROM
+				modifier = papal_champion
+				months = 360
+			}
+			religion_head = {
+				opinion = {
+					who = PREV
+					modifier = my_champion
+					months = 360
+				}			
+			}
+			if = {
+				limit = {
+					d_benevento = {
+						OR = {
+							owner = {
+								NOT = { religion_group = christian }
+							}
+							has_holder = no
+						}
+					}
+				}
+				add_pressed_claim = "d_benevento"				
+			}
+			if = {
+				limit = {
+					d_apulia = {
+						OR = {
+							owner = {
+								NOT = { religion_group = christian }
+							}
+							has_holder = no
+						}
+					}
+				}
+				add_pressed_claim = "d_apulia"				
+			}
+			if = {
+				limit = {
+					d_capua = {
+						OR = {
+							owner = {
+								NOT = { religion_group = christian }
+							}
+							has_holder = no
+						}
+					}
+				}
+				add_pressed_claim = "d_capua"				
+			}
+			b_tivoli = {
+				gain_title = PREV # Temporarily give them a castle so they won't go republic or theocracy if they win against one of those
+			}
+			set_character_flag = duchy_adventurer
+			add_character_modifier = {
+				name = italian_reconquest
+				hidden = yes
+				duration = -1
+				inherit = yes
+			}
+			set_defacto_liege = THIS
+			create_title = {
+				tier = DUKE
+				landless = yes
+				temporary = yes
+				culture = THIS
+				name = "CLAIMANT_ADVENTURE"
+				holder = THIS
+			}
+			spawn_unit = {
+				province = 333
+				home = 333
+				owner = THIS
+				leader = THIS
+				match_character = ROOT
+				match_mult = 0.2
+				match_min = 4000
+				match_max = 5000
+				attrition = 0.25
+				earmark = claimant_adventure
+			}
+			character_event = { id = 1000182650 } 
+		}
+	}
+}
+
+character_event = {
+	id = 1000182650 # The champions head out
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		ROOT = {
+			# Create some decent commander characters
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = culture
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 30
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = culture
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 25
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = culture	
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 33
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = culture
+				religion = ROOT
+				culture = THIS
+				female = no
+				age = 29
+			}			
+			random_claim = {
+				holder_scope = {
+					reverse_war = {
+						target = ROOT
+						casus_belli = italian_reconquest
+						thirdparty_title = PREV
+					}
+					if = {
+						limit = {
+							ai = no # Give the Invaders a boost if targetting players, as players are better at handling the invasion
+						}
+						ROOT = {
+							spawn_unit = {
+								province = 333
+								home = 333
+								owner = THIS
+								leader = THIS
+								match_character = ROOT
+								match_mult = 0.2
+								match_min = 2000
+								match_max = 3000
+								attrition = 0.25
+								earmark = claimant_adventure
+							}						
+						}
+					}
+				}
+			}
+		}
+		any_playable_ruler = {
+			if = {
+				limit = { religion_group = christian }
+				if = {
+					limit = { ROOT = { culture = italian } }
+					narrative_event = { id = 1000182689 } 
+				}
+				if = {
+					limit = { ROOT = { culture = norse } }
+					narrative_event = { id = 1000182691 } 
+				}	
+				if = {
+					limit = { ROOT = { culture = norman } }
+					narrative_event = { id = 1000182692 } 
+				}
+				if = {
+					limit = { ROOT = { culture = croatian } }
+					narrative_event = { id = 1000182693 } 
+				}
+				if = {
+					limit = { ROOT = { culture = serbian } }
+					narrative_event = { id = 1000182694 } 
+				}	
+				if = {
+					limit = { ROOT = { culture = greek } }
+					narrative_event = { id = 1000182695 } 
+				}
+			}
+		}
+	}
+}
+
+
+character_event = { # The pope helps on the offensive!
+	id = 1000182687
+	
+	is_triggered_only = yes
+	hide_window = yes
+ 
+	immediate = {
+		religion_head = {
+			join_attacker_wars = FROM
+		}
+	}
+}
+
+character_event = { # The pope helps on the defensive!
+	id = 1000182688
+	
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = italian_reconquest_started
+		NOT = { 
+			has_global_flag = italian_rec_success
+			has_global_flag = italian_rec_failure
+		}
+		war = yes
+		is_playable = yes		
+		is_feudal = yes
+		
+		has_character_modifier = italian_reconquest
+
+	}
+ 
+	immediate = {
+		religion_head = {
+			join_defender_wars = FROM
+		}
+	}
+}
+
+narrative_event = { # The Champions head out, Italian (Narrative event)
+	id = 1000182689
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182689
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The King of Sicily is Crowned
+	id = 1000182690
+	title = EVTTITLE1000182690
+	desc = EVTDESC1000182690
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Norse (Narrative event)
+	id = 1000182691
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182691
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Norman (Narrative event)
+	id = 1000182692
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182692
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Croatian (Narrative event)
+	id = 1000182693
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182693
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Serbian (Narrative event)
+	id = 1000182694
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182694
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy	
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The Champions head out, Greek (Narrative event)
+	id = 1000182695
+	title = EVTTITLE1000182695
+	desc = EVTDESC1000182695
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000182689
+	}
+	
+}
+
+narrative_event = { # The King of Sicily is Crowned (Recipient)
+	id = 1000182696
+	title = EVTTITLE1000182696
+	desc = EVTDESC1000182696
+	picture = GFX_evt_pope
+	border = GFX_event_narrative_frame_diplomacy
+	sound = church_bells	
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		k_sicily = {
+			gain_title = ROOT
+		}
+		prestige = 500
+	}
+	
+	option = {
+		name = EVTOPTA1000182696
+	}
+	
+}
+
+narrative_event = { # The Invasion Fails
+	id = 1000182697
+	title = EVTTITLE1000182697
+	desc = EVTDESC1000182697
+	picture = GFX_evt_rome_falls
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			religion_group = christian
+		}
+		name = EVTOPTA1000182648
+	}
+	option = {
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+		name = EVTOPTA1000182648
+	}
+	
+}
+
+character_event = { # Maintenance Check for Failed Invasion (landless or vassal invaders)
+	id = 1000182698
+	
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = italian_reconquest_started
+		has_global_flag = first_war_success
+		NOT = { 
+			has_global_flag = italian_rec_success
+			has_global_flag = italian_rec_failure
+		}
+		war = no	
+		OR = {
+			independent = no
+			is_ruler = no
+		}		
+		has_character_modifier = italian_reconquest
+	}
+	
+	mean_time_to_happen = {
+		days = 1	
+	}
+	
+	immediate = {
+		remove_character_modifier = italian_reconquest
+		religion_head = {
+			remove_opinion = {
+				who = ROOT
+				modifier = my_champion
+			}
+		}
+		set_global_flag = italian_rec_failure
+		any_playable_ruler = { narrative_event = { id = 1000182697 } }
+	}
+}
+
+character_event = { # Maintenance Check, Start the invasion
+	id = 1000182699
+	
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = italian_reconquest_planning
+		NOT = { 
+			has_global_flag = italian_reconquest_started
+		}
+		has_landed_title = k_papal_state
+		has_character_modifier = italian_reconquest_pope
+		
+		NOT = {
+			c_benevento = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_teate = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_foggia = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_teate = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_capua = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_napoli = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_gaete = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_apulia = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_bari = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_lecce = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_salerno = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_taranto = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_amalfi = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_consenza = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_reggio = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_palermo = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_messina = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_siracusa = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_agrigento = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_trapani = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}
+			c_malta = {
+				holder_scope = {
+					top_liege = {
+						has_character_modifier = holy_truce_timer
+					}
+				}
+			}			
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 2
+	}
+	
+	immediate = {
+		remove_character_modifier = italian_reconquest_pope
+		set_global_flag = italian_reconquest_started
+		character_event = { id = 1000182649 }
+	}
+}
