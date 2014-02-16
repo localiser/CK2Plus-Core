@@ -3637,10 +3637,11 @@ province_event = {
 	trigger = {
 		has_trade_post = yes
 		owner = {
-			is_patrician = no
+			is_patrician = no			
 			top_liege = {
-				is_patrician = no
+				is_patrician = no			
 			}
+
 		}
 		trade_post_owner = {
 			ROOT = {
@@ -3691,7 +3692,7 @@ province_event = {
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.65
 			trade_post_owner = {
 				ROOT = {
 					owner = {
@@ -3772,14 +3773,79 @@ character_event = {
 	option = { # Bribe
 		name = EVTOPTB_REP_602
 		trigger = {
-			scaled_wealth = 0.50
+			OR = {
+				AND = {
+					scaled_wealth = 2.5
+					OR = {
+						NOT = { higher_tier_than = COUNT }
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = yes
+							}
+						}						
+					}
+				}
+				AND = {
+					scaled_wealth = 0.65
+					higher_tier_than = COUNT				
+					OR = {
+						independent = yes
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = no
+							}
+						}
+					}				
+				}
+			}
 		}
-		scaled_wealth = -0.50
+		if = {
+			limit = { 
+				FROMFROM = {
+					OR = {
+						NOT = { higher_tier_than = COUNT }
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = yes
+							}
+						}						
+					}
+				}
+			}
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 2.5
+				}
+			}
+		}
+		if = {
+			limit = { 
+				FROMFROM = {
+					higher_tier_than = COUNT
+					OR = {
+						independent = yes
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = no
+							}
+						}
+					}
+				}
+			}
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 0.65
+				}
+			}
+		}
 		FROMFROM = {
 			province_event = { id = REP.608 days = 6 tooltip = EVTTOOLTIP_REP_604 }
-		}
-		tooltip = {
-			FROM = { scaled_wealth = 0.50 }
 		}
 	}
 	option = { # Stewardship
@@ -3835,24 +3901,98 @@ character_event = {
 	option = {
 		name = EVTOPTA_REP_604
 		ai_chance = { factor = 70 }
-		scaled_wealth = 0.50
 		opinion = {
 			modifier = opinion_bribed_tp
 			who = FROMFROM
 		}
-		tooltip = {
+		if = {
+			limit = { 
+				FROMFROM = {
+					OR = {
+						NOT = { higher_tier_than = COUNT }
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = yes
+							}
+						}						
+					}
+				}
+			}
 			FROMFROM = {
-				scaled_wealth = 0.50
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 2.5
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					higher_tier_than = COUNT
+					OR = {
+						independent = yes
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = no
+							}
+						}
+					}
+				}
+			}
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 0.65
+				}
 			}
 		}
 	}
 	option = {
 		name = EVTOPTB_REP_604
 		ai_chance = { factor = 30 }
-		wealth = 100
-		tooltip = {
+		if = {
+			limit = { 
+				FROMFROM = {
+					OR = {
+						NOT = { higher_tier_than = COUNT }
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = yes
+							}
+						}						
+					}
+				}
+			}
 			FROMFROM = {
-				scaled_wealth = -0.50
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 2.5
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					higher_tier_than = COUNT
+					OR = {
+						independent = yes
+						AND = {
+							independent = no
+							any_liege = {
+								is_patrician = no
+							}
+						}
+					}
+				}
+			}
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 0.65
+				}
 			}
 		}
 		piety = -50

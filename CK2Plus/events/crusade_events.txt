@@ -48,7 +48,7 @@ character_event = {
 		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 		}
 	}
 }
@@ -94,7 +94,7 @@ character_event = {
 		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
 			change_variable = { which = "faction_mood_religious" value = 1 }
-			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 110073 days = 1 } } }
+			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 		}
 	}
 }
@@ -2751,7 +2751,12 @@ character_event = {
 				}
 			}
 			treasury = 500
-			add_character_modifier = { name = "holy_truce_timer" duration = 3650 }
+			add_character_modifier = { 
+				name = "crusade_block_timer" 
+				duration = 3650 
+				hidden = yes
+				inherit = yes
+			}
 			character_event = { id = 1008902 }
 			clr_character_flag = centralize_without_penalties
 		}

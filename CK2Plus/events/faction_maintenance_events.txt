@@ -1,6 +1,6 @@
 #Faction Maintenance on Character Death
 character_event = {
-	id = 110047
+	id = 1000183003
 	picture = "GFX_evt_death"
 
 	hide_window = yes
@@ -56,7 +56,7 @@ character_event = {
 					}
 					clr_character_flag = faction_pretender_war
 				}
-				random_courtier = { limit = { ai = yes prisoner = no is_ruler = no NOT = { character = PREV } } character_event = { id = 110073 days = 3 } }
+				random_courtier = { limit = { ai = yes prisoner = no is_ruler = no NOT = { character = PREV } } character_event = { id = 1000183004 days = 3 } }
 			}
 			if = {
 				limit = {
@@ -233,7 +233,7 @@ character_event = {
 
 #recalculate moods
 character_event = {
-	id = 110073
+	id = 1000183004
 
 	is_triggered_only = yes
 
@@ -242,7 +242,7 @@ character_event = {
 	option = {
 		name = "OK"
 		liege = {
-			character_event = { id = 110033 }
+			character_event = { id = 1000182859 }
 			if = {
 				limit = { trait = immortal2 }
 				remove_trait = immortal2
