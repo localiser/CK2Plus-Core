@@ -2614,6 +2614,7 @@ character_event = {
 		OR = {
 			religion = tengri_pagan
 			religion = aztec_pagan
+			has_landed_title = e_timurids
 		}
 		ai = yes
 		NOT = { trait = bloodlust }
@@ -2639,6 +2640,10 @@ character_event = {
 			AND = {
 				has_global_flag = aztec_arrival
 				NOT = { has_global_flag = aztecs_defeated }
+			}
+			AND = {
+				has_global_flag = timurid_arrival
+				NOT = { e_timurids = { has_holder = no } }
 			}
 		}	
 	}
@@ -2673,6 +2678,7 @@ character_event = { #Remove Bloodlust Trait
 					OR = {
 						religion = tengri_pagan 
 						religion = aztec_pagan
+						has_landed_title = e_timurids
 					}
 				}
 				ai = yes
