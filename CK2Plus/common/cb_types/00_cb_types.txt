@@ -1725,7 +1725,12 @@ crusade = {
 	can_use_gui = {
 		ROOT = { NOT = { has_character_modifier = holding_epic_tournament }	}
 		ROOT = { NOT = { has_character_modifier = holy_truce_timer } }
-		FROM = { NOT = { has_character_modifier = holy_truce_timer } }		
+		FROM = { 
+			NOT = { 
+				has_character_modifier = holy_truce_timer
+				has_character_modifier = crusade_block_timer 
+			} 
+		}		
 		ROOT = { # The Religious Head
 			has_called_crusade = no
 			religion_authority = 0.4
