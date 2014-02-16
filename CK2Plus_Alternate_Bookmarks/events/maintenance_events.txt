@@ -1,6 +1,5 @@
-# Wiz Event Range
-character_event = {
-	id = 110000
+character_event = { # AI Mercenaries
+	id = 1000182852
 	picture = "GFX_evt_council"
 
 	only_rulers = yes
@@ -42,8 +41,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110001
+character_event = { # This event copies empires Crown Laws to de Jure Kingdoms
+	id = 1000182853
 	picture = "GFX_evt_council"
 
 	is_triggered_only = yes
@@ -87,14 +86,14 @@ character_event = {
 		}
 	}
 
-	desc = "EVTDESC110001"
+	desc = "EVTDESC1000182853"
 
 	mean_time_to_happen = {
 		days = 1
 	}
 
 	option = {
-		name = "EVTOPTA110001"
+		name = "EVTOPTA1000182853"
 		set_character_flag = centralize_without_penalties
 		any_demesne_title = {
 			limit = {
@@ -178,8 +177,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110018
+character_event = { # AI plot check
+	id = 1000182854
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -264,8 +263,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110019
+character_event = { # Cancel AI plot if too few helpers and has taken too long
+	id = 1000182855
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -301,8 +300,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110020
+character_event = { # Allow AI plotting
+	id = 1000182856
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -365,8 +364,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110028
+character_event = { # Fix Laws if CA differs from max law level for the CA
+	id = 1000182857
 	picture = "GFX_evt_council"
 	is_triggered_only = yes
 	only_rulers = yes
@@ -415,7 +414,7 @@ character_event = {
 		}
 	}
 
-	desc = "EVTDESC110027"
+	desc = "EVTDESC1000182857"
 
 	mean_time_to_happen = {
 		days = 1
@@ -616,8 +615,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110031
+character_event = { # Remove Tyrant Trait on non-rulers
+	id = 1000182858
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -676,8 +675,8 @@ character_event = {
 	}
 }
 
-character_event = { #Shatter Empire if too small
-	id = 110033
+character_event = { # Shatter Empire if too small
+	id = 1000182859
 	is_triggered_only = yes
 	only_rulers = yes
 	trigger = {
@@ -719,12 +718,12 @@ character_event = { #Shatter Empire if too small
 		}
 	}
 
-	desc = "EVTDESC110033"
+	desc = "EVTDESC1000182859"
 
 	immediate = {
 		#attempt to form a kingdom so we don't lose all our dukes
 		set_character_flag = empire_is_disbanding
-		character_event = { id = 110027 }
+		character_event = { id = 1000182857 }
 		clr_character_flag = empire_is_disbanding
 	}
 
@@ -733,7 +732,7 @@ character_event = { #Shatter Empire if too small
 	}
 
 	option = {
-		name = "EVTOPTA110033"
+		name = "EVTOPTA1000182859"
 		any_demesne_title = {
 			limit = {
 				tier = emperor
@@ -775,7 +774,7 @@ character_event = { #Shatter Empire if too small
 }
 
 character_event = { # Remove Crowned by Pope if not the Kaiser
-	id = 110043
+	id = 1000182860
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -793,8 +792,8 @@ character_event = { # Remove Crowned by Pope if not the Kaiser
 	}
 }
 
-character_event = {
-	id = 110044
+character_event = { # Inherit Half of Dishonourable and Tyrant
+	id = 1000182861
 	picture = "GFX_evt_death"
 
 	hide_window = yes
@@ -1627,14 +1626,10 @@ character_event = {
 			}
 		}
 	}
-
-	option = {
-		name = "EVTOPTA110044"
-	}
 }
 
-character_event = {
-	id = 110049
+character_event = { # AI Spouse finder
+	id = 1000182862
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -1884,7 +1879,7 @@ character_event = {
 
 # Remove claims
 character_event = {
-	id = 110050
+	id = 1000182863
 
 	hide_window = yes
 	is_triggered_only = yes
@@ -2028,16 +2023,12 @@ character_event = {
 			remove_claim = ROOT
 		}
 	}
-
-	option = {
-		name = "OK"
-	}
 }
 
 
 #AI employs debutante
 character_event = {
-	id = 110058
+	id = 1000182864
 	is_triggered_only = yes
 	only_rulers = yes
 	hide_window = yes
@@ -2074,7 +2065,7 @@ character_event = {
 
 #Remove just
 character_event = {
-	id = 110059
+	id = 1000182865
 	is_triggered_only = yes
 
 	trigger = {
@@ -2085,16 +2076,16 @@ character_event = {
 		remove_trait = just
 	}
 
-	desc = "EVTDESC110059"
+	desc = "EVTDESC1000182865"
 
 	option = {
-		name = "EVTOPTA110059"
+		name = "EVTOPTA1000182865"
 		tooltip = { remove_trait = just }
 	}
 }
 
-character_event = {
-	id = 110063
+character_event = { # Remove Loyalist
+	id = 1000182866
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -2117,8 +2108,8 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = 110064
+character_event = { # Remove Rebel and set opinion modifiers
+	id = 1000182867
 	hide_window = yes
 
 	trigger = {
@@ -2169,8 +2160,8 @@ character_event = {
 	}
 }
 
-character_event = { #Byzantium is reclaimed by an Orthodox ruler
-	id = 110068
+character_event = { # Byzantium is reclaimed by an Orthodox ruler
+	id = 1000182868
 	picture = "GFX_evt_council"
 
 	trigger = {
@@ -2196,14 +2187,14 @@ character_event = { #Byzantium is reclaimed by an Orthodox ruler
 		e_roman_empire = { has_holder = no }
 	}
 
-	desc = "EVTDESC110068"
+	desc = "EVTDESC1000182868"
 
 	mean_time_to_happen = {
 		days = 1
 	}
 
 	option = {
-		name = "EVTOPTA110068"
+		name = "EVTOPTA1000182868"
 		set_character_flag = centralize_without_penalties
 		e_byzantium = {
 			hidden_tooltip = {
@@ -2225,8 +2216,8 @@ character_event = { #Byzantium is reclaimed by an Orthodox ruler
 	}
 }
 
-character_event = { #Convert Latin Empire to Byzantine Empire if the holder is no longer Catholic
-	id = 110069
+character_event = { # Convert Latin Empire to Byzantine Empire if the holder is no longer Catholic
+	id = 1000182869
 
 	trigger = {
 		war = no
@@ -2243,7 +2234,7 @@ character_event = { #Convert Latin Empire to Byzantine Empire if the holder is n
 		}
 	}
 
-	desc = "EVTDESC110069"
+	desc = "EVTDESC1000182869"
 
 	mean_time_to_happen = {
 		days = 1
@@ -2285,7 +2276,7 @@ character_event = { #Convert Latin Empire to Byzantine Empire if the holder is n
 			destroy_landed_title = yes
 		}
 		hidden_tooltip = {
-			k_papal_state = { holder_scope = { character_event = { id = 110070 } } }
+			k_papal_state = { holder_scope = { character_event = { id = 1000182870 } } }
 			any_vassal = {
 				limit = { NOT = { has_character_flag = considered_for_independence } }
 				character_event = { id = 1000182684 days = 3 }
@@ -2296,7 +2287,7 @@ character_event = { #Convert Latin Empire to Byzantine Empire if the holder is n
 
 #contingent territory flags
 character_event = {
-	id = 110070
+	id = 1000182870
 
 	is_triggered_only = yes
 	hide_window = yes
@@ -2312,12 +2303,12 @@ character_event = {
 		any_independent_ruler = {
 			capital_scope = { set_province_flag = contingent_territory }
 		}
-		character_event = { id = 110071 }
+		character_event = { id = 1000182871 }
 	}
 }
 
-character_event = {
-	id = 110071
+character_event = { # Contingent Territory Check Part 2
+	id = 1000182871
 
 	is_triggered_only = yes
 	hide_window = yes
@@ -2335,7 +2326,6 @@ character_event = {
 	}
 	
 	immediate = {
-		name = "OK"
 		any_playable_ruler = {
 			random_demesne_province = {
 				limit = {
@@ -2348,12 +2338,12 @@ character_event = {
 				set_province_flag = contingent_territory
 			}
 		}
-		character_event = { id = 110071 }
+		character_event = { id = 1000182871 }
 	}
 }
 
-character_event = {
-	id = 110072
+character_event = { # Independent Opinion Modifiers
+	id = 1000182872
 
 	is_triggered_only = yes
 	hide_window = yes
@@ -2392,7 +2382,7 @@ character_event = {
 }
 
 character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the title holder is not Orthodox or Hellenic
-	id = 110074
+	id = 1000182873
 
 	trigger = {
 		war = no
@@ -2410,7 +2400,7 @@ character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the
 		}
 	}
 
-	desc = "EVTDESC110074"
+	desc = "EVTDESC1000182873"
 
 	mean_time_to_happen = {
 		days = 1
@@ -2451,7 +2441,7 @@ character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the
 			destroy_landed_title = yes
 		}
 		hidden_tooltip = {
-			k_papal_state = { holder_scope = { character_event = { id = 110070 } } }
+			k_papal_state = { holder_scope = { character_event = { id = 1000182870 } } }
 			any_vassal = {
 				limit = { NOT = { has_character_flag = considered_for_independence } }
 				character_event = { id = 1000182684 days = 3 }
@@ -2460,8 +2450,8 @@ character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the
 	}
 }
 
-character_event = {
-	id = 110075
+character_event = { # Non-Holy Order gain title
+	id = 1000182874
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -2553,8 +2543,8 @@ character_event = {
 	}
 }
 
-character_event = { #Vassalize the Knights Templar and Knights Hospitaler to the Kingdom of Jerusalem if held by a non-heretic Catholic
-	id = 110076
+character_event = { # Vassalize the Knights Templar and Knights Hospitaler to the Kingdom of Jerusalem if held by a non-heretic Catholic
+	id = 1000182875
 	is_triggered_only = yes
 	hide_window = yes
 
@@ -3213,7 +3203,10 @@ character_event = {
 		war = no
 		prisoner = no
 		NOT = { any_liege = { war = yes } }		
-		NOT = { has_character_flag = returning_family }
+		NOT = { 
+			has_character_flag = returning_family 
+			has_character_modifier = waylit_cd
+		}
 		OR = {
 			has_character_modifier = stalwart_defender
 			has_character_modifier = left_at_siege
@@ -3230,7 +3223,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 20
+		days = 1
 	}
 	
 	immediate = {	
@@ -3302,13 +3295,18 @@ character_event = {
 		hidden_tooltip = {
 			remove_character_modifier = stalwart_defender
 			clr_character_flag = returning_family
+			add_character_modifier = {
+				name = waylit_cd
+				hidden = yes
+				duration = 180
+			}
 		}		
 	}
 }
 
 character_event = {
 
-	id = 1000182714
+	id = 1000182851
 
 	hide_window = yes
 
@@ -3337,5 +3335,34 @@ character_event = {
 				remove_character_modifier = third_temple_builder
 			}
 		}
+	}
+}
+
+character_event = { # Remove Papal Claims on children that have them, as well as those under the Papacy
+
+	id = 1000183005
+
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			NOT = { 
+				age = 16
+			}
+			k_papal_state = {
+				same_realm = ROOT
+			}
+		}
+		any_claim = {
+			title = k_papal_state
+		}		
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_claim = k_papal_state
 	}
 }
