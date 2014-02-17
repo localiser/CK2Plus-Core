@@ -1,0 +1,160 @@
+
+### Dynamic construction of holdings
+province_event = { # People demand extra defence
+	id = 1000189020
+	desc = EVTDESC1000189020
+	picture = GFX_evt_battle
+
+	trigger = {
+		has_global_flag = another_new_dawn
+		AND = {
+			NOT = { has_province_flag = castle_constr }
+			OR = {
+				has_province_modifier = thieves_guild
+				has_province_modifier = smugglers_ring
+				has_province_modifier = highway_robber_band
+				has_province_modifier = revolt_risk
+			}
+			ruler = { NOT = { martial = 10 } }
+		}
+		ruler = {
+			wealth = 200
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 100
+		modifier = {
+			factor = 0.2
+			NOT = {
+				any_province_lord = {
+					is_feudal = yes
+					tier = BARON
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			num_of_settlements = 4
+		}
+	}
+	
+	option = {
+		name = EVTOPTA1000189020
+		ruler = {
+			wealth = -200
+			custom_tooltip = {
+				text = CONSTRUCTCASTLE
+				hidden_tooltip = {
+					character_event = {	id = 1000189021 days = 500 }
+					ROOT = { set_province_flag = castle_constr }
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB1000189020
+#		add_building = {
+#		
+#		}
+	}
+	option = {
+		name = EVTOPTC1000189020
+		add_province_modifier = {
+			name = revolt_risk
+			duration = 365
+		}
+	}
+}
+
+character_event = { # Building of a castle
+	id = 1000189021
+	desc = EVTDESC1000189021
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1000189021
+		FROM = {
+			clr_province_flag = castle_constr
+			build_holding = {
+				type = castle
+				holder = ROOT
+			}
+		}
+	}
+}
+
+province_event = { # People demand a place to pray
+	id = 1000189040
+	desc = EVTDESC1000189040
+	picture = "GFX_evt_heretic"
+
+	trigger = {
+		has_global_flag = another_new_dawn
+		religion_authority = 40
+		NOT = {
+			any_province_lord = {
+				is_priest = yes
+			}
+		}
+		ruler = { wealth = 200 }
+	}
+	
+	option = {
+		name = EVTOPTA1000189040
+		ruler = { 
+			wealth = -200
+			custom_tooltip = {
+				text = CONSTRUCTTEMPLE
+				hidden_tooltip = { province_event = { id = 1000189041 days = 500 } }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB1000189040
+		add_province_modifier = {
+			name = revolt_risk
+			duration = 365
+		}
+	}
+}
+
+province_event = { # Building of a temple
+	id = 1000189041
+	desc = EVTDESC1000189041
+	picture = "GFX_evt_stone_church"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA1000189041
+		ROOT = {
+			build_holding = {
+				type = temple
+				holder = ruler
+			}
+		}
+	}
+}
+
+#province_event = { # Traders offer construction of city
+#	id = 1000189060
+#	desc = EVTDESC1000189060
+#	picture = "GFX_evt_market"
+#
+#	trigger = {
+#		has_global_flag = another_new_dawn
+#		
+#	}
+#	
+#	
+#	option = {
+#		name = EVTOPTA1000189060
+#		build_holding = {
+#			type = city
+#			holder = FROM
+#		}
+#	}
+#}
+### Destruction of holdings
+#picture = GFX_evt_burning_house

@@ -1,0 +1,376 @@
+### religious flavour
+
+### Astrolatry
+## Supernova ('new stars')
+
+#SN1006
+character_event = {
+	id = 1000191001
+	desc = EVTDESC1000191001
+	picture = "GFX_evt_comet"
+	
+	only_rulers = yes
+	min_age = 16	
+	trigger = {
+		year = 1006
+		NOT = { year = 1036 }
+		independent = yes
+		OR = {
+			religion_group = astrolatry_group
+			religion = celestial_norse_pagan
+			religion = celestial_tengri_pagan
+			religion = celestial_baltic_pagan
+			religion = celestial_celtic_pagan
+			religion = celestial_egyptian_pagan
+			religion = celestial_slavic_pagan
+			religion = celestial_finnish_pagan
+			religion = celestial_aztec_pagan
+			religion = celestial_west_african_pagan
+			religion = celestial_hellenic_pagan
+		}
+		NOT = { has_character_flag = new_star }
+	}
+	
+	immediate = {
+		set_character_flag = new_star
+	}
+	
+	option = {
+		name = EVTOPTA1000191001
+		trigger = {
+			OR = {
+				religion = orionism
+				NOT = { religion_group = astrolatry_group }
+			}
+		}
+		add_character_modifier = {
+			name = new_star_blessed
+			duration = -1
+		}
+	}
+	option = {
+		name = EVTOPTB1000191001
+		location = {
+			add_province_modifier = {
+				name = new_star_catastrophe
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC1000191001
+		trigger = {
+			OR = {
+				religion = heliosism
+				religion = selenism
+				religion = polarism
+			}
+		}
+		IF = {
+			limit = {
+				any_realm_character = {
+					has_job_title = job_spiritual
+					learning = 15
+				}
+			}
+			ROOT = {
+				add_character_modifier = {
+					name = new_star_blessed
+					duration = -1
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_realm_character = {
+					has_job_title = job_spiritual
+					NOT = { learning = 15 }
+				}
+			}
+			ROOT = {
+				religion = orionism
+				any_realm_character = {
+					limit = {
+						has_job_title = job_spiritual
+					}
+					religion = orionism
+				}
+			}
+		}
+	}
+}
+#SN1054
+character_event = {
+	id = 1000191002
+	desc = EVTDESC1000191001
+	picture = GFX_evt_comet
+	
+	only_rulers = yes
+	min_age = 16	
+	trigger = {
+		year = 1054
+		NOT = { year = 1084 }
+		independent = yes
+		OR = {
+			religion_group = astrolatry_group
+			religion = celestial_norse_pagan
+			religion = celestial_tengri_pagan
+			religion = celestial_baltic_pagan
+			religion = celestial_celtic_pagan
+			religion = celestial_egyptian_pagan
+			religion = celestial_slavic_pagan
+			religion = celestial_finnish_pagan
+			religion = celestial_aztec_pagan
+			religion = celestial_west_african_pagan
+			religion = celestial_hellenic_pagan
+		}
+		NOT = { has_character_flag = new_star }
+	}
+	
+	immediate = {
+		set_character_flag = new_star
+	}
+	
+	option = {
+		name = EVTOPTA1000191001
+		trigger = {
+			OR = {
+				religion = orionism
+				NOT = { religion_group = astrolatry_group }
+			}
+		}
+		add_character_modifier = {
+			name = new_star_blessed
+			duration = -1
+		}
+	}
+	option = {
+		name = EVTOPTB1000191001
+		location = {
+			add_province_modifier = {
+				name = new_star_catastrophe
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC1000191001
+		trigger = {
+			OR = {
+				religion = heliosism
+				religion = selenism
+				religion = polarism
+			}
+		}
+		IF = {
+			limit = {
+				any_realm_character = {
+					has_job_title = job_spiritual
+					learning = 15
+				}
+			}
+			ROOT = {
+				add_character_modifier = {
+					name = new_star_blessed
+					duration = -1
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_realm_character = {
+					has_job_title = job_spiritual
+					NOT = { learning = 15 }
+				}
+			}
+			ROOT = {
+				religion = orionism
+				any_realm_character = {
+					limit = {
+						has_job_title = job_spiritual
+					}
+					religion = orionism
+				}
+			}
+		}
+	}
+}
+#SN1181
+character_event = {
+	id = 1000191003
+	desc = EVTDESC1000191001
+	picture = GFX_evt_comet
+	
+	only_rulers = yes
+	min_age = 16	
+	trigger = {
+		year = 1181
+		NOT = { year = 1211 }
+		independent = yes
+		OR = {
+			religion_group = astrolatry_group
+			religion = celestial_norse_pagan
+			religion = celestial_tengri_pagan
+			religion = celestial_baltic_pagan
+			religion = celestial_celtic_pagan
+			religion = celestial_egyptian_pagan
+			religion = celestial_slavic_pagan
+			religion = celestial_finnish_pagan
+			religion = celestial_aztec_pagan
+			religion = celestial_west_african_pagan
+			religion = celestial_hellenic_pagan
+		}
+		has_character_flag = new_star
+	}
+	
+	immediate = {
+		set_character_flag = new_star
+	}
+	
+	option = {
+		name = EVTOPTA1000191001
+		trigger = {
+			OR = {
+				religion = orionism
+				NOT = { religion_group = astrolatry_group }
+			}
+		}
+		add_character_modifier = {
+			name = new_star_blessed
+			duration = -1
+		}
+	}
+	option = {
+		name = EVTOPTB1000191001
+		location = {
+			add_province_modifier = {
+				name = new_star_catastrophe
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC1000191001
+		trigger = {
+			OR = {
+				religion = heliosism
+				religion = selenism
+				religion = polarism
+			}
+		}
+		IF = {
+			limit = {
+				any_realm_character = {
+					has_job_title = job_spiritual
+					learning = 15
+				}
+			}
+			ROOT = {
+				add_character_modifier = {
+					name = new_star_blessed
+					duration = -1
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_realm_character = {
+					has_job_title = job_spiritual
+					NOT = { learning = 15 }
+				}
+			}
+			ROOT = {
+				religion = orionism
+				any_realm_character = {
+					limit = {
+						has_job_title = job_spiritual
+					}
+					religion = orionism
+				}
+			}
+		}
+	}
+}
+
+## Comets
+#
+#
+#
+## Aurora borealis
+## Moon eclipse
+## Sun eclipse
+
+
+### Ancestry
+
+
+
+
+### Pantheism
+
+# Invest in a forest garden
+province_event = {
+	id = 1000191071
+	desc = EVTDESC1000191071
+	picture = "GFX_evt_garden"
+	is_triggered_only = yes
+		
+	option = {
+		name = EVTOPTA1000191071
+		custom_tooltip = {
+			text = FORESTGARDENCONSTR
+			hidden_tooltip = { 
+				add_province_modifier = {
+					name = forest_garden_constr
+					duration = -1
+				}
+				province_event = { id = 1000191072 days = 150 }
+			}
+		}
+	}
+}
+# forest garden is build
+province_event = {
+	id = 1000191072
+	desc = EVTDESC1000191072
+	picture = "GFX_evt_garden"
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA1000191072
+		hidden_tooltip = { remove_province_modifier = forest_garden_constr }
+		random_province_lord = {
+			limit = {	is_priest = yes }
+			any_demesne_title = {
+				limit = {
+					tier = BARON
+				}
+				add_building = tp_forest_garden_1
+			}
+		}
+	}
+}
+
+# Derpingtonian modifiers
+character_event = {
+	id = 1000191101
+	hide_window = yes
+	hide_from = yes
+	
+	only_rulers = yes
+	min_age = 16	
+	trigger = {
+		independent = yes # only independent rulers for now, this to increase performance of the event until I make the modifier inherited and added on conversion.
+		OR = {
+			religion = celestial_derpic
+			religion = natural_derpic
+			religion = ancestral_derpic
+		}
+		NOT = { has_character_modifier = foolish_war_started }
+		NOT = { has_character_modifier = no_foolish_war_started }
+	}
+	
+	immediate = {
+		add_character_modifier = { name = no_foolish_war_started duration = -1 }
+	}
+}

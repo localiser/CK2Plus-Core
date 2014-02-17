@@ -1,0 +1,47 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	build_cost = cost to build the building
+ #	build_time = time to build, in days
+ #
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+
+ # Temple
+temple = {
+	tp_forest_garden_1 = {
+		desc = tp_forest_garden_1_desc
+		potential = {
+			OR = {
+				religion_group = pantheism_group
+				religion = natural_norse_pagan
+				religion = natural_tengri_pagan
+				religion = natural_baltic_pagan
+				religion = natural_celtic_pagan
+				religion = natural_egyptian_pagan
+				religion = natural_slavic_pagan
+				religion = natural_finnish_pagan
+				religion = natural_aztec_pagan
+				religion = natural_west_african_pagan
+				religion = natural_hellenic_pagan
+			}
+		}
+		trigger = {
+			always = no
+		}
+		build_cost = 0
+		build_time = 0
+		
+		archers = 200
+		tech_growth_modifier = 0.1
+		culture_techpoints = 0.05
+		liege_piety = 0.05
+		
+		ai_creation_factor = 1
+		extra_tech_building_start = 10.0
+	}
+}

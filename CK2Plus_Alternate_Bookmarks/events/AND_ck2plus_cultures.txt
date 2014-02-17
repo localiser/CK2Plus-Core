@@ -1,34 +1,40 @@
-namespace = AND
-
 ### Culture evolves
 #Liege indulgence in province's culture in response to province's conversion
 character_event = {
-	id = AND.401
-	desc = AND.401.desc
+	id = 1000191500
+	desc = EVTDESC1000191500
 	picture = "GFX_evt_council"
 	is_triggered_only = yes
 	
 	option = {
-		name = AND.401.a
+		name = EVTOPTA1000191500
 		ROOT = {
 			culture = FROM
+			any_child = {
+				limit = {
+					same_realm = ROOT
+				}
+				culture = FROM
+			}
 		}
 	}
 	option = {
-		name = AND.401.b
+		name = EVTOPTB1000191500
 		trigger = {
 			ai = no
 		}
 	}
 }
+# Province flags
 character_event = {
-	id = AND.402
+	id = 1000191501
 	hide_window = yes
 	hide_from = yes
 		
 	trigger = {
 		ai = no
 		NOT = { has_global_flag = provinces_set }
+		has_global_flag = another_new_dawn
 	}
 	
 	mean_time_to_happen = {
@@ -90,11 +96,12 @@ character_event = {
 }
 # neighbouring province conversion
 province_event = {
-	id = AND.403
-	desc = AND.403.desc
+	id = 1000191502
+	desc = EVTDESC1000191502
 	picture = "GFX_evt_council"
 	
 	trigger = {
+		has_global_flag = another_new_dawn
 		culture = tribal
 		any_neighbor_province = {
 			has_owner = yes
@@ -115,7 +122,7 @@ province_event = {
 		}
 	}
 	option = {
-		name = AND.403.a
+		name = EVTOPTA1000191502
 		IF = {
 			limit = { 
 				ruler = { culture = tribal }
@@ -128,11 +135,12 @@ province_event = {
 }
 # cultures spawning starting event
 province_event = {
-	id = AND.409
+	id = 1000191509
 	hide_window = yes
 	hide_from = yes
 	
 	trigger = {
+		has_global_flag = another_new_dawn
 		culture = tribal
 		NOT = { has_global_flag = cultures_founded }
 		NOT = { has_province_modifier = county_levy_destr }
@@ -185,7 +193,7 @@ province_event = {
 			random_list = {	# Random norse-ish culture
 				100 = {	# placeholder norse 1
 					ROOT = {
-						province_event = { id = AND.4111 }
+						province_event = { id = 1000191511 }
 					}
 				}
 			}
@@ -206,7 +214,7 @@ province_event = {
 			random_list = {	# Random eastern culture
 				100 = {	# placeholder eastern 1
 					ROOT = {
-						province_event = { id = AND.4112 }
+						province_event = { id = 1000191513 }
 					}
 				}
 			}
@@ -232,7 +240,7 @@ province_event = {
 			random_list = {	# Random iranian culture
 				100 = {	
 					ROOT = {
-						province_event = { id = AND.4113 }
+						province_event = { id = 1000191514 }
 					}
 				}
 			}
@@ -258,7 +266,7 @@ province_event = {
 			random_list = {	# Random semitic culture
 				100 = {	# placeholder arabic 1
 					ROOT = {
-						province_event = { id = AND.4114 }
+						province_event = { id = 1000191515 }
 					}
 				}
 			}
@@ -286,7 +294,7 @@ province_event = {
 			random_list = {	# Random african culture
 				100 = {	# placeholder african 1
 					ROOT = {
-						province_event = { id = AND.4115 }
+						province_event = { id = 1000191516 }
 					}
 				}
 			}
@@ -314,7 +322,7 @@ province_event = {
 			random_list = {	# Random southern culture
 				100 = {	# placeholder southern 1
 					ROOT = {
-						province_event = { id = AND.4116 }
+						province_event = { id = 1000191517 }
 					}
 				}
 			}
@@ -340,7 +348,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4117 }
+						province_event = { id = 1000191518 }
 					}
 				}
 			}
@@ -366,7 +374,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4118 }
+						province_event = { id = 1000191519 }
 					}
 				}
 			}
@@ -393,7 +401,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4119 }
+						province_event = { id = 1000191520 }
 					}
 				}
 			}
@@ -419,7 +427,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4120 }
+						province_event = { id = 1000191521 }
 					}
 				}
 			}
@@ -445,7 +453,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4121 }
+						province_event = { id = 1000191522 }
 					}
 				}
 			}
@@ -471,7 +479,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4122 }
+						province_event = { id = 1000191523 }
 					}
 				}
 			}
@@ -497,7 +505,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4123 }
+						province_event = { id = 1000191524 }
 					}
 				}
 			}
@@ -524,7 +532,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4124 }
+						province_event = { id = 1000191525 }
 					}
 				}
 			}
@@ -550,7 +558,7 @@ province_event = {
 			random_list = {	# Random western culture
 				100 = {	# placeholder western 1
 					ROOT = {
-						province_event = { id = AND.4125 }
+						province_event = { id = 1000191526 }
 					}
 				}
 			}
@@ -560,7 +568,7 @@ province_event = {
 ### Actual culture change of a random province. The events do nothing when the culture already is founded.
 # Nordic
 province_event = {
-	id = AND.4111
+	id = 1000191511
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -577,14 +585,14 @@ province_event = {
 				culture = nordic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 # Eastern
 province_event = {
-	id = AND.441
+	id = 1000191512
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -601,14 +609,14 @@ province_event = {
 				culture = samoyed
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 # Ugric
 province_event = {
-	id = AND.4112
+	id = 1000191513
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -625,14 +633,14 @@ province_event = {
 				culture = ugric
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 #Iranian
 province_event = {
-	id = AND.4113
+	id = 1000191514
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -649,14 +657,14 @@ province_event = {
 				culture = iranian
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 # Semitic
 province_event = {
-	id = AND.4114
+	id = 1000191515
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -673,14 +681,14 @@ province_event = {
 				culture = semitic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 # South African
 province_event = {
-	id = AND.4115
+	id = 1000191516
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -697,14 +705,14 @@ province_event = {
 				culture = west_african
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 # Italic
 province_event = {
-	id = AND.4116
+	id = 1000191517
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -721,14 +729,14 @@ province_event = {
 				culture = italic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 # Germanic
 province_event = {
-	id = AND.4117
+	id = 1000191518
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -745,7 +753,7 @@ province_event = {
 				culture = germanic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -753,7 +761,7 @@ province_event = {
 
 # Hamitic
 province_event = {
-	id = AND.4118
+	id = 1000191519
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -770,7 +778,7 @@ province_event = {
 				culture = hamitic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -778,7 +786,7 @@ province_event = {
 
 # Hellenic
 province_event = {
-	id = AND.4119
+	id = 1000191520
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -795,14 +803,14 @@ province_event = {
 				culture = hellenic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 #Iberian
 province_event = {
-	id = AND.4120
+	id = 1000191521
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -819,7 +827,7 @@ province_event = {
 				culture = iberian
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -827,7 +835,7 @@ province_event = {
 
 #Slavic
 province_event = {
-	id = AND.4121
+	id = 1000191522
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -844,7 +852,7 @@ province_event = {
 				culture = slavic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -852,7 +860,7 @@ province_event = {
 
 #Baltic
 province_event = {
-	id = AND.4122
+	id = 1000191523
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -869,7 +877,7 @@ province_event = {
 				culture = baltic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -877,7 +885,7 @@ province_event = {
 
 #Altaic
 province_event = {
-	id = AND.4123
+	id = 1000191524
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -894,7 +902,7 @@ province_event = {
 				culture = altaic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -902,7 +910,7 @@ province_event = {
 
 #Celtic
 province_event = {
-	id = AND.4124
+	id = 1000191525
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -919,7 +927,7 @@ province_event = {
 				culture = celtic
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
@@ -927,7 +935,7 @@ province_event = {
 
 #Kartvelian
 province_event = {
-	id = AND.4125
+	id = 1000191526
 	hide_window = yes
 	hide_from = yes
 	is_triggered_only = yes
@@ -944,10 +952,250 @@ province_event = {
 				culture = kartvelian
 			}
 			holder_scope = {
-				character_event = { id = AND.401 }
+				character_event = { id = 1000191500 }
 			}
 		}
 	}
 }
 
-
+##Change to a reformed culture after becoming a king
+character_event = {
+	id = 1000191600
+	hide_window = yes
+	hide_from = yes
+	trigger = {
+		has_global_flag = another_new_dawn
+		AND = {
+			tier = KING
+			OR = {
+				culture = germanic
+				culture = slavic
+				culture = italic
+				culture = celtic
+				culture = nordic
+				culture = baltic
+				culture = ugric
+				culture = altaic
+				culture = kartvelian
+				culture = hellenic
+				culture = iranian
+				culture = hamitic
+				culture = west_african
+			}
+		}
+	}
+	immediate = {
+		IF = {
+			limit = {
+				culture = germanic
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = aleman }
+					ROOT = { any_realm_character = {culture = aleman}}
+					ROOT = { any_realm_lord = {culture = aleman}}
+					ROOT = { any_realm_province = {culture = aleman}}
+				}
+				50 = {
+					ROOT = { culture = saxon }
+					ROOT = { any_realm_character = {culture = saxon}}
+					ROOT = { any_realm_lord = {culture = saxon}}
+					ROOT = { any_realm_province = {culture = saxon}}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = slavic
+			}
+			random_list = {
+				50 = {
+					25 = {
+						ROOT = { culture = polish}
+						ROOT = { any_realm_character = {culture = polish}}
+						ROOT = { any_realm_lord = {culture = polish}}
+						ROOT = { any_realm_province = {culture = polish}}
+					}
+					50 = {
+						ROOT = { culture = russian}
+						ROOT = { any_realm_character = {culture = russian}}
+						ROOT = { any_realm_lord = {culture = russian}}
+						ROOT = { any_realm_province = {culture = russian}}
+					}
+					25 = {
+						ROOT = { culture = bohemian}
+						ROOT = { any_realm_character = {culture = bohemian}}
+						ROOT = { any_realm_lord = {culture = bohemian}}
+						ROOT = { any_realm_province = {culture = bohemian}}
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = italic
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = italian}
+					ROOT = { any_realm_character = {culture = italian}}
+					ROOT = { any_realm_lord = {culture = italian}}
+					ROOT = { any_realm_province = {culture = italian}}
+				}
+				50 = {
+					ROOT = { culture = sicilian}
+					ROOT = { any_realm_character = {culture = sicilian}}
+					ROOT = { any_realm_lord = {culture = sicilian}}
+					ROOT = { any_realm_province = {culture = sicilian}}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = celtic
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = breton}
+					ROOT = { any_realm_character = {culture = breton}}
+					ROOT = { any_realm_lord = {culture = breton}}
+					ROOT = { any_realm_province = {culture = breton}}
+				}
+				50 = {
+					ROOT = { culture = gaulish}
+					ROOT = { any_realm_character = {culture = gaulish}}
+					ROOT = { any_realm_lord = {culture = gaulish}}
+					ROOT = { any_realm_province = {culture = gaulish}}
+				
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = nordic
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = swedish}
+					ROOT = { any_realm_character = {culture = swedish}}
+					ROOT = { any_realm_lord = {culture = swedish}}
+					ROOT = { any_realm_province = {culture = swedish}}
+				}
+				50 = {
+					ROOT = { culture = norwegian}
+					ROOT = { any_realm_character = {culture = norwegian}}
+					ROOT = { any_realm_lord = {culture = norwegian}}
+					ROOT = { any_realm_province = {culture = norwegian}}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = baltic
+			}
+			ROOT = { culture = lithuanian}
+			ROOT = { any_realm_character = {culture = lithuanian}}
+			ROOT = { any_realm_lord = {culture = lithuanian}}
+			ROOT = { any_realm_province = {culture = lithuanian}}
+		}
+		IF = {
+			limit = {
+				culture = ugric
+			}
+			ROOT = { culture = komi}
+			ROOT = { any_realm_character = {culture = komi}}
+			ROOT = { any_realm_lord = {culture = komi}}
+			ROOT = { any_realm_province = {culture = komi}}
+		}
+		IF = {
+			limit = {
+				culture = altaic
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = cuman}
+					ROOT = { any_realm_character = {culture = cuman}}
+					ROOT = { any_realm_lord = {culture = cuman}}
+					ROOT = { any_realm_province = {culture = cuman}}
+				}
+				50 = {
+					ROOT = { culture = mongol}
+					ROOT = { any_realm_character = {culture = mongol}}
+					ROOT = { any_realm_lord = {culture = mongol}}
+					ROOT = { any_realm_province = {culture = mongol}}
+				}
+			}	
+		}
+		IF = {
+			limit = {
+				culture = hellenic
+			}
+			ROOT = { culture = greek}
+			ROOT = { any_realm_character = {culture = greek}}
+			ROOT = { any_realm_lord = {culture = greek}}
+			ROOT = { any_realm_province = {culture = greek}}
+		}
+		IF = {
+			limit = {
+				culture = iranian
+			}
+			ROOT = { culture = persian}
+			ROOT = { any_realm_character = {culture = persian}}
+			ROOT = { any_realm_lord = {culture = persian}}
+			ROOT = { any_realm_province = {culture = persian}}
+		}
+		IF = {
+			limit = {
+				culture = hamitic
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = ancient_egyptian}
+					ROOT = { any_realm_character = {culture = ancient_egyptian}}
+					ROOT = { any_realm_lord = {culture = ancient_egyptian}}
+					ROOT = { any_realm_province = {culture = ancient_egyptian}}
+				}
+				25 = {
+					ROOT = { culture = nubian}
+					ROOT = { any_realm_character = {culture = nubian}}
+					ROOT = { any_realm_lord = {culture = nubian}}
+					ROOT = { any_realm_province = {culture = nubian}}
+				}
+				25 = {
+					ROOT = { culture = ethiopian}
+					ROOT = { any_realm_character = {culture = ethiopian}}
+					ROOT = { any_realm_lord = {culture = ethiopian}}
+					ROOT = { any_realm_province = {culture = ethiopian}}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = west_african
+			}
+			random_list = {
+				50 = {
+					ROOT = { culture = manden}
+					ROOT = { any_realm_character = {culture = manden}}
+					ROOT = { any_realm_lord = {culture = manden}}
+					ROOT = { any_realm_province = {culture = manden}}
+				}
+				50 = {
+					ROOT = { culture = nubian}
+					ROOT = { any_realm_character = {culture = sosso}}
+					ROOT = { any_realm_lord = {culture = sosso}}
+					ROOT = { any_realm_province = {culture = sosso}}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				culture = semitic
+			}
+			ROOT = { culture = bedouin_arabic}
+			ROOT = { any_realm_character = {culture = bedouin_arabic}}
+			ROOT = { any_realm_lord = {culture = bedouin_arabic}}
+			ROOT = { any_realm_province = {culture = bedouin_arabic}}
+		}
+	}
+}

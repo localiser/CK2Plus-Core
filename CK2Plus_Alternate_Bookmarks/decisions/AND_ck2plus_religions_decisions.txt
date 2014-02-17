@@ -1,0 +1,49 @@
+decisions = {
+
+	pantheist_forest_garden = {
+		potential = {
+			OR = {
+				religion_group = pantheism_group
+				religion = natural_norse_pagan
+				religion = natural_tengri_pagan
+				religion = natural_baltic_pagan
+				religion = natural_celtic_pagan
+				religion = natural_egyptian_pagan
+				religion = natural_slavic_pagan
+				religion = natural_finnish_pagan
+				religion = natural_aztec_pagan
+				religion = natural_west_african_pagan
+				religion = natural_hellenic_pagan
+			}
+			NOT = {
+				any_realm_title = {
+					tier = baron
+					has_building = tp_forest_garden_1
+				}
+			}
+			NOT = {
+				any_realm_title = {
+					tier = baron
+					location = { has_province_modifier = forest_garden_constr }
+				}
+			}
+		}
+		allow = {
+			tier = KING
+			wealth = 150
+		}
+		effect = {
+			wealth = -147
+			hidden_tooltip = {
+				any_realm_title = {
+					limit = {
+						tier = baron
+						NOT = { has_building = tp_forest_garden_1 }
+						NOT = { location = { has_province_modifier = forest_garden_constr } }
+					}
+					location = { province_event = { id = 1000191071 } }
+				}
+			}
+		}
+	}
+}
