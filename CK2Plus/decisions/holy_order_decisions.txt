@@ -10,68 +10,6 @@
 
 decisions = {
 
-	borrow_money_knights_templar = {
-		potential = {
-			OR = {
-				religion = catholic
-				religion = cathar
-				religion = fraticelli
-				religion = waldensian
-				religion = lollard
-			}
-			is_heretic = no
-			is_title_active = d_knights_templar
-			NOT = { has_character_modifier = borrowed_from_knights_templar }
-			has_dlc = "Sons of Abraham"
-		}
-		
-		allow = {
-			d_knights_templar = {
-				holder_scope = {
-					wealth = 300
-					ROOT = {
-						NOT = { excommunicated_for = PREV }
-					}
-				}
-			}
-		}
-		
-		effect = {
-			add_character_modifier = {
-				name = borrowed_from_knights_templar
-				duration = -1
-				inherit = yes
-			}
-			
-			hidden_tooltip = {
-				d_knights_templar = {
-					holder_scope = {
-						character_event = {
-							id = SoA.1010
-						}
-					}
-				}
-			}
-			
-			wealth = 300
-		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				wealth = 0
-			}
-			modifier = {
-				factor = 0.01 # Slow it down
-			}
-		}
-	}
-	
 	expel_the_knights_templar = {
 		potential = {
 			ai = no
@@ -749,63 +687,6 @@ decisions = {
 		}
 	}
 	
-	borrow_money_assassins = {
-		potential = {
-			OR = {
-				religion = shiite
-				religion = druze
-				religion = hurufi
-			}
-			is_heretic = no
-			is_title_active = d_hashshashin
-			NOT = { has_character_modifier = borrowed_from_assassins }
-			has_dlc = "Sons of Abraham"
-		}
-		
-		allow = {
-			d_hashshashin = {
-				holder_scope = {
-					wealth = 300
-				}
-			}
-		}
-		
-		effect = {
-			add_character_modifier = {
-				name = borrowed_from_assassins
-				duration = -1
-				inherit = yes
-			}
-			
-			hidden_tooltip = {
-				d_hashshashin = {
-					holder_scope = {
-						character_event = {
-							id = SoA.1410
-						}
-					}
-				}
-			}
-			
-			wealth = 300
-		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				wealth = 0
-			}
-			modifier = {
-				factor = 0.01 # Slow it down
-			}
-		}
-	}
-	
 	donate_money_to_assassins = {
 		potential = {
 			OR = {
@@ -858,63 +739,6 @@ decisions = {
 		}
 	}
 		
-		
-	borrow_money_ansar = {
-		potential = {
-			OR = {
-				religion = sunni
-				religion = zikri
-				religion = yazidi
-			}
-			is_heretic = no
-			is_title_active = d_ansar
-			NOT = { has_character_modifier = borrowed_from_ansar }
-			has_dlc = "Sons of Abraham"
-		}
-		
-		allow = {
-			d_ansar = {
-				holder_scope = {
-					wealth = 300
-				}
-			}
-		}
-		
-		effect = {
-			add_character_modifier = {
-				name = borrowed_from_ansar
-				duration = -1
-				inherit = yes
-			}
-			
-			hidden_tooltip = {
-				d_ansar = {
-					holder_scope = {
-						character_event = {
-							id = SoA.1210
-						}
-					}
-				}
-			}
-			wealth = 300
-		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				wealth = 0
-			}
-			modifier = {
-				factor = 0.01 # Slow it down
-			}
-		}
-	}
-
 	donate_money_to_ansar = {
 		potential = {
 			OR = {
