@@ -461,31 +461,6 @@ magyar_invasion = {
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 200 }
 		}
-		FROM = {
-			if = {
-				limit = { 
-					has_dlc = "Legacy of Rome"
-					OR = { 
-						has_landed_title = e_byzantium
-						has_landed_title = e_roman_empire
-
-					AND = {
-							independent = yes
-							higher_tier_than = COUNT
-							OR = {
-								culture = roman
-								religion = hellenic_pagan
-							}
-						}
-					}
-					OR = {
-						religion_group = christian
-						religion_group = pagan_group
-					}
-				}
-				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
-			}
-		}
 	}
 
 	attacker_ai_victory_worth = {

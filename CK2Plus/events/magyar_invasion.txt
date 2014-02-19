@@ -7,9 +7,6 @@ character_event = {
 	
 	immediate = {
 	
-		any_claim = {
-			remove_claim = ROOT
-		}
 		if = {
 			limit = { has_nickname = no }
 			give_nickname = nick_the_great
@@ -188,7 +185,7 @@ character_event = {
 			county = {
 				create_character = {
 					random_traits = yes
-					dynasty = none
+					dynasty = RANDOM
 					religion = PREV
 					culture = PREV
 					female = no
@@ -225,6 +222,9 @@ character_event = {
 		k_carpathia = {
 			destroy_landed_title = yes 
 		}
+		any_claim = {
+			remove_claim = ROOT
+		}		
 		set_global_flag = magyar_victory
 	}
 }
