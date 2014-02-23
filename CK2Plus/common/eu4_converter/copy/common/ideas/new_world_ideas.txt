@@ -1,0 +1,247 @@
+#######################################
+#########                   ###########
+####       MEIOU and Taxes        #####
+####				   ####
+#########                   ###########
+#######################################
+
+
+#Table of Contents
+
+#Colonial Nations
+	#Brazil
+	#United States of America
+#Mesoamerica
+#Andes
+
+
+#Colonial Nations
+	#Brazil
+BRZ_ideas = {
+	start = {
+		legitimacy = 1
+		discipline = 0.05
+	}
+
+	bonus = {
+		global_trade_income_modifier = 0.1
+	}
+
+	trigger = {
+		tag = BRZ
+	}
+
+	free = yes	#will be added at load.
+
+	brazilian_birth = {
+		land_maintenance_modifier = -0.1
+		leader_land_manuever = 1
+	}
+	the_courtier_faction = {
+		diplomatic_reputation = 2
+    }
+	creation_armed_forces = {
+		land_morale = 0.1
+	}
+	aberdeen_act = {
+		relations_decay_of_me = 0.15
+	}
+	brazilian_golden_age = {
+		production_efficiency = 0.1
+	}
+	brazilian_constitution = {
+		adm_tech_cost_modifier = -0.15
+	}
+	rights_of_women = {
+	 	prestige = 0.5
+	}
+}
+
+
+	#United States of America
+USA_ideas = {
+	start = {
+		trade_efficiency = 0.1
+		religious_unity = 0.2
+	}
+
+	bonus = {
+		republican_tradition = 0.01
+	}
+
+	trigger = {
+		tag = USA
+	}
+	free = yes
+
+	freedom_of_religion = {
+		no_religion_penalty = yes
+	}
+	usa_bill_of_rights = {
+		global_revolt_risk = -2
+	}
+	empire_of_liberty = {
+		colonists = 1
+	}
+	lessons_of_valley_forge = {
+		land_morale = 0.1
+	}
+	workshop_of_the_world = {
+		production_efficiency = 0.1
+	}
+	shining_city_on_a_hill = {
+		prestige = 1
+	}
+	indian_removal = {
+		cb_on_primitives = yes
+ 	}
+}
+
+#Mesoamerica
+AZT_ideas = {
+	start = {
+		prestige_from_land = 0.5
+		infantry_power = 0.10
+	}
+	bonus = {
+		army_tradition_decay = -0.01
+	}
+
+	trigger = {
+		OR = {
+			tag = ACO
+			tag = AZT
+			tag = CBS
+			tag = CHI
+			tag = MIX
+			tag = NAH
+			tag = OTO
+			tag = PIP
+			tag = PUR
+			tag = QUM
+			tag = TEN
+			tag = TEO
+			tag = TEP
+			tag = TXL
+			tag = TOT
+			tag = XAL
+			tag = ZAP
+		}
+	}
+	free = yes
+
+	flower_wars = {
+		army_tradition = 0.3
+	}
+	modernize_military_order = {
+		land_morale = 0.15
+	}
+	childern_of_corn = {
+		global_tax_modifier = 0.10
+	}
+	surgery_field = {
+		manpower_recovery_speed = 0.1
+	}
+	teotihuacan_legacy = {
+		prestige = 1
+	}
+	modernize_discipline = {
+		discipline = 0.05
+	}
+	promote_eurasian_plants = {
+		production_efficiency = 0.1
+	}
+}
+
+MAY_ideas = {
+	start = {
+		land_forcelimit_modifier = 0.25
+	   	advisor_cost = -0.1
+	}
+	bonus = {
+		idea_cost = -0.10
+	}
+
+	trigger = {
+		OR = {
+			tag = MAY
+			tag = KKM
+		}
+	}
+	free = yes
+
+	mayan_minds = {
+		technology_cost = -0.05
+	}
+	promote_chilam = {
+		stability_cost_modifier = -0.1
+	}
+	natural_medicaments = {
+		manpower_recovery_speed = 0.1
+	}
+	resignation_from_lash_and_burn = {
+		global_tax_modifier = 0.1
+	}
+	modern_holkanob = {
+		global_regiment_recruit_speed = -0.15
+		infantry_cost = -0.10
+	}
+	reconstruction_of_old_ways = {
+		global_trade_income_modifier = 0.10
+	}
+	memory_of_golden_age = {
+	   	advisor_cost = -0.1
+		prestige = 0.5
+	}
+}
+
+#Andes
+INC_ideas = {
+	start = {
+		global_tax_modifier = 0.1
+		leader_fire = 1
+	}
+	bonus = {
+		global_manpower_modifier = 0.15
+	}
+
+	trigger = {
+		OR = {
+			tag = AYA
+			tag = AYM
+			tag = CBC
+			tag = CHC
+			tag = CHM
+			tag = CZC
+			tag = HUA
+			tag = INC
+			tag = MAP
+			tag = NZC
+			tag = QUI
+		}
+	}
+	free = yes
+
+	andean_architecture = {
+		defensiveness = 0.2
+	}
+	amazonian_mercenaries = {
+		mercenary_cost = -0.1
+		possible_mercenaries = 0.25
+	}
+	terraced_agriculture = {
+		production_efficiency = 0.1
+	}
+	promote_coca = {
+		land_morale = 0.1
+	}
+	natural_medicaments = {
+		manpower_recovery_speed = 0.1
+	}
+	modern_yacha_huasi = {
+		technology_cost = -0.05
+	}
+	diversification_coins_inc = {
+		inflation_reduction = 0.1
+	}
+}

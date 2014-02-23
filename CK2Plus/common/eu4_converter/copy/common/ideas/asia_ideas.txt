@@ -1,0 +1,1134 @@
+#######################################
+#########                   ###########
+####       MEIOU and Taxes        #####
+####				   ####
+#########                   ###########
+#######################################
+
+#Table of Contents
+#Anatolia
+#Middle-East (Egypt is in African ideas)
+#India
+#East-Asia
+#Central Asia
+#Persia
+#Indochina
+#Indonesia
+
+#Anatolia
+	#Trebizond, proposed by dexterstclaire, implemented and tweaked by Sun_Wu
+TRE_ideas = {
+	start = {
+		mercenary_cost = -0.15
+		diplomatic_reputation = 2
+	}
+
+	bonus = {
+		prestige = 1
+	}
+
+	trigger = {
+		OR = {
+			tag = TRE
+		}
+	}
+	free = yes		#will be added at load.
+
+	pragmatism = {
+		tolerance_heathen = 1
+	}
+	imperial_legacy = {
+		core_creation = -0.1
+	}
+	silk_road = {
+		global_tax_modifier = 0.10
+	}
+	one_true_faith = {
+		global_missionary_strength = 0.01
+	}
+	black_sea_trade = {
+		global_trade_income_modifier = 0.10
+	}
+	hardened_troops = {
+		discipline = 0.05
+	}
+	megas_komnenos = {
+		legitimacy = 1
+	}
+}
+
+
+	#Turkey
+TUR_ideas = {
+	start = {
+		discipline = 0.10
+		core_creation = -0.25
+	}
+
+	bonus = {
+		manpower_recovery_speed = 0.20
+	}
+
+	trigger = {
+		OR = {
+			tag = OTT
+			tag = TUR
+			tag = TUY
+		}
+	}
+	free = yes		#will be added at load.
+
+	ottoman_tolerance = {
+ 		tolerance_heathen = 2
+		religious_unity = 0.33
+	}
+	ghazi = {
+		extra_manpower_at_religious_war = yes
+	}
+	timariot_system = {
+		cavalry_power = 0.15
+	}
+	autonmous_pashas = {
+		war_exhaustion_cost = -0.33
+	}
+	lawcode_of_suleiman_01 = {
+		global_tax_modifier = 0.15
+	}
+	tulip_period = {
+		global_trade_income_modifier = 0.10
+	}
+	imperial_school_of_naval_engineering = {
+		global_ship_cost = -0.1
+	}
+}
+
+#Middle-East
+HED_ideas = {
+	start = {
+		global_manpower_modifier = 0.1
+		cavalry_cost = -0.1
+	}
+
+	bonus = {
+		cavalry_power = 0.15
+	}
+
+	trigger = {
+		tag = HEJ
+	}
+	free = yes
+
+	custodian_of_the_two_holy_cities = {
+		tolerance_own = 2
+	}
+	hed_red_sea_trade = {
+		global_own_trade_power = 0.1
+	}
+	sharifs_of_mecca = {
+		stability_cost_modifier = -0.1
+	}
+	hed_desert_warfare = {
+		land_attrition = -0.10
+	}
+	cradle_of_gold = {
+		global_tax_modifier = 0.1
+	}
+	hajj = {
+		global_missionary_strength = 0.03
+	}
+	successor_to_the_caliphate = {
+		prestige = 1
+	}
+}
+
+NAJ_ideas = {
+	start = {
+		global_missionary_strength = 0.02
+		leader_land_manuever = 1
+	}
+
+	bonus = {
+		missionaries = 1
+	}
+
+	trigger = {
+		tag = NAJ
+	}
+	free = yes		#will be added at load
+
+	bedouin_poets = {
+		army_tradition = 0.25
+	}
+	hanbali_school = {
+		stability_cost_modifier = -0.10
+	}
+	ships_of_the_desert = {
+		global_trade_power = 0.1
+	}
+	bedouin_raiders = {
+		hostile_attrition = 1.0
+	}
+	arabian_horsemanship = {
+		cavalry_power = 0.1
+	}
+	unite_the_tribes = {
+		land_maintenance_modifier = -0.10
+	}
+	enforce_tawhid = {
+		tolerance_own = 1
+	}
+}
+
+OMA_ideas = {
+	start = {
+		naval_morale = 0.15
+		naval_maintenance_modifier = -0.25
+	}
+
+	bonus = {
+		blockade_efficiency = 0.33
+	}
+
+	trigger = {
+		tag = OMA
+	}
+	free = yes
+
+	local_merchant_preference = {
+		trade_steering = 0.25
+	}
+	secured_timber_supplies = {
+		global_ship_recruit_speed = -0.1
+	}
+	association_with_unbelievers = {
+		tolerance_heathen = 2
+	}
+	port_security_improvement = {
+		global_trade_income_modifier = 0.1
+	}
+	end_of_shipbuilding_guilds = {
+		light_ship_cost = -0.20
+	}
+	skilled_captains = {
+		leader_naval_manuever = 1
+	}
+	expansion_of_trade_contacts = {
+		trade_efficiency = 0.15
+	}
+}
+
+CYP_ideas = {
+	start = {
+		land_forcelimit_modifier = 0.1
+		global_manpower_modifier = 0.15
+	}
+
+	bonus = {
+		mercenary_cost = -0.25	#Crusader Legacy
+	}
+
+	trigger = {
+		tag = CYP
+	}
+	free = yes		#will be added at load.
+
+	crusader_bastion = {	#Resist the Turks
+		defensiveness = 0.15
+	}
+	high_court = {
+		diplomatic_upkeep = 1
+	}
+	prosperous_island = {
+		global_tax_modifier = 0.10
+	}
+	genoese_merchants = {
+		global_trade_income_modifier = 0.075
+	}
+	king_of_jerusalem = {
+		core_creation = -0.1
+	}
+	center_of_trade = {
+		global_prov_trade_power_modifier = 0.1
+		trade_steering = 0.1
+	}
+	crusader_heritage = {
+		missionaries = 1
+	}
+}
+
+ARM_ideas = {
+	start = {
+		prestige = 0.5
+		legitimacy = 1
+	}
+
+	bonus = {
+		production_efficiency = 0.1
+	}
+
+	trigger = {
+		OR = {
+			tag = ARM
+			tag = KAM
+		}
+	}
+	free = yes		#will be added at load.
+
+	christian_heritage = {
+		global_missionary_strength = 0.01
+	}
+	apostolic_faith = {
+		diplomatic_reputation = 1
+	}
+	crusader_ties = {
+		mercenary_cost = -0.25
+	}
+	cilician_ports = {
+		global_trade_income_modifier = 0.05
+		trade_steering = 0.10
+	}
+	religious_adaptation = {
+		tolerance_heathen = 1
+	}
+	two_armenias = {
+		core_creation = -0.20
+	}
+	armenian_resilience = {
+		war_exhaustion_cost = -0.20
+	}
+}
+
+KOJ_ideas = {
+	start = {
+		diplomatic_reputation = 2
+		tolerance_own = 1
+	}
+
+	bonus = {
+		legitimacy = 2
+	}
+
+	trigger = {
+		tag = KOJ
+	}
+	free = yes		#will be added at load.
+
+	western_allies = {
+		mercenary_cost = -0.25
+	}
+	defend_the_holy_land = {
+		defensiveness = 0.2
+	}
+	convert_the_infidels = {
+		global_missionary_strength = 0.02
+	}
+	pilgrimage_to_jerusalem = {
+		global_tax_modifier = 0.1
+	}
+	rebuild_the_old_city = {
+		build_cost = -0.1
+	}
+	educate_the_populace = {
+		technology_cost = -0.05
+	}
+	papal_decree = {
+		prestige = 1
+	}
+}
+
+JAI_ideas = {
+	start = {
+		cavalry_power = 0.1
+		global_trade_power = 0.05
+	}
+
+	bonus = {
+		prestige = 1
+	}
+
+	trigger = {
+		tag = JAI
+	}
+	free = yes #will be added at load.
+
+	ruzmance = {
+		global_tax_modifier = 0.1
+	}
+	embrace_sufism = {
+		tolerance_heretic = 1
+	}
+	gunbad_i_uljaytu = {
+		prestige_decay = -0.01
+	}
+	jarliqs = {
+		stability_cost_modifier = -0.10
+		core_creation = -0.15
+	}
+	jalayirid_ghulams = {
+		discipline = 0.05
+		infantry_cost = -0.1
+	}
+	chinese_contacts = {
+		trade_range_modifier = 0.20
+		idea_cost = -0.05
+	}
+	ilkhanate_census = {
+		manpower_recovery_speed = 0.15
+	}
+}
+
+#India
+ASS_ideas = {
+	start = { #Ahomization
+		global_manpower_modifier = 0.05
+		global_revolt_risk = -1
+	}
+
+	bonus = {
+		diplomatic_reputation = 2
+	}
+
+	trigger = {
+		tag = ASS
+	}
+	free = yes
+
+	buranjis = {
+		heir_chance = 0.2
+	}
+	wet_rice_cultivation = {
+		production_efficiency = 0.10
+	}
+	river_warfare = {
+		hostile_attrition = 0.5
+		defensiveness = 0.1
+	}
+	reform_paik_system = {
+		manpower_recovery_speed = 0.15
+	}
+	process_of_appeal = {
+		stability_cost_modifier = -0.1
+	}
+	ahom_land_survey = {
+		global_tax_modifier = 0.10
+	}
+	ahom_diplomacy = {
+		diplomats = 1
+	}
+}
+
+MAR_ideas = {
+	start = {
+		manpower_recovery_speed = 0.20
+		global_manpower_modifier = 0.10
+	}
+
+	bonus = {
+		stability_cost_modifier = -0.1
+	}
+
+	trigger = {
+		OR = {
+			tag = MAR	#Marathas
+			tag = NAG	#Bhonsles of Nagpur
+			# tag = BDA	#Baroda
+			tag = BHO	#Bhonsle
+			AND = {
+				tag = GWA
+				primary_culture = marathi
+			} #Sindhias of Gwalior
+		}
+	}
+	free = yes
+
+	tradition_of_military_service = {
+		cavalry_power = 0.10
+	}
+	forts_of_maharashtra = {
+		defensiveness = 0.20
+	}
+	peasant_soldiers = {
+		infantry_cost = -0.2
+	}
+	office_of_the_peshwa = {
+		core_creation = -0.1
+	}
+	encourage_ties_with_brahmin_financial_families = {
+		global_tax_modifier = 0.1
+	}
+	reform_the_bureaucracy = {
+		production_efficiency = 0.1
+	}
+	expand_maratha_navy = {
+		global_ship_cost = -0.1
+	}
+}
+
+NPL_ideas = {
+	start = {
+		land_forcelimit_modifier = 0.250
+		discipline = 0.05
+	}
+
+	bonus = {
+		manpower_recovery_speed = 0.1
+	}
+
+	trigger = {
+		tag = NPL
+	}
+	free = yes        #will be added at load.
+
+	divya_upadesh = {
+		diplomatic_reputation = 2
+	}
+	land_of_peaks = {
+		defensiveness = 0.10
+	}
+	valleys_united = {
+		global_manpower_modifier = 0.15
+	}
+	rajput_refugees = {
+		army_tradition = 0.25
+	}
+	royal_kumari = {
+		land_morale = 0.10
+	}
+	gurkha_recruits = {
+		infantry_power = 0.1
+	}
+	envelopment_and_blockade = {
+		leader_siege = 1
+	}
+}
+
+ORI_ideas = {
+	start = {
+		production_efficiency = 0.1
+		defensiveness = 0.15
+	}
+
+	bonus = {
+		trade_steering = 0.20
+	}
+
+	trigger = {
+		tag = ORI
+	}
+	free = yes
+
+	lord_of_elephants = { #Gajapati
+		infantry_power = 0.1
+	}
+	servitor_of_jagganath = {
+		legitimacy = 1
+	}
+	parikshas = {
+		global_tax_modifier = 0.1
+	}
+	refined_cloth_production = {
+		production_efficiency = 0.1
+	}
+	patronize_temple_construction = {
+		prestige = 1
+	}
+	encourage_salt_trade = {
+		global_trade_income_modifier = 0.1
+	}
+	heritage_of_the_sadhabas = {
+		naval_forcelimit_modifier = 0.25
+	}
+}
+
+PUN_ideas = {
+	start = {
+		religious_unity = 0.2	#melting pot of religions
+		tolerance_heathen = 1
+	}
+
+	bonus = {
+		land_morale = 0.1
+	}
+
+	trigger = {
+		tag = PUN
+	}
+	free = yes
+
+	breadbasket_of_india = {
+		global_tax_modifier = 0.1
+	}
+	encourage_indo_persian_trade = {
+		global_trade_income_modifier = 0.1
+	}
+	punjabi_textile_industry = {
+		production_efficiency = 0.1
+	}
+	foundation_of_the_khalsa = {
+		global_manpower_modifier = 0.15
+	}
+	gurmukhi_script = {
+		stability_cost_modifier = -0.1
+	}
+	strength_of_the_misls = {
+		cavalry_cost = -0.10
+	}
+	reforming_the_punjabi_army = {
+		discipline = 0.05
+	}
+}
+
+VIJ_ideas = {
+	start = {
+		advisor_pool = 1
+		religious_unity = 0.25
+	}
+
+	bonus = {
+		possible_mercenaries = 1.0
+	}
+
+	trigger = {
+		tag = VIJ
+	}
+	free = yes
+
+	vij_promo_trade = {
+		global_trade_power = 0.15
+	}
+	arab_horses = {
+		cavalry_power = 0.15
+	}
+	harsh_penal_code = {
+		stability_cost_modifier = -0.1
+	}
+	vij_tolerance = {
+		tolerance_heretic = 1
+ 		tolerance_heathen = 1
+	}
+	carnatic_music = {
+		prestige = 1
+	}
+	adroit_diplomacy = {
+		diplomats = 1
+	}
+	army_for_city_of_victory = {
+		discipline = 0.05
+	}
+}
+
+#East-Asia
+CHI_ideas = {
+	start = {
+		global_prov_trade_power_modifier = 0.10
+		idea_cost = -0.10
+	}
+
+	bonus = {
+		relations_decay_of_me = 0.2
+	}
+
+	trigger = {
+		AND = {
+			AND = {
+				culture_group = chinese_group
+				NOT = { primary_culture = manchu }
+			}
+			government = monarchy
+		}
+	}
+	free = yes		#will be added at load.
+
+	repaired_great_wall = {
+		defensiveness = 0.15
+	}
+	revived_training_camps = {
+		discipline = 0.05
+	}
+	inward_perfection = {
+		stability_cost_modifier = -0.10
+	}
+	yellow_river_dykes = {
+		production_efficiency = 0.1
+	}
+	salt_monopoly = {
+		global_trade_income_modifier = 0.1
+	}
+	head_tax = {
+		global_tax_modifier = 0.10
+	}
+	the_eight_banners = {
+		global_manpower_modifier = 0.75
+	}
+}
+
+JAP_ideas = {
+	start = {
+		stability_cost_modifier = -0.1
+		discipline = 0.05
+	}
+
+	bonus = {
+		infantry_power = 0.2
+	}
+
+	trigger = {
+		tag = JAP
+	}
+	free = yes
+
+	tosen_bugyo = {
+		global_own_trade_power = 0.2
+	}
+	higashiyama_culture = {
+		prestige = 1
+	}
+	reformed_land_holding = {
+		global_manpower_modifier = 0.2
+	}
+	sankin_kotai = {
+		global_revolt_risk = -1
+	}
+	sakoku = {
+		defensiveness = 0.2
+	}
+	bakufu_chokkatsuchi = {
+		global_tax_modifier = 0.1
+	}
+	shinokosho_system = {
+		heir_chance = 0.25
+		legitimacy = 1
+	}
+}
+
+
+KOR_ideas = {
+	start = {
+		global_own_trade_power = 0.25
+		build_cost = -0.20
+	}
+
+	bonus = {
+		infantry_power = 0.15
+	}
+
+	trigger = {
+		tag = KOR
+	}
+	free = yes
+
+	hanguel_alphabet = {
+		technology_cost = -0.05
+	}
+	grand_code = {
+		stability_cost_modifier = -0.10
+	}
+	hyanyak_system = {
+		production_efficiency = 0.10
+	}
+	geobukseon = {
+		heavy_ship_power = 0.1
+	}
+	hopae_system = {
+		global_manpower_modifier = 0.10
+	}
+	kyujanggak = {
+		idea_cost = -0.15
+	}
+	kor_economy_reform = {
+		global_tax_modifier = 0.10
+	}
+}
+
+MCH_ideas = {
+	start = {
+		land_maintenance_modifier = -0.15
+		core_creation = -0.15
+	}
+
+	bonus = {
+		leader_shock = 1
+	}
+
+	trigger = {
+		OR = {
+			tag = MCH
+			tag = QNG
+		}
+	}
+	free = yes
+
+	united_three_jurchens = {
+		global_manpower_modifier = 0.1
+	}
+	the_manchu_alphabet = {
+		technology_cost = -0.05
+	}
+	manchu_eight_banners = {
+		discipline = 0.1
+	}
+	link_with_the_mongol_dynasty = {
+		cavalry_power = 0.1
+	}
+	the_green_standard_army = {
+		manpower_recovery_speed = 0.15
+	}
+	pigtail_or_death = {
+		global_revolt_risk = -2
+	}
+	the_chinese_rules = {
+		stability_cost_modifier = -0.1
+	}
+}
+
+RYU_ideas = {
+	start = {
+		trade_steering = 0.15
+		diplomatic_reputation = 1
+	}
+
+	bonus = {
+		prestige_decay = -0.02
+	}
+
+	trigger = {
+		tag = RYU
+	}
+	free = yes
+
+	ryu_chinese_investiture = {
+		relations_decay_of_me = 0.2
+	}
+	reform_the_ryukyuan_religion = {
+		global_revolt_risk = -1
+	}
+	ryu_shuri_castle = {
+		prestige = 1
+	}
+	ryu_maritime_com = {
+		trade_range_modifier = 0.2
+	}
+	ryu_sign_trade_agreements = {
+		trade_efficiency = 0.10
+	}
+	ryu_national_academy = {
+		technology_cost = -0.05
+	}
+	ryu_the_three_mountains = {
+		free_leader_pool = 1
+	}
+}
+
+TIB_ideas = {
+	start = {
+		global_revolt_risk = -1
+		global_missionary_strength = 0.01
+	}
+
+	bonus = {
+		advisor_cost = -0.10
+	}
+
+	trigger = {
+		tag = TIB
+		religion = buddhism
+	}
+	free = yes       #will be added at load.
+
+	vajrayana_buddhism  = {
+		stability_cost_modifier = -0.10
+	}
+	bon_influence = {
+		leader_shock = 1
+	}
+	yaks = {
+		production_efficiency = 0.1
+	}
+	way_of_virtue= {
+		tolerance_heretic = 1
+		tolerance_heathen = 1
+	}
+	potala_palace = {
+		diplomatic_reputation = 3
+	}
+	way_of_ancients = {
+		discipline = 0.05
+	}
+	pale_earth = {
+		idea_cost = -0.1
+	}
+}
+
+#Central Asia
+TIM_ideas = {
+	start = {
+		core_creation = -0.25
+		recover_army_morale_speed  = 0.05
+	}
+
+	bonus = {
+		discipline = 0.05
+	}
+
+	trigger = {
+		OR = {
+			tag = TIM
+			tag = MUG
+		}
+	}
+	free = yes
+
+	timurid_architecture = {
+		prestige_decay = -0.01
+	}
+	tolerate_idol_worshippers = {
+		religious_unity = 0.50
+		tolerance_heathen = 3
+	}
+	the_mantle_of_the_great_khan = {
+		cavalry_power = 0.20
+	}
+	unleash_the_tiger = {
+		war_exhaustion_cost = -0.10
+	}
+	elephant_warfare = {
+		land_attrition = -0.10
+	}
+	salaried_officials = {
+		stability_cost_modifier = -0.1
+	}
+	largest_mosque_in_the_world = {
+		prestige = 1
+ 	}
+}
+
+#Persia
+PER_ideas = {
+	start = {
+		vassal_income = 0.10
+		recover_army_morale_speed = 0.05
+	}
+
+	bonus = {
+		cavalry_cost = -0.10
+	}
+
+	trigger = {
+		tag = PER
+		religion_group = muslim
+	}
+	free = yes
+
+	the_qizilbash = {
+		global_manpower_modifier = 0.15
+	}
+	persian_rug_production = {
+		production_efficiency = 0.1
+	}
+	the_ghulams = {
+		discipline = 0.10
+	}
+	improved_silk_road = {
+		trade_steering = 0.10
+	}
+	encouraged_art = {
+		prestige = 1
+		production_efficiency = 0.05
+	}
+	promotion_of_irrigation = {
+		manpower_recovery_speed = 0.1
+	}
+	increased_crown_lands = {
+		global_tax_modifier = 0.10
+	}
+}
+
+#Indochina
+AYU_ideas = {
+	start = {
+		religious_unity = 0.25
+		global_garrison_growth = 0.10
+	}
+
+	bonus = {
+		vassal_income = 0.25
+	}
+
+	trigger = {
+		tag = AYU
+	}
+	free = yes
+
+	white_elephant = {
+		global_tax_modifier = 0.15
+	}
+	corvee_system = {
+		global_manpower_modifier = 0.2
+	}
+	ayu_foreign_mercenaries = {
+		mercenary_cost = -0.25
+	}
+	ayu_embassies = {
+		diplomats = 1
+	}
+	trading_links = {
+		trade_range_modifier = 0.20
+	}
+	personal_executions = {
+		stability_cost_modifier = -0.1
+	}
+	phrai_luang = {
+		global_revolt_risk = -1
+	}
+}
+
+DAI_ideas = {
+	start = {
+		hostile_attrition = 1.0
+		enemy_core_creation = 1.0
+	}
+
+	bonus = {
+		land_morale = 0.10
+	}
+
+	trigger = {
+		tag = DAI
+	}
+	free = yes		#will be added at load.
+
+	the_great_proclamation = {
+		infantry_power = 0.1
+	}
+	confucian_revival = {
+		prestige = 1
+	}
+	autonomous_villages = {
+		defensiveness = 0.2
+	}
+	village_militia = {
+		global_manpower_modifier = 0.15
+	}
+	don_dien = {
+		core_creation = -0.10
+	}
+	thuan_thien = {
+		legitimacy = 1
+	}
+	literary_reform = {
+		technology_cost = -0.05
+	}
+}
+
+TAU_ideas = {
+	start = {
+		infantry_power = 0.10
+		global_tax_modifier = 0.1
+	}
+
+	bonus = {
+		core_creation = -0.15
+	}
+
+	trigger = {
+		tag = TAU
+	}
+	free = yes
+
+	legacy_of_the_pagan_dynasty = {
+		prestige = 1
+	}
+	mandala_system = {
+		global_manpower_modifier = 0.1
+	}
+	nat_worship = {
+		religious_unity = 0.2
+	}
+	bayingyi = {
+		infantry_cost = -0.2
+	}
+	chakravartin = {
+		land_morale = 0.10
+	}
+	manu_kye_dhammathat = {
+		stability_cost_modifier = -0.10
+	}
+	the_hluttaw = {
+		global_revolt_risk = -1
+	}
+}
+
+KHM_ideas = {
+	start = {
+		core_creation = -0.15
+		tolerance_own = 1
+	}
+	bonus = {
+		vassal_income = 0.25
+	}
+	trigger = {
+		tag = KHM
+	}
+	free = yes		#will be added at load.
+	staunch_theravada_buddhists = {
+		stability_cost_modifier = -0.15
+		tolerance_heretic = -1
+	}
+	restore_water_system = {
+		production_efficiency = 0.05
+		global_prov_trade_power_modifier = 0.05
+	}
+	rebuild_and_repair = {
+		build_cost = -0.10
+	}
+	resist_foreign_hegemony = {
+		global_regiment_recruit_speed = -0.25
+	}
+	reclaim_ankor = {
+		prestige = 1
+	}
+	patronise_medicine = {
+		reinforce_speed = 0.3
+	}
+	devaraja = {
+		legitimacy = 1
+	}
+}
+
+
+#Indonesia
+MLC_ideas = {
+	start = {
+		navy_tradition = 0.25
+		naval_morale = 0.1
+	}
+	bonus = {
+		global_trade_income_modifier = 0.1
+	}
+	trigger = {
+		tag = MLC
+	}
+	free = yes
+	mlc_foreign_trade = {
+		diplomatic_reputation = 1
+		tolerance_heathen = 1
+	}
+	mlc_resources = {
+		production_efficiency = 0.1
+	}
+	mlc_straits = {
+		global_prov_trade_power_modifier = 0.1
+	}
+	pandikars = {
+		discipline = 0.05
+	}
+	mlc_palace = {
+		prestige = 1
+	}
+	mlc_claimants = {
+		fabricate_claims_time = -0.33
+	}
+	mlc_tribute = {
+		vassal_income = 0.15
+	}
+}
