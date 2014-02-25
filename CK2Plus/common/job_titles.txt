@@ -113,7 +113,7 @@ job_marshal = {
 				any_dynasty_member = { higher_tier_than = baron }
 				OR = {
 					trait = misguided_warrior
-					trait = touch soldier
+					trait = tough_soldier
 					trait = skilled_tactician
 					trait = brilliant_strategist
 				}
@@ -122,10 +122,14 @@ job_marshal = {
 				is_ruler = yes
 				independent = yes
 				OR = {
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
 					trait = martial_lady
 					trait = martial_lady_tengri
+					trait = shield_maiden
 					martial = 12
-					ai = no
 				}
 			}
 			liege = {
@@ -202,8 +206,11 @@ job_treasurer = {
 					has_law = enatic_succession
 				}
 			}
-			liege = { dynasty = FROM }
-			liege = { mother = { character = FROM } }
+			liege = {
+				OR ={
+					dynasty = FROM 
+					mother = { character = from}
+			}
 			has_character_flag = special_treasurer
 		}
 	}
@@ -255,6 +262,13 @@ job_spymaster = {
 				}
 			}
 		}
+		OR = {
+			intrigue = 10
+			trait = amateurish_plotter
+			trait = flamboyant_schemer
+			trait = intricate_webweaver
+			trait = elusive_shadow
+		}
 	}
 	gain_effect = {
 		remove_opinion = { who = FROM modifier = opinion_fired_from_council }
@@ -294,6 +308,7 @@ job_spiritual = {
 			liege = { ai = no }
 		}
 		OR = {
+			religion = cathar
 			AND = {
 				is_ruler = yes
 				is_theocracy = yes
@@ -310,7 +325,6 @@ job_spiritual = {
 					religion = norse_pagan_reformed
 				}
 			}
-			religion = cathar
 			AND = {
 				NOT = { religion = norse_pagan }
 				NOT = { religion = norse_pagan_reformed }

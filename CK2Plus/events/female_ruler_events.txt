@@ -390,9 +390,9 @@ character_event = { # No sons, should I change my laws?
 	option = { # My kingdom shall not pass from lance to spindle!
 		name = EVTOPTB1000182577
 		trigger = {
-		primary_title = {
-			has_law = cognatic_succession
-		}
+			primary_title = {
+				has_law = cognatic_succession
+			}
 			is_female = no
 		}
 		ai_chance = {
@@ -419,11 +419,11 @@ character_event = { # No sons, should I change my laws?
 				}
 			}
 		}
+		current_heir = { 
+			opinion = { who = ROOT modifier = disinherited years = 100 }
+		}
 		primary_title = {
 			add_law = agnatic_succession
-		}
-		any_child = { 
-			opinion = { who = ROOT modifier = disinherited years = 100 }
 		}
 		current_heir = {
 			opinion = { who = ROOT modifier = chosen_heir years = 100 }
@@ -722,4 +722,109 @@ letter_event = { #notify refusal
 		name = EVTOPTA1000182578
 	}
 }
-		
+
+character_event = { #Martial Lady
+	id = 1000183101
+	title = EVTNAME1000183101
+	desc = EVTDESC1000183101
+	picture = GFX_evt_child_sword_training
+	
+	trigger = {
+		is_adult = yes
+		is_female = yes
+		NOT = {
+			religion_group = pagan_group
+			religion_group = zoroastrian_group
+		}
+		OR = {
+			trait = holy_warrior
+			trait = crusader
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+			trait = brilliant_strategist
+		}
+	}
+	immediate = {
+		add_trait = martial_lady
+		remove_trait = martial_lady_tengri
+		remove_trait = shield_maiden
+	}
+	option = {
+		name = OK
+	}
+}
+
+character_event = { #Tengri Martial Lady
+	id = 1000183102
+	title = EVTNAME1000183102
+	desc = EVTDESC1000183102
+	picture = GFX_evt_child_sword_training
+	
+	trigger = {
+		is_adult = yes
+		is_female = yes
+		OR = {
+			religion = tengri_pagan
+			religion = tengri_pagan_reformed
+			religion_group = zoroastrian_group
+		}
+		OR = {
+			trait = holy_warrior
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+			trait = brilliant_strategist
+		}
+	}
+	immediate = {
+		add_trait = martial_lady_tengri
+		remove_trait = martial_lady
+		remove_trait = shield_maiden
+	}
+	option = {
+		name = OK
+	}
+}
+
+character_event = { #Shield Maiden
+	id = 1000183103
+	title = EVTNAME1000183103
+	desc = EVTDESC1000183103
+	picture = GFX_evt_child_sword_training
+	
+	trigger = {
+		is_adult = yes
+		is_female = yes
+		religion_group = pagan_group
+		NOT = {
+			OR = {
+				religion = egyptian_pagan
+				religion = hellenic_pagan
+				religion = mystery_mithras
+				religion = mystery_eleusinia
+				religion = aztec_pagan
+				religion = aztec_pagan_reformed
+				religion = tengri_pagan
+				religion = tengri_pagan_reformed
+			}
+		}
+		OR = {
+			trait = holy_warrior
+			trait = berserker
+			trait = viking
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+			trait = brilliant_strategist
+		}
+		immediate = {
+			add_trait = shield_maiden
+			remove_trait = martial_lady_tengri
+			remove_trait = martial_lady
+		}
+		option = {
+			name = OK
+		}
+	}
+}

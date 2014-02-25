@@ -24,7 +24,10 @@ character_event = {
 		has_dlc = "The Old Gods"
 		culture_group = north_germanic
 		is_alive = yes
-		is_female = no
+		OR = {
+			is_female = no
+			father = { trait = teaching_daughter }
+		}
 		NOT = { trait = berserker }
 		# NOT = { year = 1150 } #moved to modifier
 		OR = {
@@ -3187,7 +3190,6 @@ character_event = {
 	is_triggered_only = yes
 
 	min_age = 16
-	only_men = yes
 	capable_only = yes
 	prisoner = no
 
@@ -3197,6 +3199,10 @@ character_event = {
 		OR = {
 			religion = norse_pagan
 			religion = norse_pagan_reformed
+		}
+		OR = {
+			is_female = no
+			father = { trait = teaching_daughter }
 		}
 	}
 
