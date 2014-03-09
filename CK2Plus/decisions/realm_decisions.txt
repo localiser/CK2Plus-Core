@@ -1809,14 +1809,11 @@ decisions = {
 				has_holder = no
 			}
 			NOT = { has_global_flag = israel_remade }
+			higher_tier_than = DUKE
 		}
 		allow = {
 			piety = 500
 			prestige = 500
-			OR = {
-				has_landed_title = k_jerusalem
-				k_jerusalem = { is_titular = yes }
-			}
 			is_heretic = no
 			NOT = { has_regent = yes } # Redundant code, but produces a much clearer tooltip		
 			completely_controls = d_jerusalem
@@ -1829,7 +1826,13 @@ decisions = {
 			set_character_flag = centralize_without_penalties
 			k_israel = {
 				hidden_tooltip = {
-					copy_title_laws = k_jerusalem
+					ROOT = {
+						primary_title = {
+							k_israel = {
+								copy_title_laws = PREV
+							}
+						}
+					}
 				}
 				gain_title = ROOT				
 			}
