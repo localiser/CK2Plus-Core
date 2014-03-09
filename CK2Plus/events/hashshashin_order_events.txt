@@ -1,11 +1,11 @@
 ############################################
-#						   			
-# Hashshashin Order Events 			
-#									
-# Event ID 88000 - 88249 is reserved
+#						   			 
+# Hashshashin Order Events 			 
+#									 
+# Event ID 88000 - 88249 is reserved 
 #
 # By Henrik Eklund
-# 									
+# 									 
 ############################################
 
 #####################################
@@ -18,7 +18,7 @@ narrative_event = {
 	title = "EVTNAME88000"
 	desc = "EVTDESC88000"
 	major = yes
-
+	
 	picture = GFX_evt_shadow
 	
 	hide_from = yes
@@ -35,11 +35,10 @@ narrative_event = {
 			religion = hurufi
 		}
 		is_heretic = no
-		NOT = {
-			has_global_flag = assassins_founded
+		NOT = { 
+			has_global_flag = assassins_founded 
 			has_global_flag = assassins_destroyed
 		}
-		NOT = {	has_character_flag = hassan_the_assassin }
 		b_alamut = {
 			has_holder = no
 		}
@@ -47,28 +46,14 @@ narrative_event = {
 			NOT = { num_of_settlements = 5 }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 6
 	}
-
-	option = {
-		name = "OK"
-		trigger = {
-			has_landed_title = d_hashshashin
-			NOT = { has_character_flag = hassan_the_assassin }
-		}
+	
+	immediate = {
 		set_global_flag = assassins_founded
 		activate_title = { title = d_hashshashin status = yes }
-		activate_title = { title = d_devotees_of_the_true_prophet status = yes }
-		wealth = 500
-		665 = { # Dailam
-			build_holding = {
-				title = b_alamut
-				type = temple
-				holder = ROOT
-			}
-		}
 		create_character = {
 			random_traits = no
 			name = "Hassan"
@@ -95,14 +80,24 @@ narrative_event = {
 		}
 		new_character = {
 			set_character_flag = hassan_the_assassin
-			inherit = ROOT
+			wealth = 500
+			d_hashshashin = {
+				grant_title = PREV
+			}
+			665 = { # Dailam
+				build_holding = {
+					title = b_alamut
+					type = temple
+					holder = PREV
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
 				religion = ROOT
 				culture = persian
 				female = no
-				is_adult = yes
+				age = 16
 			}
 			create_character = {
 				random_traits = yes
@@ -158,7 +153,7 @@ narrative_event = {
 				religion = ROOT
 				culture = persian
 				female = yes
-				is_adult = yes
+				age = 16
 			}
 			create_character = {
 				random_traits = yes
@@ -194,15 +189,10 @@ narrative_event = {
 			}
 		}
 	}
+	
+
 	option = {
 		name = "EVTOPTA88000"
-		trigger = {
-			OR = {
-				NOT = { has_landed_title = d_hashshashin }
-				has_character_flag = hassan_the_assassin
-			}
-		}
-	set_global_flag = assassins_founded
 	}
 }
 
@@ -212,9 +202,9 @@ narrative_event = {
 	title = "EVTNAME88001"
 	desc = "EVTDESC88001"
 	major = yes
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	trigger = {
 		year = 1099
 		has_landed_title = d_hashshashin
@@ -230,11 +220,11 @@ narrative_event = {
 			NOT = { num_of_settlements = 5 }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 6
 	}
-
+	
 	option = {
 		name = "OK"
 		trigger = { has_landed_title = d_hashshashin }
@@ -249,7 +239,7 @@ narrative_event = {
 	}
 	option = {
 		name = "EVTOPTA88001"
-		trigger = {
+		trigger = { 
 			NOT = { has_landed_title = d_hashshashin }
 		}
 	}
@@ -261,9 +251,9 @@ narrative_event = {
 	title = "EVTNAME88002"
 	desc = "EVTDESC88002"
 	major = yes
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	trigger = {
 		has_global_flag = assassins_founded
 		has_landed_title = d_hashshashin
@@ -278,7 +268,7 @@ narrative_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
 		name = "OK"
 		trigger = { has_landed_title = d_hashshashin }
@@ -300,23 +290,23 @@ narrative_event = {
 	title = "EVTNAME88003"
 	desc = "EVTDESC88003"
 	major = yes
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	trigger = {
 		year = 1220
 		has_global_flag = assassins_scatter
 		has_landed_title = d_hashshashin
-		NOT = {
+		NOT = { 
 			has_global_flag = assassins_resurface
 			has_global_flag = assassins_destroyed
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 860
 	}
-
+	
 	option = {
 		name = "OK"
 		trigger = { has_landed_title = d_hashshashin }
@@ -345,9 +335,9 @@ narrative_event = {
 	title = "EVTNAME88004"
 	desc = "EVTDESC88004"
 	major = yes
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	trigger = {
 		year = 1201
 		has_landed_title = d_hashshashin
@@ -360,8 +350,8 @@ narrative_event = {
 	
 	mean_time_to_happen = {
 		days = 1
-	}	
-
+	}
+	
 	option = {
 		name = "OK"
 		trigger = { has_landed_title = d_hashshashin }
@@ -371,7 +361,7 @@ narrative_event = {
 	}
 	option = {
 		name = "EVTOPTA88004"
-		trigger = {
+		trigger = { 
 			NOT = { has_landed_title = d_hashshashin }
 		}
 	}
@@ -385,11 +375,11 @@ narrative_event = {
 character_event = {
 	id = 88005
 	desc = "EVTDESC88005"
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		has_global_flag = assassins_founded
 		NOT = { has_global_flag = assassins_scatter }
@@ -412,12 +402,12 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "OK"
 		set_global_flag = mongols_provoke_assassins
 		if = {
-			limit = {
+			limit = { 
 				OR = {
 					has_landed_title = e_il-khanate
 					has_landed_title = e_golden_horde
@@ -433,7 +423,7 @@ character_event = {
 			}
 		}
 		if = {
-			limit = {
+			limit = { 
 				OR = {
 					any_liege = { has_landed_title = e_il-khanate }
 					any_liege = { has_landed_title = e_golden_horde }
@@ -441,7 +431,7 @@ character_event = {
 			}
 			random_list = {
 				40 = {
-					any_liege = {
+					any_liege = { 
 						limit = {
 							OR = {
 								has_landed_title = e_il-khanate
@@ -452,7 +442,7 @@ character_event = {
 					}
 				}
 				60 = {
-					any_liege = {
+					any_liege = { 
 						limit = {
 							OR = {
 								has_landed_title = e_il-khanate
@@ -471,11 +461,11 @@ character_event = {
 character_event = {
 	id = 88006
 	desc = "EVTDESC88006"
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88006"
 		death = { death_reason = death_hashshashin }
@@ -490,11 +480,11 @@ narrative_event = {
 	desc = "EVTDESC88007"
 	border = GFX_event_narrative_frame_intrigue
 	major = yes
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88007"
 	}
@@ -504,11 +494,11 @@ narrative_event = {
 character_event = {
 	id = 88008
 	desc = "EVTDESC88008"
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88008"
 		narrative_event = { id = 88009 days = 2 }
@@ -522,18 +512,18 @@ narrative_event = {
 	desc = "EVTDESC88009"
 	border = GFX_event_narrative_frame_intrigue
 	major = yes
-
+	
 	picture = "GFX_evt_shadow"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88009"
 		trigger = { religion_group = muslim }
 	}
 	option = {
 		name = "EVTOPTA88016"
-		trigger = {
+		trigger = { 
 			NOT = { religion_group = muslim }
 		}
 	}
@@ -549,24 +539,24 @@ character_event = {
 	desc = "EVTDESC88010"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
+	ai = no
 	only_playable = yes
 	only_independent = yes
-
+	
 	trigger = {
 		religion_group = muslim
-		ai = no
 		decadence = 60
 		NOT = { has_character_flag = decadence_warned }
 		has_global_flag = assassins_founded
 		NOT = { has_global_flag = assassins_scatter }
 		NOT = { has_global_flag = assassins_destroyed }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 160
 	}
-
+	
 	option = {
 		name = "EVTOPTA88010"
 		set_character_flag = decadence_warned
@@ -579,10 +569,10 @@ character_event = {
 	desc = "EVTDESC88011"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	prisoner = no
 	min_age = 16
-
+	
 	trigger = {
 		is_ruler = no
 		employer = {
@@ -593,20 +583,20 @@ character_event = {
 			decadence = 70
 			has_character_flag = decadence_warned
 		}
-
+		
 		ai = yes
 		is_primary_heir = no
 		in_command = no
-
+		
 		has_global_flag = assassins_founded
 		NOT = { has_global_flag = assassins_scatter }
 		NOT = { has_global_flag = assassins_destroyed }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 220
 	}
-
+	
 	option = {
 		name = "OK"
 		liege = { character_event = { id = 88012 } }
@@ -619,9 +609,9 @@ character_event = {
 	desc = "EVTDESC88011"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88011"
 		FROM = {
@@ -637,7 +627,7 @@ character_event = {
 	desc = "EVTDESC88012"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	trigger = {
 		religion_group = muslim
 		has_character_flag = decadence_courtier_killed
@@ -646,11 +636,11 @@ character_event = {
 		NOT = { has_global_flag = assassins_scatter }
 		NOT = { has_global_flag = assassins_destroyed }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 480
 	}
-
+	
 	option = {
 		name = "EVTOPTA88012"
 		death = { death_reason = death_hashshashin }
@@ -667,16 +657,17 @@ character_event = {
 	desc = "EVTDESC88015"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	prisoner = no
 	min_age = 16
-
+	
 	trigger = {
 		is_ruler = no
 		employer = {
 			war = yes
 			is_playable = yes
 			independent = yes
+			prisoner = no
 			religion_group = muslim
 			NOT = { spouse = { character = ROOT } }
 			d_hashshashin = {
@@ -685,20 +676,21 @@ character_event = {
 				}
 			}
 		}
-
+		
 		ai = yes
 		is_primary_heir = no
+		is_pretender = no
 		in_command = no
-
+		
 		has_global_flag = assassins_founded
 		NOT = { has_global_flag = assassins_scatter }
 		NOT = { has_global_flag = assassins_destroyed }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 880
 	}
-
+	
 	option = {
 		name = "OK"
 		random_list = {
@@ -727,9 +719,9 @@ character_event = {
 	desc = "EVTDESC88016"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88016"
 		FROM = {
@@ -744,9 +736,9 @@ character_event = {
 	desc = "EVTDESC88017"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88017"
 		FROM = {
@@ -761,9 +753,9 @@ character_event = {
 	desc = "EVTDESC88018"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA88018"
 		FROM = {
@@ -778,12 +770,12 @@ character_event = {
 	desc = "EVTDESC88019"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
+	ai = no
 	only_playable = yes
 	only_independent = yes
-
+	
 	trigger = {
-		ai = no
 		war = yes
 		religion_group = muslim
 		NOT = { has_character_flag = warned_by_assassins }
@@ -793,11 +785,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 160
 	}
-
+	
 	option = {
 		name = "EVTOPTA88019"
 		set_character_flag = warned_by_assassins
@@ -810,7 +802,7 @@ character_event = {
 	desc = "EVTDESC88012"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	trigger = {
 		has_character_flag = warned_by_assassins
 		religion_group = muslim
@@ -820,14 +812,14 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1400
 	}
-
+	
 	option = {
 		name = "EVTOPTA88012"
-		death = { death_reason = death_hashshashin }
+		death = { death_reason = death_hashshashin } 
 	}
 }
 
@@ -841,9 +833,9 @@ character_event = {
 	desc = "EVTDESC88016"
 	picture = "GFX_evt_shadow"
 	border = GFX_event_normal_frame_intrigue
-
+	
 	trigger = {
-		host = {
+		host = { 
 			character = liege
 			prisoner = no
 		}
@@ -857,12 +849,13 @@ character_event = {
 		}
 		ai = yes
 		is_primary_heir = no
+		is_pretender = no
 		prisoner = no
-		is_adult = yes
+		age = 16
 		in_command = no
 		NOT = { spouse = { character = host } }
 	}
-
+	
 	mean_time_to_happen = {
 		months = 5500
 		modifier = {
@@ -894,7 +887,7 @@ character_event = {
 			is_female = yes
 		}
 	}
-
+	
 	option = {
 		name = "OK"
 		random_list = {
@@ -914,5 +907,5 @@ character_event = {
 				}
 			}
 		}
-	}
+	}	
 }
