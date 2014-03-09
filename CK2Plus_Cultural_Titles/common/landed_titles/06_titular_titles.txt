@@ -307,6 +307,12 @@ k_iceland = {
 k_israel = {
 	color={ 120 120 220 }
 	color2={ 255 255 255 }
+	jewish_group = 1000 # Crusade target weight	
+	catholic = 250 #Crusade target weight
+	sunni = 50 #Crusade target weight
+	shiite = 50 #Crusade target weight
+	zoroastrian_group = 20 # Crusade target weight
+	egyptian_pagan = 30 #Crusade target weight	
 
 	capital = 774 # Jerusalem
 
@@ -316,18 +322,21 @@ k_israel = {
 		is_adult = yes
 		ruled_years = 5
 		war = no
-		religion_group = jewish_group
 		NOT = {
 			AND = {
 				ai = yes
 				has_landed_title = e_byzantium
 			}
 		}
-		k_israel = { 
-			OR = { 
-				is_titular = no 
-				has_holder = yes
-			} 
+		has_global_flag = israel_remade
+		OR = {
+			religion_group = jewish_group
+			k_israel = { 
+				OR = { 
+					is_titular = no 
+					has_holder = yes
+				} 
+			}
 		}
 	}
 }
