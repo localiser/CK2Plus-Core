@@ -309,44 +309,8 @@ job_spiritual = {
 			liege = { ai = no }
 		}
 		OR = {
+			is_female = no
 			religion = cathar
-			AND = {
-				is_ruler = yes
-				is_theocracy = yes
-			}
-			AND = {
-				is_female = no
-				NOT = {religion = norse_pagan}
-				NOT = {religion = norse_pagan_reformed}
-			}
-			AND = {
-				is_female = yes
-				OR = {
-					religion = norse_pagan
-					religion = norse_pagan_reformed
-				}
-			}
-			AND = {
-				NOT = { religion = norse_pagan }
-				NOT = { religion = norse_pagan_reformed }
-				OR = {
-					liege = {
-						OR = {
-							has_law = true_cognatic_succession
-							has_law = enatic_cognatic_succession
-							has_law = enatic_succession
-						}
-					}
-					AND = {
-						independent = yes
-						OR = {
-							has_law = true_cognatic_succession
-							has_law = enatic_cognatic_succession
-							has_law = enatic_succession
-						}
-					}
-				}
-			}
 			AND = {
 				religion_group = pagan_group
 				NOT = { religion = hellenic_pagan }
@@ -354,8 +318,25 @@ job_spiritual = {
 				NOT = { religion = aztec_pagan_reformed }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = tengri_pagan_reformed }
-				NOT = { religion = norse_pagan }
-				NOT = { religion = norse_pagan_reformed }
+			}
+			AND = {
+				is_ruler = yes
+				is_theocracy = yes
+			}
+			liege = {
+				OR = {
+					has_law = true_cognatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = enatic_succession
+				}
+			}
+			AND = {
+				independent = yes
+				OR = {
+					has_law = true_cognatic_succession
+					has_law = enatic_cognatic_succession
+					has_law = enatic_succession
+				}
 			}
 		}
 		OR = {
