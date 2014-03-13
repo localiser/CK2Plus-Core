@@ -1,6 +1,6 @@
 name = "[Optional] CK2+ Better Looking Garbs + Recycled Unit Packs"
 path = "mod/CK2Plus_RUP_BLG"
-dependencies = "[Required] CK2+ Core (2.07.1)"
+dependencies = "[Required] CK2+ Core (2.07.2)"
 dependencies = "African Portraits"
 dependencies = "Celtic Portraits"
 dependencies = "Mediterranean Portraits"
