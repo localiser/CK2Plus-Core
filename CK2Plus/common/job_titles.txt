@@ -86,6 +86,7 @@ job_marshal = {
 		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
+		NOT = { has_character_flag = guru }		
 		OR = {
 			is_female = no
 			NOT = { liege = { spouse = { character = FROM } } }
@@ -99,6 +100,10 @@ job_marshal = {
 					liege = { religion = cathar }
 					independent = yes
 				}
+				OR = {
+					NOT = { religion = hindu }
+					trait = kshatriya
+				}				
 			}
 			AND = {
 				OR = {
@@ -176,6 +181,7 @@ job_treasurer = {
 		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
+		NOT = { has_character_flag = guru }			
 		OR = {
 			is_female = no
 			NOT = { liege = { spouse = { character = FROM } } }
@@ -246,6 +252,7 @@ job_spymaster = {
 		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
+		NOT = { has_character_flag = guru }	
 		OR = {
 			is_female = no
 			NOT = { liege = { spouse = { character = FROM } } }
@@ -318,6 +325,10 @@ job_spiritual = {
 				NOT = { religion = aztec_pagan_reformed }
 				NOT = { religion = tengri_pagan }
 				NOT = { religion = tengri_pagan_reformed }
+			}
+			OR = {
+				NOT = { religion = hindu }
+				trait = brahmin
 			}
 			AND = {
 				is_ruler = yes

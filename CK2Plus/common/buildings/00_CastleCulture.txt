@@ -830,8 +830,8 @@ castle = {
 		prerequisites = { ca_wall_2 }
 		build_cost = 200
 		build_time = 730
-		light_cavalry = 30
-		light_cavalry_defensive = 0.15
+		camel_cavalry = 30
+		camel_cavalry_defensive = 0.15
 		ai_creation_factor = 101
 
 		extra_tech_building_start = 0.8
@@ -845,8 +845,8 @@ castle = {
 		upgrades_from = ca_culture_group_arabic_1
 		build_cost = 300
 		build_time = 1095
-		light_cavalry = 40
-		light_cavalry_defensive = 0.15
+		camel_cavalry = 40
+		camel_cavalry_defensive = 0.15
 		ai_creation_factor = 101
 
 		extra_tech_building_start = 0.8
@@ -860,8 +860,8 @@ castle = {
 		upgrades_from = ca_culture_group_arabic_2
 		build_cost = 400
 		build_time = 2190
-		light_cavalry = 50
-		light_cavalry_defensive = 0.15
+		camel_cavalry = 50
+		camel_cavalry_defensive = 0.15
 		ai_creation_factor = 101
 
 		extra_tech_building_start = 0.8
@@ -875,8 +875,8 @@ castle = {
 		upgrades_from = ca_culture_group_arabic_3
 		build_cost = 500
 		build_time = 2190
-		light_cavalry = 60
-		light_cavalry_defensive = 0.15
+		camel_cavalry = 60
+		camel_cavalry_defensive = 0.15
 		ai_creation_factor = 101
 
 		extra_tech_building_start = 0.8
@@ -1462,6 +1462,90 @@ castle = {
 		build_time = 2190
 		heavy_infantry = 60
 		heavy_infantry_morale = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	# Indian war elephant pens
+	ca_culture_indian_1 = {
+		desc = ca_culture_indian_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		prerequisites = { ca_wall_2 }
+		build_cost = 200
+		build_time = 730
+		war_elephants = 6
+		war_elephants_offensive = 0.15
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_indian_2 = {
+		desc = ca_culture_indian_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_culture_indian_1
+		build_cost = 300
+		build_time = 1095
+		war_elephants = 10
+		war_elephants_offensive = 0.05
+		war_elephants_defensive = 0.10
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_indian_3 = {
+		desc = ca_culture_indian_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+		upgrades_from = ca_culture_indian_2
+		build_cost = 400
+		build_time = 2190
+		war_elephants = 22
+		war_elephants_offensive = 0.05
+		war_elephants_defensive = 0.10
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_culture_indian_4 = {
+		desc = ca_culture_indian_4_desc
+		potential = {
+			FROM = {
+				OR = {
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		upgrades_from = ca_culture_indian_3
+		build_cost = 500
+		build_time = 2190
+		war_elephants = 22
+		war_elephants_offensive = 0.05
+		war_elephants_defensive = 0.10
 		ai_creation_factor = 101
 		
 		extra_tech_building_start = 0.8
