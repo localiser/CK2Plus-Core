@@ -187,6 +187,8 @@ RETTYPE_CUL_At1 =
 
 	second_type = 3
 	second_amount = 100
+	
+	special_troops = horse_archers
 
 	potential = {
 		OR = {
@@ -208,6 +210,8 @@ RETTYPE_CUL_At2 =
 
 	second_type = 0
 	second_amount = 150
+	
+	special_troops = horse_archers
 
 	potential = {
 		OR = {
@@ -229,6 +233,8 @@ RETTYPE_CUL_At3 =
 
 	second_type = 3
 	second_amount = 150
+	
+	special_troops = horse_archers
 
 	potential = {
 		OR = {
@@ -713,13 +719,15 @@ RETTYPE_CUL_Bd1 =
 {
 	first_type = 3
 	first_amount = 300
+	
+	special_troops = camel_cavalry
 
 	potential = {
 		culture = bedouin_arabic
 	}
 	modifier = {
-		light_cavalry_offensive = 0.2
-		light_cavalry_defensive = 0.2
+		camel_cavalry_offensive = 0.2
+		camel_cavalry_defensive = 0.2
 	}
 }
 
@@ -730,13 +738,15 @@ RETTYPE_CUL_Bd2 =
 
 	second_type = 5
 	second_amount = 150
+	
+	special_troops = camel_cavalry	
 
 	potential = {
 		culture = bedouin_arabic
 	}
 	modifier = {
-		light_cavalry_offensive = 0.1
-		light_cavalry_defensive = 0.1
+		camel_cavalry_offensive = 0.1
+		camel_cavalry_defensive = 0.1
 		archers_defensive = 0.1
 		archers_offensive = 0.1
 	}
@@ -749,6 +759,8 @@ RETTYPE_CUL_Bd3 =
 
 	second_type = 5
 	second_amount = 150
+	
+	special_troops = camel_cavalry	
 
 	potential = {
 		culture = bedouin_arabic
@@ -768,13 +780,15 @@ RETTYPE_CUL_Ep1 =
 
 	second_type = 3
 	second_amount = 250
+	
+	special_troops = camel_cavalry	
 
 	potential = {
 		culture = egyptian_arabic
 	}
 	modifier = {
 		knights_defensive = 0.2
-		light_cavalry_defensive = 0.2
+		camel_cavalry_defensive = 0.2
 	}
 }
 
@@ -786,12 +800,14 @@ RETTYPE_CUL_Ep2 =
 	second_type = 3
 	second_amount = 200
 
+	special_troops = camel_cavalry	
+	
 	potential = {
 		culture = egyptian_arabic
 	}
 	modifier = {
 		horse_archers_defensive = 0.2
-		light_cavalry_defensive = 0.2
+		camel_cavalry_defensive = 0.2
 	}
 }
 
@@ -992,6 +1008,8 @@ RETTYPE_CUL_Bz1 =
 
 	second_type = 3
 	second_amount = 200
+	
+	special_troops = horse_archers
 
 	potential = {
 		OR = {
@@ -1012,6 +1030,8 @@ RETTYPE_CUL_Bz2 =
 
 	second_type = 6
 	second_amount = 50
+	
+	special_troops = horse_archers
 
 	potential = {
 		OR = {
@@ -1454,5 +1474,26 @@ RETTYPE_CUL_Azt3 =
 	modifier = {
 		light_infantry_offensive = 0.2
 		archers_offensive = 0.2
+	}
+}
+
+RETTYPE_CUL_INDIAN = 
+{
+	first_type = 5
+	first_amount = 470
+	second_type = 6
+	second_amount = 30
+	
+	special_troops = war_elephants
+	
+	potential = {
+		OR = {
+			culture_group = indo_aryan_group
+			culture_group = dravidian_group
+		}
+	}
+	
+	modifier = {
+		archers_offensive = 0.6
 	}
 }

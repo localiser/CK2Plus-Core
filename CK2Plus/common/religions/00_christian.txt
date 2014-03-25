@@ -4,7 +4,7 @@ christian = {
 	graphical_culture = westerngfx
 	crusade_cb = crusade
 	playable = yes
-	pacifist = yes # Will make Hordes lose their super aggressiveness
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
 	# Names given only to Christian characters (base names)
 	male_names = {
 		Andrew Antoninus Bartolomeus Benedict Christian Christopher Clement Constantine David Demetrius Eustace George Gregory Hans Isaac Joakim Jacob John Jordan Joseph Laurence Magnus Marcus Martin Matthew Michael Nicholas Patrick Paul Peter Philip Salvador Samuel Sebastian Simon Stephen Thomas
@@ -64,6 +64,7 @@ christian = {
 		
 		can_retire_to_monastery = yes
 		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir		
 		religious_clothing_head = 0
 		religious_clothing_priest = 1
 		aggression = 0.6
@@ -218,7 +219,8 @@ christian = {
 			SATAN LUCIFER THE_DEVIL
 		}
 		priests_can_marry = yes
-		female_temple_holders = yes
+		female_temple_holders = yes	
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir		
 		can_hold_temples = no
 		can_retire_to_monastery = yes
 		priests_can_inherit = yes
@@ -271,6 +273,37 @@ christian = {
 		intermarry = samaritan
 		intermarry = karaite
 	}
+	messalian = {
+		graphical_culture = westerngfx
+
+		icon = 46
+		heresy_icon = 47
+		
+		color = { 0.6 0.1 0.4 }
+		parent = nestorian
+		
+		crusade_name = CRUSADE
+		scripture_name = THE_ASCETICUS
+		
+		god_names = {
+			GOD_GOD THE_PANTOKRATOR GOD_JESUS LUCIFER
+		}
+		
+		evil_god_names = {
+			THE_DEMIURGE
+		}
+
+		can_retire_to_monastery = yes
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+		
+		divine_blood = yes # Sacred close-kin marriage mechanics
+		pc_marriage = yes
+		bs_marriage = yes
+		
+		religious_clothing_head = 2
+		religious_clothing_priest = 2
+	}	
 	monothelite = {
 		parent = orthodox
 		color = { 0.5 0 0.3 }
