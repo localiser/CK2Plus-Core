@@ -105,7 +105,56 @@ guiTypes = {
 		windowType = {
 			name ="multiplayer_menu"
 			backGround=""
-			position = { x=-209 y =-228}	
+			position = { x=-511 y=-280 }	
+			size = { x=1022 y=560 }
+			moveable = 0
+			dontRender = ""
+			horizontalBorder= ""
+			verticalBorder= ""
+			upsound = ""
+			downsound = ""
+			fullscreen=yes
+			Orientation = "CENTER"
+
+			guiButtonType = {
+				name = "join_direct"
+				position = { x = 140 y = 506 }
+				quadTextureSprite ="GFX_standard_button_148"	
+				tooltip = ""
+				tooltipText =""
+				delayedTooltipText = ""
+				buttonText = "CONNECT_TO_IP"
+				buttonFont = "vic_18"
+			}
+			
+			editBoxType = {
+				position = { x = 40 y = 105 }
+				name = "playername"
+				font = "Arial12"
+				borderSize = {x = 0 y = 4}	
+				size = { x=190 y=24 }
+				text = "FE_PLAYER"			
+				orientation = "UPPER_LEFT"
+			}
+			
+			instantTextBoxType = {
+
+				name ="version_label"
+				position = { x = 52 y = 20 }
+				textureFile = ""
+				font = "vic_18"
+				borderSize = {x = 0 y = 0}
+				text = "EU4 v0.00 (TODO)"	
+				format = left
+				maxWidth = 150
+				maxHeight = 40	
+			}			
+		}
+		
+		windowType = {
+			name ="multiplayer_connect_menu"
+			backGround=""
+			position = { x=-210 y =-180}	
 			size = { x=420 y =500}
 			moveable = 0
 			dontRender = ""
@@ -116,138 +165,34 @@ guiTypes = {
 			fullscreen=no
 			Orientation = "CENTER"
 
-			iconType =
-			{
-				name ="multiplayer_panel_bg"
-				spriteType = "GFX_multiplayer_panel_bg"
-				position = { x= -130 y = 9 }
-				Orientation = "CENTER_UP"
-			}
-			
-			listboxType = 
-			{
-				name ="games"
-				position = { x=110 y =45}
-				backGround=""
-				size = { x=210 y =112}
-				spacing = 0
-				scrollbartype = "standardlistbox_slider"
-				borderSize = {x = 0 y = 0}
+			iconType = {
+				name ="bg"
+				spriteType = "GFX_matchmaking_joining_bg"
+				position = { x= 0 y =0 }
 				Orientation = "UPPER_LEFT"
-			}
-
-			guiButtonType = {
-				name = "scan"
-				position = { x = 200 y = 185 }
-				quadTextureSprite ="GFX_standard_button_112"	
-				buttonText = "FE_SCAN"
-				buttonFont = "vic_18"
-				clicksound = generic_click_04
-			}
-			
-			guiButtonType = {
-				name = "host"
-				position = { x = 126 y = 250 }
-				quadTextureSprite ="GFX_standard_button_164"	
-				buttonText = "FE_CREATE_GAME"
-				buttonFont = "vic_18"
-				clicksound = generic_click_04
-			}
-			
-			guiButtonType = {
-				name = "join"
-				position = { x = 126 y = 280 }
-				quadTextureSprite ="GFX_standard_button_164"	
-				buttonText = "FE_JOIN_LAN_GAME"
-				buttonFont = "vic_18"
-				clicksound = generic_click_04
-			}
-			
-			guiButtonType = {
-				name = "join_direct"
-				position = { x = 126 y = 310 }
-				quadTextureSprite ="GFX_standard_button_164"	
-				buttonText = "FE_JOIN_INTERNET_GAME"
-				buttonFont = "vic_18"
-				clicksound = generic_click_04
-			}
-			
-			guiButtonType = {
-				name = "Back"
-				position = { x = 152  y = 386 }
-				quadTextureSprite ="GFX_standard_button_112"	
-				buttonText = "FE_BACK"
-				buttonFont = "vic_18"
-				clicksound = click_01
-			}
-			
-			editBoxType = {
-				position = { x = 110 y = 210 }
-				name = "playername"
-				textureFile = "gfx\\interface\\small_tiles_dialog.dds"
-				font = "Arial12"
-				borderSize = {x = 4 y = 4}	
-				size = { x=190 y=32 }
-				text = "FE_PLAYER"	
-				orientation = "UPPER_LEFT"
-				cursor = { x=5 y=0 }
-			}
-
+				}
+				
 			instantTextBoxType = {
-
-				name ="name_label"
-				position = { x = 112 y = 197 }
+				name = "info_desc"
+				position = { x = 31 y = 30 }
 				textureFile = ""
 				font = "vic_18"
 				borderSize = {x = 0 y = 0}
-				text = "FE_PLAYER_NAME"	
-				Orientation = "UPPER_LEFT"
+				text = ""	
+				maxWidth = 320
+				maxHeight = 190
 				format = left
-				maxWidth = 200
-				maxHeight = 100	
-			}
-			
-		}
-		
-		### Multiplayer connect menu
-		windowType = {
-			name ="multiplayer_connect_menu"
-			backGround="Background"
-			position = { x=-250 y=-140 }	
-			size = { x=500 y=300 }
-			moveable = 0
-			dontRender = ""
-			horizontalBorder= ""
-			verticalBorder= ""
-			upsound = ""
-			downsound = ""
-			fullscreen=no
-			Orientation = "CENTER"
-			
-			guiButtonType = {
-				name = "Background"	
-				quadTextureSprite ="GFX_dialog_tile_bg"
-			}
-
-			listboxType = 
-			{
-				name ="info_list"
-				position = { x=100 y =40}
-				backGround=""
-				size = { x=340 y =180}
-				spacing = 0
-				scrollbartype = "standardlistbox_slider"
-				borderSize = {x = 0 y = 0}
-				Orientation = "UPPER_LEFT"
 			}
 				
 			guiButtonType = {
 				name = "back"
-				position = { x = 176 y = 235 }
-				quadTextureSprite ="GFX_standard_button_148"	
+				position = { x = 137 y = 226 }
+				quadTextureSprite ="GFX_standard_button_112"	
+				tooltip = ""
+				tooltipText =""
+				delayedTooltipText = ""
 				buttonText = "FE_BACK"
 				buttonFont = "vic_18"
-				clicksound = click_01
 			}
 						
 		}
@@ -1374,7 +1319,7 @@ guiTypes = {
 					}
 					instantTextBoxType = {
 						name = "checksum"
-						position = { x = 9 y = 584 }
+						position = { x = 9 y = 576 }
 						textureFile = ""
 						font = "vic_18_black"
 						borderSize = {x = 0 y = 0}
@@ -2090,6 +2035,7 @@ guiTypes = {
 					textureFile = ""
 					font = "vic_22"
 					borderSize = { x = 4 y = 4 }
+					cursor = { x = 4 y = 0 }
 					text = ""
 				}
 
@@ -4616,6 +4562,14 @@ guiTypes = {
 					Orientation = "LOWER_LEFT"
 				}
 				
+				iconType = 
+				{
+					name ="RoI_DLC"
+					spriteType = "GFX_dlc_icon_rajas_of_india"
+					position = { x= 234 y = -218 }
+					Orientation = "LOWER_LEFT"
+				}				
+				
 				editBoxType = 
 				{
 					position = { x = 3 y = -38 }
@@ -5674,12 +5628,12 @@ guiTypes = {
 		guiButtonType = {
 			name = "button"
 			position = { x = 0 y = 0 }
-			quadTextureSprite ="button_type_7"	
+			quadTextureSprite ="GFX_standard_button_148"
 			tooltip = ""
 			tooltipText =""
 			delayedTooltipText = ""
 			buttonText = ""
-			buttonFont = "small"
+			buttonFont = "vic_18"
 		}
 
 		
@@ -5863,4 +5817,257 @@ guiTypes = {
 			buttonFont = "vic_18"
 		}
 	}
+	### HOST WINDOW
+	windowType = {
+		name = "host_window"
+		backGround=""
+		position = { x=-250 y=-200 }	
+		size = { x=500 y=380 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+		Orientation = "CENTER"
+		
+		iconType =
+		{
+			name ="hosting_bg"
+			spriteType = "GFX_hosting_bg"
+			position = { x= 0 y = 0 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		instantTextBoxType = {
+			name = "Title"
+			position = { x = 107 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_HOST_TITLE"	
+			maxWidth = 300
+			maxHeight = 20
+			format = centre
+			fixedsize = yes
+		}
+		
+		# Put these editboxes in reverse order here so tab jumps in the "correct" way
+		# Did not fix in code since it was "to" legacy and there already seemed to exist workarounds like this that would break if fixed
+		instantTextBoxType = {
+			name = "desc_title"
+			position = { x = 104 y = 236 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "MATCHMAKING_SERVER_DESC"	
+			maxWidth = 400
+			maxHeight = 320
+		}
+		
+		editBoxType = {
+			position = { x = 104 y = 258 }
+			name = "desc"
+			font = "Arial12"
+			borderSize = {x = 0 y = 4}	
+			size = { x=300 y=24 }
+			text = ""		
+			orientation = "UPPER_LEFT"
+		}
+		
+		instantTextBoxType = {
+			name = "tags_title"
+			position = { x = 104 y = 179 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "MATCHMAKING_SERVER_HOST_TAGS"	
+			maxWidth = 400
+			maxHeight = 320
+		}
+		
+		editBoxType = {
+			position = { x = 104 y = 201 }
+			name = "tags"
+			font = "Arial12"
+			borderSize = {x = 0 y = 4}	
+			size = { x=300 y=24 }
+			text = ""		
+			orientation = "UPPER_LEFT"
+		}
+		
+		instantTextBoxType = {
+			name = "password_title"
+			position = { x = 104 y = 122 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "MATCHMAKING_SERVER_PASSWORD"	
+			maxWidth = 400
+			maxHeight = 320
+		}
+			
+		editBoxType = {
+			position = { x = 104 y = 144 }
+			name = "password"
+			font = "Arial12"
+			borderSize = {x = 0 y = 4}	
+			size = { x=300 y=24 }
+			text = ""		
+			orientation = "UPPER_LEFT"
+		}
+		
+		instantTextBoxType = {
+			name = "edit_title"
+			position = { x = 104 y = 65 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "MATCHMAKING_SERVER_NAME"	
+			maxWidth = 400
+			maxHeight = 320
+		}		
+		
+		editBoxType = {
+			position = { x = 104 y = 87 }
+			name = "edit"
+			font = "Arial12"
+			borderSize = {x = 0 y = 4}	
+			size = { x=300 y=24 }
+			text = "FE_MY_GAME"		
+			orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name = "back_button"
+			position = { x=116 y=323}
+			quadTextureSprite ="GFX_standard_button_112"
+			tooltip = ""
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonText = "FE_CANCEL"
+			buttonFont = "vic_18"
+		}
+		guiButtonType = {
+			name = "ok_host_button"
+			position = { x=286 y=323}
+			quadTextureSprite ="GFX_standard_button_112"
+			tooltip = ""
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonText = "HOST_BUTTON"
+			buttonFont = "vic_18"
+		}
+
+	}
+	
+	### CONNECT WINDOW
+	windowType = {
+		name = "connect_window"
+		backGround=""
+		position = { x=-250 y=-200 }	
+		size = { x=500 y=280 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+		Orientation = "CENTER"
+		
+		iconType =
+		{
+			name ="connecting_bg"
+			spriteType = "GFX_connecting_bg"
+			position = { x= 0 y = 0 }
+			Orientation = "UPPER_LEFT"
+		}		
+		
+		instantTextBoxType = {
+			name = "Title"
+			position = { x = 107 y = 13 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_CONNECT_TITLE"	
+			maxWidth = 300
+			maxHeight = 20
+			format = centre
+			fixedsize = yes
+		}
+			
+		instantTextBoxType = {
+			name = "password_title"
+			position = { x = 104 y = 122 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "MATCHMAKING_SERVER_PASSWORD"	
+			maxWidth = 400
+			maxHeight = 320
+		}
+			
+		editBoxType = {
+			position = { x = 104 y = 144 }
+			name = "password"
+			font = "Arial12"
+			borderSize = {x = 0 y = 4}	
+			size = { x=300 y=24 }
+			text = ""	
+			
+			orientation = "UPPER_LEFT"
+		}
+		
+		instantTextBoxType = {
+			name = "edit_title"
+			position = { x = 104 y = 65 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = "MATCHMAKING_SERVER_CONNECT_ADDRESS"	
+			maxWidth = 400
+			maxHeight = 320
+		}		
+		
+		editBoxType = {
+			position = { x = 104 y = 87 }
+			name = "edit"
+			font = "Arial12"
+			borderSize = {x = 0 y = 4}	
+			size = { x=300 y=24 }
+			text = ""	
+			orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType = {
+			name = "info_text"
+			position = { x = 104 y = 176 }
+			textureFile = ""
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			text = ""	
+			maxWidth = 500
+			maxHeight = 320
+		}
+		
+		guiButtonType = {
+			name = "ok_join_button"
+			position = { x=286 y=209}
+			quadTextureSprite ="GFX_standard_button_112"
+			tooltip = ""
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonText = "JOIN_BUTTON"
+			buttonFont = "vic_18"
+		}
+
+		guiButtonType = {
+			name = "back_button"
+			position = { x=116 y=209}
+			quadTextureSprite ="GFX_standard_button_112"
+			tooltip = ""
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonText = "FE_CANCEL"
+			buttonFont = "vic_18"
+		}
+	}	
 }
