@@ -34,6 +34,14 @@ character_event = {
 			has_holder = yes
 			holder_scope = {
 				independent = yes # Only do this vs independent rulers
+				OR = {
+					is_merchant_republic = no
+					NOT = {
+						capital_holding = {
+							de_jure_liege_or_above = PREVPREV
+						}
+					}
+				}
 				NOT = { has_character_modifier = holy_truce_timer }
 			}
 			OR = {
@@ -59,6 +67,10 @@ character_event = {
 
 	mean_time_to_happen = {
 		years = 80
+		modifier = {
+			factor = 0.2
+			has_character_flag = flag_denied_title
+		}
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -119,7 +131,15 @@ character_event = {
 						# Don't target a liege unless I am ambitious
 						NOT = { is_vassal_or_below = ROOT }
 						ROOT = { trait = ambitious }
-					}							
+					}
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
+						}
+					}					
 				}		
 			}
 
@@ -159,6 +179,14 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_targeted_by_adventurer
+			months = 24
+		}
+	}
 
 	option = {
 		name = "EVTOPTA_TOG_1201"
@@ -188,6 +216,14 @@ character_event = {
 					# Don't target a liege unless I am ambitious
 					NOT = { is_vassal_or_below = ROOT }
 					ROOT = { trait = ambitious }
+				}
+				OR = {
+					is_merchant_republic = no
+					NOT = {
+						capital_holding = {
+							de_jure_liege_or_above = PREVPREV
+						}
+					}
 				}				
 			}
 			OR = {
@@ -235,6 +271,14 @@ character_event = {
 								reverse_has_opinion_modifier = {
 									who = ROOT
 									modifier = opinion_claimant_adventure_target
+								}
+								OR = {
+									is_merchant_republic = no
+									NOT = {
+										capital_holding = {
+											de_jure_liege_or_above = PREVPREV
+										}
+									}
 								}
 							}
 							OR = {
@@ -516,6 +560,14 @@ character_event = {
 						who = ROOT
 						modifier = opinion_claimant_adventure_target
 					}
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
+						}
+					}
 				}
 			}
 
@@ -598,7 +650,7 @@ character_event = {
 		
 		is_ruler = no
 		
-		diplomacy = 9
+		diplomacy = 7
 		martial = 9
 		health = 4
 		
@@ -626,11 +678,19 @@ character_event = {
 			}
 		}
 		
-		NOT = { # Handled by event 1200
+		NOT = { # Handled by event TOG.1200
 			any_claim = {
 				has_holder = yes
 				holder_scope = {
 					independent = yes
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
+						}
+					}
 					NOT = { has_character_modifier = holy_truce_timer }
 				}
 				OR = {
@@ -688,7 +748,7 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.2
 			has_character_flag = flag_denied_title
 		}
 		modifier = {
@@ -775,6 +835,12 @@ character_event = {
 								NOT = { culture_group = altaic }
 								NOT = { culture = hungarian }
 							}
+							NOT = {
+								distance = {
+									who = ROOT
+									value = 800
+								}
+							}
 						}
 						any_neighbor_province = {
 							owner = {
@@ -820,6 +886,12 @@ character_event = {
 							ROOT = {
 								NOT = { culture_group = altaic }
 								NOT = { culture = hungarian }
+							}
+							NOT = {
+								distance = {
+									who = ROOT
+									value = 800
+								}
 							}
 						}
 						any_neighbor_province = {
@@ -889,6 +961,14 @@ character_event = {
 	hide_window = yes # Only fires for unplayable landless characters
 
 	is_triggered_only = yes
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_targeted_by_adventurer
+			months = 24
+		}
+	}
 
 	trigger = {
 		has_dlc = "The Old Gods"
@@ -1118,11 +1198,11 @@ character_event = {
 	}
 
 	immediate = {
-			any_liege = {
-				character_event = {
-					id = TOG.1214
-				}
+		any_liege = {
+			character_event = {
+				id = TOG.1214
 			}
+		}
 	}
 
 	option = {

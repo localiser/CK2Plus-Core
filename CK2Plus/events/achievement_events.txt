@@ -339,3 +339,278 @@ character_event = {
 		name = "OK"
 	}
 }
+
+# The British Raj
+character_event = {
+	id = 709
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_the_british_raj }
+		religion_group = indian_group
+		has_landed_title = e_britannia
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_the_british_raj
+	}			
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Beyond the Indus
+character_event = {
+	id = 710
+
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_beyond_the_indus }
+		NOT = { culture_group = indo_aryan_group }
+		NOT = { culture_group = dravidian_group }
+		OR = {
+			has_landed_title = e_rajastan
+			has_landed_title = e_bengal
+			has_landed_title = e_deccan
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_rajastan 
+			}
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_bengal 
+			}
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_deccan 
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_beyond_the_indus
+	}			
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Great Indian Sultanate
+character_event = {
+	id = 711
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_great_indian_sultanate }
+		has_landed_title = e_rajastan
+		NOT = {
+			any_independent_ruler = {
+				any_realm_province = {
+					empire = { title = e_rajastan }
+					NOT = { religion_group = muslim }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_great_indian_sultanate
+	}		
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Saint Thomas' Dream
+character_event = {
+	id = 712
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_saint_thomas_dream }
+		OR = {
+			has_landed_title = e_rajastan
+			has_landed_title = e_bengal
+			has_landed_title = e_deccan
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_rajastan 
+			}
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_bengal 
+			}
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_deccan 
+			}
+		}
+		NOT = {
+			any_independent_ruler = {
+				any_realm_province = {
+					OR = {
+						empire = { title = e_rajastan }
+						empire = { title = e_bengal }
+						empire = { title = e_deccan }
+					}
+					de_jure_liege = {
+						top_liege = ROOT
+					}
+					NOT = { religion_group = christian }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_saint_thomas_dream
+	}		
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# What Schism?
+character_event = {
+	id = 713
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_what_schism }
+		religion_group = indian_group
+		333 = { # Rome
+			religion = ROOT
+			OR = {
+				owner = { character = ROOT }
+				owner = {
+					top_liege = {
+						character = ROOT
+					}
+				}
+			}
+		}
+		497 = { # Thrace
+			religion = ROOT
+			OR = {
+				owner = { character = ROOT }
+				owner = {
+					top_liege = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_what_schism
+	}		
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Red Sea Resort
+character_event = {
+	id = 714
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_red_sea_resort }
+		religion_group = indian_group
+		719 = { # Mecca
+			religion = ROOT
+			OR = {
+				owner = { character = ROOT }
+				owner = {
+					top_liege = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_red_sea_resort
+	}		
+	
+	option = {
+		name = "OK"
+	}
+}
+
+# Looking East and West
+character_event = {
+	id = 715
+	hide_window = yes
+	
+	ai = no
+	
+	trigger = {
+		has_dlc = "Rajas of India"
+		NOT = { has_character_flag = achievement_looking_east_and_west }
+		has_landed_title = e_rajastan
+		has_landed_title = e_persia
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_character_flag = achievement_looking_east_and_west
+	}		
+	
+	option = {
+		name = "OK"
+	}
+}
