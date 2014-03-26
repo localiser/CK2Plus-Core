@@ -1163,6 +1163,14 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { wealth = 300 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { age = 30 }
+			}
 		}
 	}
 
@@ -1186,16 +1194,18 @@ decisions = {
 		allow = {
 			war = no
 			month = 8
-			scaled_wealth = 0.20
+			wealth = 50
 			NOT = { month = 10 }
 			any_demesne_title = {
 				is_occupied = no
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			wealth = -50
 			set_character_flag = holding_nerge
+			set_character_flag = held_nerge
 			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.299 days = 150 } } # Safety catch flag clearing
 			custom_tooltip = {
 				text = prepare_nerge
 				hidden_tooltip = {
@@ -1212,7 +1222,25 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					wealth = 300
+				}
+			}
+			modifier = {
+				factor = 0
+				trait = craven
+			}
+			modifier = {
+				factor = 0
+				NOT = { martial = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = held_nerge
+				NOT = {
+					had_character_flag = {
+						flag = held_nerge
+						days = 730
+					}
 				}
 			}
 		}
@@ -1234,7 +1262,7 @@ decisions = {
 		}
 		allow = {
 			war = no
-			scaled_wealth = 0.20
+			wealth = 50
 			OR = {
 				NOT = { month = 2 }
 				month = 10
@@ -1244,7 +1272,7 @@ decisions = {
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			wealth = -50
 			set_character_flag = holding_blot
 			set_character_flag = do_not_disturb
 			custom_tooltip = {
@@ -1263,8 +1291,16 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					wealth = 300
 				}
+			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
 			}
 		}
 	}
@@ -1287,13 +1323,13 @@ decisions = {
 			war = no
 			NOT = { month = 7 }
 			month = 4
-			scaled_wealth = 0.20
+			wealth = 50
 			any_demesne_title = {
 				is_occupied = no
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			wealth = -50
 			set_character_flag = holding_ukon_juhla
 			set_character_flag = do_not_disturb
 			custom_tooltip = {
@@ -1312,8 +1348,16 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					wealth = 300
 				}
+			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
 			}
 		}
 	}
@@ -1336,13 +1380,13 @@ decisions = {
 			war = no
 			NOT = { month = 7 }
 			month = 4
-			scaled_wealth = 0.20
+			wealth = 50
 			any_demesne_title = {
 				is_occupied = no
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			wealth = -50
 			set_character_flag = holding_uzgavenes
 			set_character_flag = do_not_disturb
 			custom_tooltip = {
@@ -1361,8 +1405,16 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					wealth = 300
 				}
+			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
 			}
 		}
 	}
@@ -1385,13 +1437,13 @@ decisions = {
 			war = no
 			NOT = { month = 7 }
 			month = 4
-			scaled_wealth = 0.20
+			wealth = 50
 			any_demesne_title = {
 				is_occupied = no
 			}
 		}
 		effect = {
-			scaled_wealth = -0.20
+			wealth = -50
 			set_character_flag = holding_jarilo
 			set_character_flag = do_not_disturb
 			custom_tooltip = {
@@ -1410,8 +1462,16 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = {
-					scaled_wealth = 3.0
+					wealth = 300
 				}
+			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
 			}
 		}
 	}
@@ -2516,6 +2576,62 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1000
+		}
+	}
+	become_samrat_chakravartin = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Rajas of India"
+			is_playable = yes
+			is_feudal = yes
+			religion_group = indian_group
+			primary_title = {
+				OR = {
+					title = e_rajastan
+					title = e_bengal
+					title = e_deccan
+					AND = {
+						tier = KING
+						OR = {
+							empire = { title = e_rajastan }
+							empire = { title = e_bengal }
+							empire = { title = e_deccan }
+						}
+					}
+				}
+			}
+			e_india = {
+				has_holder = no
+			}
+		}
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = {	trait = incapable }
+			war = no
+			has_landed_title = e_rajastan
+			has_landed_title = e_bengal
+			has_landed_title = e_deccan
+			prestige = 1000
+			wealth = 500
+		}
+		effect = {
+			wealth = -500
+			prestige = 500
+			primary_title = {
+				e_india = {
+					grant_title = ROOT
+					copy_title_laws = PREV
+				}
+			}
+			hidden_tooltip = { e_india = { make_primary_title = yes } }
+			set_character_flag = achievement_my_very_own_subcontinent
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }
