@@ -271,6 +271,13 @@ character_event = {
 		location = {
 			reverse_religion = ROOT
 		}
+		hidden_tooltip = {
+			if = {
+				limit = { religion_group = indian_group }
+				set_character_flag = india_converted
+				character_event = { id = RoI.30120 } # Set religious branch randomly
+			}
+		}		
 	}
 	option = {
 		name = EVTOPTB_SOA_4020
@@ -370,6 +377,13 @@ letter_event = {
 		}
 		
 		religion = FROM
+		hidden_tooltip = {
+			if = {
+				limit = { religion_group = indian_group }
+				set_character_flag = india_converted
+				character_event = { id = RoI.30121 } # Set religious branch to liege's branch
+			}
+		}		
 		
 		FROM = {
 			character_event = { id = SoA.4023 tooltip = EVTTOOLTIP_SOA_4023 }
@@ -636,6 +650,13 @@ character_event = {
 		}
 		
 		religion = FROM
+		hidden_tooltip = { 
+			if = {
+				limit = { religion_group = indian_group }
+				set_character_flag = india_converted
+				character_event = { id = RoI.30122 }
+			}
+		}
 	}
 	
 	option = { # Refuse
