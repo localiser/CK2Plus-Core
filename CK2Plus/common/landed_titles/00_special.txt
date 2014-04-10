@@ -160,6 +160,61 @@ k_ghaznavids = { #Ghaznavids
 	}
 }
 
+k_englandnorman = { #England of William the Conqueror
+        color={ 202 26 26 }
+        color2={ 255 255 255 }
+        capital = 32 # Middlesex
+        catholic = 10 #Crusade target weight
+        norse_pagan_reformed = 20 # Crusade target weight
+		celtic_pagan_reformed = 50 # Crusade target weight
+        allow = {
+			is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
+            k_englandnorman = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+        }
+}
+k_englandnorwegian = { #England of Harald the Conqueror
+        color={ 202 26 26 }
+        color2={ 255 255 255 }
+        capital = 32 # Middlesex
+        catholic = 10 #Crusade target weight
+        norse_pagan_reformed = 20 # Crusade target weight
+		celtic_pagan_reformed = 50 #Crusade target weight
+        allow = {
+			is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
+			k_englandnorwegian = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+        }
+}
+
 b_rassid = {
 	culture = bedouin_arabic
 	religion = shiite
