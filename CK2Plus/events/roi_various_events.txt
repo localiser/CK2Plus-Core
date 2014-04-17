@@ -3814,7 +3814,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_dlc = "Rajas of India"
 		religion_group = indian_group
 		NOT = { religion_authority = 0.3 }
 		any_demesne_province = {
@@ -3872,7 +3871,7 @@ character_event = {
 	}
 }
 
-# Temple corruption removed
+# Temple corruption removed - Indian
 character_event = {
 	id = RoI.3506
 
@@ -3881,7 +3880,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_dlc = "Rajas of India"
 		religion_group = indian_group
 		religion_authority = 0.5
 		any_demesne_province = {
@@ -3941,7 +3939,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_dlc = "Rajas of India"
 		religion_group = indian_group
 		NOT = { religion_authority = 0.3 }
 		any_demesne_province = {
@@ -3999,7 +3996,7 @@ character_event = {
 	}
 }
 
-# Local death cult removed
+# Local death cult removed - Indian
 character_event = {
 	id = RoI.3516
 
@@ -4008,7 +4005,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_dlc = "Rajas of India"
 		religion_group = indian_group
 		religion_authority = 0.5
 		any_demesne_province = {
@@ -4068,7 +4064,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_dlc = "Rajas of India"
 		religion_group = indian_group
 		NOT = { religion_authority = 0.3 }
 		any_demesne_province = {
@@ -4307,5 +4302,47 @@ character_event = {
 	}
 }
 
+# Temple corruption removed - non-Indian
+province_event = {
+	id = RoI.3550
 
+	hide_window = yes
+	
+	trigger = {
+		has_province_modifier = temple_corruption
+		owner = {
+			NOT = { religion_group = indian_group }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		remove_province_modifier = temple_corruption
+	}
+}
+
+# Local death cult removed - non-Indian
+province_event = {
+	id = RoI.3551
+
+	hide_window = yes
+	
+	trigger = {
+		has_province_modifier = local_death_cult
+		owner = {
+			NOT = { religion_group = indian_group }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		remove_province_modifier = local_death_cult
+	}
+}
 
