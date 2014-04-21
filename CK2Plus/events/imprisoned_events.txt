@@ -645,7 +645,15 @@ character_event = {
 	option = {
 		name = "EVTOPTB50010" # Oil up the rack!
 		change_variable = { which = "lifestyle_impaler" value = 1 }
-		piety = -10
+		if = {
+			limit = { NOT = { religion = jain } }
+			piety = -10
+		}
+		if = {
+			limit = { religion = jain }
+			piety = -30
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		if = {
 			limit = { trait = just }
 			remove_trait = just
@@ -837,10 +845,7 @@ character_event = {
 				host = {
 					character = PREV
 				}
-				OR = {
-					opinion = { who = ROOT value = 25 }
-					reverse_opinion = { who = ROOT value = 25 }
-				}
+				is_friend = ROOT
 				NOT = {
 					has_character_modifier = petition_release_prisoner_timer
 				}
@@ -861,10 +866,7 @@ character_event = {
 						character = PREV
 					}
 					prisoner = yes
-					OR = {
-						opinion = { who = ROOT value = 25 }
-						reverse_opinion = { who = ROOT value = 25 }
-					}
+					is_friend = ROOT
 				}
 				hidden_tooltip = {
 					add_character_modifier = {
@@ -892,10 +894,7 @@ character_event = {
 						character = PREV
 					}
 					prisoner = yes
-					OR = {
-						opinion = { who = ROOT value = 25 }
-						reverse_opinion = { who = ROOT value = 25 }
-					}
+					is_friend = ROOT
 				}
 				opinion = {
 					modifier = opinion_disgruntled

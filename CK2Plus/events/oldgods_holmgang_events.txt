@@ -116,10 +116,12 @@ character_event = {
 		liege = {
 			set_character_flag = holmgang_challenger
 			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.5999 days = 50 } } # Safety catch flag clearing
 			character_event = { id = TOG.5000 }
 		}
 		set_character_flag = holmgang_target
 		set_character_flag = do_not_disturb
+		hidden_tooltip = { character_event = { id = TOG.5999 days = 50 } } # Safety catch flag clearing
 	}
 
 	option = {
@@ -266,11 +268,13 @@ character_event = {
 				}
 				set_character_flag = holmgang_challenger
 				set_character_flag = do_not_disturb
+				hidden_tooltip = { character_event = { id = TOG.5999 days = 50 } } # Safety catch flag clearing
 				character_event = { id = TOG.5000 }
 			}
 		}
 		set_character_flag = holmgang_target
 		set_character_flag = do_not_disturb
+		hidden_tooltip = { character_event = { id = TOG.5999 days = 50 } } # Safety catch flag clearing
 	}
 
 	option = {
@@ -408,10 +412,12 @@ character_event = {
 			}
 			set_character_flag = holmgang_challenger
 			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = TOG.5999 days = 50 } } # Safety catch flag clearing
 			character_event = { id = TOG.5000 }
 		}
 		set_character_flag = holmgang_target
 		set_character_flag = do_not_disturb
+		hidden_tooltip = { character_event = { id = TOG.5999 days = 50 } } # Safety catch flag clearing
 	}
 
 	option = {
@@ -1716,5 +1722,24 @@ character_event = {
 			death_reason = death_duel
 			killer = FROM
 		}
+	}
+}
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = TOG.5999
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+		clr_character_flag = holmgang_challenger
+		clr_character_flag = holmgang_target
 	}
 }

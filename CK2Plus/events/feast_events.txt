@@ -997,7 +997,7 @@ character_event = {
 			has_character_flag = sent_invitations
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		days = 1
 	}	
@@ -5162,7 +5162,7 @@ character_event = {
 	id = 72109
 	desc = "EVTDESC72109"
 	picture = GFX_evt_feast
-
+	
 	trigger = {
 		has_character_flag = planning_feast
 		OR = {
@@ -5271,6 +5271,7 @@ character_event = {
 		clr_character_flag = feast_drunkard_guest
 		clr_character_flag = feast_duel
 		clr_character_flag = feast_boar_hunt
+		clr_character_flag = do_not_disturb
 
 		any_vassal = {
 			limit = {
@@ -5386,8 +5387,6 @@ character_event = {
 	id = 4160
 	desc = "EVTDESC4160"
 	picture = "GFX_evt_jugglers"
-
-	is_triggered_only = yes
 
 	min_age = 20
 	only_playable = yes
@@ -5589,5 +5588,44 @@ character_event = {
 	option = {
 		name = EVTOPTA4165
 		prestige = 15
+	}
+}
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = 72999
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_character_modifier = holding_large_feast
+		clr_character_flag = sent_invitations
+		clr_character_flag = host_feast_started
+		clr_character_flag = feast_jongleur
+		clr_character_flag = feast_musicians
+		clr_character_flag = feast_minstrel
+		clr_character_flag = feast_fireeaters
+		clr_character_flag = feast_conjurer
+		clr_character_flag = lavishly_food
+		clr_character_flag = medium_food
+		clr_character_flag = low_food
+		clr_character_flag = castle_problems
+		clr_character_flag = feast_jester 
+		clr_character_flag = feast_drunkard_guest
+		clr_character_flag = feast_duel
+		clr_character_flag = feast_boar_hunt
+		clr_character_flag = coming_to_feast
+		clr_character_flag = guest_feast_started
+		clr_character_flag = wounded_opponent
+		clr_character_flag = maimed_opponent
+		clr_character_flag = killed_opponent
+		clr_character_flag = do_not_disturb
+		remove_character_modifier = holding_large_feast
 	}
 }

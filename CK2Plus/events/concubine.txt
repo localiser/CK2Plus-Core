@@ -381,7 +381,7 @@ character_event = {
 		FROM = {
 			if = {
 				limit = {
-					lover = {
+					any_lover = {
 						NOT = {
 							character = ROOT
 						}
@@ -395,7 +395,7 @@ character_event = {
 			}
 			if = {
 				limit = {
-					lover = {
+					any_lover = {
 						character = ROOT
 					}
 				}
@@ -420,7 +420,7 @@ character_event = {
 	is_abroad = no
 	
 	trigger = {
-		lover = {
+		any_lover = {
 			is_consort = PREV
 			is_alive = yes
 			is_abroad = no
@@ -474,7 +474,8 @@ character_event = {
 		trigger = {
 			OR = {
 				trait = stressed
-				lover = {
+				any_lover = {
+					is_consort = ROOT
 					trait = stressed
 				}
 			}
@@ -487,11 +488,13 @@ character_event = {
 		}
 		if = {
 			limit = {
-				lover = {
+				any_lover = {
+					is_consort = PREV
 					trait = stressed
 				}
 			}
-			lover = {
+			any_lover = {
+				limit = { is_consort = PREV }
 				remove_trait = stressed
 			}
 		}
@@ -501,7 +504,8 @@ character_event = {
 		trigger = {
 			OR = {
 				trait = ill
-				lover = {
+				any_lover = {
+					is_consort = ROOT
 					trait = ill
 				}
 			}
@@ -514,11 +518,13 @@ character_event = {
 		}
 		if = {
 			limit = {
-				lover = {
+				any_lover = {
+					is_consort = ROOT
 					trait = ill
 				}
 			}
-			lover = {
+			any_lover = {
+				lmit = { is_consort = ROOT }
 				remove_trait = ill
 			}
 		}
@@ -526,7 +532,8 @@ character_event = {
 	option = {
 		name = "EVTOPTC1000150004" #It makes me feel so virile
 		fertility = 0.05
-		lover = {
+		any_lover = {
+			limit = { is_consort = ROOT }
 			fertility = 0.05
 		}
 	}
@@ -549,7 +556,7 @@ character_event = { #Wife is jealous of consort, considers course of action
 		NOT = { has_character_modifier = sleep_on_the_couch }
 		NOT = { has_character_modifier = show_appreciation }
 		spouse = {
-			lover = {
+			any_lover = {
 				NOT = { reverse_opinion = { who = ROOT value = 0 } }
 				is_consort = PREV
 			}
@@ -588,7 +595,8 @@ character_event = { #Wife is jealous of consort, considers course of action
 		}
 		set_character_flag = concubine_killer
 		spouse = {
-			lover = {
+			any_lover = {
+				limit = { is_consort = ROOT }
 				character_event = { id = 1000150007 days = 4 
 					tooltip = EVTTOOLTIPB1000150005
 				}
@@ -630,6 +638,7 @@ character_event = { # Jealous wife tries to convince husband to set beloved conc
 		name = "EVTOPTA1000150006"
 		prestige = -10
 		lover = {
+			limit = { is_consort = ROOT }
 			remove_consort = ROOT
 			banish = yes
 		}
@@ -689,13 +698,15 @@ character_event = { # Jealous wife tries to off beloved concubine
 					death_reason = death_murder
 					killer = FROM
 				}
-				lover = {
+				any_lover = {
+					limit = { is_consort = ROOT }
 					character_event = { id = 1000150008 days = 4 }
 				}
 				character_event = { id = 1000150030 days = 2 }
 			}
 			50 = {
-				lover = {
+				any_lover = {
+					limit = { is_consort = ROOT }
 					character_event = { id = 1000150009 days = 4 }
 				}
 				character_event = { id = 1000150031 days = 2 }
@@ -1753,7 +1764,7 @@ character_event = {
 		if = {
 			limit = {
 				spouse = {
-					lover = { character = ROOT }
+					any_lover = { character = ROOT }
 				}
 			}
 			set_character_flag = lost_loving_feeling
@@ -1965,7 +1976,7 @@ character_event = { #Courtier 'helps out'  liege's spiteful wife
 		modifier = {
 			factor = 0.9
 			liege = {
-				lover = {
+				any_lover = {
 					is_consort = PREV
 				}
 			}

@@ -66,6 +66,7 @@ character_event = {
 		name = EVTOPTA_TOG_601
 		set_character_flag = attending_blot
 		set_character_flag = do_not_disturb
+		hidden_tooltip = { character_event = { id = TOG.699 days = 50 } } # Safety catch flag clearing
 	}
 }
 
@@ -3094,4 +3095,33 @@ character_event = {
 		piety = -25
 	}
 }
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = TOG.699
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = holding_blot
+		clr_character_flag = blot_feast
+		clr_character_flag = attending_blot
+		clr_character_flag = blot_feast_vassal
+		clr_character_flag = feast_drunkard
+		clr_character_flag = feast_gluttonous
+		clr_character_flag = feast_lunatic
+		clr_character_flag = feast_lustful
+		clr_character_flag = feast_homosexual
+		clr_character_flag = feast_drunkard
+		clr_character_flag = feast_friendship
+		clr_character_flag = do_not_disturb
+	}
+}
+
 

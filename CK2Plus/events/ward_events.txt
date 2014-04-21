@@ -905,10 +905,7 @@ character_event = {
 	trigger = {
 		has_guardian = yes
 		guardian = {
-			NOT = {
-				has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
+			NOT = { is_friend = ROOT }
 			opinion = { who = ROOT value = 15 }
 			reverse_opinion = { who = ROOT value = 15 }
 		}
@@ -921,15 +918,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA78030"
 		guardian = {
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			character_event = {
-				id = 78031
-				tooltip = "EVTTOOLTIP78031"
-			}
+			add_friend = ROOT
 		}
 	}
 	option = {
@@ -965,10 +954,6 @@ character_event = {
 	option = {
 		name = "EVTOPTA78031"
 		prestige = 10
-		opinion = {
-			modifier = opinion_friend
-			who = FROM
-			years = 100
-		}
+		add_friend = ROOT
 	}
 }

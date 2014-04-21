@@ -17,7 +17,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_called_crusade = yes
 		OR = {
@@ -41,7 +41,7 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA8300"
 		add_trait = crusader
@@ -59,12 +59,12 @@ character_event = {
 	desc = "EVTDESC8300"
 	picture = "GFX_evt_moors"
 	border = GFX_event_normal_frame_war
-
+	
 	only_men = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_called_crusade = yes
 		OR = {
@@ -87,7 +87,7 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA8301"
 		add_trait = mujahid
@@ -110,7 +110,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_called_crusade = yes
 		OR = {
@@ -133,13 +133,13 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-
+	
 	immediate = {
 		hidden_tooltip = {
 			set_character_flag = arrived_at_crusade_target
 		}
 	}
-
+	
 	option = {
 		name = "EXCELLENT"
 		prestige = 25
@@ -158,12 +158,12 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
-
+		
 		OR = {
 			any_independent_ruler = {
 				ai = yes
@@ -186,11 +186,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA8306"
 		any_independent_ruler = {
@@ -236,14 +236,16 @@ character_event = {
 	desc = "EVTDESC8310"
 	picture = "GFX_evt_knight_kneeling"
 	border = GFX_event_normal_frame_religion
-
+	
+	hide_from = yes
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		religion = catholic
 		NOT = { trait = zealous }
 		NOT = { trait = cynical }
-
+		
 		has_called_crusade = yes
 		OR = {
 			any_war = {
@@ -276,12 +278,12 @@ character_event = {
 	border = GFX_event_normal_frame_war
 
 	is_triggered_only = yes
-
+	
 	trigger = {
 		religion = catholic
 		NOT = { trait = cynical }
 		NOT = { trait = zealous }
-
+		
 		has_called_crusade = yes
 		OR = {
 			any_war = {
@@ -297,13 +299,12 @@ character_event = {
 			is_located_in = ROOT
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8320"
 		add_trait = cynical
 	}
 }
-
 
 # Conquers the crusade target
 # on_siege_won_leader
@@ -313,13 +314,13 @@ character_event = {
 	desc = EVTDESC8330
 	picture = GFX_evt_siege
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_capital = yes }
 		religion = catholic
-
+		
 		has_called_crusade = yes
 		OR = {
 			any_war = {
@@ -335,7 +336,7 @@ character_event = {
 			de_jure_vassal_or_below = FROM
 		}
 	}
-
+	
 	option = {
 		name = EVTOPTA8330
 		prestige = 100
@@ -413,9 +414,9 @@ character_event = {
 letter_event = {
 	id = 8331
 	desc = "EVTDESC8331"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EXCELLENT"
 		if = {
@@ -436,9 +437,9 @@ character_event = {
 	desc = "EVTDESC8340"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		religion = catholic
 		FROM = { title = b_jerusalem }
@@ -454,13 +455,13 @@ character_event = {
 		}
 		NOT = { has_global_flag = found_the_holy_lance }
 	}
-
+	
 	immediate = {
 		hidden_tooltip = {
 			set_global_flag = found_the_holy_lance
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8340"
 		prestige = 100
@@ -476,9 +477,9 @@ character_event = {
 	desc = "EVTDESC8342"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		religion = catholic
 		FROM = { title = b_syrcaesarea }
@@ -494,13 +495,13 @@ character_event = {
 		}
 		NOT = { has_global_flag = found_the_holy_grail }
 	}
-
+	
 	immediate = {
 		hidden_tooltip = {
 			set_global_flag = found_the_holy_grail
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8342"
 		prestige = 200
@@ -516,9 +517,9 @@ character_event = {
 	desc = "EVTDESC8345"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		religion = catholic
 		FROM = { title = b_jerusalem }
@@ -533,7 +534,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8345"
 		prestige = 50
@@ -549,9 +550,9 @@ character_event = {
 	desc = "EVTDESC8350"
 	picture = "GFX_evt_siege"
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_capital = yes }
 		religion = catholic
@@ -569,7 +570,7 @@ character_event = {
 			de_jure_vassal_or_below = FROM
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8350"
 		prestige = -50
@@ -646,9 +647,9 @@ character_event = {
 letter_event = {
 	id = 8351
 	desc = "EVTDESC8351"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8351"
 		prestige = -25
@@ -669,13 +670,13 @@ character_event = {
 	desc = "EVTDESC8400"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
 		had_global_flag = { flag = crusade_called days = 180 }
-
+		
 		any_independent_ruler = {
 			religion = catholic
 			NOT = {
@@ -721,16 +722,16 @@ character_event = {
 			NOT = { mercenary = yes }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 6
-
+		
 		modifier = {
 			factor = 0.5
 			trait = zealous
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8400"
 		random_independent_ruler = {
@@ -787,9 +788,9 @@ character_event = {
 letter_event = {
 	id = 8405
 	desc = "EVTDESC8405"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8405"
 		trigger = { primary_title = { tier = EMPEROR } }
@@ -846,13 +847,13 @@ character_event = {
 	desc = "EVTDESC8410"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
 		had_global_flag = { flag = crusade_called days = 180 }
-
+		
 		any_independent_ruler = {
 			had_character_flag = { flag = reminded_about_crusade days = 30 }
 			religion = catholic
@@ -872,16 +873,16 @@ character_event = {
 			NOT = { excommunicated_for = ROOT }
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 6
-
+		
 		modifier = {
 			factor = 0.5
 			trait = zealous
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8410"
 		random_independent_ruler = {
@@ -913,9 +914,9 @@ character_event = {
 letter_event = {
 	id = 8415
 	desc = "EVTDESC8415"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8415"
 		trigger = { primary_title = { tier = EMPEROR } }
@@ -976,7 +977,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_called_crusade = yes
 		had_global_flag = { flag = crusade_called days = 180 }
@@ -986,7 +987,7 @@ character_event = {
 		independent = no
 		religion = catholic
 		controls_religion = no
-
+		
 		liege = {
 			independent = yes
 			religion = catholic
@@ -1026,10 +1027,10 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 120
-
+		
 		modifier = {
 			factor = 0.90
 			trait = detached_priest
@@ -1079,7 +1080,7 @@ character_event = {
 			trait = cynical
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8420"
 		ai_chance = { factor = 100 }
@@ -1096,9 +1097,9 @@ character_event = {
 letter_event = {
 	id = 8425
 	desc = "EVTDESC8425"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8425"
 		FROM = {
@@ -1122,7 +1123,7 @@ character_event = {
 	desc = "EVTDESC8430"
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
-
+	
 	trigger = {
 		has_character_flag = bishop_complains_about_not_crusading
 		had_character_flag = { flag = reminded_about_crusade days = 30 }
@@ -1147,11 +1148,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 3
 	}
-
+	
 	option = {
 		name = "EVTOPTA8430"
 		clr_character_flag = bishop_complains_about_not_crusading
@@ -1164,9 +1165,9 @@ character_event = {
 letter_event = {
 	id = 8435
 	desc = "EVTDESC8435"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8435"
 		FROM = {
@@ -1192,7 +1193,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_called_crusade = yes
 		had_global_flag = { flag = crusade_called days = 180 }
@@ -1200,7 +1201,7 @@ character_event = {
 		independent = no
 		religion = catholic
 		controls_religion = no
-
+		
 		liege = {
 			independent = yes
 			religion = catholic
@@ -1243,7 +1244,7 @@ character_event = {
 
 	mean_time_to_happen = {
 		months = 120
-
+		
 		modifier = {
 			factor = 0.90
 			trait = misguided_warrior
@@ -1293,7 +1294,7 @@ character_event = {
 			trait = cynical
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA8440"
 		ai_chance = { factor = 100 }
@@ -1310,9 +1311,9 @@ character_event = {
 letter_event = {
 	id = 8445
 	desc = "EVTDESC8445"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8445"
 		FROM = {
@@ -1335,7 +1336,7 @@ character_event = {
 	id = 8450
 	desc = "EVTDESC8450"
 	picture = GFX_evt_emissary
-
+	
 	trigger = {
 		has_character_flag = vassal_complains_about_not_crusading
 		had_character_flag = { flag = reminded_about_crusade days = 30 }
@@ -1360,11 +1361,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 3
 	}
-
+	
 	option = {
 		name = "EVTOPTA8450"
 		clr_character_flag = vassal_complains_about_not_crusading
@@ -1377,9 +1378,9 @@ character_event = {
 letter_event = {
 	id = 8455
 	desc = "EVTDESC8455"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8455"
 		FROM = {
@@ -1406,12 +1407,12 @@ character_event = {
 	desc = "EVTDESC8460"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
-
+		
 		OR = {
 			any_independent_ruler = {
 				ai = no	# Only for players
@@ -1468,11 +1469,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 3
 	}
-
+	
 	option = {
 		name = "EVTOPTA8460"
 		any_independent_ruler = {
@@ -1545,9 +1546,9 @@ character_event = {
 letter_event = {
 	id = 8465
 	desc = "EVTDESC8465"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA8465"
 		ai_chance = { factor = 100 }
@@ -1564,12 +1565,12 @@ character_event = {
 	desc = "EVTDESC8466"
 	picture = GFX_evt_pope
 	border = GFX_event_normal_frame_religion
-
+	
 	trigger = {
 		controls_religion = yes
 		has_called_crusade = yes
 		religion = catholic
-
+		
 		OR = {
 			any_independent_ruler = {
 				ai = no
@@ -1606,11 +1607,11 @@ character_event = {
 			}
 		}
 	}
-
+	
 	mean_time_to_happen = {
 		months = 1
 	}
-
+	
 	option = {
 		name = "EVTOPTA8466"
 		any_independent_ruler = {
@@ -1661,9 +1662,9 @@ character_event = {
 letter_event = {
 	id = 8467
 	desc = "EVTDESC8467"
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EXCELLENT"
 		excommunicate = no

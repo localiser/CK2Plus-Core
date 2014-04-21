@@ -13,9 +13,9 @@
 # Invitation
 character_event = {
 	id = 70000
-	title = "TOURNAMENTTITLE"
-	desc = "EVTDESC70000"
-	picture = "GFX_evt_courier"
+	title = TOURNAMENTTITLE
+	desc = EVTDESC70000
+	picture = GFX_evt_courier
 
 	is_triggered_only = yes
 
@@ -236,7 +236,10 @@ province_event = {
 			owner = {
 				has_character_flag = winner
 				has_character_flag = second_place
-				has_character_flag = third_place
+				had_character_flag = {
+					flag = third_place
+					days = 3
+				}
 				has_character_flag = beauty_winner
 				has_character_flag = beauty_second
 				has_character_flag = beauty_third
@@ -2825,5 +2828,44 @@ letter_event = {
 
 	option = {
 		name = EVTOPTA70042
+	}
+}
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = 70999
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+		clr_character_flag = attending_tournament
+		clr_character_flag = no_msg_death
+		clr_character_flag = no_msg_maimed
+		clr_character_flag = no_msg_wounded
+		clr_character_flag = tournament_has_ended
+		clr_character_flag = attending_tournament_event
+		clr_character_flag = tournament_winner
+		clr_character_flag = winner
+		clr_character_flag = tournament_second_place
+		clr_character_flag = second_place
+		clr_character_flag = tournament_third_place
+		clr_character_flag = third_place
+		any_realm_character = {
+			limit = {
+				has_character_flag = attending_tournament
+			}
+			clr_character_flag = tournament_third_place
+			clr_character_flag = tournament_second_place
+			clr_character_flag = attending_tournament
+			clr_character_flag = attending_tournament_event
+			clr_character_flag = do_not_disturb
+		}		
 	}
 }

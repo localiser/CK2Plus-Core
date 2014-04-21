@@ -14,18 +14,20 @@ narrative_event = {
 	title = "EVTNAME10000"
 	desc = "EVTDESC10000"
 	picture = GFX_evt_throne_room
-
+	
+	ai = no
 	min_age = 20
 	prisoner = no
 	only_playable = yes
 	capable_only = yes
 
 	trigger = {
+		NOT = { has_global_flag = robin_hood_existed }
 		war = no
 		in_command = no
 		is_ill = no
 		OR = {
-		religion_group = christian
+			religion_group = christian
 			religion_group = pagan_group
 		}
 		NOT = {
@@ -72,6 +74,7 @@ narrative_event = {
 	immediate = {
 		set_character_flag = lure_robin
 		set_character_flag = robin_hood
+		set_global_flag = robin_hood_existed
 	}
 
 	option = {
@@ -1669,6 +1672,11 @@ narrative_event = {
 					age = 20
 				}
 			}
+		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
 		}
 		random_child = {
 			limit = {

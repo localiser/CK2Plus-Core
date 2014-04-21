@@ -361,7 +361,12 @@ character_event = {
 		}
 		random_list = {
 			25 = { character_event = { id = 20210 tooltip = "EVTTOOLTIP20210" } }
-			50 = { character_event = { id = 20211 tooltip = "EVTTOOLTIP20211" } }
+			50 = { 
+				character_event = { id = 20211 tooltip = "EVTTOOLTIP20211" } 
+				hidden_tooltip = {
+					liege = { letter_event = { id = 20212 } }
+				}
+			}
 			25 = {
 				death = { death_reason = death_rabble }
 				hidden_tooltip = {
@@ -429,7 +434,7 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA20211"
-		add_trait = wounded
+		add_trait = woundedg
 		liege = { letter_event = { id = 20212 days = 7 tooltip = "EVTTOOLTIP20212" } }
 	}
 }

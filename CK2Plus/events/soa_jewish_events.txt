@@ -817,6 +817,7 @@ character_event = {
 		set_character_flag = attending_passover
 		set_character_flag = do_not_disturb
 		hidden_tooltip = { character_event = { id = SoA.503 days = 8 } }
+		hidden_tooltip = { character_event = { id = SoA.599 days = 20 } } # Safety catch flag clearing
 	}
 	option = {
 		name = EVTOPTB_SoA_501
@@ -1063,5 +1064,24 @@ narrative_event = {
 		trigger = {
 			religion_group = muslim
 		}
+	}
+}
+
+###########################################
+# Flag management                         #
+###########################################
+
+# Safety catch - clears character flags and modifiers
+character_event = {
+	id = SoA.599
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = do_not_disturb
+		clr_character_flag = holding_passover
+		clr_character_flag = attending_passover
 	}
 }

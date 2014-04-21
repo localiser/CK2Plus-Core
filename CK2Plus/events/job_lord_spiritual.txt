@@ -410,17 +410,37 @@ character_event = {
 			liege = { demesne_size = 8 }
 		}
 		modifier = {
-			factor = 0.9
+			factor = 0.75
 			religion_authority = 0.6
 		}
 		modifier = {
-			factor = 0.9
+			factor = 0.75
 			religion_authority = 0.7
 		}
 		modifier = {
-			factor = 0.9
+			factor = 0.75
 			religion_authority = 0.8
 		}
+		# Hindus and Buddhists have a hard time converting other Indian religions
+		modifier = {
+			factor = 3.0
+			OR = {
+				religion = hindu
+				religion = buddhist
+			}
+			location = {
+				religion_group = indian_group
+			}
+		}
+		# Jains have a hard time converting ALL non-pagans
+		modifier = {
+			factor = 3.0
+			religion = jain
+			location = {
+				NOT = { religion_group = pagan_group }
+			}
+		}
+
 		modifier = {
 			factor = 3.0
 			religion_group = pagan_group
@@ -435,23 +455,27 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			religion_authority = 0.9
+			religion_authority = 0.75
 		}
 		modifier = {
-			factor = 1.1
+			factor = 1.5
 			NOT = { religion_authority = 0.5 }
 		}
 		modifier = {
-			factor = 1.1
+			factor = 1.5
 			NOT = { religion_authority = 0.4 }
 		}
 		modifier = {
-			factor = 1.1
+			factor = 1.5
 			NOT = { religion_authority = 0.3 }
 		}
 		modifier = {
-			factor = 1.1
+			factor = 2
 			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 3.0
+			NOT = { religion_authority = 0.1 }
 		}
 		modifier = {
 			factor = 3.0
@@ -3340,6 +3364,7 @@ character_event = {
 	trigger = {
 		is_heretic = no
 		liege = { religion = ROOT }
+		NOT = { religion_group = indian_group }
 		OR = {
 			religion_group = christian
 			religion_group = muslim

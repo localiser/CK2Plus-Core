@@ -93,8 +93,8 @@ province_event = {
 	id = SSI.3
 	desc = "EVTDESC_SSI_003"
 
-	picture = "GFX_evt_aztec_arrival"
-	border = "GFX_event_normal_frame_war"
+	picture = GFX_evt_battle_mesoamerican
+	border = GFX_event_normal_frame_war
 
 	trigger = {
 		year = 1250
@@ -146,13 +146,13 @@ province_event = {
 # First Landing of the Aztecs
 narrative_event = {
 	id = SSI.4
-	title = "EVTNAME_SSI_004"
-	desc = "EVTDESC_SSI_004"
+	title = EVTNAME_SSI_004
+	desc = EVTDESC_SSI_004
 	major = yes
 	hide_new = yes
 
-	picture = "GFX_evt_aztec_arrival"
-	border = "GFX_event_narrative_frame_war"
+	picture = GFX_evt_battle_mesoamerican
+	border = GFX_event_narrative_frame_war
 
 	is_triggered_only = yes
 
@@ -939,6 +939,9 @@ province_event = {
 			province_id = 841 # Tangier
 			province_id = 845 # Anti-Atlas
 		}
+		owner = {
+			NOT = { religion = aztec }
+		}
 	}
 
 	immediate = {
@@ -1660,7 +1663,7 @@ narrative_event = {
 	title = "EVTNAME_SSI_030"
 	desc = "EVTDESC_SSI_030"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_narrative_frame_war"
 
 	major = yes
@@ -1695,7 +1698,7 @@ narrative_event = {
 	title = "EVTNAME_SSI_031"
 	desc = "EVTDESC_SSI_031"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_narrative_frame_war"
 
 	major = yes
@@ -1730,7 +1733,7 @@ narrative_event = {
 	title = "EVTNAME_SSI_035"
 	desc = "EVTDESC_SSI_035"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_narrative_frame_war"
 
 	major = yes
@@ -1764,7 +1767,7 @@ character_event = {
 	id = SSI.40
 	desc = "EVTDESC_SSI_040"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1772,8 +1775,8 @@ character_event = {
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
-		completely_controls = d_iceland
 		NOT = { has_global_flag = aztec_iceland }
+		completely_controls = d_iceland
 	}
 
 	major_trigger = {
@@ -1794,7 +1797,7 @@ character_event = {
 	id = SSI.41
 	desc = "EVTDESC_SSI_041"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1802,12 +1805,12 @@ character_event = {
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
+		NOT = { has_global_flag = aztec_ireland }
 		completely_controls = d_ulster
 		completely_controls = d_connacht
 		completely_controls = d_meath
 		completely_controls = d_leinster
 		completely_controls = d_munster
-		NOT = { has_global_flag = aztec_ireland }
 	}
 
 	major_trigger = {
@@ -1828,7 +1831,7 @@ character_event = {
 	id = SSI.42
 	desc = "EVTDESC_SSI_042"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1836,6 +1839,7 @@ character_event = {
 	trigger = {
 		has_global_flag = aztec_arrival
 		has_landed_title = e_mexikha
+		NOT = { has_global_flag = aztec_britain }
 		completely_controls = d_northumberland
 		completely_controls = d_lancaster
 		completely_controls = d_york
@@ -1852,7 +1856,6 @@ character_event = {
 		completely_controls = d_western_isles
 		completely_controls = d_lothian
 		completely_controls = d_albany
-		NOT = { has_global_flag = aztec_britain }
 	}
 
 	major_trigger = {
@@ -1873,7 +1876,7 @@ character_event = {
 	id = SSI.43
 	desc = "EVTDESC_SSI_043"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1903,7 +1906,7 @@ character_event = {
 	id = SSI.44
 	desc = "EVTDESC_SSI_044"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1933,7 +1936,7 @@ character_event = {
 	id = SSI.45
 	desc = "EVTDESC_SSI_045"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1963,7 +1966,7 @@ character_event = {
 	id = SSI.46
 	desc = "EVTDESC_SSI_046"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -1993,7 +1996,7 @@ character_event = {
 	id = SSI.47
 	desc = "EVTDESC_SSI_047"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -2023,7 +2026,7 @@ character_event = {
 	id = SSI.48
 	desc = "EVTDESC_SSI_048"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	major = yes
@@ -2053,7 +2056,7 @@ character_event = {
 	id = SSI.60
 	desc = "EVTDESC_SSI_060"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_bishop_aztec"
 	border = "GFX_event_normal_frame_war"
 
 	is_triggered_only = yes
@@ -2109,7 +2112,7 @@ character_event = {
 	id = SSI.62
 	desc = "EVTDESC_SSI_060"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_normal_frame_war"
 
 	is_triggered_only = yes
@@ -2159,7 +2162,7 @@ narrative_event = {
 	title = "EVTNAME_SSI_071"
 	desc = "EVTDESC_SSI_071"
 
-	picture = "GFX_evt_aztec_arrival"
+	picture = "GFX_evt_throne_room_mesoamerican"
 	border = "GFX_event_narrative_frame_war"
 
 	major = yes
@@ -2189,3 +2192,17 @@ narrative_event = {
 	}
 }
 
+# Aztecs Sacrifice Prisoner (Aztec perspective)
+character_event = {
+	id = SSI.72
+	desc = EVTDESC_SSI_072
+	
+	picture = GFX_evt_bishop_aztec
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_SSI_072
+	}
+}

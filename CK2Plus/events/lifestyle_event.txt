@@ -11,6 +11,7 @@ character_event = {
 
 	trigger = {
 		prisoner = no
+		NOT = { religion = jain }
 		NOT = { has_character_flag = lifestyle_hunter_no }
 		NOT = {
 			lifestyle_traits = 1
@@ -130,6 +131,7 @@ character_event = {
 	trigger = {
 		prisoner = no
 		NOT = { has_character_flag = lifestyle_falconer_no }
+		NOT = { religion = jain }
 		NOT = {
 			lifestyle_traits = 1
 			trait = incapable
@@ -585,6 +587,9 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA200004"
+		trigger = {
+			NOT = { religion = jain }
+		}
 		add_trait = impaler
 	}
 	option = {
@@ -1163,6 +1168,11 @@ character_event = {
 	option = {
 		name = "EVTOPTA200009"
 		add_trait = duelist
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 	}
 	option = {
 		name = "EVTOPTB200000"

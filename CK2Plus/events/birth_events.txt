@@ -8,7 +8,7 @@
 
 #############################################
 # EVENTS LEADING UP TO BASTARD PREGNANCY
-# (Attraction grows between the male ruler and a female courtier)
+# (Attraction grows between the male ruler and a 'female' courtier)
 #############################################
 
 # A courtier initiates romance with their liege
@@ -32,7 +32,7 @@ character_event = {
 			trait = homosexual
 		}
 		is_marriage_adult = yes
-		NOT = { age = 35 }
+		NOT = { age = 40 }
 		liege = {
 			NOT = { character = ROOT }
 			demesne_size = 1
@@ -44,8 +44,14 @@ character_event = {
 				OR = {
 					NOT = { is_close_relative = ROOT }
 					AND = {
-						religion_group = zoroastrian_group
-						ROOT = { religion_group = zoroastrian_group }
+						OR = {
+							religion_group = zoroastrian_group
+							religion = messalian
+						}
+						OR = {
+							ROOT = { religion_group = zoroastrian_group }
+							ROOT = { religion = messalian }
+						}
 					}
 				}
 			}
@@ -73,7 +79,7 @@ character_event = {
 					ROOT = { is_female = no }
 				}
 			}
-			has_lover = no
+			NOT = { num_of_lovers = 5 }
 			is_pregnant = no
 			prisoner = no
 			is_marriage_adult = yes
@@ -130,6 +136,22 @@ character_event = {
 			}
 		}
 		modifier = {
+			factor = 2.0
+			liege = { num_of_lovers = 1 }
+		}		
+		modifier = {
+			factor = 3.0
+			liege = { num_of_lovers = 2 }
+		}
+		modifier = {
+			factor = 4.0
+			liege = { num_of_lovers = 3 }
+		}
+		modifier = {
+			factor = 5.0
+			liege = { num_of_lovers = 4 }
+		}
+		modifier = {
 			factor = 0.5
 			is_married = no
 		}
@@ -173,9 +195,15 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			liege = { 
-				religion_group = zoroastrian_group 
 				is_close_relative = ROOT
-				ROOT = { religion_group = zoroastrian_group }
+				OR = {
+					religion_group = zoroastrian_group
+					religion = messalian
+					}
+				OR = {
+					ROOT = { religion_group = zoroastrian_group }
+					ROOT = { religion = messalian }
+				}
 			}
 		}
 		modifier = {
@@ -194,6 +222,7 @@ character_event = {
 				NOT = { trait = hedonist }
 				NOT = { ROOT = { trait = hedonist } }
 				NOT = { religion_group = zoroastrian_group }
+				NOT = { religion = messalian }
 			}
 		}
 		modifier = {
@@ -206,6 +235,7 @@ character_event = {
 				NOT = { trait = hedonist }
 				NOT = { ROOT = { trait = hedonist } }
 				NOT = { religion_group = zoroastrian_group }
+				NOT = { religion = messalian }
 			}
 		}
 		modifier = {
@@ -392,25 +422,41 @@ character_event = {
 				is_close_relative = FROM
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
-				NOT = { religion_group = zoroastrian_group }
-				NOT = { FROM = { religion_group = zoroastrian_group } }
+				OR = {
+					NOT = { religion_group = zoroastrian_group }
+					NOT = { religion = messalian }
+				}
+				OR = {
+					NOT = { ROOT = { religion_group = zoroastrian_group } }
+					NOT = { ROOT = { religion = messalian } }
+				}
 			}
 			modifier = {
 				factor = 0.5
 				is_close_relative = FROM
-				religion_group = zoroastrian_group
-				FROM = { religion_group = zoroastrian_group }
+				OR = {
+					AND = {
+						religion_group = zoroastrian_group
+						ROOT = { religion_group = zoroastrian_group }
+					}
+					AND = {
+						religion = messalian
+						ROOT = { religion = messalian }
+					}
+				}
 			}
 		}
 		if = {
 			limit = {
 				NOT = { religion_group = zoroastrian_group }
+				NOT = { religion = messalian }
 			}
 			piety = 5
 		}
 		if = {
 			limit = {
 				religion_group = zoroastrian_group
+				religion = messalian
 			}
 			piety = -5
 		}
@@ -534,12 +580,20 @@ character_event = {
 				NOT = { FROM = { trait = divine_blood } }
 				NOT = { religion_group = zoroastrian_group }
 				NOT = { FROM = { religion_group = zoroastrian_group } }
+				NOT = { religion = messalian }
+				NOT = { FROM = { religion = messalian } }
 			}
 			modifier = {
 				factor = 0.5
 				is_close_relative = FROM
-				religion_group = zoroastrian_group
-				FROM = { religion_group = zoroastrian_group }
+				OR = {
+					religion_group = zoroastrian_group
+					religion = messalian
+				}
+				OR = {
+					FROM = { religion_group = zoroastrian_group }
+					FROM = { religion = messalian }
+				}
 			}
 		}
 		trigger = {
@@ -578,12 +632,20 @@ character_event = {
 				NOT = { FROM = { trait = divine_blood } }
 				NOT = { religion_group = zoroastrian_group }
 				NOT = { FROM = { religion_group = zoroastrian_group } }
+				NOT = { religion = messalian }
+				NOT = { FROM = { religion = messalian } }
 			}
 			modifier = {
 				factor = 0.5
 				is_close_relative = FROM
-				religion_group = zoroastrian_group
-				FROM = { religion_group = zoroastrian_group }
+				OR = {
+					religion_group = zoroastrian_group
+					religion = messalian
+				}
+				OR = {
+					FROM = { religion_group = zoroastrian_group }
+					FROM = { religion = messalian }
+				}
 			}
 		}
 		FROM = { character_event = { id = 455 tooltip = EVTTOOLTIP455 } }
@@ -642,6 +704,215 @@ character_event = {
 		}
 	}
 }
+
+# A courtier initiates romance with another courtier
+character_event = {
+	id = 456
+	desc = EVTDESC450
+	picture = GFX_evt_lovers
+
+	capable_only = yes
+	prisoner = no
+
+	trigger = {
+		is_ruler = no
+		is_marriage_adult = yes
+		OR = {
+			is_female = no
+			NOT = { age = 40 }
+		}
+		liege = {
+			ai = no		# otherwise we get too many unnecessary children in the game
+			demesne_size = 1
+			any_courtier = {
+				is_ruler = no	
+				OR = {
+					NOT = { is_close_relative = ROOT }
+					AND = {
+						OR = {
+							religion_group = zoroastrian_group
+							religion = messalian
+						}
+						OR = {
+							ROOT = { religion_group = zoroastrian_group }
+							ROOT = { religion = messalian }
+						}
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { trait = homosexual }
+						ROOT = { NOT = { trait = homosexual } }
+						is_female = no
+						ROOT = { is_female = yes }
+					}
+					AND = {
+						NOT = { trait = homosexual }
+						ROOT = { NOT = { trait = homosexual } }
+						is_female = yes
+						ROOT = { is_female = no }
+					}
+					AND = {
+						trait = homosexual
+						ROOT = { trait = homosexual }
+						is_female = yes
+						ROOT = { is_female = yes }
+					}
+					AND = {
+						trait = homosexual
+						ROOT = { trait = homosexual }
+						is_female = no
+						ROOT = { is_female = no }
+					}
+				}
+				has_lover = no
+				is_pregnant = no
+				prisoner = no
+				is_marriage_adult = yes
+				OR = {
+					is_female = no
+					NOT = { age = 40 }
+				}
+				NOT = {
+					has_character_modifier = lustful_affair_timer
+				}
+				NOT = { trait = infirm }
+				NOT = { trait = incapable }
+				NOT = { trait = celibate }
+				NOT = { trait = eunuch }
+				NOT = { trait = chaste }
+				NOT = { spouse = { character = ROOT } }
+				opinion = { who = ROOT value = 0 }
+				reverse_opinion = { who = ROOT value = 0 }
+				NOT = {
+					is_former_lover = ROOT
+				}
+			}
+		}
+		has_lover = no
+		is_pregnant = no
+		prisoner = no
+		NOT = { trait = chaste }
+		NOT = { trait = infirm }
+		NOT = { trait = incapable }
+		NOT = { trait = celibate }
+		NOT = { trait = eunuch }
+	}
+
+
+	mean_time_to_happen = {
+		months = 2000
+
+		modifier = {
+			factor = 0.5
+			spouse = { is_ruler = yes }
+		}
+		modifier = {
+			factor = 0.5
+			spouse = { has_lover = yes }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { age = 30 }
+			spouse = { age = 40 }
+		}
+		modifier = {
+			factor = 0.33
+			trait = homosexual #to balance for fewer potential lovers
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { age = 20 }
+		}
+		modifier = {
+			factor = 2.0
+			age = 30
+		}
+		modifier = {
+			factor = 0.5
+			trait = hedonist
+		}
+		modifier = {
+			factor = 0.5
+			trait = lustful
+		}
+	}
+
+	option = {
+		name = EVTOPTA450
+		liege = {
+			random_courtier = {
+				limit = {
+					is_ruler = no
+					OR = {
+					NOT = { is_close_relative = ROOT }
+					AND = {
+						OR = {
+							religion_group = zoroastrian_group
+							religion = messalian
+						}
+						OR = {
+							ROOT = { religion_group = zoroastrian_group }
+							ROOT = { religion = messalian }
+						}
+					}
+					}
+					OR = {
+						AND = {
+							NOT = { trait = homosexual }
+							ROOT = { NOT = { trait = homosexual } }
+							is_female = no
+							ROOT = { is_female = yes }
+						}
+						AND = {
+							NOT = { trait = homosexual }
+							ROOT = { NOT = { trait = homosexual } }
+							is_female = yes
+							ROOT = { is_female = no }
+						}
+						AND = {
+							trait = homosexual
+							ROOT = { trait = homosexual }
+							is_female = yes
+							ROOT = { is_female = yes }
+						}
+						AND = {
+							trait = homosexual
+							ROOT = { trait = homosexual }
+							is_female = no
+							ROOT = { is_female = no }
+						}
+					}
+					has_lover = no
+					is_pregnant = no
+					prisoner = no
+					is_marriage_adult = yes
+					NOT = {
+						has_character_modifier = lustful_affair_timer
+					}
+					NOT = { trait = infirm }
+					NOT = { trait = incapable }
+					NOT = { trait = celibate }
+					NOT = { trait = eunuch }
+					NOT = { trait = chaste }
+					NOT = { spouse = { character = ROOT } }
+					opinion = { who = ROOT value = 0 }
+					reverse_opinion = { who = ROOT value = 0 }
+					NOT = {
+						is_former_lover = ROOT
+					}
+				}
+				add_character_modifier = {
+					name = lustful_affair_timer
+					duration = 365
+					hidden = yes
+				}
+				character_event = { id = 451 days = 7 tooltip = EVTTOOLTIP451 }
+			}
+		}
+	}
+}
+
 
 #############################################
 # PREGNANCY STARTS SHOWING EVENTS
@@ -1109,40 +1380,20 @@ character_event = {
 	}
 }
 
-# The child founds a new bastard dynasty
+# The child gets the father's dynasty, but is not legitimized.
 character_event = {
 	id = 306
-
-	is_triggered_only = yes
-
+	
+	is_triggered_only = yes 
+		
 	desc = EVTDESC306
 	picture = GFX_evt_birth
 
 	option = {
 		name = OK
-		dynasty = father_bastard
-		culture = FROM
-		religion = FROM
-		hidden_tooltip = {
-			if = {
-				limit = {
-					FROM = {
-						trait = divine_blood
-					}
-				}
-				add_trait = divine_blood
-			}
-			if = {
-				limit = {
-					FROM = {
-						NOT = { trait = divine_blood }
-					}
-				}
-				remove_trait = divine_blood
-			}
-		}
+		dynasty = FROM
 		add_trait = bastard
-
+		
 		father = {
 			spouse = {
 				character_event = { id = 308 tooltip = EVTTOOLTIP308 } # The father's wife is angered
@@ -1293,208 +1544,6 @@ character_event = {
 	}
 }
 
-# A courtier initiates romance with another courtier
-character_event = {
-	id = 97320
-	desc = EVTDESC450
-	picture = GFX_evt_lovers
-
-	capable_only = yes
-
-	trigger = {
-		is_ruler = no
-		is_marriage_adult = yes
-		OR = {
-			religion_group = christian
-			religion_group = jewish_group
-			is_female = yes
-			trait = homosexual
-		}
-		NOT = { age = 35 }
-		liege = {
-			demesne_size = 1
-			any_courtier = {
-				is_ruler = no
-				OR = {
-					trait = lustful
-					ROOT = { trait = lustful }
-					trait = divine_blood
-					ROOT = { trait = divine_blood }
-					NOT = { is_close_relative = ROOT }
-				}
-				OR = {
-					AND = {
-						NOT = { trait = homosexual }
-						ROOT = { NOT = { trait = homosexual } }
-						is_female = no
-						ROOT = { is_female = yes }
-					}
-					AND = {
-						NOT = { trait = homosexual }
-						ROOT = { NOT = { trait = homosexual } }
-						is_female = yes
-						ROOT = { is_female = no }
-					}
-					AND = {
-						trait = homosexual
-						ROOT = { trait = homosexual }
-						is_female = yes
-						ROOT = { is_female = yes }
-					}
-					AND = {
-						trait = homosexual
-						ROOT = { trait = homosexual }
-						is_female = no
-						ROOT = { is_female = no }
-					}
-				}
-				has_lover = no
-				is_pregnant = no
-				prisoner = no
-				is_marriage_adult = yes
-				NOT = {
-					has_character_modifier = lustful_affair_timer
-				}
-				NOT = { trait = infirm }
-				NOT = { trait = incapable }
-				NOT = { trait = celibate }
-				NOT = { trait = eunuch }
-				NOT = { trait = chaste }
-				NOT = { spouse = { character = ROOT } }
-				opinion = { who = ROOT value = 0 }
-				reverse_opinion = { who = ROOT value = 0 }
-				NOT = {
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = opinion_former_lover
-					}
-				}
-			}
-		}
-		has_lover = no
-		is_pregnant = no
-		prisoner = no
-		NOT = { trait = chaste }
-		NOT = { trait = infirm }
-		NOT = { trait = incapable }
-		NOT = { trait = celibate }
-		NOT = { trait = eunuch }
-	}
-
-
-	mean_time_to_happen = {
-		months = 1000
-
-		modifier = {
-			factor = 0.75
-			spouse = { is_ruler = yes }
-		}
-		modifier = {
-			factor = 0.5
-			spouse = { has_lover = yes }
-		}
-		modifier = {
-			factor = 0.33
-			has_ambition = obj_find_lover
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { age = 30 }
-			spouse = { age = 40 }
-		}
-		modifier = {
-			factor = 0.33
-			trait = homosexual #to balance for fewer potential lovers
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { age = 20 }
-		}
-		modifier = {
-			factor = 2.0
-			age = 30
-		}
-		modifier = {
-			factor = 0.5
-			trait = hedonist
-		}
-		modifier = {
-			factor = 0.5
-			trait = lustful
-		}
-	}
-
-	option = {
-		name = EVTOPTA450
-		liege = {
-			random_courtier = {
-				limit = {
-					is_ruler = no
-					OR = {
-						trait = lustful
-						ROOT = { trait = lustful }
-						trait = divine_blood
-						ROOT = { trait = divine_blood }
-						NOT = { is_close_relative = ROOT }
-					}
-					OR = {
-						AND = {
-							NOT = { trait = homosexual }
-							ROOT = { NOT = { trait = homosexual } }
-							is_female = no
-							ROOT = { is_female = yes }
-						}
-						AND = {
-							NOT = { trait = homosexual }
-							ROOT = { NOT = { trait = homosexual } }
-							is_female = yes
-							ROOT = { is_female = no }
-						}
-						AND = {
-							trait = homosexual
-							ROOT = { trait = homosexual }
-							is_female = yes
-							ROOT = { is_female = yes }
-						}
-						AND = {
-							trait = homosexual
-							ROOT = { trait = homosexual }
-							is_female = no
-							ROOT = { is_female = no }
-						}
-					}
-					has_lover = no
-					is_pregnant = no
-					prisoner = no
-					is_marriage_adult = yes
-					NOT = {
-						has_character_modifier = lustful_affair_timer
-					}
-					NOT = { trait = infirm }
-					NOT = { trait = incapable }
-					NOT = { trait = celibate }
-					NOT = { trait = eunuch }
-					NOT = { trait = chaste }
-					NOT = { spouse = { character = ROOT } }
-					opinion = { who = ROOT value = 0 }
-					reverse_opinion = { who = ROOT value = 0 }
-					NOT = {
-						has_opinion_modifier = {
-							who = ROOT
-							modifier = opinion_former_lover
-						}
-					}
-				}
-				add_character_modifier = {
-					name = lustful_affair_timer
-					duration = 365
-					hidden = yes
-				}
-				character_event = { id = 451 days = 7 tooltip = EVTTOOLTIP451 }
-			}
-		}
-	}
-}
 # On-action event: Birth complications
 character_event = {
 	id = 313

@@ -102,6 +102,7 @@ character_event = {
 		war = no
 		NOT = {
 			religion_group = muslim
+			religion_group = jewish_group
 		}
 		in_command = no
 		tier = count
@@ -370,6 +371,12 @@ character_event = {
 
 	option = {
 		name = "EVTOPTB4036" #Ordeal by water
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		piety = 10
 		custom_tooltip = {
 			text = RELIGIOUSFACTIONMOODPLUS
@@ -381,6 +388,14 @@ character_event = {
 	option = {
 		name = "EVTOPTC4036" #Torture
 		piety = 25
+		
+		if = {
+			limit = { religion = jain }
+			piety = -45
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
+		
 		if = {
 			limit = {
 				NOT = { trait = cruel }
@@ -476,6 +491,12 @@ character_event = {
 			NOT = { trait = kind }
 			NOT = { trait = charitable }
 		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		prestige = 10
 		any_courtier = {
 			limit = {
@@ -498,6 +519,12 @@ character_event = {
 				trait = cruel
 			}
 		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		add_trait = cruel
 	}
 }
@@ -743,11 +770,21 @@ character_event = {
 
 	option = {
 		name = "EVTOPTB4050" #Behead him!
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		add_trait = wroth
 	}
 
 	option = {
 		name = "EVTOPTE4050" #Eyes removed
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		add_trait = cruel
 	}
 }
@@ -1038,6 +1075,12 @@ character_event = {
 				trait = just
 			}
 		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		prestige = 20
 		piety = -10
 		FROM = {
@@ -1056,6 +1099,12 @@ character_event = {
 		trigger = {
 			trait = cruel
 		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		prestige = 20
 		piety = -10
 		FROM = {
@@ -1108,6 +1157,12 @@ character_event = {
 		trigger = {
 			has_character_flag = ears_off
 		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		clr_character_flag = ears_off
 		FROM = {
 			character_event = {
@@ -1147,6 +1202,12 @@ character_event = {
 		trigger = {
 			has_character_flag = dead_poachers
 		}
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		clr_character_flag = dead_poachers
 		FROM = {
 			character_event = {
@@ -1311,6 +1372,12 @@ character_event = {
 			trait = arbitrary
 		}
 		ai_chance = { factor = 20 }
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		FROM = {
 			set_character_flag = heads_up
 			character_event = {
@@ -1328,6 +1395,12 @@ character_event = {
 			trait = wroth
 		}
 		ai_chance = { factor = 30 }
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
+
 		FROM = {
 			set_character_flag = hands_off
 			character_event = {
@@ -1383,6 +1456,11 @@ character_event = {
 			has_character_flag = hands_off
 		}
 		ai_chance = { factor = 30 }
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		clr_character_flag = hands_off
 		FROM = {
 			character_event = {
@@ -1398,6 +1476,11 @@ character_event = {
 			has_character_flag = hands_off
 		}
 		ai_chance = { factor = 70 }
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		clr_character_flag = hands_off
 		FROM = {
 			character_event = {
@@ -1772,6 +1855,7 @@ character_event = {
 	trigger = {
 		war = no
 		in_command = no
+		NOT = { religion = jain }
 		OR = {
 			trait = falconer
 			trait = hunter
@@ -1892,7 +1976,7 @@ character_event = {
 	trigger = {
 		war = no
 		in_command = no
-		any_vassal = {
+		any_friend = {
 			age = 20
 			prisoner = no
 			NOT = {
@@ -1928,7 +2012,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_vassal = {
+		random_friend = {
 			limit = {
 				age = 20
 				prisoner = no
@@ -2099,7 +2183,7 @@ character_event = {
 		name = "EVTOPTB4113" #I'm sorry
 		FROM = {
 			opinion = {
-				modifier = opinion_friend
+				modifier = opinion_glad
 				who = ROOT
 				years = 100
 			}
@@ -2413,9 +2497,7 @@ character_event = {
 		in_command = no
 		martial = 15
 		intrigue = 10
-		NOT = {
-			religion_group = muslim
-		}
+		religion_group = christian
 		OR = {
 			tier = duke
 			tier = count

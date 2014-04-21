@@ -359,9 +359,7 @@ character_event = {
 	min_age = 10
 
 	trigger = {
-		NOT = {
-			religion_group = muslim
-		}
+		religion_group = christian
 		health = 4
 		trait = possessed
 	}
@@ -1789,10 +1787,7 @@ character_event = {
 
 	trigger = {
 		trait = possessed
-		OR = {
-			religion = catholic
-			religion = orthodox
-		}
+		religion_group = christian
 		NOT = { has_character_modifier = voice_of_jesus }
 		NOT = { has_character_modifier = voice_of_satan }
 		NOT = { has_character_modifier = holy_comet }
@@ -2005,7 +2000,7 @@ character_event = {
 	}
 }
 
-# I must leave behind my guttony
+# I must leave behind my gluttony
 character_event = {
 	id = 6206
 	desc = EVTDESC6206
@@ -3616,6 +3611,6 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB6358
-		add_character_modifier = { name = "killed_an_old_one" duration = 3635 }
+		add_character_modifier = { name = "killed_an_old_one" duration = -1 }
 	}
 }

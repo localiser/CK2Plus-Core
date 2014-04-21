@@ -271,6 +271,7 @@ character_event = {
 
 	trigger = {
 		trait = lustful
+		religion_group = christian
 		war = no
 		in_command = no
 		is_female = no
@@ -545,7 +546,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		religion = catholic
+		religion_group = christian
 		NOT = { trait = excommunicated }
 		any_courtier = {
 			learning = 9
@@ -826,6 +827,7 @@ character_event = {
 		trait = chaste
 		num_of_rivals = 1
 		has_nickname = no
+		NOT = { prestige = 200 }
 		NOT = {
 			has_nickname = nick_the_effeminate
 		}
@@ -874,12 +876,8 @@ character_event = {
 		random_rival = {
 			prestige = 10
 		}
-		random = {
-			chance = 25
-
-			give_nickname = nick_the_effeminate
-			piety = -10
-		}
+		give_nickname = nick_the_effeminate
+		piety = -10
 	}
 }
 
@@ -2329,6 +2327,7 @@ character_event = {
 
 	trigger = {
 		trait = charitable
+		religion_group = christian
 		war = no
 		in_command = no
 		is_ruler = yes
@@ -4153,7 +4152,7 @@ character_event = {
 		name = EVTOPTA3180
 		add_character_modifier = {
 			name = the_vicious
-			duration = 730
+			duration = 1460
 		}
 	}
 }
@@ -4598,6 +4597,13 @@ character_event = {
 			factor = 0.1
 			trait = drunkard
 		}
+		modifier = {
+			factor = 10
+			OR = {
+				has_ambition = obj_buddhist_stop_drinking
+				has_ambition = obj_buddhist_temperance_food
+			}
+		}
 	}
 
 	option = {
@@ -4890,6 +4896,7 @@ character_event = {
 			NOT = {
 				trait = wroth
 			}
+			has_ambition = obj_buddhist_reject_pride
 		}
 	}
 
@@ -4929,6 +4936,7 @@ character_event = {
 			10 = { change_learning = 1 }
 		}
 		piety = -10
+		cancel_ambition = yes
 	}
 	option = {
 		name = EVTOPTB3220
@@ -5072,6 +5080,7 @@ character_event = {
 
 	trigger = {
 		trait = proud
+		NOT = { religion_group = pagan_group }
 		war = no
 		in_command = no
 		job_spiritual = {
@@ -12094,19 +12103,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB3544
-		opinion = {
-			modifier = opinion_friend
-			who = FROM
-			years = 5
-		}
-		FROM = {
-			set_character_flag = you_friend
-			character_event = {
-				id = 3545
-				factor = 2
-				tooltip = EVTTOOLTIP3545
-			}
-		}
+		add_friend = FROM
 	}
 }
 
@@ -12133,11 +12130,7 @@ character_event = {
 			has_character_flag = you_friend
 		}
 		clr_character_flag = you_friend
-		opinion = {
-			modifier = opinion_friend
-			who = FROM
-			years = 1
-		}
+		add_friend = FROM
 	}
 	option = {
 		name = EVTOPTB3545
@@ -12967,7 +12960,7 @@ character_event = {
 		name = EVTOPTA3559
 		trigger = {
 			spouse = {
-				lover = { character = ROOT }
+				any_lover = { character = ROOT }
 			}
 		}
 		character_event = {
@@ -15536,6 +15529,10 @@ character_event = {
 			factor = 0.5
 			trait = kind
 		}
+		modifier = {
+			factor = 10
+			has_ambition = obj_buddhist_reject_cruelty
+		}
 	}
 
 	option = {
@@ -15551,6 +15548,7 @@ character_event = {
 				tooltip = EVTTOOLTIP3611
 			}
 		}
+		cancel_ambition = yes
 	}
 	option = {
 		name = EVTOPTB3610
@@ -15569,14 +15567,13 @@ character_event = {
 				tooltip = EVTTOOLTIP3611
 			}
 		}
+		cancel_ambition = yes
 	}
 	option = {
 		name = EVTOPTC3610
 		if = {
 			limit = {
-				NOT = {
-					trait = kind
-				}
+				NOT = { trait = kind }
 			}
 			random = {
 				chance = 20
@@ -15606,15 +15603,27 @@ character_event = {
 				}
 			}
 		}
-		random = {
-			chance = 10
+		if = {
+			limit = {
+				NOT = { has_ambition = obj_buddhist_reject_cruelty }
+			}
+			random = {
+				chance = 10
 
-			remove_trait = impaler
-			hidden_tooltip = {
-				character_event = {
-					id = 38291 #Notify remove Impaler
+				remove_trait = impaler
+				hidden_tooltip = {
+					character_event = {
+						id = 38291 #Notify remove Impaler
+					}
 				}
 			}
+		}
+		if = {
+			limit = {
+				has_ambition = obj_buddhist_reject_cruelty
+			}
+			remove_trait = impaler
+			remove_trait = cruel
 		}
 	}
 }
@@ -15778,6 +15787,7 @@ character_event = {
 		trait = impaler
 		war = no
 		in_command = no
+		NOT = { has_ambition = obj_buddhist_reject_cruelty }
 		any_child = {
 			age = 15
 			is_abroad = no
@@ -19041,7 +19051,7 @@ character_event = {
 		name = EVTOPTB3676
 		trigger = {
 			FROM = {
-				lover = { character = ROOT }
+				any_lover = { character = ROOT }
 			}
 		}
 		opinion = {
@@ -19247,7 +19257,7 @@ character_event = {
 		trigger = {
 			any_child = {
 				is_female = yes
-				lover = { character = from }
+				any_lover = { character = from }
 				NOT = {
 					spouse = {
 						character = FROM
@@ -19273,7 +19283,7 @@ character_event = {
 			spouse = {
 				is_female = yes
 				is_alive = yes
-				lover = { character = from }
+				any_lover = { character = from }
 			}
 		}
 		FROM = {
@@ -20267,11 +20277,7 @@ character_event = {
 				}
 				martial = 6
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 5
-			}
+			add_friend = ROOT
 			set_character_flag = deceitful_falconer
 		}
 		hidden_tooltip = {

@@ -167,7 +167,7 @@ character_event = {
 character_event = {
 	id = SoA.5204
 	desc = EVTDESC_SoA_5204
-	picture = GFX_evt_burning_house_muslim
+	picture = GFX_evt_burning_house
 	border = GFX_event_normal_frame_religion
 
 	trigger = {
@@ -301,7 +301,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 50
+		months = 250
 	}
 
 	option = {
@@ -309,7 +309,7 @@ character_event = {
 		random_demesne_province = {
 			add_province_modifier = {
 				name = appeased_religious
-				duration = 365
+				duration = 1800
 			}
 		}
 	}
@@ -501,17 +501,11 @@ character_event = {
 	trigger = {
 		has_dlc = "Sons of Abraham"
 		religion_group = christian
-		NOT = {
-			location = {
-				county = {
-					OR = {
-						de_jure_liege = e_spain
-						de_jure_liege = e_italy
-						de_jure_liege = e_byzantium
-						de_jure_liege = e_france
-					}
-				}
-			}
+		location = {
+			NOT = { empire = { title = e_spain } }
+			NOT = { empire = { title = e_italy } }
+			NOT = { empire = { title = e_byzantium } }
+			NOT = { empire = { title = e_france } }
 		}
 	}
 	
@@ -1048,7 +1042,7 @@ character_event = {
 		spouse = {
 			impregnate = ROOT
 			add_trait = pregnant
-			}
+		}
 		if = {
 			limit = { NOT = { trait = zealous } }
 			add_trait = zealous
@@ -1289,7 +1283,10 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Sons of Abraham"
-		religion = norse_pagan
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
 		OR = {
 			has_landed_title = d_norse_pagan_reformed
 			is_priest = yes
@@ -1356,7 +1353,10 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Sons of Abraham"
-		religion = tengri_pagan
+		OR = {
+			religion = tengri_pagan
+			religion = tengri_pagan_reformed
+		}
 		OR = {
 			has_landed_title = d_tengri_pagan_reformed
 			is_priest = yes
@@ -1420,7 +1420,7 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Sons of Abraham"
-		religion = zoroastrian
+		religion_group = zoroastrian_group
 		OR = {
 			has_landed_title = d_zoroastrian
 			is_priest = yes
@@ -1485,7 +1485,10 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Sons of Abraham"
-		religion = aztec_pagan
+		OR = {
+			religion = aztec
+			religion = aztec_reformed
+		}
 		is_priest = yes
 		NOT = { intrigue = 3 }
 		NOT = { diplomacy = 3 }
@@ -1699,7 +1702,7 @@ character_event = {
 character_event = {
 	id = SoA.5314
 	desc = EVTDESC_SoA_5314
-	picture = GFX_evt_throne_room_muslim
+	picture = GFX_evt_throne_room
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
@@ -1846,7 +1849,7 @@ character_event = {
 character_event = {
 	id = SoA.5320
 	desc = EVTDESC_SoA_5320
-	picture = GFX_evt_marriage_zoroastrian
+	picture = GFX_evt_marriage
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
@@ -1895,7 +1898,7 @@ character_event = {
 character_event = {
 	id = SoA.5322
 	desc = EVTDESC_SoA_5322
-	picture = GFX_evt_throne_room_mesoamerican
+	picture = GFX_evt_throne_room
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
@@ -3726,7 +3729,7 @@ character_event = {
 		trait = sympathy_christendom
 		any_realm_character = {
 			religion_group = christian
-			NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_friend }	}
+			NOT = { is_friend = ROOT }
 		}
 	}
 	
@@ -3740,16 +3743,7 @@ character_event = {
 			limit = {
 				religion_group = christian
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 		}
 	}
 }
@@ -3770,7 +3764,7 @@ character_event = {
 		trait = sympathy_islam
 		any_realm_character = {
 			religion_group = muslim
-			NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_friend }	}
+			NOT = { is_friend = ROOT }
 		}
 	}
 	
@@ -3784,16 +3778,7 @@ character_event = {
 			limit = {
 				religion_group = muslim
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 		}
 	}
 }
@@ -3814,7 +3799,7 @@ character_event = {
 		trait = sympathy_pagans
 		any_realm_character = {
 			religion_group = pagan_group
-			NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_friend }	}
+			NOT = { is_friend = ROOT }
 		}
 	}
 	
@@ -3828,16 +3813,7 @@ character_event = {
 			limit = {
 				religion_group = pagan_group
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 		}
 	}
 }
@@ -3858,7 +3834,7 @@ character_event = {
 		trait = sympathy_zoroastrianism
 		any_realm_character = {
 			religion_group = zoroastrian_group
-			NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_friend }	}
+			NOT = { is_friend = ROOT }
 		}
 	}
 	
@@ -3872,16 +3848,7 @@ character_event = {
 			limit = {
 				religion_group = zoroastrian_group
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 		}
 	}
 }
@@ -3902,7 +3869,7 @@ character_event = {
 		trait = sympathy_judaism
 		any_realm_character = {
 			religion_group = jewish_group
-			NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_friend }	}
+			NOT = { is_friend = ROOT }
 		}
 	}
 	
@@ -3916,16 +3883,7 @@ character_event = {
 			limit = {
 				religion_group = jewish_group
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 		}
 	}
 }

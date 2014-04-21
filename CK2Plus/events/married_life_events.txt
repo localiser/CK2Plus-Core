@@ -330,6 +330,11 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA30004" #Poison!
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		spouse = {
 			random_child = {
 				limit = {
@@ -540,6 +545,11 @@ character_event = {
 
 	option = {
 		name = "EVTOPTC30006" #Poison courtier
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		random_list = {
 			50 = {
 				random_courtier = {
@@ -683,6 +693,11 @@ character_event = {
 
 	option = {
 		name = "EVTOPTC30006" #Poison courtier
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		random_list = {
 			50 = {
 				random_courtier = {
@@ -1017,7 +1032,6 @@ character_event = {
 			trait = diligent
 			trait = elusive_shadow
 			trait = intricate_webweaver
-
 		}
 		any_child = {
 			OR = {
@@ -1987,7 +2001,9 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		NOT = { religion = jain }
 		spouse = {
+			NOT = { religion = jain }
 			is_female = yes
 			prisoner = no
 			is_alive = yes
@@ -2800,6 +2816,11 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB30080" #Execute courtier
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		any_courtier = {
 			limit = {
 				has_character_flag = sire_bastard
@@ -2883,6 +2904,11 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTB30081" #Execute
+		if = {
+			limit = { religion = jain }
+			piety = -20
+			custom_tooltip = { text = jain_ahimsa_tooltip }
+		}
 		any_courtier = {
 			limit = {
 				has_character_flag = sire_bastard
@@ -3119,6 +3145,7 @@ character_event = {
 	}
 	option = {
 		name = "EVTOPTC30088"
+		NOT = { religion = jain }
 		trigger = {
 			NOT = {
 				has_character_flag = failed_hunt
@@ -3164,16 +3191,7 @@ character_event = {
 			limit = {
 				has_character_flag = new_friend
 			}
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 			clr_character_flag = new_friend
 		}
 		clr_character_flag = best_friends_forever
@@ -3614,23 +3632,14 @@ character_event = {
 	desc = "EVTDESC30096"
 	picture = GFX_evt_courtiers_talking
 
-	is_triggered_only = yes
+	is_triggered_only = yes	
 
 	option = {
 		name = "EVTOPTA30096"
 		clr_character_flag = best_friends_forever
 		FROM = {
 			clr_character_flag = new_friend
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
-			reverse_opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 100
-			}
+			add_friend = ROOT
 		}
 		clr_character_flag = perfect_lake
 		clr_character_flag = perfect_picnic

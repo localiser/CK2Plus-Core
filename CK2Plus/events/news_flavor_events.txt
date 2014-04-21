@@ -23,11 +23,25 @@ narrative_event = {
 		year = 1300
 		has_landed_title = c_jerusalem
 		NOT = {	has_global_flag = marco_polo }
+		NOT = {
+			capital_scope = {
+				OR = {
+					empire = { title = e_rajastan }
+					empire = { title = e_bengal }
+					empire = { title = e_deccan }
+					empire = { title = e_persia }
+					empire = { title = e_tartaria }
+				}
+			}
+		}
 	}
 
 	major_trigger = {
 		ai = no
 		NOT = { religion_group = muslim }
+		NOT = { religion_group = indian_group }
+		NOT = { religion = tengri_pagan }
+		NOT = { religion = tengri_pagan_reformed }
 	}
 
 	mean_time_to_happen = {

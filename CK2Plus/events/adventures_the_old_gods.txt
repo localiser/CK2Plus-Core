@@ -16,9 +16,9 @@ character_event = {
 	desc = OK
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	min_age = 16
 	max_age = 50
 	only_men = yes
@@ -29,7 +29,7 @@ character_event = {
 		has_dlc = "The Old Gods"
 		
 		is_ruler = no
-
+		
 		any_claim = {
 			has_holder = yes
 			holder_scope = {
@@ -49,28 +49,24 @@ character_event = {
 				holder_scope = { tier = PREV }
 			}
 		}
-
+		
 		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
-
+		
 		diplomacy = 7
-
+		
 		health = 4
 		NOT = { trait = content }
 		NOT = { trait = craven }
-
+		
 		NOT = { has_character_modifier = planning_claimant_adventure }
 	}
-
+	
 	mean_time_to_happen = {
-		years = 80
-		modifier = {
-			factor = 0.2
-			has_character_flag = flag_denied_title
-		}
+		years = 50
 		modifier = {
 			factor = 0.5
 			trait = ambitious
@@ -78,14 +74,10 @@ character_event = {
 		modifier = {
 			factor = 0.2
 			has_character_flag = demon_child_non_pagan
-		}		
-		modifier = {
-			factor = 0.5
-			trait = envious
 		}
 		modifier = {
 			factor = 0.5
-			has_character_flag = flag_denied_title
+			trait = envious
 		}
 		modifier = {
 			factor = 0.75
@@ -120,7 +112,7 @@ character_event = {
 			trait = kind
 		}
 	}
-
+	
 	immediate = {
 		random_claim = {
 			limit = {
@@ -132,17 +124,9 @@ character_event = {
 						NOT = { is_vassal_or_below = ROOT }
 						ROOT = { trait = ambitious }
 					}
-					OR = {
-						is_merchant_republic = no
-						NOT = {
-							capital_holding = {
-								de_jure_liege_or_above = PREVPREV
-							}
-						}
-					}					
-				}		
+				}
 			}
-
+			
 			holder_scope = {
 				reverse_opinion = {
 					who = ROOT
@@ -166,7 +150,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -177,17 +161,10 @@ character_event = {
 	desc = EVTDESC_TOG_1201
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
 	
-	immediate = {
-		opinion = {
-			who = FROM
-			modifier = opinion_targeted_by_adventurer
-			months = 24
-		}
-	}
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1201"
 	}
@@ -200,14 +177,14 @@ character_event = {
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
-	is_ruler = no
+		is_ruler = no
 		prisoner = no
 		NOT = { trait = incapable }
-
+		
 		any_claim = {
 			has_holder = yes
 			holder_scope = {
@@ -217,39 +194,31 @@ character_event = {
 					NOT = { is_vassal_or_below = ROOT }
 					ROOT = { trait = ambitious }
 				}
-				OR = {
-					is_merchant_republic = no
-					NOT = {
-						capital_holding = {
-							de_jure_liege_or_above = PREVPREV
-						}
-					}
-				}				
 			}
 			OR = {
 				tier = KING
 				holder_scope = { tier = PREV }
 			}
 		}
-
+		
 		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
 	}
-
+	
 	immediate = {
-
+		
 		wealth = 500
-
+		
 		liege = {
 			character_event = {
 				id = TOG.1203
 				days = 1
 			}
 		}
-
+		
 		liege = {
 			capital_scope = {
 				ROOT = {
@@ -262,7 +231,7 @@ character_event = {
 						name = "CLAIMANT_ADVENTURE"
 						holder = ROOT
 					}
-
+					
 					random_claim = {
 						limit = {
 							has_holder = yes
@@ -271,14 +240,6 @@ character_event = {
 								reverse_has_opinion_modifier = {
 									who = ROOT
 									modifier = opinion_claimant_adventure_target
-								}
-								OR = {
-									is_merchant_republic = no
-									NOT = {
-										capital_holding = {
-											de_jure_liege_or_above = PREVPREV
-										}
-									}
 								}
 							}
 							OR = {
@@ -504,7 +465,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		# Create some decent commander characters
 		create_random_soldier = {
 			random_traits = yes
@@ -538,7 +499,7 @@ character_event = {
 			female = no
 			age = 29
 		}
-
+		
 		# Create a fleet, just to be sure
 		spawn_fleet = {
 			province = closest # closest sea zone
@@ -550,7 +511,7 @@ character_event = {
 			}
 			earmark = claimant_adventure
 		}
-
+		
 		random_claim = {
 			limit = {
 				has_holder = yes
@@ -560,17 +521,9 @@ character_event = {
 						who = ROOT
 						modifier = opinion_claimant_adventure_target
 					}
-					OR = {
-						is_merchant_republic = no
-						NOT = {
-							capital_holding = {
-								de_jure_liege_or_above = PREVPREV
-							}
-						}
-					}
 				}
 			}
-
+			
 			holder_scope = {
 				reverse_war = {
 					target = ROOT
@@ -584,7 +537,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -595,13 +548,13 @@ character_event = {
 	desc = EVTDESC_TOG_1203
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
 	}
-
+	
 	immediate = {
 			any_liege = {
 				character_event = {
@@ -609,7 +562,7 @@ character_event = {
 				}
 			}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
@@ -620,11 +573,11 @@ character_event = {
 	desc = EVTDESC_TOG_1204
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	show_from_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
@@ -636,27 +589,27 @@ character_event = {
 	desc = OK
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	min_age = 16
 	max_age = 50
 	only_men = yes
 	capable_only = yes
 	prisoner = no
-
+	
 	trigger = {
 		has_dlc = "The Old Gods"
 		
 		is_ruler = no
 		
-		diplomacy = 7
+		diplomacy = 9
 		martial = 9
 		health = 4
 		
 		NOT = { trait = content }
 		NOT = { trait = craven }
-
+		
 		OR = { # Only these for now
 			culture_group = north_germanic
 			culture_group = west_germanic
@@ -669,29 +622,20 @@ character_event = {
 				culture = hungarian
 				NOT = { year = 1066 }
 			}
-			has_character_flag = demon_child_non_pagan			
+			has_character_flag = demon_child_non_pagan
 		}
-
+		
 		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
 			any_heir_title = {
 				always = yes
 			}
 		}
 		
-		NOT = { # Handled by event TOG.1200
+		NOT = { # Handled by event 1200
 			any_claim = {
 				has_holder = yes
 				holder_scope = {
 					independent = yes
-					OR = {
-						is_merchant_republic = no
-						NOT = {
-							capital_holding = {
-								de_jure_liege_or_above = PREVPREV
-							}
-						}
-					}
-					NOT = { has_character_modifier = holy_truce_timer }
 				}
 				OR = {
 					tier = KING
@@ -699,7 +643,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		OR = {
 			father_even_if_dead = {
 				OR = {
@@ -724,10 +668,10 @@ character_event = {
 				}
 			}
 		}
-
+		
 		NOT = { has_character_modifier = planning_duchy_adventure }
 	}
-
+	
 	mean_time_to_happen = {
 		years = 100
 		modifier = {
@@ -748,13 +692,13 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.2
+			factor = 0.5
 			has_character_flag = flag_denied_title
 		}
 		modifier = {
 			factor = 0.2
 			has_character_flag = demon_child_non_pagan
-		}		
+		}
 		modifier = {
 			factor = 0.75
 			diplomacy = 12
@@ -794,9 +738,9 @@ character_event = {
 			top_liege = {
 				tier = emperor
 			}
-		}		
+		}
 	}
-
+	
 	immediate = {
 		random_independent_ruler = {
 			limit = {
@@ -804,48 +748,24 @@ character_event = {
 				is_landed = yes
 				independent = yes
 				NOT = { is_vassal_or_below = ROOT }
-				NOT = { has_character_modifier = holy_truce_timer }
 				any_realm_province = {
 					OR = {
 						AND = {
-							num_of_ports = 2
-							NOT = {
-								has_landed_title = e_il-khanate
-								has_landed_title = e_golden_horde
-								has_landed_title = e_timurids
-								has_landed_title = e_mongol_empire
-								has_landed_title = e_mexikha
-								capital_scope = {
-									kingdom = { title = k_persia }
-								}
-								capital_scope = {
-									kingdom = { title = k_arabia }
-								}
-								capital_scope = {
-									kingdom = { title = k_adal }
-								}
-								capital_scope = {
-									kingdom = { title = k_abyssinia }
-								}
-								capital_scope = {
-									kingdom = { title = k_nubia }
-								}
-							}
+							port = yes
 							ROOT = {
 								NOT = { culture_group = altaic }
 								NOT = { culture = hungarian }
-							}
-							NOT = {
-								distance = {
-									who = ROOT
-									value = 800
-								}
 							}
 						}
 						any_neighbor_province = {
 							owner = {
 								same_realm = ROOT
 							}
+						}
+					}
+					NOT = {
+						empire = {
+							title = e_scandinavia
 						}
 					}
 					NOT = {
@@ -855,43 +775,15 @@ character_event = {
 					}
 				}
 			}
-
+			
 			random_realm_province = {
 				limit = {
 					OR = {
 						AND = {
-							num_of_ports = 2
-							NOT = {
-								has_landed_title = e_il-khanate
-								has_landed_title = e_golden_horde
-								has_landed_title = e_timurids
-								has_landed_title = e_mongol_empire
-								has_landed_title = e_mexikha
-								capital_scope = {
-									kingdom = { title = k_persia }
-								}
-								capital_scope = {
-									kingdom = { title = k_arabia }
-								}
-								capital_scope = {
-									kingdom = { title = k_adal }
-								}
-								capital_scope = {
-									kingdom = { title = k_abyssinia }
-								}
-								capital_scope = {
-									kingdom = { title = k_nubia }
-								}
-							}
+							port = yes
 							ROOT = {
 								NOT = { culture_group = altaic }
 								NOT = { culture = hungarian }
-							}
-							NOT = {
-								distance = {
-									who = ROOT
-									value = 800
-								}
 							}
 						}
 						any_neighbor_province = {
@@ -901,12 +793,17 @@ character_event = {
 						}
 					}
 					NOT = {
+						empire = {
+							title = e_scandinavia
+						}
+					}
+					NOT = {
 						duchy = {
 							title = d_bjarmia
 						}
 					}
 				}
-
+				
 				ROOT = {
 					opinion = {
 						who = PREVPREV
@@ -931,7 +828,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -942,9 +839,17 @@ character_event = {
 	desc = EVTDESC_TOG_1211
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
+	immediate = {
+		opinion = {
+			who = FROM
+			modifier = opinion_targeted_by_adventurer
+			months = 24
+		}
+	}
+	
 	option = {
 		name = "EVTOPTA_TOG_1211"
 	}
@@ -957,24 +862,24 @@ character_event = {
 	desc = OK
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	hide_window = yes # Only fires for unplayable landless characters
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		has_dlc = "The Old Gods"
 		
 		is_ruler = no
 		prisoner = no
 		NOT = { trait = incapable }
-
+		
 		NOT = {
 			any_heir_title = {
 				always = yes
 			}
 		}
-
+		
 		any_independent_ruler = {
 			NOT = { culture = ROOT }
 			is_landed = yes
@@ -996,6 +901,11 @@ character_event = {
 					}
 				}
 				NOT = {
+					empire = {
+						title = e_scandinavia
+					}
+				}
+				NOT = {
 					duchy = {
 						title = d_bjarmia
 					}
@@ -1007,22 +917,17 @@ character_event = {
 			}
 		}
 	}
-
+	
 	immediate = {
-		opinion = {
-			who = FROM
-			modifier = opinion_targeted_by_adventurer
-			months = 24
-		}	
 		wealth = 500
-
+		
 		liege = {
 			character_event = {
 				id = TOG.1213
 				days = 1
 			}
 		}
-
+		
 		liege = {
 			capital_scope = {
 				random_independent_ruler = {
@@ -1044,6 +949,11 @@ character_event = {
 									owner = {
 										same_realm = ROOT
 									}
+								}
+							}
+							NOT = {
+								empire = {
+									title = e_scandinavia
 								}
 							}
 							NOT = {
@@ -1074,12 +984,17 @@ character_event = {
 								}
 							}
 							NOT = {
+								empire = {
+									title = e_scandinavia
+								}
+							}
+							NOT = {
 								duchy = {
 									title = d_bjarmia
 								}
 							}
 						}
-
+						
 						ROOT = {
 							set_defacto_liege = ROOT
 							create_title = {
@@ -1090,9 +1005,9 @@ character_event = {
 								name = "CLAIMANT_ADVENTURE"
 								holder = ROOT
 							}
-
+							
 							set_character_flag = duchy_adventurer
-
+						
 							spawn_unit = {
 								province = PREVPREVPREV
 								home = PREVPREVPREV
@@ -1139,7 +1054,7 @@ character_event = {
 				}
 			}
 		}
-
+		
 		# Create some decent commander characters
 		create_random_soldier = {
 			random_traits = yes
@@ -1157,13 +1072,13 @@ character_event = {
 			female = no
 			age = 25
 		}
-
+		
 		if  = {
 			limit = {
 				NOT = { culture_group = altaic }
 				NOT = { culture = hungarian }
 			}
-
+			
 			# Create a fleet, just to be sure
 			spawn_fleet = {
 				province = closest # closest sea zone
@@ -1176,7 +1091,7 @@ character_event = {
 			}
 		}
 	}
-
+	
 	option = {
 		name = OK
 	}
@@ -1187,21 +1102,21 @@ character_event = {
 	desc = EVTDESC_TOG_1213
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	is_triggered_only = yes
-
+	
 	trigger = {
 		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
 	}
-
+	
 	immediate = {
-		any_liege = {
-			character_event = {
-				id = TOG.1214
+			any_liege = {
+				character_event = {
+					id = TOG.1214
+				}
 			}
-		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
@@ -1212,11 +1127,11 @@ character_event = {
 	desc = EVTDESC_TOG_1214
 	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
-
+	
 	show_from_from = yes
-
+	
 	is_triggered_only = yes
-
+	
 	option = {
 		name = "EVTOPTA_TOG_1203"
 	}
