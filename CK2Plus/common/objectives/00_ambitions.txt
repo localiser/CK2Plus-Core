@@ -4887,12 +4887,7 @@ obj_befriend_liege = {
 				who = ROOT
 				value = -25
 			}
-			NOT = {
-				has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
-			NOT = {
-				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
+			NOT = { is_friend = ROOT }
 			NOT = {
 				opinion = {
 					who = ROOT
@@ -4920,8 +4915,7 @@ obj_befriend_liege = {
 			trait = incapable
 			independent = yes
 			liege = { war_with = ROOT }
-			liege = { has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
-			liege = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
+			liege = { is_friend = ROOT }
 			NOT = {
 				liege = {
 					opinion = {
@@ -4946,28 +4940,7 @@ obj_befriend_liege = {
 	}
 	effect = {
 		liege = {
-			hidden_tooltip = {
-				remove_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-				}
-				reverse_remove_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-				}
-			}
-			hidden_tooltip = {
-				opinion = {
-					who = ROOT
-					modifier = opinion_friend
-					years = 100
-				}
-				reverse_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-					years = 100
-				}
-			}
+			is_friend = ROOT
 			custom_tooltip = { text = CUSTOMTOOLTIP28 }
 		}
 		if = {
@@ -5006,12 +4979,7 @@ obj_befriend_top_liege = {
 				who = ROOT
 				value = -25
 			}
-			NOT = {
-				has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
-			NOT = {
-				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
+			NOT = { is_friend = ROOT }
 			NOT = {
 				opinion = {
 					who = ROOT
@@ -5039,8 +5007,7 @@ obj_befriend_top_liege = {
 			trait = incapable
 			independent = yes
 			top_liege = { war_with = ROOT }
-			top_liege = { has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
-			top_liege = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
+			top_liege = { is_friend = ROOT }
 			NOT = {
 				top_liege = {
 					opinion = {
@@ -5065,28 +5032,7 @@ obj_befriend_top_liege = {
 	}
 	effect = {
 		top_liege = {
-			hidden_tooltip = {
-				remove_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-				}
-				reverse_remove_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-				}
-			}
-			hidden_tooltip = {
-				opinion = {
-					who = ROOT
-					modifier = opinion_friend
-					years = 100
-				}
-				reverse_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-					years = 100
-				}
-			}
+			is_friend = ROOT
 			custom_tooltip = { text = CUSTOMTOOLTIP28 }
 		}
 		if = {
@@ -5131,12 +5077,7 @@ obj_befriend_relhead = {
 				who = ROOT
 				value = -25
 			}
-			NOT = {
-				has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
-			NOT = {
-				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend }
-			}
+			is_friend = ROOT
 			NOT = {
 				opinion = {
 					who = ROOT
@@ -5163,8 +5104,7 @@ obj_befriend_relhead = {
 			trait = incapable
 			NOT = { religion_head = { is_alive = yes } }
 			religion_head = { war_with = ROOT }
-			religion_head = { has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
-			religion_head = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_friend } }
+			religion_head = { is_friend = ROOT }
 			religion_head = {
 				is_liege_of = ROOT
 			}
@@ -5197,28 +5137,7 @@ obj_befriend_relhead = {
 			hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 		}
 		religion_head = {
-			hidden_tooltip = {
-				remove_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-				}
-				reverse_remove_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-				}
-			}
-			hidden_tooltip = {
-				opinion = {
-					who = ROOT
-					modifier = opinion_friend
-					years = 100
-				}
-				reverse_opinion = {
-					who = ROOT
-					modifier = opinion_friend
-					years = 100
-				}
-			}
+			is_friend = ROOT
 			custom_tooltip = { text = CUSTOMTOOLTIP28 }
 		}
 		if = {
@@ -5733,14 +5652,14 @@ obj_make_a_friend = {
 	success = {
 		OR = {
 			any_courtier = {
-				has_opinion_modifier = { who = ROOT modifier = opinion_friend }
+				is_friend = ROOT
 			}
 			liege = {
-				has_opinion_modifier = { who = ROOT modifier = opinion_friend }
+				is_friend = ROOT
 			}
 			liege = {
 				any_courtier = {
-					has_opinion_modifier = { who = ROOT modifier = opinion_friend }
+					is_friend = ROOT
 				}
 			}
 		}
