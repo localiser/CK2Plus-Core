@@ -13674,7 +13674,7 @@ character_event = {
 	}
 }
 
-# Successful seduce liege
+# Successful seduce female
 character_event = {
 	id = 1000182076
 	desc = 1000182076.desc
@@ -13691,19 +13691,54 @@ character_event = {
 	}
 }
 
-# Target is informed of seduction
+# Target of female is informed of seduction
 character_event = {
 	id = 1000182077
 	desc = 1000182077.desc
 	picture = "GFX_evt_lovers"
 
 	is_triggered_only = yes
-
+	
 	option = {
 		name = 1000182077.a
+		trigger = {
+			fertility = 0.33
+			FROM = { fertility = 0.33 }
+		}
 		add_lover = FROM
 		hidden_tooltip = {
-			impregnate = FROM
+			if = {
+				if = {
+					limit = { is_married = no }
+					random_list = {
+						50 = { impregnate = FROM }
+						50 = { }
+					}
+				}
+				if = {
+					limit = { is_married = yes }
+					random_list = {
+						50 = { impregnate_cuckoo = FROM }
+						50 = { }
+					}
+				}
+			}
+			change_variable = { which = lifestyle_hedonist value = 1 }
+			set_character_flag = was_seduced_by_plot
+		}
+	}
+	
+	option = {
+		name = 1000182077.a
+		trigger = {
+			OR = {
+				NOT = { fertility = 0.33 }
+				NOT = { FROM = { fertility = 0.33 } }
+			}
+		}
+		add_lover = FROM
+		hidden_tooltip = {
+			change_variable = { which = lifestyle_hedonist value = 1 } 
 			set_character_flag = was_seduced_by_plot
 		}
 	}
@@ -13725,7 +13760,7 @@ character_event = {
 	}
 }
 
-# Failed - inform liege and his wife
+# Failed - inform male and his wife
 character_event = {
 	id = 1000182079
 	desc = 1000182079.desc
@@ -13748,7 +13783,7 @@ character_event = {
 	}
 }
 
-# Seduce for men events
+# Seduce events
 # Successful seduce
 character_event = {
 	id = 1000182080
@@ -13773,12 +13808,48 @@ character_event = {
 	picture = "GFX_evt_lovers"
 
 	is_triggered_only = yes
-
+	
 	option = {
 		name = 1000182081.a
+		trigger = {
+			fertility = 0.33
+			FROM = { fertility = 0.33 }
+		}
 		add_lover = FROM
 		hidden_tooltip = {
-			impregnate = FROM
+			if = {
+				if = {
+					limit = { is_married = no }
+					random_list = {
+						50 = { impregnate = FROM }
+						50 = { }
+					}
+				}
+				if = {
+					limit = { is_married = yes }
+					random_list = {
+						50 = { impregnate_cuckoo = FROM }
+						50 = { }
+					}
+				}
+			}
+			change_variable = { which = lifestyle_hedonist value = 1 }
+			set_character_flag = was_seduced_by_plot
+		}
+	}
+	
+	option = {
+		name = EVTOPTA452
+		ai_chance = { factor = 90 }
+		trigger = {
+			OR = {
+				NOT = { fertility = 0.33 }
+				NOT = { FROM = { fertility = 0.33 } }
+			}
+		}
+		add_lover = FROM
+		hidden_tooltip = {
+			change_variable = { which = lifestyle_hedonist value = 1 } 
 			set_character_flag = was_seduced_by_plot
 		}
 	}
@@ -13796,7 +13867,7 @@ character_event = {
 		name = "CURSES"
 		plot_target_char = {
 			character_event = { id = 1000182083 days = 1 }
-				}
+		}
 	}
 }
 
@@ -13823,7 +13894,7 @@ character_event = {
 	}
 }
 
-# The plotter sees an opportunity - seduce liege
+# The plotter sees an opportunity - female seducer
 character_event = {
 	id = 1000182084
 	desc = 1000182084.desc
@@ -13835,7 +13906,7 @@ character_event = {
 	only_women = yes
 
 	trigger = {
-		has_plot = plot_seduce_liege
+		has_plot = plot_seduce
 		is_pregnant = no
 		plot_target_char = {
 			prisoner = no
@@ -14042,7 +14113,7 @@ character_event = {
 	}
 }
 
-# A plot backer sees an opportunity - seduce liege
+# A plot backer sees an opportunity - seducer female
 character_event = {
 	id = 1000182085
 	desc = 1000182085.desc
@@ -14054,7 +14125,7 @@ character_event = {
 
 	trigger = {
 		any_backed_character = {
-			has_plot = plot_seduce_liege
+			has_plot = plot_seduce
 			plot_power = 0.4
 			is_pregnant = no
 			plot_target_char = {
@@ -14077,7 +14148,7 @@ character_event = {
 		modifier = {
 			factor = 0.6
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14090,7 +14161,7 @@ character_event = {
 		modifier = {
 			factor = 0.6
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14103,7 +14174,7 @@ character_event = {
 		modifier = {
 			factor = 0.6
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14116,7 +14187,7 @@ character_event = {
 		modifier = {
 			factor = 0.6
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14129,7 +14200,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 20 }
 				}
@@ -14138,7 +14209,7 @@ character_event = {
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 40 }
 				}
@@ -14147,7 +14218,7 @@ character_event = {
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 60 }
 				}
@@ -14156,7 +14227,7 @@ character_event = {
 		modifier = {
 			factor = 0.7
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 80 }
 				}
@@ -14166,7 +14237,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_power = 0.5
 			}
 		}
@@ -14174,7 +14245,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_power = 0.7
 			}
 		}
@@ -14182,7 +14253,7 @@ character_event = {
 		modifier = {
 			factor = 0.33
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_power = 0.9
 			}
 		}
@@ -14228,13 +14299,13 @@ character_event = {
 		name = "1000182085.a" # Seduce attempt
 		trigger = {
 			any_backed_character = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_power = 1.0
 			}
 		}
 		random_backed_character = {
 			limit = {
-				has_plot = plot_seduce_liege
+				has_plot = plot_seduce
 				plot_power = 1.0
 				is_pregnant = no
 				plot_target_char = {
@@ -14251,7 +14322,7 @@ character_event = {
 
 }
 
-# Plotter tells backer to go ahead - seduce liege
+# Plotter tells backer to go ahead - seducer female
 character_event = {
 	id = 1000182086
 	desc = 1000182086.desc
@@ -14290,10 +14361,10 @@ character_event = {
 
 	capable_only = yes
 	prisoner = no
+	only_men = yes
 
 	trigger = {
-		has_plot = plot_seduce_for_men
-		is_pregnant = no
+		has_plot = plot_seduce
 		plot_target_char = {
 			prisoner = no
 			at_location = ROOT # The Plot Head needs to be at the target's location to get a chance
@@ -14516,7 +14587,7 @@ character_event = {
 
 	trigger = {
 		any_backed_character = {
-			has_plot = plot_seduce_for_men
+			has_plot = plot_seduce
 			plot_power = 0.4
 			plot_target_char = {
 				prisoner = no
@@ -14539,7 +14610,7 @@ character_event = {
 		modifier = {
 			factor = 0.65
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14552,7 +14623,7 @@ character_event = {
 		modifier = {
 			factor = 0.65
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14565,7 +14636,7 @@ character_event = {
 		modifier = {
 			factor = 0.65
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14578,7 +14649,7 @@ character_event = {
 		modifier = {
 			factor = 0.6
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				ROOT = {
 					plot_power_contribution =
 					{
@@ -14591,7 +14662,7 @@ character_event = {
 		modifier = {
 			factor = 0.9
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 20 }
 				}
@@ -14600,7 +14671,7 @@ character_event = {
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 40 }
 				}
@@ -14609,7 +14680,7 @@ character_event = {
 		modifier = {
 			factor = 0.8
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 60 }
 				}
@@ -14618,7 +14689,7 @@ character_event = {
 		modifier = {
 			factor = 0.7
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_target_char = {
 					opinion = { who = PREV value = 80 }
 				}
@@ -14628,7 +14699,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_power = 0.5
 			}
 		}
@@ -14636,7 +14707,7 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_power = 0.7
 			}
 		}
@@ -14644,7 +14715,7 @@ character_event = {
 		modifier = {
 			factor = 0.33
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_power = 0.9
 			}
 		}
@@ -14699,13 +14770,13 @@ character_event = {
 		name = "1000182088.a" # Seduce attempt
 		trigger = {
 			any_backed_character = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_power = 1.0
 			}
 		}
 		random_backed_character = {
 			limit = {
-				has_plot = plot_seduce_for_men
+				has_plot = plot_seduce
 				plot_power = 1.0
 				plot_target_char = {
 					is_pregnant = no
@@ -14776,8 +14847,7 @@ character_event = {
 					has_plot = plot_weaken_fellow_vassal
 					has_plot = plot_gain_liege_title
 					has_plot = plot_gain_fellow_vassal_title
-					has_plot = plot_seduce_liege
-					has_plot = plot_seduce_for_men
+					has_plot = plot_seduce
 					has_plot = plot_fabricate_evidence_betrayal
 					has_plot = plot_fabricate_evidence_betrayal_same_realm
 					#has_plot = plot_fabricate_evidence_treason
@@ -14834,8 +14904,7 @@ character_event = {
 						has_plot = plot_weaken_fellow_vassal
 						has_plot = plot_gain_liege_title
 						has_plot = plot_gain_fellow_vassal_title
-						has_plot = plot_seduce_liege
-						has_plot = plot_seduce_for_men
+						has_plot = plot_seduce
 						has_plot = plot_fabricate_evidence_betrayal
 						has_plot = plot_fabricate_evidence_betrayal_same_realm
 						#has_plot = plot_fabricate_evidence_treason
