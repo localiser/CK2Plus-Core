@@ -1044,18 +1044,18 @@ cb_faction_independence = {
 	sprite = 12
 	truce_days = 3650
 	major_revolt = yes
-
-	can_call_allies = no
+	
+	attacker_can_call_allies = no
 	can_ask_to_join_war = no
-
+	
 	#attacker_alliance_occ_warscore = yes # Occupying any holding of any attacker counts towards war score
-
+	
 	can_use = {
 		ROOT = {
 			vassal_of = FROM
 		}
 	}
-
+	
 	is_valid = {
 		ROOT = {
 			OR = {
@@ -1070,10 +1070,13 @@ cb_faction_independence = {
 			}
 		}
 		FROM = {
-			higher_tier_than = ROOT
+			any_demesne_title = {
+				NOT = { lower_tier_than = ROOT }
+				temporary = no
+			}
 		}
 	}
-
+	
 	on_success = {
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
@@ -1151,7 +1154,7 @@ cb_faction_independence = {
 			}
 		}
 		FROM = { prestige = -500 }
-
+		
 		FROM = {
 			any_demesne_title = { # All titles
 				limit = {
@@ -1189,7 +1192,7 @@ cb_faction_independence = {
 		FROM = { clr_character_flag = faction_separatist_war }
 		hidden_tooltip = { k_papal_state = { holder_scope = { character_event = { id = 1000182870 } } }	}
 	}
-
+	
 	on_fail = {
 		hidden_tooltip = {
 			any_attacker = {
@@ -1232,7 +1235,7 @@ cb_faction_independence = {
 		}
 		FROM = { clr_character_flag = faction_separatist_war }
 	}
-
+	
 	on_reverse_demand = {
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		hidden_tooltip = {
@@ -1262,17 +1265,17 @@ cb_faction_independence = {
 				}
 			}
 		}
-
+		
 		ROOT = {
 			prestige = -100
 			prisoner = FROM
 		}
-
+		
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = -100
 		}
-
+		
 		any_attacker = {
 			limit = {
 				NOT = { character = ROOT }
@@ -1281,7 +1284,7 @@ cb_faction_independence = {
 			prisoner = FROM
 			participation_scaled_prestige = -100
 		}
-
+		
 		FROM = {
 			prestige = 50
 		}
@@ -1294,19 +1297,19 @@ cb_faction_independence = {
 		}
 		FROM = { clr_character_flag = faction_separatist_war }
 	}
-
+	
 	attacker_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-
+	
 	attacker_ai_defeat_worth = {
 		factor = 150
 	}
-
+	
 	defender_ai_victory_worth = {
 		factor = -1 # always accept
 	}
-
+	
 	defender_ai_defeat_worth = {
 		factor = 100
 	}
