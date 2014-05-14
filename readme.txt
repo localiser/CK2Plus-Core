@@ -1,5 +1,5 @@
 CK2Plus for Crusader Kings 2
-test
+
 Original Author: Martin "Wiz" Anward
 
 Maintained by the CK2+ Continuation Dev Team
