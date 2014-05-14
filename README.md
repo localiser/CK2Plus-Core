@@ -64,6 +64,7 @@ A: Yes.
 - superskierpat (Ancient Religions)
 - Kit0cha (French localization)
 - twiggyt13 (No Hassles Vassals)
+- Nivve (Altered Bookmarks)
 
 ## CK2+ Credits
 - Nexoid (misc icon graphics)
@@ -75,7 +76,7 @@ A: Yes.
 - 0zeek40 (Scripting and event writing)
 - idib816 (Jewish Cultures)
 - Sleight of Hand (Breton Names)
--S lim Jim Pickens (Culture Buildings)
+- Slim Jim Pickens (Culture Buildings)
 - Maestro Ugo (Lupus Agnum)
 - Elryck and Arko (Mercator Mod)
 - zeress (Flavorful Titular Titles, German Localisation, Divided Muslims scenario)
