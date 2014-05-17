@@ -15602,34 +15602,43 @@ k_dacia = {
 		}
 	}
 }
-k_hungary = {
+k_carpathia = {
 	color={ 187 70 70 }
 	color2={ 255 255 255 }
-	
-	capital	= 444 # Esztergom
+	capital = 444 # Esztergom
+	culture = hungarian
 
-	avar = Avar
-	
-	allow = {
-		OR = {
-			culture_group = magyar
-			culture = avar
+	catholic = 10 #Crusade target weight
+	tengri_pagan_reformed = 10 # Crusade target weight
+	slavic_pagan_reformed = 5 # Crusade target weight
+    allow = {
+		hidden_tooltip = {
+			NOT = {
+				has_global_flag = hungary_formed
+				has_global_flag = magyar_victory
+			}
+		}
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
 			AND = {
-				FROM = { # FROM = this title
-					any_previous_holder = {
-						always = yes # The title has existed before
-					}
-				}
-				any_realm_province = {
-					culture_group = magyar
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = hungarian
+			k_carpathia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
 				}
 			}
 		}
 	}
-	
-	culture = hungarian
-	
-	catholic = 500 # Crusade target weight
 	
 	d_pecs = {
 		color={ 155 25 65 }
@@ -21005,7 +21014,7 @@ k_jerusalem = {
 		capital = 771 # Tyrus
 	
 		c_tiberias = {
-			color2={ 225 220 160 }
+			color={ 225 220 160 }
 			color2={ 255 255 255 }
 		
 			b_tiberias = {
@@ -26771,7 +26780,7 @@ e_rajastan = {
 				}
 			}
 			c_somnath = {
-				color={ 220 800 50 }
+				color={ 220 80 50 }
 				color2={ 255 255 255 }
 				
 				b_vejalkot = {
