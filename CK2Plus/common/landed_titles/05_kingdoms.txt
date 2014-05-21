@@ -11108,6 +11108,173 @@ k_muscovy = {
 		}
 	}
 }
+k_sames = {
+	color={ 197 169 254 }
+	culture = samoyed
+	capital = 397 #Samoyeds
+	finnish_pagan_reformed = 500 # Crusade target weight
+	slavic_pagan_reformed = 100 # Crusade target weight
+	tengri_pagan_reformed = 50
+	# Creation/usurpation trigger
+	allow = {
+			is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+			NOT = {
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+			}
+                OR = {
+                        culture_group = finno_ugric
+                        k_sames = {
+                                OR = {
+                                        is_titular = no
+                                        has_holder = yes
+                                }
+                        }
+                }
+        }
+	d_sames = {
+		color = { 91 60 24 }
+		culture = komi
+		capital = 397 #samoyeds
+		c_ugra = {
+			color={ 139 82 60 }
+			color2={ 255 255 255 }
+			b_ukhta = {}
+			b_sosnogorsk = {}
+			b_yarega = {}
+			b_vodnyy = {}
+			b_nizhodes = {}
+			b_vuktyl = {}
+			b_kadzherom = {}
+			b_voyvozh = {}
+		}
+		c_syrj = {
+			color={ 106 126 243 }
+			color2={ 255 255 255 }
+			b_syktyvkar = {}
+			b_pyras = {}
+			b_yugydyag = {}
+			b_mikun = {}
+			b_emva = {}
+			b_ezhva = {}
+			b_sindor = {}
+			b_zheshart = {}
+		}
+		c_samoyeds = {
+			color = { 215 59 205 }
+			color2={ 255 255 255 }
+			b_verkhmgla = {}
+			b_yazhma = {}
+			b_sukhanikha = {}
+			b_arkhipovo = {}
+			b_vizhas = {}
+			b_tarasova = {}
+			b_chizha = {}
+			b_kiya = {}
+		}
+	}
+	d_hlynov = {
+		color={ 170 207 253 }
+		color2={ 255 255 255 }
+		capital = 401 # Hlynov
+		c_hlynov = {
+			color={ 87 74 134 }
+			color2={ 255 255 255 }
+			b_hlynov = {}
+			b_egra = {}
+			b_glazkar = {}
+			b_izkar = {}
+			b_kambarka = {}
+			b_sarapul = {}
+			b_mozjga = {}
+			b_wotka = {}
+		}
+		c_zyriane = {
+			color={ 87 181 210 }
+			color2={ 255 255 255 }
+			b_kungur = {}
+			b_kordon = {}
+			b_suksun = {}
+			b_kukushtan = {}
+			b_gari = {}
+			b_lek = {}
+			b_ergach = {}
+			b_posad = {}
+		}
+		c_veliky_ustug = {
+			color={ 130 100 11 }
+			color2={ 255 255 255 }
+			b_velikyustug = {}
+			b_gleden = {}
+			b_krasavino = {}
+			b_luza = {}
+			b_pinyug = {}
+			b_podosinovets = {}
+			b_maromitsa = {}
+			b_oparino = {}
+		}
+	}
+	d_bjarmia = {
+		color={ 100 115 55 }
+		color2={ 130 60 105 }
+		capital = 396 # Bjarmia
+		culture = komi
+		c_romny = {
+			color={ 43 98 179 }
+			color2={ 255 255 255 }
+			b_romny = {}
+			b_ugol = {}
+			b_vozhega = {}
+			b_marinskaya = {}
+			b_yuchka = {}
+			b_bykovskaya = {}
+			b_kholuy = {}
+			b_vysokaya = {}
+		}
+		c_trans-portage = {
+			color={ 56 236 56 }
+			color2={ 255 255 255 }
+			b_kargopol = {}
+			b_solovetsky = {}
+			b_shenkursk = {}
+			b_konosha = {}
+			b_nyandoma = {}
+			b_plesetsk = {}
+			b_samoded = {}
+			b_obozerskiy = {}
+		}
+		c_north_dvina = {
+			color={ 241 128 65 }
+			color2={ 255 255 255 }
+			b_kholmogory = {}
+			b_nikolokorelski = {}
+			b_solvychegodsk = {}
+			b_novokholmogory = {}
+			b_antonievosiysky = {}
+			b_koryazhma = {}
+			b_usolsk = {}
+			b_archangelsk = {}
+		}
+		c_bjarmia = {
+			color={ 240 200 123 }
+			color2={ 255 255 255 }
+			b_okladnikowa = {}
+			b_okulovsky = {}
+			b_kusnezowa = {}
+			b_kamenka = {}
+			b_pinega = {}
+			b_mezen = {}
+			b_kimzha = {}
+			b_lampozhnya = {}
+		}
+	}
+} # k_perm
 k_perm = {
 	color={ 204 188 127 }
 	color2={ 255 255 255 }
@@ -11310,234 +11477,6 @@ k_perm = {
 			}
 		}
 		
-	}
-	
-	d_hlynov = { # Ugra
-		color={ 134 145 31 }
-		color2={ 255 255 255 }
-		
-		capital = 401 # Hlynov
-		
-		c_hlynov = {
-			color={ 116 131 71 }
-			color2={ 255 255 255 }
-			
-			b_hlynov = {
-			}
-			b_egra = {
-			}
-			b_glazkar = {
-			}
-			b_izkar = {
-			}
-			b_kambarka = {
-			}
-			b_sarapul = {
-			}
-			b_mozjga = {
-			}
-			b_wotka = {
-			}
-		}
-		c_zyriane = {
-			color={ 195 160 65 }
-			color2={ 255 255 255 }
-		
-			b_kungur = {
-			}
-			b_kordon = {
-			}
-			b_suksun = {
-			}
-			b_kukushtan = {
-			}
-			b_gari = {
-			}
-			b_lek = {
-			}
-			b_ergach = {
-			}
-			b_posad = {
-			}
-		}
-		c_ugra = {
-			color={ 119 134 74 }
-			color2={ 255 255 255 }
-			
-			b_ukhta = {
-			}
-			b_sosnogorsk = {
-			}
-			b_yarega = {
-			}
-			b_vodnyy = {
-			}
-			b_nizhodes = {
-			}
-			b_vuktyl = {
-			}
-			b_kadzherom = {
-			}
-			b_voyvozh = {
-			}
-		}
-		c_syrj = {
-			color={ 122 137 77 }
-			color2={ 255 255 255 }
-			
-			b_syktyvkar = {
-			}
-			b_pyras = {
-			}
-			b_yugydyag = {
-			}
-			b_mikun = {
-			}
-			b_emva = {
-			}
-			b_ezhva = {
-			}
-			b_sindor = {
-			}
-			b_zheshart = {
-			}
-		}
-		c_veliky_ustug = {
-			color={ 125 140 80 }
-			color2={ 255 255 255 }
-			
-			b_velikyustug = {
-			}
-			b_gleden = {
-			}
-			b_krasavino = {
-			}
-			b_luza = {
-			}
-			b_pinyug = {
-			}
-			b_podosinovets = {
-			}
-			b_maromitsa = {
-			}
-			b_oparino = {
-			}
-		}
-	}
-	
-	d_bjarmia = {
-		color = { 95 50 20 }
-		color2={ 255 255 255 }
-		
-		capital = 396 # Bjarmia
-		
-		culture = komi
-		
-		c_romny = {
-			color={ 128 143 83 }
-			color2={ 255 255 255 }
-			
-			b_romny = {
-			}
-			b_ugol = {
-			}
-			b_vozhega = {
-			}
-			b_marinskaya = {
-			}
-			b_yuchka = {
-			}
-			b_bykovskaya = {
-			}
-			b_kholuy = {
-			}
-			b_vysokaya = {
-			}
-		}
-		c_trans-portage = {
-			color={ 103 118 58 }
-			color2={ 255 255 255 }
-			
-			b_kargopol = {
-			}
-			b_solovetsky = {
-			}
-			b_shenkursk = {
-			}
-			b_konosha = {
-			}
-			b_nyandoma = {
-			}
-			b_plesetsk = {
-			}
-			b_samoded = {
-			}
-			b_obozerskiy = {
-			}
-		}
-		c_north_dvina = {
-			color={ 106 121 61 }
-			color2={ 255 255 255 }
-			
-			b_kholmogory = {
-			}
-			b_nikolokorelski = {
-			}
-			b_solvychegodsk = {
-			}
-			b_novokholmogory = {
-			}
-			b_antonievosiysky = {
-			}
-			b_koryazhma = {
-			}
-			b_usolsk = {
-			}
-			b_archangelsk = {
-			}
-		}
-		c_bjarmia = {
-			color={ 109 124 64 }
-			color2={ 255 255 255 }
-			
-			b_okladnikowa = {
-			}
-			b_okulovsky = {				
-			}
-			b_kusnezowa = {
-			}
-			b_kamenka = {
-			}
-			b_pinega = {
-			}
-			b_mezen = {
-			}
-			b_kimzha = {
-			}
-			b_lampozhnya = {
-			}
-		}
-		c_samoyeds = {
-			color={ 100 115 55 }
-			color2={ 255 255 255 }
-			
-			b_verkhmgla = {
-			}
-			b_yazhma = {
-			}
-			b_sukhanikha = {
-			}
-			b_arkhipovo = {
-			}
-			b_vizhas = {
-			}
-			b_tarasova = {
-			}
-			b_chizha = {
-			}
-			b_kiya = {
-			}
-		}
 	}
 }
 k_cuman = {
