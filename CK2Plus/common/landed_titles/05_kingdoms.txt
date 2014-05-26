@@ -1,674 +1,604 @@
-
+#k_frisia completed -> must create d_artois, c_zutphen, c_oversticht
+#k_lotharingia completed -> must create c_limburg, c_laroche, c_chiny, c_namur
+#k_germany completed
+#k_bohemia completed
+#k_pomerania completed
 	
 k_frisia = {
 	color={ 245 100 20 }
 	color2={ 220 220 20 }
 	culture = dutch
-	capital = 80 #Holland
-	allow = {
-		hidden_tooltip = {
-			OR = {
-				ai = no
-				culture = dutch
-			}
-		}
-	}
+	capital = 84 #Frisia
+	
 	catholic = 700 # Crusade target weight
 	norse_pagan_reformed = 200 # Crusade target weight
 	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = dutch
+			k_frisia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+
+	d_artois = {  #NEW, must create
+		color={ 117 127 174 }
+		color2={ 255 255 255 }
+		
+		culture = dutch
+		
+		capital = 77 #Artois
+		
+		allow = { 
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
+		c_artois = {
+			color={ 106 127 51 }
+			color2={ 255 255 255 }
+			
+			b_arras = {}
+			b_terwaan = {}
+			b_bethune = {}
+			b_lens = {}
+			b_lille = {}
+			b_bouvines = {}
+			b_beaumetz = {}
+			b_bapaume = {}
+		}
+		
+		c_boulogne = {
+			color={ 77 22 178 }
+			color2={ 255 255 255 }
+			
+			b_boulogne = {}
+			b_montreuil = {}
+			b_saintpol = {}
+			b_hesdin = {}
+			b_fauquembergues = {}
+			b_ternouis = {}
+			b_therouanne = {}
+			b_ardres = {}
+		}
+		
+		c_guines = {
+			color={ 240 190 183 }
+			color2={ 255 255 255 }
+			
+			b_guines = {}
+			b_saintomer = {}
+			b_calais = {}
+			b_dunkerque = {}
+			b_bourbourg = {}
+			b_marck = {}
+			b_gravelines = {}
+			b_coulogne = {}
+		}
+	}
+	d_flanders = {
+		color={ 240 167 130 }
+		color2={ 48 48 48 }
+		
+		culture = dutch
+		
+		capital = 78 #Brugge
+		
+		allow = { 
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
+		c_yperen = {
+			color={ 127 152 36 }
+			color2={ 255 255 255 }
+			
+			b_ypres = {}
+			b_rosebeke = {}
+			b_cassel = {}
+			b_roeselare = {}
+			b_poperinge = {}
+			b_menen = {}
+			b_diksmuide = {}
+			b_wervik = {}
+		}
+		c_brugge = {
+			color={ 184 50 173 }
+			color2={ 255 255 255 }
+			
+			b_brugge = {}
+			b_damme = {}
+			b_sluys = {}
+			b_oostende = {}
+			b_male = {}
+			b_nieuwpoort = {}
+			b_torhout = {}
+			b_aardenburg = {}
+		}
+		c_gent = {
+			color={ 187 198 243 }
+			color2={ 255 255 255 }
+			
+			b_gent = {}
+			b_doornik = {}
+			b_oudenaarde = {}
+			b_aalst = {}
+			b_st_niklaas = {}
+			b_dendermonde = {}
+			b_kortrijk = {}
+			b_geraardsbergen = {}
+		}
+		c_hainaut = {
+			color={ 138 192 23 }
+			color2={ 255 255 255 }
+		
+			b_valenciennes = {}
+			b_cambrai = {}
+			b_avesnes = {}
+			b_mons = {}
+			b_chievres = {}
+			b_enghien = {}
+			b_charleroi = {}
+			b_ath = {}
+		}
+	}
 	d_holland = {
-		color={ 235 80 30 }
+		color={ 150 150 55 }
 		color2={ 255 255 255 }
 	
 		capital = 80 #Holland
 		
 		culture = dutch
 		
-		c_holland = {
-			color={ 235 85 30 }
-			color2={ 255 255 255 }
-		
-			b_haarlem = {
-			}
-			b_amsterdam = {
-			}
-			b_vlaardingen = {
-			}
-			b_sgravenhage = {
-			}
-			b_dordrecht = {
-			}
-			b_gouda = {
-			}
-			b_leiden = {
-			}
-			b_muiden = {
-			}
+		allow = { 
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
 		}
-		c_sticht = {
-			color={ 215 85 35 }
+		
+		c_holland = {
+			color={ 198 204 20 }
 			color2={ 255 255 255 }
 		
-			b_woerden = {
-			}
-			b_utrecht = {
-			}
-			b_dorestad = {
-			}
-			b_gorinchem = {
-			}
-			b_zeist = {
-			}
-			b_buren = {
-			}
-			b_ijsselstein = {
-			}
-			b_oudewater = {
-			}
+			b_haarlem = {}
+			b_amsterdam = {}
+			b_vlaardingen = {}
+			b_sgravenhage = {}
+			b_dordrecht = {}
+			b_gouda = {}
+			b_leiden = {}
+			b_muiden = {}
 		}
 		c_westfriesland = {
-			color={ 245 99 50 }
+			color={ 160 244 155 }
 			color2={ 255 255 255 }
 		
-			b_alkmaar = {
-			}
-			b_hoorn = {
-			}
-			b_medemblik = {
-			}
-			b_enkhuizen = {
-			}
-			b_heerhugowaard = {
-			}
-			b_texel = {
-			}
-			b_egmond = {
-			}
-			b_schagen = {
-			}
+			b_alkmaar = {}
+			b_hoorn = {}
+			b_medemblik = {}
+			b_enkhuizen = {}
+			b_heerhugowaard = {}
+			b_texel = {}
+			b_egmond = {}
+			b_schagen = {}
 		}
 		c_zeeland = {
-			color={ 200 100 30 }
+			color={ 228 164 26 }
 			color2={ 255 255 255 }
 		
-			b_middelburg = {
-			}
-			b_tholen = {
-			}
-			b_veere = {
-			}
-			b_cadzand = {
-			}
-			b_vlissingen = {
-			}
-			b_renesse = {
-			}
-			b_borsele = {
-			}
-			b_zierikzee = {
-			}
+			b_middelburg = {}
+			b_tholen = {}
+			b_veere = {}
+			b_cadzand = {}
+			b_vlissingen = {}
+			b_renesse = {}
+			b_borsele = {}
+			b_zierikzee = {}
 		}
 	}
 	d_gelre = {
-		color={ 200 100 25 }
-		color2={ 255 255 255 }
+		color={ 139 66 97 }
+		color2={ 255 255 220 }
 		
 		capital = 83 #Gelre
 		
 		culture = dutch
 		
-		c_gelre = {
-			color={ 200 100 30 }
-			color2={ 255 255 255 }
-		
-			b_nijmegen = {
-			}
-			b_zutphen = {
-			}
-			b_deventer = {
-			}
-			b_arnhem = {
-			}
-			b_zwolle = {
-			}
-			b_kampen = {
-			}
-			b_bergh = {
-			}
-			b_bronckhorst = {
-			}
-		}			
+		allow = { 
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+
 		c_ostfriesland = {
-			color={ 190 90 10 }
+			color={ 120 146 205 }
 			color2={ 255 255 255 }
 		
-			b_emden = {
-			}
-			b_aurich = {
-			}
-			b_borkum = {
-			}
-			b_norden = {
-			}
-			b_norderney = {
-			}
-			b_leer = {
-			}
-			b_wittmund = {
-			}
-			b_esens = {
-			}
+			b_emden = {}
+			b_aurich = {}
+			b_borkum = {}
+			b_norden = {}
+			b_norderney = {}
+			b_leer = {}
+			b_wittmund = {}
+			b_esens = {}
 		}
 		c_frisia = {
-			color={ 170 80 15 }
+			color={ 230 104 105 }
 			color2={ 255 255 255 }
 		
-			b_groningen = {
-			}
-			b_leeuwarden = {
-			}
-			b_stavoren = {
-			}
-			b_bolsward = {
-			}
-			b_franeker = {
-			}
-			b_dokkum = {
-			}
-			b_assen = {
-			}
-			b_harlingen = {
-			}
+			b_groningen = {}
+			b_leeuwarden = {}
+			b_stavoren = {}
+			b_bolsward = {}
+			b_franeker = {}
+			b_dokkum = {}
+			b_assen = {}
+			b_harlingen = {}
 		}
+		c_sticht = {
+			color={ 90 16 245 }
+			color2={ 255 255 255 }
+		
+			b_woerden = {}
+			b_utrecht = {}
+			b_dorestad = {}
+			b_gorinchem = {}
+			b_zeist = {}
+			b_buren = {}
+			b_ijsselstein = {}
+			b_oudewater = {}
+		}
+		c_gelre = {
+			color={ 90 237 139 }
+			color2={ 255 255 255 }
+		
+			b_nijmegen = {}
+			b_zutphen = {}
+			b_deventer = {}
+			b_arnhem = {}
+			b_zwolle = {}
+			b_kampen = {}
+			b_bergh = {}
+			b_bronckhorst = {}
+		}
+		#c_zutphen NEW, must create
+		#c_oversticht NEW, must create
 	}
 	d_brabant = {
-		color={ 200 100 60 }
-		color2={ 255 255 255 }
+		color={ 220 150 158 }
+		color2={ 120 255 255 }
 		
 		capital = 117 #Brabant
 		
 		culture = dutch
+		
+		allow = { 
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
 	
 		c_brabant = {
-			color={ 200 100 65 }
+			color={ 111 94 155 }
 			color2={ 255 255 255 }
 		
-			b_leuven = {
-			}
-			b_mechelen = {
-			}
-			b_brussel = {
-			}
-			b_antwerpen = {
-			}
-			b_aarschot = {
-			}
-			b_grimbergen = {
-			}
-			b_herstal = {
-			}
-			b_lier = {
-			}
-		}
-		c_hainaut = {
-			color={ 210 120 40 }
-			color2={ 255 255 255 }
-		
-			b_valenciennes = {
-			}
-			b_cambrai = {
-			}
-			b_avesnes = {
-			}
-			b_mons = {
-			}
-			b_chievres = {
-			}
-			b_enghien = {
-			}
-			b_charleroi = {
-			}
-			b_ath = {
-			}
+			b_leuven = {}
+			b_mechelen = {}
+			b_brussel = {}
+			b_antwerpen = {}
+			b_aarschot = {}
+			b_grimbergen = {}
+			b_herstal = {}
+			b_lier = {}
 		}
 		c_breda = {
-			color={ 234 145 54 }
+			color={ 55 157 6 }
 			color2={ 255 255 255 }
 		
-			b_breda = {
-			}
-			b_shertogenbosch = {
-			}
-			b_tilburg = {
-			}
-			b_willemstad = {
-			}
-			b_bergenopzoom = {
-			}
-			b_cuijck = {
-			}
-			b_ravenstein = {
-			}
-			b_horn = {
-			}
-		}
-	}
-	d_flanders = {
-		color={ 255 120 0 }
-		color2={ 255 255 255 }
-		
-		capital = 78
-		
-		culture = dutch
-		
-		c_artois = {
-			color={ 234 110 90 }
-			color2={ 255 255 255 }
-			
-			b_arras = {
-			}
-			b_terwaan = {
-			}
-			b_bethune = {
-			}
-			b_lens = {
-			}
-			b_lille = {
-			}
-			b_bouvines = {
-			}
-			b_beaumetz = {
-			}
-			b_bapaume = {
-			}
-		}
-		c_boulogne = {
-			color={ 224 140 90 }
-			color2={ 255 255 255 }
-			
-			b_boulogne = {
-			}
-			b_montreuil = {
-			}
-			b_saintpol = {
-			}
-			b_hesdin = {
-			}
-			b_fauquembergues = {
-			}
-			b_ternouis = {
-			}
-			b_therouanne = {
-			}
-			b_ardres = {
-			}
-		}
-		c_guines = {
-			color={ 194 145 100 }
-			color2={ 255 255 255 }
-			
-			b_guines = {
-			}
-			b_saintomer = {
-			}
-			b_calais = {
-			}
-			b_dunkerque = {
-			}
-			b_bourbourg = {
-			}
-			b_marck = {
-			}
-			b_gravelines = {
-			}
-			b_coulogne = {
-			}
-		}
-		c_yperen = {
-			color={ 194 115 40 }
-			color2={ 255 255 255 }
-			
-			b_ypres = {
-			}
-			b_rosebeke = {
-			}
-			b_cassel = {
-			}
-			b_roeselare = {
-			}
-			b_poperinge = {
-			}
-			b_menen = {
-			}
-			b_diksmuide = {
-			}
-			b_wervik = {
-			}
-		}
-		c_brugge = {
-			color={ 250 120 0 }
-			color2={ 255 255 255 }
-			
-			b_brugge = {
-			}
-			b_damme = {
-			}
-			b_sluys = {
-			}
-			b_oostende = {
-			}
-			b_male = {
-			}
-			b_nieuwpoort = {
-			}
-			b_torhout = {
-			}
-			b_aardenburg = {
-			}
-		}
-		c_gent = {
-			color={ 234 110 5 }
-			color2={ 255 255 255 }
-			
-			b_gent = {
-			}
-			b_doornik = {
-			}
-			b_oudenaarde = {
-			}
-			b_aalst = {
-			}
-			b_st_niklaas = {
-			}
-			b_dendermonde = {
-			}
-			b_kortrijk = {
-			}
-			b_geraardsbergen = {
-			}
+			b_breda = {}
+			b_shertogenbosch = {}
+			b_tilburg = {}
+			b_willemstad = {}
+			b_bergenopzoom = {}
+			b_cuijck = {}
+			b_ravenstein = {}
+			b_horn = {}
 		}
 	}
 }
 k_lotharingia = {
 	color={ 220 138 57 }
 	color2={ 255 255 255 }
-	culture = frankish
-	capital = 115 #Luxembourg
+	culture = german
+	capital = 117 #Brabant
+	
 	dignity = 9
 	catholic = 10 #Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = german
+			culture = frankish
+			k_lotharingia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+	
 	d_kleve = {
 		color={ 232 232 107 }
 		color2={ 255 255 255 }
 		capital = 89 #Cleves
-		#c_limburg
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
+		#c_limburg  NEW, must create
 		c_loon = {
 			color={ 10 120 93 }
 			color2={ 255 255 255 }
-			b_loon = {
-			}
-			b_hasselt = {
-			}
-			b_heinsberg = {
-			}
-			b_hesbaie = {
-			}
-			b_tongeren = {
-			}
+			b_loon = {}
+			b_hasselt = {}
+			b_heinsberg = {}
+			b_hesbaie = {}
+			b_tongeren = {}
 		}
 		c_julich = {
 			color={ 121 36 129 }
 			color2={ 255 255 255 }
-			b_julich = {
-			}
-			b_aachen = {
-			}
-			b_prum = {
-			}
-			b_geldern = {
-			}
-			b_roermond = {
-			}
-			b_duren = {
-			}
-			b_moers = {
-			}
-			b_monschau = {
-			}
+			b_julich = {}
+			b_aachen = {}
+			b_prum = {}
+			b_geldern = {}
+			b_roermond = {}
+			b_duren = {}
+			b_moers = {}
+			b_monschau = {}
 		}
 		c_kleve = {
 			color={ 56 64 129 }
 			color2={ 255 255 255 }
-			b_kleve = {
-			}
-			b_goch = {
-			}
-			b_rees = {
-			}
-			b_anholt = {
-			}
-			b_xanten = {
-			}
-			b_wesel = {
-			}
-			b_emmerich = {
-			}
-			b_isselburg = {
-			}
+			b_kleve = {}
+			b_goch = {}
+			b_rees = {}
+			b_anholt = {}
+			b_xanten = {}
+			b_wesel = {}
+			b_emmerich = {}
+			b_isselburg = {}
 		}
 	}
 	d_luxembourg = {
 		color={ 102 97 150 }
 		color2={ 255 255 255 }
 		capital = 115 #Luxembourg
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_luxembourg = {
 			color={ 249 111 65 }
 			color2={ 255 255 255 }
-			b_luxembourg = {
-			}
-			b_echternach = {
-			}
-			b_saintvith = {
-			}
-			b_arlon = {
-			}
-			b_neufchateau = {
-			}
-			b_longwy = {
-			}
-			b_differdange = {
-			}
-			b_ettelbruck = {
-			}
+			b_luxembourg = {}
+			b_echternach = {}
+			b_saintvith = {}
+			b_arlon = {}
+			b_neufchateau = {}
+			b_longwy = {}
+			b_differdange = {}
+			b_ettelbruck = {}
 		}
-        #c_laroche
-        #c_chiny
+        #c_laroche  NEW, must create
+        #c_chiny  NEW, must create
     }
 	d_upper_lorraine = {
 		color={ 104 137 140 }
 		color2={ 255 255 255 }
 		capital = 127 #Lorraine
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_lorraine = {
 			color={ 66 156 11 }
 			color2={ 255 255 255 }
-			b_nancy = {
-			}
-			b_toul = {
-			}
-			b_epinal = {
-			}
-			b_luneville = {
-			}
-			b_charpeigne = {
-			}
-			b_mortagnedevosges = {
-			}
-			b_sarrebourg = {
-			}			
+			b_nancy = {}
+			b_toul = {}
+			b_epinal = {}
+			b_luneville = {}
+			b_charpeigne = {}
+			b_mortagnedevosges = {}
+			b_sarrebourg = {}			
 		}
 		c_metz = {
 			color={ 195 161 82 }
 			color2={ 255 255 255 }
-			b_metz = {
-			}
-			b_saintavoid = {
-			}
-			b_thionville = {
-			}
-			b_saintjulien = {
-			}
-			b_marslatour = {
-			}
-			b_bouzonville = {
-			}
-			b_briey = {
-			}
-			b_audunleroman = {
-			}
+			b_metz = {}
+			b_saintavoid = {}
+			b_thionville = {}
+			b_saintjulien = {}
+			b_marslatour = {}
+			b_bouzonville = {}
+			b_briey = {}
+			b_audunleroman = {}
 		}
 		c_saintois = {
 			color={ 215 63 232 }
 			color2={ 255 255 255 }
-			b_saintois = {
-			}
-			b_vaudemont = {
-			}
-			b_vaucouleurs = {
-			}
-			b_brixey = {
-			}
-			b_sorcystmartin = {
-			}
-			b_ivios = {
-			}
-			b_ornois = {
-			}
-			b_saulnois = {
-			}
-			b_dompaire = {
-			}
+			b_saintois = {}
+			b_vaudemont = {}
+			b_vaucouleurs = {}
+			b_brixey = {}
+			b_sorcystmartin = {}
+			b_ivios = {}
+			b_ornois = {}
+			b_saulnois = {}
+			b_dompaire = {}
 		}
 	}
 	d_lower_lorraine = {
 		color={ 181 72 106 }
 		color2={ 255 255 255 }
 		capital = 118 # Trier
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_pfalz = {
 			color={ 102 172 239 }
 			color2={ 255 255 255 }
-			b_kaiserslautern = {
-			}
-			b_worms = {
-			}
-			b_hagenau = {
-			}
-			b_stahleck = {
-			}
-			b_trifels = {
-			}
-			b_speyer = {
-			}
-			b_zweibrucken = {
-			}
-			b_saarbrucken = {
-			}
+			b_kaiserslautern = {}
+			b_worms = {}
+			b_hagenau = {}
+			b_stahleck = {}
+			b_trifels = {}
+			b_speyer = {}
+			b_zweibrucken = {}
+			b_saarbrucken = {}
 		}
 		c_trier = {
 			color={ 140 46 203 }
 			color2={ 255 255 255 }
-			b_andernach = {
-			}
-			b_trier = {
-			}
-			b_coblenz = {
-			}
-			b_sponheim = {
-			}
-			b_wittlich = {
-			}
-			b_gerolstein = {
-			}
-			b_laach = {
-			}
-			b_bitburg = {
-			}
+			b_andernach = {}
+			b_trier = {}
+			b_coblenz = {}
+			b_sponheim = {}
+			b_wittlich = {}
+			b_gerolstein = {}
+			b_laach = {}
+			b_bitburg = {}
 		}
 	}
 	d_alsace = {
 		color={ 199 175 12 }
 		color2={ 255 255 255 }
 		capital = 134 #Sundgau
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_nordgau = {
 			color={ 156 114 31 }
 			color2={ 255 255 255 }
-			b_egisheim = {
-			}
-			b_strassburg = {
-			}
-			b_lauterburg = {
-			}
-			b_selz = {
-			}
-			b_erstein = {
-			}
-			b_molsheim = {
-			}
-			b_brumath = {
-			}
-			b_schlettstadt = {
-			}
+			b_egisheim = {}
+			b_strassburg = {}
+			b_lauterburg = {}
+			b_selz = {}
+			b_erstein = {}
+			b_molsheim = {}
+			b_brumath = {}
+			b_schlettstadt = {}
 		}
 		c_sundgau = {
 			color={ 165 86 133 }
 			color2={ 255 255 255 }
-			b_ensisheim = {
-			}
-			b_kolmar = {
-			}
-			b_murbach = {
-			}
-			b_mulhouse = {
-			}
-			b_landser = {
-			}
-			b_thann = {
-			}
-			b_altkirch = {
-			}
-			b_ferette = {
-			}
+			b_ensisheim = {}
+			b_kolmar = {}
+			b_murbach = {}
+			b_mulhouse = {}
+			b_landser = {}
+			b_thann = {}
+			b_altkirch = {}
+			b_ferette = {}
 		}
 	}
 	d_bar = {
 		color={ 56 126 175 }
 		color2={ 255 255 0 }
 		capital = 930 #Bar
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_verdun = {
 			color={ 165 204 101 }
 			color2={ 255 255 255 }
-			b_verdun = {
-			}
-			b_grandpre = {
-			}
-			b_saintmihel = {
-			}
-			b_doaumont = {
-			}
-			b_etain = {
-			}
+			b_verdun = {}
+			b_grandpre = {}
+			b_saintmihel = {}
+			b_doaumont = {}
+			b_etain = {}
 		}
 		c_bar = {
 			color={ 111 111 111 }
 			color2={ 255 255 255 }
-			b_barleduc = {
-			}
-			b_barlecomte = {
-			}
-			b_longuyon = {
-			}
-			b_joudreville = {
-			}
-			b_stdisier = {
-			}
+			b_barleduc = {}
+			b_barlecomte = {}
+			b_longuyon = {}
+			b_joudreville = {}
+			b_stdisier = {}
 		}
 	}
 	d_liege = {
@@ -676,946 +606,1423 @@ k_lotharingia = {
 		color2={ 255 216 0 }
 		capital = 116 #Liege
 		culture = frankish
+
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+
 		c_liege = {
 			color={ 66 237 127 }
 			color2={ 255 255 255 }
-			b_liege = {
-			}
-			b_huy = {
-			}
-			b_fexhe = {
-			}
-			b_aulne = {
-			}
-			b_bouillon = {
-			}
-			b_stavelot = {
-			}
-			b_malmedy = {
-			}
+			b_liege = {}
+			b_huy = {}
+			b_fexhe = {}
+			b_aulne = {}
+			b_bouillon = {}
+			b_stavelot = {}
+			b_malmedy = {}
 		}
-		#c_namur
+		#c_namur  NEW, must create
 	}
 }
 k_germany = {
 	color={ 160 95 95 }
 	color2={ 220 220 20 }
-	dignity = 30 # Counted as having this many more counties than it does
+
 	culture = german
 	capital = 121 #Nassau
+	
+	dignity = 10 # Counted as having this many more counties than it does	
 	catholic = 10 # Crusade target weight
 	norse_pagan_reformed = 10 # Crusade target weight
 	slavic_pagan_reformed = 10 # Crusade target weight
 	baltic_pagan_reformed = 1 # Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			OR = {
+				AND = {
+					ai = yes
+					has_landed_title = e_hre
+				}
+				AND = {
+					ai = yes
+					has_landed_title = e_byzantium
+				}
+			}
+		}
+		OR = {
+			culture = german
+			culture = frankish
+			k_germany = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	d_swiss = {
 		color={ 186 26 26 }
 		color2={ 255 255 255 }
 		capital = 245 #Schwyz
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_schwyz = {
 			color={ 195 219 19 }
 			color2={ 255 255 255 }
-			b_schwyz = {
-			}
-			b_engelberg = {
-			}
-			b_zurich = {
-			}
-			b_zug = {
-			}
-			b_altdorf = {
-			}
-			b_stans = {
-			}
-			b_glarus = {
-			}
-			b_winterthur = {
-			}
+			b_schwyz = {}
+			b_engelberg = {}
+			b_zurich = {}
+			b_zug = {}
+			b_altdorf = {}
+			b_stans = {}
+			b_glarus = {}
+			b_winterthur = {}
 		}
 		c_grisons = {
 			color={ 171 102 82 }
 			color2={ 255 255 255 }
-			b_bellinzona = {
-			}
-			b_disentis = {
-			}
-			b_locarno = {
-			}
-			b_biasca = {
-			}
-			b_domo = {
-			}
-			b_lugano = {
-			}
-			b_musso = {
-			}
-			b_mendrisio = {
-			}
+			b_bellinzona = {}
+			b_disentis = {}
+			b_locarno = {}
+			b_biasca = {}
+			b_domo = {}
+			b_lugano = {}
+			b_musso = {}
+			b_mendrisio = {}
 		}
 		c_st_gallen = {
 			color={ 243 222 5 }
 			color2={ 255 255 255 }
-			b_rheineck = {
-			}
-			b_stgallen = {
-			}
-			b_appenzell = {
-			}
-			b_frauenfeld = {
-			}
-			b_altstatten = {
-			}
-			b_lichtensteig = {
-			}
-			b_vaduz = {
-			}
-			b_herisau = {
-			}
+			b_rheineck = {}
+			b_stgallen = {}
+			b_appenzell = {}
+			b_frauenfeld = {}
+			b_altstatten = {}
+			b_lichtensteig = {}
+			b_vaduz = {}
+			b_herisau = {}
 		}
 		c_chur = {
 			color={ 175 79 92 }
 			color2={ 255 255 255 }
-			b_chur = {
-			}
-			b_churwalden = {
-			}
-			b_davos = {
-			}
-			b_maienfeld = {
-			}
-			b_illanz = {
-			}
-			b_thusis = {
-			}
-			b_glurns = {
-			}
-			b_zuoz = {
-			}
+			b_chur = {}
+			b_churwalden = {}
+			b_davos = {}
+			b_maienfeld = {}
+			b_illanz = {}
+			b_thusis = {}
+			b_glurns = {}
+			b_zuoz = {}
 		}
 	}
 	d_holstein = {
 		color={ 152 225 112 }
 		color2={ 255 255 255 }
 		capital = 263 #Holstein
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_hamburg = {
 			color={ 181 161 34 }
 			color2={ 255 255 255 }
-			b_hamburg = {
-			}
-			b_altona = {
-			}
-			b_harburg = {
-			}
-			b_brunsbuttel = {
-			}
-			b_buxtehude = {
-			}
-			b_dithmarschen = {
-			}
-			b_niendorf = {
-			}
-			b_lokstedt = {
-			}
+			b_hamburg = {}
+			b_altona = {}
+			b_harburg = {}
+			b_brunsbuttel = {}
+			b_buxtehude = {}
+			b_dithmarschen = {}
+			b_niendorf = {}
+			b_lokstedt = {}
 		}
 		c_lubeck = {
 			color={ 175 199 12 }
 			color2={ 255 255 255 }
-			b_lubeck = {
-			}
-			b_ratzeburg = {
-			}
-			b_travemunde = {
-			}
-			b_wulfsdorf = {
-			}
-			b_schlutup = {
-			}
-			b_starigard = {
-			}
-			b_weslo = {
-			}
-			b_bucu = {
-			}
+			b_lubeck = {}
+			b_ratzeburg = {}
+			b_travemunde = {}
+			b_wulfsdorf = {}
+			b_schlutup = {}
+			b_starigard = {}
+			b_weslo = {}
+			b_bucu = {}
 		}
 		c_holstein = {
 			color={ 16 130 5 }
 			color2={ 255 255 255 }
-			b_kiel = {
-			}
-			b_gottorp = {
-			}
-			b_itzehoe = {
-			}
-			b_reinholdsburg = {
-			}
-			b_elmshorn = {
-			}
-			b_gluckstadt = {
-			}
-			b_lauenburg = {
-			}
-			b_segeberg = {
-			}
+			b_kiel = {}
+			b_gottorp = {}
+			b_itzehoe = {}
+			b_reinholdsburg = {}
+			b_elmshorn = {}
+			b_gluckstadt = {}
+			b_lauenburg = {}
+			b_segeberg = {}
 		}
 	}
 	d_brunswick = {
 		color={ 166 72 57 }
 		color2={ 97 255 255 }
 		capital = 258 #Lüneburg
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_celle = {
 			color={ 8 203 62 }
 			color2={ 255 255 255 }
-			b_celle = {
-			}
-			b_hannover = {
-			}
-			b_herford = {
-			}
-			b_hermannsburg = {
-			}
-			b_ravensberg = {
-			}
-			b_nienburg = {
-			}
-			b_wedemark = {
-			}
-			b_wittingen = {
-			}
+			b_celle = {}
+			b_hannover = {}
+			b_herford = {}
+			b_hermannsburg = {}
+			b_ravensberg = {}
+			b_nienburg = {}
+			b_wedemark = {}
+			b_wittingen = {}
 		}
 		c_luneburg = {
 			color={ 152 66 29 }
 			color2={ 255 255 255 }
-			b_luneburg = {
-			}
-			b_bardowick = {
-			}
-			b_gifhorn = {
-			}
-			b_evern = {
-			}
-			b_reppenstedt = {
-			}
-			b_ludersburg = {
-			}
-			b_thomasburg = {
-			}
-			b_uelzen = {
-			}
+			b_luneburg = {}
+			b_bardowick = {}
+			b_gifhorn = {}
+			b_evern = {}
+			b_reppenstedt = {}
+			b_ludersburg = {}
+			b_thomasburg = {}
+			b_uelzen = {}
 		}
 		c_braunschweig = {
 			color={ 106 208 69 }
 			color2={ 255 255 255 }
-			b_braunschweig = {
-			}
-			b_bielefeld = {
-			}
+			b_braunschweig = {}
+			b_bielefeld = {	}
 			b_paderborn = {
 				holy_site = norse_pagan
 				holy_site = norse_pagan_reformed
 			}
-			b_hildesheim = {
-			}
-			b_waldeck = {
-			}
-			b_wolfenbuttel = {
-			}
-			b_helmstedt = {
-			}
-			b_gandersheim = {
-			}
+			b_hildesheim = {}
+			b_waldeck = {}
+			b_wolfenbuttel = {}
+			b_helmstedt = {}
+			b_gandersheim = {}
 		}
 		c_gottingen = {
 			color={ 231 59 117 }
 			color2={ 255 255 255 }
-			b_gottingen = {
-			}
-			b_corvey = {
-			}
-			b_lippe = {
-			}
-			b_kassel = {
-			}
-			b_goslar = {
-			}
-			b_northeim = {
-			}
-			b_eisenach = {
-			}
-			b_detmold = {
-			}
+			b_gottingen = {}
+			b_corvey = {}
+			b_lippe = {}
+			b_kassel = {}
+			b_goslar = {}
+			b_northeim = {}
+			b_eisenach = {}
+			b_detmold = {}
 		}
 	}
 	d_oldenburg = {
 		color={ 214 117 117 }
 		color2={ 255 255 255 }
 		capital = 86 #Oldenburg
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_osnabruck = {
 			color={ 7 247 94 }
 			color2={ 255 255 255 }
-			b_osnabruck = {
-			}
-			b_lingen = {
-			}
-			b_bentheim = {
-			}
-			b_wildeshausen = {
-			}
-			b_tecklenburg = {
-			}
-			b_minden = {
-			}
-			b_quackenbruck = {
-			}
-			b_meppen = {
-			}
+			b_osnabruck = {}
+			b_lingen = {}
+			b_bentheim = {}
+			b_wildeshausen = {}
+			b_tecklenburg = {}
+			b_minden = {}
+			b_quackenbruck = {}
+			b_meppen = {}
 		}
 		c_bremen = {
 			color={ 92 57 5 }
 			color2={ 255 255 255 }
-			b_bremen = {
-			}
-			b_hoya = {
-			}
-			b_verden = {
-			}
-			b_stade = {
-			}
-			b_blumenthal = {
-			}
-			b_ritzebuttel = {
-			}
-			b_achim = {
-			}
-			b_beverstedt = {
-			}
+			b_bremen = {}
+			b_hoya = {}
+			b_verden = {}
+			b_stade = {}
+			b_blumenthal = {}
+			b_ritzebuttel = {}
+			b_achim = {}
+			b_beverstedt = {}
 		}
 		c_oldenburg = {
 			color={ 49 18 229 }
 			color2={ 255 255 255 }
-			b_oldenburg = {
-			}
-			b_cloppenburg = {
-			}
-			b_jever = {
-			}
-			b_delmenhorst = {
-			}
-			b_loningen = {
-			}
-			b_nordenham = {
-			}
-			b_kniphausen = {
-			}
-			b_varel = {
-			}
+			b_oldenburg = {}
+			b_cloppenburg = {}
+			b_jever = {}
+			b_delmenhorst = {}
+			b_loningen = {}
+			b_nordenham = {}
+			b_kniphausen = {}
+			b_varel = {}
 		}
 	}
 	d_thuringia = {
 		color={ 122 109 221 }
 		color2={ 255 255 255 }
 		capital = 255 #Thuringen
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_thuringen = {
 			color={ 211 67 127 }
 			color2={ 255 255 255 }
-			b_erfurt = {
-			}
-			b_muhlhausen = {
-			}
-			b_arnstadt = {
-			}
-			b_eichsfeld = {
-			}
-			b_reuss = {
-			}
-			b_salzungen = {
-			}
-			b_schmalkalden = {
-			}
-			b_henneberg = {
-			}
+			b_erfurt = {}
+			b_muhlhausen = {}
+			b_arnstadt = {}
+			b_eichsfeld = {}
+			b_reuss = {}
+			b_salzungen = {}
+			b_schmalkalden = {}
+			b_henneberg = {}
 		}
 		c_nassau = {
 			color={ 34 151 245 }
 			color2={ 255 255 255 }
-			b_nassau = {
-			}
-			b_fulda = {
-			}
-			b_wetzlar = {
-			}
-			b_marburg = {
-			}
-			b_katzenelnbogen = {
-			}
-			b_hersfeld = {
-			}
-			b_falkenstein = {
-			}
-			b_isenburg = {
-			}
+			b_nassau = {}
+			b_fulda = {}
+			b_wetzlar = {}
+			b_marburg = {}
+			b_katzenelnbogen = {}
+			b_hersfeld = {}
+			b_falkenstein = {}
+			b_isenburg = {}
 		}
 	}
 	d_koln = {
 		color={ 213 216 212 }
 		color2={ 255 216 0 }
 		capital = 119 #Köln
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_koln = {
 			color={ 166 202 32 }
 			color2={ 255 255 255 }
 			b_koln = {
 				holy_site = catholic
 			}
-			b_berg = {
-			}
-			b_mark = {
-			}
-			b_bonn = {
-			}
-			b_dietz = {
-			}
-			b_saffenburg = {
-			}
-			b_hochstaden = {
-			}
-			b_brauweiler = {
-			}
+			b_berg = {}
+			b_mark = {}
+			b_bonn = {}
+			b_dietz = {}
+			b_saffenburg = {}
+			b_hochstaden = {}
+			b_brauweiler = {}
 		}
 		c_munster = {
 			color={ 84 215 134 }
 			color2={ 255 255 255 }
-			b_munster = {
-			}
-			b_dortmund = {
-			}
-			b_essen = {
-			}
-			b_greven = {
-			}
-			b_gutersloh = {
-			}
-			b_steinfurt = {
-			}
-			b_gronau = {
-			}
-			b_ahlen = {
-			}
+			b_munster = {}
+			b_dortmund = {}
+			b_essen = {}
+			b_greven = {}
+			b_gutersloh = {}
+			b_steinfurt = {}
+			b_gronau = {}
+			b_ahlen = {}
 		}
 	}
 	d_franconia = {
 		color={ 100 9 170 }
 		color2={ 255 255 255 }
 		capital = 123 #Mainz
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_mainz = {
 			color={ 81 226 190 }
 			color2={ 255 255 255 }
-			b_mainz = {
-			}
-			b_frankfurt = {
-			}
-			b_eppstein = {
-			}
-			b_ingelheim = {
-			}
-			b_mannheim = {
-			}
-			b_weilburg = {
-			}
-			b_dornburg = {
-			}
-			b_hanau = {
-			}
+			b_mainz = {}
+			b_frankfurt = {}
+			b_eppstein = {}
+			b_ingelheim = {}
+			b_mannheim = {}
+			b_weilburg = {}
+			b_dornburg = {}
+			b_hanau = {}
 		}
 		c_leiningen = {
 			color={ 192 78 90 }
 			color2={ 255 255 255 }
-			b_leiningen = {
-			}
-			b_heidelberg = {
-			}
-			b_lorsch = {
-			}
-			b_durkheim = {
-			}
-			b_battenberg = {
-			}
-			b_hardenburg = {
-			}
-			b_ungstein = {
-			}
-			b_pfeffingen = {
-			}
+			b_leiningen = {}
+			b_heidelberg = {}
+			b_lorsch = {}
+			b_durkheim = {}
+			b_battenberg = {}
+			b_hardenburg = {}
+			b_ungstein = {}
+			b_pfeffingen = {}
 		}
 		c_wurzburg = {
 			color={ 58 131 38 }
 			color2={ 255 255 255 }
-			b_wurzburg = {
-			}
-			b_aschaffenburg = {
-			}
-			b_schweinfurt = {
-			}
-			b_marienberg = {
-			}
-			b_hammelburg = {
-			}
-			b_schwarzenberg = {
-			}
-			b_theiheim = {
-			}
-			b_mainderheim = {
-			}
+			b_wurzburg = {}
+			b_aschaffenburg = {}
+			b_schweinfurt = {}
+			b_marienberg = {}
+			b_hammelburg = {}
+			b_schwarzenberg = {}
+			b_theiheim = {}
+			b_mainderheim = {}
 		}
 		c_bamberg = {
 			color={ 116 182 141 }
 			color2={ 255 255 255 }
-			b_ansbach = {
-			}
-			b_bamberg = {
-			}
-			b_babenberg = {
-			}
-			b_cadolzburg = {
-			}
-			b_colmberg = {
-			}
-			b_roth = {
-			}
-			b_uffenheim = {
-			}
-			b_crailsheim = {
-			}
+			b_ansbach = {}
+			b_bamberg = {}
+			b_babenberg = {}
+			b_cadolzburg = {}
+			b_colmberg = {}
+			b_roth = {}
+			b_uffenheim = {}
+			b_crailsheim = {}
 		}
 	}
 	d_baden = {
 		color={ 115 149 109 }
 		color2={ 255 255 255 }
 		capital = 125 #Baden
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_baden = {
-		color={ 74 207 6 }
-		color2={ 255 255 255 }
-			b_baden = {
-			}
-			b_karlsruhe = {
-			}
-			b_wimpfen = {
-			}
-			b_calw = {
-			}
-			b_pforzheim = {
-			}
-			b_durlach = {
-			}
-			b_rastatt = {
-			}
-			b_neuhausen = {
-			}
+			color={ 74 207 6 }
+			color2={ 255 255 255 }
+			b_baden = {}
+			b_karlsruhe = {}
+			b_wimpfen = {}
+			b_calw = {}
+			b_pforzheim = {}
+			b_durlach = {}
+			b_rastatt = {}
+			b_neuhausen = {}
 		}
 		c_breisgau = {
 			color={ 184 10 31 }
 			color2={ 255 255 255 }
-			b_freiburg = {
-			}
-			b_stblasien = {
-			}
-			b_offenburg = {
-			}
-			b_zahringen = {
-			}
-			b_lahr = {
-			}
-			b_lohrrach = {
-			}
-			b_breisach = {
-			}
-			b_rottweil = {
-			}
+			b_freiburg = {}
+			b_stblasien = {}
+			b_offenburg = {}
+			b_zahringen = {}
+			b_lahr = {}
+			b_lohrrach = {}
+			b_breisach = {}
+			b_rottweil = {}
 		}
+
 	}
 	d_bavaria = {
 		color={ 18 121 121 }
 		color2={ 255 255 255 }
 		capital = 360 #Oberbayern
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_kempten = {
 			color={ 165 232 174 }
 			color2={ 255 255 255 }
-			b_kempten = {
-			}
-			b_augsburg = {
-			}
-			b_zumarshausen = {
-			}
-			b_kaufbeuren = {
-			}
-			b_donauworth = {
-			}
-			b_friedberg = {
-			}
-			b_hochstadt = {
-			}
-			b_rain = {
-			}
+			b_kempten = {}
+			b_augsburg = {}
+			b_zumarshausen = {}
+			b_kaufbeuren = {}
+			b_donauworth = {}
+			b_friedberg = {}
+			b_hochstadt = {}
+			b_rain = {}
 		}
 		c_oberbayern = {
 			color={ 205 186 144 }
 			color2={ 255 255 255 }
-			b_munchen = {
-			}
-			b_dachau = {
-			}
-			b_freising = {
-			}
-			b_andechs = {
-			}
-			b_diessen = {
-			}
-			b_dingolfing = {
-			}
-			b_pfaffenberg = {
-			}
-			b_ebersberg = {
-			}
+			b_munchen = {}
+			b_dachau = {}
+			b_freising = {}
+			b_andechs = {}
+			b_diessen = {}
+			b_dingolfing = {}
+			b_pfaffenberg = {}
+			b_ebersberg = {}
 		}
 		c_salzburg = {
 			color={ 59 50 207 }
 			color2={ 255 255 255 }
-			b_salzburg = {
-			}
-			b_durmberg = {
-			}
-			b_waging = {
-			}
-			b_berchtesgaden = {
-			}
-			b_tittmoning = {
-			}
-			b_laufen = {
-			}
-			b_muhldorf = {
-			}
-			b_gastein = {
-			}
+			b_salzburg = {}
+			b_durmberg = {}
+			b_waging = {}
+			b_berchtesgaden = {}
+			b_tittmoning = {}
+			b_laufen = {}
+			b_muhldorf = {}
+			b_gastein = {}
 		}
 		c_niederbayern = {
 			color={ 47 208 86 }
 			color2={ 255 255 255 }
-			b_straubing = {
-			}
-			b_regensburg = {
-			}
-			b_landshut = {
-			}
-			b_ingolstadt = {
-			}
-			b_wittelsbach = {
-			}
-			b_cham = {
-			}
-			b_rohrbach = {
-			}
-			b_kirchroth = {
-			}
+			b_straubing = {}
+			b_regensburg = {}
+			b_landshut = {}
+			b_ingolstadt = {}
+			b_wittelsbach = {}
+			b_cham = {}
+			b_rohrbach = {}
+			b_kirchroth = {}
 		}
 		c_nurnberg = {
 			color={ 234 43 180 }
 			color2={ 255 255 255 }
-			b_nurnberg = {
-			}
-			b_ellwangen = {
-			}
-			b_furth = {
-			}
-			b_kulmbach = {
-			}
-			b_hohenburg = {
-			}
-			b_nordlingen = {
-			}
-			b_eichstatt = {
-			}
-			b_erlangen = {
-			}
+			b_nurnberg = {}
+			b_ellwangen = {}
+			b_furth = {}
+			b_kulmbach = {}
+			b_hohenburg = {}
+			b_nordlingen = {}
+			b_eichstatt = {}
+			b_erlangen = {}
 		}
 	}
 	d_osterreich = {
 		color={ 191 182 182 }
 		color2={ 255 255 255 }
 		capital = 449 #Österreich
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_passau = {
 			color={ 200 161 53 }
 			color2={ 255 255 255 }
-			b_passau = {
-			}
-			b_ortenburg = {
-			}
-			b_schaumberg = {
-			}
-			b_formbach = {
-			}
-			b_ulrichsberg = {
-			}
-			b_freistadt = {
-			}
-			b_raab = {
-			}
-			b_freyung = {
-			}
+			b_passau = {}
+			b_ortenburg = {}
+			b_schaumberg = {}
+			b_formbach = {}
+			b_ulrichsberg = {}
+			b_freistadt = {}
+			b_raab = {}
+			b_freyung = {}
 		}
 		c_osterreich = {
 			color={ 107 48 164 }
 			color2={ 255 255 255 }
-			b_wien = {
-			}
-			b_linz = {
-			}
-			b_melk = {
-			}
-			b_stpolten = {
-			}
-			b_hohenwarth = {
-			}
-			b_wagram = {
-			}
-			b_krems = {
-			}
-			b_steyr = {
-			}
+			b_wien = {}
+			b_linz = {}
+			b_melk = {}
+			b_stpolten = {}
+			b_hohenwarth = {}
+			b_wagram = {}
+			b_krems = {}
+			b_steyr = {}
 		}
 		c_steiermark = {
 			color={ 109 237 39 }
 			color2={ 255 255 255 }
-			b_eppenstein = {
-			}
-			b_graz = {
-			}
-			b_lavant = {
-			}
-			b_cilli = {
-			}
-			b_seckau = {
-			}
-			b_leibnitz = {
-			}
-			b_radkersburg = {
-			}
-			b_stubing = {
-			}
+			b_eppenstein = {}
+			b_graz = {}
+			b_lavant = {}
+			b_cilli = {}
+			b_seckau = {}
+			b_leibnitz = {}
+			b_radkersburg = {}
+			b_stubing = {}
 		}
 	}
 	d_tyrol = {
 		color={ 161 126 128 }
 		color2={ 255 255 255 }
 		capital = 316 #Tirol
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_tirol = {
 			color={ 149 80 128 }
 			color2={ 255 255 255 }
-			b_bregenz = {
-			}
-			b_landeck = {
-			}
-			b_stanton = {
-			}
-			b_imst = {
-			}
-			b_sterzing = {
-			}
-			b_ried = {
-			}
-			b_dornbirn = {
-			}
-			b_nenzing = {
-			}
+			b_bregenz = {}
+			b_landeck = {}
+			b_stanton = {}
+			b_imst = {}
+			b_sterzing = {}
+			b_ried = {}
+			b_dornbirn = {}
+			b_nenzing = {}
 		}
 		c_innsbruck = {
 			color={ 176 215 102 }
 			color2={ 255 255 255 }
-			b_innsbruck = {
-			}
-			b_kufstein = {
-			}
-			b_stams = {
-			}
-			b_lienz = {
-			}
-			b_schwaz = {
-			}
-			b_kitzbuhel = {
-			}
-			b_jenbach = {
-			}
-			b_fugen = {
-			}
+			b_innsbruck = {}
+			b_kufstein = {}
+			b_stams = {}
+			b_lienz = {}
+			b_schwaz = {}
+			b_kitzbuhel = {}
+			b_jenbach = {}
+			b_fugen = {}
 		}
 	}
 	d_carinthia = {
 		color={ 166 117 117 }
 		color2={ 255 255 255 }
 		capital = 358 # Aquileia
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_istria = {
 			color={ 139 65 17 }
 			color2={ 255 255 255 }
-			b_mitterburg = {
-			}
-			b_trieste = {
-			}
-			b_fiume = {
-			}
-			b_lovrana = {
-			}
-			b_wolauska = {
-			}
-			b_karstberg = {
-			}
-			b_duino = {
-			}
-			b_pula = {
-			}
+			b_mitterburg = {}
+			b_trieste = {}
+			b_fiume = {}
+			b_lovrana = {}
+			b_wolauska = {}
+			b_karstberg = {}
+			b_duino = {}
+			b_pula = {}
 		}
 		c_krain = {
 			color={ 138 152 21 }
 			color2={ 255 255 255 }
-			b_gorz = {
-			}
-			b_krainburg = {
-			}
-			b_gurk = {
-			}
-			b_stain = {
-			}
-			b_guetenegg = {
-			}
-			b_auersperg = {
-			}
-			b_zerknitz = {
-			}
-			b_stveit = {
-			}
+			b_gorz = {}
+			b_krainburg = {}
+			b_gurk = {}
+			b_stain = {}
+			b_guetenegg = {}
+			b_auersperg = {}
+			b_zerknitz = {}
+			b_stveit = {}
 		}
 		c_karnten = {
 			color={ 239 55 242 }
 			color2={ 255 255 255 }
-			b_villach = {
-			}
-			b_klagenfurt = {
-			}
-			b_ossiach = {
-			}
-			b_laibach = {
-			}
-			b_treffen = {
-			}
-			b_sann = {
-			}
-			b_pettau = {
-			}
-			b_wolfsberg = {
-			}
+			b_villach = {}
+			b_klagenfurt = {}
+			b_ossiach = {}
+			b_laibach = {}
+			b_treffen = {}
+			b_sann = {}
+			b_pettau = {}
+			b_wolfsberg = {}
 		}
 		c_aquileia = {
 			color = { 46 195 35 }
 			color2 = { 255 255 255 }
-			b_aquileia = {
-			}
-			b_udine = {
-			}
-			b_friuli = {
-			}
-			b_motta = {
-			}
-			b_concordia = {
-			}
-			b_ciridale = {
-			}
-			b_portoguaro = {
-			}
-			b_sacile = {
-			}
+			b_aquileia = {}
+			b_udine = {}
+			b_friuli = {}
+			b_motta = {}
+			b_concordia = {}
+			b_ciridale = {}
+			b_portoguaro = {}
+			b_sacile = {}
 		}
 	}
 	d_swabia = {
 		color={ 246 203 203 }
 		color2={ 255 255 255 }
 		capital = 249 #Schwaben
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
 		c_schwaben = {
 			color={ 230 136 43 }
 			color2={ 255 255 255 }
-			b_tubingen = {
-			}
-			b_konstanz = {
-			}
-			b_heiligenberg = {
-			}
-			b_uberlingen = {
-			}
-			b_hohenberg = {
-			}
-			b_friedrichshafen = {
-			}
-			b_wangen = {
-			}
-			b_lindau = {
-			}
+			b_tubingen = {}
+			b_konstanz = {}
+			b_heiligenberg = {}
+			b_uberlingen = {}
+			b_hohenberg = {}
+			b_friedrichshafen = {}
+			b_wangen = {}
+			b_lindau = {}
 		}
 		c_ulm = {
 			color={ 46 195 77 }
 			color2={ 255 255 255 }
-			b_ulm = {
-			}
-			b_zwiefalten = {
-			}
-			b_teck = {
-			}
-			b_biberach = {
-			}
-			b_memmingen = {
-			}
-			b_isny = {
-			}
-			b_goppingen = {
-			}
-			b_erbach = {
-			}
+			b_ulm = {}
+			b_zwiefalten = {}
+			b_teck = {}
+			b_biberach = {}
+			b_memmingen = {}
+			b_isny = {}
+			b_goppingen = {}
+			b_erbach = {}
 		}
 		c_furstenberg = {
 			color={ 169 69 13 }
 			color2={ 255 255 255 }
-			b_furstenberg = {
-			}
-			b_villingen = {
-			}
-			b_hirsau = {
-			}
-			b_baar = {
-			}
-			b_haslach = {
-			}
-			b_zollern = {
-			}
-			b_wolfach = {
-			}
-			b_donaueschingen = {
-			}
+			b_furstenberg = {}
+			b_villingen = {}
+			b_hirsau = {}
+			b_baar = {}
+			b_haslach = {}
+			b_zollern = {}
+			b_wolfach = {}
+			b_donaueschingen = {}
 		}
 		c_wurttemberg = {
 			color={ 95 73 174 }
 			color2={ 255 255 255 }
-			b_stuttgart = {
+			b_stuttgart = {}
+			b_heilbronn = {}
+			b_reutlingen = {}
+			b_waiblingen = {}
+			b_esslingen = {}
+			b_gmund = {}
+			b_staufen = {}
+			b_asperg = {}
+		}
+	}
+}
+k_bohemia = {
+	color={ 176 110 32 }
+	color2={ 255 255 255 }
+	culture = bohemian
+	capital = 437 # Praha
+	
+	catholic = 10 #Crusade target weight
+	slavic_pagan_reformed = 5 # Crusade target weight
+	baltic_pagan_reformed = 1 # Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
 			}
-			b_heilbronn = {
-			}
-			b_reutlingen = {
-			}
-			b_waiblingen = {
-			}
-			b_esslingen = {
-			}
-			b_gmund = {
-			}
-			b_staufen = {
-			}
-			b_asperg = {
+		}
+		OR = {
+			culture = bohemian
+			k_bohemia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
-}	
+	
+	d_bohemia = {
+		color={ 165 90 11 }
+		color2={ 255 255 255 }
+		capital = 437 # Praha
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
+		c_domazlice = {
+			color={ 180 174 101 }
+			color2={ 255 255 255 }
+			b_pisek = {}
+			b_kladruby = {}
+			b_budejovice = {}
+			b_domazlice = {}
+			b_hohenfurth = {}
+			b_rosenberg = {}
+			b_goldenkron = {}
+			b_sobeslav = {}
+		}
+		c_praha = {
+			color={ 199 114 15 }
+			color2={ 255 255 255 }
+			b_praha = {}
+			b_brevnov = {}
+			b_kuttenberg = {}
+			b_karlstein = {}
+			b_slany = {}
+			b_kolin = {}
+			b_stare_mesto = {}
+			b_zbraslav = {}
+		}
+		c_boleslav = {
+			color={ 53 201 133 }
+			color2={ 255 255 255 }
+			b_glatz = {}
+			b_nachod = {}
+			b_hradiste = {}
+			b_jicin = {}
+			b_trutnov = {}
+			b_kamieniec = {}
+			b_jaromer = {}
+			b_turnov = {}
+		}
+		c_litomerice = {
+			color={ 62 171 101 }
+			color2={ 255 255 255 }
+			b_usti = {}
+			b_zatec = {}
+			b_jachymov = {}
+			b_kadan = {}
+			b_ceskalipa = {}
+			b_duchcov = {}
+			b_chomutov = {}
+			b_osek = {}
+		}
+		c_plzen = {
+			color={ 225 160 110 }
+			color2={ 255 255 255 }
+			b_plzen = {}
+			b_stribo = {}
+			b_rokycany = {}
+			b_plasy = {}
+			b_pomuk = {}
+			b_susice = {}
+			b_tachov = {}
+			b_cheb = {}
+		}
+	}
+	d_moravia = {
+		color={ 131 101 85 }
+		color2={ 255 255 255 }
+		capital = 440 # Olomouc
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
+		c_znojmo = {
+			color={ 226 75 211 }
+			color2={ 255 255 255 }
+			b_mikulov = {}
+			b_iglau = {}
+			b_lundenburg = {}
+			b_skalitz = {}
+			b_trebic = {}
+			b_eibenshitz = {}
+			b_znojmo = {}
+			b_ivancice = {}
+		}  
+		c_hradec = {
+			color={ 218 181 96 }
+			color2={ 255 255 255 }
+			b_hradeckralove = {}
+			b_pardubice = {}
+			b_litomysl = {}
+			b_zamberk = {}
+			b_policka = {}
+			b_jihlava = {}
+			b_pelhrimov = {}
+			b_chrudim = {}
+		}
+		c_olomouc = {
+			color={ 74 222 54 }
+			color2={ 255 255 255 }
+			b_opava = {}
+			b_olomouc = {}
+			b_sternberk = {}
+			b_ostrava = {}
+			b_zabreh = {}
+			b_moravskatrebova = {}
+			b_zdar = {}
+			b_unicov = {}
+		}
+		c_brno = {
+			color={ 155 234 21 }
+			color2={ 255 255 255 }
+			b_boskovice = {}
+			b_prerov = {}
+			b_velehrad = {}
+			b_wisowitz = {}
+			b_uherskebrod = {}
+			b_uherskehradiste = {}
+			b_kromeriz = {}
+			b_zlin = {}
+		}
+	}
+}
+k_pomerania = {
+	color={ 145 130 40 }
+	color2={ 220 220 20 }
+	culture = pommeranian
+	capital = 366 #Stettin
+	
+	catholic = 400 # Crusade target weight
+	slavic_pagan_reformed = 500 # Crusade target weight
+	norse_pagan_reformed = 100 # Crusade target weight
+	baltic_pagan_reformed = 100 # Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = pommeranian
+			religion_group = pagan_group
+			k_pomerania = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+	d_pomeralia = {
+		color={ 202 112 85 }
+		color2={ 20 20 20 }
+		capital = 368 # Danzig
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}		
+		
+		c_danzig = {
+			color={ 143 153 6 }
+			color2={ 255 255 255 }
+			
+			pommeranian = "Gdansk"
+			polish = "Gdansk"
+			bohemian = "Gdansk"
+			russian = "Gdansk"
+			prussian = "Gdansk"
+			lithuanian = "Gdansk"
+			lettigallish = "Gdansk"
+			swedish = "Danzig"
+			norse = "Danzig"
+			norwegian = "Danzig"
+			danish = "Danzig"
+		
+			b_bytow = {}
+			b_danzig = {
+				pommeranian = "Gdansk"
+				polish = "Gdansk"
+				bohemian = "Gdansk"
+				russian = "Gdansk"
+				prussian = "Gdansk"
+				lithuanian = "Gdansk"
+				lettigallish = "Gdansk"
+				swedish = "Danzig"
+				norse = "Danzig"
+				norwegian = "Danzig"
+				danish = "Danzig"
+			}
+			b_oliva = {}
+			b_tuchel = {}
+			b_schwetz = {}
+			b_danlauenburg = {}
+			b_mewe = {}
+			b_schlochau = {}
+		}
+		c_chelminskie = {
+			color={ 36 149 14 }
+			color2={ 255 255 255 }
+			
+			german = "Kulm"
+			swedish = "Kulm"
+			norwegian = "Kulm"
+			danish = "Kulm"
+			norse = "Kulm"
+		
+			b_chelmno = {
+				german = "Kulm"
+				swedish = "Kulm"
+				norse = "Kulm"
+				norwegian = "Kulm"
+				danish = "Kulm"
+			}
+			b_kulm = {}
+			b_thorn = {}
+			b_niedenburg = {}
+			b_rehden = {}
+			b_lobau = {}
+			b_eylau = {}
+			b_briesen = {
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
+			}
+		}
+		c_slupsk = {
+			color={ 174 203 21 }
+			color2={ 255 255 255 }
+			
+			german = "Stolp"
+			swedish = "Stolp"
+			norwegian = "Stolp"
+			danish = "Stolp"
+			norse = "Stolp"
+		
+			b_rugenwalde = {}
+			b_slupsk = {
+				german = "Stolp"
+				swedish = "Stolp"
+				norwegian = "Stolp"
+				danish = "Stolp"
+				norse = "Stolp"
+			}
+			b_colberg = {}
+			b_schlawe = {}
+			b_tempelburg = {}
+			b_dramburg = {}
+			b_ustka = {}
+			b_belgard = {}
+		}
+	}	
+	d_mecklemburg = {
+		color={ 162 160 110 }
+		color2={ 255 255 255 }
+		
+		capital = 260 #mecklemburg
+		
+		pommeranian = Weligrad
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+
+		c_mecklemburg = {
+			color={ 48 41 229 }
+			color2={ 255 255 255 }
+
+			pommeranian = Weligrad
+			
+			b_mecklemburg = {
+				pommeranian = Weligrad
+			}
+			b_wismar = {
+				pommeranian = Vesimer
+			}
+			b_gevezin = {
+				pommeranian = Radgosc			
+			}
+			b_schwerin = {
+				pommeranian = Zuarina
+			}
+			b_lutzow = {}
+			b_grevesmuhlen = {}
+			b_parchim = {}
+			b_hagenow = {}
+		}
+		c_rostock = {
+			color={ 204 117 198 }
+			color2={ 255 255 255 }
+
+			pommeranian = Rastokú
+			
+			b_rostock = {
+				pommeranian = Rastokú
+			}
+			b_penzlin = {	
+				pommeranian = Pentzelin	
+			}
+			b_gustrow = {	
+				pommeranian = Guscerov				
+			}
+			b_malchin = {}
+			b_damgarten = {}
+			b_strelitz = {
+				pommeranian = Streltza
+			}
+			b_stargard = {}
+			b_ahrensberg = {}
+		}
+		c_werle = {
+			color={ 121 220 116 }
+			color2={ 255 255 255 }
+
+			pommeranian = Dymin
+			
+			b_waren = {}
+			b_greifswald = {
+				pommeranian = Gripscogh
+			}
+			b_stralsund = {
+				pommeranian = Stralow
+			}
+			b_tribsees = {}
+			b_demmin = {}
+			b_treptow = {}
+			b_friedland = {
+				pommeranian = Mirów
+			}
+			b_templin = {}
+		}
+		c_rugen = {
+			color={ 175 97 111 }
+			color2={ 255 255 255 }
+
+			pommeranian = Rana
+			
+			b_charenza = {}
+			b_arkona = {
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
+			}
+			b_rugard = {}
+			b_putbus = {}
+			b_barth = {}
+			b_ralswiek = {}
+			b_hiddensee = {}
+			b_tribuzin = {}
+		}
+	}
+	d_pommerania = {
+		color={ 111 143 51 }
+		color2={ 255 255 255 }
+		
+		capital = 366 # Stettin
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+	
+		c_wolgast = {
+			color={ 98 204 82 }
+			color2={ 255 255 255 }
+
+			pommeranian = Wologoszcz
+		
+			b_wolgast = {
+				pommeranian = Wologoszcz
+			}
+			b_usedom = {
+				pommeranian = Uznjöm
+			}
+			b_anklam = {	
+				pommeranian = Taglim			
+			}
+			b_ueckermunde = {}
+			b_zinnowitz = {}
+			b_zussow = {}
+			b_kemnitz = {}
+			b_eggesin = {}
+		}
+		c_stettin = {
+			color={ 204 239 80 }
+			color2={ 255 255 255 }
+			
+			pommeranian = Szczecin
+		
+			b_soldin = {}
+			b_stettin = {
+				pommeranian = Szczecin
+			}
+			b_wollin = {} 
+			b_stestargard = {}
+			b_kammin = {}
+			b_kolbatz = {}
+			b_cedene = {}
+			b_pyritz = {}
+		}
+	}
+	d_saxony = {
+		color={ 164 162 162 }
+		color2={ 255 255 255 }
+		
+		capital = 310 #Anhalt
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+		
+		c_plauen = {
+			color={ 36 204 187 }
+			color2={ 255 255 255 }
+
+			pommeranian = Ploni
+			
+			b_plauen = {				
+				pommeranian = Ploni
+			}
+			b_leipzig = {
+				pommeranian = Lipsk
+			}
+			b_merseburg = {}
+			b_halle = {
+				pommeranian = Dobrebora
+			}
+			b_knobelsdorf = {}
+			b_zeitz = {
+				pommeranian = Cici
+			}
+			b_zwickau = {
+				pommeranian = Swikawa
+			}
+			b_naumburg = {}
+		}
+		c_weimar = {
+			color={ 16 198 101 }
+			color2={ 255 255 255 }
+			
+			b_weimar = {}
+			b_jena = {}
+			b_walkenried = {}
+			b_nordhausen = {}
+			b_memelsen = {}
+			b_gotha = {}
+			b_apoldoa = {}
+			b_gera = {}
+		}
+	}
+	d_brandenburg = {
+		color={ 175 121 200 }
+		color2={ 255 255 255 }
+		
+		capital = 365 #Brandenburg
+
+		pommeranian = Brennaburg
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+
+		c_anhalt = {
+			color={ 103 161 191 }
+			color2={ 255 255 255 }
+
+			pommeranian = Dolomici
+			
+			b_zerbst = {	
+				pommeranian = Zirwisti
+			}
+			b_magdeburg = {	
+				pommeranian = Magadoburg			
+			}
+			b_haldensleben = {
+				pommeranian = Hahaldeslevo
+			}
+			b_mansfeld = {}
+			b_dessau = {}
+			b_arnstein = {}
+			b_querfurt = {
+				pommeranian = Curnfurt
+			}
+			b_bernburg = {}
+		}		
+		c_altmark = {
+			color={ 145 75 25 }
+			color2={ 255 255 255 }
+
+			pommeranian = Laczyn
+			
+			b_werben = {}
+			b_halberstedt = {}
+			b_walbeck = {}
+			b_luchow = {}
+			b_salzwedel = {}
+			b_stendal = {}
+			b_osterburg = {}
+			b_tangermunde = {}
+		}
+		c_brandenburg = {
+			color={ 70 38 237 }
+			color2={ 255 255 255 }
+
+			pommeranian = Brennaburg
+			
+			b_brandenburg = {
+				pommeranian = Brennaburg	
+			}
+			b_havelberg = {}
+			b_berlin = {}
+			b_juterborg = {
+				pommeranian = Jutriboc
+			}
+			b_belzig = {}
+			b_ruppin = {}
+			b_oranienburg = {
+				pommeranian = Bochzowe
+			}
+			b_muncheberg = {}
+		}
+	}
+	d_meissen = {
+		color={ 69 157 208 }
+		color2={ 255 255 255 }
+		
+		capital = 312 #Meissen
+
+		pommeranian = Nisani
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+		}
+	
+		c_meissen = {
+			color={ 36 8 97 }
+			color2={ 255 255 255 }
+
+			pommeranian = Nisani
+			
+			b_dresden = {
+				pommeranian = Drezdany
+			}
+			b_meissen = {
+				pommeranian = Misni
+			}
+			b_dohna = {}
+			b_belgern = { # Called Altenburg
+			}
+			b_strehla = {}
+			b_rabenau = {}
+			b_wettin = {}
+			b_radeburg = {}
+		}
+		c_lausitz = {
+			color={ 242 241 132 }
+			color2={ 255 255 255 }
+
+			pommeranian = Luzycka
+			
+			b_gorlitz = {
+				pommeranian = Zhorjelc
+			}
+			b_bautzen = {
+				pommeranian = Budysin
+			} 
+			b_lebus = {
+				pommeranian = Lubiazu
+			}
+			b_cottbus = {
+				pommeranian = Chosebuz
+			}
+			b_rothenburg = {}
+			b_forst = {}
+			b_zittau = {
+				pommeranian = Zitawa
+			}
+			b_luckau = {
+				pommeranian = Luckawa
+			}
+		}
+	}
+}
 k_byzantium = {
 	color={ 165 11 111 }
 	color2={ 255 255 23 }
@@ -2609,8 +3016,7 @@ k_byzantium = {
 			b_khirokitia = {
 			}
 		}
-	}
-	
+	}	
 	d_cibyrrhaeot = { 
 		color={ 108 29 80 }
 		color2={ 255 255 20 }
@@ -8525,519 +8931,6 @@ k_poland = {
 		}
 	}
 }
-k_pomerania = {
-	color={ 145 130 40 }
-	color2={ 220 220 20 }
-	culture = pommeranian
-	capital = 366 #Stettin
-	catholic = 400 # Crusade target weight
-	slavic_pagan_reformed = 500 # Crusade target weight
-	norse_pagan_reformed = 100 # Crusade target weight
-	baltic_pagan_reformed = 100 # Crusade target weight
-	allow = {
-		hidden_tooltip = {
-			OR = {
-				ai = no
-				religion_group = pagan_group
-			}
-		}
-	}
-	d_mecklemburg = {
-		color={ 162 160 110 }
-		color2={ 255 255 255 }
-		
-		capital = 260 #mecklemburg
-		
-		pommeranian = Weligrad
-
-		c_mecklemburg = {
-			color={ 207 207 207 }
-			color2={ 255 255 255 }
-
-			pommeranian = Weligrad
-			
-			b_mecklemburg = {
-				pommeranian = Weligrad
-			}
-			b_wismar = {
-				pommeranian = Vesimer
-			}
-			b_gevezin = {
-				pommeranian = Radgosc			
-			}
-			b_schwerin = {
-				pommeranian = Zuarina
-			}
-			b_lutzow = {
-			}
-			b_grevesmuhlen = {
-			}
-			b_parchim = {
-			}
-			b_hagenow = {
-			}
-		}
-		c_rostock = {
-			color={ 204 204 204 }
-			color2={ 255 255 255 }
-
-			pommeranian = Rastokú
-			
-			b_rostock = {
-				pommeranian = Rastokú
-			}
-			b_penzlin = {	
-				pommeranian = Pentzelin	
-			}
-			b_gustrow = {	
-				pommeranian = Guscerov				
-			}
-			b_malchin = {
-			}
-			b_damgarten = {
-			}
-			b_strelitz = {
-				pommeranian = Streltza
-			}
-			b_stargard = {
-			}
-			b_ahrensberg = {
-			}
-		}
-		c_werle = {
-			color={ 202 202 202 }
-			color2={ 255 255 255 }
-
-			pommeranian = Dymin
-			
-			b_waren = {
-			}
-			b_greifswald = {
-				pommeranian = Gripscogh
-			}
-			b_stralsund = {
-
-				pommeranian = Stralow
-			}
-			b_tribsees = {
-			}
-			b_demmin = {
-			}
-			b_treptow = {
-			}
-			b_friedland = {
-				pommeranian = Mirów
-			}
-			b_templin = {
-			}
-		}
-		c_rugen = {
-			color={ 201 201 201 }
-			color2={ 255 255 255 }
-
-			pommeranian = Rana
-			
-			b_charenza = {
-			}
-			b_arkona = {
-				holy_site = slavic_pagan
-				holy_site = slavic_pagan_reformed
-				holy_site = baltic_pagan
-				holy_site = baltic_pagan_reformed
-			}
-			b_rugard = {
-			}
-			b_putbus = {
-			}
-			b_barth = {
-			}
-			b_ralswiek = {
-			}
-			b_hiddensee = {
-			}
-			b_tribuzin = {
-			}
-		}
-	}
-	d_pommerania = {
-		color={ 111 143 51 }
-		color2={ 255 255 255 }
-		
-		capital = 366 # Stettin
-	
-		c_wolgast = {
-			color={ 121 163 58 }
-			color2={ 255 255 255 }
-
-			pommeranian = Wologoszcz
-		
-			b_wolgast = {
-				pommeranian = Wologoszcz
-			}
-			b_usedom = {
-				pommeranian = Uznjöm
-			}
-			b_anklam = {	
-				pommeranian = Taglim			
-			}
-			b_ueckermunde = {
-			}
-			b_zinnowitz = {
-			}
-			b_zussow = {
-			}
-			b_kemnitz = {
-			}
-			b_eggesin = {
-			}
-		}
-		c_stettin = {
-			color={ 91 163 48 }
-			color2={ 255 255 255 }
-			
-			pommeranian = Szczecin
-		
-			b_soldin = {
-			}
-			b_stettin = {
-
-				pommeranian = Szczecin
-			}
-			b_wollin = {
-			} 
-			b_stestargard = {
-			}
-			b_kammin = {
-			}
-			b_kolbatz = {
-			}
-			b_cedene = {
-			}
-			b_pyritz = {
-			}
-		}
-	}
-	d_pomeralia = {
-		color={ 95 135 77 }
-		color2={ 255 255 255 }
-		capital = 368 # Danzig
-		c_danzig = {
-			color={ 115 139 70 }
-			color2={ 255 255 255 }
-			
-			pommeranian = "Gdansk"
-			polish = "Gdansk"
-			bohemian = "Gdansk"
-			russian = "Gdansk"
-			prussian = "Gdansk"
-			lithuanian = "Gdansk"
-			lettigallish = "Gdansk"
-			swedish = "Danzig"
-			norse = "Danzig"
-			norwegian = "Danzig"
-			danish = "Danzig"
-		
-			b_bytow = {
-			}
-			b_danzig = {
-				pommeranian = "Gdansk"
-				polish = "Gdansk"
-				bohemian = "Gdansk"
-				russian = "Gdansk"
-				prussian = "Gdansk"
-				lithuanian = "Gdansk"
-				lettigallish = "Gdansk"
-				swedish = "Danzig"
-				norse = "Danzig"
-				norwegian = "Danzig"
-				danish = "Danzig"
-			}
-			b_oliva = {
-			}
-			b_tuchel = {
-			}
-			b_schwetz = {
-			}
-			b_danlauenburg = {
-			}
-			b_mewe = {
-			}
-			b_schlochau = {
-			}
-		}
-		c_slupsk = {
-			color={ 6 155 25 }
-			color2={ 255 255 255 }
-			
-			german = "Stolp"
-			swedish = "Stolp"
-			norwegian = "Stolp"
-			danish = "Stolp"
-			norse = "Stolp"
-		
-			b_rugenwalde = {
-			}
-			b_slupsk = {
-				german = "Stolp"
-				swedish = "Stolp"
-				norwegian = "Stolp"
-				danish = "Stolp"
-				norse = "Stolp"
-			}
-			b_colberg = {
-			}
-			b_schlawe = {
-			}
-			b_tempelburg = {
-			}
-			b_dramburg = {
-			}
-			b_ustka = {
-			}
-			b_belgard = {
-			}
-		}
-		c_chelminskie = {
-			color={ 170 70 70 }
-			color2={ 255 255 255 }
-			
-			german = "Kulm"
-			swedish = "Kulm"
-			norwegian = "Kulm"
-			danish = "Kulm"
-			norse = "Kulm"
-		
-			b_chelmno = {
-				german = "Kulm"
-				swedish = "Kulm"
-				norse = "Kulm"
-				norwegian = "Kulm"
-				danish = "Kulm"
-			}
-			b_kulm = {
-			}
-			b_thorn = {
-			}
-			b_niedenburg = {
-			}
-			b_rehden = {
-			}
-			b_lobau = {
-			}
-			b_eylau = {
-			}
-			b_briesen = {
-				holy_site = baltic_pagan
-				holy_site = baltic_pagan_reformed
-			}
-		}
-	}
-	d_saxony = {
-		color={ 164 162 162 }
-		color2={ 255 255 255 }
-		
-		capital = 256 #Weimar
-		c_plauen = {
-			color={ 180 180 180 }
-			color2={ 255 255 255 }
-
-			pommeranian = Ploni
-			
-			b_plauen = {
-				
-				pommeranian = Ploni
-			}
-			b_leipzig = {
-				pommeranian = Lipsk
-			}
-			b_merseburg = {
-				
-			}
-			b_halle = {
-				pommeranian = Dobrebora
-			}
-			b_knobelsdorf = {
-			}
-			b_zeitz = {
-				pommeranian = Cici
-			}
-			b_zwickau = {
-				pommeranian = Swikawa
-			}
-			b_naumburg = {
-			}
-		}
-		c_weimar = {
-			color={ 183 183 183 }
-			color2={ 255 255 255 }
-			
-			b_weimar = {
-			}
-			b_jena = {
-			}
-			b_walkenried = {
-			}
-			b_nordhausen = {
-			}
-			b_memelsen = {
-			}
-			b_gotha = {
-			}
-			b_apoldoa = {
-			}
-			b_gera = {
-			}
-		}
-	}
-	d_brandenburg = {
-		color={ 121 121 121 }
-		color2={ 255 255 255 }
-		
-		capital = 365 #Brandenburg
-
-		pommeranian = Brennaburg
-	
-		c_altmark = {
-			color={ 189 189 189 }
-			color2={ 255 255 255 }
-
-			pommeranian = Laczyn
-			
-			b_werben = {
-			}
-			b_halberstedt = {
-			}
-			b_walbeck = {
-			}
-			b_luchow = {
-			}
-			b_salzwedel = {
-			}
-			b_stendal = {
-			}
-			b_osterburg = {
-			}
-			b_tangermunde = {
-			}
-		}
-		c_anhalt = {
-			color={ 184 184 184 }
-			color2={ 255 255 255 }
-
-			pommeranian = Dolomici
-			
-			b_zerbst = {	
-				pommeranian = Zirwisti
-			}
-			b_magdeburg = {	
-				pommeranian = Magadoburg			
-			}
-			b_haldensleben = {
-				pommeranian = Hahaldeslevo
-			}
-			b_mansfeld = {
-			}
-			b_dessau = {
-			}
-			b_arnstein = {
-			}
-			b_querfurt = {
-				pommeranian = Curnfurt
-			}
-			b_bernburg = {
-			}
-		}		
-		c_brandenburg = {
-			color={ 186 186 186 }
-			color2={ 255 255 255 }
-
-			pommeranian = Brennaburg
-			
-			b_brandenburg = {
-				pommeranian = Brennaburg	
-			}
-			b_havelberg = {
-			}
-			b_berlin = {
-			}
-			b_juterborg = {
-				pommeranian = Jutriboc
-			}
-			b_belzig = {
-			}
-			b_ruppin = {
-			}
-			b_oranienburg = {
-				pommeranian = Bochzowe
-			}
-			b_muncheberg = {
-			}
-		}
-	}
-	d_meissen = {
-		color={ 182 188 181 }
-		color2={ 255 255 255 }
-		
-		capital = 312 #Meissen
-
-		pommeranian = Nisani
-	
-		c_meissen = {
-			color={ 177 177 177 }
-			color2={ 255 255 255 }
-
-			pommeranian = Nisani
-			
-			b_dresden = {
-				pommeranian = Drezdany
-			}
-			b_meissen = {
-				pommeranian = Misni
-			}
-			b_dohna = {
-			}
-			b_belgern = { # Called Altenburg
-			}
-			b_strehla = {
-			}
-			b_rabenau = {
-			}
-			b_wettin = {
-			}
-			b_radeburg = {
-			}
-		}
-		c_lausitz = {
-			color={ 174 174 174 }
-			color2={ 255 255 255 }
-
-			pommeranian = Luzycka
-			
-			b_gorlitz = {
-				pommeranian = Zhorjelc
-			}
-			b_bautzen = {
-				pommeranian = Budysin
-			} 
-			b_lebus = {
-				pommeranian = Lubiazu
-			}
-			b_cottbus = {
-				pommeranian = Chosebuz
-			}
-			b_rothenburg = {
-			}
-			b_forst = {
-			}
-			b_zittau = {
-				pommeranian = Zitawa
-			}
-			b_luckau = {
-				pommeranian = Luckawa
-			}
-		}
-	}
-}
 k_lithuania = {
 	color={ 90 10 0 }
 	color2={ 255 255 255 }
@@ -9690,174 +9583,6 @@ k_lithuania = {
 			}
 			b_joniskis = {
 			}
-		}
-	}
-}
-k_bohemia = {
-	color={ 176 110 32 }
-	color2={ 255 255 255 }
-	culture = bohemian
-	capital = 437 # Praha
-	catholic = 10 #Crusade target weight
-	slavic_pagan_reformed = 5 # Crusade target weight
-	baltic_pagan_reformed = 1 # Crusade target weight
-	d_bohemia = {
-		color={ 165 90 11 }
-		color2={ 255 255 255 }
-		capital = 437 # Praha
-		c_domazlice = {
-			color={ 180 174 101 }
-			color2={ 255 255 255 }
-			b_pisek = {}
-			b_kladruby = {
-			}
-			b_budejovice = {
-			}
-			b_domazlice = {
-			}
-			b_hohenfurth = {
-			}
-			b_rosenberg = {
-			}
-			b_goldenkron = {
-			}
-			b_sobeslav = {
-			}
-		}
-		c_praha = {
-			color={ 199 114 15 }
-			color2={ 255 255 255 }
-			b_praha = {
-			}
-			b_brevnov = {
-			}
-			b_kuttenberg = {
-			}
-			b_karlstein = {
-			}
-			b_slany = {
-			}
-			b_kolin = {
-			}
-			b_stare_mesto = {
-			}
-			b_zbraslav = {
-			}
-		}
-		c_boleslav = {
-			color={ 53 201 133 }
-			color2={ 255 255 255 }
-			b_glatz = {
-			}
-			b_nachod = {}
-			b_hradiste = {
-			}
-			b_jicin = {
-			}
-			b_trutnov = {
-			}
-			b_kamieniec = {
-			}
-			b_jaromer = {
-			}
-			b_turnov = {
-			}
-		}
-		c_litomerice = {
-			color={ 62 171 101 }
-			color2={ 255 255 255 }
-			b_usti = {
-			}
-			b_zatec = {
-			}
-			b_jachymov = {
-			}
-			b_kadan = {
-			}
-			b_ceskalipa = {
-			}
-			b_duchcov = {
-			}
-			b_chomutov = {
-			}
-			b_osek = {
-			}
-		}
-		c_plzen = {
-			color={ 225 160 110 }
-			color2={ 255 255 255 }
-			b_plzen = {
-			}
-			b_stribo = {
-			}
-			b_rokycany = {
-			}
-			b_plasy = {
-			}
-			b_pomuk = {
-			}
-			b_susice = {
-			}
-			b_tachov = {
-			}
-			b_cheb = {
-			}
-		}
-	}
-	d_moravia = {
-		color={ 131 101 85 }
-		color2={ 255 255 255 }
-		capital = 440 # Olomouc
-		c_znojmo = {
-			color={ 226 75 211 }
-			color2={ 255 255 255 }
-			b_mikulov = {}
-			b_iglau = {}
-			b_lundenburg = {}
-			b_skalitz = {}
-			b_trebic = {}
-			b_eibenshitz = {}
-			b_znojmo = {
-			}
-			b_ivancice = {}
-		}  
-		c_hradec = {
-			color={ 218 181 96 }
-			color2={ 255 255 255 }
-			b_hradeckralove = {}
-			b_pardubice = {}
-			b_litomysl = {}
-			b_zamberk = {}
-			b_policka = {}
-			b_jihlava = {}
-			b_pelhrimov = {}
-			b_chrudim = {}
-		}
-		c_olomouc = {
-			color={ 74 222 54 }
-			color2={ 255 255 255 }
-			b_opava = {}
-			b_olomouc = {
-			}
-			b_sternberk = {
-			}
-			b_ostrava = {}
-			b_zabreh = {}
-			b_moravskatrebova = {}
-			b_zdar = {}
-			b_unicov = {}
-		}
-		c_brno = {
-			color={ 155 234 21 }
-			color2={ 255 255 255 }
-			b_boskovice = {}
-			b_prerov = {}
-			b_velehrad = {}
-			b_wisowitz = {}
-			b_uherskebrod = {}
-			b_uherskehradiste = {}
-			b_kromeriz = {}
-			b_zlin = {}
 		}
 	}
 }
