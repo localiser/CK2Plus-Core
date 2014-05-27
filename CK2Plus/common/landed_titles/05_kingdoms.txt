@@ -3,6 +3,25 @@
 #k_germany completed
 #k_bohemia completed
 #k_pomerania completed
+#k_byzantium completed -> must create c_corfou
+#k_nikaea completed -> must create k_nikaea
+#k_trebizond completed -> must create k_trebizond
+#k_armenia completed -> c_lori is new (was part of c_dwin?)
+#k_bulgaria completed
+#k_serbia completed -> must create c_travonia, c_neretvani
+#k_croatia completed
+#k_sicily complted -> must create c_teate, c_gaete
+#k_adal completed -> must create k_adal, d_berbera -- c_zeila is new (was part of c_harar?)
+#k_georgia completed
+#k_azerbaijan completed -> must create k_azerbaijan
+#k_italy completed -> must create c_mondovi, c_suze (change capital of d_susa to this), d_piedmont, c_asti, c_alessandria, c_savona, c_vintimille, c_noli, c_laspezia, c_tortone, c_marche, c_logudoro
+#k_venice completed
+#k_sweden completed -> must create d_gotland
+#k_denmark completed -> must create c_lolland
+#k_north_sea completed
+#k_norway completed -> must create d_nordland
+#k_finland completed -> must create d_keksholm
+
 	
 k_frisia = {
 	color={ 245 100 20 }
@@ -287,8 +306,25 @@ k_frisia = {
 			b_bergh = {}
 			b_bronckhorst = {}
 		}
-		#c_zutphen NEW, must create
-		#c_oversticht NEW, must create
+		#c_zutphen = {  NEW, must create
+		#	color={ 159 159 159 }
+		#	color2={ 255 255 255 }
+		#	b_zutphen = {}
+		#	b_doesburg = {}
+		#	b_lohn = {}
+		#	b_borculo = {}
+		#	b_lochem = {}
+		#	b_bredevoort = {}
+		#	b_heekeren = {}
+		#}
+		#c_oversticht = {  NEW, must create
+		#	color={ 159 160 161 }
+		#	color2={ 255 255 255 }
+		#	b_deventer = {}
+		#	b_kampen = {}
+		#	b_zwolle = {}
+		#	b_coevorden = {}
+		#}
 	}
 	d_brabant = {
 		color={ 220 150 158 }
@@ -380,7 +416,15 @@ k_lotharingia = {
 			war = no
 		}
 		
-		#c_limburg  NEW, must create
+		#c_limburg = {  NEW, must create
+		#	color={ 149 150 153 }
+		#	color2={ 255 255 255 }
+		#	b_limburg = {}
+		#	b_valkenburg = {}
+		#	b_maastricht = {}
+		#	b_wassenberg = {}
+		#	b_eupen = {}
+		#}
 		c_loon = {
 			color={ 10 120 93 }
 			color2={ 255 255 255 }
@@ -440,8 +484,22 @@ k_lotharingia = {
 			b_differdange = {}
 			b_ettelbruck = {}
 		}
-        #c_laroche  NEW, must create
-        #c_chiny  NEW, must create
+		#c_laroche = {  NEW, must create
+		#	color={ 145 145 145 }
+		#	color2={ 255 255 255 }
+		#	b_laroche = {}
+		#	b_clervaux = {}
+		#	b_bastogne = {}
+		#	b_houffalize = {}
+		#}
+		#c_chiny = {  NEW, must create
+		#	color={ 146 146 146 }
+		#	color2={ 255 255 255 }
+		#	b_chiny = {}
+		#	b_orval = {}
+		#	b_virton = {}
+		#	b_tintigny = {}
+		#}
     }
 	d_upper_lorraine = {
 		color={ 104 137 140 }
@@ -626,7 +684,16 @@ k_lotharingia = {
 			b_stavelot = {}
 			b_malmedy = {}
 		}
-		#c_namur  NEW, must create
+		#c_namur = {
+		#	color={ 154 152 153 }
+		#	color2={ 255 255 255 }
+		#	b_namur = {}
+		#	b_andenne = {}
+		#	b_dinant = {}
+		#	b_assesse = {}
+		#	b_ohey = {}
+		#	b_gesves = {}
+		#}
 	}
 }
 k_germany = {
@@ -2024,35 +2091,762 @@ k_pomerania = {
 	}
 }
 k_byzantium = {
-	color={ 165 11 111 }
+	color = { 122 180 210 }
 	color2={ 255 255 23 }
 	
-	capital = 496 # Byzantion
+	capital = 482 #Athens
 	
 	culture = greek
 	
-	# Creation/Usurp Trigger
+	sunni = 100
+	catholic = 100 #Crusade target weight
+	zoroastrian_group = 50 # Crusade target weight
+	hellenic_pagan = 500	
+	orthodox = 5000 # Crusade target weight
+
+    allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = greek
+			k_byzantium = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+    }
+	d_aegean_islands = {
+		color={ 194 140 86 }
+		color2={ 255 255 20 }
+		
+		capital = 484 # Naxos
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_abydos = {
+			color={ 206 23 219 }
+			color2={ 255 255 20 }
+			
+			turkish = "Balakhisar"
+			
+			b_abydos = {
+				turkish = "Balakhisar"
+			}
+			b_lampsakos = {
+				holy_site = hellenic_pagan
+			}
+			b_alexandriatroas = {}
+			b_pigai = {}
+			b_aegae = {}
+			b_allianoi = {}
+			b_cebrene = {}
+			b_elaia = {}
+		}
+		c_naxos = {
+			color={ 118 29 62 }
+			color2={ 255 255 20 }
+			
+			turkish = "Kiklad"
+			italian = "Egeopelagi"
+			
+			b_naxos = {
+				turkish = "Naksa"
+				italian = "Nasso"
+			}
+			b_hermoupolis = {
+				turkish = "Sire"
+				italian = "Syra"
+			}
+			b_santorini = {
+				greek = "Thera"
+				turkish = "Santoron"
+			}
+			b_andros = {}
+			b_tinos = {}
+			b_mykonos = {}
+			b_kastraki = {}
+			b_filoti = {}
+		}
+		c_euboia = {
+			color={ 204 169 27 }
+			color2={ 255 255 20 }
+			
+			italian = "Negroponte"
+			turkish = "Egriboz"
+			
+			b_chalkis = {
+				italian = "Negroponte"
+				turkish = "Egriboz"
+			}
+			b_kymi = {}
+			b_karystos = {}
+			b_oreoi = {}
+			b_artemisio = {}
+			b_istiaia = {}
+			b_lilantia = {}
+			b_messapia = {}
+		}
+		c_lesbos = {
+			color={ 45 154 119 }
+			color2={ 255 255 20 }
+			
+			turkish = "Midilli"
+			
+			b_mytilene = {
+				turkish = "Midilli"
+			}
+			b_mithymna = {}
+			b_plomari = {}
+			b_agiasos = {}
+			b_eresos = {}
+			b_kalloni = {}
+			b_thasos = {}
+			b_moudros = {}
+		}
+	}
+	d_thrace = {
+		color={ 172 76 139 }
+		color2={ 255 255 20 }
+		
+		capital = 496 # Byzantion
+		
+		orthodox = 250 # Crusade target weight
+		catholic = 125 # Crusade target weight
+		muslim = 100 # Crusade target weight
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_kaliopolis = {
+			color={ 156 231 196 }
+			color2={ 255 255 20 }
+			
+			turkish = "Gelibolu"
+			
+			b_gallipoli = {
+				turkish = "Gelibolu"
+			}
+			b_heraclea = {}
+			b_madyta = {}
+			b_rhaidestos = {}
+			b_panidos = {}
+			b_selymbria = {}
+			b_lysimachia = {}
+			b_sestus = {}
+		}
+		c_byzantion = {
+			color={ 180 84 147 }
+			color2={ 255 255 20 }
+			
+			orthodox = 500 # Crusade target weight
+			catholic = 250 # Crusade target weight
+			muslim = 250 # Crusade target weight
+			
+			top_de_jure_capital = yes
+			
+			b_constantinople = {}
+			b_hagiasophia = {
+				pentarchy = yes
+				holy_site = orthodox
+				holy_site = nestorian
+				holy_site = pagan
+				turkish = "Ayasofya"
+			}
+			b_galata = {}
+			b_blachernae = {
+				turkish = "Ayvansaray"
+			}
+			b_hieron = {
+				turkish = "Kadiköy"
+			}
+			b_deuteron = {
+				turkish = "Topkapi"
+			}
+			b_pempton = {}
+			b_vlanga = {}
+		}
+		c_thrake = {
+			color={ 8 177 197 }
+			color2={ 255 255 20 }
+			
+			b_verissa = {}
+			b_sestos = {}
+			b_chariopolis = {}
+			b_syrallum = {}
+			b_salmydessus = {}
+			b_deleus = {}
+			b_aulaeitichus = {}
+			b_phinopolis = {}
+		}
+	}
+	d_adrianopolis = {
+		color={ 249 206 173 }
+		color2={ 125 0 0 }
+		
+		capital = 494 # Adrianopolis
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_adrianopolis = {
+			color={ 122 231 43 }
+			color2={ 255 255 20 }
+			
+			turkish = "Edirne"
+			
+			b_adrianopolis = {
+				turkish = "Edirne"
+			}
+			b_didymoteichon = {}
+			b_traianopolis = {}
+			b_skalothe = {}
+			b_berat = {}
+			b_kypsela = {}
+			b_demotika = {}
+			b_ainos = {}
+		}
+		c_philippopolis = {
+			color={ 62 158 83 }
+			color2={ 255 255 20 }
+			
+			turkish = "Filibe"
+			
+			b_philippopolis = {
+				turkish = "Filibe"
+			}
+			b_xantheia = {}
+			b_klokoknitsa = {}
+			b_prodromos = {}
+			b_peritheorion = {}
+			b_anaktoropolis = {}
+			b_polystylon = {}
+			b_mosynopolis = {}
+		}
+	}
+	d_thessalonika = {
+		color={ 89 140 76 }
+		color2={ 255 255 20 }
+		
+		capital = 490 # Thessalonike
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_chalkidike = {
+			color={ 101 236 196 }
+			color2={ 255 255 20 }
+			
+			b_serres = {}
+			b_mntathos = {
+				holy_site = orthodox
+			}
+			b_philippi = {}
+			b_chrysiopolis = {}
+			b_siderokastron = {}
+			b_zicna = {}
+			b_melnik = {}
+			b_drama = {}
+		}
+		c_thessalonike = {
+			color={ 54 71 209 }
+			color2={ 255 255 20 }
+			
+			turkish = "Salonika"
+			
+			b_thessaloniki = {
+				turkish = "Salonika"
+			}
+			b_thesedessa = {}
+			b_voden = {}
+			b_hlerin = {}
+			b_cemren = {}
+			b_veria = {}
+			b_elasson = {}
+			b_servia = {}
+		}
+		c_thessalia = {
+			color={ 237 41 229 }
+			color2={ 255 255 20 }
+			
+			turkish = "Tesalya"
+			
+			b_larissa = {
+				turkish = "Yenisehir i-Fenari"
+			}
+			b_volos = {}
+			b_neopetra = {}
+			b_damasis = {}
+			b_kastri = {}
+			b_pharsalos = {}
+			b_trikkala = {}
+			b_stagi = {}
+		}
+	}
+	d_dyrrachion = {
+		color={ 137 27 99 }
+		color2={ 255 255 20 }
+		
+		capital = 470 # Dyrrachion
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_strymon = {
+			color={ 139 29 101 }
+			color2={ 255 255 20 }
+			
+			b_skopje = {}
+			b_strumica = {}
+			b_veles = {}
+			b_prilep = {}
+			b_prosek = {}
+			b_trikves = {}
+			b_kocane = {}
+			b_kratovo = {}
+		}
+		c_ochrid = {
+			color={ 66 147 83 }
+			color2={ 255 255 20 }
+			
+			greek = "Lychnidos"
+			
+			b_debar = {}
+			b_ohrid = {
+				greek = "Lychnidos"
+			}
+			b_kastoria = {}
+			b_kicevo = {}
+			b_svetigrad = {}
+			b_bitola = {}
+			b_tomot = {}
+			b_krusevo = {}
+		}
+		c_dyrrachion = {
+			color={ 32 242 66 }
+			color2={ 255 255 20 }
+			
+			italian = "Durazzo"
+			
+			b_durazzo = {
+				greek = "Dyrrhachion"
+				italian = "Durazzo"
+			}
+			b_chounavia = {}
+			b_valona = {}
+			b_kruje = {
+				greek = Krougia
+			}
+			b_elbasan = {}
+			b_geziq = {}
+			b_spinarizza = {}
+			b_beat = {}
+		}
+	}
+	d_epirus = {
+		color={ 134 63 109 }
+		color2={ 255 255 20 }
+		
+		capital = 473 # Arta
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_epeiros = {
+			color={ 220 45 243 }
+			color2={ 255 255 20 }
+			
+			b_butrint = {
+				greek = "Bouthroton"
+			}
+			b_paramythia = {}
+			b_ioannina = {}
+			b_sopot = {
+				greek = "Koritsa"
+			}
+			b_pogonia = {}
+			b_gjirokaster = {
+				greek = Argyrokastron
+			}
+			b_igoumenitsa = {}
+			b_sagiada = {}
+		}
+		c_arta = {
+			color={ 99 110 53 }
+			color2={ 255 255 20 }
+			
+			b_preveza = {}
+			b_angelokastron = {}
+			b_arta = {}
+			b_agnanta = {}
+			b_thomokastron = {}
+			b_vonitsza = {}
+			b_vlacherna = {}
+			b_rogoi = {}
+		}
+		c_cephalonia = {
+			color={ 17 137 243 }
+			color2={ 255 255 20 }
+			
+			turkish = "Iyonya"
+			
+			b_lefkas = {
+				turkish = "Ayamavra"
+			}
+			b_palaiofrourio = {}
+			b_kefalonia = {}
+			b_zante = {}
+			b_ithaca = {
+				turkish = "Fiaki"
+			}
+			b_cerigo = {
+				turkish = "Çuha"
+			}
+		}
+		#c_corfou = {  #NEW, must create
+		#	color={ 5 37 82 }
+		#	color2={ 131 0 0 }
+		#	b_corfu = {}
+		#	b_paxos = {
+		#		italian = "Passo"
+		#		turkish = "Paksa"
+		#	}
+		#	b_achilleio = {}
+		#	b_esperion = {}
+		#	b_kassopaia = {}
+		#	b_leukimi = {}
+		#	b_meliteieis = {}
+		#}
+	}
+	d_athens = {
+		color={ 76 66 208 }
+		color2={ 255 255 20 }
+		
+		capital = 482 # Atheniai
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_demetrias = {
+			color={ 96 69 28 }
+			color2={ 255 255 20 }
+			
+			b_thebes = {}
+			b_lebadea = {}
+			b_neopatras = {}
+			b_boudonitza = {}
+			b_levadhia = {}
+			b_demetrias = {}
+			b_ravennika = {}
+			b_gravia = {}
+		}
+		c_hellas = {
+			color={ 52 61 238 }
+			color2={ 255 255 20 }
+			
+			b_naupaktos = {}
+			b_amphissa = {}
+			b_lidoriki = {}
+			b_kastrinitsi = {}
+			b_markrynia = {}
+			b_paravola = {}
+			b_amfissa = {}
+			b_itea = {}
+		}
+		c_atheniai = {
+			color={ 152 128 228 }
+			color2={ 255 255 20 }
+			
+			b_athens = {}
+			b_piraeaus = {
+				holy_site = hellenic_pagan
+			}
+			b_megara = {}
+			b_soula = {}
+			b_daphni = {}
+			b_karydi = {}
+			b_salamis = {}
+			b_marathon = {}
+		}
+	}
+	d_achaia = {
+		color={ 197 192 106 }
+		color2={ 255 255 20 }
+		
+		capital = 476 # Achaia
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_achaia = {
+			color={ 106 34 66 }
+			color2={ 255 255 20 }
+			
+			b_patras = {}
+			b_pyrgos = {}
+			b_andravida = {}
+			b_kalavryta = {}
+			b_akova = {}
+			b_chalandritza = {}
+			b_karditza = {}
+			b_geraki = {}
+		}
+		c_korinthos = {
+			color={ 188 85 16 }
+			color2={ 255 255 20 }
+			
+			b_corinth = {}
+			b_nauplion = {}
+			b_argos = {}
+			b_passava = {}
+			b_vostitza = {}
+			b_zemenos = {}
+			b_veligosti = {}
+			b_megapoli = {}
+		}
+		c_methone = {
+			color={ 26 7 170 }
+			color2={ 255 255 20 }
+			
+			b_modon = {
+				greek = "Methone"
+				italian = "Modone"
+			}
+			b_kiparissia = {}
+			b_kalamata = {}
+			b_coron = {}
+			b_karytaina = {}
+			b_gritzena = {}
+			b_pilos = {}
+			b_androusa = {}
+		}
+		c_monemvasia = {
+			color={ 162 188 71 }
+			color2={ 255 255 20 }
+			
+			b_monemvasia = {}
+			b_mistra = {}
+			b_arkadia = {}
+			b_nikli = {}
+			b_sparta = {}
+			b_lacedaemonia = {}
+			b_gythio = {}
+			b_elos = {}
+		}
+	}
+	d_krete = {
+		color={ 106 127 183 }
+		color2={ 255 255 20 }
+		
+		capital = 480 # Chandax
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_kaneia = {
+			color={ 75 242 164 }
+			color2={ 255 255 20 }
+			
+			bedouin_arabic = "Al-Hanim"
+			maghreb_arabic = "Al-Hanim"
+			levantine_arabic = "Al-Hanim"
+			egyptian_arabic = "Al-Hanim"
+			andalusian_arabic = "Al-Hanim"
+			turkish = "Hanya"
+			
+			b_kandia = {
+				bedouin_arabic = "Al-Hanim"
+				maghreb_arabic = "Al-Hanim"
+				levantine_arabic = "Al-Hanim"
+				egyptian_arabic = "Al-Hanim"
+				andalusian_arabic = "Al-Hanim"
+				turkish = "Hanya"
+			}
+			b_rethymno = {}
+			b_matala = {}
+			b_kastellikissamos = {}
+			b_paleohora = {}
+			b_akrotin = {}
+			b_nikiforosfokas = {}
+			b_arkadi = {}
+		}
+		c_chandax = {
+			color={ 114 125 63 }
+			color2={ 255 255 20 }
+			
+			b_iraklio = {
+				greek = "Megalokastron"
+				italian = "Candia"
+				turkish = "Kandiye"
+				maghreb_arabic = "Khandaq"
+				levantine_arabic = "Khandaq"
+				egyptian_arabic = "Khandaq"
+				bedouin_arabic = "Khandaq"
+				andalusian_arabic = "Khandaq"
+			}
+			b_agiosnikolaos = {}
+			b_lassithi = {}
+			b_malia = {}
+			b_kastelli = {}
+			b_sitia = {}
+			b_ierapetra = {}
+			b_knossos = {}
+		}
+	}
+	d_cyprus = {
+		color={ 136 157 23 }
+		color2={ 255 255 20 }
+		
+		capital = 757 # Famagusta
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_famagusta = {
+			color={ 52 6 120 }
+			color2={ 255 255 20 }
+			
+			turkish = "Magusa"
+			
+			b_famagusta = {
+				turkish = "Magusa"
+			}
+			b_cithium = {}
+			b_nikosia = {}
+			b_sthilarion = {}
+			b_kyrenia = {}
+			b_buffavento = {}
+			b_kantara = {}
+			b_peristerona = {}
+		}
+		c_limisol = {
+			color={ 181 231 236 }
+			color2={ 255 255 20 }
+			
+			turkish = "Leymosun"
+			
+			b_limmassol = {
+				turkish = "Leymosun"
+			}
+			b_paphos = {}
+			b_arsinoe = {}
+			b_kolossi = {}
+			b_morphou = {}
+			b_agridi = {}
+			b_dieudamour = {}
+			b_khirokitia = {}
+		}
+	}
+}
+k_nikaea = {
+	color={ 101 102 163 }
+	color2={ 255 255 23 }
+	culture = greek
+	
+	catholic = 75 # Crusade target weight
+	muslim = 100 # Crusade target weight
+	zoroastrian_group = 100 # Crusade target weight
+	orthodox = 300 # Crusade target weight
+	
 	allow = {
-		hidden_tooltip = {
-			OR = {
-				ai = no
-				culture = greek
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = greek
+			k_nikaea = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
-	
-	orthodox = 5000 # Crusade target weight
-	catholic = 2000 # Crusade target weight
-	zoroastrian_group = 100 # Crusade target weight
-	
 	d_nikaea = {
-		color={ 202 101 167 }
+		color={ 237 68 178 }
 		color2={ 255 255 20 }
 		
 		capital = 750 # Nikaea
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_nikaea = {
-			color={ 205 104 170 }
+			color={ 86 27 148 }
 			color2={ 255 255 20 }
 			
 			turkish = "Iznik"
@@ -2060,23 +2854,16 @@ k_byzantium = {
 			b_nikaea = {
 				turkish = "Iznik"
 			}
-			b_kios = {
-			}
-			b_optimatum = {
-			}
-			b_petobriga = {
-			}
-			b_kotyaion = {
-			}
-			b_palaeokastron = {
-			}
-			b_yalova = {
-			}
-			b_modrene = {
-			}
+			b_kios = {}
+			b_optimatum = {}
+			b_petobriga = {}
+			b_kotyaion = {}
+			b_palaeokastron = {}
+			b_yalova = {}
+			b_modrene = {}
 		}
 		c_nikomedeia = {
-			color={ 208 107 173 }
+			color={ 183 127 11 }
 			color2={ 255 255 20 }
 			
 			turkish = "Izmit"
@@ -2084,23 +2871,16 @@ k_byzantium = {
 			b_nikomedeia = {
 				turkish = "Izmit"
 			}
-			b_chalkedon = {
-			}
-			b_chrysopolis = {
-			} 
-			b_praenetos = {
-			}
-			b_calpe = {
-			}
-			b_palodes = {
-			}
-			b_adapazari = {
-			}
-			b_malagina = {
-			}
+			b_chalkedon = {}
+			b_chrysopolis = {} 
+			b_praenetos = {}
+			b_calpe = {}
+			b_palodes = {}
+			b_adapazari = {}
+			b_malagina = {}
 		}
 		c_prusa = {
-			color={ 211 110 176 }
+			color={ 15 185 168 }
 			color2={ 255 255 20 }
 			
 			turkish = "Bursa"
@@ -2120,17 +2900,13 @@ k_byzantium = {
 				greek = "Dokimeion"
 				turkish = "Iscehisar"
 			}
-			b_adrastea = {
-			}
-			b_thyatira = {
-			}
-			b_pelopia = {
-			}
-			b_miletopolis = {
-			}
+			b_adrastea = {}
+			b_thyatira = {}
+			b_pelopia = {}
+			b_miletopolis = {}
 		}
 		c_kyzikos = {
-			color={ 214 113 179 }
+			color={ 237 116 135 }
 			color2={ 255 255 20 }
 			
 			turkish = "Erdek"
@@ -2141,28 +2917,30 @@ k_byzantium = {
 			b_artake = {
 				turkish = "Erdek"
 			}
-			b_militopolis = {
-			}
-			b_kremasti = {
-			}
-			b_adrianutherai = {
-			}
-			b_myrina = {
-			}
-			b_percote = {
-			}
-			b_arisbe = {
-			}
+			b_militopolis = {}
+			b_kremasti = {}
+			b_adrianutherai = {}
+			b_myrina = {}
+			b_percote = {}
+			b_arisbe = {}
 		}
 	}
 	d_samos = {
-		color={ 115 55 100 }
+		color={ 154 69 116 }
 		color2={ 255 255 20 }
 		
 		capital = 486 # Samos
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_ephesos = {
-			color={ 237 42 171 }
+			color={ 100 60 191 }
 			color2={ 255 255 20 }
 			
 			turkish = "Ayasoluk"
@@ -2172,23 +2950,18 @@ k_byzantium = {
 			}
 			b_lebedos = {
 				holy_site = orthodox
-				holy_site = hellenic_pagan					
+				holy_site = hellenic_pagan
+				holy_site = hellenic_pagan
 			}
-			b_miletos = {
-			}
-			b_magnesia = {
-			}
-			b_tralles = {
-			}
-			b_iassos = {
-			}
-			b_palation = {
-			}
-			b_petron = {
-			}
+			b_miletos = {}
+			b_magnesia = {}
+			b_tralles = {}
+			b_iassos = {}
+			b_palation = {}
+			b_petron = {}
 		}
 		c_smyrna = {
-			color={ 240 45 174 }
+			color={ 201 76 102 }
 			color2={ 255 255 20 }
 			
 			turkish = "Izmir"
@@ -2196,23 +2969,16 @@ k_byzantium = {
 			b_smyrna = {
 				turkish = "Izmir"
 			}
-			b_pergamon = {
-			}
-			b_phokaia = {
-			}
-			b_adramyttion = {
-			}
-			b_chio = {
-			}
-			b_klazomeanai = {
-			}
-			b_kydonia = {
-			}
-			b_erythrai = {
-			}
+			b_pergamon = {}
+			b_phokaia = {}
+			b_adramyttion = {}
+			b_chio = {}
+			b_klazomeanai = {}
+			b_kydonia = {}
+			b_erythrai = {}
 		}
 		c_chios = {
-			color={ 243 48 177 }
+			color={ 21 33 165 }
 			color2={ 255 255 20 }
 			
 			turkish = "Sisam"
@@ -2223,808 +2989,30 @@ k_byzantium = {
 			b_chios = {
 				turkish = "Sakiz"
 			}
-			b_tigani = {
-			}
-			b_marathokampos = {
-			}
-			b_ikaria = {
-			}
-			b_fourni = {
-			}
-			b_chrysostomos = {
-			}
-			b_pagondas = {
-			}
+			b_tigani = {}
+			b_marathokampos = {}
+			b_ikaria = {}
+			b_fourni = {}
+			b_chrysostomos = {}
+			b_pagondas = {}
 		}
 	}
-	d_aegean_islands = {
-		color={ 104 8 103 }
-		color2={ 255 255 20 }
-		
-		capital = 484 # Naxos
-		
-		c_abydos = {
-			color={ 147 55 115 }
-			color2={ 255 255 20 }
-			
-			turkish = "Balakhisar"
-			
-			b_abydos = {
-				turkish = "Balakhisar"
-			}
-			b_lampsakos = {
-				holy_site = hellenic_pagan
-			}
-			b_alexandriatroas = {
-			}
-			b_pigai = {
-			}
-			b_aegae = {
-			}
-			b_allianoi = {
-			}
-			b_cebrene = {
-			}
-			b_elaia = {
-			}
-		}
-		c_naxos = {
-			color={ 149 57 117 }
-			color2={ 255 255 20 }
-			
-			turkish = "Kiklad"
-			italian = "Egeopelagi"
-			
-			b_naxos = {
-				turkish = "Naksa"
-				italian = "Nasso"
-			}
-			b_hermoupolis = {
-				turkish = "Sire"
-				italian = "Syra"
-			}
-			b_santorini = {
-				greek = "Thera"
-				turkish = "Santoron"
-			}
-			b_andros = {
-			}
-			b_tinos = {
-			}
-			b_mykonos = {
-			}
-			b_kastraki = {
-			}
-			b_filoti = {
-			}
-		}
-		c_euboia = {
-			color={ 151 59 119 }
-			color2={ 255 255 20 }
-			
-			italian = "Negroponte"
-			turkish = "Egriboz"
-			
-			b_chalkis = {
-				italian = "Negroponte"
-				turkish = "Egriboz"
-			}
-			b_kymi = {
-			}
-			b_karystos = {
-			}
-			b_oreoi = {
-			}
-			b_artemisio = {
-			}
-			b_istiaia = {
-			}
-			b_lilantia = {
-			}
-			b_messapia = {
-			}
-		}
-		c_lesbos = {
-			color={ 153 61 121 }
-			color2={ 255 255 20 }
-			
-			turkish = "Midilli"
-			
-			b_mytilene = {
-				turkish = "Midilli"
-			}
-			b_mithymna = {
-			}
-			b_plomari = {
-			}
-			b_agiasos = {
-			}
-			b_eresos = {
-			}
-			b_kalloni = {
-			}
-			b_thasos = {
-			}
-			b_moudros = {
-			}
-		}
-	}
-	d_thrace = {
-		color={ 172 76 139 }
-		color2={ 255 255 20 }
-		
-		capital = 496 # Byzantion
-		
-		orthodox = 250 # Crusade target weight
-		catholic = 125 # Crusade target weight
-		muslim = 100 # Crusade target weight
-		
-		c_kaliopolis = {
-			color={ 176 80 143 }
-			color2={ 255 255 20 }
-			
-			turkish = "Gelibolu"
-			
-			b_gallipoli = {
-				turkish = "Gelibolu"
-			}
-			b_heraclea = {
-			}
-			b_madyta = {
-			}
-			b_rhaidestos = {
-			}
-			b_panidos = {
-			}
-			b_selymbria = {
-			}
-			b_lysimachia = {
-			}
-			b_sestus = {
-			}
-		}
-		c_byzantion = {
-			color={ 180 84 147 }
-			color2={ 255 255 20 }
-			
-			orthodox = 500 # Crusade target weight
-			catholic = 250 # Crusade target weight
-			muslim = 250 # Crusade target weight
-			
-			top_de_jure_capital = yes
-			
-			b_constantinople = {
-			}
-			b_hagiasophia = {
-				pentarchy = yes
-				holy_site = orthodox
-				turkish = "Ayasofya"
-			}
-			b_galata = {
-			}
-			b_blachernae = {
-				turkish = "Ayvansaray"
-			}
-			b_hieron = {
-				turkish = "Kadiköy"
-			}
-			b_deuteron = {
-				turkish = "Topkapi"
-			}
-			b_pempton = {
-			}
-			b_vlanga = {
-			}
-		}
-		c_thrake = {
-			color={ 184 88 151 }
-			color2={ 255 255 20 }
-			
-			b_verissa = {
-			}
-			b_sestos = {
-			}
-			b_chariopolis = {
-			}
-			b_syrallum = {
-			}
-			b_salmydessus = {
-			}
-			b_deleus = {
-			}
-			b_aulaeitichus = {
-			}
-			b_phinopolis = {
-			}
-		}
-	}
-	d_adrianopolis = {
-		color={ 213 74 165 }
-		color2={ 255 255 20 }
-		
-		capital = 494 # Adrianopolis
-		
-		c_adrianopolis = {
-			color={ 216 77 168 }
-			color2={ 255 255 20 }
-			
-			turkish = "Edirne"
-			
-			b_adrianopolis = {
-				turkish = "Edirne"
-			}
-			b_didymoteichon = {
-			}
-			b_traianopolis = {
-			}
-			b_skalothe = {
-			}
-			b_berat = {
-			}
-			b_kypsela = {
-			}
-			b_demotika = {
-			}
-			b_ainos = {
-			}
-		}
-		c_philippopolis = {
-			color={ 219 80 171 }
-			color2={ 255 255 20 }
-			
-			turkish = "Filibe"
-			
-			b_philippopolis = {
-				turkish = "Filibe"
-			}
-			b_xantheia = {
-			}
-			b_klokoknitsa = {
-			}
-			b_prodromos = {
-			}
-			b_peritheorion = {
-			}
-			b_anaktoropolis = {
-			}
-			b_polystylon = {
-			}
-			b_mosynopolis = {
-			}
-		}
-	}
-	d_thessalonika = {
-		color={ 189 19 130 }
-		color2={ 255 255 20 }
-		
-		capital = 490 # Thessalonike
-		
-		c_chalkidike = {
-			color={ 192 22 133 }
-			color2={ 255 255 20 }
-			
-			b_serres = {
-			}
-			b_mntathos = {
-				holy_site = orthodox
-			}
-			b_philippi = {
-			}
-			b_chrysiopolis = {
-			}
-			b_siderokastron = {
-			}
-			b_zicna = {
-			}
-			b_melnik = {
-			}
-			b_drama = {
-			}
-		}
-		c_thessalonike = {
-			color={ 195 25 136 }
-			color2={ 255 255 20 }
-			
-			turkish = "Salonika"
-			
-			b_thessaloniki = {
-				turkish = "Salonika"
-			}
-			b_thesedessa = {
-			}
-			b_voden = {
-			}
-			b_hlerin = {
-			}
-			b_cemren = {
-			}
-			b_veria = {
-			}
-			b_elasson = {
-			}
-			b_servia = {
-			}
-		}
-		c_thessalia = {
-			color={ 198 28 139 }
-			color2={ 255 255 20 }
-			
-			turkish = "Tesalya"
-			
-			b_larissa = {
-				turkish = "Yenisehir i-Fenari"
-			}
-			b_volos = {
-			}
-			b_neopetra = {
-			}
-			b_damasis = {
-			}
-			b_kastri = {
-			}
-			b_pharsalos = {
-			}
-			b_trikkala = {
-			}
-			b_stagi = {
-			}
-		}
-	}
-	d_dyrrachion = {
-		color={ 137 27 99 }
-		color2={ 255 255 20 }
-		
-		capital = 470 # Dyrrachion
-		
-		c_strymon = {
-			color={ 139 29 101 }
-			color2={ 255 255 20 }
-			
-			b_skopje = {
-			}
-			b_strumica = {
-			}
-			b_veles = {
-			}
-			b_prilep = {
-			}
-			b_prosek = {
-			}
-			b_trikves = {
-			}
-			b_kocane = {
-			}
-			b_kratovo = {
-			}
-		}
-		c_ochrid = {
-			color={ 141 31 103 }
-			color2={ 255 255 20 }
-			
-			greek = "Lychnidos"
-			
-			b_debar = {
-			}
-			b_ohrid = {
-				greek = "Lychnidos"
-			}
-			b_kastoria = {
-			}
-			b_kicevo = {
-			}
-			b_svetigrad = {
-			}
-			b_bitola = {
-			}
-			b_tomot = {
-			}
-			b_krusevo = {
-			}
-		}
-		c_dyrrachion = {
-			color={ 143 33 105 }
-			color2={ 255 255 20 }
-			
-			italian = "Durazzo"
-			
-			b_durazzo = {
-				greek = "Dyrrhachion"
-				italian = "Durazzo"
-			}
-			b_chounavia = {
-			}
-			b_valona = {
-			}
-			b_kruje = {
-				greek = Krougia
-			}
-			b_elbasan = {
-			}
-			b_geziq = {
-			}
-			b_spinarizza = {
-			}
-			b_beat = {
-			}
-		}
-	}
-	d_epirus = {
-		color={ 134 63 109 }
-		color2={ 255 255 20 }
-		
-		capital = 473 # Arta
-		
-		c_epeiros = {
-			color={ 138 67 113 }
-			color2={ 255 255 20 }
-			
-			b_butrint = {
-				greek = "Bouthroton"
-			}
-			b_paramythia = {
-			}
-			b_ioannina = {
-			}
-			b_sopot = {
-				greek = "Koritsa"
-			}
-			b_pogonia = {
-			}
-			b_gjirokaster = {
-				greek = Argyrokastron
-			}
-			b_igoumenitsa = {
-			}
-			b_sagiada = {
-			}
-		}
-		c_arta = {
-			color={ 142 71 117 }
-			color2={ 255 255 20 }
-			
-			b_preveza = {
-			}
-			b_angelokastron = {
-			}
-			b_arta = {
-			}
-			b_agnanta = {
-			}
-			b_thomokastron = {
-			}
-			b_vonitsza = {
-			}
-			b_vlacherna = {
-			}
-			b_rogoi = {
-			}
-		}
-		c_cephalonia = {
-			color={ 146 75 121 }
-			color2={ 255 255 20 }
-			
-			turkish = "Iyonya"
-			
-			b_corfu = {
-			}
-			b_lefkas = {
-				turkish = "Ayamavra"
-			}
-			b_palaiofrourio = {
-			}
-			b_kefalonia = {
-			}
-			b_zante = {
-			}
-			b_paxos = {
-				italian = "Passo"
-				turkish = "Paksa"
-			}
-			b_ithaca = {
-				turkish = "Fiaki"
-			}
-			b_cerigo = {
-				turkish = "Çuha"
-			}
-		}
-	}
-	d_athens = {
-		color={ 206 66 158 }
-		color2={ 255 255 20 }
-		
-		capital = 482 # Atheniai
-		
-		c_demetrias = {
-			color={ 209 69 161 }
-			color2={ 255 255 20 }
-			
-			b_thebes = {
-			}
-			b_lebadea = {
-			}
-			b_neopatras = {
-			}
-			b_boudonitza = {
-			}
-			b_levadhia = {
-			}
-			b_demetrias = {
-			}
-			b_ravennika = {
-			}
-			b_gravia = {
-			}
-		}
-		c_hellas = {
-			color={ 212 72 164 }
-			color2={ 255 255 20 }
-			
-			b_naupaktos = {
-			}
-			b_amphissa = {
-			}
-			b_lidoriki = {
-			}
-			b_kastrinitsi = {
-			}
-			b_markrynia = {
-			}
-			b_paravola = {
-			}
-			b_amfissa = {
-			}
-			b_itea = {
-			}
-		}
-		c_atheniai = {
-			color={ 215 75 167 }
-			color2={ 255 255 20 }
-			
-			b_athens = {
-			}
-			b_piraeaus = {
-				holy_site = hellenic_pagan
-			}
-			b_megara = {
-			}
-			b_soula = {
-			}
-			b_daphni = {
-			}
-			b_karydi = {
-			}
-			b_salamis = {
-			}
-			b_marathon = {
-			}
-		}
-	}
-	d_achaia = {
-		color={ 190 29 134 }
-		color2={ 255 255 20 }
-		
-		capital = 476 # Achaia
-		
-		c_achaia = {
-			color={ 192 31 136 }
-			color2={ 255 255 20 }
-			
-			b_patras = {
-			}
-			b_pyrgos = {
-			}
-			b_andravida = {
-			}
-			b_kalavryta = {
-			}
-			b_akova = {
-			}
-			b_chalandritza = {
-			}
-			b_karditza = {
-			}
-			b_geraki = {
-			}
-		}
-		c_korinthos = {
-			color={ 194 33 138 }
-			color2={ 255 255 20 }
-			
-			b_corinth = {
-			}
-			b_nauplion = {
-			}
-			b_argos = {
-			}
-			b_passava = {
-			}
-			b_vostitza = {
-			}
-			b_zemenos = {
-			}
-			b_veligosti = {
-			}
-			b_megapoli = {
-			}
-		}
-		c_methone = {
-			color={ 196 35 140 }
-			color2={ 255 255 20 }
-			
-			b_modon = {
-				greek = "Methone"
-				italian = "Modone"
-			}
-			b_kiparissia = {
-			}
-			b_kalamata = {
-			}
-			b_coron = {
-			}
-			b_karytaina = {
-			}
-			b_gritzena = {
-			}
-			b_pilos = {
-			}
-			b_androusa = {
-			}
-		}
-		c_monemvasia = {
-			color={ 198 37 142 }
-			color2={ 255 255 20 }
-			
-			b_monemvasia = {
-			}
-			b_mistra = {
-			}
-			b_arkadia = {
-			}
-			b_nikli = {
-			}
-			b_sparta = {
-			}
-			b_lacedaemonia = {
-			}
-			b_gythio = {
-			}
-			b_elos = {
-			}
-		}
-	}
-	d_krete = {
-		color={ 205 110 35 }
-		color2={ 255 255 20 }
-		
-		capital = 480 # Chandax
-		
-		c_kaneia = {
-			color={ 178 11 120 }
-			color2={ 255 255 20 }
-			
-			bedouin_arabic = "Al-Hanim"
-			maghreb_arabic = "Al-Hanim"
-			levantine_arabic = "Al-Hanim"
-			egyptian_arabic = "Al-Hanim"
-			andalusian_arabic = "Al-Hanim"
-			turkish = "Hanya"
-			
-			b_kandia = {
-				bedouin_arabic = "Al-Hanim"
-				maghreb_arabic = "Al-Hanim"
-				levantine_arabic = "Al-Hanim"
-				egyptian_arabic = "Al-Hanim"
-				andalusian_arabic = "Al-Hanim"
-				turkish = "Hanya"
-			}
-			b_rethymno = {
-			}
-			b_matala = {
-			}
-			b_kastellikissamos = {
-			}
-			b_paleohora = {
-			}
-			b_akrotin = {
-			}
-			b_nikiforosfokas = {
-			}
-			b_arkadi = {
-			}
-		}
-		c_chandax = {
-			color={ 182 15 124 }
-			color2={ 255 255 20 }
-			
-			b_iraklio = {
-				greek = "Megalokastron"
-				italian = "Candia"
-				turkish = "Kandiye"
-				maghreb_arabic = "Khandaq"
-				levantine_arabic = "Khandaq"
-				egyptian_arabic = "Khandaq"
-				bedouin_arabic = "Khandaq"
-				andalusian_arabic = "Khandaq"
-			}
-			b_agiosnikolaos = {
-			}
-			b_lassithi = {
-			}
-			b_malia = {
-			}
-			b_kastelli = {
-			}
-			b_sitia = {
-			}
-			b_ierapetra = {
-			}
-			b_knossos = {
-			}
-		}
-	}
-	d_cyprus = {
-		color={ 239 109 163 }
-		color2={ 255 255 20 }
-		
-		capital = 757 # Famagusta
-		
-		c_famagusta = {
-			color={ 228 19 156 }
-			color2={ 255 255 20 }
-			
-			turkish = "Magusa"
-			
-			b_famagusta = {
-				turkish = "Magusa"
-			}
-			b_cithium = {
-			}
-			b_nikosia = {
-			}
-			b_sthilarion = {
-			}
-			b_kyrenia = {
-			}
-			b_buffavento = {
-			}
-			b_kantara = {
-			}
-			b_peristerona = {
-			}
-		}
-		c_limisol = {
-			color={ 231 22 159 }
-			color2={ 255 255 20 }
-			
-			turkish = "Leymosun"
-			
-			b_limmassol = {
-				turkish = "Leymosun"
-			}
-			b_paphos = {
-			}
-			b_arsinoe = {
-			}
-			b_kolossi = {
-			}
-			b_morphou = {
-			}
-			b_agridi = {
-			}
-			b_dieudamour = {
-			}
-			b_khirokitia = {
-			}
-		}
-	}	
 	d_cibyrrhaeot = { 
-		color={ 108 29 80 }
+		color={ 219 124 139 }
 		color2={ 255 255 20 }
 		
 		capital = 755 # Attaleia
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_attaleia = {
-			color={ 112 33 84 }
+			color={ 160 66 224 }
 			color2={ 255 255 20 }
 			
 			turkish = "Antalya"
@@ -3032,44 +3020,29 @@ k_byzantium = {
 			b_attaleia = {
 				turkish = "Antalya"
 			}
-			b_cibyra = {
-			}
-			b_side = {
-			}
-			b_slege = {
-			}
-			b_sagalassos = {
-			}
-			b_galanauros = {
-			}
-			b_panemotichus = {
-			}
-			b_sillyon = {
-			}
+			b_cibyra = {}
+			b_side = {}
+			b_slege = {}
+			b_sagalassos = {}
+			b_galanauros = {}
+			b_panemotichus = {}
+			b_sillyon = {}
 		}
 		c_rhodos = {
-			color={ 116 37 88 }
+			color={ 85 46 17 }
 			color2={ 255 255 20 }
 			
-			b_rhodos = {
-			}
-			b_lindos = {
-			}
-			b_kos = {
-			}
-			b_karpathos = {
-			}
-			b_pefkos = {
-			}
-			b_ialysos = {
-			}
-			b_haraki = {
-			}
-			b_koskinou = {
-			}
+			b_rhodos = {}
+			b_lindos = {}
+			b_kos = {}
+			b_karpathos = {}
+			b_pefkos = {}
+			b_ialysos = {}
+			b_haraki = {}
+			b_koskinou = {}
 		}
 		c_lykia = {
-			color={ 120 41 92 }
+			color={ 203 10 163 }
 			color2={ 255 255 20 }
 			
 			turkish = "Mugla"
@@ -3077,46 +3050,35 @@ k_byzantium = {
 			b_halikarnassos = {
 				turkish = "Bodrum"
 			}
-			b_myra = {
-			}
+			b_myra = {}
 			b_telmissos = {
 				turkish = "Mugla"
 			}
-			b_kibyra = {
-			}
-			b_patara = {
-			}
+			b_kibyra = {}
+			b_patara = {}
 			b_mylasa = {
 				turkish = "Milas"
 			}
-			b_limyra = {
-			}
-			b_phaselis = {
-			}
+			b_limyra = {}
+			b_phaselis = {}
 		}
 	}
-}
-k_anatolia = {
-	color={ 177 60 100 }
-	color2={ 255 255 23 }
-	
-	capital = 759 # Ikonion
-	
-	culture = greek
-	
-	orthodox = 300 # Crusade target weight
-	catholic = 75 # Crusade target weight
-	muslim = 100 # Crusade target weight
-	zoroastrian_group = 100 # Crusade target weight
-	
 	d_anatolia = {
-		color={ 174 23 122 }
+		color={ 74 123 122 }
 		color2={ 255 255 20 }
 		
 		capital = 759 # Ikonion
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_dorylaion = {
-			color={ 176 25 124 }
+			color={ 164 24 34 }
 			color2={ 255 255 20 }
 			
 			turkish = "Kütahya"
@@ -3124,24 +3086,18 @@ k_anatolia = {
 			b_dorylaion = {
 				turkish = "Eskisehir"
 			}
-			b_pessinus = {
-			}
+			b_pessinus = {}
 			b_kotiaion = {
 				turkish = "Kütahya"
 			}
-			b_orkistos = {
-			}
-			b_polybotos = {
-			}
-			b_iustinianopolis = {
-			}
-			b_carura = {
-			}
-			b_germia = {
-			}
+			b_orkistos = {}
+			b_polybotos = {}
+			b_iustinianopolis = {}
+			b_carura = {}
+			b_germia = {}
 		}
 		c_ikonion = {
-			color={ 178 27 126 }
+			color={ 87 190 153 }
 			color2={ 255 255 20 }
 			
 			turkish = "Konya"
@@ -3151,31 +3107,31 @@ k_anatolia = {
 				holy_site = egyptian_pagan
 				holy_site = aten_pagan
 			}
-			b_lisdra = {
-			}
-			b_gaspadale = {
-			}
-			b_isauria = {
-			}
-			b_laranda = {
-			}
-			b_terpe = {
-			}
-			b_amblada = {
-			}
-			b_sauatra = {
-			}
+			b_lisdra = {}
+			b_gaspadale = {}
+			b_isauria = {}
+			b_laranda = {}
+			b_terpe = {}
+			b_amblada = {}
+			b_sauatra = {}
 		}
 	}
-	
 	d_thracesia = {
-		color={ 154 43 116 }
+		color={ 144 52 53 }
 		color2={ 255 255 20 }
 		
 		capital = 748 # Laodikeia
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_sozopolis = {
-			color={ 158 47 120 }
+			color={ 177 130 70 }
 			color2={ 255 255 20 }
 			
 			turkish = "Isparta"
@@ -3183,56 +3139,50 @@ k_anatolia = {
 			b_souzopolis = {
 				turkish = "Afyonkarahisar"
 			}
-			b_synnada = {
-			}
-			b_aezani = {
-			}
-			b_cadi = {
-			}
-			b_polidorion = {
-			}
-			b_kelainai = {
-			}
-			b_dinar = {
-			}
+			b_synnada = {}
+			b_aezani = {}
+			b_cadi = {}
+			b_polidorion = {}
+			b_kelainai = {}
+			b_dinar = {}
 			b_isparta = {
 				greek = "Baris"
 			}
 		}
 		c_laodikeia = {
-			color={ 162 51 124 }
+			color={ 106 190 21 }
 			color2={ 255 255 20 }
 			
 			turkish = "Alasehir"
 			
-			b_laodikeia = {
-			}
+			b_laodikeia = {}
 			b_philadelphia = {
 				turkish = "Alasehir"
 			}
-			b_rhoas = {
-			}
-			b_sardes = {
-			}
-			b_hieropolis = {
-			}
-			b_kona = {
-			}
-			b_gordes = {
-			}
-			b_flaviupolis = {
-			}
+			b_rhoas = {}
+			b_sardes = {}
+			b_hieropolis = {}
+			b_kona = {}
+			b_gordes = {}
+			b_flaviupolis = {}
 		}
 	}
-	
 	d_charsianon = {
-		color={ 237 68 178 }
+		color={ 113 150 11 }
 		color2={ 255 255 20 }
 		
 		capital = 760 # Tyana
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_kaisereia = {
-			color={ 240 71 181 }
+			color={ 23 226 115 }
 			color2={ 255 255 20 }
 			
 			turkish = Kayseri
@@ -3240,23 +3190,16 @@ k_anatolia = {
 			b_kaisereia = {
 				turkish = Kayseri
 			}
-			b_misti = {
-			}
-			b_talas = {
-			}
-			b_sariz = {
-			}
-			b_masaka = {
-			}
-			b_dobada = {
-			}
-			b_venessa = {
-			}
-			b_zoropassos = {
-			}
+			b_misti = {}
+			b_talas = {}
+			b_sariz = {}
+			b_masaka = {}
+			b_dobada = {}
+			b_venessa = {}
+			b_zoropassos = {}
 		}
 		c_galatia = {
-			color={ 243 74 184 }
+			color={ 41 108 26 }
 			color2={ 255 255 20 }
 			
 			turkish = "Kirsehir"
@@ -3264,129 +3207,63 @@ k_anatolia = {
 			b_mikissos = {
 				turkish = "Kirsehir"
 			}
-			b_tavia = {
-			}
-			b_asponia = {
-			}
-			b_nyssa = {
-			}
-			b_carissa = {
-			}
-			b_kochisar = {
-			}
-			b_karacaviran = {
-			}
-			b_garsaura = {
-			}
+			b_tavia = {}
+			b_asponia = {}
+			b_nyssa = {}
+			b_carissa = {}
+			b_kochisar = {}
+			b_karacaviran = {}
+			b_garsaura = {}
 		}
 		c_tyana = {
-			color={ 246 77 187 }
+			color={ 58 30 110 }
 			color2={ 255 255 20 }
 			
 			turkish = Aksaray
 			
-			b_tyana = {
-			}
+			b_tyana = {}
 			b_archelais = {
 				turkish = Aksaray
 			}
-			b_anatoliaheraklea = {
-			}
-			b_nazianus = {
-			}
-			b_cybistra = {
-			}
-			b_gamar = {
-			}
-			b_tomarza = {
-			}
-			b_faustinopolis = {
-			}
-		}
-	}
-	d_armeniacon = {
-		color={ 255 0 167 }
-		color2={ 255 255 20 }
-		
-		capital = 738 # Amisos
-		
-		c_amisos = {
-			color={ 255 2 169 }
-			color2={ 255 255 20 }
-			
-			turkish = "Amasya"
-			
-			b_amisos = {
-			}
-			b_amasia = {
-				turkish = "Amasya"
-			}
-			b_thermodon = {
-			}
-			b_eupatoria = {
-			}
-			b_zela = {
-			}
-			b_dazimon = {
-			}
-			b_neokaisarea = {
-			}
-			b_phadisane = {
-			}
-		}
-		c_sinope = {
-			color={ 255 4 171 }
-			color2={ 255 255 20 }
-			
-			b_sinope = {
-			}
-			b_pompeiopolis = {
-			}
-			b_germanicopolis = {
-			}
-			b_aboniteichos = {
-			}
-			b_amastris = {
-			}
-			b_comana = {
-			}
-			b_talaura = {
-			}
-			b_themiscyra = {
-			}
+			b_anatoliaheraklea = {}
+			b_nazianus = {}
+			b_cybistra = {}
+			b_gamar = {}
+			b_tomarza = {}
+			b_faustinopolis = {}
 		}
 	}
 	d_paphlagonia = {
-		color={ 234 157 207 }
+		color={ 195 149 155 }
 		color2={ 255 255 20 }
 		
 		capital = 753 # Ankyra
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_paphlagonia = {
-			color={ 231 74 177 }
+			color={ 21 22 152 }
 			color2={ 255 255 20 }
 			
 			turkish = "Kastamonu"
 			
-			b_kastamonu = {
-			}
-			b_anastasiopolis = {
-			}
-			b_gangra = {
-			}
-			b_safranbolu = {
-			}
-			b_cabira = {
-			}
-			b_bolu = {
-			}
-			b_zaliscus = {
-			}
-			b_leontopolis = {
-			}
+			b_kastamonu = {}
+			b_anastasiopolis = {}
+			b_gangra = {}
+			b_safranbolu = {}
+			b_cabira = {}
+			b_bolu = {}
+			b_zaliscus = {}
+			b_leontopolis = {}
 		}
 		c_herakleia = {
-			color={ 235 78 181 }
+			color={ 191 131 104 }
 			color2={ 255 255 20 }
 			
 			turkish = "Eregli"
@@ -3394,23 +3271,16 @@ k_anatolia = {
 			b_herakleia = {
 				turkish = "Eregli"
 			}
-			b_claudiopolis = {
-			}
-			b_flaviopolis = {
-			}
-			b_polis = {
-			}
-			b_bithynium = {
-			}
-			b_zephyropoli = {
-			}
-			b_amastrine = {
-			}
-			b_tium = {
-			}
+			b_claudiopolis = {}
+			b_flaviopolis = {}
+			b_polis = {}
+			b_bithynium = {}
+			b_zephyropoli = {}
+			b_amastrine = {}
+			b_tium = {}
 		}
 		c_ankyra = {
-			color={ 239 82 185 }
+			color={ 239 193 42 }
 			color2={ 255 255 20 }
 			
 			turkish = Ankara
@@ -3418,108 +3288,211 @@ k_anatolia = {
 			b_ankyra = {
 				turkish = Ankara
 			}
-			b_germa = {
+			b_germa = {}
+			b_akroynon = {}
+			b_gordium = {}
+			b_amorion = {}
+			b_gordoservon = {}
+			b_nakoleia = {}
+			b_haymana = {}
+		}
+	}
+}
+k_trebizond = {
+	color={ 100 151 33 }
+	color2={ 255 255 23 }
+	
+	capital = 678 # Trapezous
+	culture = greek
+	
+	sunni = 100 # Crusade target weight
+	catholic = 25 # Crusade target weight
+	zoroastrian_group = 10 # Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
 			}
-			b_akroynon = {
-			}
-			b_gordium = {
-			}
-			b_amorion = {
-			}
-			b_gordoservon = {
-			}
-			b_nakoleia = {
-			}
-			b_haymana = {
+		}
+		OR = {
+			culture = greek
+			k_trebizond = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
-	
+
 	d_trebizond = {
-		color={ 135 50 100 }
+		color={ 69 157 208 }
 		color2={ 255 255 255 }
 		
 		capital = 678 # Trepezous
-		
 		dignity = 7
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_theodosiopolis = {
-			color={ 140 50 100 }
+			color={ 179 169 76 }
 			color2={ 255 255 255 }
 			
-			b_theodosiopolis = {
-			}
-			b_argyropolis = {
-			}
-			b_citharizum = {
-			}
-			b_satala = {
-			}
-			b_thera = {
-			}
-			b_oukhiti = {
-			}
-			b_askale = {
-			}
-			b_tortum = {
-			}
+			b_theodosiopolis = {}
+			b_argyropolis = {}
+			b_citharizum = {}
+			b_satala = {}
+			b_thera = {}
+			b_oukhiti = {}
+			b_askale = {}
+			b_tortum = {}
 		}
 		c_trapezous = {
-			color={ 149 70 110 }
+			color={ 162 133 11 }
 			color2={ 255 255 255 }
 			
-			b_trapezous = {
-			}
-			b_koralla = {
-			}
-			b_rizaion = {
-			}
-			b_paiperta = {
-			}
-			b_rizini = {
-			}
-			b_alucra = {
-			}
-			b_kelkit = {
-			}
-			b_dereli = {
-			}
+			b_trapezous = {}
+			b_koralla = {}
+			b_rizaion = {}
+			b_paiperta = {}
+			b_rizini = {}
+			b_alucra = {}
+			b_kelkit = {}
+			b_dereli = {}
 		}
 		c_chaldea = {
-			color={ 159 50 90 }
+			color={ 213 51 227 }
 			color2={ 255 255 255 }
 			
-			b_kerasous = {
-			}
-			b_cotyora = {
-			}
-			b_camachus = {
-			}
-			b_ibora = {
-			}
-			b_podandos = {
-			}
-			b_tilgarimo = {
-			}
+			b_kerasous = {}
+			b_cotyora = {}
+			b_camachus = {}
+			b_ibora = {}
+			b_podandos = {}
+			b_tilgarimo = {}
 			b_sebastea = {
 				armenian = "Sebasta"
 				greek = "Sebasteia"
 				turkish = "Sivas"
 			}
-			b_heracleopolis = {
+			b_heracleopolis = {}
+		}
+	}	
+	d_armeniacon = {
+		color={ 39 110 100 }
+		color2={ 255 255 20 }
+		
+		capital = 738 # Amisos
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_amisos = {
+			color={ 215 200 120 }
+			color2={ 255 255 20 }
+			
+			turkish = "Amasya"
+			
+			b_amisos = {}
+			b_amasia = {
+				turkish = "Amasya"
+			}
+			b_thermodon = {
+				holy_site = tengri_pagan
+				holy_site = tengri_pagan_reformed
+			}
+			b_eupatoria = {}
+			b_zela = {}
+			b_dazimon = {}
+			b_neokaisarea = {}
+			b_phadisane = {}
+		}
+		c_sinope = {
+			color={ 83 139 58 }
+			color2={ 255 255 20 }
+			
+			b_sinope = {}
+			b_pompeiopolis = {}
+			b_germanicopolis = {}
+			b_aboniteichos = {}
+			b_amastris = {}
+			b_comana = {}
+			b_talaura = {}
+			b_themiscyra = {}
+		}
+	}
+}
+k_armenia = {
+	color={ 140 41 171 }
+	color2={ 255 255 255 }
+	
+	capital = 681 #	Ani
+	
+	culture = armenian
+	
+	orthodox = 300 # Crusade target weight
+	sunni = 100 # Crusade target weight
+	zoroastrian_group = 50 # Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = armenian
+			k_armenia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
+
 	d_armenia_minor = { # Cilicia in-game
-		color={ 214 140 190 }
+		color={ 124 140 162 }
 		color2={ 255 255 255 }
 		
 		capital = 761 # Tarsos
 		
 		armenian = "Armenia Minor"
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 
 		c_lykandos = {
-			color={ 214 140 195 }
+			color={ 245 52 43 }
 			color2={ 255 255 255 }
 			
 			turkish = "Elbistan"
@@ -3527,23 +3500,16 @@ k_anatolia = {
 			b_lykandos = {
 				turkish = "Elbistan"
 			}
-			b_tzamandos = {
-			}
-			b_comanagene = {
-			}
-			b_symposion = {
-			}
-			b_papurius = {
-			}
-			b_cocussus = {
-			}
-			b_germanikeia = {
-			}
-			b_arabissus = {
-			}
+			b_tzamandos = {}
+			b_comanagene = {}
+			b_symposion = {}
+			b_papurius = {}
+			b_cocussus = {}
+			b_germanikeia = {}
+			b_arabissus = {}
 		}
 		c_tarsos = {
-			color={ 194 140 175 }
+			color={ 177 112 134 }
 			color2={ 255 255 255 }
 			
 			turkish = "Mersin"
@@ -3553,46 +3519,32 @@ k_anatolia = {
 				turkish = "Mersin"
 				armenian = "Darson"
 			}
-			b_lamas = {
-			}
-			b_castabala = {
-			}
-			b_lampron = {
-			}
-			b_zephyrium = {
-			}
-			b_pendosis = {
-			}
-			b_korikos = {
-			}
-			b_bardzerben = {
-			}
+			b_lamas = {}
+			b_castabala = {}
+			b_lampron = {}
+			b_zephyrium = {}
+			b_pendosis = {}
+			b_korikos = {}
+			b_bardzerben = {}
 		}
 		c_adana = {
-			color={ 194 110 145 }
+			color={ 179 43 20 }
 			color2={ 255 255 255 }
 
-			b_adana = {
-			}
-			b_sis = {
-			}
-			b_anazarba = {
-			}
-			b_mamistra = {
-			}
+			b_adana = {}
+			b_sis = {}
+			b_anazarba = {}
+			b_mamistra = {}
 			b_lajazzo = {
 				armenian = "Ayas"
 				greek = "Aegeas"
 			}
-			b_trazak = {
-			}
-			b_vahka = {
-			}
-			b_mopsuestia = {
-			}
+			b_trazak = {}
+			b_vahka = {}
+			b_mopsuestia = {}
 		}
 		c_teluch = {
-			color={ 145 90 105 }
+			color={ 68 172 20 }
 			color2={ 255 255 255 }
 			
 			greek = "Doliche"
@@ -3605,21 +3557,15 @@ k_anatolia = {
 			b_germanias = {
 				turkish = "Haruniye"
 			}
-			b_perre = {
-			}
-			b_komanal = {
-			}
-			b_kapan = {
-			}
-			b_tavplur = {
-			}
-			b_koksen = {
-			}
-			b_hajin = {
-			}
+			b_perre = {}
+			b_komanal = {}
+			b_kapan = {}
+			b_tavplur = {}
+			b_koksen = {}
+			b_hajin = {}
 		}
 		c_seleukeia = {
-			color={ 165 70 105 }
+			color={ 202 187 7 }
 			color2={ 255 255 255 }
 
 			turkish = "Silifke"
@@ -3627,329 +3573,238 @@ k_anatolia = {
 			b_seleukeia = {
 				turkish = "Silifke"
 			}
-			b_germanak = {
-			}
-			b_irenopolis = {
-			}
-			b_corycus = {
-			}
-			b_ninica = {
-			}
-			b_selinus = {
-			}
-			b_anemurium = {
-			}
-			b_dalisandus = {
-			}
+			b_germanak = {}
+			b_irenopolis = {}
+			b_corycus = {}
+			b_ninica = {}
+			b_selinus = {}
+			b_anemurium = {}
+			b_dalisandus = {}
 		}
 	}
-}
-k_armenia = {
-	color={ 172 82 55 }
-	color2={ 255 255 255 }
-	
-	capital = 681 #	Ani
-	
-	culture = armenian
-	
-	orthodox = 300 # Crusade target weight
-	muslim = 100 # Crusade target weight
-	zoroastrian_group = 200 # Crusade target weight
-	
-	# Creation/usurpation trigger
-	allow = {
-		hidden_tooltip = {
-			OR = {
-				ai = no
-				religion_group = christian
-			}
-		}
-	}
-
 	d_armenia = {
-		color={ 154 77 36 }
+		color={ 179 42 109 }
 		color2={ 255 255 255 }
 		
 		capital = 682 # Vaspurakan
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_vaspurakan = {
-			color={ 144 67 36 }
+			color={ 235 71 226 }
 			color2={ 255 255 255 }
 			
 			turkish = "Van"
 			kurdish = "Wan"
 			
-			b_haykaberd = {
-			}
-			b_van = {
-			}
-			b_surbkhach = {
-			}
-			b_vostan = {
-			}
-			b_varagavank = {
-			}
-			b_aghtamar = {
-			}
-			b_bakear = {
-			}
-			b_hadamakert = {
-			}
+			b_haykaberd = {}
+			b_van = {}
+			b_surbkhach = {}
+			b_vostan = {}
+			b_varagavank = {}
+			b_aghtamar = {}
+			b_bakear = {}
+			b_hadamakert = {}
 		}
 		c_dwin = {
-			color={ 138 77 40 }
+			color={ 55 19 178 }
 			color2={ 255 255 255 }
 			
 			turkish = "Erivan"
 			
-			b_dvin = {
-			}
-			b_etchmiadzin = {
-			}
-			b_erebuni = {
-			}
-			b_alaverdi = {
-			}
-			b_khorvirap = {
-			}
-			b_matsnaberd = {
-			}
-			b_tumanyan = {
-			}
+			b_dvin = {}
+			b_etchmiadzin = {}
+			b_erebuni = {}
+			b_alaverdi = {}
+			b_khorvirap = {}
+			b_matsnaberd = {}
+			b_tumanyan = {}
 		}
 		c_ani = {
-			color={ 168 87 50 }
+			color={ 81 118 229 }
 			color2={ 255 255 255 }
 			
 			turkish = "Kars"
 			
-			b_midjnaberd = {
-			}
-			b_ani = {
-			}
-			b_surpasdvadzadzin = {
-			}
-			b_karutsberd = {
-			}
-			b_karuts = {
-			}
-			b_artashat = {
-			}
-			b_oshakan  = {
-			}
-			b_zvartnots = {
-			}
+			b_midjnaberd = {}
+			b_ani = {}
+			b_surpasdvadzadzin = {}
+			b_karutsberd = {}
+			b_karuts = {}
+			b_artashat = {}
+			b_oshakan  = {}
+			b_zvartnots = {}
 		}
 		c_lori = {
 			color={ 142 70 45 }
 			color2={ 255 255 255 }
 		
-			b_lori_berd = {
-		}
-			b_dzegh = {
-		}
-			b_dmanis = {
-		}
-			b_agarak = {
-		}
-			b_hovk = {
-		}
-			b_sanahin = {
-		}
-			b_erkan = {
-		}
+			b_lori_berd = {}
+			b_dzegh = {}
+			b_dmanis = {}
+			b_agarak = {}
+			b_hovk = {}
+			b_sanahin = {}
+			b_erkan = {}
 		}
 	}
 	d_mesopotamia = {
-		color={ 155 88 20 }
+		color={ 213 215 32 }
 		color2={ 255 255 255 }
 		
 		capital = 702 # Mesopotamia
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_karin = {
-			color={ 155 95 20 }
+			color={ 143 27 85 }
 			color2={ 255 255 255 }
 			
 			turkish = "Erzurum"
 			
-			b_daroynk = {
-			}
+			b_daroynk = {}
 			b_karin = {
 				turkish = "Erzurum"
 			}
-			b_owshank = {
-			}
-			b_mardin = {
-			} 
-			b_baghesh = {
-			}
-			b_pasen = {
-			}
-			b_tercan = {
-			}
-			b_kirklarkilisesi = {
-			}
+			b_owshank = {}
+			b_mardin = {} 
+			b_baghesh = {}
+			b_pasen = {}
+			b_tercan = {}
+			b_kirklarkilisesi = {}
 		}
 		c_mesopotamia = {
-			color={ 165 99 25 }
+			color={ 17 26 247 }
 			color2={ 255 255 255 }
 			
-			b_tzimisca = {
-			}
-			b_martyropolis = {
-			}
-			b_mayafaraqin = {
-			}
-			b_jermuk = {
-			}
-			b_arghana = {
-			}
-			b_hani = {
-			}
-			b_lice = {
-			}
-			b_tigranakert = {
-			}
+			b_tzimisca = {}
+			b_martyropolis = {}
+			b_mayafaraqin = {}
+			b_jermuk = {}
+			b_arghana = {}
+			b_hani = {}
+			b_lice = {}
+			b_tigranakert = {}
 		}
 		c_taron = {
-			color={ 155 70 25 }
+			color={ 221 35 36 }
 			color2={ 255 255 255 }
 			
-			b_manzikert = {
-			}
-			b_mush = {
-			}
-			b_glak = {
-			}
-			b_ararati = {
-			}
-			b_artchesh = {
-			}
-			b_arakelots = {
-			}
-			b_akhlat = {
-			}
-			b_sason = {
-			}
+			b_manzikert = {}
+			b_mush = {}
+			b_glak = {}
+			b_ararati = {}
+			b_artchesh = {}
+			b_arakelots = {}
+			b_akhlat = {}
+			b_sason = {}
 		}
 	}
 	d_edessa = {
-		color={ 182 110 45 }
+		color={ 184 193 89 }
 		color2={ 255 255 255 }
 		
 		capital = 699 # Edessa
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_edessa = {
-			color={ 175 105 45 }
+			color={ 171 35 234 }
 			color2={ 255 255 255 }
 			
-			b_edessa = {
-			}
-			b_sruk = {
-			}
-			b_bile = {
-			}
-			b_tulupe = {
-			}
-			b_kaisun = {
-			}
-			b_samsat = {
-			}
-			b_harran = {
-			}
-			b_edesurfa = {
-			}
+			b_edessa = {}
+			b_sruk = {}
+			b_bile = {}
+			b_tulupe = {}
+			b_kaisun = {}
+			b_samsat = {}
+			b_harran = {}
+			b_edesurfa = {}
 		}
 		c_tell_bashir = {
-			color={ 175 125 35 }
+			color={ 106 31 171 }
 			color2={ 255 255 255 }
 			
-			b_turbessel = {
-			}
-			b_buzaa = {
-			}
-			b_manbij = {
-			}
-			b_nizip = {
-			}
-			b_zeugma = {
-			}
-			b_makedonopolis = {
-			}
-			b_birtha = {
-			}
-			b_jarabulus = {
-			}
+			b_turbessel = {}
+			b_buzaa = {}
+			b_manbij = {}
+			b_nizip = {}
+			b_zeugma = {}
+			b_makedonopolis = {}
+			b_birtha = {}
+			b_jarabulus = {}
 		}
 		c_aintab = {
-			color={ 195 125 55 }
+			color={ 132 38 84 }
 			color2={ 255 255 255 }
 			
-			b_aintab = {
-			}
-			b_marash = {
-			}
-			b_kyrrhos = {
-			}
-			b_ravendan = {
-			}
-			b_duluk = {
-			}
-			b_hromgla = {
-			}
-			b_raban = {
-			}
-			b_amanus = {
-			}
+			b_aintab = {}
+			b_marash = {}
+			b_kyrrhos = {}
+			b_ravendan = {}
+			b_duluk = {}
+			b_hromgla = {}
+			b_raban = {}
+			b_amanus = {}
 		}
 	}
 	d_coloneia = {
-		color={ 195 125 55 }
-		color2={ 255 255 255 }
+		color={ 107 94 169 }
+		color2={ 230 230 230 }
 		
 		capital = 706 # Koloneia
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_koloneia = {
-			color={ 195 120 50 }
+			color={ 89 37 197 }
 			color2={ 255 255 255 }
 			
-			b_koloneia = {
-			}
-			b_anatolnikopolis = {
-			}
-			b_tephrice = {
-			}
-			b_mazaka = {
-			}
-			b_celtzene = {
-			}
-			b_gamakh = {
-			}
-			b_akn = {
-			}
-			b_gerjanis = {
-			}
+			b_koloneia = {}
+			b_anatolnikopolis = {}
+			b_tephrice = {}
+			b_mazaka = {}
+			b_celtzene = {}
+			b_gamakh = {}
+			b_akn = {}
+			b_gerjanis = {}
 		}
 		c_melitene = {
-			color={ 175 110 40 }
+			color={ 151 11 68 }
 			color2={ 255 255 255 }
 			
-			b_melitene = {
-			}
-			b_arca = {
-			}
-			b_samosata = {
-			}
-			b_corduene = {
-			}
-			b_seneqerim = {
-			}
-			b_arguvan = {
-			}
-			b_kigi = {
-			}
-			b_yedisu = {
-			}
+			b_melitene = {}
+			b_arca = {}
+			b_samosata = {}
+			b_corduene = {}
+			b_seneqerim = {}
+			b_arguvan = {}
+			b_kigi = {}
+			b_yedisu = {}
 		}
 	}
 }
@@ -3960,11 +3815,35 @@ k_bulgaria = {
 	culture = bulgarian
 	
 	capital = 499 # Tyrnovo
-	
-	orthodox = 300 # Crusade target weight
-	catholic = 100 # Crusade target weight
-	slavic_pagan_reformed = 50 # Crusade target weight
-	tengri_pagan_reformed = 50
+
+	orthodox = 300 # Crusade target weight	
+	hellenic_pagan = 30 #Crusade target weight
+	catholic = 10 # Crusade target weight
+	slavic_pagan_reformed = 5 # Crusade target weight
+	tengri_pagan_reformed = 5 # Crusade target weight
+
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = bulgarian
+			k_bulgaria = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	
 	d_vidin = {
 		color={ 122 103 58 }
@@ -3974,8 +3853,16 @@ k_bulgaria = {
 		
 		greek = "Bononia"
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_vidin = {
-			color={ 124 105 60 }
+			color={ 17 203 209 }
 			color2={ 255 255 255 }
 			
 			greek = "Bononia"
@@ -3983,23 +3870,16 @@ k_bulgaria = {
 			b_vidin = {
 				greek = "Bononia"
 			}
-			b_viseslav = {
-			}
-			b_kula = {
-			}
-			b_srvljig = {
-			}
-			b_pirot = {
-			}
-			b_bolvan = {
-			}
-			b_kucevo = {
-			}
-			b_zajecar = {
-			}
+			b_viseslav = {}
+			b_kula = {}
+			b_srvljig = {}
+			b_pirot = {}
+			b_bolvan = {}
+			b_kucevo = {}
+			b_zajecar = {}
 		}
 		c_naissus = {
-			color={ 126 107 62 }
+			color={ 61 215 65 }
 			color2={ 255 255 255 }
 			
 			serbian = "Nish"
@@ -4009,30 +3889,31 @@ k_bulgaria = {
 			b_nish = {
 				greek = "Naissos"
 			}
-			b_kumanovo = {
-			}
-			b_koprijan = {
-			}
-			b_brdo = {
-			}
-			b_vranje = {
-			}
-			b_lesnovo = {
-			}
-			b_kambelevac = {
-			}
-			b_knjazevac = {
-			}
+			b_kumanovo = {}
+			b_koprijan = {}
+			b_brdo = {}
+			b_vranje = {}
+			b_lesnovo = {}
+			b_kambelevac = {}
+			b_knjazevac = {}
 		}
 	}
 	d_turnovo = { # Moesia
-		color={ 197 39 154 }
+		color={ 154 39 197 }
 		color2={ 255 255 255 }
 		
 		capital = 499 # Tyrnovo
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_tyrnovo = {
-			color={ 156 41 199 }
+			color={ 69 191 239 }
 			color2={ 255 255 255 }
 			
 			greek = "Moesia"
@@ -4040,23 +3921,16 @@ k_bulgaria = {
 			b_tyrnovo = {
 				greek = "Noba" # Roman Novae
 			}
-			b_irinopolis = {
-			}
-			b_kilifarevski = {
-			}
-			b_hisarya = {
-			}
-			b_opan = {
-			}
-			b_chirpan = {
-			}
-			b_maglizh = {
-			}
-			b_kazanlak = {
-			}
+			b_irinopolis = {}
+			b_kilifarevski = {}
+			b_hisarya = {}
+			b_opan = {}
+			b_chirpan = {}
+			b_maglizh = {}
+			b_kazanlak = {}
 		}
 		c_serdica = {
-			color={ 158 43 201 }
+			color={ 174 205 71 }
 			color2={ 255 255 255 }
 			
 			bulgarian = "Sofia"
@@ -4072,93 +3946,70 @@ k_bulgaria = {
 				russian = "Sofia"
 				polish = "Sofia"
 			}
-			b_velbazhd = {
-			}
-			b_rila = {
-			}
-			b_etropole = {
-			}
-			b_pernik = {
-			}
-			b_breznik = {
-			}
-			b_pravets = {
-			}
-			b_samundzhievo = {
-			}
+			b_velbazhd = {}
+			b_rila = {}
+			b_etropole = {}
+			b_pernik = {}
+			b_breznik = {}
+			b_pravets = {}
+			b_samundzhievo = {}
 		}
 		c_nikopolis = {
-			color={ 160 45 203 }
+			color={ 195 63 84 }
 			color2={ 255 255 255 }
 			
-			b_nikopolis = {
-			}
-			b_pleven = {
-			}
-			b_oescus = {
-			}
-			b_belene = {
-			}
-			b_iskar = {
-			}
-			b_pordim = {
-			}
-			b_knezha = {
-			}
-			b_dolnidabknik = {
-			}
+			b_nikopolis = {}
+			b_pleven = {}
+			b_oescus = {}
+			b_belene = {}
+			b_iskar = {}
+			b_pordim = {}
+			b_knezha = {}
+			b_dolnidabknik = {}
 		}
 		c_dorostotum = {
-			color={ 162 47 205 }
+			color={ 135 7 139 }
 			color2={ 255 255 255 }
 			
-			b_dorosturum = {
-			}
-			b_rusi = {
-			}
-			b_shumen = {
-			}
-			b_borovo = {
-			}
-			b_byaladve = {
-			}
-			b_slivopole = {
-			}
-			b_tsenovo = {
-			}
-			b_samuil = {
-			}
+			b_dorosturum = {}
+			b_rusi = {}
+			b_shumen = {}
+			b_borovo = {}
+			b_byaladve = {}
+			b_slivopole = {}
+			b_tsenovo = {}
+			b_samuil = {}
 		}
 	}
 	d_karvuna = {
-		color={ 227 79 190 }
+		color={ 64 69 147 }
 		color2={ 255 255 255 }
 		
 		capital = 509 # Karvuna
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_mesembria = {
-			color={ 207 92 250 }
+			color={ 8 200 198 }
 			color2={ 255 255 255 }
 			
-			b_mesembria = {
-			}
-			b_varna = {
-			}
-			b_anchilios = {
-			}
-			b_aetos = {
-			}
-			b_sozopolis = {
-			}
-			b_odessos = {
-			}
-			b_bourgas = {
-			}
-			b_valchidol = {
-			}
+			b_mesembria = {}
+			b_varna = {}
+			b_anchilios = {}
+			b_aetos = {}
+			b_sozopolis = {}
+			b_odessos = {}
+			b_bourgas = {}
+			b_valchidol = {}
 		}
 		c_karvuna = {
-			color={ 210 95 253 }
+			color={ 148 92 22 }
 			color2={ 255 255 255 }
 			
 			greek = "Krounoi"
@@ -4169,40 +4020,27 @@ k_bulgaria = {
 			b_kaliakra = {
 				greek = "Akrai"
 			}
-			b_silistria = {
-			}
+			b_silistria = {}
 			b_dobrich = { # Balchik
 				greek = "Dionysopolis"
 			}
-			b_prezlav = {
-			}
-			b_venets = {
-			}
-			b_varbitsz = {
-			}
-			b_smyadovo = {
-			}
+			b_prezlav = {}
+			b_venets = {}
+			b_varbitsz = {}
+			b_smyadovo = {}
 		}
 		c_constantia = {
-			color={ 213 98 253 }
+			color={ 107 189 180 }
 			color2={ 255 255 255 }
 			
-			b_constantia = {
-			}
-			b_carachioi = {
-			}
-			b_adamclisi = {
-			}
-			b_mesgidia = {
-			}
-			b_cobadin = {
-			}
-			b_cogealac = {
-			}
-			b_mangalia = {
-			}
-			b_topraisar = {
-			}
+			b_constantia = {}
+			b_carachioi = {}
+			b_adamclisi = {}
+			b_mesgidia = {}
+			b_cobadin = {}
+			b_cogealac = {}
+			b_mangalia = {}
+			b_topraisar = {}
 		}
 	}
 }
@@ -4215,18 +4053,50 @@ k_serbia = {
 	capital = 502 # Rashka
 	
 	orthodox = 300 # Crusade target weight
-	catholic = 100 # Crusade target weight
+	catholic = 10 # Crusade target weight
+	hellenic_pagan = 50 #Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = serbian
+			k_serbia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	
 	d_rashka = {
-		color={ 168 135 57 }
+		color={ 107 170 77 }
 		color2={ 255 255 255 }
 		
 		capital = 502 # Rashka
 		
 		greek = "Rascia"
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_rashka = {
-			color={ 172 139 61 }
+			color={ 28 187 196 }
 			color2={ 255 255 255 }
 			
 			greek = "Rascia"
@@ -4234,47 +4104,33 @@ k_serbia = {
 			b_prizren = {
 				greek = "Petrizen"
 			}
-			b_decani = {
-			}
-			b_dioclea = {
-			}
-			b_svetispas = {
-			}
-			b_trepca = {
-			}
-			b_zvecan = {
-			}
-			b_djakovica = {
-			}
-			b_polog = {
-			}
+			b_decani = {}
+			b_dioclea = {}
+			b_svetispas = {}
+			b_trepca = {}
+			b_zvecan = {}
+			b_djakovica = {}
+			b_polog = {}
 		}
 		c_hum = { 
-			color={ 176 143 64 }
+			color={ 140 189 52 }
 			color2={ 255 255 255 }
 			
 			greek = "Arsa"
 			
-			b_plav = {
-			}
-			b_pec = {
-			}
+			b_plav = {}
+			b_pec = {}
 			b_novipazar = {
 				greek = "Arsa"
 			}
-			b_stupovi = {
-			}
-			b_belacrkva = {
-			}
-			b_bradarevo = {
-			}
-			b_moraca = {
-			}
-			b_medun = {
-			}
+			b_stupovi = {}
+			b_belacrkva = {}
+			b_bradarevo = {}
+			b_moraca = {}
+			b_medun = {}
 		}
 		c_belgrade = {
-			color={ 150 124 61 }
+			color={ 170 231 164 }
 			color2={ 255 255 255 }
 			
 			serbian = "Belgrad"
@@ -4288,20 +4144,13 @@ k_serbia = {
 				bulgarian = "Belgrad"
 				greek = "Singidounon"
 			}
-			b_zemun = {
-			}
-			b_smederevo = {
-			}
-			b_kragujevac = {
-			}
-			b_rudnik = {
-			}
-			b_branicevo = {
-			}
-			b_pozarevac = {
-			}
-			b_lipovic = {
-			}
+			b_zemun = {}
+			b_smederevo = {}
+			b_kragujevac = {}
+			b_rudnik = {}
+			b_branicevo = {}
+			b_pozarevac = {}
+			b_lipovic = {}
 		}
 	}
 	d_dioclea = {
@@ -4314,8 +4163,16 @@ k_serbia = {
 		croatian = "Duklja"
 		bulgarian = "Duklja"
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_zeta = {
-			color={ 131 96 15 }
+			color={ 67 103 199 }
 			color2={ 255 255 255 }
 			
 			b_podgorica = {
@@ -4333,17 +4190,13 @@ k_serbia = {
 				italian = Scutari
 				greek = Skoutarion
 			}
-			b_ulcinj = {
-			}
-			b_budva = {
-			}
-			b_danj = {
-			}
-			b_drivast = {
-			}
+			b_ulcinj = {}
+			b_budva = {}
+			b_danj = {}
+			b_drivast = {}
 		}
 		c_ragusa = {
-			color={ 133 98 17 }
+			color={ 220 75 169 }
 			color2={ 255 255 255 }
 			
 			greek = "Raugia"
@@ -4355,27 +4208,39 @@ k_serbia = {
 				croatian = "Dubrovnik"
 				serbian = "Dubrovnik"
 			}
-			b_narona = {
-			}
+			b_narona = {}
 			b_cavtat = {
 				greek = "Epidauros"
 				italian = "Ragusavecchia"
 			}
-			b_zaton = {
-			} 
-			b_slano = {
-			}
-			b_mljet = {
-			}
-			b_kolocep = {
-			}
-			b_sipan = {
-			}
+			b_zaton = {} 
+			b_slano = {}
+			b_mljet = {}
+			b_kolocep = {}
+			b_sipan = {}
 		}
+		#c_travonia = {  NEW, must create
+		#	color={ 0 49 125 }
+		#	color2={ 0 83 0 }
+		#	b_trebinje = {}
+		#	b_vrm = {}
+		#	b_risan = {}
+		#	b_lukavete = {}
+		#	b_zetlivi = {}
+		#}
+		#c_neretvani = {  NEW, must create
+		#	color={ 51 153 255 }
+		#	color2={ 255 203 0 }
+		#	b_mokros = {}
+		#	b_dalen = {}
+		#	b_beroullia = {}
+		#	b_ostrok = {}
+		#	b_slavinetza = {}
+		#}
 	}
 }	
 k_croatia = {
-	color={ 122 46 58 }
+	color={ 205 145 145 }
 	color2={ 200 0 0 }
 	
 	culture = croatian
@@ -4383,125 +4248,125 @@ k_croatia = {
 	capital = 465 # Zadar
 	
 	orthodox = 300 # Crusade target weight
-	catholic = 1000 # Crusade target weight
-
-	d_slavonia = {
-		color={ 184 137 137 }
-		color2={ 255 255 255 }
-		
-		capital = 461 # Zagreb
-
-		c_krizevci = {
-			color={ 186 139 139 }
-			color2={ 255 255 255 }
-
-			b_krizevci = {
-			}
-			b_koprivnica = {
-			}
-			b_osijek = {
-			}
-			b_vinkovci = {
-			}
-			b_vukovar = {
-			}
-			b_durdevac = {
-			}
-			b_pozega = {
-			}
-			b_virovitica = {
+	catholic = 10 #Crusade target weight
+	hellenic_pagan = 100 #crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
 			}
 		}
-		c_zagreb = {
-			color={ 189 141 141 }
-			color2={ 255 255 255 }
-
-			b_zagreb = {
-			}
-			b_sisak = {
-			}
-			b_karlovac = {
-			}
-			b_cetin = {
-			}
-			b_zrin = {
-			}
-			b_dreznik = {
-			}
-			b_stenicnjak = {
-			} 
-			b_ozalj = {
-			}
-		}
-		c_varadzin = {
-			color={ 191 143 143 }
-			color2={ 255 255 255 }
-
-			b_varazdin = {
-			}
-			b_cakovec = {
-			}
-			b_ludbreg = {
-			}
-			b_lepoglava = {
-			}
-			b_toplice = {
-			}
-			b_krapina = {
-			}
-			b_donjastubica = {
-			}
-			b_oroslavje = {
+		OR = {
+			culture = croatian
+			k_croatia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
+
+	d_slavonia = {
+		color={ 112 150 105 }
+		color2={ 255 255 255 }
+		
+		capital = 461 # Zagreb
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
+		c_krizevci = {
+			color={ 114 37 69 }
+			color2={ 255 255 255 }
+
+			b_krizevci = {}
+			b_koprivnica = {}
+			b_osijek = {}
+			b_vinkovci = {}
+			b_vukovar = {}
+			b_durdevac = {}
+			b_pozega = {}
+			b_virovitica = {}
+		}
+		c_zagreb = {
+			color={ 204 174 59 }
+			color2={ 255 255 255 }
+
+			b_zagreb = {}
+			b_sisak = {}
+			b_karlovac = {}
+			b_cetin = {}
+			b_zrin = {}
+			b_dreznik = {}
+			b_stenicnjak = {} 
+			b_ozalj = {}
+		}
+		c_varadzin = {
+			color={ 120 101 184 }
+			color2={ 255 255 255 }
+
+			b_varazdin = {}
+			b_cakovec = {}
+			b_ludbreg = {}
+			b_lepoglava = {}
+			b_toplice = {}
+			b_krapina = {}
+			b_donjastubica = {}
+			b_oroslavje = {}
+		}
+	}
 	d_bosnia = {
-		color={ 194 115 115 }
+		color={ 136 157 23 }
 		color2={ 255 255 255 }
 		
 		capital = 463 # Usora
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 
 		c_rama = {
-			color={ 197 118 118 }
+			color={ 222 248 25 }
 			color2={ 255 255 255 }
 
-			b_rama = {
-			}
-			b_samobor = {
-			}
-			b_usice = {
-			}
-			b_borac = {
-			}
-			b_srebrenica = {
-			}
-			b_srebrnik = {
-			}
-			b_zenica = {
-			}
-			b_zvornik = {
-			}
+			b_rama = {}
+			b_samobor = {}
+			b_usice = {}
+			b_borac = {}
+			b_srebrenica = {}
+			b_srebrnik = {}
+			b_zenica = {}
+			b_zvornik = {}
 		}
 		c_usora = {
-			color={ 200 121 121 }
+			color={ 217 162 232 }
 			color2={ 255 255 255 }
 
-			b_usora = {
-			}
-			b_banjaluka = {
-			} 
-			b_bihac = {
-			}
-			b_jajce = {
-			}
-			b_bocac = {
-			}
-			b_kuljc = {
-			}
-			b_prijedor = {
-			}
-			b_blagaj = {
-			}
+			b_usora = {}
+			b_banjaluka = {} 
+			b_bihac = {}
+			b_jajce = {}
+			b_bocac = {}
+			b_kuljc = {}
+			b_prijedor = {}
+			b_blagaj = {}
 		}
 	}
 	d_croatia = {
@@ -4509,30 +4374,30 @@ k_croatia = {
 		color2={ 255 255 255 }
 		
 		capital = 464 # Senj
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 
 		c_zachlumia = {
-			color={ 166 57 57 }
+			color={ 26 168 90 }
 			color2={ 255 255 255 }
 
-			b_mostar = {
-			}
-			b_duvno = {
-			}
-			b_livno = {
-			}
-			b_capljina = {
-			}
-			b_sirokibrijeg = {
-			}
-			b_ljubuski = {
-			}
-			b_drvar = {
-			}
-			b_neretva = {
-			}
+			b_mostar = {}
+			b_duvno = {}
+			b_livno = {}
+			b_capljina = {}
+			b_sirokibrijeg = {}
+			b_ljubuski = {}
+			b_drvar = {}
+			b_neretva = {}
 		}
 		c_senj = {
-			color={ 170 61 61 }
+			color={ 33 188 158 }
 			color2={ 255 255 255 }
 			
 			greek = "Attienities"
@@ -4546,23 +4411,16 @@ k_croatia = {
 				german = "Zengg"
 				hungarian = "Zeng"
 			}
-			b_kaseg = {
-			}
-			b_brinje = {
-			}
-			b_karlobag = {
-			}
-			b_perusic = {
-			} 
-			b_donjilapac = {
-			}
-			b_udbina = {
-			}
-			b_otocac = {
-			}
+			b_kaseg = {}
+			b_brinje = {}
+			b_karlobag = {}
+			b_perusic = {} 
+			b_donjilapac = {}
+			b_udbina = {}
+			b_otocac = {}
 		}
 		c_veglia = {
-			color={ 174 65 65 }
+			color={ 211 56 52 }
 			color2={ 255 255 255 }
 			
 			greek = "Kyrikon"
@@ -4572,30 +4430,31 @@ k_croatia = {
 				greek = "Kyrikon"
 				german = "Vegl"
 			}
-			b_krk = {
-			}
-			b_kraljevica = {
-			}
-			b_frankopan = {
-			}
-			b_bakar = {
-			}
-			b_crikvenica = {
-			}
-			b_cres = {
-			}
-			b_vrbovsko = {
-			}
+			b_krk = {}
+			b_kraljevica = {}
+			b_frankopan = {}
+			b_bakar = {}
+			b_crikvenica = {}
+			b_cres = {}
+			b_vrbovsko = {}
 		}
 	}
 	d_dalmatia = {
-		color={ 184 137 137 }
+		color={ 184 237 137 }
 		color2={ 255 255 255 }
 		
 		capital = 465 # Zadar
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 
 		c_split = {
-			color={ 186 139 139 }
+			color={ 112 175 168 }
 			color2={ 255 255 255 }
 			
 			italian = "Spalato"
@@ -4605,26 +4464,20 @@ k_croatia = {
 				italian = "Spalato"
 				greek = "Spalathos"
 			}
-			b_hvar = {
-			}
+			b_hvar = {}
 			b_trogir = {
 				greek = "Tragyrion"
 				italian = "Trau"
 				hungarian = "Trau"
 			}
-			b_solin = {
-			}
-			b_klis = {
-			}
-			b_makarska = {
-			}
-			b_sinj = {
-			}
-			b_imotski = {
-			}
+			b_solin = {}
+			b_klis = {}
+			b_makarska = {}
+			b_sinj = {}
+			b_imotski = {}
 		}
 		c_zadar = {
-			color={ 188 141 141 }
+			color={ 128 173 63 }
 			color2={ 255 255 255 }
 			
 			italian = "Zara"
@@ -4634,88 +4487,116 @@ k_croatia = {
 				italian = "Zara"
 				greek = "Diadora"
 			}
-			b_nin = {
-			}
-			b_knin = {
-			}
-			b_sibenik = {
-			}
-			b_novigrad = {
-			}
-			b_benkovac = {
-			}
-			b_obrovac = {
-			}
-			b_pag = {
-			}
+			b_nin = {}
+			b_knin = {}
+			b_sibenik = {}
+			b_novigrad = {}
+			b_benkovac = {}
+			b_obrovac = {}
+			b_pag = {}
 		}
 	}
 }
 k_sicily = {
-	color = { 235 205 95 }
+	color={ 175 244 86 }
 	color2={ 255 255 255 }
 	
-	capital = 334 #	Napoli
+	capital = 340 #Palermo
 	
 	culture = italian
 	
-	catholic = 500 # Crusade target weight
-	orthodox = 50
-	muslim = 10
+	catholic = 500 #Crusade target weight
+	hellenic_pagan = 100 #Crusade target weight
+	shiite = 50 #Crusade target weight
+	
+	allow = {
+		hidden_tooltip = {
+			OR = {
+				NOT = { religion_group = christian }
+				AND = {
+					religion_group = christian
+					NOT = { has_character_modifier = italian_reconquest }
+				}
+			}
+		}
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = italian
+			culture = sicilian
+			culture = sicilian_greek
+			culture = sicilian_arabic
+			k_sicily = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	
 	d_benevento = {
-		color = { 209 170 75 }
+		color={ 153 247 29 }
 		color2={ 255 255 255 }
 		
 		capital = 335 # Benevento
 		
 		catholic = 250 # Crusade target weight
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_benevento = {
-			color = { 209 170 75 }
+			color={ 163 13 109 }
 			color2={ 255 255 255 }
 			
-			b_benevento = {
-			}
-			b_avellino = {
-			}
-			b_ascoli = {
-			}
-			b_montemarono = {
-			}
-			b_frigento = {
-			}
-			b_trevico = {
-			}
-			b_conza = {
-			}
-			b_sanangelo = {
-			}
+			b_benevento = {}
+			b_avellino = {}
+			b_ascoli = {}
+			b_montemarono = {}
+			b_frigento = {}
+			b_trevico = {}
+			b_conza = {}
+			b_sanangelo = {}
 		}
+		#c_teate = {  NEW, must create
+		#	color={ 94 171 191 }
+		#	color2={ 255 255 255 }
+		#	b_chieti = {}
+		#	b_nursia = {}
+		#	b_aquila = {}
+		#	b_valva = {}
+		#}
 		c_foggia = {
-			color = { 209 170 75 }
+			color={ 57 223 237 }
 			color2={ 255 255 255 }
 			
-			b_foggia = {
-			}
-			b_siponto = {
-			}
-			b_lucera = {
-			}
-			b_troia = {
-			}
-			b_bovino = {
-			}
-			b_salapla = {
-			}
-			b_vieste = {
-			}
-			b_termoli = {
-			}
+			b_foggia = {}
+			b_siponto = {}
+			b_lucera = {}
+			b_troia = {}
+			b_bovino = {}
+			b_salapla = {}
+			b_vieste = {}
+			b_termoli = {}
 		}
 	}
 	d_capua = {
-		color = { 240 209 100 }
+		color={ 138 226 138 }
 		color2={ 255 255 255 }
 		
 		greek = "Neapolis"
@@ -4724,8 +4605,16 @@ k_sicily = {
 		
 		catholic = 250 # Crusade target weight
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_capua = {
-			color = { 240 209 100 }
+			color={ 94 153 140 }
 			color2={ 255 255 255 }
 			
 			greek = "Gaeta"
@@ -4733,23 +4622,15 @@ k_sicily = {
 			b_capua = {
 				greek = "Kapue"
 			}
-			b_aquino = {
-			}
-			b_teano = {
-			}
-			b_gaeta = {
-			}
-			b_montecassino = {
-			}
-			b_caserta = {
-			}
-			b_calvi = {
-			}
-			b_acerra = {
-			}
+			b_aquino = {}
+			b_teano = {}
+			b_montecassino = {}
+			b_caserta = {}
+			b_calvi = {}
+			b_acerra = {}
 		}
 		c_napoli = {
-			color = { 240 209 100 }
+			color={ 207 106 251 }
 			color2={ 255 255 255 }
 			
 			greek = "Neapolis"
@@ -4757,25 +4638,28 @@ k_sicily = {
 			b_napoli = {
 				greek = "Neapolis"
 			}
-			b_aversa = {
-			}
-			b_cumae = {
-			}
-			b_pozzuoli = {
-			}
-			b_ischia = {
-			}
-			b_portici={
-			}
-			b_turris_octava={
-			}
-			b_afragola={
-			}
+			b_aversa = {}
+			b_cumae = {}
+			b_pozzuoli = {}
+			b_ischia = {}
+			b_portici={}
+			b_turris_octava={}
+			b_afragola={}
 		}
+		#c_gaete = {  NEW, must create
+		#	color={ 220 220 200 }
+		#	color2={ 250 0 0 }
+		#	b_gaeta = {}
+		#	b_formia = {}
+		#	b_itri = {}
+		#	b_ponziane = {}
+		#	b_spignosaturnia = {}
+		#	b_castelforte = {}
+		#}
 	}
 	d_apulia = {
-		color={ 167 172 63 }
-		color2={ 255 255 255 }
+		color={ 196 192 140 }
+		color2={ 0 148 255 }
 		
 		greek = "Longobardia"
 		
@@ -4783,29 +4667,29 @@ k_sicily = {
 		
 		catholic = 250 # Crusade target weight
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_apulia = {
-			color={ 167 172 63 }
+			color={ 197 229 48 }
 			color2={ 255 255 255 }
 			
-			b_melfi = {
-			}
-			b_trani = {
-			}
-			b_cannae = {
-			}
-			b_salapia = {
-			}
-			b_barletta = {
-			}
-			b_minervo = {
-			}
-			b_lavello = {
-			}
-			b_lucano = {
-			}
+			b_melfi = {}
+			b_trani = {}
+			b_cannae = {}
+			b_salapia = {}
+			b_barletta = {}
+			b_minervo = {}
+			b_lavello = {}
+			b_lucano = {}
 		}
 		c_bari = {
-			color={ 167 172 63 }
+			color={ 91 108 225 }
 			color2={ 255 255 255 }
 			
 			greek = "Barion"
@@ -4813,50 +4697,36 @@ k_sicily = {
 			b_bari = {
 				greek = "Barion"
 			}
-			b_conversano = {
-			}
-			b_giovinazzo = {
-			}
-			b_andria = {
-			}
-			b_ruvo = {
-			}
-			b_molietta = {
-			}
-			b_bitonto = {
-			}
-			b_polignano = {
-			}
+			b_conversano = {}
+			b_giovinazzo = {}
+			b_andria = {}
+			b_ruvo = {}
+			b_molietta = {}
+			b_bitonto = {}
+			b_polignano = {}
 		}
 		c_lecce = {
-			color={ 167 172 63 }
+			color={ 214 11 49 }
 			color2={ 255 255 255 }
 			
 			greek = "Brendesion"
 			
-			b_lecce = {
-			}
+			b_lecce = {}
 			b_otranto = {
 				greek = "Hydrunton"
 			}
 			b_brindisi = {
 				greek = "Brendesion"
 			}
-			b_leuca = {
-			}
-			b_castro = {
-			}
-			b_ligento = {
-			}
-			b_andrano = {
-			}
-			b_oria = {
-			}
+			b_leuca = {}
+			b_castro = {}
+			b_ligento = {}
+			b_andrano = {}
+			b_oria = {}
 		}
-	}
-	
+	}	
 	d_salerno = {
-		color={ 245 194 199 }
+		color={ 129 177 125 }
 		color2={ 255 255 255 }
 		
 		greek = "Lukania"
@@ -4865,29 +4735,29 @@ k_sicily = {
 		
 		catholic = 250 # Crusade target weight
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_salerno = {
-			color={ 245 194 199 }
+			color={ 38 225 151 }
 			color2={ 255 255 255 }
 			
-			b_salerno = {
-			}
-			b_acenzera = {
-			}
-			b_eboli = {
-			}
-			b_nocera = {
-			}
-			b_acerno = {
-			}
-			b_lucania = {
-			}
-			b_agropoli = {
-			}
-			b_sarno = {
-			}
+			b_salerno = {}
+			b_acenzera = {}
+			b_eboli = {}
+			b_nocera = {}
+			b_acerno = {}
+			b_lucania = {}
+			b_agropoli = {}
+			b_sarno = {}
 		}
 		c_taranto = {
-			color={ 235 190 195 }
+			color={ 137 114 26 }
 			color2={ 255 255 255 }
 			
 			greek = "Lukania"
@@ -4895,77 +4765,62 @@ k_sicily = {
 			b_taranto = {
 				greek = "Tarantas"
 			}
-			b_mottola = {
-			}
-			b_castellaneta = {
-			}
-			b_tursi = {
-			}
-			b_montepeloso = {
-			}
-			b_tricanico = {
-			}
-			b_gravina = {
-			}
-			b_cassano = {
-			}
+			b_mottola = {}
+			b_castellaneta = {}
+			b_tursi = {}
+			b_montepeloso = {}
+			b_tricanico = {}
+			b_gravina = {}
+			b_cassano = {}
 		}
 		
 		c_amalfi = {
 			color={ 120 200 225 }
 			color2 = { 255 255 255 }
 			
-			b_amalfi={
-			}
-			b_sorrento={
-			}
-			b_ravello={
-			}
-			b_tramonti={
-			}
-			b_positano={
-			}
-			b_castellamare = {
-			}
-			b_capri = {
-			}
-			b_minori = {
-			}
+			b_amalfi = {}
+			b_sorrento = {}
+			b_ravello = {}
+			b_tramonti = {}
+			b_positano = {}
+			b_castellamare = {}
+			b_capri = {}
+			b_minori = {}
 		}
 	}
 	d_calabria = {
-		color={ 170 142 70 }
+		color={ 166 189 199 }
 		color2={ 255 255 255 }
 		
 		capital = 338 # Reggio
 		
 		catholic = 250 # Crusade target weight
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_consenza = {
-			color={ 170 142 70 }
+			color={ 129 110 231 }
 			color2={ 255 255 255 }
 			
 			greek = "Kroton"
 			
-			b_cosenza = {
-			}
-			b_rossano = {
-			}
-			b_umbriatico = {
-			}
-			b_strongoli = {
-			}
-			b_argentano = {
-			}
-			b_scalea = {
-			}
-			b_cerenzia = {
-			}
-			b_crotone = {
-			}
+			b_cosenza = {}
+			b_rossano = {}
+			b_umbriatico = {}
+			b_strongoli = {}
+			b_argentano = {}
+			b_scalea = {}
+			b_cerenzia = {}
+			b_crotone = {}
 		}
 		c_reggio = {
-			color={ 170 142 70 }
+			color={ 75 101 182 }
 			color2={ 255 255 255 }
 			
 			greek = "Rhegion"
@@ -4976,18 +4831,12 @@ k_sicily = {
 			b_mileto = {
 				holy_site = hellenic_pagan				
 			}
-			b_nicotera = {
-			}
-			b_belcastro = {
-			}
-			b_bova = {
-			}
-			b_gerace = {
-			}
-			b_tropea = {
-			}
-			b_squillace = {
-			}
+			b_nicotera = {}
+			b_belcastro = {}
+			b_bova = {}
+			b_gerace = {}
+			b_tropea = {}
+			b_squillace = {}
 		}
 	}
 	d_sicily = {
@@ -4996,8 +4845,16 @@ k_sicily = {
 		
 		capital = 340 # Palermo
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_palermo = {
-			color={ 155 254 86 }
+			color={ 254 244 253 }
 			color2={ 255 255 255 }
 			
 			maghreb_arabic = "Balharm"
@@ -5015,23 +4872,16 @@ k_sicily = {
 				andalusian_arabic = "Balharm"
 				greek = "Panarmos"
 			}
-			b_cefalu = {
-			}
-			b_monreale = {
-			}
-			b_gratteri = {
-			}
-			b_caltavuturo = {
-			}
-			b_petralia = {
-			}
-			b_misilmeri = {
-			}
-			b_mistretta = {
-			}
+			b_cefalu = {}
+			b_monreale = {}
+			b_gratteri = {}
+			b_caltavuturo = {}
+			b_petralia = {}
+			b_misilmeri = {}
+			b_mistretta = {}
 		}
 		c_messina = {
-			color={ 155 254 86 }
+			color={ 100 225 171 }
 			color2={ 255 255 255 }
 			
 			greek = "Messene"
@@ -5039,24 +4889,18 @@ k_sicily = {
 			b_messina = {
 				greek = "Messene"
 			}
-			b_lipari = {
-			}
+			b_lipari = {}
 			b_taormina = {
 				greek = "Taourmenion"
 			}
-			b_sanmarcodalunzio = {
-			}
-			b_troinia = {
-			}
-			b_furnari = {
-			}
-			b_cataratti = {
-			}
-			b_torregrota = {
-			}
+			b_sanmarcodalunzio = {}
+			b_troinia = {}
+			b_furnari = {}
+			b_cataratti = {}
+			b_torregrota = {}
 		}
 		c_siracusa = {
-			color={ 155 254 86 }
+			color={ 91 179 209 }
 			color2={ 255 255 255 }
 			
 			greek = "Syrakousa"
@@ -5064,23 +4908,16 @@ k_sicily = {
 			b_syracusa = {
 				greek = "Syrakousa"
 			}
-			b_catania = {
-			}
-			b_lentini = {
-			}
-			b_noto = {
-			}
-			b_caltagirone = {
-			}
-			b_paterno = {
-			}
-			b_centuripe = {
-			}
-			b_augusta = {
-			}
+			b_catania = {}
+			b_lentini = {}
+			b_noto = {}
+			b_caltagirone = {}
+			b_paterno = {}
+			b_centuripe = {}
+			b_augusta = {}
 		}
 		c_agrigento = {
-			color={ 155 254 86 }
+			color={ 161 177 11 }
 			color2={ 255 255 255 }
 			
 			greek = "Agrigenton"
@@ -5098,23 +4935,16 @@ k_sicily = {
 				egyptian_arabic = "Kerkent"
 				levantine_arabic = "Kerkent"
 			}
-			b_caltabellotta = {
-			}
-			b_butera = {
-			}
-			b_sanbiagioplatani = {
-			}
-			b_gela = {
-			}
-			b_licata = {
-			}
-			b_raffadali = {
-			}
-			b_montallegro = {
-			}
+			b_caltabellotta = {}
+			b_butera = {}
+			b_sanbiagioplatani = {}
+			b_gela = {}
+			b_licata = {}
+			b_raffadali = {}
+			b_montallegro = {}
 		}
 		c_trapani = {
-			color={ 155 254 86 }
+			color={ 23 174 239 }
 			color2={ 255 255 255 }
 			
 			greek = "Drepanon"
@@ -5134,29 +4964,22 @@ k_sicily = {
 				egyptian_arabic = "Mazar"
 				levantine_arabic = "Mazar"
 			}
-			b_erice = {
-			}
-			b_sanguiseppelato = {
-			}
-			b_castelvertrano = {
-			}
-			b_santaninfa = {
-			}
-			b_marsala = {
-			}
-			b_alcarno = {
-			}
+			b_erice = {}
+			b_sanguiseppelato = {}
+			b_castelvertrano = {}
+			b_santaninfa = {}
+			b_marsala = {}
+			b_alcarno = {}
 		}
 		c_malta = {
-			color={ 155 254 86 }
+			color={ 223 11 242 }
 			color2={ 255 255 255 }
 			
 			b_mdina = {
 				greek = Melitta
 				italian = "Citta Vecchia"
 			}
-			b_sliema = {
-			}
+			b_sliema = {}
 			b_sanpawl = {
 				italian = "San Paolo"
 			}
@@ -5182,22 +5005,177 @@ k_sicily = {
 			b_mgarr = {
 				italian = "Mugiarro"
 			}
-			b_sangjilan = {
+			b_sangjilan = {}
+		}
+	}
+}
+k_adal = {
+	color = { 161 72 126 }
+	color2={ 255 255 255 }
+	
+	capital = 872 #Berbera
+	culture = somali
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
 			}
+		}
+		OR = {
+			culture = somali
+			k_adal = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+	
+	d_harer = { # Berbera
+		color={ 153 2 59 }
+		color2={ 255 255 255 }
+		
+		capital = 873 # Harer
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
+		c_harer = {
+			color={ 83 20 122 }
+			color2={ 255 255 255 }
+			
+			b_harar = {}
+			b_diridawa = {}
+			b_kurfachele = {}
+			b_kombolcha = {}
+			b_babile = {}
+		}
+		c_tadjoura = {
+			color={ 8 175 133 }
+			color2={ 255 255 255 }
+		
+			b_tadjoura = {}
+			b_berenice = {}
+			b_obock = {}
+			b_galafi = {} 
+			b_dikhil = {}
+			b_djibouti = {}
+			b_holhol = {}
+			b_randa = {}
+		}		
+		c_zeila = {
+			color={ 127 151 52 }
+			color2={ 255 255 255 }
+		
+			b_zeila = {}
+			b_hargeysa = {}
+			b_borama = {}
+			b_amud = {}
+			b_jijiga = {}
+			b_dilla = {}
+			b_lughaya = {}
+		}
+	}
+	d_berbera = {
+		color={ 137 183 124 }
+		color2={ 255 255 255 }
+		
+		capital = 872 #Berbera
+	
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_busaso = {
+			color={ 103 213 147 }
+			color2={ 255 255 255 }
+		
+			b_mosylon = {}
+			b_bandaraassim = {}
+			b_lasanod = {}
+			b_garoowe = {}
+			b_qardho = {}
+			b_erigavo = {}
+			b_hadaftimo = {}
+			b_buraan = {}
+		}
+		c_berbera = {
+			color={ 87 179 11 }
+			color2={ 255 255 255 }
+		
+			b_berbera = {}
+			b_maydh = {}
+			b_gabiley = {}
+			b_burco = {}
+			b_mandera = {}
+			b_daarbuduq = {}
+			b_shiikh = {}
+		}
+		c_socotra = {
+			color={ 32 114 69 }
+			color2={ 255 255 255 }
+		
+			b_qualnsiyah = {}
+			b_tamrida = {}
+			b_qadub = {}
+			b_steroh = {}
+			b_asma = {}
+			b_siqirah = {}
+			b_qashiu = {}
 		}
 	}
 }
 k_georgia = {
-	color={ 205 145 145 }
+	color={ 122 26 98 }
 	color2={ 255 255 255 }
 	
 	capital = 679 # Kartli
 	
 	culture = georgian
-	
+
 	orthodox = 200 # Crusade target weight
-	tengri_pagan_reformed = 50
-	zoroastrian_group = 50 # Crusade target weight
+	tengri_pagan_reformed = 5
+	zoroastrian_group = 5 # Crusade target weight
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = georgian
+			k_georgia = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	
 	d_kartli = {
 		color={ 234 119 119 }
@@ -5205,100 +5183,289 @@ k_georgia = {
 		
 		capital = 679 # Kartli
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_kartli = {
-			color={ 196 121 121 }
+			color={ 57 120 5 }
 			color2={ 255 255 255 }
 			
-			b_narikala = {
-			}
-			b_tbilisi = {
-			}
-			b_svetitskhoveli = {
-			}
-			b_djvari = {
-			}
-			b_mtskheta = {
-			}
-			b_sioni = {
-			}
-			b_gori = {
-			} 
-			b_bebristsikhe = {
-			}
+			b_narikala = {}
+			b_tbilisi = {}
+			b_svetitskhoveli = {}
+			b_djvari = {}
+			b_mtskheta = {}
+			b_sioni = {}
+			b_gori = {} 
+			b_bebristsikhe = {}
 		}
 		c_tao = {
-			color={ 238 183 183 }
+			color={ 193 58 81 }
 			color2={ 255 255 255 }
 			
 			turkish = "Ahiska"
 			
-			b_panaskerti = {
-			}
-			b_artanuji = {
-			}
-			b_khakhuli = {
-			}
-			b_khertvisi = {
-			}
-			b_akhaltsikhe = {
-			}
-			b_oshki = {
-			}
-			b_vardzia = {
-			}
-			b_ughtik = {
-			}
+			b_panaskerti = {}
+			b_artanuji = {}
+			b_khakhuli = {}
+			b_khertvisi = {}
+			b_akhaltsikhe = {}
+			b_oshki = {}
+			b_vardzia = {}
+			b_ughtik = {}
 		}
 		c_guria = {
-			color={ 240 185 185 }
+			color={ 126 76 65 }
 			color2={ 255 255 255 }
 			
 			greek = "Lazike"
 			turkish = "Batum"
 			armenian = "Yeger"
 			
-			b_bukistsikhe = {
-			}
-			b_batum = {
-			}
-			b_udabno = {
-			}
-			b_gonio = {
-			}
-			b_ozurgeti = {
-			}
-			b_skhalta = {
-			}
-			b_tsikhisdziri = {
-			}
-			b_khula = {
-			}
+			b_bukistsikhe = {}
+			b_batum = {}
+			b_udabno = {}
+			b_gonio = {}
+			b_ozurgeti = {}
+			b_skhalta = {}
+			b_tsikhisdziri = {}
+			b_khula = {}
 		}
 		c_kakheti = {
-			color={ 202 147 147 }
+			color={ 27 142 218 }
 			color2={ 255 255 255 }
 			
-			b_zedazaden = {
+			b_zedazaden = {}
+			b_telavi = {}
+			b_sighnaghi = {}
+			b_dzveligalavani = {}
+			b_bochorma = {}
+			b_davidgareja = {}
+			b_gremi = {}
+			b_bodbe = {}
+		}
+	}
+	d_abkhazia = {
+		color={ 78 75 39 }
+		color2={ 255 255 255 }
+		
+		capital = 601 # Imeretia
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
+		c_kasogs = {
+			color={ 171 70 68 }
+			color2={ 255 255 255 }
+			
+			b_myequape = {}
+			b_samiran = {}
+			b_zikh = {}
+			b_bakhtarakhtar = {}
+			b_koshkhab = {}
+			b_ustdzeghuta = {}
+			b_sarytyuz = {}
+			b_eltarkan = {}
+		}		
+		c_imeretia = {
+			color={ 51 195 124 }
+			color2={ 255 255 255 }
+			
+			b_geguti = {}
+			b_kutaisi = {}
+			b_bagrati = {}
+			b_tsikhegoji = {}
+			b_khoni = {}
+			b_ghelati = {}
+			b_lentekhi = {}
+			b_motsameta = {}
+		}
+		c_abkhazia = {
+			color={ 31 222 145 }
+			color2={ 255 255 255 }
+			
+			b_abaatha = {}
+			b_tskhoumi = {}
+			b_pitsunda = {}
+			b_anakopia = {}
+			b_gagra = {}
+			b_egrisi = {}
+			b_bzyb = {}
+			b_zugdidi = {}
+		}
+	}
+}
+k_azerbaijan = {
+	color={ 255 142 20 }
+	color2={ 255 255 255 }
+	
+	capital = 667 #Tabriz
+	culture = persian
+	
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
 			}
-			b_telavi = {
-			}
-			b_sighnaghi = {
-			}
-			b_dzveligalavani = {
-			}
-			b_bochorma = {
-			}
-			b_davidgareja = {
-			}
-			b_gremi = {
-			}
-			b_bodbe = {
+		}
+		OR = {
+			culture = persian
+			k_azerbaijan = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
-	d_derbent = {
-		color={ 203 76 76 }
+
+	d_tabriz = {
+		color={ 58 83 130 }
 		color2={ 255 255 255 }
+		
+		capital = 666 # Gilan
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_oromieh = {
+			color={ 117 166 60 }
+			color2={ 255 255 255 }
+			
+			b_oroumieh = {}
+			b_khoy = {}
+			b_takhtesoleyman = {
+				holy_site = zoroastrian # The Great Fire of Adur Gushnasp
+			}
+			b_avajiq = {}
+			b_chaldiran = {}
+			b_charekelisa = {}
+			b_mahabad = {}
+			b_salmas = {}
+		}
+		c_gilan = {
+			color={ 42 215 170 }
+			color2={ 255 255 255 }
+			
+			b_gilan = {}
+			b_rasht = {}
+			b_talysh = {}
+			b_astara = {}
+			b_rudkhan = {}
+			b_lahijan = {}
+			b_masouleh = {}
+		}
+		c_tabriz = {
+			color={ 62 123 70 }
+			color2={ 255 255 255 }
+			
+			b_babak = {}
+			b_tabriz = {}
+			b_maragheh = {}
+			b_ahar = {}
+			b_zahhak = {}
+			b_sarab = {}
+			b_shabestar = {}
+			b_miyaneh = {}
+		}
+	}	
+	d_azerbaijan = {
+		color={ 240 132 20 }
+		color2={ 255 255 255 }
+		
+		capital = 670 # Azerbaijan
+		
+		culture = persian
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_shirvan = {
+			color={ 120 23 167 }
+			color2={ 255 255 255 }
+			
+			b_baku = {}
+			b_lankaran = {}
+			b_absheron = {}
+			b_shirvan = {}
+			b_shakhriyar = {} 
+			b_salyan = {}
+			b_khizirzinda = {}
+			b_altiagay = {}
+		}
+		c_azerbaijan = {
+			color={ 99 160 147 }
+			color2={ 255 255 255 }
+			
+			b_urmiah = {}
+			b_kapalak = {}
+			b_takhtesuleiman = {}
+			b_bastam = {}
+			b_maku = {} 
+			b_kalaberd = {}
+			b_chaldoran = {}
+			b_deglane = {}
+		}
+		c_suenik = {
+			color={ 25 224 89 }
+			color2={ 255 255 255 }
+			
+			turkish = "Kafan"
+			persian = "Kafan"
+			armenian = "Syunik"
+			
+			b_ghapan = {}
+			b_areni = {}
+			b_noravank = {}
+			b_vorotnavank = {}
+			b_tatev = {}
+			b_prochabert = {}
+			b_gandzassar = {}
+			b_goris = {}
+		}
+		c_shemakha = {
+			color={ 233 146 48 }
+			color2={ 255 255 255 }
+			
+			b_ahemakha = {}
+			b_quba = {}
+			b_shikhlar = {}
+			b_khachmaz = {}
+			b_chiraggala = {}
+			b_anig = {}
+			b_maraza = {}
+			b_khil = {}
+		}
+	}
+	d_derbent = {
+		color={ 236 159 89 }
+		color2={ 160 160 160 }
 		
 		capital = 674 # Derbent
 
@@ -5307,536 +5474,441 @@ k_georgia = {
 		alan = "Aghbania"
 		greek = "Albania"
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_albania = {
-			color={ 253 176 176 }
+			color={ 193 166 97 }
 			color2={ 255 255 255 }
 			
 			armenian = "Aghvank"
 			georgian = "Albaneti"
 
 			b_chukhurkabala = {
-			armenian = "Kabalak"
-			georgian = "Kabala"
-			alan = "Kabala"
+				armenian = "Kabalak"
+				georgian = "Kabala"
+				alan = "Kabala"
 			}
 			b_ganja = {
-			armenian = "Gandzak"
-			georgian = "Gandza"
-			alan = "Gandza"
+				armenian = "Gandzak"
+				georgian = "Gandza"
+				alan = "Gandza"
 			}
 			b_shaki = {
-			armenian = "Shake"
-			georgian = "Shake"
-			alan = "Shake"
+				armenian = "Shake"
+				georgian = "Shake"
+				alan = "Shake"
 			}
 			b_darussoltan = {
-			armenian = "Kaladasht"
-			georgian = "Kaladasht"
-			alan = "Kaladasht"
+				armenian = "Kaladasht"
+				georgian = "Kaladasht"
+				alan = "Kaladasht"
 			}
 			b_barda = {
-			armenian = "Partav"
-			georgian = "Bardavi"
-			alan = "Partavi"
+				armenian = "Partav"
+				georgian = "Bardavi"
+				alan = "Partavi"
 			}
 			b_emli = {
-			armenian = "Surp Yeghishe"
-			georgian = "Gish"
-			alan = "Kish"
+				armenian = "Surp Yeghishe"
+				georgian = "Gish"
+				alan = "Kish"
 			}
 			b_gelersengorersen = {
-			armenian = "Kalaberd"
-			georgian = "Kalaberd"
-			alan = "Kalaberd"
+				armenian = "Kalaberd"
+				georgian = "Kalaberd"
+				alan = "Kalaberd"
 			}
 			b_kabala = {
-			armenian = "Vartashen"
-			georgian = "Vardashen"
-			alan = "Vartashen"
+				armenian = "Vartashen"
+				georgian = "Vardashen"
+				alan = "Vartashen"
 			}
 		}
 		c_derbent = {
-			color={ 253 179 179 }
+			color={ 230 38 51 }
 			color2={ 255 255 255 }
 			
-			b_narinkala = {
-			}
-			b_derbent = {
-			}
-			b_juma = {
-			}
-			b_chikkulkan = {
-			}
-			b_kuli = {
-			}
-			b_tayus = {
-			}
-			b_humraj = {
-			}
-			b_datuna = {
-			}
+			b_narinkala = {}
+			b_derbent = {}
+			b_juma = {}
+			b_chikkulkan = {}
+			b_kuli = {}
+			b_tayus = {}
+			b_humraj = {}
+			b_datuna = {}
 		}
 		c_semender = {
-			color={ 253 182 182 }
+			color={ 89 228 71 }
 			color2={ 255 255 255 }
 			
-			b_kumukh = {
-			}
-			b_semender = {
-			}
-			b_khattibaku = {
-			}
-			b_khannalkala = {
-			}
-			b_balanjar = {
-			}
-			b_urtseki = {
-			}
-			b_burgaikala = {
-			}
-			b_tarki = {
-			}
-		}
-	}
-	d_abkhazia = {
-		color={ 255 173 196 }
-		color2={ 255 255 255 }
-		
-		capital = 601 # Imeretia
-		
-		c_imeretia = {
-			color={ 246 152 152 }
-			color2={ 255 255 255 }
-			
-			b_geguti = {
-			}
-			b_kutaisi = {
-			}
-			b_bagrati = {
-			}
-			b_tsikhegoji = {
-			}
-			b_khoni = {
-			}
-			b_ghelati = {
-			}
-			b_lentekhi = {
-			}
-			b_motsameta = {
-			}
-		}
-		c_abkhazia = {
-			color={ 254 160 160 }
-			color2={ 255 255 255 }
-			
-			b_abaatha = {
-			}
-			b_tskhoumi = {
-			}
-			b_pitsunda = {
-			}
-			b_anakopia = {
-			}
-			b_gagra = {
-			}
-			b_egrisi = {
-			}
-			b_bzyb = {
-			}
-			b_zugdidi = {
-			}
-		}
-		c_kasogs = {
-			color={ 250 156 156 }
-			color2={ 255 255 255 }
-			
-			b_myequape = {
-			}
-			b_samiran = {
-			}
-			b_zikh = {
-			}
-			b_bakhtarakhtar = {
-			}
-			b_koshkhab = {
-			}
-			b_ustdzeghuta = {
-			}
-			b_sarytyuz = {
-			}
-			b_eltarkan = {
-			}
-		}
-	}
-}
-k_venice = {
-	color = { 54 167 156 }
-	capital = 356 # Venice
-	culture = italian
-	
-	dignity = 200 # Never want the Republic of Venice to change primary title
-	
-	allow = {
-		is_republic = yes
-	}
-	
-	d_venice = {
-		color = { 34 137 126 }
-		capital = 356 # Venice
-		
-		dignity = 10
-		
-		c_venezia = {
-			color = { 40 143 132 }
-			color2 = { 255 255 255 }
-			
-			b_venezia = {
-			}
-			b_rialto = {
-			}
-			b_pallestrina = {
-			}
-			b_lido = {
-			}
-			b_jesolo = {
-			}
-			b_murano = {
-			}
-			b_torcello = {
-			}
-			b_fusina = {
-			}
+			b_kumukh = {}
+			b_semender = {}
+			b_khattibaku = {}
+			b_khannalkala = {}
+			b_balanjar = {}
+			b_urtseki = {}
+			b_burgaikala = {}
+			b_tarki = {}
 		}
 	}
 }
 k_italy = {
-	color={ 244 227 160 }
+	color = { 31 138 40 }
 	color2={ 255 255 255 }
-	#capital = 235 # Lombardia
 	
-	capital = 234 # Pavia
+	capital = 235 # Lombardia
 	
 	culture = italian
 	
-	# Creation/usurpation trigger
+	christian = 1000 #Crusade target weight
+	hellenic_pagan = 1000 #Crusade target weight
+	
 	allow = {
-		hidden_tooltip = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
 			OR = {
-				ai = no
-				religion_group = christian
+				AND = {
+					has_landed_title = e_byzantium
+					ai = yes
+				}
+				religion = hellenic_pagan
+			}
+		}
+		OR = {
+			culture = italian
+			k_italy = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
-	
-	christian = 10000 # Crusade target weight
 
 	d_verona = {
-		color={ 170 255 170 }
+		color={ 165 255 250 }
 		color2={ 255 255 255 }
 		
 		capital = 319 # Verona
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_treviso = {
-			color={ 251 226 226 }
+			color={ 26 238 23 }
 			color2={ 255 255 255 }
 			
-			b_treviso = {
-			}
-			b_bassano = {
-			}
-			b_oderzo = {
-			}
-			b_castelfranco = {
-			}
-			b_asola = {
-			}
-			b_citadella = {
-			}
-			b_ceneda = {
-			}
-			b_paese = {
-			}
+			b_treviso = {}
+			b_bassano = {}
+			b_oderzo = {}
+			b_castelfranco = {}
+			b_asola = {}
+			b_citadella = {}
+			b_ceneda = {}
+			b_paese = {}
 		}
 		c_verona = {
-			color={ 255 230 230 }
+			color={ 180 213 109 }
 			color2={ 255 255 255 }
 			
-			b_verona = {
-			}
-			b_vicenza = {
-			}
-			b_sanmartino = {
-			}
-			b_schio = {
-			}
-			b_montecchio = {
-			}
-			b_arzignano = {
-			}
-			b_lonigo = {
-			}
-			b_barbarano = {
-			}
+			b_verona = {}
+			b_vicenza = {}
+			b_sanmartino = {}
+			b_schio = {}
+			b_montecchio = {}
+			b_arzignano = {}
+			b_lonigo = {}
+			b_barbarano = {}
 		}
 		c_padova = {
-			color={ 255 234 234 }
+			color={ 234 234 234 }
 			color2={ 255 255 255 }
 			
-			b_padova = {
-			}
-			b_este = {
-			}
-			b_polesine = {
-			}
-			b_montagnana = {
-			}
-			b_adria = {
-			}
-			b_chioggia = {
-			}
-			b_rovigo = {
-			}
-			b_vigonza = {
-			}
+			b_padova = {}
+			b_este = {}
+			b_polesine = {}
+			b_montagnana = {}
+			b_adria = {}
+			b_chioggia = {}
+			b_rovigo = {}
+			b_vigonza = {}
 		}
 		c_mantua = {
-			color={ 255 238 238 }
+			color={ 62 108 9 }
 			color2={ 255 255 255 }
 			
-			b_mantua = {
-			}
-			b_serravalle = {
-			}
-			b_castellucchio = {
-			}
-			b_gonzaga = {
-			}
-			b_marmirolo = {
-			}
-			b_curtatone = {
-			}
-			b_virgilio = {
-			}
-			b_bagnolosanvito = {
-			}
+			b_mantua = {}
+			b_serravalle = {}
+			b_castellucchio = {}
+			b_gonzaga = {}
+			b_marmirolo = {}
+			b_curtatone = {}
+			b_virgilio = {}
+			b_bagnolosanvito = {}
 		}
 	}
-	
 	d_susa = {
-		color={ 191 158 158 }
+		color={ 114 122 38 }
 		color2={ 255 255 255 }
 		
-		capital = 236 # Piemonte
+		capital = 231 #Saluzzo
+		#capital = 958 # Suze  CHANGE AFTER ADDING c_suze
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
+		c_saluzzo = {
+			color={ 245 119 28 }
+			color2={ 255 255 255 }
+			
+			b_saluzzo = {}
+			b_pinerolo = {} 
+			b_cuneo = {}
+			b_savigliano = {}
+			b_busca = {}
+			b_paesana = {}
+			b_verzuolo = {}
+			b_caraglio = {}
+		}
+		#c_mondovi = {  NEW, must create
+		#	color={ 55 146 176 }
+		#	color2={ 255 255 255 }
+		#	b_mondovi = {}
+		#	b_perlo ={}
+		#	b_garessio = {}
+		#	b_nucetto = {}
+		#}		
+		#c_suze = {
+		#	color={ 255 146 76 }
+		#	color2={ 255 255 255 }
+		#	b_suza = {}
+		#	b_bussoleno = {}
+		#	b_caprie = {}
+		#}
+	}
+	d_piedmont = {
+		color={ 114 222 38 }
+		color2={ 255 255 255 }
+		
+		culture = italian
+		capital = 236 #Piemonte
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 		
 		c_piemonte = {
-			color={ 104 12 38 }
+			color={ 169 225 129 }
 			color2={ 255 255 255 }
 			
-			b_ivrea = {
-			}
-			b_torino = {
-			}
-			b_settimo = {
-			}
-			b_auriate = {
-			}
-			b_novara = {
-			}
-			b_ferrero = {
-			}
-			b_messarano = {
-			}
-			b_crevacuore = {
-			}
+			b_ivrea = {}
+			b_torino = {}
+			b_settimo = {}
+			b_auriate = {}
+			b_novara = {}
+			b_ferrero = {}
+			b_messarano = {}
+			b_crevacuore = {}
 		}
-		
-		c_saluzzo = {
-			color={ 155 46 76 }
-			color2={ 255 255 255 }
-			
-			b_saluzzo = {
-			}
-			b_pinerolo = {
-			} 
-			b_cuneo = {
-			}
-			b_savigliano = {
-			}
-			b_busca = {
-			}
-			b_paesana = {
-			}
-			b_verzuolo = {
-			}
-			b_caraglio = {
-			}
-		}
-		
 		c_monferrato = {
-			color={ 250 244 225 }
+			color={ 122 87 160 }
 			color2={ 255 255 255 }
 			
-			b_monferrato = {
-			}
-			b_casale = {
-			}
-			b_asti = {
-			}
-			b_acqui = {
-			}
-			b_tortona = {
-			}
-			b_biella = {
-			}
-			b_alba = {
-			}
-			b_canelli = {
-			}
+			b_monferrato = {}
+			b_casale = {}
+			b_acqui = {}
+			b_biella = {}
+			b_alba = {}
+			b_valenza = {}
+			b_ovada = {}
 		}
-	}
-	
+		#c_asti = {
+		#	color={ 160 0 0 }
+		#	color2={ 255 255 255 }
+		#	b_asti = {}
+		#	b_canelli = {}
+		#	b_sansamiano = {}
+		#	b_costigliole = {}
+		#}
+		#c_alessandria = {
+		#	color={ 55 43 32 }
+		#	color2={ 255 255 255 }
+		#	b_alessandria = {}
+		#	b_solero = {}
+		#}
+	}	
 	d_lombardia = {
 		color={ 200 133 222 }
 		color2={ 255 255 255 }
 		capital = 235 # Lombardia
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_brescia = {
-			color={ 249 235 224 }
+			color={ 192 166 151 }
 			color2={ 255 255 255 }
 			
-			b_brescia = {
-			}
-			b_bergamo = {
-			}
-			b_peschiera = {
-			}
-			b_treviglio = {
-			}
-			b_salo = {
-			}
-			b_lumezzane = {
-			}
-			b_montichiari = {
-			}
-			b_castiglione = {
-			}
+			b_brescia = {}
+			b_bergamo = {}
+			b_peschiera = {}
+			b_treviglio = {}
+			b_salo = {}
+			b_lumezzane = {}
+			b_montichiari = {}
+			b_castiglione = {}
 		}
 		c_lombardia = {
-			color={ 251 237 226 }
+			color={ 194 87 206 }
 			color2={ 255 255 255 }
 			
-			b_milano = {
-			}
-			b_monza = {
-			}
-			b_como = {
-			}
-			b_lodi = {
-			}
-			b_vigevano = {
-			}
-			b_maggiore = {
-			}
-			b_legnano = {
-			}
-			b_chiavenna = {
-			}
+			b_milano = {}
+			b_monza = {}
+			b_como = {}
+			b_lodi = {}
+			b_vigevano = {}
+			b_maggiore = {}
+			b_legnano = {}
+			b_chiavenna = {}
 		}
 		c_trent = {
-			color={ 253 239 228 }
+			color={ 152 90 90 }
 			color2={ 255 255 255 }
-
 			
-			b_trento = {
-			}
-			b_brixen = {
-			}
-			b_bozen = {
-			}
-			b_meran = {
-			}
-			b_schlanders = {
-			}
-			b_bruneck = {
-			} 
-			b_riva = {
-			}
-			b_rovereto = {
-			}
-		}
-		
+			b_trento = {}
+			b_brixen = {}
+			b_bozen = {}
+			b_meran = {}
+			b_schlanders = {}
+			b_bruneck = {} 
+			b_riva = {}
+			b_rovereto = {}
+		}		
 		c_pavia = {
-			color={ 255 243 232 }
+			color={ 162 246 185 }
 			color2={ 255 255 255 }
 			
-			b_pavia = {
-			}
-			b_bobbio = {
-			}
-			b_piacenza = {
-			}
-			b_voghera = {
-			}
-			b_alessandria = {
-			}
-			b_casteggio = {
-			}
-			b_colorno = {
-			}
-			b_montebello = {
-			}
-		}
-		c_cremona = {
-			color={ 255 245 234 }
-			color2={ 255 255 255 }
-			
-			b_cremona = {
-			}
-			b_crema = {
-			}
-			b_sospiro = {
-			}
-			b_vescovato = {
-			}
-			b_viadana = {
-			}
-			b_castelgoffredo = {
-			}
-			b_casalmaggiore = {
-			}
-			b_manerbio = {
-			}
+			b_pavia = {}
+			b_bobbio = {}
+			b_piacenza = {}
+			b_voghera = {}
+			b_casteggio = {}
+			b_colorno = {}
+			b_montebello = {}
 		}
 	}
 	d_genoa = {
-		color={ 244 141 120 }
+		color={ 244 181 140 }
 		color2={ 255 255 255 }
 		
-		capital = 233 # Genoa
-		
+		capital = 233 # Genoa		
 		dignity = 10
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_genoa = {
-			color={ 253 247 228 }
+			color={ 187 158 26 }
 			color2={ 255 255 255 }
 			
-			b_genoa = {
-			}
-			b_rapallo = {
-			}
-			b_luna = {
-			}
-			b_ventimiglia = {
-			}
-			b_savona = {
-			}
-			b_chiavari = {
-			}
-			b_albenga = {
-			}
-			b_fosdinovo = {
-			}
+			b_genoa = {}
+			b_rapallo = {}
+			b_luna = {}
+			b_chiavari = {}
+			b_fosdinovo = {}
+			b_arenzano = {}
+			b_recco = {}
+			b_sestrilevante = {}
+			b_lavagna = {}
 		}
+		c_nice = {
+			color={ 131 112 237 }
+			color2={ 255 255 255 }
+			
+			b_nizza = {}
+			b_monaco = {}
+			b_mentone = {}
+			b_antibes = {}
+			b_lantosque = {}
+			b_contes = {}
+		}
+		#c_savona = {  NEW, must create
+		#	color={ 255 190 75 }
+		#	color2={ 212 0 0 }
+		#
+		#	b_savona = {}
+		#	b_albenga = {}
+		#	b_finale = {}
+		#	b_alassio = {}
+		#	b_varazze = {}
+		#}
+		#c_vintimille = {  NEW, must create
+		#	color={ 255 0 0 }
+		#	color2={ 255 216 0 }
+		#	
+		#	b_ventimiglia = {}
+		#	b_sanremo = {}
+		#	b_campogrosso = {}
+		#	b_dolceacqua = {}
+		#	b_apricale = {}
+		#	b_sanbartolomeo = {}
+		#}
+		#c_noli = {  NEW, must create
+		#	color={ 250 0 0 }
+		#	color2={ 250 250 250 }
+		#	
+		#	b_noli = {}
+		#	b_spotorno = {}
+		#	b_orcofeglino = {}
+		#	b_mallare = {}
+		#	b_vadoligure = {}
+		#}
+		#c_laspezia = {  NEW, must create
+		#	color={ 0 135 240 }
+		#	color2={ 220 150 40 }
+		#	
+		#	b_sarzana = {}
+		#	b_laspezia = {}
+		#	b_arcola = {}
+		#	b_lerici = {}
+		#	b_santostefano = {}
+		#	b_ortonovo = {}
+		#	b_castelnuovo = {}
+		#}		
 	}	
 	d_modena = {
 		color={ 225 180 180 }
@@ -5844,244 +5916,227 @@ k_italy = {
 		
 		capital = 322 # Modena
 		
-		c_modena = {
-			color={ 251 250 226 }
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
+		#c_tortone = {  NEW, must create
+		#	color={ 155 143 132 }
+		#	color2={ 255 255 255 }
+		#
+		#	b_tortona = {}
+		#	b_casasco = {}
+		#	b_momperone = {}
+		#	b_montegioco = {}
+		#	b_sarezzano = {}
+		#}		
+		c_cremona = {
+			color={ 60 171 158 }
 			color2={ 255 255 255 }
 			
-			b_modena = {
-			}
-			b_reggionellemila = {
-			}
-			b_carpi = {
-			}
-			b_mirandola = {
-			}
-			b_novellara = {
-			}
-			b_sabbioneta = {
-			}
-			b_sassuolo = {
-			}
-			b_bomporto = {
-			}
+			b_cremona = {}
+			b_crema = {}
+			b_sospiro = {}
+			b_vescovato = {}
+			b_viadana = {}
+			b_castelgoffredo = {}
+			b_casalmaggiore = {}
+			b_manerbio = {}
+		}		
+		c_modena = {
+			color={ 215 18 28 }
+			color2={ 255 255 255 }
+			
+			b_modena = {}
+			b_reggionellemila = {}
+			b_carpi = {}
+			b_mirandola = {}
+			b_novellara = {}
+			b_sabbioneta = {}
+			b_sassuolo = {}
+			b_bomporto = {}
 		}
 		c_parma = {
-			color={ 255 254 230 }
+			color={ 222 56 107 }
 			color2={ 255 255 255 }
 			
-			b_parma = {
-			}
-			b_massa = {
-			}
-			b_guastalla = {
-			}
-			b_fornovo = {
-			}
-			b_fidenza = {
-			}
-			b_fontanellato = {
-			}
-			b_laspezia = {
-			}
-			b_noceto = {
-			}
+			b_parma = {}
+			b_massa = {}
+			b_guastalla = {}
+			b_fornovo = {}
+			b_fidenza = {}
+			b_fontanellato = {}
+			b_noceto = {}
 		}
 	}	
 	d_ferrara = {
-		color={ 244 180 130 }
+		color={ 180 244 130 }
 		color2={ 255 255 255 }
 		
 		capital = 351 # Ravenna
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_bologna = {
-			color={ 244 180 130 }
+			color={ 116 151 214 }
 			color2={ 255 255 255 }
 			
-			b_faenza = {
-			}
-			b_bologna = {
-			}
-			b_forli = {
-			}
-			b_imola = {
-			}
-			b_bentivoglio = {
-			}
-			b_budno = {
-			}
-			b_castelguelfo = {
-			}
-			b_bagnacavallo = {
-			}
+			b_faenza = {}
+			b_bologna = {}
+			b_forli = {}
+			b_imola = {}
+			b_bentivoglio = {}
+			b_budno = {}
+			b_castelguelfo = {}
+			b_bagnacavallo = {}
 		}
 		c_ferrara = {
-			color={ 244 180 130 }
+			color={ 149 214 82 }
 			color2={ 255 255 255 }
 			
-			b_ferrara = {
-			}
-			b_commacchio = {
-			}
-			b_tresigallo = {
-			}
-			b_occhiobello = {
-			}
-			b_copparo = {
-			}
-			b_codigoro = {
-			}
-			b_bondeno = {
-			}
-			b_voghiera = {
-			}
+			b_ferrara = {}
+			b_commacchio = {}
+			b_tresigallo = {}
+			b_occhiobello = {}
+			b_copparo = {}
+			b_codigoro = {}
+			b_bondeno = {}
+			b_voghiera = {}
 		}
 		c_ravenna = {
-			color={ 244 180 130 }
+			color={ 133 16 211 }
 			color2={ 255 255 255 }
 			
-			b_ravenna = {
-			}
-			b_cesena = {
-			}
-			b_cervia = {
-			}
-			b_russi = {
-			}
-			b_alfonsine = {
-			}
-			b_cesenatico = {
-			}
-			b_gambettola = {
-			}
-			b_gatteo = {
-			}
+			b_ravenna = {}
+			b_cesena = {}
+			b_cervia = {}
+			b_russi = {}
+			b_alfonsine = {}
+			b_cesenatico = {}
+			b_gambettola = {}
+			b_gatteo = {}
 		}
 	}	
 	d_toscana = {
-		color = { 222 186 25 }
+		color={ 199 206 0 }
 		color2={ 255 255 255 }
 		
 		capital = 328 # Firenze
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_lucca = {
-			color = { 232 186 25 }
+			color={ 82 96 193 }
 			color2={ 255 255 255 }
 			
-			b_lucca = {
-			}
-			b_pistoia = {
-			}
-			b_cascina = {
-			}
-			b_altopascio = {
-			}
-			b_viareggio = {
-			}
-			b_seravezza = {
-			}
-			b_capannori = {
-			}
-			b_calcinaia = {
-			}
+			b_lucca = {}
+			b_pistoia = {}
+			b_cascina = {}
+			b_altopascio = {}
+			b_viareggio = {}
+			b_seravezza = {}
+			b_capannori = {}
+			b_calcinaia = {}
 		}
 		c_firenze = {
-			color = { 232 190 25 }
+			color={ 198 61 161 }
 			color2={ 255 255 255 }
 				
-			b_firenze = {
-			}
-			b_arezzo = {
-			}
-			b_prato = {
-			}
-			b_fiesole = {
-			}
-			b_montevarchi = {
-			}
-			b_certaldo = {
-			}
-			b_lucignano = {
-			}
-			b_sansepolcro = {
-			}
+			b_firenze = {}
+			b_arezzo = {}
+			b_prato = {}
+			b_fiesole = {}
+			b_montevarchi = {}
+			b_certaldo = {}
+			b_lucignano = {}
+			b_sansepolcro = {}
 		}
 		c_siena = {
-			color = { 212 176 30 }
+			color={ 104 141 11 }
 			color2={ 255 255 255 }
 				
-			b_siena = {
-			}
-			b_cortona = {
-			}
-			b_pienza = {
-			}
-			b_montepulciano = {
-			}
-			b_montalcino = {
-			}
-			b_sangimignano = {
-			}
-			b_colledievaldelsa = {
-			}
-			b_monteriggioni = {
-			}
+			b_siena = {}
+			b_cortona = {}
+			b_pienza = {}
+			b_montepulciano = {}
+			b_montalcino = {}
+			b_sangimignano = {}
+			b_colledievaldelsa = {}
+			b_monteriggioni = {}
 		}
 	}	
 	d_pisa = {
-		color={ 196 192 140 }
+		color={ 125 125 216 }
 		color2={ 255 255 255 }
 		
 		capital = 327 # Pisa
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_pisa = {
-			color={ 232 251 226 }
+			color={ 94 136 63 }
 			color2={ 255 255 255 }
 			
-			b_pisa = {
-			}
-			b_livorno = {
-			}
-			b_canefro = {
-			}
-			b_volterra = {
-			}
-			b_vicopisano = {
-			}
-			b_sanminiato = {
-			}
-			b_portoferraio = {
-			}
-			b_giglio = {
-			}
+			b_pisa = {}
+			b_livorno = {}
+			b_canefro = {}
+			b_volterra = {}
+			b_vicopisano = {}
+			b_sanminiato = {}
+			b_portoferraio = {}
+			b_giglio = {}
 		}
 		c_piombino = {
-			color={ 236 255 230 }
+			color={ 167 234 52 }
 			color2={ 255 255 255 }
 			
-			b_piombino = {
-			}
-			b_suvereto = {
-			}
-			b_radicofani = {
-			}
-			b_populonia = {
-			}
-			b_campiglia = {
-			}
-			b_follonica = {
-			}
-			b_sanvincenzo = {
-			}
+			b_piombino = {}
+			b_suvereto = {}
+			b_radicofani = {}
+			b_populonia = {}
+			b_campiglia = {}
+			b_follonica = {}
+			b_sanvincenzo = {}
 		}
 	}	
 	d_ancona = {
-		color={ 230 227 180 }
+		color={ 0 140 210 }
 		color2={ 255 255 255 }
 		
 		capital = 350 # Ancona
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_ancona = {
-			color={ 224 249 224 }
+			color={ 5 244 134 }
 			color2={ 255 255 255 }
 			
 			greek = "Ankon"
@@ -6089,103 +6144,96 @@ k_italy = {
 			b_ancona = {
 				greek = "Ankon"
 			}
-			b_pesaro = {
-			}
-			b_rimini = {
-			}
-			b_matelica = {
-			}
-			b_osimo = {
-			}
-			b_fermo = {
-			}
-			b_recanati = {
-			}
-			b_camerino = {
-			}
+			b_pesaro = {}
+			b_rimini = {}
+			b_matelica = {}
+			b_osimo = {}
+			b_fermo = {}
+			b_recanati = {}
+			b_camerino = {}
 		}
 		c_urbino = {
-			color={ 226 251 226 }
+			color={ 99 200 51 }
 			color2={ 255 255 255 }
 			
-			b_urbino = {
-			}
-			b_sanseverino = {
-			}
-			b_sanmarino = {
-			}
-			b_montefeltro = {
-			}
-			b_gubbio = {
-			}
-			b_fano = {
-			}
-			b_cittadicastello = {
-			}
-			b_fossombrone = {
-			}
+			b_urbino = {}
+			b_sanseverino = {}
+			b_sanmarino = {}
+			b_montefeltro = {}
+			b_gubbio = {}
+			b_fano = {}
+			b_cittadicastello = {}
+			b_fossombrone = {}
 		}
+		#c_marche = {  NEW, must create
+		#	color={ 255 216 0 }
+		#	color2={ 255 0 0 }
+		#	
+		#	b_pesaro = {}
+		#	b_rimini = {}
+		#	b_matelica = {}
+		#	b_fermo = {}
+		#	b_recanati = {}
+		#	b_ascolipiceno = {}
+		#	b_macerata = {}
+		#	b_civitanova = {}
+		#	b_tolentino = {}
+		#}
 	}	
 	d_spoleto = {
-		color={ 217 182 153 }
+		color={ 167 172 63 }
 		color2={ 255 255 255 }
 		
 		capital = 349 # Spoleto
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_spoleto = {
-			color={ 225 250 235 }
+			color={ 191 191 140 }
 			color2={ 255 255 255 }
 			
-			b_spoleto = {
-			}
-			b_perugia = {
-			}
-			b_assisi = {
-			}
-			b_nursia = {
-			}
-			b_todi = {
-			}
-			b_valva = {
-			}
-			b_terni = {
-			}
-			b_foligno = {
-			}
+			b_spoleto = {}
+			b_perugia = {}
+			b_assisi = {}
+			b_todi = {}
+			b_terni = {}
+			b_foligno = {}
 		}
-		
 		c_aprutium = {
 			color={ 205 210 205 }
 			color2={ 255 255 255 }
 			
 			greek = "Interamnion"
 			
-			b_avezzano = {
-			}
-			b_pescara = {
-			}
-			b_chieti = {
-			}
-			b_teramo = {
-			}
-			b_atri = {
-			}
-			b_aprutium_penne = {
-			}
-			b_paganica = {
-			}
-			b_aquila = {
-			}
+			b_avezzano = {}
+			b_pescara = {}
+			b_teramo = {}
+			b_atri = {}
+			b_aprutium_penne = {}
+			b_paganica = {}
 		}
 	}
-	
 	d_latium = {
-		color={ 254 245 160 }
+		color={ 254 245 45 }
 		color2={ 255 255 255 }
 		
 		capital = 333 # Rome
 		
 		christian = 750 # Crusade target weight
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 		
 		c_roma = {
 			color={ 242 233 156 }
@@ -6202,156 +6250,295 @@ k_italy = {
 				holy_site = pagan
 				used_for_dynasty_names = no
 			}
-			b_viterbo = {
-			}
-			b_tusculum = {
-			}
-			b_tivoli = {
-			}
-			b_ostia = {
-			}
-			b_sutri = {
-			}
-			b_aragni = {
-			}
-			b_terracina = {
-			}
+			b_viterbo = {}
+			b_tusculum = {}
+			b_tivoli = {}
+			b_ostia = {}
+			b_sutri = {}
+			b_aragni = {}
+			b_terracina = {}
 		}
-		
 		c_orvieto = {
-			color={ 228 253 238 }
+			color={ 47 96 21 }
 			color2={ 255 255 255 }
 			
-			b_orvieto = {
-			}
-			b_narni = {
-			}
-			b_alviano = {
-			}
-			b_montecastrilli = {
-			}
-			b_otricoli = {
-			}
-			b_amelia = {
-			}
-			b_baschi = {
-			}
-			b_ciconia = {
-			}
+			b_orvieto = {}
+			b_narni = {}
+			b_alviano = {}
+			b_montecastrilli = {}
+			b_otricoli = {}
+			b_amelia = {}
+			b_baschi = {}
+			b_ciconia = {}
 		}
-		
 		c_orbetello = {
-			color={ 240 255 234 }
+			color={ 96 158 61 }
 			color2={ 255 255 255 }
 			
-			b_orbetello = {
-			}
-			b_grosseto = {
-			}
-			b_pitigliano = {
-			}
-			b_roselle = {
-			}
-			b_sorano = {
-			}
-			b_sovana = {
-			}
-			b_vetulonia = {
-			}
-			b_rusellae = {
-			}
+			b_orbetello = {}
+			b_grosseto = {}
+			b_pitigliano = {}
+			b_roselle = {}
+			b_sorano = {}
+			b_sovana = {}
+			b_vetulonia = {}
+			b_rusellae = {}
 		}
 	}
-	
 	d_sardinia = {
 		color={ 217 159 255 }
 		color2={ 255 255 255 }
 		
 		capital = 326 # Cagliari
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_corsica = {
-			color={ 226 248 251 }
+			color={ 210 155 229 }
 			color2={ 255 255 255 }
 			
-			b_ajaccio = {
-			}
-			b_bonifacio = {
-			}
-			b_bastia = {
-			}
-			b_portevecchio = {
-			}
-			b_filitosa = {
-			}
-			b_corte = {
-			}
-			b_sartene = {
-			}
-			b_aleria = {
-			}
+			b_ajaccio = {}
+			b_bonifacio = {}
+			b_bastia = {}
+			b_portevecchio = {}
+			b_filitosa = {}
+			b_corte = {}
+			b_sartene = {}
+			b_aleria = {}
 		}
 		c_arborea = {
-			color={ 170 182 225 }
+			color={ 79 187 12 }
 			color2={ 255 255 255 }
 			
-			b_oristano = {
-			}
-			b_ardara = {
-			}
-			b_sassari = {
-			}
-			b_portotorres = {
-			}
-			b_olbia = {
-			}
-			b_ottana = {
-			}
-			b_tharros = {
-			}
-			b_santaigia = {
-			}
+			b_oristano = {}
+			b_tharros = {}
+			b_arborea = {}
+			b_ottana = {}
+			b_terralba = {}
+			b_santagiusta = {}
 		}
 		c_cagliari = {
-			color={ 170 200 170 }
+			color={ 150 250 150 }
 			color2={ 255 255 255 }
 			
-			b_cagliari = {
-			}
-			b_ogliastra = {
-			}
-			b_assemini = {
-			}
-			b_sanluri = {
-			}
-			b_muravera = {
-			}
-			b_dolianova = {
-			}
-			b_carbonia = {
-			}
-			b_capoterra = {
+			b_cagliari = {}
+			b_ogliastra = {}
+			b_assemini = {}
+			b_sanluri = {}
+			b_muravera = {}
+			b_dolianova = {}
+			b_carbonia = {}
+			b_capoterra = {}
+		}
+		#c_logudoro = {  NEW, must create
+		#	color={ 180 180 180 }
+		#	color2={ 255 255 255 }
+		#	
+		#	b_portotorres = {}
+		#	b_ardara = {}
+		#	b_sassari = {}
+		#	b_nuoro = {}
+		#	b_alghero = {}
+		#	b_ozieri = {}
+		#	b_ittiri = {}
+		#}
+	}
+}
+k_venice = {
+	color = { 54 167 156 }
+	color2={ 255 255 255 }
+	
+	capital = 356 # Venice
+	culture = italian
+	
+	dignity = 200 # Never want the Republic of Venice to change primary title
+	
+	allow = {
+		is_republic = yes
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
 			}
 		}
-	}	
+		OR = {
+			culture = italian
+			k_venice = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+	
+	d_venice = {
+		color = { 34 137 126 }
+		color2= { 255 216 0 }
+		
+		capital = 356 # Venice
+		
+		dignity = 10
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_venezia = {
+			color = { 40 143 132 }
+			color2 = { 255 255 255 }
+			
+			b_venezia = {}
+			b_rialto = {}
+			b_pallestrina = {}
+			b_lido = {}
+			b_jesolo = {}
+			b_murano = {}
+			b_torcello = {}
+			b_fusina = {}
+		}
+	}
 }
 k_sweden = {
-	color={ 55 112 170 }
+	color={ 94 136 191 }
 	color2={ 255 255 0 }
+	
 	capital = 290 # Uppland
 	
 	dignity = 10 # Counted as having this many more counties than it does
 	
 	culture = swedish
-	
-	catholic = 100 # Crusade target weight
-	baltic_pagan_reformed = 50 # Crusade target weight
-	finnish_pagan_reformed = 50
+
+	catholic = 10 #Crusade target weight
+	baltic_pagan_reformed = 5 # Crusade target weight
+	finnish_pagan_reformed = 5
+	norse_pagan_reformed = 10
 	
 	norse = Sviþjod
 
-	d_uppland = {
-		color={ 20 20 145 }
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = swedish
+			culture = norse
+			k_sweden = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
+
+	d_jamtland = {
+		color={ 15 199 239 }
 		color2={ 255 255 255 }
+		
+		capital = 282 # Jamtland
+		
+		norwegian = "Jemtland"
+		danish = "Jemtland"
+		norse = "Jamtaland"
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_medelpad = {
+			color={ 189 40 245 }
+			color2={ 255 255 255 }
+			
+			b_selanger = {}
+			b_alno = {
+				norwegian = "Alnø"
+				danish = "Alnø"
+			}
+			b_njurunda = {}
+			b_skon = {
+				norwegian = "Skøn"
+				danish = "Skøn"
+			}
+			b_liden = {}
+			b_otman = {}
+			b_torp = {}
+			b_sundsvall = {}
+		}
+		c_halsingland = {
+			color={ 221 37 57 }
+			color2={ 255 255 255 }
+			
+			norwegian = "Helsingland"
+			danish = "Helsingland"
+			norse = "Helsingland"
+			
+			b_norrala = {}
+			b_hog = {}
+			b_jattendal = {
+				norwegian = "Jættendal"
+				danish = "Jættendal"
+			}
+			b_forsa = {}
+			b_tasta = {}
+			b_nordanstig = {}
+			b_alir = {}
+			b_sundhed = {}
+		}
+		c_jamtland = {
+			color={ 191 155 45 }
+			color2={ 255 255 255 }
+			
+			norwegian = "Jemtland"
+			danish = "Jemtland"
+			norse = "Jamtaland"
+			
+			b_mjalleborgen = {}
+			b_husan = {}
+			b_vasterhus = {}
+		}
+		c_herjedalen = {
+			color={ 129 231 104 }
+			color2={ 255 255 255 }
+			
+			swedish = "Härjedalen"
+			norse = "Herjadal"
+			
+			b_sveg = {}
+			b_hogvalen = {}
+			b_tannas = {}
+		}
+	}
+	d_uppland = {
+		color={ 119 14 19 }
+		color2={ 255 188 0 }
 		
 		norse_pagan_reformed = 500 # Crusade target weight
 		
@@ -6374,12 +6561,19 @@ k_sweden = {
 			religion = "norse_pagan"
 		}
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_uppland = {
-			color={ 30 30 155 }
+			color={ 5 215 255 }
 			color2={ 255 255 255 }
 			
-			b_sigtuna = {
-			}
+			b_sigtuna = {}
 			b_uppsala = {
 				norse = Uppsalir			
 				holy_site = norse_pagan
@@ -6389,8 +6583,7 @@ k_sweden = {
 				norwegian = "Østerås"
 				danish = "Østerås"
 			}
-			b_hatuna = {
-			}
+			b_hatuna = {}
 			b_stockholm = {
 				used_for_dynasty_names = no
 			}
@@ -6402,51 +6595,37 @@ k_sweden = {
 				norwegian = "Alsnø"
 				danish = "Alsnø"
 			}
-			b_vaksala = {
-			}
-			b_birka = {
-			}
+			b_vaksala = {}
+			b_birka = {}
 		}
 		c_gastrikland = {
-			color={ 30 30 155 }
+			color={ 105 182 246 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Gestrikland"
 			danish = "Gestrikland"
 			
-			b_valbo = {
-			}
-			b_hille = {
-			}
+			b_valbo = {}
+			b_hille = {}
 			b_farnebo = {
 				norwegian = "Færnebo"
 				danish = "Færnebo"
 			}
-			b_hedesunda = {
-			}
-			b_ockelbo = {
-			}
-			b_torsaker = {
-			}
-			b_hamrange = {
-			}
-			b_arsunda = {
-			}
+			b_hedesunda = {}
+			b_ockelbo = {}
+			b_torsaker = {}
+			b_hamrange = {}
+			b_arsunda = {}
 		}
 		c_aland = {
-			color = { 44 44 215 }
+			color={ 186 196 33 }
 			color2 = { 255 255 255 }
 			
-			b_kastelholm = {
-			}
-			b_sund = {
-			}
-			b_geta = {
-			}
-			b_saltvik = {
-			}
-			b_godby = {
-			}
+			b_kastelholm = {}
+			b_sund = {}
+			b_geta = {}
+			b_saltvik = {}
+			b_godby = {}
 			b_finstrom = {
 				norwegian = "Finstrøm"
 				danish = "Finstrøm"
@@ -6455,11 +6634,29 @@ k_sweden = {
 				norwegian = "Eckerø"
 				danish = "Eckerø"
 			}
-			b_kumlinge = {
-			}
+			b_kumlinge = {}
 		}
+	}
+	d_ostergotland = {
+		color={ 29 40 103 }
+		color2={ 255 255 255 }
+		
+		capital = 293 # Östergötland
+		
+		norwegian = "Østergøtland"
+		danish = "Østergøtland"
+		norse = "Austergautland"
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
 		c_sodermanland = {
-			color={ 50 35 225 }
+			color={ 112 43 158 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Sødermanland"
@@ -6470,10 +6667,8 @@ k_sweden = {
 				norwegian = "Nykøping"
 				danish = "Nykøbing"
 			}
-			b_telge = {
-			}
-			b_gripsholm = {
-			}
+			b_telge = {}
+			b_gripsholm = {}
 			b_strangnas = {
 				norwegian = "Strængnes"
 				danish = "Strængnæs"
@@ -6482,42 +6677,27 @@ k_sweden = {
 				norwegian = "Torshælla"
 				danish = "Torshælla"
 			}
-			b_eskilstuna = {
-			}
+			b_eskilstuna = {}
 			b_vaderbrunn = {
 				norwegian = "Væderbrunn"
 				danish = "Væderbrunn"
 			}
-			b_hundhamra = {
-			}
-		}
-	}
-	d_ostergotland = {
-		color={ 44 20 169 }
-		color2={ 255 255 255 }
-		
-		capital = 293 # Östergötland
-		
-		norwegian = "Østergøtland"
-		danish = "Østergøtland"
-		norse = "Austergautland"
-		
+			b_hundhamra = {}
+		}		
 		c_ostergotland = {
-			color={ 50 50 149 }
+			color={ 181 241 132 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Østergøtland"
 			danish = "Østergøtland"
 			norse = "Austergautland"
 			
-			b_stegeborg = {
-			}
+			b_stegeborg = {}
 			b_skanninge = {
 				norwegian = "Skænninge"
 				danish = "Skænninge"
 			}
-			b_vadstena = {
-			}
+			b_vadstena = {}
 			b_linkoping = {
 				norwegian = "Linkøping"
 				danish = "Linkøbing"
@@ -6530,10 +6710,8 @@ k_sweden = {
 				norwegian = "Søderkøping"
 				danish = "Søderkøbing"
 			}
-			b_alvastra = {
-			}
-			b_vreta = {
-			}
+			b_alvastra = {}
+			b_vreta = {}
 			b_nasborg = {
 				norwegian = "Nesborg"
 				danish = "Næsborg"
@@ -6544,7 +6722,7 @@ k_sweden = {
 			}
 		}
 		c_narke = {
-			color={ 68 58 255 }
+			color={ 120 219 174 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Nerike"
@@ -6559,18 +6737,12 @@ k_sweden = {
 				norwegian = "Ørebro"
 				danish = "Ørebro"
 			}
-			b_mosas = {
-			}
-			b_kumla = {
-			}
-			b_riseberga = {
-			}
-			b_nora = {
-			}
-			b_askersund = {
-			}
-			b_hallsberg = {
-			}
+			b_mosas = {}
+			b_kumla = {}
+			b_riseberga = {}
+			b_nora = {}
+			b_askersund = {}
+			b_hallsberg = {}
 		}
 		c_tjust = {
 			color={ 75 60 190 }
@@ -6580,8 +6752,7 @@ k_sweden = {
 				norwegian = "Vestervik"
 				danish = "Vestervik"
 			}
-			b_vimmerby = {
-			}
+			b_vimmerby = {}
 			b_doderhult = {
 				norwegian = "Døderhult"
 				danish = "Døderhult"
@@ -6592,35 +6763,41 @@ k_sweden = {
 				norwegian = "Tørnsfall"
 				danish = "Tørnsfall"
 			}
-			b_kisa = {
-			}
-			b_jangolsrum = {
-			}
+			b_kisa = {}
+			b_jangolsrum = {}
 		}
+	}
+	d_gotland = {
+		color={ 0 45 110 }
+		color2={ 255 255 255 }
+		
+		capital = 301 # Gotland
+		dignity = 10
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_gotland = {
-			color={ 65 80 255 }
+			color={ 14 14 249 }
 			color2={ 255 255 255 }
 			
-			b_visby = {
-			}
-			b_visborg = {
-			}
-			b_slite = {
-			}
-			b_geatish_roma = {
-			}
-			b_hejde = {
-			}
-			b_othem = {
-			}
-			b_alva = {
-			}
-			b_hemse = {
-			}
+			b_visby = {}
+			b_visborg = {}
+			b_slite = {}
+			b_geatish_roma = {}
+			b_hejde = {}
+			b_othem = {}
+			b_alva = {}
+			b_hemse = {}
 		}
 	}
 	d_vastergotland = {
-		color={ 46 30 205 }
+		color={ 146 108 146 }
 		color2={ 255 255 255 }
 		capital = 297 # Västergötland
 		
@@ -6641,8 +6818,16 @@ k_sweden = {
 			religion = "norse_pagan"
 		}
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_vastergotland = {
-			color={ 60 55 255 }
+			color={ 146 108 146 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Vestergøtland"
@@ -6664,103 +6849,83 @@ k_sweden = {
 				norwegian = "Falkøping"
 				danish = "Falkøbing"
 			}
-			b_ymseborg = {
-			}
-			b_husaby = {
-			}
-			b_varnhem = {
-			}
+			b_ymseborg = {}
+			b_husaby = {}
+			b_varnhem = {}
 			b_lacko = {
 				norwegian = "Læckø"
 				danish = "Læckø"
 			}
-			# b_lena
-			# b_skalunda
-			# b_lindholmen
-			# b_alvsborg
 		}
 		c_dal = {
-			color={ 35 30 225 }
+			color={ 204 40 97 }
 			color2={ 255 255 255 }
 			
-			b_dalaborg = {
-			}
-			b_bolstad = {
-			}
-			b_sundal = {
-			}
-			b_nordal = {
-			}
-			b_vedbo = {
-			}
-			b_tossbo = {
-			}
-			b_amordh = {
-			}
-			b_mellerud = {
-			}
+			b_dalaborg = {}
+			b_bolstad = {}
+			b_sundal = {}
+			b_nordal = {}
+			b_vedbo = {}
+			b_tossbo = {}
+			b_amordh = {}
+			b_mellerud = {}
 		}
 		c_viken = {
-			color={ 25 175 255 }
+			color={ 174 204 48 }
 			color2={ 255 255 255 }
 			
 			norse = Alfheimr
 			
-			b_bagahus = {
-			}
+			b_bagahus = {}
 			b_kungahalla = {
 				norwegian = "Kungahælla"
 				danish = "Kungahælla"
 			}
-			b_svarteborg = {
-			}
-			b_svenneby = {
-			}
+			b_svarteborg = {}
+			b_svenneby = {}
 			b_ockero = {
 				norwegian = "Øckerø"
 				danish = "Øckerø"
 			}
-			b_hede = {
-			}
-			b_marstrand = {
-			}
-			b_kungsviken = {
-			}
+			b_hede = {}
+			b_marstrand = {}
+			b_kungsviken = {}
 		}
 	}
 	d_norrland = { 
-		color={ 50 50 160 }
-		color2={ 255 255 255 }
+		color={ 241 241 242 }
+		color2={ 255 0 0 }
 		capital = 285 # Hälsingland
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_lappland = {
-			color={ 60 60 130 }
+			color = { 45 45 115 }
 			color2={ 255 255 255 }
 			
 			finnish=Lappi
 			lappish=Sápmi
 			
-			b_lycksele = {
-			}
-			b_asele = {
-			}
-			b_sorsele = {
-			}
-			b_arvidsjaur = {
-			}
-			b_bergvattnet = {
-			}
-			b_arjeplog = {
-			}
+			b_lycksele = {}
+			b_asele = {}
+			b_sorsele = {}
+			b_arvidsjaur = {}
+			b_bergvattnet = {}
+			b_arjeplog = {}
 			b_gallivare = {
 				norwegian = "Gellivare"
 				danish = "Gellivare"
 			}
-			b_kiruna = {
-			}
+			b_kiruna = {}
 		}
 		c_vasterbotten = {
-			color={ 70 70 156 }
+			color={ 74 8 24 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Vesterbotten"
@@ -6773,25 +6938,20 @@ k_sweden = {
 				finnish=Uumaja
 				lappish=Ume
 			}
-			b_bygdea = {
-			}
+			b_bygdea = {}
 			b_skelleftea = {
 			}
 			b_lovanger = {
 				norwegian = "Løvånger"
 				danish = "Løvånger"
 			}
-			b_pitea = {
-			}
-			b_lulea = {
-			}
-			b_kalix = {
-			}
-			b_tornea = {
-			}
+			b_pitea = {}
+			b_lulea = {}
+			b_kalix = {}
+			b_tornea = {}
 		}
 		c_angermanland = {
-			color={ 24 0 255 }
+			color={ 46 150 11 }
 			color2={ 255 255 255 }
 			
 			norse = Angermanland
@@ -6804,14 +6964,12 @@ k_sweden = {
 				norwegian = "Ulvø"
 				danish = "Ulvø"
 			}
-			b_natra = {
-			}
+			b_natra = {}
 			b_skulnas = {
 				norwegian = "Skulnes"
 				danish = "Skulnæs"
 			}
-			b_solleftea = {
-			}
+			b_solleftea = {}
 			b_harnosand = {
 				norwegian = "Hærnøsand"
 				danish = "Hærnøsand"
@@ -6820,69 +6978,24 @@ k_sweden = {
 				norwegian = "Ørnskøldsvik"
 				danish = "Ørnskøldsvik"
 			}
-			b_biedsta = {
-			}
-		}
-		c_medelpad = {
-			color={ 21 37 175 }
-			color2={ 255 255 255 }
-			
-			b_selanger = {
-			}
-			b_alno = {
-				norwegian = "Alnø"
-				danish = "Alnø"
-			}
-			b_njurunda = {
-			}
-			b_skon = {
-				norwegian = "Skøn"
-				danish = "Skøn"
-			}
-			b_liden = {
-			}
-			b_otman = {
-			}
-			b_torp = {
-			}
-			b_sundsvall = {
-			}
-		}
-		c_halsingland = {
-			color={ 5 55 155 }
-			color2={ 255 255 255 }
-			
-			norwegian = "Helsingland"
-			danish = "Helsingland"
-			norse = "Helsingland"
-			
-			b_norrala = {
-			}
-			b_hog = {
-			}
-			b_jattendal = {
-				norwegian = "Jættendal"
-				danish = "Jættendal"
-			}
-			b_forsa = {
-			}
-			b_tasta = {
-			}
-			b_nordanstig = {
-			}
-			b_alir = {
-			}
-			b_sundhed = {
-			}
+			b_biedsta = {}
 		}
 	}
 	d_bergslagen = { 
-		color={ 60 60 200 }
+		color={ 59 158 125 }
 		color2={ 255 255 255 }
 		capital = 288 # Värmland
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_dalarna = {
-			color={ 20 20 230 }
+			color={ 182 107 14 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Jernbæraland"
@@ -6890,50 +7003,34 @@ k_sweden = {
 			english = Dalecarlia
 			norse = Járnberaland
 			
-			b_borganas = {
-			}
-			b_kopparberg = {
-			}
-			b_hedemora = {
-			}
-			b_husby = {
-			}
-			b_sater = {
-			}
-			b_mora = {
-			}
-			b_tuna = {
-			}
-			b_idre = {
-			}
+			b_borganas = {}
+			b_kopparberg = {}
+			b_hedemora = {}
+			b_husby = {}
+			b_sater = {}
+			b_mora = {}
+			b_tuna = {}
+			b_idre = {}
 		}
 		c_varmland = {
-			color={ 35 35 210 }
+			color={ 55 132 81 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Vermland"
 			danish = "Værmland"
 			norse = "Vermaland"
 			
-			b_saxholm = {
-			}
-			b_arvika = {
-			}
-			b_josse = {
-			}
-			b_nordmark = {
-			}
-			b_fryksdal = {
-			}
-			b_kil = {
-			}
-			b_vase = {
-			}
-			b_gillberg = {
-			}
+			b_saxholm = {}
+			b_arvika = {}
+			b_josse = {}
+			b_nordmark = {}
+			b_fryksdal = {}
+			b_kil = {}
+			b_vase = {}
+			b_gillberg = {}
 		}
 		c_vastmanland = {
-			color={ 10 10 240 }
+			color={ 111 87 197 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Vestmanland"
@@ -6944,8 +7041,7 @@ k_sweden = {
 				norwegian = "Vesterås"
 				danish = "Vesterås"
 			}
-			b_arboga = {
-			}
+			b_arboga = {}
 			b_kopingshus = {
 				norwegian = "Køpingshus"
 				danish = "Købingshus"
@@ -6954,41 +7050,40 @@ k_sweden = {
 				norwegian = "Køping"
 				danish = "Købing"
 			}
-			b_norberg = {
-			}
-			b_skinnskatteberg = {
-			}
-			b_badelunda = {
-			}
-			b_munktorp = {
-			}
+			b_norberg = {}
+			b_skinnskatteberg = {}
+			b_badelunda = {}
+			b_munktorp = {}
 		}
 	}
 	d_smaland = {
-		color={ 60 40 255 }
+		color={ 220 138 57 }
 		color2={ 255 255 255 }
 		capital = 298 # Småland
 		
 		norse = "Smáland"
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_smaland = { # Värend
-			color={ 95 30 215 }
+			color={ 43 5 240 }
 			color2={ 255 255 255 }
 			
-			b_piksborg = {
-			}
+			b_piksborg = {}
 			b_vaxjo = {
 				danish = Vexjø
 				norwegian = Vexjø
 			}
-			b_aringsas = {
-			}
-			b_alvesta = {
-			}
-			b_kronoberg = {
-			}
-			b_furuby = {
-			}
+			b_aringsas = {}
+			b_alvesta = {}
+			b_kronoberg = {}
+			b_furuby = {}
 			b_markaryd={
 				norse = Madkharydh
 			}
@@ -7000,42 +7095,28 @@ k_sweden = {
 			danish = Møre
 			norwegian = Møre
 			
-			b_kalmar = {
-			}
-			b_kalmar_hus = {
-			}
-			b_torsas = {
-			}
-			b_soderakra = {
-			}
-			b_monsteras = {
-			}
-			b_madesjo = {
-			}
-			b_alem = {
-			}
+			b_kalmar = {}
+			b_kalmar_hus = {}
+			b_torsas = {}
+			b_soderakra = {}
+			b_monsteras = {}
+			b_madesjo = {}
+			b_alem = {}
 		}
 		c_oland = {
-			color={ 75 60 255 }
+			color={ 215 100 190 }
 			color2={ 255 255 255 }
 			
 			norwegian = "Øland"
 			danish = "Øland"
 			
-			b_borgholm = {
-			}
-			b_ottenby = {
-			}
-			b_mykleby = {
-			}
-			b_algutsrum = {
-			}
-			b_glomminge = {
-			}
-			b_hulterstad = {
-			}
-			b_gardby = {
-			}
+			b_borgholm = {}
+			b_ottenby = {}
+			b_mykleby = {}
+			b_algutsrum = {}
+			b_glomminge = {}
+			b_hulterstad = {}
+			b_gardby = {}
 			b_gronhogen = {
 				norwegian = "Grønhøgen"
 				danish = "Grønhøgen"
@@ -7056,96 +7137,109 @@ k_denmark = {
 	culture = danish
 	
 	capital = 266 # Sjaelland
+
+	catholic = 10 #Crusade target weight
+	baltic_pagan_reformed = 5 # Crusade target weight
+	norse_pagan_reformed = 10 # Crusade target weight
 	
-	baltic_pagan_reformed = 50 # Crusade target weight
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = danish
+			culture = norse
+			k_denmark = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	
 	d_skane = {
-		color={ 210 2 2 }
+		color={ 241 243 33 }
 		color2={ 255 255 255 }
 	
 		capital = 303 # Skåne
 		
 		english = Scania
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_skane = {
-			color={ 215 5 5 }
+			color={ 159 204 46 }
 			color2={ 255 255 255 }
 			
 			english = Scania
 		
-			b_lund = {
-			}
-			b_dalby = {
-			}
-			b_uppakra = {
-			}
-			b_herrevad = {
-			}
+			b_lund = {}
+			b_dalby = {}
+			b_uppakra = {}
+			b_herrevad = {}
 			b_lillohus = {
 				danish = "Lilløhus"
 				norwegian = "Lilløhus"
 			}
-			b_helsingborg = {
-			}
+			b_helsingborg = {}
 			b_malmo = {
 				danish = "Malmø"
 				norwegian = "Malmø"
 			}
-			b_ystad = {
-			}
-			b_trelleborg = {
-			}
+			b_ystad = {}
+			b_trelleborg = {}
 		}
 		c_halland = {
-			color={ 220 10 15 }
+			color={ 180 78 20 }
 			color2={ 255 255 255 }
 		
-			b_varberg = {
-			}
-			b_falkenberg = {
-			}
-			b_halmstad = {
-			}
-			b_laholm = {
-			}
-			b_kungsbacka = {
-			}
+			b_varberg = {}
+			b_falkenberg = {}
+			b_halmstad = {}
+			b_laholm = {}
+			b_kungsbacka = {}
 			b_aranaes = {
 				danish = "Aranæs"
 				norwegian = "Aranes"
 			}
-			b_baastad = {
-			}
-			b_getinge = {
-			}
+			b_baastad = {}
+			b_getinge = {}
 		}
 		c_bornholm = {
-			color={ 220 15 20 }
+			color={ 142 109 69 }
 			color2={ 255 255 255 }
 			
 			norse = Burgundaholmr
 		
-			b_ronne = {
-			}
-			b_knudsker = {
-			}
-			b_hammershus = {
-			}
+			b_ronne = {}
+			b_knudsker = {}
+			b_hammershus = {}
 			b_nexo = {
 				swedish = "Nexö"
 				norse = "Nexö"
 			}
-			b_aakirkeby = {
-			}
-			b_hasle = {
-			}
-			b_svaneke = {
-			}
-			b_gudhjem = {
-			}
+			b_aakirkeby = {}
+			b_hasle = {}
+			b_svaneke = {}
+			b_gudhjem = {}
 		}
 		c_blekinge = {
-			color={ 220 30 20 }
+			color={ 119 93 178 }
 			color2={ 255 255 255 }
 		
 			b_solvesborg_slott = {
@@ -7160,16 +7254,11 @@ k_denmark = {
 				danish = "Avaskær"
 				norwegian = "Avaskær"
 			}
-			b_elleholm = {
-			}
-			b_lycka = {
-			}
-			b_ronneby = {
-			}
-			b_lyckeby = {
-			}
-			b_lister = {
-			}
+			b_elleholm = {}
+			b_lycka = {}
+			b_ronneby = {}
+			b_lyckeby = {}
+			b_lister = {}
 		}
 	}
 	d_sjaelland = {
@@ -7196,6 +7285,14 @@ k_denmark = {
 			religion = "norse_pagan"
 		}
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_sjaelland = {
 			color={ 216 50 50 }
 			color2={ 255 255 255 }
@@ -7208,24 +7305,19 @@ k_denmark = {
 				swedish = Köpenhamn
 				norse = Hafn
 			}
-			b_roskilde = {
-			}
+			b_roskilde = {}
 			b_helsingor = {
 				swedish = Helsingör
 				norse = Helsingör
 			}
-			b_kalundborg = {
-			}
+			b_kalundborg = {}
 			b_naestved = {
 				swedish = Nästved
 				norse = Næstved
 			}
-			b_slagelse = {
-			}
-			b_vordingborg = {
-			}
-			b_ringsted = {
-			}
+			b_slagelse = {}
+			b_vordingborg = {}
+			b_ringsted = {}
 			b_lejre = {
 				norse = Hleiðra
 				holy_site = norse_pagan
@@ -7233,29 +7325,30 @@ k_denmark = {
 			}
 		}
 		c_fyn = {
-			color={ 216 55 55 }
+			color={ 197 133 159 }
 			color2={ 255 255 255 }
 			
-			b_svendborg = {
-			}
-			b_odense = {
-			}
-			b_faaborg = {
-			}
-			b_assens = {
-			}
-			b_middelfart = {
-			}
-			b_nyborg = {
-			}
-			b_kerteminde = {
-			}
-			b_bogense = {
-			}
+			b_svendborg = {}
+			b_odense = {}
+			b_faaborg = {}
+			b_assens = {}
+			b_middelfart = {}
+			b_nyborg = {}
+			b_kerteminde = {}
+			b_bogense = {}
 		}
+		#c_lolland = {  NEW, must create
+		#	color={ 136 102 180 }
+		#	color2={ 255 255 255 }
+		#	
+		#	b_nykobing_falster = {}
+		#	b_nakskov = {}
+		#	b_maribo = {}
+		#	b_stubbekobing = {}
+		#}
 	}
 	d_slesvig = { # Jylland
-		color={ 224 74 74 }
+		color={ 177 227 226 }
 		color2={ 255 255 255 }
 		
 		capital = 267 # Jylland
@@ -7275,8 +7368,16 @@ k_denmark = {
 			religion = "norse_pagan"
 		}
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_slesvig = {
-			color={ 225 78 78 }
+			color={ 36 134 246 }
 			color2={ 255 255 255 }
 			
 			german = "Schleswig"
@@ -7284,16 +7385,13 @@ k_denmark = {
 			b_flensborg = {
 				german = "Flensburg"
 			}
-			b_ribe = {
-			}
-			b_slesvig = {
-			}
+			b_ribe = {}
+			b_slesvig = {}
 			b_sonderborg = {
 				swedish = "Sönderborg"
 				german = "Sonderburg"
 			}
-			b_tonder = {
-			}
+			b_tonder = {}
 			b_aabenraa = {
 				swedish = "Åbenrå"
 				german = "Apenrade"
@@ -7301,14 +7399,13 @@ k_denmark = {
 			b_haderslev = {
 				german = "Hadersleben"
 			}
-			b_kolding = {
-			}
+			b_kolding = {}
 			b_hedeby = {
 				norse = Heiðabyr
 			}
 		}
 		c_jylland = {
-			color={ 225 84 84 }
+			color={ 78 248 206 }
 			color2={ 255 255 255 }
 			
 			german = "Jütland"
@@ -7317,80 +7414,99 @@ k_denmark = {
 			b_aarhus = {
 				swedish = "Århus"
 			}
-			b_viborg = {
-			}
-			b_aalborg = {
-			}
+			b_viborg = {}
+			b_aalborg = {}
 			b_ringkobing = {
 				swedish = "Ringköping"
 				norse = Ringköping
 			}
-			b_randers = {
-			}
-			b_horsens = {
-			}
-			b_skive = {
-			}
-			b_skagen = {
-			}
-			b_jelling = {
-			}
+			b_randers = {}
+			b_horsens = {}
+			b_skive = {}
+			b_skagen = {}
+			b_jelling = {}
 		}
 	}
 }
 k_north_sea = {
 	color={ 88 100 100 }
 	color2={ 120 220 120 }
+
 	catholic = 10 #Crusade target weight
 	finnish_pagan_reformed = 5
 	norse_pagan_reformed = 100 # Crusade target weight
+	
 	culture = norse
-	capital = 36 #Orkney	
+	capital = 36 #Orkney
+
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture_group = north_germanic
+			culture_group = west_germanic
+			culture_group = celtic
+			k_north_sea = {
+				OR = {
+						is_titular = no
+						has_holder = yes
+				}
+			}
+		}
+	}
+	
 	d_iceland = {
 		color={ 195 190 255 }
 		color2={ 220 220 220 }
+		
 		capital = 1 # Vestisland
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_vestisland = {
 				color={ 160 210 250 }
 				color2={ 220 220 220 }
-				b_reykjavik = {
-				}
-				b_skalholt = {
-				}					
-				b_alftanes = {
-				}
-				b_pingvellir = {
-				}
-				b_kjalarnes = {
-				}
-				b_hlidarendi = {
-				}
-				b_hvamm = {
-				}
-				b_borg = {
-				}
+				
+				b_reykjavik = {}
+				b_skalholt = {}					
+				b_alftanes = {}
+				b_pingvellir = {}
+				b_kjalarnes = {}
+				b_hlidarendi = {}
+				b_hvamm = {}
+				b_borg = {}
 		}
 		c_austisland = {
 			color = { 210 250 160 }
 			color2 = { 220 220 220 }
-			b_glaumbaer = {
-			}
-			b_valpjotstadur = {
-			}
-			b_kirkjubaer = {
-			}
-			b_goddalir = {
-			}
+			
+			b_glaumbaer = {}
+			b_valpjotstadur = {}
+			b_kirkjubaer = {}
+			b_goddalir = {}
 		}
 		c_nordulandvestra = {
 			color={ 2 50 134 }
 			color2={ 255 255 255 }
-			b_saudarkrokur = {
-			}
-			b_skagafjordur = {
-			}
-			b_hunapingvestra = {
-			}
+			
+			b_saudarkrokur = {}
+			b_skagafjordur = {}
+			b_hunapingvestra = {}
 			b_holar = {
 				holy_site = norse_pagan
 				holy_site = norse_pagan_reformed
@@ -7399,17 +7515,16 @@ k_north_sea = {
 		c_nordulandeystra = {
 			color={ 0 90 214 }
 			color2={ 255 255 255 }
-			b_akureyri = {
-			}
-			b_husavik = {
-			}
-			b_hrisey = {
-			}
+			
+			b_akureyri = {}
+			b_husavik = {}
+			b_hrisey = {}
 		}
 	}
 	d_orkney = {
 		color={ 0 18 255 }
 		color2={ 255 255 255 }
+		
 		capital = 36 # Orkney
 		pagan_coa = {
 				template = 0
@@ -7423,65 +7538,52 @@ k_north_sea = {
 				}
 				religion = "norse_pagan"
 		}
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_faereyar = {
 			color={ 25 87 103 }
 			color2={ 255 255 255 }
-			b_skansin = {
-			}
-			b_torshavn = {
-			}
-			b_kirkjubour = {
-			}
-			b_funningur = {
-			}
-			b_kvivik = {
-			}
-			b_sandur = {
-			}
-			b_klaksvik = {
-			}
-			b_hov = {
-			}
+			
+			b_skansin = {}
+			b_torshavn = {}
+			b_kirkjubour = {}
+			b_funningur = {}
+			b_kvivik = {}
+			b_sandur = {}
+			b_klaksvik = {}
+			b_hov = {}
 		}
 		c_shetland = {
 			color={ 145 132 38 }
 			color2={ 255 255 255 }
-			b_scalloway = {
-			}
-			b_muness = {
-			}
-			b_tingwall = {
-			}
-			b_cunningsburgh = {
-			}
-			b_sumburgh = {
-			}
-			b_northmavine = {
-			}
-			b_sound = {
-			}
-			b_yell = {
-			}
+			
+			b_scalloway = {}
+			b_muness = {}
+			b_tingwall = {}
+			b_cunningsburgh = {}
+			b_sumburgh = {}
+			b_northmavine = {}
+			b_sound = {}
+			b_yell = {}
 		}
 		c_orkney = {
 			color={ 50 165 36 }
 			color2={ 255 255 255 }
-			b_kirkwall = {
-			}
-			b_birsay = {
-			}
-			b_orphir = {
-			}
-			b_westray = {
-			}
-			b_wyre = {
-			}
-			b_egilsay = {
-			}
-			b_sanday = {
-			}
-			b_ronaldsay = {
-			}
+			b_kirkwall = {}
+			b_birsay = {}
+			b_orphir = {}
+			b_westray = {}
+			b_wyre = {}
+			b_egilsay = {}
+			b_sanday = {}
+			b_ronaldsay = {}
 		}
 	}	
 }
@@ -7492,107 +7594,109 @@ k_norway = {
 	culture = norwegian
 	
 	capital = 274 # Bergenshus
+
+	catholic = 10 #Crusade target weight
+	finnish_pagan_reformed = 5
+	norse_pagan_reformed = 100 # Crusade target weight
 	
-	catholic = 100 # Crusade target weight
-	finnish_pagan_reformed = 50
+	allow = {
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture = norwegian
+			culture = norse
+			k_norway = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
+			}
+		}
+	}
 	
 	d_vestlandet = {
-		color={ 120 160 245 }
+		color={ 201 97 74 }
 		color2={ 255 255 255 }
 		
 		capital = 274 # Bergenhus
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_agder = {
-			color={ 40 85 255 }
+			color={ 243 238 134 }
 			color2={ 255 255 255 }
 		
-			b_iveland = {
-			} 
-			b_flekkefjord = {
-			}
-			b_hylestad = {
-			}
-			b_grimstad = {
-			}
-			b_visedal = {
-			}
-			b_horga = {
-			}
-			b_holt = {
-			}
-			b_sirdal = {
-			}
+			b_iveland = {} 
+			b_flekkefjord = {}
+			b_hylestad = {}
+			b_grimstad = {}
+			b_visedal = {}
+			b_horga = {}
+			b_holt = {}
+			b_sirdal = {}
 		}
 		c_rogaland = {
-			color={ 10 110 255 }
+			color={ 169 135 241 }
 			color2={ 255 255 255 }
 			
-			b_eikundarsund = {
-			}
-			b_stavanger = {
-			}
-			b_roldal = {
-			} 
-			b_naerbo = {
-			}
-			b_klepp = {
-			}
-			b_bygdeborg = {
-			}
-			b_hesby  = {
-			}
-			b_jonegarden = {
-			}
+			b_eikundarsund = {}
+			b_stavanger = {}
+			b_roldal = {} 
+			b_naerbo = {}
+			b_klepp = {}
+			b_bygdeborg = {}
+			b_hesby  = {}
+			b_jonegarden = {}
 		}
 		c_telemark = {
-			color={ 45 160 255 }
+			color={ 247 114 33 }
 			color2={ 255 255 255 }
 			
-			b_skien = {
-			}
-			b_eidsborg = {
-			}
-			b_fredriksten = {
-			}
-			b_hitterdals = {
-			}
-			b_seljord = {
-			}
-			b_fyresdal = {
-			}
-			b_grenland = {
-			}
-			b_gimsoy = {
-			}
+			b_skien = {}
+			b_eidsborg = {}
+			b_fredriksten = {}
+			b_hitterdals = {}
+			b_seljord = {}
+			b_fyresdal = {}
+			b_grenland = {}
+			b_gimsoy = {}
 		}
 		c_bergenshus = {
-			color={ 60 157 209 }
+			color={ 235 247 40 }
 			color2={ 255 255 255 }
 			
 			norse = Hordaland
 			
-			b_bergenhus = {
-			}
-			b_kinsarvik = {
-			}
+			b_bergenhus = {}
+			b_kinsarvik = {}
 			b_bergen = {
 				norse = Bjorgvin
 			}
-			b_vik = {
-			}
-			b_hove = {
-			}
-			b_aurland = {
-			}
-			b_ask = {
-			}
-			b_fedje = {
-			}
+			b_vik = {}
+			b_hove = {}
+			b_aurland = {}
+			b_ask = {}
+			b_fedje = {}
 		}
 	}
 	d_ostlandet = {
-		color={ 80 120 215 }
-		color2={ 255 255 255 }
+		color={ 121 212 109 }
+		color2={ 30 30 30 }
 		
 		capital = 272 # Akershus
 		
@@ -7609,96 +7713,56 @@ k_norway = {
 			religion = "norse_pagan"
 		}
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_vestfold = {
-			color={ 89 100 195 }
+			color={ 77 193 96 }
 			color2={ 255 255 255 }
 			
-			b_kaupang = {
-			}
-			b_skiringssal = {
-			}
-			b_uvdal = {
-			}
-			b_nore = {
-			}
-			b_tonsberg = {
-			}
-			b_arendall = {
-			}
-			b_re = {
-			}
-			b_horten = {
-			}
+			b_kaupang = {}
+			b_skiringssal = {}
+			b_uvdal = {}
+			b_nore = {}
+			b_tonsberg = {}
+			b_arendall = {}
+			b_re = {}
+			b_horten = {}
 		}
 		c_akershus = {
-			color={ 120 158 235 }
+			color={ 125 230 171 }
 			color2={ 255 255 255 }
 			
-			b_akershus = {
-			}
-			b_oslo = {
-			}
-			b_bergheim = {
-			}
-			b_eidsvoll = {
-			}
-			b_nes = {
-			}
-			b_isegran = {
-			}
-			b_jessheim = {
-			}
-			b_baerum = {
-			}
+			b_akershus = {}
+			b_oslo = {}
+			b_bergheim = {}
+			b_eidsvoll = {}
+			b_nes = {}
+			b_isegran = {}
+			b_jessheim = {}
+			b_baerum = {}
 		}
 		c_oppland = {
-			color={ 94 120 215 }
+			color={ 123 135 72 }
 			color2={ 255 255 255 }
 			
-			b_lillehammer = {
-			}
-			b_dovre = {
-			}
-			b_favang = {
-			}
-			b_lom = {
-			}
-			b_oyer = {
-			}
-			b_slidre = {
-			}
-			b_flesberg = {
-			}
-			b_garmo = {
-			}
-		}
-		c_hedmark = {
-			color={ 110 140 235 }
-			color2={ 255 255 255 }
-			
-			norse = Heidmark
-			
-			b_hamarhus = {
-			}
-			b_elverum = {
-			}
-			b_hamar = {
-			}
-			b_kongsvinger = {
-			}
-			b_vang = {
-			}
-			b_loten = {
-			}
-			b_stange = {
-			}
-			b_eidskog = {
-			}
+			b_lillehammer = {}
+			b_dovre = {}
+			b_favang = {}
+			b_lom = {}
+			b_oyer = {}
+			b_slidre = {}
+			b_flesberg = {}
+			b_garmo = {}
 		}
 	}
 	d_trondelag = {
-#			color={ 144 130 205 }
-		color={ 40 160 255 }
+		color={ 144 90 205 }
 		color2={ 255 255 255 }
 		
 		capital = 275 # Trondelag
@@ -7720,174 +7784,132 @@ k_norway = {
 			religion = "norse_pagan"
 		}
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
+		c_hedmark = {
+			color={ 249 227 162 }
+			color2={ 255 255 255 }
+			
+			norse = Heidmark
+			
+			b_hamarhus = {}
+			b_elverum = {}
+			b_hamar = {}
+			b_kongsvinger = {}
+			b_vang = {}
+			b_loten = {}
+			b_stange = {}
+			b_eidskog = {}
+		}		
 		c_trondelag = {
-			color={ 20 155 255 }
+			color={ 148 14 61 }
 			color2={ 255 255 255 }
 			
 			swedish = "Tröndelag"
 			german = "Tröndelag"
 			norse = "Tröndelag"
 			
-			b_nidaros = {
-			}
-			b_trondheim = {
-			}
-			b_audunborg = {
-			}
-			b_steinvikholm = {
-			}
-			b_sverresborg = {
-			}
-			b_borgund = {
-			}
-			b_austratt = {
-			}
-			b_haltalen = {
-			}
+			b_nidaros = {}
+			b_trondheim = {}
+			b_audunborg = {}
+			b_steinvikholm = {}
+			b_sverresborg = {}
+			b_borgund = {}
+			b_austratt = {}
+			b_haltalen = {}
 		}
 		c_naumadal = {
-			color={ 25 205 240 }
+			color={ 234 201 38 }
 			color2={ 255 255 255 }
 			
-			b_tinghaugen = {
-			}
-			b_lade = {
-			}
-			b_logtun = {
-			}
-			b_levanger = {
-			}
-			b_hegra = {
-			}
+			b_tinghaugen = {}
+			b_lade = {}
+			b_logtun = {}
+			b_levanger = {}
+			b_hegra = {}
 			b_maere = {
 				holy_site = norse_pagan
 				holy_site = norse_pagan_reformed
 			}
-			b_leksvik = {
-			}
-			b_halsstein = {
-			}
+			b_leksvik = {}
+			b_halsstein = {}
 		}
+	}
+	d_nordland = {
+		color={ 182 134 100 }
+		color2={ 255 255 255 }
+		
+		capital = 278 #Halogaland
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_halogaland = {
-			color={ 10 195 255 }
+			color={ 36 108 220 }
 			color2={ 255 255 255 }
 			
-			b_somna = {
-			}
-			b_bindal = {
-			}
-			b_veiga = {
-			}
-			b_brunnoy = {
-			}
-			b_hattfjelldalen = {
-			}
-			b_lein = {
-			}
-			b_mosjoen = {
-			}
-			b_alstahaug = {
-			}
+			b_somna = {}
+			b_bindal = {}
+			b_veiga = {}
+			b_brunnoy = {}
+			b_hattfjelldalen = {}
+			b_lein = {}
+			b_mosjoen = {}
+			b_alstahaug = {}
 		}
 		c_finnmark = {
-			color={ 174 161 110 }
+			color={ 243 20 70 }
 			color2={ 255 255 255 }
 			
 			lappish=Finnmárku
 			
-			b_varghoeya = {
-			}
-			b_vardohus = {
-			}
-			b_ostervagen = {
-			}
-			b_malangen = {
-			}
-			b_hammerfest = {
-			}
-			b_karsloy = {
-			}
-			b_piselvnes = {
-			}
-			b_tromso = {
-			}
+			b_varghoeya = {}
+			b_vardohus = {}
+			b_ostervagen = {}
+			b_malangen = {}
+			b_hammerfest = {}
+			b_karsloy = {}
+			b_piselvnes = {}
+			b_tromso = {}
 		}
 		c_nordland = {
-			color={ 30 150 189 }
+			color={ 117 109 187 }
 			color2={ 255 255 255 }
 			
-			b_rost = {
-			}
-			b_kabelvag = {
-			}
-			b_bodo = {
-			}
-			b_narvik = {
-			}
-			b_rodoy = {
-			}
-			b_andenes = {
-			}
-			b_beiarn = {
-			}
-			b_harstad = {
-			}
-		}
-	}
-	d_jamtland = {
-		color={ 45 85 245 }
-		color2={ 255 255 255 }
-		
-		capital = 282 # Jamtland
-		
-		norwegian = "Jemtland"
-		danish = "Jemtland"
-		norse = "Jamtaland"
-		
-		c_jamtland = {
-			color={ 45 85 255 }
-			color2={ 255 255 255 }
-			
-			norwegian = "Jemtland"
-			danish = "Jemtland"
-			norse = "Jamtaland"
-			
-			b_mjalleborgen = {
-			}
-			b_husan = {
-			}
-			b_vasterhus = {			
-			}
-		}
-		c_herjedalen = {
-			color={ 40 76 225 }
-			color2={ 255 255 255 }
-			
-			swedish = "Härjedalen"
-			norse = "Herjadal"
-			
-			b_sveg = {
-			}
-			b_hogvalen = {
-			}
-			b_tannas = {
-			}
+			b_rost = {}
+			b_kabelvag = {}
+			b_bodo = {}
+			b_narvik = {}
+			b_rodoy = {}
+			b_andenes = {}
+			b_beiarn = {}
+			b_harstad = {}
 		}
 	}
 }
 k_finland = {
-	color = { 130 73 20 }
+	color={ 140 65 65 }
 	color2={ 255 255 255 }
 	
-	capital = 382 # Finland
+	capital = 381 # Uusimaa
 	
 	culture = finnish
 	
-	finnish_pagan_reformed = 500 # Crusade target weight
-	norse_pagan_reformed = 200 
-	baltic_pagan_reformed = 100
-	slavic_pagan_reformed = 50
-	catholic = 40
+	finnish_pagan_reformed = 50 # Crusade target weight
+	norse_pagan_reformed = 20
+	baltic_pagan_reformed = 10
+	slavic_pagan_reformed = 5
 	
 	finnish = Suomi
 	lappish = Suomi
@@ -7896,28 +7918,176 @@ k_finland = {
 	samoyed = Suomi
 	mordvin = Suomi
 	
-	# Creation/usurpation trigger
 	allow = {
-		hidden_tooltip = {
-			OR = {
-				ai = no
-				culture_group = north_germanic
-				culture_group = finno_ugric
-				culture_group = east_slavic
+		is_adult = yes
+		prisoner = no
+		NOT = { trait = incapable }
+		ruled_years = 5
+		war = no
+		NOT = {
+			AND = {
+				has_landed_title = e_byzantium
+				ai = yes
+			}
+		}
+		OR = {
+			culture_group = finno_ugric
+			k_finland = {
+				OR = {
+					is_titular = no
+					has_holder = yes
+				}
 			}
 		}
 	}
 
+	d_keksholm = {
+		color={ 121 202 148 }
+		color2={ 255 255 255 }
+		
+		capital = 392 #Kexholm
+		
+		swedish = "Kexholm"
+		norse = "Kexholm"
+		norwegian = "Kexholm"
+		danish = "Kexholm"
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_vodi = {
+			color={ 246 244 30 }
+			color2={ 255 255 255 }
+			
+			finnish = "Inkeri"
+			russian = "Ingriya"
+		
+			b_nyen = {
+				finnish = "Nevanlinna"
+			}
+			b_noteborg = {
+				swedish = "Nöteborg"
+				norse = "Nöteborg"
+				norwegian = "Nøteborg"
+				danish = "Nøteborg"
+				german = "Schlüsselburg"
+				russian = "Oreshek"
+			}
+			b_valaam = {
+				finnish = "Valamo"
+				swedish = "Valamo"
+				norse = "Valamo"
+			}
+			b_jogopera = {}
+			b_ivanovskaya = { # Teusina
+				swedish = "Teusina"
+				norwegian = "Teusina"
+				norse = "Teusina"
+				danish = "Teusina"
+				russian = "Tyavzino"
+			}
+			b_nosok = {}
+			b_liivtsula = {}
+			b_khotchino = {
+				finnish = "Hatsina"
+				swedish = "Hatsina"
+				norse = "Hatsina"
+			}
+		}	
+		c_kexholm = {
+			color={ 167 222 226 }
+			color2={ 255 255 255 }
+			
+			swedish = "Kexholm"
+			norse = "Kexholm"
+			norwegian = "Kexholm"
+			danish = "Kexholm"
+		
+			b_antrea = {
+				swedish = "St Andree"
+				norse = "St Andree"
+				norwegian = "St Andree"
+				danish = "St Andree"
+			}
+			b_raivola = {
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed				
+			}
+			b_kakisalmi = {
+				swedish = "Kexholm"
+				norse = "Kexholm"
+				norwegian = "Kexholm"
+				danish = "Kexholm"
+				russian = "Korela"
+			}
+			b_jekaborg = {}
+			b_koivisto={} 
+			b_toksovo = {}
+			b_terijoki = {}
+			b_taipale = {}
+		}
+		c_savolaks = {
+			color={ 19 239 46 }
+			color2={ 255 255 255 }
+			
+			swedish = "Savolax"
+			norse = "Savolax"
+			norwegian = "Savolax"
+			danish = "Savolax"
+		
+			b_olavinlinna = {
+				swedish = "Olofsborg"
+				norse = "Olofsborg"
+				norwegian = "Olavsborg"
+				danish = "Olavsborg"
+			}
+			b_mikkeli = {
+				swedish = "St Michel"
+				norse = "St Michel"
+				norwegian = "St Michel"
+				danish = "St Michel"
+			}
+			b_savitaipale = {}
+			b_sotkamo = {}
+			b_brahelinna = {
+				swedish = "Brahehus"
+				norse = "Brahehus"
+				norwegian = "Brahehus"
+				danish = "Brahehus"
+			}
+			b_iisalmi = {
+				swedish = "Idensalmi"
+				norse = "Idensalmi"
+				norwegian = "Idensalmi"
+				danish = "Idensalmi"
+			}
+			b_kuopio = {}
+			b_sysma = {}
+		}
+	}
 	d_esthonia = {
-		color={ 150 75 75 }
+		color={ 55 55 165 }
 		color2={ 255 255 255 }
 		
 		capital = 378 # Kalevan
 		
 		culture = ugricbaltic
+		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
 	
 		c_reval = {
-			color={ 160 85 85 }
+			color={ 205 93 61 }
 			color2={ 255 255 255 }
 			
 			swedish = "Reval"
@@ -7954,81 +8124,27 @@ k_finland = {
 				german = "Leal"
 				norse = "Leal"
 			}
-			b_borpeal = {
-			}
-			b_laane = {
-			}
-			b_pades = {
-			}
-			b_parnaw = {
-			}
+			b_borpeal = {}
+			b_laane = {}
+			b_pades = {}
+			b_parnaw = {}
 		}
 		c_narva = {
-			color={ 175 55 55 }
+			color={ 99 116 249 }
 			color2={ 255 255 255 }
 		
-			b_narva = {
-			}
-			b_agelinde = {
-			}
-			b_wesenberg = {
-			}
-			b_telsborg = {
-			}
-			b_pudiviru = {
-			}
-			b_askala = {
-			}
-			b_repel = {
-			}
-			b_alentagh = {
-			}
-		}
-		c_vodi = {
-			color={ 113 0 0 }
-			color2={ 255 255 255 }
-			
-			finnish = "Inkeri"
-			russian = "Ingriya"
-		
-			b_nyen = {
-				finnish = "Nevanlinna"
-			}
-			b_noteborg = {
-				swedish = "Nöteborg"
-				norse = "Nöteborg"
-				norwegian = "Nøteborg"
-				danish = "Nøteborg"
-				german = "Schlüsselburg"
-				russian = "Oreshek"
-			}
-			b_valaam = {
-				finnish = "Valamo"
-				swedish = "Valamo"
-				norse = "Valamo"
-			}
-			b_jogopera = {
-			}
-			b_ivanovskaya = { # Teusina
-				swedish = "Teusina"
-				norwegian = "Teusina"
-				norse = "Teusina"
-				danish = "Teusina"
-				russian = "Tyavzino"
-			}
-			b_nosok = {
-			}
-			b_liivtsula = {
-			}
-			b_khotchino = {
-				finnish = "Hatsina"
-				swedish = "Hatsina"
-				norse = "Hatsina"
-			}
+			b_narva = {}
+			b_agelinde = {}
+			b_wesenberg = {}
+			b_telsborg = {}
+			b_pudiviru = {}
+			b_askala = {}
+			b_repel = {}
+			b_alentagh = {}
 		}
 	}
 	d_karelia = {
-		color={ 155 135 45 }
+		color={ 245 45 45 }
 		color2={ 255 255 255 }
 		
 		capital = 388 # Karjala
@@ -8039,8 +8155,16 @@ k_finland = {
 		norwegian = "Karelen"
 		russian = "Kareliya"
 		
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
 		c_onega = {
-			color={ 165 45 45 }
+			color={ 37 84 14 }
 			color2={ 255 255 255 }
 			
 			swedish = "Onega"
@@ -8049,25 +8173,17 @@ k_finland = {
 			norwegian = "Onega"
 			russian = "Onezhskoe"
 		
-			b_ust-onega = {
-			}
-			b_aunus = {
-			}
-			b_kondopoga = {
-			}
-			b_pudoga = {
-			}
-			b_petrozavodsk = {
-			}
-			b_segezha = {
-			}
-			b_medvezhyegorsk = {
-			}
-			b_pryazha = {
-			}
+			b_ust-onega = {}
+			b_aunus = {}
+			b_kondopoga = {}
+			b_pudoga = {}
+			b_petrozavodsk = {}
+			b_segezha = {}
+			b_medvezhyegorsk = {}
+			b_pryazha = {}
 		}
 		c_karelen = {
-			color={ 135 25 25 }
+			color={ 113 196 162 }
 			color2={ 255 255 255 }
 			
 			swedish = "Östkarelen"
@@ -8076,84 +8192,30 @@ k_finland = {
 			norwegian = "Østkarelen"
 			russian = "Kareliya"
 		
-			b_kem = {
-			}
-			b_sordavala = {
-			}
-			b_kalevala = {
-			}
-			b_soroka = {
-			}
-			b_loukhi = {
-			}
-			b_kostomuksha = {
-			}
-			b_muezersky = {
-			}
-			b_pitkyaranta = {
-			}
+			b_kem = {}
+			b_sordavala = {}
+			b_kalevala = {}
+			b_soroka = {}
+			b_loukhi = {}
+			b_kostomuksha = {}
+			b_muezersky = {}
+			b_pitkyaranta = {}
 		}
-		c_kexholm = {
-			color={ 185 70 70 }
-			color2={ 255 255 255 }
-			
-			swedish = "Kexholm"
-			norse = "Kexholm"
-			norwegian = "Kexholm"
-			danish = "Kexholm"
-		
-			b_antrea = {
-				swedish = "St Andree"
-				norse = "St Andree"
-				norwegian = "St Andree"
-				danish = "St Andree"
-			}
-			b_raivola = {
-				holy_site = finnish_pagan
-				holy_site = finnish_pagan_reformed				
-			}
-			b_kakisalmi = {
-				swedish = "Kexholm"
-				norse = "Kexholm"
-				norwegian = "Kexholm"
-				danish = "Kexholm"
-				russian = "Korela"
-			}
-			b_jekaborg = {
-			}
-			b_koivisto={
-			} 
-			b_toksovo = {
-			}
-			b_terijoki = {
-			}
-			b_taipale = {
-			}
-		}
-		
 		c_kola = {
-			color={ 145 35 35 }
+			color={ 15 110 161 }
 			color2={ 255 255 255 }
 		
-			b_kola = {
-			}
-			b_mafelskoi = {
-			}
-			b_pechenga = {
-			}
-			b_waranger = {
-			}
-			b_tre = {
-			}
-			b_lovozero = {
-			}
-			b_molovskoi = {
-			}
-			b_jekanskoi = {
-			}
+			b_kola = {}
+			b_mafelskoi = {}
+			b_pechenga = {}
+			b_waranger = {}
+			b_tre = {}
+			b_lovozero = {}
+			b_molovskoi = {}
+			b_jekanskoi = {}
 		}
 		c_kandalax = {
-			color={ 135 60 60 }
+			color={ 232 84 178 }
 			color2={ 255 255 255 }
 			
 			swedish = "Kandalax"
@@ -8167,72 +8229,31 @@ k_finland = {
 				norwegian = "Kandalax"
 				danish = "Kandalax"
 			}
-			b_umba = {
-			}
-			b_varzuga = {
-			}
-			b_lekastrom = {
-			}
-			b_sarapo = {
-			}
-			b_kolsky = {
-			}
-			b_ponoy = {
-			}
-			b_pyaozero = {
-			}
+			b_umba = {}
+			b_varzuga = {}
+			b_lekastrom = {}
+			b_sarapo = {}
+			b_kolsky = {}
+			b_ponoy = {}
+			b_pyaozero = {}
 		}
 	}
 	d_finland = {
-		color={ 131 108 26 }
+		color={ 231 208 226 }
 		color2={ 255 255 255 }
 		
 		capital = 382 # Suomi
 		
-		c_savolaks = {
-			color={ 120 10 10 }
-			color2={ 255 255 255 }
-			
-			swedish = "Savolax"
-			norse = "Savolax"
-			norwegian = "Savolax"
-			danish = "Savolax"
-		
-			b_olavinlinna = {
-				swedish = "Olofsborg"
-				norse = "Olofsborg"
-				norwegian = "Olavsborg"
-				danish = "Olavsborg"
-			}
-			b_mikkeli = {
-				swedish = "St Michel"
-				norse = "St Michel"
-				norwegian = "St Michel"
-				danish = "St Michel"
-			}
-			b_savitaipale = {
-			}
-			b_sotkamo = {
-			}
-			b_brahelinna = {
-				swedish = "Brahehus"
-				norse = "Brahehus"
-				norwegian = "Brahehus"
-				danish = "Brahehus"
-			}
-			b_iisalmi = {
-				swedish = "Idensalmi"
-				norse = "Idensalmi"
-				norwegian = "Idensalmi"
-				danish = "Idensalmi"
-			}
-			b_kuopio = {
-			}
-			b_sysma = {
-			}
-		}
+        allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+
 		c_nyland = {
-			color={ 185 65 65 }
+			color={ 219 53 54 }
 			color2={ 255 255 255 }
 			
 			swedish = "Nyland"
@@ -8262,8 +8283,7 @@ k_finland = {
 				swedish = "Sjundeå"
 				norse = "Sjundeå"
 			}
-			b_svartholm = {
-			}
+			b_svartholm = {}
 			b_hanko = {
 				swedish = "Hangö"
 				norse = "Hangö"
@@ -8276,11 +8296,10 @@ k_finland = {
 				norwegian = "Lojo"
 				danish = "Lojo"
 			}
-			b_helsinge = {
-			}
+			b_helsinge = {}
 		}
 		c_finland = {
-			color={ 125 15 15 }
+			color={ 231 208 226 }
 			color2={ 255 255 255 }
 			
 			swedish = "Finland"
@@ -8306,23 +8325,20 @@ k_finland = {
 				norwegian = "Nådendal"
 				danish = "Nådendal"
 			}
-			b_rikala  = {
-			}
+			b_rikala  = {}
 			b_rauma  = {
 				swedish = "Raumo"
 				norse = "Raumo"
 			}
-			b_jukarsborg  = {
-			}
+			b_jukarsborg  = {}
 			b_lieto  = {
 				swedish = "Lundo"
 				norse = "Lundo"
 			}
-			b_stenberga  = {
-			}
+			b_stenberga  = {}
 		}
 		c_tavasts = {
-			color={ 130 20 20 }
+			color={ 15 92 45 }
 			color2={ 255 255 255 }
 			
 			swedish = "Tavastehus"
@@ -8336,30 +8352,22 @@ k_finland = {
 				danish = "Tavastehus"
 				norse = "Tavastehus"
 			}
-			b_lahti = {
-			}
-			b_vanaja = {
-			}
-			b_mattila = {
-			}
-			b_harviala = {
-			}
-			b_vesilahti = {
-			}
-			b_hattula = {
-			}
-			b_haikonen = {
-			}
+			b_lahti = {}
+			b_vanaja = {}
+			b_mattila = {}
+			b_harviala = {}
+			b_vesilahti = {}
+			b_hattula = {}
+			b_haikonen = {}
 		}
 		c_satakunta = {
-			color={ 116 46 46 }
+			color={ 122 198 199 }
 			color2={ 255 255 255 }
 			
 			swedish = "Satakunda"
 			norse = "Satakunda"
 		
-			b_ulvila = {
-			}
+			b_ulvila = {}
 			b_liinmaa = {
 				swedish = "Vredenborg"
 				norse = "Vredenborg"
@@ -8367,21 +8375,15 @@ k_finland = {
 				danish = "Vredenborg"
 				german = "Vreghdenborch"
 			}
-			b_kiukainen = {
-			}
-			b_pori = {
-			}
-			b_telja = {
-			}
-			b_hahlo = {
-			}
-			b_kankaanpaa = {
-			}
-			b_hiittenharju = {
-			}
+			b_kiukainen = {}
+			b_pori = {}
+			b_telja = {}
+			b_hahlo = {}
+			b_kankaanpaa = {}
+			b_hiittenharju = {}
 		}
 		c_osterbotten = {
-			color={ 152 66 66 }
+			color={ 228 243 120 }
 			color2={ 255 255 255 }
 			
 			swedish = "Österbotten"
@@ -8401,39 +8403,25 @@ k_finland = {
 				norwegian = "Nykarleby"
 				danish = "Nykarleby"
 			}
-			b_kristinestad = {
-			} 
-			b_korsholm = {
-			}
-			b_liminka = {
-			}
-			b_kalajoki = {
-			}
-			b_jakobstad = {
-			}
-			b_veteli = {
-			}
+			b_kristinestad = {} 
+			b_korsholm = {}
+			b_liminka = {}
+			b_kalajoki = {}
+			b_jakobstad = {}
+			b_veteli = {}
 		}
 		c_kemi = {
-			color={ 130 65 55 }
+			color={ 70 223 125 }
 			color2={ 255 255 255 }
 		
-			b_kemi = {
-			}
-			b_neiden = {
-			}
-			b_rovaniemi = {
-			}
-			b_inari = {
-			}
-			b_tornio = {
-			}
-			b_kemijarvi = {
-			}
-			b_utsjoki = {
-			}
-			b_savukoski = {
-			}
+			b_kemi = {}
+			b_neiden = {}
+			b_rovaniemi = {}
+			b_inari = {}
+			b_tornio = {}
+			b_kemijarvi = {}
+			b_utsjoki = {}
+			b_savukoski = {}
 		}
 	}
 }
@@ -13432,172 +13420,6 @@ k_persia = {
 			}
 		}
 	}
-	d_tabriz = {
-		color={ 86 133 61 }
-		color2={ 255 255 255 }
-		
-		capital = 666 # Gilan
-		
-		c_oromieh = {
-			color={ 86 143 61 }
-			color2={ 255 255 255 }
-			
-			b_oroumieh = {
-			}
-			b_khoy = {
-			}
-			b_takhtesoleyman = {
-				holy_site = zoroastrian # The Great Fire of Adur Gushnasp
-			}
-			b_avajiq = {
-			}
-			b_chaldiran = {
-			}
-			b_charekelisa = {
-			}
-			b_mahabad = {
-			}
-			b_salmas = {
-			}
-		}
-		c_gilan = {
-			color={ 106 143 61 }
-			color2={ 255 255 255 }
-			
-			b_gilan = {
-			}
-			b_rasht = {
-			}
-			b_talysh = {
-			}
-			b_astara = {
-			}
-			b_rudkhan = {
-			}
-			b_lahijan = {
-			}
-			b_masouleh = {
-			}
-		}
-		c_tabriz = {
-			color={ 106 151 51 }
-			color2={ 255 255 255 }
-			
-			b_babak = {
-			}
-			b_tabriz = {
-			}
-			b_maragheh = {
-			}
-			b_ahar = {
-			}
-			b_zahhak = {
-			}
-			b_sarab = {
-			}
-			b_shabestar = {
-			}
-			b_miyaneh = {
-			}
-		}
-	}
-	d_azerbaijan = {
-		color={ 160 232 20 }
-		color2={ 255 255 255 }
-		
-		capital = 670 # Azerbaijan
-		
-		culture = persian
-		
-		c_shirvan = {
-			color={ 162 234 22 }
-			color2={ 255 255 255 }
-			
-			b_baku = {
-			}
-			b_lankaran = {
-			}
-			b_absheron = {
-			}
-			b_shirvan = {
-			}
-			b_shakhriyar = {
-			} 
-			b_salyan = {
-			}
-			b_khizirzinda = {
-			}
-			b_altiagay = {
-			}
-		}
-		c_azerbaijan = {
-			color={ 164 236 24 }
-			color2={ 255 255 255 }
-			
-			b_urmiah = {
-			}
-			b_kapalak = {
-			}
-			b_takhtesuleiman = {
-			}
-			b_bastam = {
-			}
-			b_maku = {
-			} 
-			b_kalaberd = {
-			}
-			b_chaldoran = {
-			}
-			b_deglane = {
-			}
-		}
-		c_suenik = {
-			color={ 166 238 26 }
-			color2={ 255 255 255 }
-			
-			turkish = "Kafan"
-			persian = "Kafan"
-			armenian = "Syunik"
-			
-			b_ghapan = {
-			}
-			b_areni = {
-			}
-			b_noravank = {
-			}
-			b_vorotnavank = {
-			}
-			b_tatev = {
-			}
-			b_prochabert = {
-			}
-			b_gandzassar = {
-			}
-			b_goris = {
-			}
-		}
-		c_shemakha = {
-			color={ 168 240 28 }
-			color2={ 255 255 255 }
-			
-			b_ahemakha = {
-			}
-			b_quba = {
-			}
-			b_shikhlar = {
-			}
-			b_khachmaz = {
-			}
-			b_chiraggala = {
-			}
-			b_anig = {
-			}
-			b_maraza = {
-			}
-			b_khil = {
-			}
-		}
-	}
 }
 k_baluchistan = {
 	color={ 155 169 114 }
@@ -17062,27 +16884,6 @@ k_burgundy = {
 			b_mondragon = {
 			}
 		}
-		c_nice = {
-			color={ 147 39 69 }
-			color2={ 255 255 255 }
-			
-			b_nizza = {
-			}
-			b_monaco = {
-			}
-			b_mentone = {
-			}
-			b_antibes = {
-			}
-			b_sanremo = {
-			}
-			b_campogrosso = {
-			}
-			b_lantosque = {
-			}
-			b_contes = {
-			}
-		}
 	}
 	d_savoie = {
 		color={ 101 8 34 }
@@ -17107,8 +16908,6 @@ k_burgundy = {
 			b_montjovet = {
 			}
 			b_vercelli = {
-			}
-			b_bussoleno = {
 			}
 		}
 		c_valais = {
@@ -19393,25 +19192,6 @@ k_arabia = {
 			b_nisab = {
 			}
 			b_azzan = {
-			}
-		}
-		c_socotra = {
-			color={ 142 255 55 }
-			color2={ 255 255 255 }
-		
-			b_qualnsiyah = {
-			}
-			b_tamrida = {
-			}
-			b_qadub = {
-			}
-			b_steroh = {
-			}
-			b_asma = {
-			}
-			b_siqirah = {
-			}
-			b_qashiu = {
 			}
 		}
 	}
@@ -22216,73 +21996,6 @@ k_abyssinia = {
 	
 	culture = ethiopian
 	
-	d_harer = { # Berbera
-		color={ 127 151 52 }
-		color2={ 255 255 255 }
-		
-		capital = 872 # Berbera
-	
-		c_busaso = {
-			color={ 127 151 52 }
-			color2={ 255 255 255 }
-		
-			b_mosylon = {
-			}
-			b_bandaraassim = {
-			}
-			b_lasanod = {
-			}
-			b_garoowe = {
-			}
-			b_qardho = {
-			}
-			b_erigavo = {
-			}
-			b_hadaftimo = {
-			}
-			b_buraan = {
-			}
-		}
-		c_berbera = {
-			color={ 127 151 52 }
-			color2={ 255 255 255 }
-		
-			b_berbera = {
-			}
-			b_maydh = {
-			}
-			b_gabiley = {
-			}
-			b_burco = {
-			}
-			b_mandera = {
-			}
-			b_daarbuduq = {
-			}
-			b_shiikh = {
-			}
-		}
-		c_zeila = {
-			color={ 127 151 52 }
-			color2={ 255 255 255 }
-		
-			b_zeila = {
-			}
-			b_hargeysa = {
-			}
-			b_borama = {
-			}
-			b_amud = {
-			}
-			b_jijiga = {
-			}
-			b_dilla = {
-			}
-			b_lughaya = {
-			}
-		}
-	}
-	
 	d_axum = {
 		color={ 186 135 70 }
 		color2={ 255 255 255 }
@@ -22437,46 +22150,6 @@ k_abyssinia = {
 			b_tendaho = {
 			}
 			b_jewaha = {
-			}
-		}
-		c_harer = {
-			color={ 159 189 65 }
-			color2={ 255 255 255 }
-		
-			b_dakkar = {
-			}
-			b_harar = {
-			}
-			b_alemaya = {
-			}
-			b_diridawa = {
-			}
-			b_kurfachele = {
-			}
-			b_kombolcha = {
-			}
-			b_babile = {
-			}
-		}
-		c_tadjoura = {
-			color={ 159 189 65 }
-			color2={ 255 255 255 }
-		
-			b_tadjoura = {
-			}
-			b_berenice = {
-			}
-			b_obock = {
-			}
-			b_galafi = {
-			} 
-			b_dikhil = {
-			}
-			b_djibouti = {
-			}
-			b_holhol = {
-			}
-			b_randa = {
 			}
 		}
 	}
