@@ -14,7 +14,7 @@
 #A fosterling in your court is calling your court inferior to the child's father's court
 character_event = {
 	id = 78000
-	desc = "EVTDESC78000"
+	desc = EVTDESC78000
 	picture = GFX_evt_guardian
 
 	only_rulers = yes
@@ -66,7 +66,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78000"
+		name = EVTOPTA78000
 		scaled_wealth = -0.1
 		random_ward = {
 			limit = {
@@ -112,7 +112,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB78000"
+		name = EVTOPTB78000
 		trigger = {
 			NOT = {
 				trait = ambitious
@@ -133,7 +133,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC78000"
+		name = EVTOPTC78000
 		trigger = {
 			NOT = {
 				trait = wroth
@@ -183,7 +183,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTD78000"
+		name = EVTOPTD78000
 		tooltip_info = wroth
 		trigger = {
 			trait = wroth
@@ -237,7 +237,7 @@ character_event = {
 #Being a fosterling in a court superior to your father's is improving your stature 
 character_event = {
 	id = 78005
-	desc = "EVTDESC78005"
+	desc = EVTDESC78005
 	picture = GFX_evt_guardian
 
 	age = 6
@@ -294,12 +294,12 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78005"
+		name = EVTOPTA78005
 		prestige = 10
 		father = {
 			character_event = {
 				id = 78006
-				tooltip = "EVTTOOLTIP78006"
+				tooltip = EVTTOOLTIP78006
 			}
 		}
 	}
@@ -308,13 +308,13 @@ character_event = {
 #Father is notified about child's progress
 character_event = {
 	id = 78006
-	desc = "EVTDESC78006"
+	desc = EVTDESC78006
 	picture = GFX_evt_guardian
 
 	is_triggered_only = yes
 
 	option = {
-		name = "EVTOPTA78006"
+		name = EVTOPTA78006
 		prestige = 10
 	}
 }
@@ -322,7 +322,7 @@ character_event = {
 #A fosterling in your court has led one of your own children into unacceptable behaviour
 character_event = {
 	id = 78010
-	desc = "EVTDESC78010"
+	desc = EVTDESC78010
 	picture = GFX_evt_guardian
 
 	prisoner = no
@@ -336,7 +336,7 @@ character_event = {
 			prisoner = no
 			age = 6
 			NOT = {
-				is_adult = yes
+				age = 16
 			}
 			OR = {
 				trait = lustful
@@ -352,7 +352,7 @@ character_event = {
 			family = no
 			age = 6
 			NOT = {
-				is_adult = yes
+				age = 16
 			}
 			prisoner = no
 		}
@@ -363,7 +363,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78010"
+		name = EVTOPTA78010
 		random = {
 			chance = 25
 
@@ -379,7 +379,7 @@ character_event = {
 				family = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				prisoner = no
 			}
@@ -395,7 +395,7 @@ character_event = {
 				prisoner = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 			}
 			opinion = {
@@ -406,7 +406,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB78010"
+		name = EVTOPTB78010
 		random = {
 			chance = 25
 
@@ -422,7 +422,7 @@ character_event = {
 				family = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				prisoner = no
 			}
@@ -438,7 +438,7 @@ character_event = {
 				prisoner = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 			}
 			opinion = {
@@ -449,7 +449,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC78010"
+		name = EVTOPTC78010
 		random = {
 			chance = 25
 
@@ -462,13 +462,13 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTD78010"
+		name = EVTOPTD78010
 		trigger = {
 			any_ward = {
 				family = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				prisoner = no
 				father = {
@@ -522,7 +522,7 @@ character_event = {
 				family = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				prisoner = no
 				father = {
@@ -572,7 +572,7 @@ character_event = {
 				prisoner = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 			}
 			opinion = {
@@ -587,7 +587,7 @@ character_event = {
 #Having a fosterling in your court has made your wife more eager to have more children of her own
 character_event = {
 	id = 78015
-	desc = "EVTDESC78015"
+	desc = EVTDESC78015
 	picture = GFX_evt_family
 
 	prisoner = no
@@ -627,7 +627,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78015"
+		name = EVTOPTA78015
 		fertility = 0.05
 	}
 }
@@ -635,7 +635,7 @@ character_event = {
 #A fosterling claims to always being bullied by other children at the court
 character_event = {
 	id = 78020
-	desc = "EVTDESC78020"
+	desc = EVTDESC78020
 	picture = GFX_evt_child_bully
 
 	capable_only = yes
@@ -647,7 +647,7 @@ character_event = {
 			prisoner = no
 			age = 6
 			NOT = {
-				is_adult = yes
+				age = 16
 			}
 			OR = {
 				trait = shy
@@ -661,7 +661,7 @@ character_event = {
 			prisoner = no
 			age = 6
 			NOT = {
-				is_adult = yes
+				age = 16
 			}
 			OR = {
 				trait = wroth
@@ -677,13 +677,13 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78020"
+		name = EVTOPTA78020
 		random_ward = {
 			limit = {
 				prisoner = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				OR = {
 					trait = shy
@@ -710,13 +710,13 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB78020"
+		name = EVTOPTB78020
 		random_ward = {
 			limit = {
 				prisoner = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				OR = {
 					trait = shy
@@ -779,14 +779,14 @@ character_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTC78020"
+		name = EVTOPTC78020
 		random_child = {
 			limit = {
 				is_abroad = no
 				prisoner = no
 				age = 6
 				NOT = {
-					is_adult = yes
+					age = 16
 				}
 				OR = {
 					trait = wroth
@@ -807,7 +807,7 @@ character_event = {
 #This fosterling has learned important lessons of life from the experience of living in a foreign court
 character_event = {
 	id = 78025
-	desc = "EVTDESC78025"
+	desc = EVTDESC78025
 	picture = GFX_evt_guardian
 
 	capable_only = yes
@@ -834,7 +834,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78025"
+		name = EVTOPTA78025
 		random_ward = {
 			limit = {
 				age = 6
@@ -868,7 +868,7 @@ character_event = {
 			father = {
 				character_event = {
 					id = 78026
-					tooltip = "EVTTOOLTIP78026"
+					tooltip = EVTTOOLTIP78026
 				}
 			}
 		}
@@ -878,13 +878,13 @@ character_event = {
 #Father is notified
 character_event = {
 	id = 78026
-	desc = "EVTDESC78026"
+	desc = EVTDESC78026
 	picture = GFX_evt_guardian
 
 	is_triggered_only = yes
 
 	option = {
-		name = "EVTOPTA78026"
+		name = EVTOPTA78026
 		prestige = 10
 	}
 }
@@ -892,7 +892,7 @@ character_event = {
 #You have formed an unusually strong mentor-relationship with your educator
 character_event = {
 	id = 78030
-	desc = "EVTDESC78030"
+	desc = EVTDESC78030
 	picture = GFX_evt_guardian
 
 	min_age = 6
@@ -916,13 +916,17 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTA78030"
+		name = EVTOPTA78030
 		guardian = {
 			add_friend = ROOT
+			character_event = {
+				id = 78031
+				tooltip = EVTTOOLTIP78031
+			}
 		}
 	}
 	option = {
-		name = "EVTOPTB78030"
+		name = EVTOPTB78030
 		random_list = {
 			20 = {
 				change_diplomacy = 1
@@ -946,14 +950,14 @@ character_event = {
 #Guardian is notified
 character_event = {
 	id = 78031
-	desc = "EVTDESC78031"
+	desc = EVTDESC78031
 	picture = GFX_evt_guardian
 
 	is_triggered_only = yes
 
 	option = {
-		name = "EVTOPTA78031"
+		name = EVTOPTA78031
 		prestige = 10
-		add_friend = ROOT
+		add_friend = FROM
 	}
 }

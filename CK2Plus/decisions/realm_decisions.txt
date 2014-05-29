@@ -1559,7 +1559,7 @@ decisions = {
 						limit = {
 							has_claim = k_magyar
 						}
-						add_pressed_claim = k_hungary
+						k_hungary = {add_pressed_claim = PREV}
 						remove_claim = k_magyar
 					}
 				}
@@ -1903,7 +1903,7 @@ decisions = {
 						limit = {
 							has_claim = k_jerusalem
 						}
-						add_pressed_claim = k_israel
+						k_israel = { add_pressed_claim = PREV }
 						remove_claim = k_jerusalem
 					}
 				}			
@@ -1956,6 +1956,7 @@ decisions = {
 			
 			modifier = {
 				factor = 0.1 # Less likely to do it
+				always = yes
 			}
 			modifier = {
 				factor = 0
@@ -2065,6 +2066,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.001 # Less likely to do it
+				always = yes
 			}
 			modifier = {
 				factor = 1.2
@@ -2122,6 +2124,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.005 # Slow it down
+				always = yes
 			}
 		}
 	}
@@ -2180,6 +2183,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.005 # Slow it down
+				always = yes
 			}
 		}
 	}	
@@ -2234,7 +2238,7 @@ decisions = {
 								any_friend = { 
 									character = PREVPREV # Don't pulse for friends, they get a different event
 								}
-								lover = { 
+								any_lover = { 
 									character = PREVPREV # Don't pulse for heirs, they get a different event
 								}
 								any_sibling = { 
@@ -2268,7 +2272,7 @@ decisions = {
 													any_friend = { 
 														character = PREVPREV # Don't pulse for friends, they get a different event
 													}
-													lover = { 
+													any_lover = { 
 														character = PREVPREV # Don't pulse for heirs, they get a different event
 													}
 													any_sibling = { 
@@ -2299,7 +2303,7 @@ decisions = {
 								any_friend = { 
 									character = PREVPREV # Don't pulse for friends, they get a different event
 								}
-								lover = { 
+								any_lover = { 
 									character = PREVPREV # Don't pulse for heirs, they get a different event
 								}
 								any_sibling = { 
@@ -2326,7 +2330,7 @@ decisions = {
 													any_friend = { 
 														character = PREVPREV # Don't pulse for friends, they get a different event
 													}
-													lover = { 
+													any_lover = { 
 														character = PREVPREV # Don't pulse for heirs, they get a different event
 													}
 													any_sibling = { 
@@ -2357,7 +2361,7 @@ decisions = {
 								current_heir = { 
 									character = PREVPREV # Don't pulse for heirs, they get a different event
 								}
-								lover = { 
+								any_lover = { 
 									character = PREVPREV # Don't pulse for heirs, they get a different event
 								}
 								any_sibling = { 
@@ -2389,7 +2393,7 @@ decisions = {
 									any_friend = { 
 										character = PREVPREVPREV # Don't pulse for friends, they get a different event
 									}
-									lover = {
+									any_lover = {
 										character = PREVPREVPREV # Don't pulse for lovers, they get a different event
 									}
 								} 
@@ -2399,7 +2403,7 @@ decisions = {
 					}
 				}
 			}
-			lover = { # Lover hears of this
+			any_lover = { # Lover hears of this
 				if = {
 					limit = { 
 						NOT = {
@@ -2466,7 +2470,7 @@ decisions = {
 									any_friend = { 
 										character = PREVPREVPREV # Don't pulse for friends, they get a different event
 									}
-									lover = {
+									any_lover = {
 										character = PREVPREVPREV # Don't pulse for lovers, they get a different event
 									}
 								} 
@@ -2491,7 +2495,7 @@ decisions = {
 								any_friend = { 
 									character = PREVPREV # Don't pulse for friends, they get a different event
 								}
-								lover = {
+								any_lover = {
 									character = PREVPREV # Don't pulse for lovers, they get a different event
 								}							
 							} 
@@ -2524,7 +2528,7 @@ decisions = {
 									any_friend = { 
 										character = PREVPREV # Don't pulse for friends, they get a different event
 									}
-									lover = {
+									any_lover = {
 										character = PREVPREV # Don't pulse for lovers, they get a different event
 									}									
 								}								
@@ -2559,7 +2563,7 @@ decisions = {
 									any_friend = { 
 										character = PREVPREV # Don't pulse for friends, they get a different event
 									}
-									lover = {
+									any_lover = {
 										character = PREVPREV # Don't pulse for lovers, they get a different event
 									}									
 								}								

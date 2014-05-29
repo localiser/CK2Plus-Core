@@ -166,7 +166,7 @@ character_event = {
 		NOT = { trait = honest }
 		liege = {
 			demesne_size = 5
-			is_adult = yes
+			age = 16
 			trait = incapable
 		}
 	}
@@ -267,7 +267,7 @@ character_event = {
 		independent = no
 		liege = {
 			wealth = 50
-			is_adult = yes
+			age = 16
 			trait = incapable
 		}
 	}
@@ -385,7 +385,7 @@ character_event = {
 			has_character_flag = mean_regent
 		}
 		liege = {
-			is_adult = yes
+			age = 16
 			trait = incapable
 		}
 	}
@@ -635,7 +635,7 @@ character_event = {
 				limit = {
 					NOT = { has_minor_title = title_regent }
 					prisoner = no
-					is_adult = yes
+					age = 16
 				}
 				give_minor_title = title_regent
 			}
@@ -834,7 +834,7 @@ character_event = {
 			age = 5
 			NOT = {
 				trait = lunatic
-				is_adult = yes
+				age = 16 
 			}
 		}
 		NOT = {
@@ -921,7 +921,7 @@ character_event = {
 		}
 		liege = {
 			age = 5
-			is_adult = no
+			NOT = { age = 16 }
 			trait = lunatic
 		}
 	}
@@ -1372,7 +1372,7 @@ character_event = {
 ## Regent sends Ruler to scrub roof.
 character_event = {
 	id = 61190
-	desc = "EVTDESC61190"
+	desc = EVTDESC61190
 	picture = GFX_evt_castle_construction
 
 	min_age = 16
@@ -1394,7 +1394,7 @@ character_event = {
 		}
 		liege = {
 			age = 5
-			is_adult = no
+			NOT = { age = 16 }
 		}
 	}
 
@@ -1483,7 +1483,10 @@ character_event = {
 		name = EVTOPTA61192
 		hidden_tooltip = {
 			random_courtier = {
-				limit = { has_character_flag = regent_schemer }
+				limit = {
+					has_minor_title = title_regent
+					has_character_flag = regent_schemer
+				}
 				character_event = {
 					id = 61195
 					days = 18
@@ -1503,6 +1506,11 @@ character_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		has_minor_title = title_regent
+		liege = { character = FROM }
+	}
+	
 	option = {
 		name = EVTOPTA61195
 		ai_chance = { factor = 100 }
@@ -1551,7 +1559,10 @@ character_event = {
 		name = EVTOPTA61197
 		hidden_tooltip = {
 			random_courtier = {
-				limit = { has_character_flag = regent_schemer }
+				limit = {
+					has_minor_title = title_regent
+					has_character_flag = regent_schemer
+				}
 				character_event = {
 					id = 61200
 					days = 18
@@ -1571,6 +1582,11 @@ character_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		has_minor_title = title_regent
+		liege = { character = FROM }
+	}
+	
 	option = {
 		name = EVTOPTA61200
 		ai_chance = { factor = 100 }
@@ -1619,7 +1635,10 @@ character_event = {
 		name = EVTOPTA61202
 		hidden_tooltip = {
 			random_courtier = {
-				limit = { has_character_flag = regent_schemer }
+				limit = {
+					has_minor_title = title_regent
+					has_character_flag = regent_schemer
+				}
 				character_event = {
 					id = 61205
 					days = 18
@@ -1638,6 +1657,11 @@ character_event = {
 	picture = GFX_evt_large_army
 
 	is_triggered_only = yes
+
+	trigger = {
+		has_minor_title = title_regent
+		liege = { character = FROM }
+	}
 
 	option = {
 		name = EVTOPTA61205
@@ -1687,7 +1711,10 @@ character_event = {
 		name = EVTOPTA61207
 		hidden_tooltip = {
 			random_courtier = {
-				limit = { has_character_flag = regent_schemer }
+				limit = {
+					has_minor_title = title_regent
+					has_character_flag = regent_schemer
+				}
 				character_event = {
 					id = 61210
 					days = 18
@@ -1706,6 +1733,11 @@ character_event = {
 	picture = GFX_evt_shadow
 
 	is_triggered_only = yes
+
+	trigger = {
+		has_minor_title = title_regent
+		liege = { character = FROM }
+	}
 
 	option = {
 		name = EVTOPTA61210
@@ -1760,7 +1792,7 @@ character_event = {
 			limit = {
 				NOT = { has_minor_title = title_regent }
 				prisoner = no
-				is_adult = yes
+				age = 16
 			}
 			give_minor_title = title_regent
 		}

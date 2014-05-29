@@ -524,7 +524,7 @@ character_event = {
 				}
 			}
 			any_lover = {
-				lmit = { is_consort = ROOT }
+				limit = { is_consort = ROOT }
 				remove_trait = ill
 			}
 		}
@@ -1936,7 +1936,6 @@ character_event = { #Courtier 'helps out'  liege's spiteful wife
 			is_married = yes
 			opinion = { who = ROOT value = -25 }
 			spouse = {
-				max_age = 40
 				opinion = { who = ROOT value = 25 }
 				reverse_opinion = { who = ROOT value = 25 }
 				has_lover = no
@@ -1944,6 +1943,7 @@ character_event = { #Courtier 'helps out'  liege's spiteful wife
 				NOT = { trait = infirm }
 				NOT = { trait = incapable }
 				NOT = { trait = celibate }
+				NOT = { age = 41 }
 			}
 			spouse = {
 				NOT = { opinion = { who = PREV value = -25 } }

@@ -191,8 +191,14 @@ character_event = {
 			type = castle
 			holder = FROM
 		}
-		b_kalavryta = { set_name = "Olympus Mons" }
-		d_herculean = { owner = { gain_title = b_kalavryta } }
+		d_herculean = { 
+			owner = { 
+				b_kalavryta = { 
+					set_name = "Olympus Mons" 
+					gain_title = PREV
+				}									
+			} 
+		}
 	}
 	
 	option = {
