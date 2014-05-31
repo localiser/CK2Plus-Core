@@ -54,9 +54,9 @@
 #k_egypt completed
 #k_jerusalem completed
 #k_syria completed -> must create d_palmyra
-#k_england completed -> must create c_stafford, c_westderby, c_notthingham, d_oxford, c_berks, c_hertfordshire, c_bucks, d_huntingdon, c_huntingdon, c_cambridge
-#k_wales completed -> must create c_ceredigion, c_pembroke, c_maelienydd, c_powys_fadog changed to c_powys -- c_glamorgan is new
-#k_scotland completed -> must create d_highlands, c_cromarty, c_sutherland, c_inverness
+#k_england completed -> must create c_stafford, c_westderby, c_notthingham, c_berks, c_hertfordshire, c_bucks, d_huntingdon, c_huntingdon, c_cambridge
+#k_wales completed
+#k_scotland completed -> must create c_cromarty, c_sutherland, c_inverness
 #k_ireland completed -> c_meath changed to c_briefne
 #k_mauretania completed -> must create d_ifni
 #k_morocco completed -> must create k_morocco
@@ -21850,16 +21850,16 @@ k_wales = {
 			war = no
         }
 
-		#c_ceredigion = {  NEW, must create
-		#	color={ 248 235 0 }
-		#	color2={ 0 0 0 }
-		#	
-		#	b_aberaeron = {}
-		#	b_gaer_penrhos = {}
-		#	b_llangeitho = {}
-		#	b_tregaron = {}
-		#	b_abermagwr = {}
-		#}		
+		c_ceredigion = {
+			color={ 248 235 0 }
+			color2={ 0 0 0 }
+			
+			b_aberaeron = {}
+			b_gaer_penrhos = {}
+			b_llangeitho = {}
+			b_tregaron = {}
+			b_abermagwr = {}
+		}		
 		c_dyfed = {
 			color={ 167 103 226 }
 			color2={ 255 255 255 }
@@ -21890,28 +21890,22 @@ k_wales = {
 			b_brecon = {}
 			b_tintern = {}
 		}
-		#c_pembroke = {  NEW, must create
-		#	color={ 0 189 0 }
-		#	color2={ 255 0 0 }
-		#	
-		#	b_hwlffordd = {}
-		#	b_st_ishmaels = {}
-		#	b_pembroke = {}
-		#	b_tenby = {}
-		#	b_camrose = {}
-		#}
-		c_glamorgan = {
-			color={ 155 120 15 }
-			color2={ 255 255 255 }
+		c_pembroke = {
 		
-			b_cardiff = {}
-			b_neath = {}
-			b_llandaff = {}
-			b_caerphilly = {}
-			b_swansea = {}
-			b_loughor = {}
-			b_margam = {}
-			b_ogmore = {}
+			welsh = "Penfro"
+			irish = "Penfro"
+		
+			color={ 0 189 0 }
+			color2={ 255 0 0 }
+			
+			b_hwlffordd = {}
+			b_st_ishmaels = {}
+			b_pembroke = {
+				welsh = "Penfro"
+				irish = "Penfro"
+			}
+			b_tenby = {}
+			b_camrose = {}
 		}
 	}
 	d_powys = {
@@ -21926,7 +21920,10 @@ k_wales = {
 			war = no
 		}
 			
-		c_powys = {  #changed from c_powys_fadog
+		c_powys_fadog = {
+		
+			welsh = "Powys Fadog"
+		
 			color={ 132 84 234 }
 			color2={ 255 255 255 }
 			
@@ -21937,16 +21934,16 @@ k_wales = {
 			b_ruthin = {}
 			b_radnor = {}
 		}
-		#c_maelienydd = {  NEW, must create
-		#	color={ 175 90 20 }
-		#	color2={ 248 235 0 }
-		#	
-		#	b_crug_eryr = {}
-		#	b_llandrindod = {}
-		#	b_abbeycwmhir = {}
-		#	b_llysdinam = {}
-		#	b_llanelwedd = {}
-		#}
+		c_maelienydd = {
+			color={ 175 90 20 }
+			color2={ 248 235 0 }
+			
+			b_crug_eryr = {}
+			b_llandrindod = {}
+			b_abbeycwmhir = {}
+			b_llysdinam = {}
+			b_llanelwedd = {}
+		}
 	}
 }
 k_scotland = {
