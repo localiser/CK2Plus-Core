@@ -27,9 +27,9 @@
 #k_muscovy completed
 #k_rus completed
 #k_sames completed
-#k_cuman completed -> must create c_oral, c_ryn_desert changed to c_inder, c_omsk changed to c_tobol -- MANY new counties (part of the new map)
+#k_cuman completed
 #k_perm completed -> c_qazan changed to c_kama -- c_narim is new
-#k_volga completed -> must create c_surgut changed to c_sibir, c_chelyabi changed to c_ural, c_southern_ural changed to c_ashli
+#k_volga completed
 #k_crimea completed
 #k_alania completed
 #k_khwarizm completed -> must create c_khwarizm, c_kyzylorda changed to c_syr_darya, c_emba changed to c_kangly, c_turkestan changed to c_aral -- c_urgench is new, c_oshrusana is new, c_khuttal is new, c_fergana is new, c_maverannahr is new, c_chuy is new, c_ili is new, c_zhetysu is new, c_karluk is new, c_otrar is new, c_chach is new, c_kyzylkum is new
@@ -10971,6 +10971,19 @@ k_cuman = {
 			b_bataevka = {}
 			b_chernyyar = {}
 		}
+		c_yaik = {
+			color={ 43 240 201 }
+			color2={ 255 255 255 }
+		
+			b_orenburg = {}
+			b_kargala = {}
+			b_saraktash = {}
+			b_sakmara = {}
+			b_khutorka = {}
+			b_tolkachi = {}
+			b_sadovy = {}
+			b_kichkas = {}
+		}
 	}
 	d_itil = {
 		color={ 151 118 30 }
@@ -11109,7 +11122,7 @@ k_cuman = {
 			war = no
         }
 		
-		c_inder = {  #changed from c_ryn_desert
+		c_ryn_desert = {
 			color={ 171 138 50 }
 			color2={ 255 255 255 }
 			
@@ -11135,18 +11148,18 @@ k_cuman = {
 			b_shilikta = {}
 			b_aulkutyrtas = {}
 		}
-		c_yaik = {  #moved here
-			color={ 43 240 201 }
+		c_omsk = {
+			color={ 131 209 79 }
 			color2={ 255 255 255 }
-		
-			b_kurgan = {}
-			b_kyzalyar = {}
-			b_vagay = {}
-			b_lebyazhe = {}
-			b_yurgamysh = {}
-			b_shumikha = {}
-			b_mishkino = {}
-			b_makushino = {}
+			
+			b_omsk = {}
+			b_tara = {}
+			b_isilkul = {}
+			b_kalachinsk = {}
+			b_tyukalinsk = {}
+			b_cherlak = {}
+			b_sargatka = {}
+			b_krasnyyar = {}
 		}		
 	}
     d_tyumen = {
@@ -11176,54 +11189,32 @@ k_cuman = {
 			b_nizhtavda = {}
 			b_borovskiy = {}
 		}
-		c_tobol = {  #changed from c_omsk, moved here from d_aktobe
-			color={ 131 209 79 }
+		c_mansia = {
+			color={ 128 214 16 }
+			color2={ 255 255 255 }
+		
+			b_mansiysk = {}
+			b_yabin = {}
+			b_yalbak = {}
+			b_pytyakh = {}
+			b_nefteyugansk = {}
+			b_mamontovo = {}
+			b_poykovskiy = {}
+			b_samza = {}
+		}
+		c_oral = {
+			color={ 82 213 243 }
 			color2={ 255 255 255 }
 			
-			b_tobol = {}
-			b_tara = {}
-			b_isilkul = {}
-			b_kalachinsk = {}
-			b_tyukalinsk = {}
-			b_cherlak = {}
-			b_sargatka = {}
-			b_krasnyyar = {}
+			b_kurgan = {}
+			b_vagay = {}
+			b_kyzalyar = {}
+			b_lebyazhe = {}
+			b_yurgamysh = {}
+			b_shumikha = {}
+			b_mishkino = {}
+			b_makushino = {}
 		}
-		c_ishim = {  #moved here from d_surgut
-			color={ 194 169 40 }
-			color2={ 255 255 255 }
-		
-			b_ishim = {}
-			b_esil = {}
-			b_mamlyut = {}
-			b_ust_ishim = {}
-		}
-		c_bashkirs = {  #moved here from d_bulgar
-			color={ 109 141 230 }
-			color2={ 255 255 255 }
-		
-			b_ufa = {}
-			b_belebey = {}
-			b_chishmy = {}
-			b_bajmaq = {}
-			b_isembaj = {}
-			b_beloret = {}
-			b_meleus = {}
-			b_sterlitamak = {}
-		}
-		#c_oral = {
-		#	color={ 82 213 243 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_kurgan = {}
-		#	b_vagay = {}
-		#	b_kyzalyar = {}
-		#	b_lebyazhe = {}
-		#	b_yurgamysh = {}
-		#	b_shumikha = {}
-		#	b_mishkino = {}
-		#	b_makushino = {}
-		#}
 	}
 	d_kipchak = {
 		color={ 131 84 50 }
@@ -11399,47 +11390,6 @@ k_perm = {
 		}
 	}
 
-	d_surgut = {  #moved here from k_volga
-		color={ 105 215 62 }
-		color2={ 255 255 255 }
-		
-		capital = 893 #Sibir
-		
-		allow = {
-			is_adult = yes
-			prisoner = no
-			NOT = { trait = incapable }
-			ruled_years = 5
-			war = no
-        }
-		
-		c_sibir = {  #changed from c_surgut
-			color={ 227 174 31 }
-			color2={ 255 255 255 }
-		
-			b_belyyyar = {}
-			b_iberbolgar = {}
-			b_baduk = {}
-			b_kaik = {}
-			b_langepas = {}
-			b_pokachi = {}
-			b_vysokiy = {}
-			b_sibir = {}
-		}
-		c_mansia = {  #moved here from d_tyumen
-			color={ 128 214 16 }
-			color2={ 255 255 255 }
-		
-			b_mansiysk = {}
-			b_yabin = {}
-			b_yalbak = {}
-			b_pytyakh = {}
-			b_nefteyugansk = {}
-			b_mamontovo = {}
-			b_poykovskiy = {}
-			b_samza = {}
-		}
-	}
 	d_perm = {
 		color={ 234 208 137 }
 		color2={ 255 255 255 }
@@ -11509,26 +11459,13 @@ k_perm = {
 			b_uymuzh = {}
 			b_belyaevka = {}
 			b_pakli = {}
-		}
-		c_ural = {  #changed from c_chelyabi, moved here
-			color={ 246 220 149 }
-			color2={ 255 255 255 }
-		
-			b_ural = {}
-			b_ustkatav = {}
-			b_asha = {}
-			b_chebarkul = {}
-			b_kaslinsky = {}
-			b_kyshtym = {}
-			b_miass = {}
-			b_satka = {}
-		}		
+		}	
 	}	
 	d_yugra = {
 		color={ 208 208 244 }
 		color2={ 255 255 255 }
 		
-		capital = 892 # Mansia
+		capital = 890 # Khantia
 			
 		c_khantia = {
 			color={ 124 74 242 }
@@ -11564,6 +11501,56 @@ k_perm = {
 			b_kolta = {}
 			b_yag = {}
 			b_askiz = {}
+		}
+	}
+	d_surgut = {
+		color={ 105 215 62 }
+		color2={ 255 255 255 }
+		
+		capital = 893 #Surgut
+		
+		allow = {
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			ruled_years = 5
+			war = no
+        }
+		
+		c_surgut = {
+			color={ 227 174 31 }
+			color2={ 255 255 255 }
+		
+			b_surgut = {}
+			b_belyyyar = {}
+			b_iberbolgar = {}
+			b_baduk = {}
+			b_kaik = {}
+			b_langepas = {}
+			b_pokachi = {}
+			b_vysokiy = {}
+		}
+		c_ishim = {
+			color={ 194 169 40 }
+			color2={ 255 255 255 }
+		
+			b_ishim = {}
+			b_esil = {}
+			b_mamlyut = {}
+			b_ust_ishim = {}
+		}
+		c_chelyabi = {
+			color={ 246 220 149 }
+			color2={ 255 255 255 }
+		
+			b_chelyabinsk = {}
+			b_ustkatav = {}
+			b_asha = {}
+			b_chebarkul = {}
+			b_kaslinsky = {}
+			b_kyshtym = {}
+			b_miass = {}
+			b_satka = {}
 		}
 	}
 }
@@ -11708,18 +11695,31 @@ k_volga = {
 			b_osinki = {}
 			b_shungut = {}
 		}
-		c_ashli = {  #changed from c_southern_ural
+		c_southern_ural = {
 			color={ 57 10 134 }
 			color2={ 255 255 255 }
 			
-			b_ashli = {}
 			b_boro = {}
 			b_durtojle = {}
 			b_daulakan = {}
 			b_blagovescen = {}
 			b_tuimasy = {}
 			b_janauyl = {}
+			b_iq = {}
 			b_yamantaw = {}
+		}
+		c_bashkirs = {
+			color={ 109 141 230 }
+			color2={ 255 255 255 }
+		
+			b_ufa = {}
+			b_belebey = {}
+			b_chishmy = {}
+			b_bajmaq = {}
+			b_isembaj = {}
+			b_beloret = {}
+			b_meleus = {}
+			b_sterlitamak = {}
 		}
 		c_qazan = {  #moved here
 			color={ 199 164 69 }
