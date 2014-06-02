@@ -1,71 +1,14 @@
-#k_frisia completed
 #k_lotharingia completed -> must create c_limburg, c_laroche, c_chiny, c_namur
-#k_germany completed
-#k_bohemia completed
-#k_pomerania completed
-#k_byzantium completed -> must create c_corfou
-#k_nikaea completed
-#k_trebizond completed
 #k_armenia completed -> c_lori is new (was part of c_dwin?)
-#k_bulgaria completed
 #k_serbia completed -> must create c_travonia, c_neretvani
-#k_croatia completed
-#k_sicily complted -> must create c_teate, c_gaete
-#k_adal completed
-#k_georgia completed
-#k_azerbaijan completed
 #k_italy completed -> must create c_mondovi, c_suze (change capital of d_susa to this), d_piedmont, c_asti, c_alessandria, c_savona, c_vintimille, c_noli, c_laspezia, c_tortone, c_marche, c_logudoro
-#k_venice completed
-#k_sweden completed
-#k_denmark completed
-#k_north_sea completed
-#k_norway completed
-#k_finland completed
-#k_poland completed
-#k_lithuania completed
-#k_novgorod completed
-#k_muscovy completed
-#k_rus completed
-#k_sames completed
-#k_cuman completed
 #k_perm completed -> c_qazan changed to c_kama -- c_narim is new
-#k_volga completed
-#k_crimea completed
-#k_alania completed
 #k_khwarizm completed -> must create c_khwarizm, c_kyzylorda changed to c_syr_darya, c_emba changed to c_kangly, c_turkestan changed to c_aral -- c_urgench is new, c_oshrusana is new, c_khuttal is new, c_fergana is new, c_maverannahr is new, c_chuy is new, c_ili is new, c_zhetysu is new, c_karluk is new, c_otrar is new, c_chach is new, c_kyzylkum is new
 #k_afghanistan completed -> all counties are new
 #k_persia completed -> must create c_baluchistan changed to c_saravan, c_turkmen changed to c_konjikala, c_khorasan changed to c_tus, c_zermanya changed to c_sirjan, c_sabzevar changed to c_mandesh -- c_makran is new, c_chagai is new, c_kalat is new, c_armail is new, c_maymana is new
-#k_mesopotamia completed
-#k_wallachia completed
-#k_carpathia completed
 #k_france completed -> must create c_tonnerre, c_ponthieu, c_bayeux, c_dunois, c_sancerre, c_nemours, c_dreux, c_alencon, c_perche
-#k_aquitaine completed -> must create c_aunis, c_bigorre, c_velay
-#k_brittany completed -> must create c_porhoet, c_tregor
-#k_burgundy completed -> must create c_montbeliard
-#k_leon completed
-#k_castille completed -> must create c_guadalajara, c_palencia
-#k_aragon completed -> must create c_alpunte
-#k_navarra completed
-#k_asturias completed
-#k_spanish_galicia completed
-#k_portugal completed
-#k_andalusia completed -> must create c_jaen
 #k_arabia completed -> must create c_shoubak, c_husseiniya, c_jeddah, c_sharawrah, c_sharqiyah
-#k_egypt completed
-#k_jerusalem completed
-#k_syria completed
-#k_england completed
-#k_wales completed
-#k_scotland completed
-#k_ireland completed
-#k_mauretania completed
-#k_morocco completed
-#k_algiers completed
-#k_africa completed
 #k_mali completed -> c_gurma is new
-#k_jolof completed
-#k_abyssinia completed
-#k_nubia completed
 	
 k_frisia = {
 	color={ 245 100 20 }
@@ -2590,20 +2533,25 @@ k_byzantium = {
 				turkish = "Çuha"
 			}
 		}
-		#c_corfou = {  #NEW, must create
-		#	color={ 5 37 82 }
-		#	color2={ 131 0 0 }
-		#	b_corfu = {}
-		#	b_paxos = {
-		#		italian = "Passo"
-		#		turkish = "Paksa"
-		#	}
-		#	b_achilleio = {}
-		#	b_esperion = {}
-		#	b_kassopaia = {}
-		#	b_leukimi = {}
-		#	b_meliteieis = {}
-		#}
+		c_corfou = {
+			color={ 5 37 82 }
+			color2={ 131 0 0 }
+			
+			greek = "Kerkyra"
+			
+			b_corfu = {
+				greek = "Kerkyra"
+			}
+			b_paxos = {
+				italian = "Passo"
+				turkish = "Paksa"
+			}
+			b_achilleio = {}
+			b_esperion = {}
+			b_kassopaia = {}
+			b_leukimi = {}
+			b_meliteieis = {}
+		}
 	}
 	d_athens = {
 		color={ 76 66 208 }
@@ -4618,14 +4566,14 @@ k_sicily = {
 			b_conza = {}
 			b_sanangelo = {}
 		}
-		#c_teate = {  NEW, must create
-		#	color={ 94 171 191 }
-		#	color2={ 255 255 255 }
-		#	b_chieti = {}
-		#	b_nursia = {}
-		#	b_aquila = {}
-		#	b_valva = {}
-		#}
+		c_teate = {
+			color={ 94 171 191 }
+			color2={ 255 255 255 }
+			b_chieti = {}
+			b_nursia = {}
+			b_aquila = {}
+			b_valva = {}
+		}
 		c_foggia = {
 			color={ 57 223 237 }
 			color2={ 255 255 255 }
@@ -4662,8 +4610,6 @@ k_sicily = {
 			color={ 94 153 140 }
 			color2={ 255 255 255 }
 			
-			greek = "Gaeta"
-			
 			b_capua = {
 				greek = "Kapue"
 			}
@@ -4691,16 +4637,17 @@ k_sicily = {
 			b_turris_octava={}
 			b_afragola={}
 		}
-		#c_gaete = {  NEW, must create
-		#	color={ 220 220 200 }
-		#	color2={ 250 0 0 }
-		#	b_gaeta = {}
-		#	b_formia = {}
-		#	b_itri = {}
-		#	b_ponziane = {}
-		#	b_spignosaturnia = {}
-		#	b_castelforte = {}
-		#}
+		c_gaete = {
+			color={ 220 220 200 }
+			color2={ 250 0 0 }
+			
+			b_gaeta = {}
+			b_formia = {}
+			b_itri = {}
+			b_ponziane = {}
+			b_spignosaturnia = {}
+			b_castelforte = {}
+		}
 	}
 	d_apulia = {
 		color={ 196 192 140 }
@@ -15288,16 +15235,16 @@ k_aquitaine = {
 			b_mauleon = {}
 			b_fontenay = {}
 		}
-		#c_aunis = {  NEW, must add
-		#	color={ 255 216 0}
-		#	color2={ 215 30 30 }
-		#	
-		#	b_chatelaillon = {}
-		#	b_larochelle = {}
-		#	b_rochefort = {}
-		#	b_marennes = {}
-		#	b_surgeres = {}
-		#}
+		c_aunis = {
+			color={ 255 216 0}
+			color2={ 215 30 30 }
+			
+			b_chatelaillon = {}
+			b_larochelle = {}
+			b_rochefort = {}
+			b_marennes = {}
+			b_surgeres = {}
+		}
 	}
 	d_aquitaine = {
 		color={ 107 170 77 }
@@ -15526,16 +15473,16 @@ k_aquitaine = {
 			b_mimizan = {}
 			b_latestedebuch = {}
 		}
-		#c_bigorre = {  NEW, must create
-		#	color={ 136 29 155 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_bagnere = {}
-		#	b_tarbes = {}
-		#	b_lourdes = {}
-		#	b_cauterets = {}
-		#	b_saintsever = {}
-		#}
+		c_bigorre = {
+			color={ 136 29 155 }
+			color2={ 255 255 255 }
+			
+			b_bagnere = {}
+			b_tarbes = {}
+			b_lourdes = {}
+			b_cauterets = {}
+			b_saintsever = {}
+		}
 	}
 	d_auvergne = {
 		color={ 83 149 105 }
@@ -15577,14 +15524,14 @@ k_aquitaine = {
 			b_stsauveur = {}
 			b_tournel = {}
 		}
-		#c_velay = {  NEW, must create
-		#	color={ 26 73 228 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_lepuy = {}
-		#	b_yssingeaux = {}
-		#	b_lachaisedieu = {}
-		#}
+		c_velay = {
+			color={ 26 73 228 }
+			color2={ 255 255 255 }
+			
+			b_lepuy = {}
+			b_yssingeaux = {}
+			b_lachaisedieu = {}
+		}
 	}
 	d_bourbon = {
 		color={ 113 112 96 }
@@ -15773,28 +15720,28 @@ k_brittany = {
 			b_st_meen = {}
 			b_porhoet = {}
 		}
-		#c_porhoet = {  NEW, must create
-		#	color={ 49 92 134 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_josselin = {}
-		#	b_ploermel = {}
-		#	b_porhoet = {}
-		#	b_pontivy = {}
-		#	b_rohan = {}
-		#	b_latrinitepor = {}
-		#}
-		#c_tregor = {  NEW, must create
-		#	color={ 43 39 166 }
-		#	color2={ 255 255 255 }
-		#
-		#	b_treguier = {}
-		#	b_plougonven = {}
-		#	b_guingamp = {}
-		#	b_stlaurent = {}
-		#	b_begard = {}
-		#	b_lannion = {}
-		#}
+		c_porhoet = {
+			color={ 49 92 134 }
+			color2={ 255 255 255 }
+			
+			b_josselin = {}
+			b_ploermel = {}
+			b_porhoet = {}
+			b_pontivy = {}
+			b_rohan = {}
+			b_latrinitepor = {}
+		}
+		c_tregor = {
+			color={ 43 39 166 }
+			color2={ 255 255 255 }
+		
+			b_treguier = {}
+			b_plougonven = {}
+			b_guingamp = {}
+			b_stlaurent = {}
+			b_begard = {}
+			b_lannion = {}
+		}
 	}
 }
 k_burgundy = {
@@ -16056,13 +16003,13 @@ k_burgundy = {
 			b_maiche = {}
 			b_morteau = {}
 		}
-		#c_montbeliard = {  NEW, must create
-		#	color={ 165 26 64 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_montbeliard = {}
-		#	b_montenois = {}
-		#}
+		c_montbeliard = {
+			color={ 165 26 64 }
+			color2={ 255 255 255 }
+			
+			b_montbeliard = {}
+			b_montenois = {}
+		}
         c_chalons = {
 			color={ 143 95 44 }
             color2={ 255 255 255 }
@@ -16216,14 +16163,14 @@ k_castille = { #Spain
 			b_sisante = {}
 			b_motadelcuervo = {}
 		}
-		#c_guadalajara = {  NEW, must create
-		#	color = { 51 10 21 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_siguenza = {}
-		#	b_guadalajara = {}
-		#	b_villanuevadelajara = {}
-		#}
+		c_guadalajara = {
+			color = { 51 10 21 }
+			color2={ 255 255 255 }
+			
+			b_siguenza = {}
+			b_guadalajara = {}
+			b_villanuevadelajara = {}
+		}
 	}	
 	d_castilla = {
 		color = { 202 146 12 }
@@ -16249,14 +16196,14 @@ k_castille = { #Spain
 			b_mirandadeebro = {}
 			b_arandadeduero = {}
 		}
-		#c_palencia = {  NEW, must create
-		#	color = { 46 200 16 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_aguilardecampo = {}
-		#	b_palencia = {}
-		#	b_carrion = {}
-		#}
+		c_palencia = {
+			color = { 46 200 16 }
+			color2={ 255 255 255 }
+			
+			b_aguilardecampo = {}
+			b_palencia = {}
+			b_carrion = {}
+		}
 		c_valladolid = {
 			color = { 57 101 203 }
 			color2={ 255 255 255 }
@@ -16357,12 +16304,12 @@ k_aragon = {
 			b_alcaniz = {}
 			b_calamocha = {}
 		}
-		#c_alpunte = {  NEW, must create
-		#	color = { 113 35 103 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_alpunte = {}
-		#}
+		c_alpunte = {
+			color = { 113 35 103 }
+			color2={ 255 255 255 }
+			
+			b_alpunte = {}
+		}
 		c_alto_aragon = {
 			color = { 10 117 193 }
 			color2={ 255 255 255 }
@@ -17465,15 +17412,15 @@ k_andalusia = {
 			b_guadix = {}
 			b_benalua = {}
 		}
-		#c_jaen = {  NEW, must create
-		#	color = { 45 42 115 }
-		#	color2={ 255 255 255 }
-		#	
-		#	b_jaen = {}
-		#	b_baeza = {}
-		#	b_huelma = {}
-		#	b_jamilena = {}
-		#}
+		c_jaen = {
+			color = { 45 42 115 }
+			color2={ 255 255 255 }
+			
+			b_jaen = {}
+			b_baeza = {}
+			b_huelma = {}
+			b_jamilena = {}
+		}
 		c_almeria = {
 			color = { 105 111 39 }
 			color2={ 255 255 255 }
