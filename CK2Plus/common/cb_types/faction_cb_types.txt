@@ -2562,7 +2562,10 @@ cb_faction_overthrow_ruler = {
 			}
 		}
 		FROM = {
-			higher_tier_than = ROOT
+			any_demesne_title = {
+				NOT = { lower_tier_than = ROOT }
+				temporary = no
+			}
 		}
 	}
 
