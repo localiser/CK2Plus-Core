@@ -3045,22 +3045,21 @@ egyptian_pagan_rebels = {
 		}
 	}
 }
-
 ######################################################################
-# Monophysite rebels. Disgruntled fanatics.
+# Jain rebels. Disgruntled fanatics.
 ######################################################################
-monophysite_rebels = {
+jain_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = monophysite
+	religion = jain
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
 	unit_transfer = yes
 	gfx_type = culture_province
 	
-	resilient = no
+	resilient = yes
 	reinforcing = yes
 	general = yes
 	smart = yes
@@ -3090,7 +3089,7 @@ monophysite_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = monophysite }
+			NOT = { religion = jain }
 		}
 		modifier = {
 			factor = 0.001
@@ -3135,14 +3134,14 @@ monophysite_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = monophysite
-			owner = { religion = monophysite }
+			religion = jain
+			owner = { religion = jain }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = monophysite }
+			NOT = { religion = jain }
 			any_neighbor_province = {
-	 			religion = monophysite
+	 			religion = jain
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -3162,30 +3161,61 @@ monophysite_rebels = {
  
  	# Province Scope
  	siege_won_trigger = {
-		NOT = {
-			AND = {
-				owned_by = PAP
-				is_capital = yes
-			}
-		}
  	}
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = monophysite
+				NOT = { religion = jain }
+				OR = {
+					any_neighbor_province = {
+						religion = jain
+						NOT = { has_province_modifier = "forced_conversion" }
+					}
+					owner = {
+						NOT = {
+							any_owned_province = {
+								religion = jain
+							}
+						}
+					}
+				}
 			}
+			change_religion = jain
 			add_province_modifier = {
-				name = "religious_violence"
+				name = "forced_conversion"
 				duration = 730
 			}
 		}
 		if = {
 			limit = {
-				NOT = { religion = monophysite }
+				NOT = { religion = jain }
+				NOT = {
+					OR = {
+						any_neighbor_province = {
+							religion = jain
+							NOT = { has_province_modifier = "forced_conversion" }
+						}
+						owner = {
+							NOT = {
+								any_owned_province = {
+									religion = jain
+								}
+							}
+						}
+					}
+				}
 			}
-			change_religion = monophysite
 			add_province_modifier = {
-				name = "forced_conversion"
+				name = "religious_massacre"
+				duration = 730
+			}
+		}
+		if = {
+			limit = {
+				religion = jain
+			}
+			add_province_modifier = {
+				name = "religious_violence"
 				duration = 730
 			}
 		}
@@ -3194,15 +3224,12 @@ monophysite_rebels = {
 	# Country scope
 	can_negotiate_trigger = {
 		any_owned_province = { controlled_by = REB }
-		OR = {
-			religion_group = christian
-			dominant_religion = monophysite
-		}
+		religion_group = pagan_group
 	}
 	
 	# Country scope
 	can_enforce_trigger = {
-		always = yes
+		religion_group = pagan_group
 	}
 	
 	# Country Scope	
@@ -3210,67 +3237,40 @@ monophysite_rebels = {
 		add_prestige = -50
 		if = {
 			limit = {
-				religion = monophysite
+				NOT = { religion = jain }
+			}
+			change_religion = jain 
+			force_converted = yes
+		}
+		if = {
+			limit = {
+				religion = jain
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
 				duration = 3650
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = monophysite }
-				NOT = { tag = PAP }
-			}
-			change_religion = monophysite 
-			force_converted = yes
-		}
 	}
 	
 	# Localisation for their demands
-	demands_description = "monophysite_rebels_demand"
+	demands_description = "jain_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = christian }
+				NOT = { religion = jain }
 			}
-			add_prestige = -50
-		}
-		if = {
-			limit = {
-				tag = PAP
-			}
-			add_stability = -1
-		}
-		if = {
-			limit = {
-				religion = monophysite
-			}
-			add_country_modifier = {
-				name = "religious_intolerance"
-				duration = 3650
-			}
-		}
-		if = {
-			limit = {
-				NOT = { religion = monophysite }
-				dominant_religion = monophysite
-				NOT = { tag = PAP }
-			}
-			change_religion = monophysite
+			change_religion = jain
 			force_converted = yes
 		}
 		if = {
 			limit = {
-				NOT = { religion = monophysite }
-				NOT = { dominant_religion = monophysite }
-				NOT = { tag = PAP }
-				religion_group = christian
+				religion = jain
 			}
 			add_country_modifier = {
-				name = "heretic_tolerance"
+				name = "religious_intolerance"
 				duration = 3650
 			}
 		}
