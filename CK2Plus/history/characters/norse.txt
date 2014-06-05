@@ -1,24 +1,39 @@
 242 = {
-	name = "Hrolfr" # Hrolf Gange - founder of Normandy
-	dynasty = 752
-	martial = 7
-	diplomacy = 6
-	intrigue = 8
-	stewardship = 7
-	religion = "catholic"
-	culture = norse
-	trait = "lustful"
-	trait = "wroth"
-	trait = "proud"
-	trait = "skilled_tactician"
-	846.6.6 = {
-		birth = yes
+	name="Hrolfr" # Hrolf Gange - founder of Normandy
+	dynasty=752
+	martial=7
+	diplomacy=6
+	intrigue=8
+	stewardship=7
+	learning=5
+	religion=norse_pagan
+	culture=norse
+	trait=lustful
+	trait=proud
+	trait=strong
+	trait=brave
+	trait=brilliant_strategist
+	846.6.6={
+		birth=yes
 	}
-	886.1.1 = {
-		add_spouse = 241
+	866.1.1={
+		trait=viking
 	}
-	932.1.1 = {
-		death = yes
+	867.1.1={
+		employer=186004
+	}
+	886.1.1={
+		add_spouse=241
+	}
+	911.1.1={
+		religion=catholic
+	}
+	930.1.1={
+		trait=lunatic
+		religion=norse_pagan
+	}
+	932.1.1={
+		death=yes
 	}
 }
 
@@ -188,6 +203,7 @@
 	dynasty = 828
 	religion = "norse_pagan"
 	culture = "norse"
+	trait = content
 	838.1.1 = {
 		birth = yes
 	}
@@ -585,12 +601,33 @@
 	trait = ambitious
 	trait = just
 	trait = quick
-	trait = skilled_tactician
+	trait=brilliant_strategist
+	trait=brave
 	830.1.1 = {
 		birth = yes
 	}
 	866.1.1 = {
 		add_spouse = 6863
+		wealth = 1000
+		effect = {
+			spawn_unit = {
+				province = 414
+				owner = ROOT
+				leader = ROOT
+				match_character = ROOT
+				match_mult = 0.5
+				attrition = 1.0
+			}
+			spawn_fleet = {
+				province = closest # closest sea zone
+				owner = ROOT
+				cannot_inherit = yes # disbands on inheritance
+				troops =
+				{
+					galleys = { 40 40 }
+				}
+			}
+		}
 	}
 	879.1.2 = {
 		death = yes
@@ -603,6 +640,8 @@
 	religion = slavic_pagan
 	culture = norse
 	father = 40605 # "kinsman of Rurik"
+	diplomacy=9
+	martial=9
 	trait = quick
 	trait = legit_bastard
 	trait = proud
@@ -3842,6 +3881,9 @@
 	trait = greedy
 	trait = gregarious
 	trait = grey_eminence
+	trait=brave
+	trait=heavy_infantry_leader
+	trait=genius
 #	trait = bastard
 #	father = 163112
 	give_nickname = nick_the_stranger # Oskyldr -> Askold
@@ -3852,6 +3894,7 @@
 		add_spouse = 6872
 	}
 	867.1.1 = {
+		wealth = 500
 		effect = {
 			spawn_unit = {
 				province = 547 # Kiev
@@ -3860,6 +3903,15 @@
 				match_character = ROOT
 				match_mult = 5.5
 				attrition = 0.5
+			}
+			spawn_fleet = {
+				province = closest # closest sea zone
+				owner = ROOT
+				cannot_inherit = yes # disbands on inheritance
+				troops =
+				{
+					galleys = { 30 30 }
+				}
 			}
 			create_character = {
 				random_traits = yes
