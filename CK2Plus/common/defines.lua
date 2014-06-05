@@ -6,11 +6,11 @@ NDiplomacy = {
 	BREAK_TRUCE_PRESTIGE_PERC_COST = 0.5,		-- Percent of current prestige lost before the base prestige cost (below)
 	BREAK_TRUCE_PRESTIGE_COST = 200,			-- Base Prestige cost for breaking a truce
 	MONTHS_PER_SUCCESSION_CB = 24,				-- Number of months a succession CB lasts
-	ATTACKING_SOMEONE_CRUSADING_PIETY_COST = 100,									-- Piety hit for attacking someone crusading
+	ATTACKING_SOMEONE_CRUSADING_PIETY_COST = 100, -- Piety hit for attacking someone crusading
 	ATTACKING_SOMEONE_DEFENDING_AGAINST_OTHER_RELIGIOUS_GROUP_PIETY_COST = 100,		-- Piety hit for attacking someone who is defending against other religious group
-	ATTACKER_CALL_DECLINE_COST = 25,			-- Prestige cost for refusing to join an offensive war
-	DEFENDER_CALL_DECLINE_COST = 100,			-- Prestige cost for refusing to join a defensive war
-	CALL_TO_WAR_DELAY = 60,						-- Months between attempts to call someone into war
+	ATTACKER_CALL_DECLINE_COST = 25, 			-- Prestige cost for refusing to join an offensive war
+	DEFENDER_CALL_DECLINE_COST = 100, 			-- Prestige cost for refusing to join a defensive war
+	CALL_TO_WAR_DELAY = 60, 					-- Months between attempts to call someone into war
 	PAPAL_INVEST_PIETY_COST_MULT = 0.75,		-- The effect of Papal investiture on the piety cost of the special Papal actions
 	SHORT_REIGN_YEARS_END = 10,
 	LONG_REIGN_YEARS_START = 20,
@@ -63,21 +63,21 @@ NDiplomacy = {
 	MAX_PREP_INV_ATTACKER_HOLDINGS = 40,		-- The attacker must have fewer Holdings than this in the realm (disallow Prepared Invasions for rulers who are already very powerful)
 	PREP_INV_REQ_PRESTIGE = 1000,				-- Need to have this much Prestige to prepare an invasion
 	BASE_REVOLT_CHANCE_MOD = 1000,				-- Pre Old Gods rebel spawn chance modifier (fires on_rebel_revolt) : lower means fewer revolts. MUST NOT BE ZERO.
-	TOG_REVOLT_CHANCE_MOD = 200,				-- Old Gods rebel spawn chance modifier (fires on_rebel_revolt) : lower means fewer revolts. MUST NOT BE ZERO.
+	TOG_REVOLT_CHANCE_MOD = 200,				-- Old Gods rebel spawn chance modifier (fires on_rebel_revolt) : lower means fewer revolts. MUST NOT BE ZERO. 
 	JAIN_LIEGE_OPINION_BONUS = 30,				-- Jain Lieges Get Vassal Opinion Bonus
 	MAX_DIPLO_DISTANCE = 700,					-- Most diplomacy is disallowed if two rulers are too distant
 	MAX_DIPLO_DISTANCE_SAME_RELIGION = 100,		-- Bonus to max diplo distance for being of the same religion
 	MAX_DIPLO_DISTANCE_SAME_RELIGION_GROUP = 0, -- Bonus to max diplo distance for being of the same religion group
 	MAX_DIPLO_DISTANCE_SAME_CULTURE = 100, 		-- Bonus to max diplo distance for being of the same culture
-	MAX_DIPLO_DISTANCE_SAME_CULTURE_GROUP = 100, -- Bonus to max diplo distance for being of the same culture group	
-
+	MAX_DIPLO_DISTANCE_SAME_CULTURE_GROUP = 100, -- Bonus to max diplo distance for being of the same culture group
+	
 	IMPRISON_CHARACTER_INTERACTION_MONEY = 0,
 	IMPRISON_CHARACTER_INTERACTION_PIETY = 0,
 	IMPRISON_CHARACTER_INTERACTION_PRESTIGE = 0,
 	IMPRISON_CHARACTER_INTERACTION_THRESHOLD_FOR_NO = 0,
 	IMPRISON_CHARACTER_INTERACTION_THRESHOLD_FOR_YES = 0,
 	IMPRISON_CHARACTER_INTERACTION_MUST_HAVE_COST = 0,				-- Is having prestige/piety >= cost required for this action?
-	IMPRISON_CHARACTER_INTERACTION_ENABLED = 1,						-- Should this action be used at all?	
+	IMPRISON_CHARACTER_INTERACTION_ENABLED = 1,						-- Should this action be used at all?
 	
 	RELEASE_FROM_PRISON_INTERACTION_MONEY = 0,
 	RELEASE_FROM_PRISON_INTERACTION_PIETY = 0,
@@ -85,7 +85,7 @@ NDiplomacy = {
 	RELEASE_FROM_PRISON_INTERACTION_THRESHOLD_FOR_NO = 0,
 	RELEASE_FROM_PRISON_INTERACTION_THRESHOLD_FOR_YES = 0,
 	RELEASE_FROM_PRISON_INTERACTION_MUST_HAVE_COST = 1,				-- Is having prestige/piety >= cost required for this action?
-	RELEASE_FROM_PRISON_INTERACTION_ENABLED = 1,					-- Should this action be used at all?	
+	RELEASE_FROM_PRISON_INTERACTION_ENABLED = 1,					-- Should this action be used at all?
 	
 	EXECUTE_IMPRISONED_INTERACTION_MONEY = 0,
 	EXECUTE_IMPRISONED_INTERACTION_PIETY = 0,
@@ -93,7 +93,7 @@ NDiplomacy = {
 	EXECUTE_IMPRISONED_INTERACTION_THRESHOLD_FOR_NO = 0,
 	EXECUTE_IMPRISONED_INTERACTION_THRESHOLD_FOR_YES = 0,
 	EXECUTE_IMPRISONED_INTERACTION_MUST_HAVE_COST = 0,				-- Is having prestige/piety >= cost required for this action?
-	EXECUTE_IMPRISONED_INTERACTION_ENABLED = 1,						-- Should this action be used at all?	
+	EXECUTE_IMPRISONED_INTERACTION_ENABLED = 1,						-- Should this action be used at all?
 	
 	EXILE_IMPRISONED_INTERACTION_MONEY = 0,
 	EXILE_IMPRISONED_INTERACTION_PIETY = 0,
@@ -125,7 +125,7 @@ NDiplomacy = {
 	INVITE_TO_COURT_INTERACTION_THRESHOLD_FOR_NO = 0,
 	INVITE_TO_COURT_INTERACTION_THRESHOLD_FOR_YES = 0,
 	INVITE_TO_COURT_INTERACTION_MUST_HAVE_COST = 1,				-- Is having prestige/piety >= cost required for this action?
-	INVITE_TO_COURT_INTERACTION_ENABLED = 1,						-- Should this action be used at all?	
+	INVITE_TO_COURT_INTERACTION_ENABLED = 1,						-- Should this action be used at all?
 	
 	TRANSFER_VASSAL_INTERACTION_MONEY = 0,
 	TRANSFER_VASSAL_INTERACTION_PIETY = 0,
@@ -174,7 +174,7 @@ NDiplomacy = {
 	SEND_ASSASSIN_INTERACTION_THRESHOLD_FOR_YES = 0,
 	SEND_ASSASSIN_INTERACTION_MUST_HAVE_COST = 1,				-- Is having prestige/piety >= cost required for this action?
 	SEND_ASSASSIN_INTERACTION_ENABLED = 1,						-- Should this action be used at all?
-		
+	
 	DECLARE_WAR_INTERACTION_MONEY = 0,
 	DECLARE_WAR_INTERACTION_PIETY = 0,
 	DECLARE_WAR_INTERACTION_PRESTIGE = 0,
@@ -453,7 +453,7 @@ NDiplomacy = {
 	NOMINATE_BISHOP_TO_POPE_INTERACTION_THRESHOLD_FOR_NO = 50,
 	NOMINATE_BISHOP_TO_POPE_INTERACTION_THRESHOLD_FOR_YES = 150,
 	NOMINATE_BISHOP_TO_POPE_INTERACTION_MUST_HAVE_COST = 1,				-- Is having prestige/piety >= cost required for this action?
-	NOMINATE_BISHOP_TO_POPE_INTERACTION_ENABLED = 1,
+	NOMINATE_BISHOP_TO_POPE_INTERACTION_ENABLED = 1,						-- Should this action be used at all?	
 },
 
 NCharacter = {
@@ -467,7 +467,7 @@ NCharacter = {
 	PRESTIGE_FROM_DYNASTY_ON_MARRIAGE_DIV = 10, 	-- Characters get the dynasty prestige of the spouse divided by this on marriage
 	NEED_GUARDIAN_AT_AGE = 6, 						-- The age at which children should be appointed a mentor/guardian
 	ASSIGN_ACTION_DAYS = 0, 						-- Days before a Councillor can be assigned a new job in a county
-	MARRIAGE_TIER_DIFF_PRESTIGE_MULT = 50,			-- Prestige multiplier from marrying below or above your rank.
+	MARRIAGE_TIER_DIFF_PRESTIGE_MULT = 50, 		-- Prestige multiplier from marrying below or above your rank.
 	CONSORT_TIER_PRESTIGE_MULT = 25,				-- Prestige multiplier for rank of consort	
 	RAISED_TROOPS_VASSAL_OPINION_DAYS = 73,			-- After 73 days of having their troops raised, vassals will get -1 opinion more of you
 	MAX_GENERATED_TRAITS_FOR_HISTORICAL = 3,		-- Generate random traits up this number for adult historical characters
@@ -490,7 +490,7 @@ NCharacter = {
 	AGE_YOUNG = 20,									-- Non-child characters below this age have the 'teen' static modifier applied
 	AGE_ADULT = 30,									-- Non-child characters below this age have the 'young' static modifier applied
 	AGE_OLD = 50,									-- Non-child characters below this age have the 'adult' static modifier applied
-	AGE_VERY_OLD = 70,								-- Non-child characters below this age have the 'old' static modifier applied	
+	AGE_VERY_OLD = 70,								-- Non-child characters below this age have the 'old' static modifier applied
 	MAX_CHILD_BIRTH_AGE = 45,						-- Female menopause age.
 	CHILD_BIRTH_TO_PREGNANCY_WAIT = 3,
 	BASE_NR_OF_CHILDREN_PER_COUPLE = 2,
@@ -499,7 +499,7 @@ NCharacter = {
 	DYNASTY_CONTROLS_HOLY_ORDER_PRESTIGE = 2,		-- Monthly Prestige from a dynasty member as head of a Holy Order (only for counts+ and if the same religion)
 	DYNASTY_CONTROLS_HOLY_ORDER_PIETY = 1,			-- Monthly Piety from a dynasty member as head of a Holy Order (only for counts+ and if the same religion)
 	DYNASTY_CONTROLS_RELIGIOUS_HEAD_PRESTIGE = 2,	-- Monthly Prestige from a dynasty member as head of a religion (only for counts+ and if the same religion)
-	DYNASTY_CONTROLS_RELIGIOUS_HEAD_PIETY = 1,		-- Monthly Piety from a dynasty member as head of a religion (only for counts+ and if the same religion)	
+	DYNASTY_CONTROLS_RELIGIOUS_HEAD_PIETY = 1,		-- Monthly Piety from a dynasty member as head of a religion (only for counts+ and if the same religion)
 	NATURAL_DEATH_CHANCE_AGE_0 = 0,					-- Natural deaths per decade out of 10000 people: Age 0-9
 	NATURAL_DEATH_CHANCE_AGE_10 = 0,				-- Natural deaths per decade out of 10000 people: Age 10-19
 	NATURAL_DEATH_CHANCE_AGE_20 = 0,				-- Natural deaths per decade out of 10000 people: Age 20-29
@@ -594,7 +594,7 @@ NTitle = {
 	COUNT_GRANT_DECADENCE_RED = 0,
 	DUKE_GRANT_DECADENCE_RED = 0,
 	KING_GRANT_DECADENCE_RED = 0,
-	EMPEROR_GRANT_DECADENCE_RED = 0,	
+	EMPEROR_GRANT_DECADENCE_RED = 0,
 	
 	CLAIM_VASSAL_TITLE_COST_MOD = 0.75,
 	CLAIM_DE_JURE_TITLE_COST_MOD = 0.5,
@@ -607,11 +607,11 @@ NTitle = {
 	REQ_KINGDOMS_FOR_EMPIRE_CREATION = 3, 		-- Number of held kingdoms required to create an Empire (for rulers who are not already emperors)
 	TITULAR_TITLE_CREATION_COST_MULT = 1,		-- Titular titles are more expensive to create
 	ENFORCE_ONE_OF_EACH_HOLDING = 1,			-- Require players to build at least one City, Temple and Castle in each province
-	MAX_REPUBLIC_COUNTIES_IN_REALM = 0.2,		-- 10% of a feudal realm is allowed to be under vassal republics (affects title grants)
-	MAX_THEOCRACY_COUNTIES_IN_REALM = 0.2,		-- 10% of a feudal realm is allowed to be under vassal theocracies/bishoprics (affects title grants)
+	MAX_REPUBLIC_COUNTIES_IN_REALM = 0.2,		-- 20% of a feudal realm is allowed to be under vassal republics (affects title grants)
+	MAX_THEOCRACY_COUNTIES_IN_REALM = 0.2,		-- 20% of a feudal realm is allowed to be under vassal theocracies/bishoprics (affects title grants)
 	THEOCRACY_COUNTIES_CAN_BORDER = 1,			-- Can feudal lords create neighboring theocracy counties?
 	REPUBLIC_COUNTIES_CAN_BORDER = 1,				-- Can feudal lords create neighboring republic counties?
-	MIN_REVOKE_MONTHS_AFTER_GRANT = 12,			-- Months that must pass before you can revoke the title off someone you granted it to	
+	MIN_REVOKE_MONTHS_AFTER_GRANT = 12,			-- Months that must pass before you can revoke the title off someone you granted it to
 
 -- Title creation and usurpation requirements	
 	DEJURE_COUNTY_LIMIT_TO_CREATE = 0.51,			-- Fraction of de jure counties that you must control to create a non-imperial title
@@ -926,9 +926,9 @@ NMilitary = {
 	BOTTLENECK_ATTACKER_MARTIAL_MODIFIER = 1.0,
 	BOTTLENECK_CHANCE_LEADER_CAP = 95,
 	BOTTLENECK_CHANCE_MAX = 100,
-	BOTTLENECK_CHOKE_TROOP_CAP = 300,		-- THIS IS SPARTAAAAAAAAA!!!!	
+	BOTTLENECK_CHOKE_TROOP_CAP = 300,		-- THIS IS SPARTAAAAAAAAA!!!!
 	
-	REBEL_LEADER_MINIMUM_LIEGE_LEVY_MULT = 1, 	-- Leader of a civil war will always get at least this multiplier of levies from fellow rebels	
+	REBEL_LEADER_MINIMUM_LIEGE_LEVY_MULT = 1, 	-- Leader of a civil war will always get at least this multiplier of levies from fellow rebels
 	CAPITAL_COUNTY_VASSAL_COUNT_LEVY_MULT = 1,	-- Used instead of CAPITAL_COUNTY_LEVY_MULT for vassal counts
 	CAPITAL_COUNTY_VASSAL_LEVY_MULT = 1.25,		-- Used instead of CAPITAL_COUNTY_LEVY_MULT for non-count vassals
 	CAPITAL_COUNTY_LEVY_MULT = 1.5,				-- Multiplier to direct levies in the capital county
@@ -1021,7 +1021,7 @@ NGraphics = {
 },
 
 NEngine = {
-	EVENT_PROCESS_OFFSET = 20, -- Events are checked every X day per character or province (1 is ideal, but CPU heavy)
+	EVENT_PROCESS_OFFSET = 20,  -- Events are checked every X day per character or province (1 is ideal, but CPU heavy)
 },
 
 NAI =
@@ -1172,6 +1172,7 @@ NRulerDesigner =
 	COST_MONTHLY_PRESTIGE = 10.0,
 	COST_MONTHLY_PIETY = 20.0,
 	COST_MONTHLY_WEALTH = 10.0,
+	COST_GLOBAL_TAX = 50.0,
 	COST_CHURCH_OPINION = 0.25,
 	COST_SPOUCE_OPINION = 0.25,
 	COST_SEXAPPEAL_OPINION = 0.25,
@@ -1191,7 +1192,7 @@ NRulerDesigner =
 	COST_MORALE_OFFENCE = 50.0,
 	COST_MORALE_DEFENCE = 50.0,
 	COST_DEFENCE = 50.0,
-	MAX_AGE = 60,
-},
+	MAX_AGE = 50
+}
 
 }
