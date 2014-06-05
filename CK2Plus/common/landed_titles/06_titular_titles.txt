@@ -1921,3 +1921,117 @@ d_kasogs = {
         dignity = 10
 }
 
+k_basquect = { # For Basque contested lands CB
+	color = { 224  201  65 }
+	color2 = { 255 255 255 }
+        
+	capital = 152 #Navarra 
+	culture = basque
+	
+	allow = {
+		war = no
+		NOT = {higher_tier_than = KING}
+		NOT = {tier = KING}
+		culture = basque
+		custom_tooltip = {
+			text = controls_basque_contestedcb
+			hidden_tooltip = {
+				OR = {
+					c_viscaya = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					c_labourd = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+				c_navarra = {
+					owner = {
+						OR = {
+							is_liege_or_above = ROOT
+							character = ROOT
+						}
+					}
+				}
+			}
+		} 
+	}
+}
+k_catalanct = { # For catalan contested lands CB
+	color = { 213  132  76 }
+	color2 = { 255 255 255 }
+        
+	capital = 204 # Barcelona
+	culture = catalan
+        
+	allow = {
+		war = no
+		NOT = {higher_tier_than = KING}
+		NOT = {tier = KING}
+		culture = catalan		
+		custom_tooltip = {
+			text = controls_catalan_contestedcb
+			hidden_tooltip = {
+				OR = {
+					c_rosello = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					c_empuries = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					c_urgell = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					c_lleida = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					c_tarragona = {
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+				c_barcelona = {
+					owner = {
+						OR = {
+							is_liege_or_above = ROOT
+							character = ROOT
+						}
+					}
+				}
+			}
+		} 
+	}
+}

@@ -1,0 +1,476 @@
+# Cornwall - Claims on Cornwall                                                                
+character_event = {
+	id = 1000183165
+	title = 1000183165.title
+	desc = 1000183165.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		OR = {
+			has_landed_title = k_cornwall
+			has_landed_title = e_cornwall
+		}
+		NOT = { has_global_flag = contested_cornish_claims_gevtflag }
+			d_cornwall = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+	}
+	
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_cornish_claims_gevtflag
+	}
+	
+	option = {
+		name = "1000183165.a"
+		set_global_flag = contested_cornish_claims_cbflag
+		custom_tooltip = {
+			text = contested_land_event_start_tip_cornish
+		}
+	}
+}
+
+character_event = {
+	id = 1000183166	
+	title = 1000183166.title
+	desc = 1000183166.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		OR = {
+			has_landed_title = k_cornwall
+			has_landed_title = e_cornwall
+		}
+		had_global_flag = { flag = contested_cornish_claims_cbflag days = 2920 }
+		NOT = { has_global_flag = contested_cornish_lands_warning_evtflag }
+		OR = {
+			d_cornwall = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_cornish_lands_warning_evtflag
+	}
+	
+	option = {
+		name = "1000183166.a"
+		custom_tooltip = {
+			text = contested_land_event_warning_tip_cornish
+		}
+	}
+}
+
+character_event = {
+	id = 1000183167
+	title = 1000183167.title
+	desc = 1000183167.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		OR = {
+			has_landed_title = k_cornwall
+			has_landed_title = e_cornwall
+		}
+
+		had_global_flag = { flag = contested_cornish_claims_cbflag days = 3650 }
+		NOT = { has_global_flag = contested_cornish_lands_expired_evtflag }
+		
+		OR = {
+			d_cornwall = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}	
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_cornish_lands_expired_evtflag
+	}
+	
+	option = {
+		name = "1000183167.a"
+		custom_tooltip = {
+			text = contested_land_event_expired_tip_cornish
+		}
+	}
+}
+
+# Basque - Claims on the duchy of Navarra and Dax                                              
+
+character_event = {
+	id = 1000183171
+	title = 1000183171.title
+	desc = 1000183171.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		has_landed_title = k_basquect
+		
+		NOT = { has_global_flag = contested_basque_claims_gevtflag }
+		OR = {
+			d_navarra = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+			c_labourd = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_basque_claims_gevtflag
+	}
+	
+	option = {
+		name = "1000183171.a"
+		set_global_flag = contested_basque_claims_cbflag
+		custom_tooltip = {
+			text = contested_land_event_start_tip_basque
+		}
+	}
+}
+
+character_event = {
+	id = 1000183172	
+	title = 1000183172.title
+	desc = 1000183172.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		has_landed_title = k_basquect
+		had_global_flag = { flag = contested_basque_claims_cbflag days = 2920 }
+		NOT = { has_global_flag = contested_basque_lands_warning_evtflag }
+		OR = {
+			d_navarra = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+			c_labourd = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_basque_lands_warning_evtflag
+	}
+	
+	option = {
+		name = "1000183172.a"
+		custom_tooltip = {
+			text = contested_land_event_warning_tip_basque
+		}
+	}
+}
+
+character_event = {
+	id = 1000183173
+	title = 1000183173.title
+	desc = 1000183173.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		has_landed_title = k_basquect
+		had_global_flag = { flag = contested_basque_claims_cbflag days = 3650 }
+		NOT = { has_global_flag = contested_basque_lands_expired_evtflag }
+		
+		OR = {
+			d_navarra = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+			c_labourd = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}	
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_basque_lands_expired_evtflag
+	}
+	
+	option = {
+		name = "1000183173.a"
+		custom_tooltip = {
+			text = contested_land_event_expired_tip_basque
+		}
+	}
+}
+
+# Catalan - Claims on the duchy of Barcelona and Rosello
+
+character_event = {
+	id = 1000183174
+	title = 1000183174.title
+	desc = 1000183174.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		has_landed_title = k_catalanct
+		
+		NOT = { has_global_flag = contested_catalan_claims_gevtflag }
+		OR = {
+			d_barcelona = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+			c_rosello = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_catalan_claims_gevtflag
+	}
+	
+	option = {
+		name = "1000183174.a"
+		set_global_flag = contested_catalan_claims_cbflag
+		custom_tooltip = {
+			text = contested_land_event_start_tip_catalan
+		}
+	}
+}
+
+character_event = {
+	id = 1000183175	
+	title = 1000183175.title
+	desc = 1000183175.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		has_landed_title = k_catalanct
+		had_global_flag = { flag = contested_catalan_claims_cbflag days = 2920 }
+		NOT = { has_global_flag = contested_catalan_lands_warning_evtflag }
+		OR = {
+			d_barcelona = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+			c_rosello = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_catalan_lands_warning_evtflag
+	}
+	
+	option = {
+		name = "1000183175.a"
+		custom_tooltip = {
+			text = contested_land_event_warning_tip_catalan
+		}
+	}
+}
+
+character_event = {
+	id = 1000183176
+	title = 1000183176.title
+	desc = 1000183176.desc
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	trigger = {
+		has_landed_title = k_catalanct
+		had_global_flag = { flag = contested_catalan_claims_cbflag days = 3650 }
+		NOT = { has_global_flag = contested_catalan_lands_expired_evtflag }
+		
+		OR = {
+			d_barcelona = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+			c_rosello = {
+				any_direct_de_jure_vassal_title = {
+					holder_scope = {
+						OR = {
+							NOT = {character = ROOT}
+							NOT = {is_liege_or_above = ROOT}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0
+			independent = no
+		}
+	}
+	
+	immediate = {
+		set_global_flag = contested_catalan_lands_expired_evtflag
+	}
+	
+	option = {
+		name = "1000183176.a"
+		custom_tooltip = {
+			text = contested_land_event_expired_tip_catalan
+		}
+	}
+}

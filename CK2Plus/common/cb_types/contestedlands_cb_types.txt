@@ -1,0 +1,958 @@
+########################################################################################################
+# 'Contested Land' CBs, every title needs it's own CB, list the contested titles under 'can_use_title'
+# 'de_jure_liege_or_above =  TITLE' for whole duchies, kingdoms and empires. 
+# 'title = TITLE' for single counties/minor holdings.
+########################################################################################################
+
+#Cornwall
+contested_lands_cornwall = {
+	name = CB_NAME_CONTESTEDCLAIM
+	war_name = WAR_NAME_CONTESTEDCLAIM
+	sprite = 16
+	truce_days = 3650
+	is_permanent = yes
+	check_all_titles = yes
+	
+	can_use_gui = {
+		ROOT = {
+			custom_tooltip = {
+				text = med_high_max_crownlaw_req
+				hidden_tooltip = {
+					primary_title = {
+						OR = {
+							has_law = centralization_2
+							has_law = centralization_3
+							has_law = centralization_4
+							NOT = {
+								OR = {
+									tier = king
+									tier = emperor 
+								}
+							}
+						}
+					}
+					
+					NOT = { has_character_modifier = holding_epic_tournament }
+					NOT = { has_character_modifier = holy_truce_timer }
+				}
+			}
+		}
+		hidden_tooltip = {FROM = {NOT = { has_character_modifier = holy_truce_timer }}}
+	}
+	can_use = {
+		ROOT = {
+			OR = {
+				has_landed_title = k_cornwall
+				has_landed_title = e_cornwall
+			}
+			independent = yes
+			NOT = { same_realm = FROM }
+			NOT = {had_global_flag = { flag = contested_cornish_claims_cbflag days = 18250 }}
+			has_global_flag = contested_cornish_claims_cbflag 
+		}
+		FROM = {
+			religion_group = ROOT
+		}
+	}
+	
+	can_use_title = {
+		tier = count
+		de_jure_liege_or_above = d_cornwall
+		d_cornwall = {
+			NOT = {
+				de_jure_liege = ROOT	
+			}
+		}
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	
+	on_success_title = {
+		if = {
+			limit = {
+				holder_scope = {
+					tier = count
+					NOT = { num_of_count_titles = 2 }
+					lower_tier_than = ROOT
+				}
+			}
+
+			holder_scope = {
+				set_defacto_liege = ROOT
+			}
+		}
+
+		if = {
+			limit = {
+				holder_scope = {
+					OR = {
+						higher_tier_than = count
+						num_of_count_titles = 2
+						NOT = { lower_tier_than = ROOT }
+					}
+				}
+			}
+
+			usurp_title_plus_barony_if_unlanded = ROOT
+			any_de_jure_vassal_title = { # take all baronies under the one we're fighting for
+				limit = {
+					has_holder = yes
+					NOT = {
+						de_facto_liege = PREV
+					}
+					holder_scope = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+
+				usurp_title_plus_barony_if_unlanded = ROOT
+			}
+		}
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 100 }
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				participation_scaled_decadence = -10
+			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+				if = {
+					limit = {
+						religion_group = muslim
+					}
+					participation_scaled_decadence = -10
+				}
+			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}	
+}
+
+#Basque - Navarra
+contested_lands_basque_navarra = {
+	name = CB_NAME_CONTESTEDCLAIM
+	war_name = WAR_NAME_CONTESTEDCLAIM
+	sprite = 16
+	truce_days = 3650
+	is_permanent = yes
+	check_all_titles = yes
+	
+	can_use_gui = {
+		ROOT = {
+			custom_tooltip = {
+				text = med_high_max_crownlaw_req
+				hidden_tooltip = {
+					primary_title = {
+						OR = {
+							has_law = centralization_2
+							has_law = centralization_3
+							has_law = centralization_4
+							NOT = {
+								OR = {
+									tier = king
+									tier = emperor 
+								}
+							}
+						}
+					}
+					
+					NOT = { has_character_modifier = holding_epic_tournament }
+					NOT = { has_character_modifier = holy_truce_timer }
+				}
+			}
+		}
+		hidden_tooltip = {FROM = {NOT = { has_character_modifier = holy_truce_timer }}}
+	}
+	can_use = {
+		ROOT = {
+			has_landed_title = k_basquect
+			independent = yes
+			NOT = { same_realm = FROM }
+			NOT = {had_global_flag = { flag = contested_basque_claims_cbflag days = 18250 }}
+			has_global_flag = contested_basque_claims_cbflag 
+		}
+		FROM = {
+			religion_group = ROOT
+		}
+	}
+	
+	can_use_title = {
+		tier = count
+		de_jure_liege_or_above = d_navarra
+		d_navarra = {
+			NOT = {
+				de_jure_liege = ROOT	
+			}
+		}
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	
+	on_success_title = {
+		if = {
+			limit = {
+				holder_scope = {
+					tier = count
+					NOT = { num_of_count_titles = 2 }
+					lower_tier_than = ROOT
+				}
+			}
+
+			holder_scope = {
+				set_defacto_liege = ROOT
+			}
+		}
+
+		if = {
+			limit = {
+				holder_scope = {
+					OR = {
+						higher_tier_than = count
+						num_of_count_titles = 2
+						NOT = { lower_tier_than = ROOT }
+					}
+				}
+			}
+
+			usurp_title_plus_barony_if_unlanded = ROOT
+			any_de_jure_vassal_title = { # take all baronies under the one we're fighting for
+				limit = {
+					has_holder = yes
+					NOT = {
+						de_facto_liege = PREV
+					}
+					holder_scope = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+
+				usurp_title_plus_barony_if_unlanded = ROOT
+			}
+		}
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 100 }
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				participation_scaled_decadence = -10
+			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+				if = {
+					limit = {
+						religion_group = muslim
+					}
+					participation_scaled_decadence = -10
+				}
+			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}	
+}
+
+#Basque - Labourd aka Dax
+contested_lands_basque_dax = {
+	name = CB_NAME_CONTESTEDCLAIM
+	war_name = WAR_NAME_CONTESTEDCLAIM
+	sprite = 16
+	truce_days = 3650
+	is_permanent = yes
+	check_all_titles = yes
+	
+	can_use_gui = {
+		ROOT = {
+			custom_tooltip = {
+				text = med_high_max_crownlaw_req
+				hidden_tooltip = {
+					primary_title = {
+						OR = {
+							has_law = centralization_2
+							has_law = centralization_3
+							has_law = centralization_4
+							NOT = {
+								OR = {
+									tier = king
+									tier = emperor 
+								}
+							}
+						}
+					}
+					
+					NOT = { has_character_modifier = holding_epic_tournament }
+					NOT = { has_character_modifier = holy_truce_timer }
+				}
+			}
+		}
+		hidden_tooltip = {FROM = {NOT = { has_character_modifier = holy_truce_timer }}}
+	}
+	can_use = {
+		ROOT = {
+			has_landed_title = k_basquect
+			independent = yes
+			NOT = { same_realm = FROM }
+			NOT = {had_global_flag = { flag = contested_basque_claims_cbflag days = 18250 }}
+			has_global_flag = contested_basque_claims_cbflag 
+		}
+		FROM = {
+			religion_group = ROOT
+		}
+	}
+	
+	can_use_title = {
+		tier = count
+		title = c_labourd
+		c_labourd = {
+			NOT = {
+				de_jure_liege = ROOT	
+			}
+		}
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	
+	on_success_title = {
+		if = {
+			limit = {
+				holder_scope = {
+					tier = count
+					NOT = { num_of_count_titles = 2 }
+					lower_tier_than = ROOT
+				}
+			}
+
+			holder_scope = {
+				set_defacto_liege = ROOT
+			}
+		}
+
+		if = {
+			limit = {
+				holder_scope = {
+					OR = {
+						higher_tier_than = count
+						num_of_count_titles = 2
+						NOT = { lower_tier_than = ROOT }
+					}
+				}
+			}
+
+			usurp_title_plus_barony_if_unlanded = ROOT
+			any_de_jure_vassal_title = { # take all baronies under the one we're fighting for
+				limit = {
+					has_holder = yes
+					NOT = {
+						de_facto_liege = PREV
+					}
+					holder_scope = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+
+				usurp_title_plus_barony_if_unlanded = ROOT
+			}
+		}
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 100 }
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				participation_scaled_decadence = -10
+			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+				if = {
+					limit = {
+						religion_group = muslim
+					}
+					participation_scaled_decadence = -10
+				}
+			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}	
+}
+
+#Catalan - Barcelona
+contested_lands_catalan_barcelona= {
+	name = CB_NAME_CONTESTEDCLAIM
+	war_name = WAR_NAME_CONTESTEDCLAIM
+	sprite = 16
+	truce_days = 3650
+	is_permanent = yes
+	check_all_titles = yes
+	
+	can_use_gui = {
+		ROOT = {
+			custom_tooltip = {
+				text = med_high_max_crownlaw_req
+				hidden_tooltip = {
+					primary_title = {
+						OR = {
+							has_law = centralization_2
+							has_law = centralization_3
+							has_law = centralization_4
+							NOT = {
+								OR = {
+									tier = king
+									tier = emperor 
+								}
+							}
+						}
+					}
+					
+					NOT = { has_character_modifier = holding_epic_tournament }
+					NOT = { has_character_modifier = holy_truce_timer }
+				}
+			}
+		}
+		hidden_tooltip = {FROM = {NOT = { has_character_modifier = holy_truce_timer }}}
+	}
+	can_use = {
+		ROOT = {
+			has_landed_title = k_catalanct
+			independent = yes
+			NOT = { same_realm = FROM }
+			NOT = {had_global_flag = { flag = contested_catalan_claims_cbflag days = 18250 }}
+			has_global_flag = contested_catalan_claims_cbflag 
+		}
+		FROM = {
+			religion_group = ROOT
+		}
+	}
+	
+	can_use_title = {
+		tier = count
+		de_jure_liege_or_above = d_barcelona
+		d_barcelona = {
+			NOT = {
+				de_jure_liege = ROOT	
+			}
+		}
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	
+	on_success_title = {
+		if = {
+			limit = {
+				holder_scope = {
+					tier = count
+					NOT = { num_of_count_titles = 2 }
+					lower_tier_than = ROOT
+				}
+			}
+
+			holder_scope = {
+				set_defacto_liege = ROOT
+			}
+		}
+
+		if = {
+			limit = {
+				holder_scope = {
+					OR = {
+						higher_tier_than = count
+						num_of_count_titles = 2
+						NOT = { lower_tier_than = ROOT }
+					}
+				}
+			}
+
+			usurp_title_plus_barony_if_unlanded = ROOT
+			any_de_jure_vassal_title = { # take all baronies under the one we're fighting for
+				limit = {
+					has_holder = yes
+					NOT = {
+						de_facto_liege = PREV
+					}
+					holder_scope = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+
+				usurp_title_plus_barony_if_unlanded = ROOT
+			}
+		}
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 100 }
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				participation_scaled_decadence = -10
+			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+				if = {
+					limit = {
+						religion_group = muslim
+					}
+					participation_scaled_decadence = -10
+				}
+			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}	
+}
+
+#Catalan - Rosello
+contested_lands_catalan_rosello = {
+	name = CB_NAME_CONTESTEDCLAIM
+	war_name = WAR_NAME_CONTESTEDCLAIM
+	sprite = 16
+	truce_days = 3650
+	is_permanent = yes
+	check_all_titles = yes
+	
+	can_use_gui = {
+		ROOT = {
+			custom_tooltip = {
+				text = med_high_max_crownlaw_req
+				hidden_tooltip = {
+					primary_title = {
+						OR = {
+							has_law = centralization_2
+							has_law = centralization_3
+							has_law = centralization_4
+							NOT = {
+								OR = {
+									tier = king
+									tier = emperor 
+								}
+							}
+						}
+					}
+					
+					NOT = { has_character_modifier = holding_epic_tournament }
+					NOT = { has_character_modifier = holy_truce_timer }
+				}
+			}
+		}
+		hidden_tooltip = {FROM = {NOT = { has_character_modifier = holy_truce_timer }}}
+	}
+	can_use = {
+		ROOT = {
+			has_landed_title = k_catalanct
+			independent = yes
+			NOT = { same_realm = FROM }
+			NOT = {had_global_flag = { flag = contested_catalan_claims_cbflag days = 18250 }}
+			has_global_flag = contested_catalan_claims_cbflag 
+		}
+		FROM = {
+			religion_group = ROOT
+		}
+	}
+	
+	can_use_title = {
+		tier = count
+		title = c_rosello
+		c_rosello = {
+			NOT = {
+				de_jure_liege = ROOT	
+			}
+		}
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	
+	on_success_title = {
+		if = {
+			limit = {
+				holder_scope = {
+					tier = count
+					NOT = { num_of_count_titles = 2 }
+					lower_tier_than = ROOT
+				}
+			}
+
+			holder_scope = {
+				set_defacto_liege = ROOT
+			}
+		}
+
+		if = {
+			limit = {
+				holder_scope = {
+					OR = {
+						higher_tier_than = count
+						num_of_count_titles = 2
+						NOT = { lower_tier_than = ROOT }
+					}
+				}
+			}
+
+			usurp_title_plus_barony_if_unlanded = ROOT
+			any_de_jure_vassal_title = { # take all baronies under the one we're fighting for
+				limit = {
+					has_holder = yes
+					NOT = {
+						de_facto_liege = PREV
+					}
+					holder_scope = {
+						OR = {
+							character = FROM
+							is_liege_or_above = FROM
+						}
+					}
+				}
+
+				usurp_title_plus_barony_if_unlanded = ROOT
+			}
+		}
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 100 }
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+			if = {
+				limit = {
+					religion_group = muslim
+				}
+				participation_scaled_decadence = -10
+			}
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+				if = {
+					limit = {
+						religion_group = muslim
+					}
+					participation_scaled_decadence = -10
+				}
+			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}	
+}
