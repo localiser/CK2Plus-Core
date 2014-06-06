@@ -553,30 +553,116 @@ decisions = {
 		}
 	}
 	
-	hold_tiger_hunt = {
+	plan_tiger_hunt = { # Plan it
 		potential = {
 			has_dlc = "Rajas of India"
 			is_ruler = yes
 			age = 16
 			prisoner = no
+			ai = no
 			num_of_vassals = 1
+			month = 10			
+			NOT = { 		
+				has_character_flag = planning_tiger_hunt
+				has_character_flag = holding_tiger_hunt
+				has_character_flag = do_not_disturb
+				has_character_modifier = held_tiger_hunt_timer
+				has_character_modifier = holding_tiger_hunt_mod
+				has_character_modifier = tiger_hunt_cooldown
+			}			
 			capital_scope = {
 				OR = {
-					empire = { title = e_rajastan }
-					empire = { title = e_bengal }
-					empire = { title = e_deccan }
+					kingdom = { title = k_sindh }
+					kingdom = { title = k_punjab }
+					kingdom = { title = k_delhi }
+					kingdom = { title = k_gujarat }
+					kingdom = { title = k_rajputana }
+					kingdom = { title = k_malwa }
+					kingdom = { title = k_kosala }
+					kingdom = { title = k_gondwana }
+					kingdom = { title = k_bengal }
+					kingdom = { title = k_kamarupa }
+					kingdom = { title = k_orissa }
+					kingdom = { title = k_bihar }
+					kingdom = { title = k_maharastra }
+					kingdom = { title = k_karnata }
+					kingdom = { title = k_tamilakam }
+					kingdom = { title = k_andhra }
+					kingdom = { title = k_telingana }
+					kingdom = { title = k_lanka }
 				}
 			}
+			NOT = {	health_traits = 1 }			
 			NOT = { has_character_flag = do_not_disturb }
-			NOT = { has_character_flag = holding_tiger_hunt }
-			NOT = { has_character_modifier = hunt_timer }
 		}
 		allow = {
 			war = no
 			any_demesne_title = {
 				is_occupied = no
 			}
-			NOT = { month = 10 }
+			wealth = 25
+			NOT = {	trait = incapable }
+			prisoner = no
+			NOT = { religion = jain }
+		}
+		effect = {
+			wealth = -25
+			set_character_flag = planning_tiger_hunt
+			hidden_tooltip = { character_event = { id = 1000183177 } }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0				
+		}
+	}	
+	
+	hold_tiger_hunt = { # Do it
+		potential = {
+			has_dlc = "Rajas of India"
+			is_ruler = yes
+			age = 16
+			prisoner = no
+			num_of_vassals = 1
+			NOT = { month = 10 }			
+			NOT = { 		
+				has_character_flag = planning_tiger_hunt
+				has_character_flag = holding_tiger_hunt
+				has_character_flag = do_not_disturb
+				has_character_modifier = held_tiger_hunt_timer
+				has_character_modifier = holding_tiger_hunt_mod
+				has_character_modifier = tiger_hunt_cooldown
+			}		
+			capital_scope = {
+				OR = {
+					kingdom = { title = k_sindh }
+					kingdom = { title = k_punjab }
+					kingdom = { title = k_delhi }
+					kingdom = { title = k_gujarat }
+					kingdom = { title = k_rajputana }
+					kingdom = { title = k_malwa }
+					kingdom = { title = k_kosala }
+					kingdom = { title = k_gondwana }
+					kingdom = { title = k_bengal }
+					kingdom = { title = k_kamarupa }
+					kingdom = { title = k_orissa }
+					kingdom = { title = k_bihar }
+					kingdom = { title = k_maharastra }
+					kingdom = { title = k_karnata }
+					kingdom = { title = k_tamilakam }
+					kingdom = { title = k_andhra }
+					kingdom = { title = k_telingana }
+					kingdom = { title = k_lanka }
+				}
+			}
+			NOT = { has_character_flag = do_not_disturb }
+		}
+		allow = {
+			war = no
+			any_demesne_title = {
+				is_occupied = no
+			}
 			wealth = 25
 			NOT = {	trait = incapable }
 			prisoner = no
@@ -585,7 +671,10 @@ decisions = {
 		effect = {
 			wealth = -25
 			set_character_flag = holding_tiger_hunt
-			set_character_flag = recent_minor_decision
+			add_character_modifier = {
+				name = holding_tiger_hunt_mod
+				duration = -1
+			}
 			set_character_flag = do_not_disturb
 			hidden_tooltip = { character_event = { id = RoI.2000 } }
 		}
