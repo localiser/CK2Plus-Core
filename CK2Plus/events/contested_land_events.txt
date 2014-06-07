@@ -146,10 +146,9 @@ character_event = {
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	trigger = {
-		always = no #shhhhh, soon
 		has_landed_title = k_sweden
 		NOT = { has_global_flag = contested_swedish_claims_gevtflag }
-		NOT - {d_norrland = {de_jure_liege = k_sweden}}
+		NOT = {d_norrland = {de_jure_liege = ROOT}}
 		d_norrland = {
 			any_direct_de_jure_vassal_title = {
 				holder_scope = {
