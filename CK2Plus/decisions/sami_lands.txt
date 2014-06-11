@@ -1,0 +1,399 @@
+decisions = {
+
+	claim_sami = {
+		is_high_prio = yes
+		
+		potential = {
+			has_landed_title = k_sweden
+			NOT = { culture = lappish }
+			d_sami = { de_jure_liege = k_sami }
+			k_sami = { has_holder = no }
+			NOT = { has_global_flag = sami_claimed }
+		}
+		
+		allow = {
+			war = no
+			prisoner = no
+			has_regent = no
+			is_adult = yes
+			ruled_years = 5
+			prestige = 100
+		}
+		
+		effect = {
+			set_global_flag = sami_claimed
+			d_sami = {
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						NOT = { culture = ROOT }
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_outraged
+						years = 10
+					}
+				}
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						culture = ROOT
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_furious
+						years = 10
+					}
+				}
+				if = {
+					limit = { has_holder = yes }
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							modifier = opinion_outraged
+							years = 20
+						}
+					}
+				}
+			}
+			d_norrland = { de_jure_liege = k_sweden }
+			hidden_tooltip = {
+				if = {
+					limit = {
+						c_lappland = { de_jure_liege = d_sami }
+					}
+					c_lappland = { de_jure_liege = d_norrland }
+				}
+				if = {
+					limit = {
+						c_vasterbotten = { de_jure_liege = d_sami }
+					}
+					c_vasterbotten = { de_jure_liege = d_norrland }
+				}
+				if = {
+					limit = {
+						c_angermanland = { de_jure_liege = d_sami }
+					}
+					c_angermanland = { de_jure_liege = d_norrland }
+				}
+				d_sami = { de_jure_liege = 0 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_finnmark = {
+		is_high_prio = yes
+		
+		potential = {
+			has_landed_title = k_norway
+			NOT = { culture = lappish }
+			d_finnmark = { de_jure_liege = k_sami }
+			k_sami = { has_holder = no }
+			NOT = { has_global_flag = finnmark_claimed }
+		}
+		
+		allow = {
+			war = no
+			prisoner = no
+			has_regent = no
+			is_adult = yes
+			ruled_years = 5
+			prestige = 100
+		}
+		
+		effect = {
+			set_global_flag = finnmark_claimed
+			d_finnmark = {
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						NOT = { culture = ROOT }
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_outraged
+						years = 10
+					}
+				}
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						culture = ROOT
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_furious
+						years = 10
+					}
+				}
+			}
+			d_nordland = { de_jure_liege = k_norway }
+			hidden_tooltip = {
+				if = {
+					limit = {
+						c_halogaland = { de_jure_liege = d_finnmark }
+					}
+					c_halogaland = { de_jure_liege = d_nordland }
+				}
+				if = {
+					limit = {
+						c_finnmark = { de_jure_liege = d_finnmark }
+					}
+					c_finnmark = { de_jure_liege = d_nordland }
+				}
+				if = {
+					limit = {
+						c_nordland = { de_jure_liege = d_finnmark }
+					}
+					c_nordland = { de_jure_liege = d_nordland }
+				}
+				d_finnmark = { de_jure_liege = 0 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_kola = {
+		is_high_prio = yes
+		
+		potential = {
+			has_landed_title = k_finland
+			NOT = { culture = lappish }
+			d_kola = { de_jure_liege = k_sami }
+			k_sami = { has_holder = no }
+			NOT = { has_global_flag = kola_claimed }
+		}
+		
+		allow = {
+			war = no
+			prisoner = no
+			has_regent = no
+			is_adult = yes
+			ruled_years = 5
+			prestige = 100
+		}
+		
+		effect = {
+			set_global_flag = kola_claimed
+			prestige = 50
+			d_kola = {
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						NOT = { culture = ROOT }
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_outraged
+						years = 10
+					}
+				}
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						culture = ROOT
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_furious
+						years = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					c_kemi = { de_jure_liege = d_kola }
+				}
+				c_kemi = { de_jure_liege = d_finland }
+			}
+			if = {
+				limit = {
+					c_kola = { de_jure_liege = d_kola }
+				}
+				c_kola = { de_jure_liege = d_karelia }
+			}
+			if = {
+				limit = {
+					c_kandalax = { de_jure_liege = d_kola }
+				}
+				c_kandalax = { de_jure_liege = d_karelia }
+			}
+			hidden_tooltip = {
+				d_kola = { de_jure_liege = 0 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	extend_finland = {
+		is_high_prio = yes
+		
+		potential = {
+			NOT = { culture = lappish }
+			k_finland = { has_holder = no }
+			OR = {
+				has_landed_title = d_finland
+				AND = {
+					d_finland = { has_holder = no }
+					OR = {
+						has_landed_title = c_kola
+						has_landed_title = c_kandalax
+						has_landed_title = c_kemi
+					}
+				}
+			}
+			has_global_flag = sami_claimed
+			has_global_flag = finnmark_claimed
+			NOT = { has_global_flag = kola_claimed }
+			d_kola = { de_jure_liege = k_sami }
+		}
+		
+		allow = {
+			war = no
+			prisoner = no
+			has_regent = no
+			is_adult = yes
+			ruled_years = 5
+			prestige = 0
+		}
+		
+		effect = {
+			set_global_flag = kola_claimed
+			prestige = 25
+			d_kola = {
+				any_de_jure_vassal = {
+					limit = {
+						NOT = { is_liege_or_above = ROOT }
+						culture = lappish
+					}
+					opinion = {
+						who = ROOT
+						modifier = opinion_outraged
+						years = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					c_kemi = { de_jure_liege = d_kola }
+				}
+				c_kemi = { de_jure_liege = d_finland }
+			}
+			if = {
+				limit = {
+					c_kola = { de_jure_liege = d_kola }
+				}
+				c_kola = { de_jure_liege = d_karelia }
+			}
+			if = {
+				limit = {
+					c_kandalax = { de_jure_liege = d_kola }
+				}
+				c_kandalax = { de_jure_liege = d_karelia }
+			}
+			hidden_tooltip = {
+				d_kola = { de_jure_liege = 0 }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	convert_sami = {
+		is_high_prio = yes
+		
+		potential = {
+			NOT = {
+				culture = lappish
+				has_global_flag = sami_claimed
+			}
+			k_sweden = { has_holder = no }
+			c_lappland = { de_jure_liege = d_sami }
+			c_vasterbotten = { de_jure_liege = d_sami }
+			c_angermanland = { de_jure_liege = d_sami }
+			OR = {
+				has_landed_title = c_lappland
+				has_landed_title = c_vasterbotten
+				has_landed_title = c_angermanland
+			}
+		}
+		
+		allow = {
+			completely_controls = d_sami
+			war = no
+			prisoner = no
+			has_regent = no
+			is_adult = yes
+			ruled_years = 5
+			prestige = 100
+		}
+		
+		effect = {
+			set_global_flag = sami_claimed
+			hidden_tooltip = {
+				d_norrland = { de_jure_liege = k_sweden }
+			}
+			c_lappland = { de_jure_liege = d_norrland }
+			c_vasterbotten = { de_jure_liege = d_norrland }
+			c_angermanland = { de_jure_liege = d_norrland }
+			hidden_tooltip = {
+				d_sami = { de_jure_liege = 0 }
+			}
+		}
+	}
+	
+	convert_finnmark = {
+		is_high_prio = yes
+		
+		potential = {
+			NOT = {
+				culture = lappish
+				has_global_flag = finnmark_claimed
+			}
+			k_norway = { has_holder = no }
+			c_halogaland = { de_jure_liege = d_finnmark }
+			c_finnmark = { de_jure_liege = d_finnmark }
+			c_nordland = { de_jure_liege = d_finnmark }
+			OR = {
+				has_landed_title = c_halogaland
+				has_landed_title = c_finnmark
+				has_landed_title = c_nordland
+			}
+		}
+		
+		allow = {
+			completely_controls = d_finnmark
+			war = no
+			prisoner = no
+			has_regent = no
+			is_adult = yes
+			ruled_years = 5
+			prestige = 100
+		}
+		
+		effect = {
+			set_global_flag = finnmark_claimed
+			hidden_tooltip = {
+				d_nordland = { de_jure_liege = k_norway }
+			}
+			c_halogaland = { de_jure_liege = d_nordland }
+			c_finnmark = { de_jure_liege = d_nordland }
+			c_nordland = { de_jure_liege = d_nordland }
+			hidden_tooltip = {
+				d_finnmark = { de_jure_liege = 0 }
+			}
+		}
+	}
+}
