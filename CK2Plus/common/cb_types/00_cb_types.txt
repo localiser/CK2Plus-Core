@@ -3512,69 +3512,16 @@ overthrow_ruler_no_calls = {
 	on_add = {
 	}
 	on_success = {
-		hidden_tooltip = { any_attacker = { set_character_flag = rebel_attacker } }
-		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
-		if = {
-			limit = {
-				FROM = { independent = yes }
-			}
-			hidden_tooltip = { 
-				any_attacker = {
-					character_event = { id = 1000182684 days = 3 } 
-					set_character_flag = considered_for_independence
-				} 
-				FROM = { 
-					any_vassal = { 
-						limit = { NOT = { has_character_flag = considered_for_independence } }
-						character_event = { id = 1000182684 days = 3 } 
-					}
-				} 
-				any_attacker = {
-					clr_character_flag = considered_for_independence
-				}
-			}
-		}
-		hidden_tooltip = {
-			any_attacker = {
-				set_defacto_liege = FROM
-				any_playable_ruler = {
-					reverse_remove_opinion = {
-						who = PREV
-						modifier = revolting_against
-					}
-				}
-			}
-		}
-		hidden_tooltip = {
-			any_attacker = {
-				limit = { 
-					FROM = {
-						is_adult = yes 
-						current_heir = { dynasty = PREV is_adult = yes }
-					}
-					trait = rebel 
-				}
-				remove_trait = rebel
+		ROOT = {
+			primary_title = {
+				add_pressed_claim = FROM	
 			}
 		}
 		FROM = {
             prestige = -500
-            hidden_tooltip = {
                 remove_opinion = {
                     who = ROOT
                     modifier = declared_war
-                }
-            }               
-            if = {
-                limit = {                   
-                        is_adult = yes                  
-                        current_heir = { is_adult = yes dynasty = PREV}                     
-                }               
-                hidden_tooltip = {
-                    any_vassal = {
-                            limit = { trait = loyalist }
-                            remove_trait = loyalist
-                        }                   
                 }
                 any_demesne_title = { # All titles
                     limit = {
@@ -3582,6 +3529,7 @@ overthrow_ruler_no_calls = {
                             tier = king
                             tier = emperor
                         }
+#					is_titular = no
                         NOT = { has_law = centralization_0 }
                     }
                     if = {
@@ -3590,144 +3538,19 @@ overthrow_ruler_no_calls = {
                     }
                     if = {
                         limit = { has_law = centralization_2 }
-                        add_law = centralization_1
+					add_law = centralization_0
                     }
                     if = {
                         limit = { has_law = centralization_3 }
-                        add_law = centralization_2
+					add_law = centralization_1
                     }
                     if = {
                         limit = { has_law = centralization_4 }
-                        add_law = centralization_3
+					add_law = centralization_2
                     }
                 }
-                hidden_tooltip = { character_event = { id = 1000182861 } }
-                current_heir = { prestige = -500 }
                 abdicate = yes
                 }
-            if = {
-                limit = {                   
-                    NOT = {
-                        AND = {
-                            is_adult = yes                  
-                            current_heir = { is_adult = yes dynasty = PREV}                                                     
-                        }
-                    }                   
-                }
-                hidden_tooltip = {
-                    any_vassal = {
-                        limit = { trait = loyalist }
-                        remove_trait = loyalist
-                    }
-                }
-                any_demesne_title = {
-                    limit = {
-                        is_primary_holder_title_tier = yes
-                    }
-                    #custom_tooltip = {
-                        #text = CUSTOMTOOLTIP58
-                        if = {
-                            limit = { has_law = centralization_1 }
-                            add_law_w_cooldown = centralization_0
-                        }
-                        if = {
-                            limit = { has_law = centralization_2 }
-                            add_law_w_cooldown = centralization_1
-                        }
-                        if = {
-                            limit = { has_law = centralization_3 }
-                            add_law_w_cooldown = centralization_2
-                        }
-                        if = {
-                            limit = { has_law = centralization_4 }
-                            add_law_w_cooldown = centralization_3
-                        }
-                        #hidden_tooltip = {                         
-                        set_global_flag = seeking_usurper
-
-                        #rebel with a claim
-                        random_playable_ruler = {
-                            limit = {
-                                has_character_flag = rebel_attacker
-                                any_claim = { title = PREVPREV }
-                                has_global_flag = seeking_usurper
-                                OR = {
-                                    AND = {
-                                        is_feudal = no
-                                        FROM = { is_feudal = no }
-                                    }
-                                    AND = {
-                                        is_feudal = yes
-                                        FROM = { is_feudal = yes }
-                                    }
-                                }
-                            }
-                            random_claim = {
-                                limit = { title = PREVPREV }
-                                if = {
-                                    limit = {
-                                        is_primary_holder_title = no
-                                    }
-                                    usurp_title_plus_barony_if_unlanded = PREV
-                                }
-                            }
-                            clr_global_flag = seeking_usurper
-                        }
-
-                        # rebel with a de-jure claim
-                        random_playable_ruler = {
-                            limit = {
-                                has_character_flag = rebel_attacker
-                                primary_title = { dejure_liege_title = { title = PREVPREVPREV } }
-                                has_global_flag = seeking_usurper
-                                OR = {
-                                    AND = {
-                                        is_feudal = no
-                                        FROM = { is_feudal = no }
-                                    }
-                                    AND = {
-                                        is_feudal = yes
-                                        FROM = { is_feudal = yes }
-                                    }
-                                }
-                            }
-                            FROM = {
-                                random_demesne_title = {
-                                    limit = { title = PREVPREVPREV }
-                                    if = {
-                                        limit = {
-                                            is_primary_holder_title = no
-                                        }
-                                        usurp_title_plus_barony_if_unlanded = PREVPREV
-                                    }
-                                }
-                            }
-                            clr_global_flag = seeking_usurper
-                        }
-
-                        clr_global_flag = seeking_usurper                           
-                    }
-                    #}              
-                #hidden_tooltip = {
-                # give any remaining titles to rebel leader
-                ROOT = {                        
-                    FROM = {
-                        any_demesne_title = {
-                            limit = {
-                                is_primary_holder_title_tier = yes
-                                is_primary_holder_title = no
-                            }
-                            usurp_title_plus_barony_if_unlanded = PREVPREV
-                        }
-                        primary_title = {
-                            usurp_title_plus_barony_if_unlanded = PREVPREV
-                        }
-                        set_defacto_liege = PREV
-                    }
-                }
-                #}
-            }                       
-        }
 		any_attacker = {
 			limit = { character = ROOT }
 			participation_scaled_prestige = 250
@@ -3736,150 +3559,6 @@ overthrow_ruler_no_calls = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { participation_scaled_prestige = 250 }
 		}
-		hidden_tooltip = {
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							has_character_flag = faction_feudal_war
-							has_character_flag = faction_republican_war
-							has_character_flag = faction_religious_war
-							has_character_flag = faction_court_war
-						}
-					}
-				}
-				FROM = {
-					clr_character_flag = faction_feudal_war
-					clr_character_flag = faction_republican_war
-					clr_character_flag = faction_religious_war
-					clr_character_flag = faction_court_war
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_feudal" value = 0 } }
-						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -1 } }
-						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -2 } }
-						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -3 } }
-						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -4 } }
-						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_republican" value = 0 } }
-						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_republican" value = -1 } }
-						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_republican" value = -2 } }
-						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_republican" value = -3 } }
-						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_republican" value = -4 } }
-						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_religious" value = 0 } }
-						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_religious" value = -1 } }
-						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_religious" value = -2 } }
-						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_religious" value = -3 } }
-						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_religious" value = -4 } }
-						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_court" value = 0 } }
-						}
-						change_variable = { which = "faction_mood_court" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_court" value = -1 } }
-						}
-						change_variable = { which = "faction_mood_court" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_court" value = -2 } }
-						}
-						change_variable = { which = "faction_mood_court" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_court" value = -3 } }
-						}
-						change_variable = { which = "faction_mood_court" value = 1 }
-					}
-					if = {
-						limit = {
-							NOT = { check_variable = { which = "total_faction_mood_court" value = -4 } }
-						}
-						change_variable = { which = "faction_mood_court" value = 1 }
-					}
-				}
-			}
-		}
-		FROM = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } }
-		ROOT = { hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } }
-		hidden_tooltip = { k_papal_state = { holder_scope = { character_event = { id = 1000182870 } } }	}
-		hidden_tooltip = { any_attacker = { clr_character_flag = rebel_attacker } }
 	}
 
 	on_fail = {
