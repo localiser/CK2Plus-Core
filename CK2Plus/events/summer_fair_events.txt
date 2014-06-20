@@ -1259,10 +1259,45 @@ character_event = {
 	desc = "EVTDESC74050"
 	picture = GFX_evt_jugglers
 	
-	is_triggered_only = yes
+	trigger = {
+		has_character_flag = planning_summer_fair
+		OR = {
+			NOT = { has_character_flag = recent_summer_fair }
+			had_character_flag = {
+				flag = recent_summer_fair
+				days = 100
+			}
+		}		
+		war = no
+		treasury = 10
+		prisoner = no
+		month = 4
+		NOT = {
+			month = 8
+		}
+		NOT = { has_character_modifier = holding_large_feast }
+		NOT = { has_character_modifier = holding_summer_fair }
+		NOT = { has_character_modifier = holding_grand_hunt }	
+		NOT = { has_character_modifier = holding_epic_tournament }	
+	}
 	
 	immediate = {
+		add_character_modifier = {
+			name = holding_summer_fair
+			duration = -1
+		}
 		set_character_flag = summer_fair_begin
+		hidden_tooltip = {
+			character_event = {
+				id = 74047
+				days = 65
+			}
+		}
+		clr_character_flag = planning_summer_fair
+	}
+	
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	option = {
