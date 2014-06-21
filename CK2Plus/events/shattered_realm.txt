@@ -1,0 +1,176 @@
+#Makes everyone an independent count, creating titles where needed
+narrative_event = {
+	id = 1000183179
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		set_global_flag = shattered_realm
+		any_independent_ruler = {
+			limit = {
+				primary_title = { is_primary_type_title = no } # Prevent it from targeting Mercenaries, Holy Orders and Religious Leaders
+			}
+			any_war = { end_war = invalid }
+			disband_event_forces = yes # Don't want event troops stomping around
+			any_realm_lord = {
+				limit = {
+					higher_tier_than = baron
+				}
+				any_war = { end_war = invalid }
+				any_demesne_title = {
+					limit = {
+						higher_tier_than = count
+					}
+					destroy_landed_title = THIS
+				}
+				any_demesne_title = {
+					limit = {
+						ai = yes
+						higher_tier_than = baron
+					}
+					create_character = {
+						random_traits = yes
+						age = 16
+					}
+					new_character = {
+						usurp_title_plus_barony_if_unlanded = PREV
+						set_defacto_liege = THIS
+					}
+				}
+				any_claim = {
+					PREV = { remove_claim = PREV }
+				}
+				any_courtier = {
+					any_claim = {
+						PREV = { remove_claim = PREV }
+					}
+				}
+			}
+			any_demesne_title = {
+				limit = {
+					higher_tier_than = count
+				}
+				destroy_landed_title = THIS
+			}
+			any_demesne_title = {
+				limit = {
+					tier = count
+					location = { is_capital = no }
+				}
+				create_character = {
+					random_traits = yes
+					age = 16
+				}
+				new_character = {
+					usurp_title_plus_barony_if_unlanded = PREV
+					set_defacto_liege = THIS
+				}
+			}
+			# This block removes all claims from landholders
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			random_claim = {
+				remove_claim = PREV
+			}
+			# This block removes all claims from courtiers
+			any_courtier = {
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+				random_claim = {
+					remove_claim = PREV
+				}
+			}
+		}
+		any_independent_ruler = { # add Bloodlust to AI characters
+			limit = {
+				ai = yes
+				higher_tier_than = baron
+			}
+			add_trait = bloodlust
+		}
+		any_independent_ruler = { # add Yehudi to Jews
+			limit = {
+				religion_group = jewish_group
+			}
+			add_trait = yehudi
+			set_character_flag = yehudi_check
+		}		
+		k_papal_state = { # Clear papal vassals, as the first check won't check the papacy
+			holder_scope = {
+				any_vassal = {
+					limit = { tier = count }
+					set_defacto_liege = THIS
+				}
+			}
+		}
+
+	}
+}
