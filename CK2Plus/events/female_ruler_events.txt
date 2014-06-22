@@ -7,10 +7,12 @@
 #
 ###################################
 
+namespace = FemRule
+
 character_event = { # my daughter is poised to inherit!
-	id = 1000182575
-	title = EVTNAME1000182575
-	desc = EVTDESC1000182575
+	id = FemRule.100
+	title = EVTNAME_FemRule_100
+	desc = EVTDESC_FemRule_100
 	
 	picture = GFX_evt_girl_with_sword
 	
@@ -19,26 +21,45 @@ character_event = { # my daughter is poised to inherit!
 	capable_only = yes
 	prisoner = no
 	only_playable = yes
+	num_of_children = 1
 	
 	trigger = {
-			primary_title = {
-				NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
+		primary_title = {
+			NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
+		}
+		current_heir = {
+			is_female = yes
+			age = 6
+			NOT = { age = 16 }
+			OR = {
+				father = { character = ROOT }
+				mother = { character = ROOT }
 			}
-			current_heir = {
-				is_female = yes
-				age = 6
-				NOT = { age = 20 }
-				OR = {
-					father = { character = ROOT }
-					mother = { character = ROOT }
-				}
-			}
-			NOT = { trait = teaching_daughter }
-			NOT = { has_character_flag = misogyny }
+		}
+		NOT = { trait = teaching_daughter }
+		NOT = { has_character_modifier = hoping_for_son_timer }
+		NOT = { has_character_flag = misogyny }
 	}
 	
 	mean_time_to_happen = {
 		years = 15
+		modifier = {
+			factor = 0.5
+			age = 45
+			is_female = yes
+		}
+		modifier = {
+			factor = 0.75
+			age = 55
+		}
+		modifier = {
+			factor = 0.75
+			age = 60
+		}
+		modifier = {
+			factor = 0.75
+			age = 65
+		}
 		modifier = {
 			factor = 0.5
 			is_female = yes
@@ -49,7 +70,7 @@ character_event = { # my daughter is poised to inherit!
 		}
 		modifier = {
 			factor = 0.75
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 0.75
@@ -81,69 +102,33 @@ character_event = { # my daughter is poised to inherit!
 		modifier = {
 			factor = 0.5
 			current_heir = {
-				trait = genius
+				OR = {
+					trait = genius
+					trait = quick
+				}
 			}
 		}
 		modifier = {
 			factor = 0.5
-			current_heir = {
-				trait = strong
-			}
+			current_heir = { trait = strong }
 		}
 		modifier = {
-			factor = 0.75
-			current_heir = {
-				trait = quick
-			}
+			factor = 5
+			current_heir = { trait = weak }
 		}
 		modifier = {
-			factor = 0.75
-			current_heir = {
-				trait = tall
-			}
+			factor = 5
+			current_heir = { trait = inbred }
 		}
 		modifier = {
 			factor = 5
 			current_heir = {
-				trait = weak
+				OR = {
+					trait = slow
+					trait = imbecile
+				}
 			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = dwarf
-			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = hunchback
-			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = inbred
-			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = slow
-			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = imbecile
-			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = clubfooted
-			}
-		}	
+		}		
 		modifier = {
 			factor = 2
 			NOT = {
@@ -154,7 +139,7 @@ character_event = { # my daughter is poised to inherit!
 	}
 	
 	option = { # I shall raise her to rule
-		name = EVTOPTA1000182575
+		name = EVTOPTA_FemRule_100
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -162,19 +147,19 @@ character_event = { # my daughter is poised to inherit!
 				age = 40
 			}
 			modifier = {
-				factor = 1.25
+				factor = 1.5
 				age = 50
 			}
 			modifier = {
-				factor = 1.25
+				factor = 1.5
 				age = 60
 			}
 			modifier = {
-				factor = 1.25
+				factor = 2
 				age = 70
 			}
 			modifier = {
-				factor = 1.25
+				factor = 2
 				age = 80
 			}
 			modifier = {
@@ -185,12 +170,12 @@ character_event = { # my daughter is poised to inherit!
 				}
 			}
 			modifier = {
-				factor = 1.25
-				trait = ill
+				factor = 1.5
+				is_ill = yes
 			}
 			modifier = {
-				factor = 1.25
-				trait = pneumonic
+				factor = 1.5
+				NOT = { health = 3 }
 			}
 			modifier = {
 				factor = 1.25
@@ -201,37 +186,56 @@ character_event = { # my daughter is poised to inherit!
 				trait = maimed
 			}
 			modifier = {
-				factor = 1.25
-				trait = chaste
-			}
-			modifier = {
-				factor = 1.25
-				trait = infirm
-			}
-			modifier = {
-				factor = 2 
-				OR = {
-					trait = eunuch
-					trait = celibate
-				}
+				factor = 1.5
+				NOT = { fertility = 0.15 }
 			}
 		}
 		add_trait = teaching_daughter
 		current_heir = {
-			opinion = { who = ROOT modifier = favoured_heiress years = 50 }
+			opinion = {
+				who = ROOT
+				modifier = favoured_heiress
+				years = 50
+			}
+			if = {
+				limit = {
+					ROOT = {
+						NOT = { any_ward = { age = 6 } }
+					}
+				}
+				set_guardian = ROOT
+				hidden_tooltip = {
+					character_event = { id = 2484 }
+				}
+			}
 		}
 		any_dynasty_member = {
-			limit = { is_female = no }
-			opinion = { who = ROOT modifier = opinion_upset years = 50 }
+			limit = {
+				is_female = no
+				NOT = { trait = content }
+				NOT = { trait = humble }
+				NOT = { trait = incapable }
+				NOT = { trait = infirm }
+				NOT = { is_friend = ROOT }
+			}
+			opinion = { who = ROOT modifier = opinion_upset years = 25 }
 			ROOT = {
 				current_heir = { 
-					reverse_opinion = { who = PREVPREV modifier = covets_inheritance years = 50 }
+					reverse_opinion = { who = PREVPREV modifier = covets_inheritance years = 25 }
 				}
 			}
 		}
 	}
-	option = { # I could still have a son
-		name = EVTOPTB1000182575
+	option = { # I might still have a son
+		name = EVTOPTB_FemRule_100
+		trigger = {
+			NOT = { trait = celibate }
+			NOT = { trait = eunuch }
+			OR = {
+				NOT = { age = 45 }
+				is_female = no
+			}
+		}
 		ai_chance = {
 			factor  = 75
 			modifier = {
@@ -240,27 +244,159 @@ character_event = { # my daughter is poised to inherit!
 			}
 			modifier = {
 				factor = 2
-				spouse = {
-					NOT = {
-						age = 25
-					}
+				any_spouse = {
+					NOT = { age = 25 }
 				}
+			}
+			modifier = {
+				factor = 2
+				fertility = 0.33
+			}
+			modifier = {
+				factor = 2
+				fertility = 0.5
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { fertility = 0.15 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { fertility = 0 }
+			}
+		}
+		add_character_modifier = {
+			name = hoping_for_son_timer
+			duration = 1825
+			hidden = yes
+		}
+		current_heir = {
+			prestige = -10
+			opinion = {
+				who = ROOT
+				modifier = not_feeling_apreciated
+				years = 5
+			}
+			hidden_tooltip = {
+				character_event = { id = FemRule.101 }
 			}
 		}
 	}
 	
 	option = { # Never--player-only option to not see this event again, AI will have chance to reconsider if appropriate
-		name = EVTOPTC1000182575
+		name = EVTOPTC_FemRule_100
 		ai_chance = { factor = 0 }
 		set_character_flag = misogyny
+		current_heir = {
+			prestige = -20
+			opinion = {
+				who = ROOT
+				modifier = not_feeling_apreciated
+				years = 10
+			}
+			hidden_tooltip = {
+				character_event = { id = FemRule.101 }
+			}
+		}
 	}	
 }
 
-character_event = { # now we have a male heir
-	id = 1000182576
-	title = EVTNAME1000182576
-	desc = EVTDESC1000182576
+character_event = { # I am not trusted to be heir
+	id = FemRule.101
+	desc = EVTDESC_FemRule_101
+	picture = GFX_evt_girl_with_sword
 	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_FemRule_101 #I must earn my right to rule
+		if = {
+			limit = { NOT = { trait = content } }
+			random_list = {
+				50 = { }
+				30 = { add_trait = ambitious }
+				20 = { add_trait = diligent }
+			}
+		}
+		if = {
+			limit = { trait = content }
+			remove_trait = content
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 3
+				trait = ambitious
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_FemRule_101 #But I deserve to rule!
+		if = {
+			limit = { NOT = { trait = humble } }
+			random_list = {
+				50 = { }
+				30 = { add_trait = proud }
+				20 = { add_trait = envious }
+			}
+		}
+		if = {
+			limit = { trait = humble }
+			remove_trait = humble
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 3
+				trait = proud
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_FemRule_101 #I must bow to his/her wishes.
+		if = {
+			limit = { NOT = { trait = ambitious } }
+			random_list = {
+				50 = { }
+				30 = { add_trait = content }
+				20 = { add_trait = humble }
+			}
+		}
+		if = {
+			limit = { trait = ambitious }
+			remove_trait = ambitious
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+	}
+}
+	
+character_event = { # change of heir
+	id = FemRule.105
+	desc = EVTDESC_FemRule_105
 	picture = GFX_evt_child_sword_training
 	
 	only_rulers = yes
@@ -270,7 +406,9 @@ character_event = { # now we have a male heir
 	trigger = {
 		trait = teaching_daughter
 		current_heir = {
-			is_female = no
+			NOT = {
+				has_opinion_modifier = { who = ROOT modifier = favoured_heiress }
+			}
 		}
 	}
 	
@@ -279,7 +417,16 @@ character_event = { # now we have a male heir
 	}
 	
 	option = {
-		name = EVTOPTA1000182576
+		name = EVTOPTA_FemRule_105 #I have a son now. That's all that matters.
+		trigger = {
+			current_heir = {
+				is_female = no
+				OR = {
+					father = { character = ROOT }
+					mother = { character = ROOT }
+				}
+			}
+		}
 		remove_trait = teaching_daughter 
 		any_child = {
 			limit = {
@@ -288,12 +435,61 @@ character_event = { # now we have a male heir
 			remove_opinion = { who = ROOT modifier = favoured_heiress }
 		}
 	}
+	
+	option = {
+		name = EVTOPTB_FemRule_105 #I have another daughter who can take her place.
+		trigger = {
+			current_heir = {
+				is_female = yes
+				OR = {
+					father = { character = ROOT }
+					mother = { character = ROOT }
+				}
+			}
+		}
+		current_heir = {
+			opinion = {
+				who = ROOT
+				modifier = favoured_heiress
+				years = 50
+			}
+		}
+		any_dynasty_member = {
+			limit = {
+				is_female = no
+				NOT = { trait = content }
+				NOT = { trait = humble }
+				NOT = { trait = incapable }
+				NOT = { trait = infirm }
+				NOT = { is_friend = ROOT }
+			}
+			ROOT = {
+				current_heir = { 
+					reverse_opinion = { who = PREVPREV modifier = covets_inheritance years = 25 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_FemRule_105 #There is nothing to be done.
+		trigger = {
+			NOT = {
+				current_heir = {
+					OR = {
+						father = { character = ROOT }
+						mother = { character = ROOT }
+					}
+				}
+			}
+		}
+		remove_trait = teaching_daughter
+	}
 }
 
 character_event = { # No sons, should I change my laws?
-	id = 1000182577
-	title = EVTNAME1000182577
-	desc = EVTDESC1000182577
+	id = FemRule.110
+	desc = EVTDESC_FemRule_110
 	
 	picture = GFX_evt_council
 	
@@ -305,14 +501,20 @@ character_event = { # No sons, should I change my laws?
 	
 	trigger = {
 		is_patrician = no
+		is_feudal = yes
 		primary_title = {
+			has_law = agnatic_succession
 			OR = {
-				has_law = agnatic_succession
-				has_law = cognatic_succession
+				has_law = succ_gavelkind
+				has_law = succ_primogeniture
+				has_law = succ_seniority
 			}
 		}
 		NOT = {
 			religion_group = muslim
+			religion = tengri_pagan_reformed
+			religion = tengri_pagan
+			trait = immortal
 		}
 		NOT = {
 			any_child = {
@@ -322,9 +524,10 @@ character_event = { # No sons, should I change my laws?
 		}
 		any_child = {
 			is_female = yes
+			dynasty = ROOT
 		}
-		NOT = { trait = immortal } 
 		current_heir = {
+			NOT = { dynasty = ROOT }
 			OR = {
 				NOT = { has_character_flag = law_change_considered }
 				had_character_flag = { flag = law_change_considered days = 3650 }
@@ -345,95 +548,222 @@ character_event = { # No sons, should I change my laws?
 		modifier = {
 			factor = 0.5
 			current_heir = {
-				NOT = { dynasty = ROOT }
+				NOT = { is_close_relative = ROOT }
 			}
 		}
 	}
 	
 	option = { # change law to Agnatic-Cognatic to preserve my dynasty
-		name = EVTOPTA1000182577
-		trigger = {
-			primary_title = {
-				has_law = agnatic_succession
-			}
-		}
-		ai_chance = {
-			factor = 1 # Only if the dynasty will be lost or in unusual cases
-			modifier = {
-				factor = 25
-				is_female = yes
-			}
-			modifier = {
-				factor = 25
-				trait = teaching_daughter
-			}
-			modifier = {
-				factor = 10
-				current_heir = {
-					NOT = { dynasty = ROOT }
-				}
-			}
-		}
-		current_heir = { #Old heir
-			opinion = { who = ROOT modifier = disinherited years = 100 } 
-			hidden_tooltip = { letter_event = { id = 1000182578 days = 3 } }
-		}
-		primary_title = {
-			add_law = cognatic_succession
-		}
-		current_heir = { #WOOT for executing stuff in order
-			opinion = { who = ROOT modifier = favoured_heiress years = 100 }
-			set_character_flag = law_change_considered
-		}
-	}
-	
-	option = { # My kingdom shall not pass from lance to spindle!
-		name = EVTOPTB1000182577
-		trigger = {
-			primary_title = {
-				has_law = cognatic_succession
-			}
-			is_female = no
-		}
+		name = EVTOPTA_FemRule_110
 		ai_chance = {
 			factor = 50
 			modifier = {
-				factor = 0.25 # you made your choice and should stick with it
-				trait = teaching_daughter
+				factor = 2
+				is_female = yes
 			}
 			modifier = {
-				factor = 0.5
+				factor = 4
 				any_child = {
+					is_female = yes
 					OR = {
-						trait = quick
 						trait = genius
-						trait = strong
+						trait = quick
+						trait = grey_eminence
 					}
 				}
 			}
 			modifier = {
-				factor = 1.25
-				OR = {
-					religion_group = christian
-					religion_group = jewish_group
+				factor = 2
+				any_child = {
+					is_female = yes
+					OR = {
+						trait = strong
+						trait = charismatic_negotiator
+						AND = {
+							num_of_children = 1
+							any_child = { is_female = no }
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				current_heir = {
+					NOT = { is_close_relative = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				any_child = {
+					is_female = no
+					trait = bastard
 				}
 			}
 		}
-		current_heir = { 
-			opinion = { who = ROOT modifier = disinherited years = 100 }
+		current_heir = { #Old heir
+			opinion = {
+				who = ROOT
+				modifier = disinherited
+				years = 100
+			} 
+			hidden_tooltip = {
+				letter_event = { id = 1000182578 days = 3 }
+			}
+		}
+		if = {
+			limit = {
+				primary_title = { tier = BARON }
+			}
+			prestige = -125
+			custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -3 } }
+		}
+		if = {
+			limit = {
+				primary_title = { tier = COUNT }
+			}
+			prestige = -250
+			custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -3 } }
+		}
+		if = {
+			limit = {
+				primary_title = { tier = DUKE }
+			}
+			prestige = -500
+			custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -3 } }
+		}
+		if = {
+			limit = {
+				primary_title = { tier = KING }
+			}
+			prestige = -750
+			custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -3 } }
+		}
+		if = {
+			limit = {
+				primary_title = { tier = EMPEROR }
+			}
+			prestige = -1000
+			custom_tooltip = { text = COURTFACTIONMOODMINUS change_variable = { which = "faction_mood_court" value = -3 } }
+		}
+		hidden_tooltip = {
+			random_courtier = {
+				limit = { ai = yes }
+				character_event = { id = 1000183004 days = 1 }
+			}
 		}
 		primary_title = {
-			add_law = agnatic_succession
+			add_law = cognatic_succession
 		}
-		current_heir = {
-			opinion = { who = ROOT modifier = chosen_heir years = 100 }
+		hidden_tooltip = {
+			any_demesne_title = {
+				limit = {
+					is_primary_holder_title = no
+					OR = {
+						is_primary_holder_title_tier = yes
+						higher_tier_than = duke
+					}
+				}
+				add_law = cognatic_succession
+			}
+			any_vassal = {
+				limit = {
+					NOT = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_succ_law_change
+						}
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_good_succ_law_change
+						}
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = opinion_bad_succ_law_change
+						}
+					}
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_succ_law_change
+					months = 240
+				}
+			}
+		}
+		add_trait = teaching_daughter
+		current_heir = { #WOOT for executing stuff in order
+			opinion = {
+				who = ROOT
+				modifier = favoured_heiress
+				years = 100
+			}
 			set_character_flag = law_change_considered
 		}
 	}
-	option = { # God's will be done
-		name = EVTOPTC1000182577
+	
+	option = { #I will turn to my bastards instead
+		name = EVTOPTB_FemRule_110
+		trigger = {
+			ai = yes
+			any_child = {
+				is_female = no
+				trait = bastard
+				is_liege_or_above = ROOT
+			}
+		}
 		ai_chance = {
-			factor = 25
+			factor = 50
+			modifier = {
+				factor = 4
+				any_child = {
+					is_female = no
+					trait = bastard
+					is_liege_or_above = ROOT
+					OR = {
+						trait = genius
+						trait = quick
+						trait = grey_eminence
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				any_child = {
+					is_female = no
+					trait = bastard
+					is_liege_or_above = ROOT
+					OR = {
+						trait = strong
+						trait = charismatic_negotiator
+						AND = {
+							num_of_children = 1
+							any_child = { is_female = no }
+						}
+					}
+				}
+			}
+		}
+		set_character_flag = will_acknowledge_bastards
+	}
+	
+	option = { # God's will be done
+		name = EVTOPTC_FemRule_110
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				current_heir = { is_close_relative = ROOT }
+			}
+			modifier = {
+				factor = 0.1
+				any_child = {
+					is_female = no
+					trait = bastard
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
 		}
 		any_vassal = {
 			opinion = { who = ROOT modifier = opinion_worried years = 100 }
