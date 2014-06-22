@@ -1017,8 +1017,8 @@ italian_reconquest = {
 	}
 
 	on_success = {
-		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
-		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
+		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
+		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = -1 } } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		any_attacker = {
 			limit = { character = ROOT }

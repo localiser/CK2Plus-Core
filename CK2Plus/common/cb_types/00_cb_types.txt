@@ -1994,7 +1994,7 @@ crusade = {
 			participation_scaled_prestige = 500
 			custom_tooltip = { 
 				text = RELIGIOUSFACTIONMOODPLUS
-				change_variable = { which = "faction_mood_religious" value = 2 }
+				hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 2 } }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 			}
 		}
@@ -2005,7 +2005,7 @@ crusade = {
 				participation_scaled_prestige = 500
 				custom_tooltip = { 
 					text = RELIGIOUSFACTIONMOODPLUS
-					change_variable = { which = "faction_mood_religious" value = 2 }
+					hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 2 } }
 					hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 				}
 			}
@@ -2098,7 +2098,7 @@ crusade = {
 			participation_scaled_piety = 200
 			custom_tooltip = { 
 				text = RELIGIOUSFACTIONMOODMINUS
-				change_variable = { which = "faction_mood_religious" value = -2 }
+				hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = -2 } }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 			}
 		}
@@ -2107,7 +2107,7 @@ crusade = {
 			hidden_tooltip = { participation_scaled_prestige = 100 participation_scaled_piety = 200 }
 			custom_tooltip = { 
 				text = RELIGIOUSFACTIONMOODMINUS
-				change_variable = { which = "faction_mood_religious" value = -2 }
+				hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = -2 } }
 				hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } }
 			}
 		}
@@ -2528,8 +2528,8 @@ holy_war = { #Holy War
 	}
 	
 	on_success = {
-		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
-		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
+		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
+		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = -1 } } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
 		ROOT = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		any_attacker = {
 			limit = { character = ROOT }
@@ -2617,8 +2617,8 @@ holy_war = { #Holy War
 	}
 	
 	on_reverse_demand = {
-		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS change_variable = { which = "faction_mood_religious" value = -1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
-		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS change_variable = { which = "faction_mood_religious" value = 1 } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
+		ROOT = { custom_tooltip = { text = RELIGIOUSFACTIONMOODMINUS hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = -1 } } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
+		FROM = { custom_tooltip = { text = RELIGIOUSFACTIONMOODPLUS hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } } hidden_tooltip = { random_courtier = { limit = { ai = yes } character_event = { id = 1000183004 days = 1 } } } } }
 		FROM = { add_character_modifier = { name = victory_timer duration = 3 hidden = yes } }
 		ROOT = {
 			piety = -200
@@ -3673,121 +3673,121 @@ overthrow_ruler_no_calls = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_feudal" value = 0 } }
 						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_feudal" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -1 } }
 						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_feudal" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -2 } }
 						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_feudal" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -3 } }
 						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_feudal" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_feudal" value = -4 } }
 						}
-						change_variable = { which = "faction_mood_feudal" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_feudal" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_republican" value = 0 } }
 						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_republican" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_republican" value = -1 } }
 						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_republican" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_republican" value = -2 } }
 						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_republican" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_republican" value = -3 } }
 						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_republican" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_republican" value = -4 } }
 						}
-						change_variable = { which = "faction_mood_republican" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_republican" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_religious" value = 0 } }
 						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_religious" value = -1 } }
 						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_religious" value = -2 } }
 						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_religious" value = -3 } }
 						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_religious" value = -4 } }
 						}
-						change_variable = { which = "faction_mood_religious" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_religious" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_court" value = 0 } }
 						}
-						change_variable = { which = "faction_mood_court" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_court" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_court" value = -1 } }
 						}
-						change_variable = { which = "faction_mood_court" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_court" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_court" value = -2 } }
 						}
-						change_variable = { which = "faction_mood_court" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_court" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_court" value = -3 } }
 						}
-						change_variable = { which = "faction_mood_court" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_court" value = 1 } }
 					}
 					if = {
 						limit = {
 							NOT = { check_variable = { which = "total_faction_mood_court" value = -4 } }
 						}
-						change_variable = { which = "faction_mood_court" value = 1 }
+						hidden_tooltip = { change_variable = { which = "faction_mood_court" value = 1 } }
 					}
 				}
 			}
