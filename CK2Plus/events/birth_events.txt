@@ -17,16 +17,23 @@ character_event = {
 	desc = EVTDESC450
 	picture = GFX_evt_lovers
 
-	is_marriage_adult = yes
+	min_age = 16
 	max_age = 40
-	has_lover = no
-	is_consort = no
 	capable_only = yes
 	prisoner = no
 
 	trigger = {
+		is_marriage_adult = yes
+		is_consort = no
 		is_pregnant = no
 		is_ill = no
+		OR = {
+			has_lover = no
+			AND = {
+				trait = lustful
+				NOT = { num_of_lovers = 5 }
+			}
+		}
 		NOT = { trait = infirm }
 		NOT = { trait = celibate }
 		NOT = { trait = eunuch }
@@ -107,12 +114,20 @@ character_event = {
 					ROOT = { is_female = no }
 				}
 			}
-			NOT = { num_of_lovers = 5 }
 			NOT = { is_former_lover = ROOT }
 			NOT = { is_rival = ROOT }
 			NOT = { any_spouse = { character = ROOT } }
+			NOT = { any_consort = { character = ROOT } }
+			NOT = { any_lover = { character = ROOT } }
 			opinion = { who = ROOT value = 0 }
 			reverse_opinion = { who = ROOT value = 0 }
+			OR = {
+				has_lover = no
+				AND = {
+					trait = lustful
+					NOT = { num_of_lovers = 5 }
+				}
+			}
 			NOT = { has_character_modifier = lustful_affair_timer }
 		}
 		NOT = { has_character_modifier = lustful_affair_timer }
@@ -146,19 +161,19 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			liege = { num_of_lovers = 1 }
+			num_of_lovers = 1			
 		}		
 		modifier = {
 			factor = 3.0
-			liege = { num_of_lovers = 2 }
+			num_of_lovers = 2			
 		}
 		modifier = {
 			factor = 4.0
-			liege = { num_of_lovers = 3 }
+			num_of_lovers = 3			
 		}
 		modifier = {
 			factor = 5.0
-			liege = { num_of_lovers = 4 }
+			num_of_lovers = 4			
 		}
 		modifier = {
 			factor = 0.5
@@ -397,6 +412,22 @@ character_event = {
 			modifier = {
 				factor = 5
 				has_ambition = obj_find_lover
+			}
+			modifier = {
+				factor = 0.5
+				num_of_lovers = 1			
+			}		
+			modifier = {
+				factor = 0.33
+				num_of_lovers = 2			
+			}
+			modifier = {
+				factor = 0.25
+				num_of_lovers = 3			
+			}
+			modifier = {
+				factor = 0.2
+				num_of_lovers = 4			
 			}
 			modifier = {
 				factor = 2
@@ -1204,17 +1235,24 @@ character_event = {
 	desc = EVTDESC450
 	picture = GFX_evt_lovers
 
-	is_ruler = no
-	is_marriage_adult = yes
+	min_age = 16
 	max_age = 40
-	has_lover = no
-	is_consort = no
 	capable_only = yes
 	prisoner = no
 
 	trigger = {
+		is_marriage_adult = yes
 		is_pregnant = no
 		is_ill = no
+		is_ruler = no
+		is_consort = no
+		OR = {
+			has_lover = no
+			AND = {
+				trait = lustful
+				NOT = { num_of_lovers = 5 }
+			}
+		}
 		NOT = { trait = chaste }
 		NOT = { trait = infirm }
 		NOT = { trait = celibate }
@@ -1230,7 +1268,13 @@ character_event = {
 				NOT = { character = ROOT }
 				is_ruler = no
 				is_pregnant = no
+				OR = {
 				has_lover = no
+					AND = {
+						trait = lustful
+						NOT = { num_of_lovers = 5 }
+					}
+				}
 				is_consort = no
 				prisoner = no
 				is_marriage_adult = yes
@@ -1281,6 +1325,7 @@ character_event = {
 				}
 				NOT = { has_character_modifier = lustful_affair_timer }
 				NOT = { any_spouse = { character = ROOT } }
+				NOT = { any_lover = { character = ROOT } }
 				NOT = { is_former_lover = ROOT }
 				NOT = { is_rival = ROOT }
 				opinion = { who = ROOT value = 0 }
@@ -1325,6 +1370,22 @@ character_event = {
 			factor = 0.5
 			trait = lustful
 		}
+		modifier = {
+			factor = 2.0
+			num_of_lovers = 1			
+		}		
+		modifier = {
+			factor = 3.0
+			num_of_lovers = 2			
+		}
+		modifier = {
+			factor = 4.0
+			num_of_lovers = 3			
+		}
+		modifier = {
+			factor = 5.0
+			num_of_lovers = 4			
+		}
 	}
 
 	option = {
@@ -1335,7 +1396,13 @@ character_event = {
 					NOT = { character = ROOT }
 					is_ruler = no
 					is_pregnant = no
+					OR = {
 					has_lover = no
+						AND = {
+							trait = lustful
+							NOT = { num_of_lovers = 5 }
+						}
+					}
 					is_consort = no
 					prisoner = no
 					is_marriage_adult = yes
@@ -1386,6 +1453,7 @@ character_event = {
 					}
 					NOT = { has_character_modifier = lustful_affair_timer }
 					NOT = { any_spouse = { character = ROOT } }
+					NOT = { any_lover = { character = ROOT } }
 					NOT = { is_former_lover = ROOT }
 					NOT = { is_rival = ROOT }
 					opinion = { who = ROOT value = 0 }
