@@ -1,6 +1,74 @@
 decisions = {
 
-	1000182046 = { # Vassalize All
+	nhv_dist_all = { # Vassalize All
+		potential = {
+			age = 0			
+		}
+		allow = {
+			any_demesne_province = {
+				has_province_flag = keep_it
+			}
+			OR = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_title = {
+					is_feudal = yes
+					tier = baron
+					NOT = { tier = count }
+					is_capital = no
+				}
+				any_demesne_title = {
+					is_feudal = no
+					is_republic = yes
+					tier = baron
+					NOT = { tier = count }
+					is_capital = no
+				}
+				any_demesne_title = {
+					is_feudal = no
+					is_theocracy = yes
+					tier = baron
+					NOT = { tier = count }
+					is_capital = no
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_law = agnatic_succession
+						has_law = cognatic_succession
+					}
+				}
+				character_event = { id = 1000182046 }	
+			}
+			if = {
+				limit = {
+					OR = {
+						has_law = enatic_succession
+						has_law = enatic_cognatic_succession
+					}
+				}
+				character_event = { id = 1000182049 }	
+			}			
+			if = {
+				limit = {
+						has_law = true_cognatic_succession					
+				}
+				character_event = { id = 2000182046 }	
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhv_dist_barons = { # Vassalize All Barons
 		potential = {
 			age = 0
 			NOT = {
@@ -39,158 +107,30 @@ decisions = {
 			}
 		}
 		effect = {
-			character_event = { id = 1000182046 }	
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
-	1000182047 = { # Vassalize All Barons
-		potential = {
-			age = 0
-			NOT = {
-				has_law = enatic_succession
-				has_law = enatic_cognatic_succession
+			if = {
+				limit = {
+					OR = {
+						has_law = agnatic_succession
+						has_law = cognatic_succession
+					}
+				}
+				character_event = { id = 1000182047 }
 			}
-		}
-		allow = {
-			any_demesne_province = {
-				has_province_flag = keep_it
-			}
-			OR = {
-				any_demesne_province = {
-					NOT = { has_province_flag = keep_it }
+			if = {
+				limit = {
+					OR = {
+						has_law = enatic_succession
+						has_law = enatic_cognatic_succession
+					}
 				}
-				any_demesne_title = {
-					is_feudal = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
+				character_event = { id = 1000182048 }
+			}			
+			if = {
+				limit = {
+						has_law = true_cognatic_succession					
 				}
-				any_demesne_title = {
-					is_feudal = no
-					is_republic = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-				any_demesne_title = {
-					is_feudal = no
-					is_theocracy = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-			}
-		}
-		effect = {
-			character_event = { id = 1000182047 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-#######################################
-#Enatic Vassalize All Decision
-#Modified for 1.102 by lockeslylcrit
-#######################################
-
-	1000182049 = {
-		potential = {
-			age = 0
-			OR = {
-				has_law = enatic_succession
-				has_law = enatic_cognatic_succession
-			}
-		}
-		allow = {
-			any_demesne_province = {
-				has_province_flag = keep_it
-			}
-			OR = {
-				any_demesne_province = {
-					NOT = { has_province_flag = keep_it }
-				}
-				any_demesne_title = {
-					is_feudal = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-				any_demesne_title = {
-					is_feudal = no
-					is_republic = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-				any_demesne_title = {
-					is_feudal = no
-					is_theocracy = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-			}
-		}
-		effect = {
-			character_event = { id = 1000182049.250001 }	
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
-	1000182048 = {
-		potential = {
-			age = 0
-			OR = {
-				has_law = enatic_succession
-				has_law = enatic_cognatic_succession
-			}
-		}
-		allow = {
-			any_demesne_province = {
-				has_province_flag = keep_it
-			}
-			OR = {
-				any_demesne_province = {
-					NOT = { has_province_flag = keep_it }
-				}
-				any_demesne_title = {
-					is_feudal = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-				any_demesne_title = {
-					is_feudal = no
-					is_republic = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-				any_demesne_title = {
-					is_feudal = no
-					is_theocracy = yes
-					tier = baron
-					NOT = { tier = count }
-					is_capital = no
-				}
-			}
-		}
-		effect = {
-			character_event = { id = 1000182048 }
+				character_event = { id = 2000182047 }
+			}			
 		}
 		revoke_allowed = {
 			always = no
@@ -200,32 +140,26 @@ decisions = {
 		}
 	}
 
-	1000182042 = { # Flag Province
+	nhv_flag_prov = { # Flag Province
 		potential = {
-			NOT = { has_job_title = job_chancellor }
-			NOT = { has_job_title = job_marshal }
-			NOT = { has_job_title = job_treasurer }
-			NOT = { has_job_title = job_spymaster }
-			NOT = { has_job_title = job_spiritual }
-			OR = {
-				is_female = no
-				AND = {
-					is_female = yes
-					independent = yes
-				}
-			}
+			in_command = yes
+			is_ruler = yes
 			has_regent = no
 			location  = {
+				owner = { character = ROOT }
 				NOT = { has_province_flag = keep_it }
 			}
 		}
 		allow = {
 			location  = {
+				owner = { character = ROOT }
 				NOT = { has_province_flag = keep_it }
 			}
 		}
 		effect = {
-			province_event = { id = 1000182042 }
+			location = {
+					province_event = { id = 1000182042 }
+				}
 		}
 		revoke_allowed = {
 			always = no
@@ -235,32 +169,26 @@ decisions = {
 		}
 	}
 
-	1000182043  = { # Unflag Province
+	nhv_unflag_prov  = { # Unflag Province
 		potential = {
-			NOT = { has_job_title = job_chancellor }
-			NOT = { has_job_title = job_marshal }
-			NOT = { has_job_title = job_treasurer }
-			NOT = { has_job_title = job_spymaster }
-			NOT = { has_job_title = job_spiritual }
-			OR = {
-				is_female = no
-				AND = {
-					is_female = yes
-					independent = yes
-				}
-			}
+			in_command = yes
+			is_ruler = yes
 			has_regent = no
 			location  = {
+				owner = { character = ROOT }
 				has_province_flag = keep_it
 			}
 		}
 		allow = {
 			location  = {
+				owner = { character = ROOT }
 				has_province_flag = keep_it
 			}
 		}
 		effect = {
-			province_event = { id = 1000182043 }
+			location = {
+					province_event = { id = 1000182043 }
+				}
 		}
 		revoke_allowed = {
 			always = no
@@ -270,110 +198,65 @@ decisions = {
 		}
 	}
 
-	1000182044 = { # Flag Province (Marshal)
+	nhv_flag_msh = { # Flag Province (Marshal)
 		potential = {
-			OR = {
-				has_job_title = job_chancellor
-				has_job_title = job_marshal
-				has_job_title = job_treasurer
-				has_job_title = job_spymaster
-				has_job_title = job_spiritual
-				has_regent = yes
-				AND = {
-					is_female = yes
-					independent = no
-				}
-			}
-			OR = {
-				any_vassal = {
-					has_job_title = job_marshal
-					location = {
-						NOT = { has_province_flag = keep_it }
-					}
-				}
-				any_courtier = {
-					has_job_title = job_marshal
-					location = {
-						NOT = { has_province_flag = keep_it }
-					}
-				}
-			}
-		}
-		allow = {
-			OR = {
-				any_vassal = {
-					has_job_title = job_marshal
-					location = {
-						NOT = { has_province_flag = keep_it }
-					}
-				}
-				any_courtier = {
-					has_job_title = job_marshal
-					location = {
-						NOT = { has_province_flag = keep_it }
-					}
-				}
-			}
-		}
-		effect = {
-			province_event = { id = 1000182044 }
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	1000182045 = {
-		potential = { # Unflag Province (Marshal)
-			OR = {
-				has_job_title = job_chancellor
-				has_job_title = job_marshal
-				has_job_title = job_treasurer
-				has_job_title = job_spymaster
-				has_job_title = job_spiritual
+			job_marshal = {
 				has_job_action = yes
-				has_regent = yes
-				AND = {
-					is_female = yes
-					independent = no
-				}
-			}
-			OR = {
-				any_vassal = {
-					has_job_title = job_marshal
-					location = {
-						has_province_flag = keep_it
-					}
-				}
-				any_courtier = {
-					has_job_title = job_marshal
-					location = {
-						has_province_flag = keep_it
-					}
+				location = {
+					owner = { character = ROOT }
+					NOT = { has_province_flag = keep_it }
 				}
 			}
 		}
 		allow = {
-			OR = {
-				any_vassal = {
-					has_job_title = job_marshal
-					location = {
-						has_province_flag = keep_it
-					}
+			job_marshal = {
+				has_job_action = yes
+				location = {
+					owner = { character = ROOT }
+					NOT = { has_province_flag = keep_it }
 				}
-				any_courtier = {
-					has_job_title = job_marshal
-					location = {
-						has_province_flag = keep_it
-					}
+			}			
+		}
+		effect = {
+			job_marshal = {
+				location = {
+					province_event = { id = 1000182044 }
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	nhv_unflag_msh = {
+		potential = { # Unflag Province (Marshal)
+			job_marshal = {
+				has_job_action = yes
+				location = {
+					owner = { character = ROOT }
+					has_province_flag = keep_it
+				}
+			}
+		}
+		allow = {
+			job_marshal = {
+				has_job_action = yes
+				location = {
+					owner = { character = ROOT }
+					has_province_flag = keep_it
 				}
 			}
 		}
 		effect = {
-			province_event = { id = 1000182045 }
+			job_marshal = {
+				location = {
+					province_event = { id = 1000182045 }
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no

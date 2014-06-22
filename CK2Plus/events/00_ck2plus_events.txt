@@ -1085,11 +1085,9 @@ province_event = { # Flag Province
 	is_triggered_only = yes
 
 	immediate = {
-		location = {
 			set_province_flag = keep_it
 			add_province_modifier = { name = "keep_it" duration = -1 }
 		}
-	}
 
 	option = {
 		name = 1000182042.opta
@@ -1105,11 +1103,9 @@ province_event = { # Unflag Province
 	is_triggered_only = yes
 
 	immediate = {
-		location = {
 			clr_province_flag = keep_it
 			remove_province_modifier = keep_it
 		}
-	}
 
 	option = {
 		name = 1000182043.opta
@@ -1117,7 +1113,7 @@ province_event = { # Unflag Province
 	}
 }
 
-province_event = { # Unflag Province (Marshal)
+province_event = { # Flag Province (Marshal)
 	id = 1000182044
 	desc = 1000182044.desc
 	picture = "GFX_evt_garden"
@@ -1125,21 +1121,9 @@ province_event = { # Unflag Province (Marshal)
 	is_triggered_only = yes
 
 	immediate = {
-		random_vassal = {
-			limit = { has_job_title = job_marshal }
-			location = {
 				set_province_flag = keep_it
 				add_province_modifier = { name = "keep_it" duration = -1 }
 			}
-		}
-		random_courtier  = {
-			limit = { has_job_title = job_marshal }
-			location = {
-				set_province_flag = keep_it
-				add_province_modifier = { name = "keep_it" duration = -1 }
-			}
-		}
-	}
 
 	option = {
 		name = 1000182044.opta
@@ -1155,21 +1139,9 @@ province_event = { # Unflag Province (Marshal)
 	is_triggered_only = yes
 
 	immediate = {
-		random_vassal = {
-			limit = { has_job_title = job_marshal }
-			location = {
 				clr_province_flag = keep_it
 				remove_province_modifier = keep_it
 			}
-		}
-		random_courtier  = {
-			limit = { has_job_title = job_marshal }
-			location = {
-				clr_province_flag = keep_it
-				remove_province_modifier = keep_it
-			}
-		}
-	}
 
 	option = {
 		name = 1000182045.opta
@@ -5648,14 +5620,4456 @@ character_event = {
 	}
 }
 
+#Cognatic NHV events
+
+character_event = {
+	id = 2000182046
+	desc = 1000182046.desc
+	picture = "GFX_evt_council"
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		########## Start of Counties
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					NOT = { has_province_flag = keep_it }
+				}
+				any_demesne_province = {
+					has_province_flag = keep_it
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+				NOT = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_province = {
+						limit = {
+							NOT = {	has_province_flag = keep_it }
+						}
+						county = {
+							grant_title = PREVPREVPREV
+						}
+					}
+					wealth = -10
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = 1000182046.opta
+	}
+}
+
+character_event = {
+	id = 2000182047
+	desc = 1000182047.desc
+	picture = "GFX_evt_council"
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random			
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					any_demesne_title = {
+						is_feudal = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_republic = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+					any_demesne_title = {
+						is_feudal = no
+						is_theocracy = yes
+						tier = baron
+						NOT = { tier = count }
+						is_capital = no
+					}
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random				
+				religion = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				set_defacto_liege = ROOT
+				liege = {
+					random_demesne_title = {
+						limit = {
+							OR = {
+								AND = {
+									is_feudal = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_republic = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+								AND = {
+									is_feudal = no
+									is_theocracy = yes
+									tier = baron
+									NOT = { tier = count }
+									is_capital = no
+								}
+							}
+						}
+						grant_title = PREVPREV
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = 1000182047.opta
+	}
+}
+
 ############################
 #Enatic Vassalize All Events
 #Modified for 1.102 by lockeslylcrit
 ############################
 
 character_event = {
-	id = 1000182049.250001
-	desc = 1000182049.250001.desc
+	id = 1000182049
+	desc = 1000182049.desc
 	picture = "GFX_evt_council"
 	
 	is_triggered_only = yes
@@ -8154,7 +12568,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = 1000182049.250001.opta
+		name = 1000182049.opta
 	}
 }
 
@@ -15114,6 +19528,7 @@ character_event = {
 		}
 		wealth = 200
 		prestige = -100
+		clr_character_flag = aonach_tailteann
 		hidden_tooltip = {
 			any_realm_character = {
 				limit = {
