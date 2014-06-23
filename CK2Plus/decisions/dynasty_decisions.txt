@@ -129,6 +129,85 @@ dynasty_decisions = {
 		}
 	}
 	
+	legitimize_bastard_ai = {
+		from_potential = {
+			ai = yes
+			religion_group = christian
+			is_playable = yes
+		}
+		
+		potential = {
+			trait = bastard
+			is_child_of = FROM
+			is_liege_or_above = FROM
+			has_character_flag = acknowledged_bastard
+		}
+		allow = {
+			FROM = { has_character_flag = will_acknowledge_bastards }
+		}
+		effect = {
+			clr_character_flag = acknowledged_bastard
+			dynasty = FROM
+			remove_trait = bastard
+			add_trait = legit_bastard
+			recalc_succession = yes
+			FROM = { piety = -20 }
+			if = {
+				limit = {
+					prisoner = yes
+					host = { character = FROM }
+				}
+				imprison = no
+			}
+			
+			mother = {
+				opinion = {
+					who = FROM
+					modifier = legitimized_child
+					years = 10
+				}
+			}
+			FROM = {
+				clr_character_flag = will_acknowledge_bastards
+				spouse = {
+					if = {
+						limit = {
+							NOT = {
+								any_child = {
+									character = ROOT
+								}	
+							}
+						}
+						opinion = {
+							who = FROM
+							modifier = legitimized_bastard
+							years = 20
+						}
+					}
+				}
+				any_child = {
+					limit = {
+						NOT = { character = ROOT }
+						dynasty = FROM
+						NOT = { trait = bastard }
+					}
+					opinion = {
+						who = FROM
+						modifier = legitimized_bastard
+						months = 12
+					}
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 # Muslim ruler tries to convince a dynasty member to lose the 'Decadent' Trait
 	convince_to_straighten_up = {
 	

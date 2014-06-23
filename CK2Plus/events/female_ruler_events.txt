@@ -14,7 +14,7 @@ character_event = { # my daughter is poised to inherit!
 	title = EVTNAME_FemRule_100
 	desc = EVTDESC_FemRule_100
 	
-	picture = GFX_evt_girl_with_sword
+	picture = GFX_evt_noblewoman
 	
 	only_rulers = yes
 	min_age = 30
@@ -304,7 +304,7 @@ character_event = { # my daughter is poised to inherit!
 character_event = { # I am not trusted to be heir
 	id = FemRule.101
 	desc = EVTDESC_FemRule_101
-	picture = GFX_evt_girl_with_sword
+	picture = GFX_evt_noblewoman
 	
 	is_triggered_only = yes
 	
@@ -427,7 +427,9 @@ character_event = { # change of heir
 				}
 			}
 		}
-		remove_trait = teaching_daughter 
+		remove_trait = teaching_daughter
+		clr_character_flag = will_acknowledge_bastards
+		clr_character_flag = no_pledging_to_daughter
 		any_child = {
 			limit = {
 				has_opinion_modifier = { who = ROOT modifier = favoured_heiress }
@@ -447,6 +449,7 @@ character_event = { # change of heir
 				}
 			}
 		}
+		clr_character_flag = no_pledging_to_daughter
 		current_heir = {
 			opinion = {
 				who = ROOT
@@ -484,6 +487,8 @@ character_event = { # change of heir
 			}
 		}
 		remove_trait = teaching_daughter
+		clr_character_flag = will_acknowledge_bastards
+		clr_character_flag = no_pledging_to_daughter
 	}
 }
 
@@ -533,6 +538,7 @@ character_event = { # No sons, should I change my laws?
 				had_character_flag = { flag = law_change_considered days = 3650 }
 			}
 		}
+		NOT = { has_character_flag = will_acknowledge_bastards }
 	}
 	
 	mean_time_to_happen = {
@@ -556,7 +562,7 @@ character_event = { # No sons, should I change my laws?
 	option = { # change law to Agnatic-Cognatic to preserve my dynasty
 		name = EVTOPTA_FemRule_110
 		ai_chance = {
-			factor = 50
+			factor = 25
 			modifier = {
 				factor = 2
 				is_female = yes
@@ -607,7 +613,7 @@ character_event = { # No sons, should I change my laws?
 				years = 100
 			} 
 			hidden_tooltip = {
-				letter_event = { id = 1000182578 days = 3 }
+				letter_event = { id = FemRule.112 days = 3 }
 			}
 		}
 		if = {
@@ -704,9 +710,12 @@ character_event = { # No sons, should I change my laws?
 		name = EVTOPTB_FemRule_110
 		trigger = {
 			ai = yes
+			religion_group = christian
 			any_child = {
 				is_female = no
 				trait = bastard
+				NOT = { trait = eunuch }
+				NOT = { trait = celibate }
 				is_liege_or_above = ROOT
 			}
 		}
@@ -717,6 +726,8 @@ character_event = { # No sons, should I change my laws?
 				any_child = {
 					is_female = no
 					trait = bastard
+					NOT = { trait = eunuch }
+					NOT = { trait = celibate }
 					is_liege_or_above = ROOT
 					OR = {
 						trait = genius
@@ -730,6 +741,8 @@ character_event = { # No sons, should I change my laws?
 				any_child = {
 					is_female = no
 					trait = bastard
+					NOT = { trait = eunuch }
+					NOT = { trait = celibate }
 					is_liege_or_above = ROOT
 					OR = {
 						trait = strong
@@ -748,7 +761,7 @@ character_event = { # No sons, should I change my laws?
 	option = { # God's will be done
 		name = EVTOPTC_FemRule_110
 		ai_chance = {
-			factor = 50
+			factor = 25
 			modifier = {
 				factor = 2
 				current_heir = { is_close_relative = ROOT }
@@ -758,6 +771,9 @@ character_event = { # No sons, should I change my laws?
 				any_child = {
 					is_female = no
 					trait = bastard
+					NOT = { trait = eunuch }
+					NOT = { trait = celibate }
+					is_liege_or_above = ROOT
 				}
 			}
 			modifier = {
@@ -774,37 +790,176 @@ character_event = { # No sons, should I change my laws?
 	}
 }
 
-letter_event = { # ruler changed his laws to favour his daughter over me
-	id = 1000182578 
-	title = EVTNAME1000182578
-	desc = EVTDESC1000182578
+character_event = {
+	id = FemRule.111
+	desc = EVTDESC_FemRule_111
+	picture = GFX_evt_emissary
 	
+	capable_only = yes
+	is_male = yes
+	
+	trigger = {
+		trait = bastard
+		NOT = { trait = eunuch }
+		NOT = { trait = celibate }
+		any_liege = {
+			has_character_flag = will_acknowledge_bastards
+			current_heir = { NOT = { dynasty = PREV } }
+			any_child = { character = ROOT }
+		}
+		NOT = { has_character_flag = acknowledged_bastard }
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+		modifier = {
+			factor = 0.5
+			is_adult = yes
+			NOT = { age = 30 }
+		}
+		modifier = {
+			factor = 0.75
+			is_married = yes
+		}
+		modifier = {
+			factor = 0.25
+			trait = genius
+		}
+		modifier = {
+			factor = 0.5
+			trait = quick
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				trait = strong
+				trait = fair
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				trait = grey_eminence
+				trait = brilliant_strategist
+			}
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				trait = charismatic_negotiator
+				trait = midas_touched
+				trait = skilled_tactician
+			}
+		}
+		modifier = {
+			factor = 1.5
+			age = 40
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { health = 3.1 }
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				trait = amateurish_plotter
+				trait = naive_appeaser
+				trait = indulgent_wastrel
+				trait = misguided_warrior
+				trait = detached_priest
+			}
+		}
+		modifier = {
+			factor = 0.75
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				trait = diligent
+				trait = just
+				trait = kind
+				trait = brave
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				trait = cruel
+				trait = craven
+				trait = content
+				trait = slothful
+				trait = arbitrary
+			}
+		}
+		modifier = {
+			factor = 2
+			trait = homosexual
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = weak
+				trait = blinded
+				trait = maimed
+			}
+		}
+		modifier = {
+			factor = 2
+			trait = slow
+		}
+		modifier = {
+			factor = 3
+			trait = imbecile
+		}
+		modifier = {
+			factor = 3
+			trait = inbred
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_111
+		custom_tooltip = {
+			text = EVTTOOLTIP_FemRule_111
+			set_character_flag = acknowledged_bastard
+		}
+	}
+}
+
+letter_event = { # ruler changed his laws to favour his daughter over me
+	id = FemRule.112 
+	desc = EVTDESC_FemRule_112	
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA1000182578
+		name = EVTOPTA_FemRule_112
 		FROM = {
 			current_heir = {
 				reverse_opinion = { who = ROOT modifier = disinherited years = 100 }
+				ROOT = {
+					remove_friend = PREV
+					add_rival = PREV
+				}
 			}
 			primary_title = { add_claim = ROOT }
 		}
 	}
 }
 
-
 character_event = { # make vassals pledge allegiance to daughter
-	id = 1000182579
-	title = EVTNAME1000182579
-	desc = EVTDESC1000182579	
-	picture = GFX_evt_emissary	
+	id = FemRule.115
+	desc = EVTDESC_FemRule_115	
+	picture = GFX_evt_noblewoman
+	
 	only_rulers = yes
-	min_age = 45
+	min_age = 50
 	capable_only = yes
 	prisoner = no
 	only_playable = yes
+	
 	trigger = {
 		NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
 		war = no
@@ -817,9 +972,7 @@ character_event = { # make vassals pledge allegiance to daughter
 				mother = { character = ROOT }
 			}
 		}
-		top_liege = {
-			war = no
-		}
+		top_liege = { war = no }
 		NOT = {
 			any_vassal = {
 				ROOT = {
@@ -828,46 +981,57 @@ character_event = { # make vassals pledge allegiance to daughter
 					}
 				}
 			}
+			has_character_flag = no_pledging_to_daughter
 		}
 	}
 	mean_time_to_happen = {
 		months = 120
 		modifier = {
 			factor = 0.75
-			trait = ill
+			is_ill = yes
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { health = 3.1 }
 		}
 		modifier = {
 			factor = 0.75
-			trait = pneumonic
+			age = 55
 		}
 		modifier = {
 			factor = 0.75
-			trait = leper
+			age = 60
 		}
 		modifier = {
 			factor = 0.75
-			trait = maimed
+			age = 65
 		}
 		modifier = {
-			factor = 0.75
-			trait = infirm
-		}
-		modifier = {
-			factor = 5
+			factor = 0.5
 			current_heir = {
-				trait = weak
+				trait = genius
+			}
+		}
+		modifier = {
+			factor = 0.75
+			current_heir = {
+				OR = {
+					trait = quick
+					trait = strong
+					trait = grey_eminence
+				}
 			}
 		}
 		modifier = {
 			factor = 5
 			current_heir = {
-				trait = dwarf
-			}
-		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = hunchback
+				OR = {
+					trait = weak
+					trait = ugly
+					trait = shy
+					trait = blinded
+					trait = maimed
+				}
 			}
 		}
 		modifier = {
@@ -888,39 +1052,33 @@ character_event = { # make vassals pledge allegiance to daughter
 				trait = imbecile
 			}
 		}
-		modifier = {
-			factor = 5
-			current_heir = {
-				trait = clubfooted
-			}
-		}
 	}
 	option = { # Make them take an oath
-		name = EVTOPTA1000182579
+		name = EVTOPTA_FemRule_115
 		ai_chance = { factor  = 90 } # TODO teach the AI to decide more intelligently
 		any_vassal = {
 			limit = { NOT = { is_primary_heir = ROOT }}
-			letter_event = { id = 1000182580 days = 1 } 
+			letter_event = { id = FemRule.116 days = 1 } 
 		}
 	}
+	
 	option = { #no need
-	name = EVTOPTB1000182579
-	ai_chance = { factor = 10 }
-	prestige = -100
+		name = EVTOPTB_FemRule_115
+		ai_chance = { factor = 10 }
+		set_character_flag = no_pledging_to_daughter
+		prestige = -100
 	}
 }
 
 letter_event = {
-	id = 1000182580
-	title = EVTNAME1000182580
-	desc = EVTDESC1000182580
-	
+	id = FemRule.116
+	desc = EVTDESC_FemRule_116
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 		
 	option = { # Swear the Oath
-		name = EVTOPTA1000182580
+		name = EVTOPTA_FemRule_116
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -1006,15 +1164,15 @@ letter_event = {
 				opinion = { who = ROOT modifier = opinion_very_grateful years = 100 }
 			}
 			opinion = { who = ROOT modifier = opinion_very_grateful years = 100 }
-			letter_event = { id = 1000182581 days = 4 } 
+			letter_event = { id = FemRule.117 days = 4 } 
 		}
 	}
 	
 	option = { #Refuse the Oath
-		name = EVTOPTB1000182580
+		name = EVTOPTB_FemRule_116
 		ai_chance = { factor = 50 }
 		liege = { 
-			letter_event = { id = 1000182582 days = 5 } 
+			letter_event = { id = FemRule.118 days = 5 } 
 			opinion = { who = ROOT modifier = refused_allegiance years = 100 }
 			reverse_opinion = { who = ROOT modifier = opinion_ruler_do_not_trust_him years = 25 }
 			current_heir = { 
@@ -1026,10 +1184,8 @@ letter_event = {
 }
 
 letter_event = { #notify acceptance
-	id = 1000182581
-	title = EVTNAME1000182581
-	desc = EVTDESC1000182581
-		
+	id = FemRule.117
+	desc = EVTDESC_FemRule_117
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
@@ -1040,28 +1196,28 @@ letter_event = { #notify acceptance
 }
 
 letter_event = { #notify refusal
-	id = 1000182582
-	title = EVTNAME1000182582
-	desc = EVTDESC1000182582
-		
+	id = FemRule.118
+	desc = EVTDESC_FemRule_118
 	picture = GFX_evt_emissary
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA1000182578
+		name = EVTOPTA_FemRule_118
 	}
 }
 
+# events that deal with a female with martial traits
+
 character_event = { #Martial Lady
-	id = 1000183101
-	title = EVTNAME1000183101
-	desc = EVTDESC1000183101
-	picture = GFX_evt_child_sword_training
+	id = FemRule.120
+	desc = EVTDESC_FemRule_120
+	picture = GFX_evt_girl_with_sword
+	
+	is_adult = yes
+	is_female = yes	
 	
 	trigger = {
-		is_adult = yes
-		is_female = yes
 		NOT = { trait = martial_lady }
 		NOT = {
 			religion_group = pagan_group
@@ -1076,25 +1232,28 @@ character_event = { #Martial Lady
 			trait = brilliant_strategist
 		}
 	}
-	immediate = {
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_120
 		add_trait = martial_lady
 		remove_trait = martial_lady_tengri
 		remove_trait = shield_maiden
 	}
-	option = {
-		name = OK
-	}
 }
 
 character_event = { #Tengri Martial Lady
-	id = 1000183102
-	title = EVTNAME1000183102
-	desc = EVTDESC1000183102
-	picture = GFX_evt_child_sword_training
+	id = FemRule.125
+	desc = EVTDESC_FemRule_125
+	picture = GFX_evt_girl_with_sword
+	
+	is_adult = yes
+	is_female = yes	
 	
 	trigger = {
-		is_adult = yes
-		is_female = yes
 		NOT = { trait = martial_lady_tengri }
 		OR = {
 			religion = tengri_pagan
@@ -1109,25 +1268,28 @@ character_event = { #Tengri Martial Lady
 			trait = brilliant_strategist
 		}
 	}
-	immediate = {
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_120
 		add_trait = martial_lady_tengri
 		remove_trait = martial_lady
 		remove_trait = shield_maiden
 	}
-	option = {
-		name = OK
-	}
 }
 
 character_event = { #Shield Maiden
-	id = 1000183103
-	title = EVTNAME1000183103
-	desc = EVTDESC1000183103
-	picture = GFX_evt_child_sword_training
+	id = FemRule.130
+	desc = EVTDESC_FemRule_130
+	picture = GFX_evt_girl_with_sword
+
+	is_adult = yes
+	is_female = yes		
 	
 	trigger = {
-		is_adult = yes
-		is_female = yes
 		NOT = { trait = shield_maiden }
 		religion_group = pagan_group
 		NOT = {
@@ -1152,12 +1314,291 @@ character_event = { #Shield Maiden
 			trait = brilliant_strategist
 		}
 	}
-	immediate = {
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_120
 		add_trait = shield_maiden
 		remove_trait = martial_lady_tengri
 		remove_trait = martial_lady
 	}
+}
+
+# Vassal is concerned that a liege's daughter is being trained martially
+character_event = {
+	id = FemRule.135
+	desc = EVTDESC_FemRule_135
+	picture = GFX_evt_girl_with_sword
+
+	min_age = 20
+	max_age = 70
+	prisoner = no
+	capable_only = yes
+
+	trigger = {
+		independent = no
+		religion_group = christian
+		health = 4
+		NOT = {
+			any_ward = { age = 6 }
+			trait = stressed
+			trait = depressed
+			trait = cynical
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+			trait = brilliant_strategist
+			trait = shield_maiden
+			trait = martial_lady_tengri
+			trait = martial_lady
+		}
+		liege = {
+			NOT = { character = ROOT }
+			religion = ROOT
+			any_child = {
+				age = 6
+				is_adult = no
+				is_female = yes
+				prisoner = no
+				guardian = {
+					is_liege_or_above = PREVPREV
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+					}
+				}
+				OR = {
+					NOT = { has_character_flag = martial_daughter }
+					had_character_flag = { flag = martial_daughter days = 730 }
+				}
+			}
+			opinion = { who = ROOT value = 20 }
+			reverse_opinion = { who = ROOT value = 20 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 2.0
+			is_ill = yes
+		}
+		modifier = {
+			factor = 5.0
+			OR = {
+				trait = slothful
+				trait = craven
+				trait = trusting
+				trait = content
+			}
+		}
+		modifier = {
+			factor = 5.0
+			OR = {
+				trait = amateurish_plotter
+				trait = naive_appeaser
+				trait = indulgent_wastrel
+				trait = detached_priest
+			}
+		}
+		modifier = {
+			factor = 2.0
+			OR = {
+				trait = flamboyant_schemer
+				trait = underhanded_rogue
+				trait = thrifty_clerk
+				trait = martial_cleric
+			}
+		}
+		modifier = {
+			factor = 0.75
+			liege = { is_friend = ROOT }
+		}
+		modifier = {
+			factor = 0.75
+			liege = { is_close_relative = ROOT }
+		}
+		modifier = {
+			factor = 1.5
+			liege = { 
+				NOT = { is_close_relative = ROOT }
+				NOT = { is_friend = ROOT }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				trait = grey_eminence
+				trait = midas_touched
+			}
+		}			
+		modifier = {
+			factor = 0.75
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.75
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.5
+			diplomacy =  12
+		}
+		modifier = {
+			factor = 0.5
+			stewardship = 12
+		}
+	}
+
 	option = {
-		name = OK
+		name = "EVTOPTA2480"
+		ai_chance = { factor = 100}
+		liege = {
+			letter_event = {
+				id = FemRule.136
+				tooltip = "EVTTOOLTIP2481"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB2480"
+		ai_chance = { factor = 0}
+	}
+}
+
+# The liege is asked by a vassal to let him/her raise the child
+letter_event = {
+	id = FemRule.136
+	desc = EVTDESC_FemRule_136
+	picture = GFX_evt_girl_with_sword
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_FemRule_136
+		random_child = {
+			limit = {
+				age = 6
+				is_adult = no
+				is_female = yes
+				prisoner = no
+				guardian = {
+					is_liege_or_above = ROOT
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+					}
+				}
+				OR = {
+					NOT = { has_character_flag = martial_daughter }
+					had_character_flag = { flag = martial_daughter days = 730 }
+				}
+			}
+			opinion = {
+				modifier = opinion_disgruntled
+				who = ROOT
+				years = 10
+			}
+			set_character_flag = getting_new_guardian
+		}
+		FROM = {
+			letter_event = {
+				id = FemRule.137
+				tooltip = "EVTTOOLTIP2482"
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_FemRule_136
+		random_child = {
+			limit = {
+				age = 6
+				is_adult = no
+				is_female = yes
+				prisoner = no
+				guardian = {
+					is_liege_or_above = ROOT
+					OR = {
+						trait = misguided_warrior
+						trait = tough_soldier
+						trait = skilled_tactician
+						trait = brilliant_strategist
+					}
+				}
+				OR = {
+					NOT = { has_character_flag = martial_daughter }
+					had_character_flag = { flag = martial_daughter days = 730 }
+				}
+			}
+			opinion = {
+				modifier = opinion_pleased
+				who = ROOT
+				years = 2
+			}
+			set_character_flag = martial_daughter
+		}
+		FROM = {
+			letter_event = {
+				id = FemRule.138
+				tooltip = "EVTTOOLTIP2483"
+			}
+		}
+	}
+}
+
+# The vassal becomes the guardian of the daughter
+letter_event = {
+	id = FemRule.137
+	desc = "EVTDESC2482"
+	picture = GFX_evt_girl_with_sword
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA2482"
+		liege = {
+			random_child = {
+				limit = { has_character_flag = getting_new_guardian }
+				clr_character_flag = getting_new_guardian
+				character_event = {
+					id = 2484
+					tooltip = "EVTTOOLTIP2484"
+				}
+			}
+			opinion = {
+				modifier = opinion_granted_guardianship
+				who = FROM
+				months = 24
+			}
+		}
+	}
+}
+
+# The vassal's request is denied
+letter_event = {
+	id = FemRule.138
+	desc = EVTDESC_FemRule_138
+	picture = GFX_evt_girl_with_sword
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_FemRule_138
+		opinion = {
+			modifier = opinion_denied_guardianship
+			who = FROM
+			months = 24
+		}
 	}
 }
