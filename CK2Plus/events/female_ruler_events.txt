@@ -1215,9 +1215,10 @@ character_event = { #Martial Lady
 	picture = GFX_evt_girl_with_sword
 	
 	is_adult = yes
-	is_female = yes	
+	only_women = yes
 	
 	trigger = {
+		is_female = yes
 		NOT = { trait = martial_lady }
 		NOT = {
 			religion_group = pagan_group
@@ -1236,12 +1237,13 @@ character_event = { #Martial Lady
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+	immediate = {
+		remove_trait = martial_lady_tengri
+		remove_trait = shield_maiden
+	}
 	option = {
 		name = EVTOPTA_FemRule_120
 		add_trait = martial_lady
-		remove_trait = martial_lady_tengri
-		remove_trait = shield_maiden
 	}
 }
 
@@ -1251,9 +1253,10 @@ character_event = { #Tengri Martial Lady
 	picture = GFX_evt_girl_with_sword
 	
 	is_adult = yes
-	is_female = yes	
+	only_women = yes	
 	
 	trigger = {
+		is_female = yes
 		NOT = { trait = martial_lady_tengri }
 		OR = {
 			religion = tengri_pagan
@@ -1272,12 +1275,13 @@ character_event = { #Tengri Martial Lady
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+	immediate = {
+		remove_trait = martial_lady
+		remove_trait = shield_maiden
+	}
 	option = {
 		name = EVTOPTA_FemRule_120
 		add_trait = martial_lady_tengri
-		remove_trait = martial_lady
-		remove_trait = shield_maiden
 	}
 }
 
@@ -1287,9 +1291,10 @@ character_event = { #Shield Maiden
 	picture = GFX_evt_girl_with_sword
 
 	is_adult = yes
-	is_female = yes		
+	only_women = yes		
 	
 	trigger = {
+		is_female = yes
 		NOT = { trait = shield_maiden }
 		religion_group = pagan_group
 		NOT = {
@@ -1318,12 +1323,13 @@ character_event = { #Shield Maiden
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+	immediate = {
+		remove_trait = martial_lady_tengri
+		remove_trait = martial_lady
+	}
 	option = {
 		name = EVTOPTA_FemRule_120
 		add_trait = shield_maiden
-		remove_trait = martial_lady_tengri
-		remove_trait = martial_lady
 	}
 }
 
