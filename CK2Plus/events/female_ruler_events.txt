@@ -1218,7 +1218,6 @@ character_event = { #Martial Lady
 	only_women = yes
 	
 	trigger = {
-		is_female = yes
 		NOT = { trait = martial_lady }
 		NOT = {
 			religion_group = pagan_group
@@ -1256,7 +1255,6 @@ character_event = { #Tengri Martial Lady
 	only_women = yes	
 	
 	trigger = {
-		is_female = yes
 		NOT = { trait = martial_lady_tengri }
 		OR = {
 			religion = tengri_pagan
@@ -1294,7 +1292,6 @@ character_event = { #Shield Maiden
 	only_women = yes		
 	
 	trigger = {
-		is_female = yes
 		NOT = { trait = shield_maiden }
 		religion_group = pagan_group
 		NOT = {
@@ -1346,7 +1343,10 @@ character_event = {
 
 	trigger = {
 		independent = no
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+		}
 		health = 4
 		NOT = {
 			any_ward = { age = 6 }
@@ -1491,6 +1491,72 @@ letter_event = {
 
 	option = {
 		name = EVTOPTA_FemRule_136
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				OR = {
+					trait = martial_lady_tengri
+					trait = shield_maiden
+					trait = martial_lady
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = shy
+			}
+			modifier = {
+				factor = 1.5
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					OR = {
+						trait = amateurish_plotter
+						trait = naive_appeaser
+						trait = indulgent_wastrel
+						trait = detached_priest
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				any_child = {
+					age = 6
+					is_adult = no
+					is_female = yes
+					prisoner = no
+					guardian = {
+						is_liege_or_above = ROOT
+						OR = {
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+					OR = {
+						NOT = { has_character_flag = martial_daughter }
+						had_character_flag = { flag = martial_daughter days = 730 }
+					}
+					OR = {
+						trait = weak
+						trait = dwarf
+						trait = craven
+						trait = hunchback
+					}
+				}
+			}
+		}
 		random_child = {
 			limit = {
 				age = 6
@@ -1527,6 +1593,63 @@ letter_event = {
 	}
 	option = {
 		name = EVTOPTB_FemRule_136
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				NOT = {
+					any_child = { is_female = no }
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.5
+				is_female = yes
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					OR = {
+						trait = grey_eminence
+						trait = midas_touched
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				any_child = {
+					age = 6
+					is_adult = no
+					is_female = yes
+					prisoner = no
+					guardian = {
+						is_liege_or_above = ROOT
+						OR = {
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+					OR = {
+						NOT = { has_character_flag = martial_daughter }
+						had_character_flag = { flag = martial_daughter days = 730 }
+					}
+					OR = {
+						trait = strong
+						trait = tall
+						trait = brave
+					}
+				}
+			}
+		}
 		random_child = {
 			limit = {
 				age = 6
