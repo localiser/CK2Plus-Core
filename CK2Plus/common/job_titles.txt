@@ -86,7 +86,11 @@ job_marshal = {
 		is_adult = yes
 		prisoner = no
 		NOT = { trait = incapable }
-		NOT = { has_character_flag = guru }		
+		NOT = { has_character_flag = guru }
+		OR = {
+			NOT = { religion = hindu }
+			trait = kshatriya
+		}		
 		OR = {
 			is_female = no
 			NOT = { liege = { spouse = { character = FROM } } }
@@ -99,13 +103,13 @@ job_marshal = {
 				OR = {
 					liege = { religion = cathar }
 					independent = yes
-				}
-				OR = {
-					NOT = { religion = hindu }
-					trait = kshatriya
 				}				
 			}
 			AND = {
+				religion_group = zoroastrian_group
+				culture_group = iranian
+				any_dynasty_member = { higher_tier_than = baron }
+				trait = martial_lady_tengri
 				OR = {
 					AND = {
 						liege = { religion_group = zoroastrian_group }
@@ -113,24 +117,11 @@ job_marshal = {
 					}
 					independent = yes
 				}
-				religion_group = zoroastrian_group
-				culture_group = iranian
-				any_dynasty_member = { higher_tier_than = baron }
-				OR = {
-					trait = misguided_warrior
-					trait = tough_soldier
-					trait = skilled_tactician
-					trait = brilliant_strategist
-				}
 			}
 			AND = {
 				is_ruler = yes
 				independent = yes
 				OR = {
-					trait = misguided_warrior
-					trait = tough_soldier
-					trait = skilled_tactician
-					trait = brilliant_strategist
 					trait = martial_lady
 					trait = martial_lady_tengri
 					trait = shield_maiden
