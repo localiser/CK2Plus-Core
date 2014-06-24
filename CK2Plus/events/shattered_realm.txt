@@ -200,8 +200,13 @@ narrative_event = {
 					destroy_landed_title = THIS
 				}
 				any_demesne_title = {
-					limit = {
-						ai = yes
+					limit = { # Don't do this to players unless they have more than 1 county
+						holder_scope = { 
+							OR = {
+								ai = yes 
+								num_of_count_titles = 2
+							}
+						}
 						higher_tier_than = baron
 					}
 					if = {
@@ -436,7 +441,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -446,7 +455,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -456,7 +469,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -466,7 +483,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -476,7 +497,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -486,7 +511,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -496,7 +525,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -506,7 +539,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -516,7 +553,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -526,7 +567,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -536,7 +581,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -546,7 +595,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = celtic_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = celtic_pagan
 				}
@@ -556,7 +609,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -567,6 +624,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -579,6 +640,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -591,6 +656,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -603,6 +672,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -615,6 +688,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -627,6 +704,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -639,6 +720,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -651,6 +736,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -663,6 +752,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -674,7 +767,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -684,7 +781,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -694,7 +795,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -704,7 +809,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -714,7 +823,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -724,7 +837,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -734,7 +851,11 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = norse_pagan
-				}				
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
+				}
 				location = {
 					religion = norse_pagan
 				}
@@ -745,6 +866,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -757,6 +882,10 @@ narrative_event = {
 				holder_scope = {
 					culture = roman
 					religion = hellenic_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}					
 				}
 				location = {
 					culture = roman
@@ -768,6 +897,10 @@ narrative_event = {
 			any_de_jure_vassal_title = {
 				holder_scope = {
 					religion = egyptian_pagan
+					any_courtier = {
+						religion = PREV
+						culture = PREV
+					}
 				}			
 				location = {
 					religion = egyptian_pagan
