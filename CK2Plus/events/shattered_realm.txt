@@ -24,8 +24,13 @@ narrative_event = {
 					destroy_landed_title = THIS
 				}
 				any_demesne_title = {
-					limit = {
-						ai = yes
+					limit = { # Don't do this to players unless they have more than 1 county
+						holder_scope = { 
+							OR = {
+								ai = yes 
+								num_of_count_titles = 2
+							}
+						}
 						higher_tier_than = baron
 					}
 					create_character = {
@@ -263,7 +268,6 @@ narrative_event = {
 							age = 16
 							religion = hellenic_pagan
 							culture = roman
-							dynasty = RANDOM
 						}
 						new_character = {
 							usurp_title_plus_barony_if_unlanded = PREV
@@ -295,6 +299,27 @@ narrative_event = {
 							religion = norse_pagan
 							culture = PREV
 							dynasty = RANDOM
+						}
+						new_character = {
+							usurp_title_plus_barony_if_unlanded = PREV
+							set_defacto_liege = THIS
+						}
+					}
+					if = {
+						limit = {
+							kingdom = {
+								OR = {
+									title = k_persia 
+									title = k_afghanistan 
+									title = k_baluchistan 
+								}
+							}
+						}
+						create_character = {
+							random_traits = yes
+							age = 16
+							religion = zoroastrian
+							culture = PREV
 						}
 						new_character = {
 							usurp_title_plus_barony_if_unlanded = PREV
@@ -892,7 +917,46 @@ narrative_event = {
 					religion = hellenic_pagan
 				}
 			}
-		}		
+		}
+		k_persia = { # Set this kingdom to be Zoroastrian
+			any_de_jure_vassal_title = {
+				holder_scope = {
+					religion = zoroastrian
+					any_courtier = {
+						religion = zoroastrian
+					}
+				}			
+				location = {
+					religion = zoroastrian
+				}
+			}
+		}
+		k_afghanistan = { # Set this kingdom to be Zoroastrian
+			any_de_jure_vassal_title = {
+				holder_scope = {
+					religion = zoroastrian
+					any_courtier = {
+						religion = zoroastrian
+					}
+				}			
+				location = {
+					religion = zoroastrian
+				}
+			}
+		}
+		k_baluchistan = { # Set this kingdom to be Zoroastrian
+			any_de_jure_vassal_title = {
+				holder_scope = {
+					religion = zoroastrian
+					any_courtier = {
+						religion = zoroastrian
+					}
+				}			
+				location = {
+					religion = zoroastrian
+				}
+			}
+		}	
 		k_egypt = { # Set this kingdom to be Kemetic
 			any_de_jure_vassal_title = {
 				holder_scope = {
