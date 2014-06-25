@@ -67,15 +67,12 @@ character_event = {
 				NOT = { age = 40 }
 			}
 			OR = {
-				ROOT = { trait = fair }
 				ROOT = { trait = hedonist }
 				ROOT = { trait = lustful }
 				ROOT = { trait = divine_blood }
-				ROOT = { has_ambition = obj_find_lover }
 				trait = hedonist
 				trait = lustful
 				trait = divine_blood
-				has_ambition = obj_find_lover
 				OR = {
 					NOT = { is_close_relative = ROOT }
 					AND = {
@@ -412,6 +409,13 @@ character_event = {
 			modifier = {
 				factor = 5
 				has_ambition = obj_find_lover
+				OR = {
+					NOT = { is_close_relative = FROM }
+					religion_group = zoroastrian_group
+					religion = messalian
+					trait = divine_blood
+					FROM = { trait = divine_blood }
+				}
 			}
 			modifier = {
 				factor = 0.5
@@ -489,6 +493,14 @@ character_event = {
 				spouse = { has_lover = yes }
 			}
 		}
+		if = {
+			limit = {
+				NOT = { religion_group = zoroastrian_group }
+				NOT = { religion = messalian }
+				is_close_relative = FROM
+			}
+			piety = -25
+		}
 		FROM = { character_event = { id = 452 days = 7 tooltip = EVTTOOLTIP452 } }
 		hidden_tooltip = { change_variable = { which = lifestyle_hedonist value = 1 } }
 	}
@@ -504,6 +516,13 @@ character_event = {
 			modifier = {
 				factor = 0.5
 				has_ambition = obj_find_lover
+				OR = {
+					NOT = { is_close_relative = FROM }
+					religion_group = zoroastrian_group
+					religion = messalian
+					trait = divine_blood
+					FROM = { trait = divine_blood }
+				}
 			}
 			modifier = {
 				factor = 5
@@ -565,14 +584,8 @@ character_event = {
 				is_close_relative = FROM
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
-				OR = {
-					NOT = { religion_group = zoroastrian_group }
-					NOT = { religion = messalian }
-				}
-				OR = {
-					NOT = { ROOT = { religion_group = zoroastrian_group } }
-					NOT = { ROOT = { religion = messalian } }
-				}
+				NOT = { religion_group = zoroastrian_group }
+				NOT = { religion = messalian }
 			}
 			modifier = {
 				factor = 0.5
@@ -693,6 +706,13 @@ character_event = {
 			modifier = {
 				factor = 3
 				has_ambition = obj_find_lover
+				OR = {
+					NOT = { is_close_relative = FROM }
+					religion_group = zoroastrian_group
+					religion = messalian
+					trait = divine_blood
+					FROM = { trait = divine_blood }
+				}
 				OR = {
 					AND = {
 						NOT = { trait = homosexual }
@@ -881,6 +901,14 @@ character_event = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				NOT = { religion_group = zoroastrian_group }
+				NOT = { religion = messalian }
+				is_close_relative = FROM
+			}
+			piety = -25
+		}
 		hidden_tooltip = { change_variable = { which = lifestyle_hedonist value = 1 } }
 		add_lover = FROM
 		FROM = { character_event = { id = 453 tooltip = EVTTOOLTIP453 } }
@@ -1003,20 +1031,20 @@ character_event = {
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
 				NOT = { religion_group = zoroastrian_group }
-				NOT = { FROM = { religion_group = zoroastrian_group } }
 				NOT = { religion = messalian }
-				NOT = { FROM = { religion = messalian } }
 			}
 			modifier = {
 				factor = 0.5
 				is_close_relative = FROM
 				OR = {
-					religion_group = zoroastrian_group
-					religion = messalian
-				}
-				OR = {
-					FROM = { religion_group = zoroastrian_group }
-					FROM = { religion = messalian }
+					AND = {
+						religion_group = zoroastrian_group
+						ROOT = { religion_group = zoroastrian_group }
+					}
+					AND = {
+						religion = messalian
+						ROOT = { religion = messalian }
+					}
 				}
 			}
 			modifier = {
@@ -1080,20 +1108,20 @@ character_event = {
 				NOT = { trait = divine_blood }
 				NOT = { FROM = { trait = divine_blood } }
 				NOT = { religion_group = zoroastrian_group }
-				NOT = { FROM = { religion_group = zoroastrian_group } }
 				NOT = { religion = messalian }
-				NOT = { FROM = { religion = messalian } }
 			}
 			modifier = {
 				factor = 0.5
 				is_close_relative = FROM
 				OR = {
-					religion_group = zoroastrian_group
-					religion = messalian
-				}
-				OR = {
-					FROM = { religion_group = zoroastrian_group }
-					FROM = { religion = messalian }
+					AND = {
+						religion_group = zoroastrian_group
+						ROOT = { religion_group = zoroastrian_group }
+					}
+					AND = {
+						religion = messalian
+						ROOT = { religion = messalian }
+					}
 				}
 			}
 			modifier = {
@@ -1160,6 +1188,10 @@ character_event = {
 			modifier = {
 				factor = 0.5
 				liege = { character = FROM }
+			}
+			modifier = {
+				factor = 10
+				is_close_relative = FROM
 			}
 		}
 		add_character_modifier = {
