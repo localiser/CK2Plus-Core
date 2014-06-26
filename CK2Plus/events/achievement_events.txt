@@ -67,6 +67,7 @@ character_event = {
 	
 	ai = no
 	only_women = yes
+
 	
 	trigger = {
 		primary_title = { tier = EMPEROR }
@@ -100,6 +101,7 @@ character_event = {
 	
 	ai = no
 	only_women = yes
+
 	min_age = 16
 	
 	trigger = {
@@ -283,15 +285,23 @@ character_event = {
 		trait = inbred
 		OR = {
 			father = {
+
+
 				ai = no
 				NOT = { has_character_flag = achievement_in_the_family }
+
 			}
 			mother = {
+
+
 				ai = no
 				NOT = { has_character_flag = achievement_in_the_family }
+
 			}
 		}
 	}	
+
+
 	immediate = {
 		if = {
 			limit = {
@@ -384,6 +394,7 @@ character_event = {
 			has_landed_title = e_rajastan
 			has_landed_title = e_bengal
 			has_landed_title = e_deccan
+			has_landed_title = e_india
 			any_realm_title = {
 				tier = KING
 				de_jure_liege = e_rajastan 
@@ -395,6 +406,10 @@ character_event = {
 			any_realm_title = {
 				tier = KING
 				de_jure_liege = e_deccan 
+			}
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_india 
 			}
 		}
 	}
@@ -421,12 +436,15 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Rajas of India"
+		religion_group = muslim
 		NOT = { has_character_flag = achievement_great_indian_sultanate }
 		has_landed_title = e_rajastan
 		NOT = {
 			any_independent_ruler = {
 				any_realm_province = {
-					empire = { title = e_rajastan }
+					county = {
+						empire = { title = e_rajastan }
+					}
 					NOT = { religion_group = muslim }
 				}
 			}
@@ -455,11 +473,13 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Rajas of India"
+		religion_group = christian
 		NOT = { has_character_flag = achievement_saint_thomas_dream }
 		OR = {
 			has_landed_title = e_rajastan
 			has_landed_title = e_bengal
 			has_landed_title = e_deccan
+			has_landed_title = e_india
 			any_realm_title = {
 				tier = KING
 				de_jure_liege = e_rajastan 
@@ -472,17 +492,22 @@ character_event = {
 				tier = KING
 				de_jure_liege = e_deccan 
 			}
+			any_realm_title = {
+				tier = KING
+				de_jure_liege = e_india 
+			}
 		}
 		NOT = {
 			any_independent_ruler = {
 				any_realm_province = {
-					OR = {
-						empire = { title = e_rajastan }
-						empire = { title = e_bengal }
-						empire = { title = e_deccan }
-					}
-					de_jure_liege = {
-						top_liege = ROOT
+					county = {
+						OR = {
+							empire = { title = e_rajastan }
+							empire = { title = e_bengal }
+							empire = { title = e_deccan }
+							empire = { title = e_india }
+						}
+						de_jure_liege_or_above = ROOT
 					}
 					NOT = { religion_group = christian }
 				}
@@ -525,7 +550,7 @@ character_event = {
 				}
 			}
 		}
-		497 = { # Thrace
+		496 = { # Constantinople
 			religion = ROOT
 			OR = {
 				owner = { character = ROOT }

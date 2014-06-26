@@ -84,7 +84,9 @@ character_event = {
 	picture = "GFX_evt_bishop_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	is_triggered_only = yes
+
 
 	option = {
 		name = "EVTOPTA88500"
@@ -112,15 +114,18 @@ character_event = {
 	picture = "GFX_evt_into_the_dungeon"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		num_of_prisoners = 1
 		has_character_flag = ramadan
 		NOT = { has_character_flag = ramadan_prisoners }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88501"
@@ -144,6 +149,7 @@ character_event = {
 				80 = {}
 			}
 		}
+
 		piety = 5
 	}
 	option = {
@@ -176,15 +182,18 @@ character_event = {
 	picture = "GFX_evt_market"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		wealth = 5
 		NOT = { has_character_flag = ramadan_charity }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88502"
@@ -237,14 +246,17 @@ character_event = {
 	picture = "GFX_evt_monk_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		NOT = { has_character_flag = ramadan_prayers }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88503"
@@ -296,6 +308,7 @@ character_event = {
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		OR = {
@@ -305,9 +318,11 @@ character_event = {
 		NOT = { has_character_flag = ramadan_ill }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88504"
@@ -345,15 +360,18 @@ character_event = {
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		has_character_flag = ramadan_ill
 		trait = ill
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88505"
@@ -370,6 +388,7 @@ character_event = {
 	picture = "GFX_evt_monk_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		NOT = {
@@ -378,9 +397,11 @@ character_event = {
 		}
 	}
 
+
 	mean_time_to_happen = {
 		days = 140
 	}
+
 
 	option = {
 		name = "EVTOPTA88506"
@@ -412,6 +433,7 @@ character_event = {
 	picture = "GFX_evt_monk_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		NOT = {
@@ -420,9 +442,11 @@ character_event = {
 		}
 	}
 
+
 	mean_time_to_happen = {
 		days = 140
 	}
+
 
 	option = {
 		name = "EVTOPTA88507"
@@ -454,6 +478,7 @@ character_event = {
 	picture = "GFX_evt_moors"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	min_age = 16
 	capable_only = yes
 	prisoner = no
@@ -466,6 +491,7 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
+
 
 	option = {
 		name = "EVTOPTA88508"
@@ -481,6 +507,7 @@ character_event = {
 	picture = "GFX_evt_illness"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	min_age = 16
 	capable_only = yes
 	prisoner = no
@@ -494,6 +521,7 @@ character_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
+
 
 	option = {
 		name = "EVTOPTA88509"
@@ -509,12 +537,15 @@ character_event = {
 	picture = "GFX_evt_feast_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	is_triggered_only = yes
+
 
 	trigger = {
 		num_of_vassals = 1
 		has_character_flag = ramadan
 	}
+
 
 	option = {
 		name = "EVTOPTA88510"
@@ -541,17 +572,43 @@ letter_event = {
 	id = 88511
 	desc = "EVTDESC88511"
 
+
 	is_triggered_only = yes
+
 
 	option = {
 		name = "EVTOPTA88511"
-		ai_chance = { factor = 70 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				opinion = { who = from value = -40 }
+			}
+			modifier  = {
+				factor = 2
+				opinion = { who = from value = -20 }
+			}
+		}
 		character_event = { id = 88514 days = 4 tooltip = "EVTTOOLTIP88514" }
 		set_character_flag = attending_ramadan_feast
 	}
 	option = {
 		name = "EVTOPTB88511"
-		ai_chance = { factor = 30 }
+		ai_chance = {
+			factor = 1
+			modifier  = {
+				factor = 0
+				opinion = { who = from value = 0 }
+			}
+			modifier  = {
+				factor = 2
+				NOT = { opinion = { who = from value = -60 } }
+			}
+			modifier  = {
+				factor = 2
+				NOT = { opinion = { who = from value = -80 } }
+			}
+		}
 		FROM = {
 			letter_event = { id = 88512 days = 1 tooltip = "EVTTOOLTIP88512" }
 			opinion = {
@@ -568,7 +625,9 @@ letter_event = {
 	id = 88512
 	desc = "EVTDESC88512"
 
+
 	is_triggered_only = yes
+
 
 	option = {
 		name = "EVTOPTA88512"
@@ -582,7 +641,9 @@ character_event = {
 	desc = "EVTDESC88513"
 	picture = "GFX_evt_feast_muslim"
 
+
 	is_triggered_only = yes
+
 
 	option = {
 		name = "EVTOPTA88513"
@@ -604,7 +665,9 @@ character_event = {
 	desc = "EVTDESC88514"
 	picture = "GFX_evt_feast_muslim"
 
+
 	is_triggered_only = yes
+
 
 	option = {
 		name = "EVTOPTA88514"
@@ -620,7 +683,9 @@ character_event = {
 	picture = "GFX_evt_marriage_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	is_triggered_only = yes
+
 
 	trigger = {
 		is_married = yes
@@ -629,6 +694,7 @@ character_event = {
 			any_spouse = { is_main_spouse = no }
 		}
 	}
+
 
 	option = {
 		name = "EVTOPTA88515"
@@ -661,13 +727,16 @@ character_event = {
 	picture = "GFX_evt_marriage_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	is_triggered_only = yes
+
 
 	trigger = {
 		is_married = yes
 		any_spouse = { is_main_spouse = no }
 		has_character_flag = ramadan
 	}
+
 
 	option = {
 		name = "EVTOPTA88516"
@@ -720,15 +789,18 @@ character_event = {
 	picture = "GFX_evt_lunatic"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = gluttonous
 		NOT = { has_character_flag = ramadan_gluttonous }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88517"
@@ -760,6 +832,7 @@ character_event = {
 	picture = "GFX_evt_jugglers_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		OR = {
@@ -769,9 +842,11 @@ character_event = {
 		NOT = { has_character_flag = ramadan_lustful_hedonist }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88518"
@@ -803,15 +878,18 @@ character_event = {
 	picture = "GFX_evt_drunk"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = drunkard
 		NOT = { has_character_flag = ramadan_drunkard }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88519"
@@ -843,6 +921,7 @@ character_event = {
 	picture = "GFX_evt_lunatic"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = greedy
@@ -852,9 +931,11 @@ character_event = {
 		}
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88520"
@@ -886,15 +967,18 @@ character_event = {
 	picture = "GFX_evt_lunatic"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	trigger = {
 		has_character_flag = ramadan
 		trait = cynical
 		NOT = { has_character_flag = ramadan_cynical }
 	}
 
+
 	mean_time_to_happen = {
 		days = 50
 	}
+
 
 	option = {
 		name = "EVTOPTA88521"
@@ -926,9 +1010,12 @@ character_event = {
 	picture = "GFX_evt_bishop_muslim"
 	border =  "GFX_event_normal_frame_religion"
 
+
 	is_triggered_only = yes
 
+
 	trigger = { has_character_flag = ramadan }
+
 
 	option = {
 		name = "EVTOPTA88522"
@@ -959,4 +1046,6 @@ character_event = {
 		clr_character_flag = ramadan_prisoners
 	}
 }
+
+
 
