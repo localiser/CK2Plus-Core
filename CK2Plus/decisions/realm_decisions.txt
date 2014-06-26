@@ -10,6 +10,7 @@ decisions = {
 				tier = emperor
 			}
 			NOT = {
+				trait = incapable
 				religion_group = muslim
 				has_character_flag = epic_tournament
 			}
@@ -18,33 +19,43 @@ decisions = {
 		allow = {
 			is_adult = yes
 			war = no
+			prisoner = no
 			ruled_years = 5
 			prestige = 500
 			wealth = 200
 			OR = {
 				is_female = no
 				OR = {
-					martial = 15
-					any_vassal = {
-						OR = {
-							has_minor_title = title_ladys_champion
-							has_minor_title = title_champion
+					martial = 12
+					trait = shield_maiden
+					trait = martial_lady
+					trait = martial_lady_tengri
+					OR = {
+						any_vassal = {
+							OR = {
+								has_minor_title = title_ladys_champion
+								has_minor_title = title_champion
+							}
+							prisoner = no
+							NOT = { trait = incapable }
 						}
-					}
-					any_courtier = {
-						OR = {
-							has_minor_title = title_ladys_champion
-							has_minor_title = title_champion
+						any_courtier = {
+							OR = {
+								has_minor_title = title_ladys_champion
+								has_minor_title = title_champion
+							}
+							prisoner = no
+							NOT = { trait = incapable }
 						}
 					}
 				}
 			}
-			NOT = { has_character_modifier = holding_large_feast }
-			NOT = { has_character_modifier = holding_summer_fair }
 			NOT = { 
 				has_character_modifier = holding_grand_hunt
-				has_character_modifier = planning_grand_banquet
+				has_character_modifier = holding_summer_fair
+				has_character_modifier = holding_large_feast
 				has_character_modifier = holding_grand_banquet
+				has_character_modifier = planning_grand_banquet
 				has_character_flag = held_grand_banquet				
 			}
 		}
@@ -66,6 +77,7 @@ decisions = {
 						is_adult = yes
 						is_feudal = yes
 						prisoner = no
+						NOT = { trait = incapable }
 						is_female = no
 						NOT = { health_traits = 1 }
 						NOT = { 
@@ -82,9 +94,11 @@ decisions = {
 				}
 				any_realm_character = {
 					limit = {
-						is_feudal = yes
-						is_female = yes
 						is_adult = yes
+						is_feudal = yes
+						prisoner = no
+						NOT = { trait = incapable }
+						is_female = yes
 					}
 					character_event = { id = 1000182583 }
 				}

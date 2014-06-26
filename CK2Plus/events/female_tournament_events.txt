@@ -3,23 +3,26 @@
 # Integrating females into tournaments
 #
 # Written by Miaow
-#
+# Revised by Rylock
 #
 ########################################################
 
 character_event = { #Invited to the tourney
 	id = 1000182583
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182583
-	
 	picture = GFX_evt_tournament_gallery
 	
 	is_triggered_only = yes
 	
-	option = { # I will watch it
+	option = { # Of course, I MUST be there!
 		name = EVTOPTA1000182583
 		ai_chance = { 
 			factor = 75
+			modifier = {
+				factor = 0.1
+				is_pregnant = yes
+			}
 			modifier = {
 				factor = 1.25
 				trait = slothful
@@ -30,7 +33,7 @@ character_event = { #Invited to the tourney
 			}
 			modifier = {
 				factor = 1.25
-				trait = lustful
+				trait = gregarious
 			}
 			modifier = {
 				factor = 1.25
@@ -38,7 +41,26 @@ character_event = { #Invited to the tourney
 			}
 			modifier = {
 				factor = 1.25
-				trait = craven
+				OR = {
+					trait = hedonist
+					trait = poet
+				}
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { age = 30 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { health = 3.1 }
+			}
+			modifier = {
+				factor = 0.75
+				age = 40
+			}
+			modifier = {
+				factor = 0.5
+				age = 50
 			}
 		}
 		prestige = 10
@@ -46,7 +68,7 @@ character_event = { #Invited to the tourney
 		set_character_flag = do_not_disturb
 	}
 	
-	option = { # My champion will defend my colours
+	option = { # My faithful champion will represent me
 		name = EVTOPTB1000182583
 		trigger = {
 			OR = {
@@ -55,48 +77,68 @@ character_event = { #Invited to the tourney
 						has_minor_title = title_ladys_champion
 						has_minor_title = title_champion
 					}
+					prisoner = no
+					NOT = { trait = incapable }
 				}
 				any_courtier = {
 					OR = {
 						has_minor_title = title_ladys_champion
 						has_minor_title = title_champion
 					}
+					prisoner = no
+					NOT = { trait = incapable }
 				}
 			}
 		}
 		ai_chance = { 
 			factor = 100
 			modifier = {
-				factor = 1.25
-				NOT = { martial = 15 }
+				factor = 0.1
+				is_pregnant = yes
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { health = 3.1 }
 			}
 			modifier = {
 				factor = 1.25
-				NOT = { martial = 10 }
+				NOT = { martial = 12 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 8 }
 			}
 			modifier = {
 				factor = 1.25
 				NOT = { martial = 5 }
 			}
 			modifier = {
-				factor = 1.25
+				factor = 2
+				primary_title = { tier = DUKE }
+			}
+			modifier = {
+				factor = 4
+				primary_title = { tier = KING }
+			}
+			modifier = {
+				factor = 1.5
 				trait = proud
 			}
 			modifier = {
 				factor = 1.25
-				trait = fair
+				trait = ambitious
 			}
 			modifier = {
-				factor = 1.25
-				trait = lustful
+				factor = 0.5
+				trait = humble
 			}
 			modifier = {
-				factor = 1.25
-				trait = gluttonous
+				factor = 0.5
+				trait = content
 			}
 			modifier = { # women warriors should consider participating themselves
 				factor = 0.5
-				martial = 15
+				martial = 12
 				OR = {
 					trait = shield_maiden
 					trait = martial_lady
@@ -116,7 +158,7 @@ character_event = { #Invited to the tourney
 			}
 			letter_event = { id = 1000182584 days = 1 }
 		}
-		any_courtier = { # need to attempt with any_courtier scope as players could appoint an unlanded courtier
+		any_courtier = {
 			limit = {
 				OR = {
 					has_minor_title = title_ladys_champion
@@ -127,60 +169,78 @@ character_event = { #Invited to the tourney
 		}
 	}
 	
-	option = { # I will fight myself!
+	option = { # Watch? I will show them my mettle!
 		name = EVTOPTC1000182583
 		trigger = {
-			martial = 15
-			trait = brave
 			OR = {
-				trait = misguided_warrior
-				trait = tough_soldier
-				trait = skilled_tactician
-				trait = brilliant_strategist
+				martial = 12
 				trait = shield_maiden
 				trait = martial_lady
 				trait = martial_lady_tengri
 			}
 		}
-		ai_chance = {   #this option is mainly for players, only very exceptionally should an AI chose it (a JoA character, for instance)
+		ai_chance = {
 			factor = 20
 			modifier = {
-				factor = 1.25
-				martial = 20
+				factor = 0
+				is_pregnant = yes
 			}
 			modifier = {
-				factor = 1.25
-				martial = 25
+				factor = 0
+				NOT = { health = 3.1 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { trait = brave }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = craven
+					trait = humble
+					trait = content
+					trait = weak
+					NOT = { martial = 8 }
+					age = 40
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { martial = 12 }
 			}
 			modifier = {
 				factor = 2
-				martial = 30 # only JoA should have this much
+				martial = 15
+			}
+			modifier = {
+				factor = 2
+				martial = 20
+			}
+			modifier = {
+				factor = 2
+				martial = 25 # only JoA should have this much
+			}
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
 			}
 			modifier = {
 				factor = 1.25
 				OR = {
-					trait = misguided_warrior
-					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
 				}
 			}
 			modifier = {
-				factor = 1.25
-				OR = {
-					trait = shield_maiden
-					trait = martial_lady
-					trait = martial_lady_tengri
-				}
-			}
-			modifier = {
-				factor = 1.25
+				factor = 2.5
 				OR = {
 					trait = dresses_as_man
 					trait = dresses_as_man_abm
 				}
-			}
-			modifier = {
-				factor = 1.25
-				trait = scarred_female
 			}
 		}
 		prestige = 100
@@ -197,47 +257,48 @@ character_event = { #Invited to the tourney
 		set_character_flag = do_not_disturb
 	}
 	
-	option = { # Meh
+	option = { # But...it's so far.
 		name = EVTOPTD1000182583
 		ai_chance = { 
 			factor = 50
 			modifier = {
+				factor = 3
+				is_pregnant = yes
+			}
+			modifier = {
+				factor = 3
+				health_traits = 1
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					trait = paranoid
+					trait = depressed
+				}
+			}
+			modifier = {
 				factor = 2
-				trait = slothful
+				OR = {
+					trait = ugly
+					trait = shy
+					trait = clubfooted
+					trait = hunchback
+					trait = dwarf
+				}
 			}
 			modifier = {
-				factor = 1.25
-				trait = ugly
-			}
-			modifier = {
-				factor = 1.25
-				trait = chaste
-			}
-			modifier = {
-				factor = 1.25
-				trait = clubfooted
-			}
-			modifier = {
-				factor = 1.25
-				trait = craven
-			}
-			modifier = {
-				factor = 1.25
-				trait = hunchback
-			}
-			modifier = {
-				factor = 1.25
-				trait = dwarf
+				factor = 0.5
+				trait = gregarious
 			}
 		}
 	}
 }
 
+# Champion informed they must come
 letter_event = {
 	id = 1000182584
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182584
-	
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182584	
 	picture = GFX_evt_tournament_gallery
 
 	is_triggered_only = yes
@@ -245,7 +306,7 @@ letter_event = {
 	option = {
 		name = EVTOPTA1000182584
 		prestige = 50
-		set_character_flag = spectating_tournament
+		set_character_flag = attending_tournament
 		set_character_flag = championing_liege_lady
 		set_character_flag = do_not_disturb
 	}
@@ -254,9 +315,8 @@ letter_event = {
 # Champion killed
 character_event = {
 	id = 1000182585
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182585
-	
 	picture = GFX_evt_death
 
 	is_triggered_only = yes
@@ -270,9 +330,8 @@ character_event = {
 # Champion maimed
 character_event = {
 	id = 1000182586
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182586
-	
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182586	
 	picture = GFX_evt_injured
 
 	is_triggered_only = yes
@@ -286,9 +345,8 @@ character_event = {
 # Champion injured
 character_event = {
 	id = 1000182587
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182587
-	
 	picture = GFX_evt_injured
 
 	is_triggered_only = yes
@@ -302,10 +360,9 @@ character_event = {
 # Champion victorious
 character_event = {
 	id = 1000182588
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182588
-	
-	picture = GFX_evt_tournament_gallery
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182588	
+	picture = GFX_evt_joust
 
 	is_triggered_only = yes
 
@@ -316,6 +373,7 @@ character_event = {
 		opinion = { who = FROM modifier = opinion_tournament_winner years = 20 }
 		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 20 } }
 	}
+	
 	option = {
 		name = EVTOPTB1000182588
 		prestige = 75
@@ -327,10 +385,9 @@ character_event = {
 # Champion runner-up
 character_event = {
 	id = 1000182589
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182589
-	
-	picture = GFX_evt_tournament_gallery
+	picture = GFX_evt_joust
 
 	is_triggered_only = yes
 
@@ -341,6 +398,7 @@ character_event = {
 		opinion = { who = FROM modifier = opinion_tournament_second_place years = 15 } 
 		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 15 } }
 	}
+	
 	option = {
 		name = EVTOPTB1000182588
 		prestige = 65
@@ -352,10 +410,9 @@ character_event = {
 # Champion third place
 character_event = {
 	id = 1000182590
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182590
-	
-	picture = GFX_evt_tournament_gallery
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182590	
+	picture = GFX_evt_joust
 
 	is_triggered_only = yes
 
@@ -366,6 +423,7 @@ character_event = {
 		opinion = { who = FROM modifier = opinion_tournament_third_place years = 10 }
 		FROM = { opinion = { who = ROOT modifier = opinion_impressed years = 10 } }
 	}
+	
 	option = {
 		name = EVTOPTB1000182588
 		prestige = 50
@@ -376,7 +434,7 @@ character_event = {
 
 character_event = { # Lady becomes proud
 	id = 1000182591
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182591
 	picture = GFX_evt_grazia
 
@@ -387,18 +445,14 @@ character_event = { # Lady becomes proud
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = proud
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -445,16 +499,17 @@ character_event = { # Lady becomes proud
 			trait = tall
 		}
 		modifier = {
-			factor = 2
-			trait = ugly
+			factor = 4
+			trait = humble
 		}
 		modifier = {
 			factor = 2
-			trait = dwarf
-		}
-		modifier = {
-			factor = 2
-			trait = hunchback
+			OR = {
+				trait = dwarf
+				trait = hunchback
+				trait = clubfooted
+				trait = harelip
+			}
 		}
 		modifier = {
 			factor = 1.25
@@ -465,7 +520,7 @@ character_event = { # Lady becomes proud
 			trait = temperate
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.5
 			trait = content
 		}
 		modifier = {
@@ -477,7 +532,7 @@ character_event = { # Lady becomes proud
 			trait = slothful
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.5
 			trait = shy
 		}
 	}
@@ -494,7 +549,7 @@ character_event = { # Lady becomes proud
 	
 character_event = { # Lady becomes humble
 	id = 1000182592
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182592
 	picture = GFX_evt_grazia
 
@@ -505,18 +560,14 @@ character_event = { # Lady becomes humble
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = humble
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -545,6 +596,10 @@ character_event = { # Lady becomes humble
 		modifier = {
 			factor = 0.8
 			trait = shy
+		}
+		modifier = {
+			factor = 3
+			trait = proud
 		}
 		modifier = {
 			factor = 1.25
@@ -612,7 +667,7 @@ character_event = { # Lady becomes humble
 
 character_event = { # Lady becomes gregarious
 	id = 1000182593
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182593
 	picture = GFX_evt_grazia
 
@@ -623,23 +678,41 @@ character_event = { # Lady becomes gregarious
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = gregarious
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
 	mean_time_to_happen = {
 		months = 180
+		modifier = {
+			factor = 4
+			trait = shy
+		}
+		modifier = {
+			factor = 1.25
+			trait = humble
+		}
+		modifier = {
+			factor = 1.25
+			trait = craven
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = ugly
+				trait = dwarf
+				trait = hunchback
+				trait = harelip
+				trait = lisp
+			}
+		}
 		modifier = {
 			factor = 0.8
 			trait = lustful
@@ -702,7 +775,7 @@ character_event = { # Lady becomes gregarious
 
 character_event = { # Lady becomes shy
 	id = 1000182594
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182594
 	picture = GFX_evt_grazia
 
@@ -713,23 +786,42 @@ character_event = { # Lady becomes shy
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = shy
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
 	mean_time_to_happen = {
 		months = 180
+		modifier = {
+			factor = 4
+			trait = gregarious
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				trait = fair
+				trait = wroth
+				trait = ambitious
+				trait = proud
+			}
+		}
+		modifier = {
+			factor = 0.8
+			OR = {
+				trait = ugly
+				trait = dwarf
+				trait = hunchback
+				trait = harelip
+				trait = lisp
+			}
+		}
 		modifier = {
 			factor = 0.8
 			trait = chaste
@@ -812,9 +904,8 @@ character_event = { # Lady becomes shy
 
 character_event = { # Lady becomes honest
 	id = 1000182595
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182595
-	
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182595	
 	picture = GFX_evt_grazia
 
 	min_age = 16
@@ -824,18 +915,14 @@ character_event = { # Lady becomes honest
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = honest
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -897,6 +984,10 @@ character_event = { # Lady becomes honest
 			factor = 1.25
 			trait = envious
 		}
+		modifier = {
+			factor = 4
+			trait = deceitful
+		}
 	}
 	
 	immediate = {
@@ -911,7 +1002,7 @@ character_event = { # Lady becomes honest
 
 character_event = { # Lady becomes deceitful
 	id = 1000182596
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182596
 	picture = GFX_evt_grazia
 
@@ -922,18 +1013,14 @@ character_event = { # Lady becomes deceitful
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = deceitful
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -1009,9 +1096,8 @@ character_event = { # Lady becomes deceitful
 
 character_event = { # Lady becomes lustful
 	id = 1000182597
-	title = TOURNAMENTTITLE
+	title = "TOURNAMENTTITLE"
 	desc = EVTDESC1000182597
-	
 	picture = GFX_evt_courtly_love
 
 	min_age = 16
@@ -1021,19 +1107,15 @@ character_event = { # Lady becomes lustful
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = lustful
 			trait = celibate
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -1042,6 +1124,10 @@ character_event = { # Lady becomes lustful
 		modifier = {
 			factor = 0.4
 			trait = hedonist
+		}
+		modifier = {
+			factor = 0.8
+			trait = fair
 		}
 		modifier = {
 			factor = 0.8
@@ -1110,6 +1196,20 @@ character_event = { # Lady becomes lustful
 		modifier = {
 			factor = 1.25
 			trait = duelist
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = ugly
+				trait = dwarf
+				trait = hunchback
+				trait = harelip
+				trait = clubfooted
+			}
+		}
+		modifier = {
+			factor = 4
+			trait = chaste
 		}
 	}
 	
@@ -1125,9 +1225,8 @@ character_event = { # Lady becomes lustful
 
 character_event = { # Lady becomes chaste
 	id = 1000182598
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182598
-	
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182598	
 	picture = GFX_evt_courtly_love
 
 	min_age = 16
@@ -1137,19 +1236,15 @@ character_event = { # Lady becomes chaste
 
 	trigger = {
 		has_character_flag = spectating_tournament
-		NOT = { has_character_flag = spectating_tournament_event }
 		NOT = {
+			has_character_flag = spectating_tournament_event
 			has_character_flag = tournament_has_ended
-		}
-		NOT = {
 			trait = chaste
 			trait = hedonist
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -1227,6 +1322,20 @@ character_event = { # Lady becomes chaste
 			factor = 0.8
 			trait = duelist
 		}
+		modifier = {
+			factor = 0.6
+			OR = {
+				trait = ugly
+				trait = dwarf
+				trait = hunchback
+				trait = harelip
+				trait = clubfooted
+			}
+		}
+		modifier = {
+			factor = 4
+			trait = lustful
+		}
 	}
 	
 	immediate = {
@@ -1241,10 +1350,9 @@ character_event = { # Lady becomes chaste
 
 character_event = { # Men react poorly to lady contestant
 	id = 1000182599
-	title = TOURNAMENTTITLE
-	desc = EVTDESC1000182599
-	
-	picture = GFX_evt_woman_fighter
+	title = "TOURNAMENTTITLE"
+	desc = EVTDESC1000182599	
+	picture = GFX_evt_girl_with_sword
 
 	min_age = 16
 	only_women = yes
@@ -1253,15 +1361,13 @@ character_event = { # Men react poorly to lady contestant
 
 	trigger = {
 		has_character_flag = attending_tournament
-		NOT = { has_character_flag = attending_tournament_event }
 		NOT = {
+			has_character_flag = attending_tournament_event
 			has_character_flag = tournament_has_ended
 		}
 		top_liege = {
 			has_character_flag = tournament_begins
-			NOT = {
-				has_character_flag = tournament_has_ended
-			}
+			NOT = { has_character_flag = tournament_has_ended }
 		}
 	}
 	
@@ -1317,7 +1423,7 @@ character_event = { # Men react poorly to lady contestant
 		}
 		modifier = {
 			factor = 1.25
-			martial = 35 # you wouldn't want to mess with someone who has truly obscene martial
+			martial = 25
 		}
 	}
 	

@@ -2885,17 +2885,28 @@ title_ladys_champion = {
 	allow = {
 		is_adult = yes
 		is_female = no
+		prisoner = no
+		NOT = {
+			trait = incapable
+			health_traits = 1
+		}
 		OR = {
 			trait = misguided_warrior
 			trait = tough_soldier
 			trait = skilled_tactician
 			trait = brilliant_strategist
 		}
+		OR = {
+			FROM = { ai = no }
+			AND = {
+				opinion = { who = FROM value = 0 }
+				reverse_opinion = { who = FROM value = 0 }
+			}
+		}
 		FROM = {
 			is_feudal = yes
 			is_adult = yes
 			is_female = yes
-			NOT = { health_traits = 1 }
 			NOT = { # already have a Champion title
 				religion = baltic_pagan_reformed
 				religion = baltic_pagan
