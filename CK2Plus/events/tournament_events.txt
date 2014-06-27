@@ -21,12 +21,112 @@ character_event = {
 
 	option = {
 		name = "EVTOPTA70000"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = duelist
+					trait = impaler
+					trait = hunter
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				martial = 10
+			}
+			modifier = {
+				factor = 1.25
+				martial = 12
+			}
+			modifier = {
+				factor = 1.25
+				martial = 14
+			}
+			modifier = {
+				factor = 1.25
+				martial = 16
+			}
+			modifier = {
+				factor = 1.25
+				martial = 18
+			}
+			modifier = {
+				factor = 2
+				martial = 20
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { martial = 8 }
+			}
+			modifier = {
+				factor = 0.25
+				NOT = { martial = 4 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { martial = 2 }
+			}
+			modifier = {
+				factor = 0
+				age = 60
+			}
+		}
 		prestige = 50
 		set_character_flag = attending_tournament
 		set_character_flag = do_not_disturb
+		clr_character_flag = tournament_romance
 	}
 	option = {
 		name = "EVTOPTB70000"
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 2
+				OR = {
+					trait = scholar
+					trait = gardener
+				}
+			}
+			modifier = {
+				factor = 4
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				NOT = { martial = 4 }
+			}
+			modifier = {
+				factor = 2
+				age = 40
+			}
+			modifier = {
+				factor = 2
+				age = 50
+			}
+		}
+		clr_character_flag = attending_tournament
+		clr_character_flag = tournament_romance
 	}
 }
 
@@ -43,51 +143,168 @@ character_event = {
 		name = "EVTOPTA70001"
 		trigger = {
 			war = no
+			is_female = no
 		}
 		hidden_tooltip = {
 			set_character_flag = tournament_begins
-			IF = {
-				limit = {
-					OR = {
-						is_female = no
-						AND = {
-							martial = 15
-							trait = brave
-							OR = {
-								trait = misguided_warrior
-								trait = tough_soldier
-								trait = skilled_tactician
-								trait = brilliant_strategist
-								trait = shield_maiden
-								trait = martial_lady
-								trait = martial_lady_tengri
-							}
-						}
-					}
-				}
-				set_character_flag = attending_tournament
+			set_character_flag = attending_tournament
+			clr_character_flag = tournament_romance
+			location = {
+				set_province_flag = tournament_60_days
 			}
-			IF = {
-				limit = {
-					NOT = {
-						is_female = no
-						AND = {
-							martial = 15
-							trait = brave
-							OR = {
-								trait = misguided_warrior
-								trait = tough_soldier
-								trait = skilled_tactician
-								trait = brilliant_strategist
-								trait = shield_maiden
-								trait = martial_lady
-								trait = martial_lady_tengri
-							}
-						}
-					}
-				}
-				character_event = { id = 1000182583 }
+		}
+	}
+	option = {
+		name = "EVTOPTC70001"
+		trigger = {
+			war = no
+			is_female = yes
+			NOT = {
+				martial = 12
+				trait = shield_maiden
+				trait = martial_lady
+				trait = martial_lady_tengri
 			}
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.5
+				NOT = { health = 3.1 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 12 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 8 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { martial = 5 }
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 0.5
+				trait = humble
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		any_vassal = {
+			limit = {
+				OR = {
+					has_minor_title = title_ladys_champion
+					has_minor_title = title_champion
+				}
+			}
+			letter_event = { id = 1000182584 days = 1 }
+		}
+		any_courtier = {
+			limit = {
+				OR = {
+					has_minor_title = title_ladys_champion
+					has_minor_title = title_champion
+				}
+			}
+			letter_event = { id = 1000182584 days = 1 }
+		}
+		hidden_tooltip = {
+			set_character_flag = tournament_begins
+			set_character_flag = spectating_tournament
+			clr_character_flag = tournament_romance
+			clr_character_flag = spectating_tournament_event
+			location = {
+				set_province_flag = tournament_60_days
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD70001"
+		trigger = {
+			war = no
+			is_female = yes
+			OR = {
+				martial = 12
+				trait = shield_maiden
+				trait = martial_lady
+				trait = martial_lady_tengri
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				is_pregnant = yes
+			}
+			modifier = {
+				factor = 0
+				NOT = { health = 3.1 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { trait = brave }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = craven
+					trait = humble
+					trait = content
+					trait = weak
+					NOT = { martial = 8 }
+					age = 40
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { martial = 12 }
+			}
+			modifier = {
+				factor = 2
+				martial = 15
+			}
+			modifier = {
+				factor = 2
+				martial = 20
+			}
+			modifier = {
+				factor = 2
+				martial = 25 # only JoA should have this much
+			}
+			modifier = {
+				factor = 1.25
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = skilled_tactician
+					trait = brilliant_strategist
+				}
+			}
+			modifier = {
+				factor = 2.5
+				OR = {
+					trait = dresses_as_man
+					trait = dresses_as_man_abm
+				}
+			}
+		}
+		hidden_tooltip = {
+			set_character_flag = tournament_begins
+			set_character_flag = attending_tournament
+			clr_character_flag = tournament_romance
 			location = {
 				set_province_flag = tournament_60_days
 			}
@@ -103,12 +320,14 @@ character_event = {
 		hidden_tooltip = {
 			any_realm_character = {
 				limit = {
+					NOT = { character = ROOT }
 					has_character_flag = attending_tournament
 				}
 				character_event = { id = 70037 }
 			}
 			any_realm_character = {
 				limit = {
+					NOT = { character = ROOT }
 					has_character_flag = spectating_tournament
 				}
 				character_event = { id = 1000182631 }
@@ -133,6 +352,7 @@ character_event = {
 		name = "EVTOPTA70037"
 		prestige = -50
 		clr_character_flag = attending_tournament
+		clr_character_flag = tournament_romance
 		clr_character_flag = do_not_disturb
 	}
 }
@@ -241,8 +461,6 @@ province_event = {
 					days = 3
 				}
 				has_character_flag = beauty_winner
-				has_character_flag = beauty_second
-				has_character_flag = beauty_third
 			}
 		}
 	}
@@ -276,11 +494,13 @@ province_event = {
 			clr_character_flag = tournament_second_place
 			clr_character_flag = tournament_winner
 			clr_character_flag = beauty_winner
-			clr_character_flag = beauty_second
-			clr_character_flag = beauty_third
+			clr_character_flag = tournament_romance
+			clr_character_flag = spectating_tournament
+			clr_character_flag = spectating_tournament_event
 			set_character_flag = tournament_has_ended
 			any_realm_character = {
 				limit = {
+					NOT = { character = PREV }
 					has_character_flag = attending_tournament
 					OR = {
 						has_character_flag = tournament_third_place
@@ -289,9 +509,6 @@ province_event = {
 					}
 				}
 				set_character_flag = tournament_has_ended
-				clr_character_flag = tournament_third_place
-				clr_character_flag = tournament_second_place
-				clr_character_flag = tournament_winner
 				opinion = {
 					modifier = opinion_tournament_participant
 					who = PREV
@@ -299,6 +516,7 @@ province_event = {
 				}
 				clr_character_flag = attending_tournament
 				clr_character_flag = attending_tournament_event
+				clr_character_flag = tournament_romance
 				clr_character_flag = do_not_disturb
 			}
 			any_realm_character = {
@@ -347,7 +565,20 @@ province_event = {
 				set_character_flag = tournament_has_ended
 				clr_character_flag = attending_tournament
 				clr_character_flag = attending_tournament_event
+				clr_character_flag = tournament_romance
 				clr_character_flag = do_not_disturb
+			}
+			any_realm_character = {
+				limit = {
+					OR = {
+						has_character_flag = tournament_third_place
+						has_character_flag = tournament_second_place
+						has_character_flag = tournament_winner
+					}
+				}
+				clr_character_flag = tournament_third_place
+				clr_character_flag = tournament_second_place
+				clr_character_flag = tournament_winner
 			}
 			any_realm_character = {
 				limit = {
@@ -460,7 +691,6 @@ character_event = {
 	picture = "GFX_evt_death"
 
 	min_age = 16
-	#only_men = yes
 	capable_only = yes
 	prisoner = no
 
@@ -575,7 +805,6 @@ character_event = {
 
 	immediate = {
 		clr_character_flag = attending_tournament
-		clr_character_flag = championing_liege_lady
 	}
 
 	option = {
@@ -598,6 +827,7 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = { has_character_flag = championing_liege_lady }
+				clr_character_flag = championing_liege_lady
 				liege = { character_event = { id = 1000182585 } }
 			}
 		}
@@ -612,7 +842,6 @@ character_event = {
 	picture = "GFX_evt_melee"
 
 	min_age = 16
-	#only_men = yes
 	capable_only = yes
 	prisoner = no
 
@@ -731,7 +960,6 @@ character_event = {
 	immediate = {
 		clr_character_flag = attending_tournament
 		clr_character_flag = do_not_disturb
-		clr_character_flag = championing_liege_lady
 	}
 
 	option = {
@@ -752,6 +980,7 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = { has_character_flag = championing_liege_lady }
+				clr_character_flag = championing_liege_lady
 				liege = { character_event = { id = 1000182586 } }
 			}
 		}
@@ -904,8 +1133,8 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = { has_character_flag = championing_liege_lady }
-				liege = { character_event = { id = 1000182587 } }
 				clr_character_flag = championing_liege_lady
+				liege = { character_event = { id = 1000182587 } }
 			}
 		}
 	}
@@ -2758,11 +2987,11 @@ character_event = {
 		clr_character_flag = tournament_second_place
 		clr_character_flag = tournament_winner
 		clr_character_flag = do_not_disturb
-		any_vassal = {
+		any_realm_character = {
 			limit = {
 				has_character_flag = attending_tournament
 				NOT = {
-					character = PREV
+					character = ROOT
 				}
 				NOT = {
 					has_character_flag = tournament_third_place
@@ -2785,9 +3014,10 @@ character_event = {
 				tooltip = EVTTOOLTIP70042
 			}
 		}
-		any_vassal = {
+		any_realm_character = {
 			limit = {
 				has_character_flag = attending_tournament
+				NOT = { character = ROOT }
 				OR = {
 					has_character_flag = tournament_third_place
 					has_character_flag = tournament_second_place
@@ -2808,9 +3038,10 @@ character_event = {
 			clr_character_flag = attending_tournament_event
 			clr_character_flag = do_not_disturb
 		}
-		any_vassal = {
+		any_realm_character = {
 			limit = {
 				has_character_flag = spectating_tournament
+				NOT = { character = ROOT }
 			}
 			character_event = { id = 1000182631 }
 		}
@@ -2857,15 +3088,19 @@ character_event = {
 		clr_character_flag = second_place
 		clr_character_flag = tournament_third_place
 		clr_character_flag = third_place
+		clr_character_flag = tournament_romance
+		clr_character_flag = beauty_winner
 		any_realm_character = {
-			limit = {
-				has_character_flag = attending_tournament
-			}
+			clr_character_flag = tournament_winner
 			clr_character_flag = tournament_third_place
 			clr_character_flag = tournament_second_place
 			clr_character_flag = attending_tournament
 			clr_character_flag = attending_tournament_event
 			clr_character_flag = do_not_disturb
+			clr_character_flag = tournament_romance
+			clr_character_flag = championing_liege_lady
+			clr_character_flag = spectating_tournament
+			clr_character_flag = spectating_tournament_event
 		}		
 	}
 }
