@@ -2452,9 +2452,27 @@ title_champion = {
 	allow = {
 		is_adult = yes
 		is_female = no
+		prisoner = no
+		NOT = {
+			trait = incapable
+			health_traits = 1
+			has_character_flag = retired_champion
+		}
+		OR = {
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+			trait = brilliant_strategist
+		}
+		OR = {
+			FROM = { ai = no }
+			AND = {
+				opinion = { who = FROM value = 0 }
+				reverse_opinion = { who = FROM value = 0 }
+			}
+		}
 		FROM = {
 			is_feudal = yes
-			NOT = { health_traits = 1 }
 			OR = {
 				religion = baltic_pagan_reformed
 				religion = baltic_pagan
@@ -2889,6 +2907,7 @@ title_ladys_champion = {
 		NOT = {
 			trait = incapable
 			health_traits = 1
+			has_character_flag = retired_champion
 		}
 		OR = {
 			trait = misguided_warrior

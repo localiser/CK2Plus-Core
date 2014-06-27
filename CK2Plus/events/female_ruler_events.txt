@@ -1917,3 +1917,444 @@ letter_event = {
 		}
 	}
 }
+
+# events regarding a lady's champion
+
+# champion retires
+character_event = {
+	id = FemRule.140
+	desc = EVTDESC_FemRule_140
+	picture = GFX_evt_knight_kneeling
+	
+	min_age = 50
+	only_men = yes
+	
+	trigger = {
+		OR = {
+			has_minor_title = title_champion
+			has_minor_title = title_ladys_champion
+		}
+		OR = {
+			trait = incapable
+			trait = infirm
+			NOT = { health = 3.1 }
+			NOT = { martial = 5 }
+		}
+		NOT = {
+			has_character_flag = retired_champion
+			has_character_flag = attending_tournament
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			NOT = { martial = 5 }
+		}
+		modifier = {
+			factor = 1.5
+			martial = 10
+		}
+		modifier = {
+			factor = 1.5
+			martial = 12
+		}
+		modifier = {
+			factor = 1.5
+			martial = 14
+		}
+		modifier = {
+			factor = 1.5
+			martial = 16
+		}
+		modifier = {
+			factor = 0.01
+			trait = incapable
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { health = 2.1 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { health = 1.1 }
+		}
+		modifier = {
+			factor = 0.5
+			age = 60
+		}
+		modifier = {
+			factor = 0.5
+			age = 65
+		}
+		modifier = {
+			factor = 0.5
+			age = 70
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_140
+		set_character_flag = retired_champion
+		liege = {
+			letter_event = {
+				id = FemRule.141
+				tooltip = "EVTTOOLTIP_FemRule_140"
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = FemRule.141
+	desc = EVTDESC_FemRule_141
+	picture = GFX_evt_knight_kneeling
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_FemRule_141
+		if = {
+			limit = {
+				FROM = { has_minor_title = title_champion }
+			}
+			FROM = { remove_title = title_champion }
+		}
+		if = {
+			limit = {
+				FROM = { has_minor_title = title_ladys_champion }
+			}
+			FROM = { remove_title = title_ladys_champion }
+		}
+		opinion = {
+			modifier = former_champion
+			who = FROM
+			years = 10
+		}
+		reverse_opinion = {
+			modifier = former_champion
+			who = FROM
+			years = 10
+		}
+	}
+}
+
+# ask to become lady's champion
+character_event = {
+	id = FemRule.145
+	desc = EVTDESC_FemRule_145
+	picture = GFX_evt_knight_kneeling
+	
+	only_men = yes
+	is_adult = yes
+	prisoner = no
+	capable_only = yes
+	
+	trigger = {
+		OR = {
+			trait = misguided_warrior
+			trait = tough_soldier
+			trait = skilled_tactician
+			trait = brilliant_strategist
+		}
+		NOT = {
+			trait = craven
+			health_traits = 1
+			has_character_flag = retired_champion
+			has_character_flag = ask_not_champion
+		}
+		liege = {
+			is_feudal = yes
+			is_adult = yes
+			is_female = yes
+			NOT = {
+				religion = baltic_pagan_reformed
+				religion = baltic_pagan
+				religion = finnish_pagan_reformed
+				religion = finnish_pagan
+				religion = slavic_pagan_reformed
+				religion = slavic_pagan
+				religion = west_african_pagan_reformed
+				religion = west_african_pagan
+				religion = aztec_pagan_reformed
+				religion = aztec_pagan
+				has_character_flag = no_more_ask_for_champion
+			}
+			opinion = { who = ROOT value = 20 }
+			reverse_opinion = { who = ROOT value = 20 }
+			OR = {
+				any_vassal = {
+					has_minor_title = title_ladys_champion
+					NOT = { martial = ROOT }
+				}
+				any_courtier = {
+					has_minor_title = title_ladys_champion
+					NOT = { martial = ROOT }
+				}
+				NOT = {
+					any_vassal = { has_minor_title = title_ladys_champion }
+					any_courtier = { has_minor_title = title_ladys_champion }
+				}
+			}
+			OR = {
+				ai = yes
+				NOT = { has_character_flag = asked_for_champion }
+				had_character_flag = { flag = asked_for_champion days = 365 }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = duelist
+				trait = poet
+			}
+		}
+		modifier = {
+			factor = 0.75
+			trait = proud
+		}
+		modifier = {
+			factor = 0.75
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.75
+			trait = envious
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = scholar
+				trait = gardener
+			}
+		}
+		modifier = {
+			factor = 3
+			trait = content
+		}
+		modifier = {
+			factor = 3
+			trait = humble
+		}
+		modifier = {
+			factor = 0.5
+			liege = {
+				any_lover = { character = ROOT }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			liege = {
+				reverse_opinion = { who = ROOT value = 40 }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			liege = {
+				reverse_opinion = { who = ROOT value = 60 }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			liege = {
+				reverse_opinion = { who = ROOT value = 80 }
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {  set_character_flag = asked_for_champion }
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_145
+		liege = { letter_event = { id = FemRule.146 tooltip = EVTTOOLTIP_FemRule_145 } }
+	}
+	
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTB_FemRule_145
+		set_character_flag = ask_not_champion
+	}
+}
+
+#Someone wants to be my champion
+letter_event = {
+	id = FemRule.146
+	desc = EVTDESC_FemRule_146
+	picture = GFX_evt_courtly_love
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_FemRule_146 #I accept his offer
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0
+				OR = {
+					any_vassal = {
+						has_minor_title = title_ladys_champion
+						OR = {
+							any_lover = { character = ROOT }
+							any_spouse = { character = ROOT }
+							is_friend = ROOT
+						}
+					}
+					any_courtier = {
+						has_minor_title = title_ladys_champion
+						OR = {
+							any_lover = { character = ROOT }
+							any_spouse = { character = ROOT }
+							is_friend = ROOT
+						}
+					}
+				}
+			}
+		}
+		any_vassal = {
+			limit = { has_minor_title = title_ladys_champion }
+			opinion = {
+				modifier = opinion_very_disappointed
+				who = ROOT
+				years = 5
+			}
+			remove_title = title_ladys_champion
+		}
+		any_vassal = {
+			limit = { has_minor_title = title_ladys_champion }
+			opinion = {
+				modifier = opinion_very_disappointed
+				who = ROOT
+				years = 5
+			}
+			remove_title = title_ladys_champion
+		}
+		FROM = {
+			give_minor_title = title_ladys_champion
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_FemRule_146 #I shall keep my current champion
+		trigger = {
+			OR = {
+				any_vassal = { has_minor_title = title_ladys_champion}
+				any_courtier = { has_minor_title = title_ladys_champion }
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.1
+				OR = {
+					any_spouse = { character = FROM }
+					is_lover = FROM
+					is_friend = FROM
+				}
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					any_vassal = {
+						has_minor_title = title_ladys_champion
+						NOT = { reverse_opinion = { who = ROOT value = 0 } }
+					}
+					any_courtier = {
+						has_minor_title = title_ladys_champion
+						NOT = { reverse_opinion = { who = ROOT value = 0 } }
+					}
+				}
+			}
+		}
+		any_vassal = {
+			limit = { has_minor_title = title_ladys_champion }
+			letter_event = { id = FemRule.147 tooltip = EVTTOOLTIP_FemRule_146 }
+		}
+		any_vassal = {
+			limit = { has_minor_title = title_ladys_champion }
+			letter_event = { id = FemRule.147 tooltip = EVTTOOLTIP_FemRule_146 }
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_disappointed
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_FemRule_146 #No, and don't ask again.
+		ai_chance = {
+			factor = 0
+		}
+		FROM = {
+			set_character_flag = ask_not_champion
+			opinion = {
+				modifier = opinion_very_disappointed
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_FemRule_146 #I want no more requests such as these.
+		ai_chance = {
+			factor = 0
+		}
+		set_character_flag = no_more_ask_for_champion
+		FROM = {
+			opinion = {
+				modifier = opinion_very_disappointed
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
+
+#champion hears of the request to replace him
+letter_event = {
+	id = FemRule.147
+	desc = EVTDESC_FemRule_147
+	picture = GFX_evt_courtly_love
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_job_title = job_marshal
+	}
+
+	option = {
+		name = EVTOPTA_FemRule_147
+		random_list = {
+			50 = { change_martial = 1 }
+			50 = {
+				add_trait = stressed
+				hidden_tooltip = { character_event = { id = 38282 }	}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_FemRule_147
+		trigger = {
+			NOT = { trait = ambitious }
+			NOT = { trait = proud }
+		}
+		prestige = -5
+	}
+}
