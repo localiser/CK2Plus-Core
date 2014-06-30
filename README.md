@@ -1,52 +1,52 @@
-CK2Plus for Crusader Kings 2
+# CK2Plus for Crusader Kings 2
 
-Original Author: Martin "Wiz" Anward
-
-Maintained by the CK2+ Continuation Dev Team
+Original Author | Martin "Wiz" Anward
+ -------------: | :----------
+Maintained by   | the CK2+ Continuation Dev Team
 
 ## Installation
-
-1) If you have an older version of the mod installed, delete those older versions first.
-2) Unzip to your Crusader Kings II my documents folder. (C:\Users\[user]\Documents\Paradox Interactive\Crusader Kings II\mod\)
-3) Make sure the mod was extracted to the correct folder. Inside the 'mod' folder, there should be a CK2Plus.mod file. If there is not, and instead another 'mod' folder, you extracted the mod incorrectly.
-4) Unzip any Hotfixes to your Crusader Kings II folder (same place you installed the mod in step 2).
-5) Start the CK2 launcher and check 'CK2+ X.XX' in the list of mods.
-6) Check any optional modules you want to use along with CK2Plus.
-7) Hit play.
+1. If you have an older version of the mod installed, delete those older versions first.
+2. Unzip to your Crusader Kings II my documents folder `%userprofile%\Documents\Paradox Interactive\Crusader Kings II\mod\`.
+3. Make sure the mod was extracted to the correct folder. Inside the `mod` folder, there should be a `CK2Plus.mod` file. If there is not, and instead another `mod` folder, you extracted the mod incorrectly.
+4. Unzip any Hotfixes to your Crusader Kings II folder (same place you installed the mod in step 2).
+5. Start the CK2 launcher and check **CK2+ X.XX** in the list of mods.
+6. Check any optional modules you want to use along with CK2Plus.
+7. Hit play.
 
 ## Optional Modules
 Use any combination of the following:
-- 'Vanilla Hordes' will make the Aztecs and Mongols appear in every game instead of 20%-50% of games as is CK2+ default.
-- 'Hardcore Mode' decreases demesne size and income, makes breaking treaties more costly and in general slows down the pace of expansion for the player.
-- 'BLG' (Better Looking Garbs) is a cosmetic mod that changes clothing based on culture.
-- 'FTT' (Flavorful Titular Titles) adds a large number of special titles that can be created.
-- 'Better Armies' changes army composition, increases effects of army buildings, and changes retinue compositions
+- **Vanilla Hordes** will make the Aztecs and Mongols appear in every game instead of 20-50 % of games as is CK2+ default.
+- **Hardcore Mode** decreases demesne size and income, makes breaking treaties more costly and in general slows down the pace of expansion for the player.
+- **BLG** (Better Looking Garbs) is a cosmetic mod that changes clothing based on culture.
+- **FTT** (Flavorful Titular Titles) adds a large number of special titles that can be created.
+- **Better Armies** changes army composition, increases effects of army buildings, and changes retinue compositions.
 
 ## FAQ
+<dl>
+  <dt>Can I play CK2+ multiplayer?</dt>
+  <dd>Yes, but you must ensure that all players are using the same set of   optional modules. You can’t have one player playing with No Assaults and   another without, or someone playing with Shattered World and someone else   playing without, and so on.</dd>
 
-Q: Can I play CK2+ multiplayer?
-A: Yes, but you must ensure that all players are using the same set of optional modules. You can't have one player playing with No Assaults and another without, or someone playing with Shattered World and someone else playing without, and so on.
+  <dt>I have claims/de jure claims/other CBs on a character but declare war says I have no valid casus belli?</dt>
+  <dd>Check if either you or the character has the ‘truce’ modifier, which   prevents war declarations on newly formed rebel counties and crusader states.</dd>
 
-Q: I have claims/de jure claims/other CBs on a character but declare war says I have no valid casus belli?
-A: Check if either you or the character has the 'truce' modifier, which prevents war declarations on newly formed rebel counties and crusader states.
+  <dt>Are there supposed to only be two de jure Empires?</dt>
+  <dd>Yes. There are dozens of different titular empires to form instead.</dd>
 
-Q: Are there supposed to only be two de jure Empires?
-A: Yes. There are dozens of different titular empires to form instead.
+  <dt>Is the Catholic world supposed to start at 0 tech?</dt>
+  <dd>Yes, starting tech was lowered across the board to give Pagans, Armenians, Ethiopians etc more of a fighting chance against Catholics/Muslims.</dd>
 
-Q: Is the Catholic world supposed to start at 0 tech?
-A: Yes, starting tech was lowered across the board to give Pagans, Armenians, Ethiopians etc more of a fighting chance against Catholics/Muslims.
+  <dt>Why isn’t the option to fabricate claims available?</dt>
+  <dd>You need to have at least 0 prestige to fabricate claims.</dd>
 
-Q: Why isn't the option to fabricate claims available?
-A: You need to have at least 0 prestige to fabricate claims.
+  <dt>Why don’t get I get Kingdom de jure claims?</dt>
+  <dd>You need Medium or higher Crown Authority to press Kingdom de jure claims.</dd>
 
-Q: Why don't get I get Kingdom de jure claims?
-A: You need Medium or higher CA to press Kingdom de jure claims.
+  <dt>Why can’t I declare Holy Wars?</dt>
+  <dd>Holy Wars can only be declared every 5 years by the same character. If you have recently declared one, your character will have a modifier that blocks further Holy Wars until it expires.</dd>
 
-Q: Why can't I declare Holy Wars?
-A: Holy Wars can only be declared every 5 years by the same character. If you have recently declared one, your character will have a modifier that blocks further Holy Wars until it expires.
-
-Q: Does CK2+ work with the EU4 converter?
-A: Yes.
+  <dt>Does CK2+ work with the EU4 converter?</dt>
+  <dd>Yes.</dd>
+</dl>
 
 ## CK2+ Continuation Credits
 - Wiz (advisor and original creator)
@@ -93,7 +93,7 @@ A: Yes.
 - Shaytana (Better Looking Characters)
 - EOOQE (German Localisation)
 - Keanon (Patrum Scuta)
-- Wappenwiki and Solo_Adh�mar (Patrum Scuta Graphics)
+- Wappenwiki and Solo_Adhémar (Patrum Scuta Graphics)
 - Zaldax (An Offer You Can't Refuse)
 - Velho e Bom Joe (Culturally Different Cities)
 - Icecream Jones (flags, new countries)
