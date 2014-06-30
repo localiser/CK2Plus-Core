@@ -24,6 +24,7 @@ character_event = { # my daughter is poised to inherit!
 	num_of_children = 1
 	
 	trigger = {
+		num_of_children = 1
 		primary_title = {
 			NOT = { has_law = agnatic_succession } # not needed for logic, should improve performance
 		}
@@ -1511,7 +1512,9 @@ character_event = { #Shield Maiden
 	}
 }
 
-# Vassal is concerned that a liege's daughter is being trained martially
+########################################
+# Vassal is concerned at liege's upbringing of daughter
+########################################
 character_event = {
 	id = FemRule.135
 	desc = EVTDESC_FemRule_135
@@ -1528,7 +1531,7 @@ character_event = {
 			religion_group = christian
 			religion_group = muslim
 		}
-		health = 4
+		health = 3
 		NOT = {
 			any_ward = { age = 6 }
 			trait = stressed
@@ -1552,7 +1555,10 @@ character_event = {
 				prisoner = no
 				NOT = { trait = bastard }
 				guardian = {
-					is_liege_or_above = PREVPREV
+					OR = {
+						is_liege_or_above = PREVPREV
+						character = PREVPREV
+					}
 					OR = {
 						trait = misguided_warrior
 						trait = tough_soldier
@@ -1565,13 +1571,18 @@ character_event = {
 					had_character_flag = { flag = martial_daughter days = 730 }
 				}
 			}
-			opinion = { who = ROOT value = 0 }
-			reverse_opinion = { who = ROOT value = 0 }
+			OR = {
+				AND = {
+					opinion = { who = ROOT value = 0 }
+					reverse_opinion = { who = ROOT value = 0 }
+				}
+				is_close_relative = ROOT
+			}
 		}
 	}
 
 	mean_time_to_happen = {
-		months = 200
+		months = 100
 		modifier = {
 			factor = 2.0
 			is_ill = yes
@@ -1601,6 +1612,38 @@ character_event = {
 				trait = underhanded_rogue
 				trait = thrifty_clerk
 				trait = martial_cleric
+			}
+		}
+		modifier = {
+			factor = 2.0
+			liege = {
+				NOT = {
+					reverse_opinion = { who = ROOT value = 25 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			liege = {
+				NOT = {
+					reverse_opinion = { who = ROOT value = 0 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			liege = {
+				NOT = {
+					opinion = { who = ROOT value = 25 }
+				}
+			}
+		}
+		modifier = {
+			factor = 2.0
+			liege = {
+				NOT = {
+					opinion = { who = ROOT value = 0 }
+				}
 			}
 		}
 		modifier = {
@@ -1719,7 +1762,10 @@ letter_event = {
 					prisoner = no
 					NOT = { trait = bastard }
 					guardian = {
-						is_liege_or_above = ROOT
+						OR = {
+							is_liege_or_above = ROOT
+							character = ROOT
+						}
 						OR = {
 							trait = misguided_warrior
 							trait = tough_soldier
@@ -1748,7 +1794,10 @@ letter_event = {
 				prisoner = no
 				NOT = { trait = bastard }
 				guardian = {
-					is_liege_or_above = ROOT
+					OR = {
+						is_liege_or_above = ROOT
+						character = ROOT
+					}
 					OR = {
 						trait = misguided_warrior
 						trait = tough_soldier
@@ -1786,6 +1835,18 @@ letter_event = {
 				}
 			}
 			modifier = {
+				factor = 1.5
+				NOT = {
+					opinion = { who = FROM value = 25 }
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					opinion = { who = FROM value = 0 }
+				}
+			}
+			modifier = {
 				factor = 2
 				trait = cynical
 			}
@@ -1815,7 +1876,10 @@ letter_event = {
 					prisoner = no
 					NOT = { trait = bastard }
 					guardian = {
-						is_liege_or_above = ROOT
+						OR = {
+							is_liege_or_above = ROOT
+							character = ROOT
+						}
 						OR = {
 							trait = misguided_warrior
 							trait = tough_soldier
@@ -1843,7 +1907,10 @@ letter_event = {
 				prisoner = no
 				NOT = { trait = bastard }
 				guardian = {
-					is_liege_or_above = ROOT
+					OR = {
+						is_liege_or_above = ROOT
+						character = ROOT
+					}
 					OR = {
 						trait = misguided_warrior
 						trait = tough_soldier
@@ -1918,7 +1985,9 @@ letter_event = {
 	}
 }
 
-# events regarding a lady's champion
+########################################
+# Lady's Champion Events
+########################################
 
 # champion retires
 character_event = {
