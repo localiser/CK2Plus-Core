@@ -1,0 +1,94 @@
+province_event = {
+	id = 1000183181
+	desc = "1000183181.d"
+	picture = GFX_evt_council
+	
+	hide_window = yes
+	
+	trigger = {
+		470 = {NOT = {culture = arberian}}
+		province_id = 470
+		year = 1000
+	}
+	
+	mean_time_to_happen = {
+		months = 550
+	}
+	
+	immediate = {
+		culture = arberian
+		c_dyrrachion = {holder_scope = {character_event = {id = 1000183182}}}
+	}
+	
+	option = {
+		name = "EVTOPTA55000"
+	}
+}
+
+
+character_event = {
+	id = 1000183182
+	title = "1000183182.t"
+	desc = "1000183182.d"
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "1000183182.a"
+		prestige = 50
+	}
+	
+	option = {
+		name = "1000183182.b"
+		culture = arberian
+		prestige = -200
+	}
+}
+
+# Special event to create Albania
+# Triggered by Decision: create_kingdomofalbania
+narrative_event = {
+	id = 1000183183
+	title = "1000183183.t"
+	desc = "1000183183.d"
+	
+	picture = GFX_evt_albania
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "1000183183.a"
+		k_albania = {grant_title = ROOT}
+		d_albania = { de_jure_liege = k_albania }
+		c_dyrrachion = { de_jure_liege = d_albania }
+		d_dyrrachion = { holder_scope = { add_claim = c_dyrrachion }}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = k_albania }
+					ai = no
+				}
+				narrative_event = { id = 1000183184 }
+			}
+		}
+	}
+}
+
+# Informed about the Creation of Albania
+narrative_event = {
+	id = 1000183184
+	title = "1000183184.t"
+	desc = "1000183184.d"
+	
+	picture = GFX_evt_albania
+	border = GFX_event_narrative_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "1000183184.a"
+	}
+}

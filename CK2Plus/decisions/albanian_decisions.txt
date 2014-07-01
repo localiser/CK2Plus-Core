@@ -1,0 +1,53 @@
+decisions = {
+	create_kingdomofalbania = {
+
+		potential = {
+			NOT = {has_global_flag = kingdom_of_albania_formed}
+			470 = {culture = arberian}
+			completely_controls = c_dyrrachion
+			k_albania = {
+				is_titular = yes
+			}
+			OR = {
+				tier = KING
+				tier = EMPEROR 
+				AND = {
+					num_of_duke_titles = 2
+					culture_group = south_slavic
+				}
+			}
+			NOT = {
+				OR = {
+					has_landed_title = e_roman_empire
+					has_landed_title = e_byzantium
+				}
+			}
+		}
+
+		allow = {
+			treasury = 300
+			OR = {
+				piety = 500
+				prestige = 500
+			}
+			OR = {
+				independent = yes
+				tier = KING
+			}
+		}
+
+		effect = {
+			set_global_flag = kingdom_of_albania_formed
+			treasury = -300
+			narrative_event = { id = 1000183183 }
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {culture_group = south_slavic}
+			}
+		}
+	}
+}
