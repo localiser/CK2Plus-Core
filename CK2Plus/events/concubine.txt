@@ -8,12 +8,11 @@ character_event = {
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_consort = yes
-	has_lover = no
 	
 	trigger = {
 		prisoner = no
 		has_lover = no
+		is_consort = yes
 		NOT = { trait = homosexual }
 		NOT = { trait = infirm }
 		NOT = { trait = incapable }
@@ -417,9 +416,9 @@ character_event = {
 	
 	capable_only = yes
 	prisoner = no
-	is_abroad = no
 	
 	trigger = {
+		is_abroad = no
 		any_lover = {
 			is_consort = PREV
 			is_alive = yes
@@ -548,9 +547,9 @@ character_event = { #Wife is jealous of consort, considers course of action
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_married = yes
 	
 	trigger = {
+		is_married = yes
 		NOT = { trait = homosexual }
 		NOT = { has_character_flag = concubine_killer }
 		NOT = { has_character_modifier = sleep_on_the_couch }
@@ -857,10 +856,10 @@ character_event = { # Wife is insecure about husband's attention to concubines
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_married = yes
 	only_rulers = yes
 	
 	trigger = {
+		is_married = yes
 		NOT = { trait = homosexual }
 		spouse = {
 			has_lover = no
@@ -1059,9 +1058,9 @@ character_event = { # Forced concubine attempts to escape
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_consort = yes
 	
 	trigger = {
+		is_consort = yes
 		liege = {
 			reverse_has_opinion_modifier = { who = ROOT modifier = opinion_forced_consort }
 		}
@@ -1203,10 +1202,10 @@ character_event = { # Wife unhappy that primary heir is the child of a concubine
 	prisoner = no
 	only_women = yes
 	num_of_children = 1
-	is_adult = yes
-	is_married = yes
+	min_age = 16
 	
 	trigger = {
+		is_married = yes
 		spouse = { demesne_size = 5 }
 		spouse = {
 			any_child = {
@@ -1364,9 +1363,9 @@ character_event = {
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_consort = yes
 	
 	trigger = {
+		is_consort = yes
 		NOT = { has_character_flag = first_concubine_killer }
 		NOT = { has_character_flag = second_concubine_killer }
 		NOT = { has_character_flag = third_concubine_killer }
@@ -1513,9 +1512,9 @@ character_event = {
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_consort = yes
 	
 	trigger = {
+		is_consort = yes
 		NOT = { has_character_flag = second_concubine_killer }
 	}
 	
@@ -1583,7 +1582,6 @@ character_event = {
 	max_age = 40
 	capable_only = yes
 	prisoner = no
-	is_consort = yes
 	
 	is_triggered_only = yes
 	
@@ -1829,9 +1827,9 @@ character_event = { # Husband is no longer a couch potato
 	
 	only_women = yes
 	max_age = 45
-	is_married = no
 	
 	trigger = {
+		is_married = no
 		has_character_modifier = sleep_on_the_couch
 	}
 
@@ -1851,9 +1849,9 @@ character_event = { #No need to appreciate
 
 	only_women = yes
 	max_age = 45
-	is_married = no
 	
 	trigger = {
+		is_married = no
 		has_character_modifier = show_appreciation
 	}
 	
@@ -1924,7 +1922,6 @@ character_event = { #Courtier 'helps out'  liege's spiteful wife
 	picture = GFX_evt_lovers
 	
 	only_men = yes
-	has_lover = no
 	
 	trigger = {
 		NOT = { trait = homosexual }
@@ -1932,6 +1929,7 @@ character_event = { #Courtier 'helps out'  liege's spiteful wife
 		NOT = { trait = incapable }
 		NOT = { trait = celibate }
 		is_female = no
+		has_lover = no
 		liege = {
 			is_married = yes
 			opinion = { who = ROOT value = -25 }
