@@ -3196,25 +3196,30 @@ character_event = {
 	}
 }
 
+#tell family to come out of hiding once the war is done
 character_event = {
 	id = 1000182703
 	desc = EVTDESC1000182703
+	picture = "GFX_evt_Council_Around_Table"
+	
+	only_rulers = yes
 	
 	trigger = {
-		is_ruler = yes
 		war = no
-		prisoner = no
-		NOT = { any_liege = { war = yes } }		
-		NOT = { 
+		in_siege = no
+		NOT = {
+			any_liege = { war = yes }
+			any_liege = { in_siege = yes }
+			any_vassal = { in_siege = yes }
 			has_character_flag = returning_family 
 			has_character_modifier = waylit_cd
 		}
 		OR = {
 			has_character_modifier = stalwart_defender
 			has_character_modifier = left_at_siege
-			has_character_modifier = modifier_hidden 
-			any_dynasty_member = {
-				at_location = ROOT
+			has_character_modifier = modifier_hidden
+			has_character_flag = defending_the_castle
+			any_courtier = {
 				OR = {
 					has_character_modifier = modifier_hidden
 					has_character_modifier = left_at_siege
@@ -3225,77 +3230,36 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		days = 14
 	}
 	
 	immediate = {	
 		set_character_flag = returning_family
 	}
 	option = {
-		name = OK
-		
+		name = OK	
 		if = {
+			limit = {
+				any_courtier = { has_character_modifier = modifier_hidden }
+			}
 			any_courtier = {
-				limit = { 
-					at_location = ROOT
-					has_character_modifier = modifier_hidden
-				}
+				limit = { has_character_modifier = modifier_hidden }
 				remove_character_modifier = modifier_hidden
 			}
 		}
 		if = {
-			any_courtier = {
-				limit = { 
-					at_location = ROOT
-					has_character_modifier = left_at_siege
-				}
-				remove_character_modifier = left_at_siege
-			}
-		}
-		if = {
-			limit = { 
-				has_character_modifier = modifier_hidden
-			}
+			limit = { has_character_modifier = modifier_hidden }
 			remove_character_modifier = modifier_hidden
-		}
-		if = {
-			any_dynasty_member = {
-				limit = { 
-					at_location = ROOT
-					has_character_modifier = modifier_hidden
-				}
-				remove_character_modifier = modifier_hidden
-			}
-		}
-		if = {
-			any_spouse = {
-				limit = { 
-					at_location = ROOT
-					has_character_modifier = modifier_hidden
-				}
-				remove_character_modifier = modifier_hidden
-			}
-		}
-		if = {
-			any_dynasty_member = {
-				limit = { 
-					at_location = ROOT
-					has_character_modifier = left_at_siege
-				}
-				remove_character_modifier = left_at_siege
-			}
-		}
-		if = {
-			any_spouse = {
-				limit = { 
-					at_location = ROOT
-					has_character_modifier = left_at_siege
-					}
-				remove_character_modifier = left_at_siege
-			}
 		}
 		hidden_tooltip = {
 			remove_character_modifier = stalwart_defender
+			remove_character_modifier = left_at_siege
+			any_courtier = {
+				remove_character_modifier = stalwart_defender
+				remove_character_modifier = left_at_siege
+				clr_character_flag = defending_the_castle
+			}
+			clr_character_flag = defending_the_castle
 			clr_character_flag = returning_family
 			add_character_modifier = {
 				name = waylit_cd
@@ -3303,6 +3267,37 @@ character_event = {
 				duration = 180
 			}
 		}		
+	}
+}
+
+#clear siege modifiers if imprisoned
+character_event = {
+	id = 1000183703
+	hide_window = yes
+	
+	prisoner = yes
+	
+	trigger = {
+		prisoner = yes
+		OR = {
+			has_character_modifier = stalwart_defender
+			has_character_modifier = left_at_siege
+			has_character_modifier = modifier_hidden
+			has_character_modifier = escaped_siege
+			has_character_flag = defending_the_castle
+		}
+	}
+	
+	immediate = {
+		remove_character_modifier = stalwart_defender
+		remove_character_modifier = left_at_siege
+		remove_character_modifier = modifier_hidden
+		remove_character_modifier = escaped_siege
+		clr_character_flag = defending_the_castle		
+	}
+	
+	option = {
+		name = OK
 	}
 }
 

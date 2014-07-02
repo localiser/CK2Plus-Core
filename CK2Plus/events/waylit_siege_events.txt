@@ -145,6 +145,8 @@ character_event = {
 						NOT = { has_character_modifier = modifier_hidden } 
 					}  
 					imprison = ROOT
+					remove_character_modifier = stalwart_defender
+					remove_character_modifier = left_at_siege
 				}		
 			}
 		}
@@ -190,7 +192,7 @@ character_event = {
 							NOT = { has_character_modifier = modifier_hidden }
 						}		
 					}
-				} 
+				}
 			}
 		}
 		ai_chance = {
@@ -230,7 +232,7 @@ character_event = {
 				trait = wroth
 			}	
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 20
 				if = {
@@ -249,7 +251,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 50
 				if = {
@@ -291,7 +293,9 @@ character_event = {
 								guardian = { 
 									random = { 
 										chance = 33
-										imprison = ROOT 
+										imprison = ROOT
+										remove_character_modifier = stalwart_defender
+										remove_character_modifier = left_at_siege
 									}
 								}
 							}
@@ -312,6 +316,8 @@ character_event = {
 							random = { 
 								chance = 33
 								imprison = ROOT 
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
 							}
 						}	
 					}
@@ -332,7 +338,9 @@ character_event = {
 							}		
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
 							}
 						}
 					}
@@ -423,7 +431,7 @@ character_event = {
 			limit = { NOT  = { lifestyle_traits = 1 } }
 			add_trait = impaler
 		}		
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 50
 				if = {
@@ -442,7 +450,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 30
 				if = {
@@ -479,8 +487,7 @@ character_event = {
 							random = { 
 								chance = 33
 								death = {death_reason = death_battle killer = ROOT} 
-							}
-							
+							}							
 							hidden_tooltip = {
 								any_dynasty_member = {
 									limit = {
@@ -530,8 +537,7 @@ character_event = {
 								}
 							}
 						}
-					}
-						
+					}						
 					if = { 
 						limit = {
 							any_spouse = {  
@@ -643,16 +649,15 @@ character_event = {
 				trait = cruel
 			}	
 		}
-			hidden_tooltip = {
-		random = { 			
-			chance = 50
-			if = {
+		hidden_tooltip = {
+			random = { 			
+				chance = 50
+				if = {
 					limit = {
 						trait = cruel
 					}
 					remove_trait = cruel
 				}
-
 				if = {
 					limit = {
 						NOT = { trait = kind }
@@ -662,7 +667,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 30
 				if = {
@@ -671,7 +676,6 @@ character_event = {
 					}
 					remove_trait = greedy
 				}
-
 				if = {
 					limit = {
 						NOT = { trait = charitable }
@@ -754,17 +758,10 @@ character_event = {
 							modifier = liberated
 							months = 12
 						}
+						remove_character_modifier = stalwart_defender
+						remove_character_modifier = left_at_siege
+						remove_character_modifier = modifier_hidden
 					}
-					hidden_tooltip = {
-						if = { 
-							limit = { 
-								at_location = ROOT 
-								NOT = { war_with = ROOT }
-								has_character_modifier = modifier_hidden 
-							} 
-							remove_character_modifier = modifier_hidden
-						}
-					}	
 				}
 			}
 		}	
@@ -982,7 +979,10 @@ character_event = {
 								guardian = { 								
 									random = { 
 										chance = 33
-										imprison = ROOT 
+										imprison = ROOT
+										remove_character_modifier = stalwart_defender
+										remove_character_modifier = left_at_siege
+										remove_character_modifier = modifier_hidden
 									} 
 								}
 							}
@@ -1002,7 +1002,10 @@ character_event = {
 							}
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
+								remove_character_modifier = modifier_hidden
 							}
 						}	
 					}
@@ -1022,7 +1025,10 @@ character_event = {
 							}		
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
+								remove_character_modifier = modifier_hidden
 							}
 						}
 					}
@@ -1093,7 +1099,7 @@ character_event = {
 			limit = { NOT  = { lifestyle_traits = 1 } }
 			add_trait = impaler
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 50
 				if = {
@@ -1112,7 +1118,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 30
 				if = {
@@ -1130,8 +1136,7 @@ character_event = {
 					character_event = { id = 38266 } # I am arbitrary!
 				}
 			}
-		}
-		
+		}		
 		hidden_tooltip = {
 			FROM = { 
 				holder_scope = {  
@@ -1314,17 +1319,15 @@ character_event = {
 				trait = cruel
 			}	
 		}
-		
-			hidden_tooltip = {
-		random = { 			
-			chance = 50
-			if = {
+		hidden_tooltip = {
+			random = { 			
+				chance = 50
+				if = {
 					limit = {
 						trait = cruel
 					}
 					remove_trait = cruel
 				}
-
 				if = {
 					limit = {
 						NOT = { trait = kind }
@@ -1334,7 +1337,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 30
 				if = {
@@ -1343,7 +1346,6 @@ character_event = {
 					}
 					remove_trait = greedy
 				}
-
 				if = {
 					limit = {
 						NOT = { trait = charitable }
@@ -1352,8 +1354,7 @@ character_event = {
 					character_event = { id = 38273 } # I am charitable!
 				}
 			}
-		}
-		
+		}		
 		hidden_tooltip = {
 			FROM = { 
 				holder_scope = { 			
@@ -1374,6 +1375,9 @@ character_event = {
 								modifier = opinion_relieved
 								months = 12
 							}
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
+							remove_character_modifier = modifier_hidden
 						}
 					}
 					if = {
@@ -1393,6 +1397,9 @@ character_event = {
 								modifier = opinion_relieved
 								months = 12
 							}
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
+							remove_character_modifier = modifier_hidden
 						}
 					}
 				}
@@ -1429,13 +1436,8 @@ character_event = {
 								modifier = liberated
 								months = 12
 							}
-						}
-						if = { 
-							limit = { 
-								at_location = ROOT 
-								NOT = { war_with = ROOT }
-								has_character_modifier = modifier_hidden 
-							} 
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
 							remove_character_modifier = modifier_hidden
 						}
 					}	
@@ -1956,7 +1958,9 @@ character_event = {
 					}  
 					random = { 
 						chance = 33
-						imprison = ROOT 
+						imprison = ROOT
+						remove_character_modifier = stalwart_defender
+						remove_character_modifier = left_at_siege
 					}
 				}
 			}	
@@ -2103,7 +2107,9 @@ character_event = {
 								guardian = { 
 									random = { 
 										chance = 33
-										imprison = ROOT 
+										imprison = ROOT
+										remove_character_modifier = stalwart_defender
+										remove_character_modifier = left_at_siege
 									}
 								}
 							}
@@ -2123,7 +2129,9 @@ character_event = {
 							}
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
 							}
 						}	
 					}
@@ -2144,7 +2152,9 @@ character_event = {
 							}		
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
 							}
 						}
 					}
@@ -2512,6 +2522,8 @@ character_event = {
 								modifier = opinion_relieved
 								months = 12
 							}
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
 						}
 					}
 					if = {
@@ -2531,6 +2543,8 @@ character_event = {
 								modifier = opinion_relieved
 								months = 12
 							}
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
 						}
 					}
 				}
@@ -2562,16 +2576,9 @@ character_event = {
 							modifier = liberated
 							months = 12
 						}
-					}
-					hidden_tooltip = {
-						if = { 
-							limit = { 
-								at_location = FROMFROM
-								NOT = { war_with = ROOT }
-								has_character_modifier = modifier_hidden 
-							} 
-							remove_character_modifier = modifier_hidden
-						}
+						remove_character_modifier = stalwart_defender
+						remove_character_modifier = left_at_siege
+						remove_character_modifier = modifier_hidden
 					}	
 				}
 			}
@@ -2652,8 +2659,7 @@ character_event = {
 				trait = wroth
 			}	
 		}
-
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 20
 				if = {
@@ -2672,7 +2678,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 50
 				if = {
@@ -2715,7 +2721,9 @@ character_event = {
 								guardian = { 
 									random = { 
 										chance = 33
-										imprison = ROOT 
+										imprison = ROOT
+										remove_character_modifier = stalwart_defender
+										remove_character_modifier = left_at_siege
 									}								
 								}
 							}
@@ -2735,7 +2743,9 @@ character_event = {
 							}
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
 							}
 						}	
 					}
@@ -2756,7 +2766,9 @@ character_event = {
 							}		
 							random = { 
 								chance = 33
-								imprison = ROOT 
+								imprison = ROOT
+								remove_character_modifier = stalwart_defender
+								remove_character_modifier = left_at_siege
 							}
 						}
 					}
@@ -2830,8 +2842,7 @@ character_event = {
 			limit = { NOT  = { lifestyle_traits = 1 } }
 			add_trait = impaler
 		}
-		
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 50
 				if = {
@@ -2850,7 +2861,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 30
 				if = {
@@ -2868,8 +2879,7 @@ character_event = {
 					character_event = { id = 38266 } # I am arbitrary!
 				}
 			}
-		}
-		
+		}		
 		hidden_tooltip = {
 			FROMFROM = { 
 				holder_scope = {  
@@ -3048,11 +3058,10 @@ character_event = {
 				trait = cruel
 			}	
 		}
-		
-			hidden_tooltip = {
-		random = { 			
-			chance = 50
-			if = {
+		hidden_tooltip = {
+			random = { 			
+				chance = 50
+				if = {
 					limit = {
 						trait = cruel
 					}
@@ -3068,7 +3077,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = { 			
 				chance = 30
 				if = {
@@ -3108,6 +3117,9 @@ character_event = {
 								modifier = opinion_relieved
 								months = 12
 							}
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
+							remove_character_modifier = modifier_hidden
 						}
 					}
 					if = {
@@ -3127,6 +3139,9 @@ character_event = {
 								modifier = opinion_relieved
 								months = 12
 							}
+							remove_character_modifier = stalwart_defender
+							remove_character_modifier = left_at_siege
+							remove_character_modifier = modifier_hidden
 						}
 					}
 				}
@@ -3158,16 +3173,9 @@ character_event = {
 							modifier = liberated
 							months = 12
 						}
-					}
-					hidden_tooltip = {
-						if = { 
-							limit = { 
-								at_location = FROMFROM
-								NOT = { war_with = ROOT }
-								has_character_modifier = modifier_hidden 
-							} 
-							remove_character_modifier = modifier_hidden
-						}
+						remove_character_modifier = stalwart_defender
+						remove_character_modifier = left_at_siege
+						remove_character_modifier = modifier_hidden
 					}	
 				}
 			}
@@ -3227,7 +3235,7 @@ character_event = {
 				trait = paranoid
 			}
  		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = {			
 				chance = 50
 				if = {
@@ -3245,7 +3253,7 @@ character_event = {
 				}
 			}
 		}
-			hidden_tooltip = {
+		hidden_tooltip = {
 			random = {			
 				chance = 30
 				if = {

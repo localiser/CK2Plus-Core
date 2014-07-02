@@ -4,298 +4,95 @@
 #on start of siege, give option to send family away or flee entirely
 
 character_event = {
-
 	id = 1100099991
-	desc = "EVTDESCWAYsiegepulseflee"
-	title = "EVTNAMEWAYsiegepulseflee"
-	
-	picture = "GFX_evt_Council_Around_Table"
-	border = "GFX_event_normal_frame_war"
-
-
+	hide_window = yes
 	is_triggered_only = yes
-
-	trigger = { 
-		NOT = { has_character_modifier = stalwart_defender }
-		NOT = { has_character_modifier = modifier_hidden }
-
-		OR = {
-			location = { is_capital = yes }
-			any_courtier = { at_location = FROM }
-		}
-		at_location = FROM
-		
-		siege = {
-			is_attacker = no
-		}
-	}
 	
-	
-
-	option = {
-	
-		name = "EVTOPTWAYsiegepulseflee01"
-		
-		ai_chance = { 
-			factor = 0.5 
-			modifier = {
-				factor = 5
-				trait = slothful
-			}
-			modifier = {
-				factor = 2
-				trait = proud
-			}
-			modifier = {
-				factor = 2
-				trait = zealous
-			}
-		}
-		
-		add_character_modifier = {
-			name = stalwart_defender
-			duration = 730
-		}
-		
-		hidden_tooltip = {
-			remove_character_modifier = modifier_hidden
-			remove_character_modifier = left_at_siege		
-			random = { 
-				chance = 66
-				if = { 
-					limit = { trait = cynical }
-					remove_trait = cynical
-				}
-				add_trait = zealous
-				character_event = { id = 38269 }
-			}
-			random = {
-				chance = 25
-				if = { 
-					limit = { trait = humble }
-					remove_trait = humble
-				}
-				add_trait = proud
-				character_event = { id = 38261 }
-			}
-		}
-
-		
-		ROOT = {
-			any_dynasty_member = {
-				limit = { 
-					at_location = ROOT 
-					NOT = { character = ROOT }
-				}
-				add_character_modifier = {
-					name = left_at_siege
-					duration = 180
-				}
-				hidden_tooltip = {
-					remove_character_modifier = left_at_siege
-					remove_character_modifier = stalwart_defender
-				}
-			}
-			
-			any_spouse = {								
-				limit = { 
-					at_location = ROOT 
-				}
-				add_character_modifier = {
-					name = left_at_siege
-					duration = 180
-				}
-				hidden_tooltip = {
-					remove_character_modifier = left_at_siege
-					remove_character_modifier = stalwart_defender
+	trigger = {
+		siege = { is_attacker = yes }
+		location = {
+			any_province_lord = {
+				OR = {
+					any_courtier = {
+						is_close_relative = PREV
+						at_location = ROOT
+						in_command = no
+						NOT = { 
+							has_character_modifier = left_at_siege
+							has_character_modifier = modifier_hidden
+						}
+					}
+					AND = {
+						at_location = ROOT
+						NOT = {
+							has_character_modifier = stalwart_defender
+							has_character_modifier = modifier_hidden
+						}
+					}
 				}
 			}
 		}
 	}
-
-	option = {
-		name = "EVTOPTWAYsiegepulseflee02"
-		trigger = {
-			any_dynasty_member = { 
-				at_location = ROOT
-				NOT = { has_character_modifier = modifier_hidden }
-			}
-		}
-
-
-		ai_chance = { 
-			factor = 1
-			modifier = {
-				factor = 5
-				trait = diligent
-			}
-			modifier = {
-				factor = 5
-				trait = just
-			}
-			modifier = {
-				factor = 5
-				trait = brave
-			}
-		}
-
-		scaled_wealth = -0.5
-		
-		add_character_modifier = {
-			name = stalwart_defender
-			duration = 730
-		}
-		
-		hidden_tooltip = {
-			remove_character_modifier = modifier_hidden	
-			remove_character_modifier = left_at_siege
-			
-			random = { 
-				chance = 25 
+	
+	immediate = {
+		location = {
+			any_province_lord = {
+				limit = {
+					OR = {
+						any_courtier = {
+							is_close_relative = PREV
+							at_location = ROOT
+							in_command = no
+							NOT = { 
+								has_character_modifier = left_at_siege
+								has_character_modifier = modifier_hidden
+							}
+						}
+						AND = {
+							at_location = ROOT
+							NOT = {
+								has_character_modifier = stalwart_defender
+								has_character_modifier = modifier_hidden
+							}
+						}
+					}
+				}
 				if = {
-					limit = { trait = arbitrary }
-					remove_trait = arbitrary
+					limit = {
+						any_courtier = {
+							is_close_relative = PREV
+							at_location = ROOT
+							in_command = no
+							NOT = { 
+								has_character_modifier = left_at_siege
+								has_character_modifier = modifier_hidden
+							}
+						}
+					}
+					set_character_flag = family_present_at_siege
 				}
-				add_trait = just 
-				character_event = { id = 38267 }
-			}
-			random = { 
-				chance = 20 
 				if = {
-					limit = { trait = humble }
-					remove_trait = humble
+					limit = {
+						at_location = ROOT
+						NOT = {
+							has_character_modifier = stalwart_defender
+							has_character_modifier = modifier_hidden
+						}
+					}
+					set_character_flag = personally_present_at_siege
 				}
-				add_trait = proud 
-				character_event = { id = 38261 }
+				character_event = { id = 1100099998 }
 			}
-			random = { 
-				chance = 5 
-				if = {
-					limit = { trait = slothful }
-					remove_trait = slothful
-				}
-				add_trait = diligent 
-				character_event = { id = 38256 }
-			}
-		}
-		
-		ROOT = {
-			any_dynasty_member = {
-				limit = { 
-					at_location = ROOT 
-					NOT = { character = ROOT }
-				}
-				add_character_modifier = {
-					name = modifier_hidden
-					duration = 730
-				}
-				hidden_tooltip = {
-					remove_character_modifier = left_at_siege
-					remove_character_modifier = stalwart_defender
-				}
-			}	 
-			any_spouse = {								
-				limit = { 
-					at_location = ROOT 
-				}
-				add_character_modifier = {
-					name = modifier_hidden
-					duration = 730
-				}
-				hidden_tooltip = {
-					remove_character_modifier = left_at_siege
-					remove_character_modifier = stalwart_defender
-				}
-			}	 
 		}
 	}
 	
 	option = {
-		name = "EVTOPTWAYsiegepulseflee03"
-		ai_chance = { 
-			factor = 0.25 
-			modifier = {
-				factor = 20
-				trait = craven
-			}
-			modifier = {
-				factor = 2
-				trait = humble
-			}
-			modifier = {
-				factor = 2
-				trait = diligent
-			}
-		}
-				
-		scaled_wealth = -0.75
-		hidden_tooltip = {
-			random = { 
-				chance = 66
-				
-				if = { 
-					limit = { trait = brave }
-					remove_trait = brave
-				}
-				add_trait = craven
-				character_event = { id = 38257 }
-			}
-			
-			random = { 
-				chance = 66
-				remove_trait = proud
-				character_event = { id = 38300 }
-			}
-			 
-			random = {
-				chance = 5
-				
-				if = { 
-					limit = { trait = slothful }
-					remove_trait = slothful
-				}
-				add_trait = diligent
-				character_event = { id = 38256 }
-			}
-		}
-		
-		ROOT = {
-			add_character_modifier = {
-				name = modifier_hidden
-				duration = 730
-			}
-			
-			any_dynasty_member = {
-				limit = { at_location = ROOT }
-				add_character_modifier = {
-					name = modifier_hidden
-					duration = 730
-				}
-				hidden_tooltip = {
-					remove_character_modifier = left_at_siege
-					remove_character_modifier = stalwart_defender
-				}
-			}
-			any_spouse = {								
-				limit = { 
-					at_location = ROOT 
-				}
-				add_character_modifier = {
-					name = modifier_hidden
-					duration = 730
-				}
-				hidden_tooltip = {
-					remove_character_modifier = left_at_siege
-					remove_character_modifier = stalwart_defender
-				}
-			}	 
-		}
+		name = OK
 	}
 }
- 
+
 #Escape from a siege where you have not hidden						
 character_event = {
-
 	id = 1100099992
 	desc = "EVTDESCWAYsiegeescape"
 	title = "EVTNAMEWAYnotifyofoutcome"
@@ -306,39 +103,22 @@ character_event = {
 
 	is_triggered_only = yes
 	only_rulers = yes
-	min_age = 16
-	max_age = 65 #Glover/I'm gettin' too old for this shit
+	is_adult = yes
 	prisoner = no
 	capable_only = yes
 
 
-	trigger = { 
-		NOT = { 
-			has_character_modifier = modifier_hidden 
-			is_patrician = yes # Far too likely for a patrician to be caught normally
-		}
-		
-		OR = {
-			AND = {
-				tier = baron is_patrician = no
-				num_of_baron_titles = 1
-				NOT = {num_of_baron_titles = 2}
-			}
-			AND = {
-				num_of_count_titles = 1
-				NOT = {num_of_count_titles = 2}
-			}
-			any_courtier = {at_location = FROM}
-		}
-		
-		siege = {
-			is_attacker = no
-		}
+	trigger = {
+		siege = { is_attacker = no }
+		has_character_modifier = stalwart_defender
+		health = 4
+		is_patrician = no
+		at_location = FROM
+		had_character_flag = { flag = defending_the_castle days = 30 }
 	}
-	
 
 	option = { 
-		name = "EVTOPTWAYsiegesescapeattempt01"
+		name = "EVTOPTWAYsiegesescapeattempt01" #Slip out a postern door at midnight.
 		ai_chance = { 
 			factor = 0.75 
 			modifier = {
@@ -360,6 +140,7 @@ character_event = {
 		}
 		
 		hidden_tooltip = {
+			clr_character_flag = defending_the_castle
 			random = { 
 				chance = 25
 				if = {
@@ -411,12 +192,8 @@ character_event = {
 		}
 	}
 
-	
-				
-			
-
 	option = { 
-		name = "EVTOPTWAYsiegesescapeattempt02"
+		name = "EVTOPTWAYsiegesescapeattempt02" #Brave the sewers.
 		ai_chance = { 
 			factor = 0.5 
 			modifier = {
@@ -439,10 +216,9 @@ character_event = {
 				factor = 0.75
 				trait = slothful 
 			}
-
-		}
-		
+		}		
 		hidden_tooltip = {
+			clr_character_flag = defending_the_castle
 			random = { 
 				chance = 25
 				if = { 
@@ -528,8 +304,6 @@ character_event = {
 				add_trait = leper
 			}
 		}
-
-		
 		random_list = {
 			75 = {
 				custom_tooltip = {
@@ -556,7 +330,13 @@ character_event = {
 	}
 
 	option = { 
-		name = "EVTOPTWAYsiegesescapeattempt03"
+		name = "EVTOPTWAYsiegesescapeattempt03" #Just give me a rope...
+		trigger = {
+			NOT = {
+				trait = weak
+				is_ill = yes
+			}
+		}
 		ai_chance = { 
 			factor = 0.1 
 			modifier = {
@@ -588,64 +368,64 @@ character_event = {
 				trait = clubfooted
 			}
 		}
-		
-		random = { 
-			chance = 50
-			if = {
-				limit = { trait = craven }
-				remove_trait = craven
-			}
-			add_trait = brave 
-			character_event = { id = 38270 }
-		}
-		random = {
-			chance = 50
-			if = {
-				limit = { trait = humble }
-				remove_trait = humble
-			}
-			add_trait = proud 
-			character_event = { id = 38261 }
-		}
-		random = { 
-			chance = 20
-			add_trait = lunatic
-			character_event = { id = 38304 }
-		}
-		random = { 
-			chance = 20
+		clr_character_flag = defending_the_castle
+		hidden_tooltip = {
+			random = { 
+				chance = 50
 				if = {
-					limit = { trait = paranoid }
-					remove_trait = paranoid
+					limit = { trait = craven }
+					remove_trait = craven
 				}
-				add_trait = trusting
-				character_event = { id = 38250 }
-		}
-		random = { 
-			chance = 20
-			if = {
-				limit = { trait = slothful }
-				remove_trait = slothful
-				character_event = { id = 38298 }
+				add_trait = brave 
+				character_event = { id = 38270 }
 			}
-			if = {
-				limit = { trait = content }
-				remove_trait = content
-				character_event = { id = 38299 }
+			random = {
+				chance = 50
+				if = {
+					limit = { trait = humble }
+					remove_trait = humble
+				}
+				add_trait = proud 
+				character_event = { id = 38261 }
+			}
+			random = { 
+				chance = 20
+				add_trait = lunatic
+				character_event = { id = 38304 }
+			}
+			random = { 
+				chance = 20
+					if = {
+						limit = { trait = paranoid }
+						remove_trait = paranoid
+					}
+					add_trait = trusting
+					character_event = { id = 38250 }
+			}
+			random = { 
+				chance = 20
+				if = {
+					limit = { trait = slothful }
+					remove_trait = slothful
+					character_event = { id = 38298 }
+				}
+				if = {
+					limit = { trait = content }
+					remove_trait = content
+					character_event = { id = 38299 }
+				}
+			}
+			random = { 
+				chance = 5
+				add_trait = wounded
+				character_event = { id = 38280 }
+			}
+			random = { 
+				chance = 10
+				add_trait = maimed
+				character_event = { id = 38281 }
 			}
 		}
-		random = { 
-			chance = 5
-			add_trait = wounded
-			character_event = { id = 38280 }
-		}
-		random = { 
-			chance = 10
-			add_trait = maimed
-			character_event = { id = 38281 }
-		}
-		
-
 		random_list = {
 			70 = {
 				custom_tooltip = { 
@@ -674,7 +454,7 @@ character_event = {
 	}
 
 	option = {
-		name = "EVTOPTWAYsiegesescapeattempt04"
+		name = "EVTOPTWAYsiegesescapeattempt04" #I think it's better that we wait.
 		ai_chance = {
 			factor = 5 
 			modifier = {
@@ -703,6 +483,7 @@ character_event = {
 			}
 		}
 		hidden_tooltip = {
+			clr_character_flag = defending_the_castle
 			random = { 
 				chance = 25
 				if = {
@@ -748,8 +529,6 @@ character_event = {
 	}
 }
 		
-		
-			
 #captured by the enemy
 
 character_event = {
@@ -786,7 +565,6 @@ character_event = {
 
 	option = {
 		name = "EVTTOOLTIPsiegeescaped"
-
 		add_character_modifier = {
 			name = modifier_hidden
 			duration = 730
@@ -794,24 +572,22 @@ character_event = {
 		hidden_tooltip = {
 			remove_character_modifier = left_at_siege
 			remove_character_modifier = stalwart_defender
-		}
-		
+		}		
 		add_character_modifier = {
 			name = escaped_siege
 			duration = 365
 		}
-		if = { 
-			any_dynasty_member = {
-				limit = {
-					NOT = { in_command = yes } 
-					at_location = ROOT
-					NOT = { has_character_modifier = modifier_hidden }
-				}
-				opinion = {
-					modifier = left_behind
-					who = ROOT
-					months = 12
-				}
+		any_courtier = {
+			limit = {
+				is_close_relative = ROOT
+				in_command = no
+				at_location = ROOT
+				NOT = { has_character_modifier = modifier_hidden }
+			}
+			opinion = {
+				modifier = left_behind
+				who = ROOT
+				months = 12
 			}
 		}
 	}
@@ -830,29 +606,30 @@ character_event = {
 	trigger = { is_alive = yes }
 
 	option = {
-	name = "EVTTOOLTIPsiegeescaped"
-		remove_character_modifier = stalwart_defender
+		name = "EVTTOOLTIPsiegeescaped"
 		add_character_modifier = {
 			name = modifier_hidden
 			duration = 730
+		}
+		hidden_tooltip = {
+			remove_character_modifier = left_at_siege
+			remove_character_modifier = stalwart_defender
 		}
 		add_character_modifier = {
 			name = escaped_siege
 			duration = 365
 		}
-		
-		if = { 
-			any_dynasty_member = {
-				limit = {
-					NOT = { in_command = yes }
-					at_location = ROOT
-					NOT = { has_character_modifier = modifier_hidden }
-				}
-				opinion = {
-					modifier = left_behind
-					who = ROOT
-					months = 12
-				}
+		any_courtier = {
+			limit = {
+				is_close_relative = ROOT
+				in_command = no
+				at_location = ROOT
+				NOT = { has_character_modifier = modifier_hidden }
+			}
+			opinion = {
+				modifier = left_behind
+				who = ROOT
+				months = 12
 			}
 		}
 	}
@@ -872,27 +649,29 @@ character_event = {
 
 	option = {
 		name = "EVTTOOLTIPsiegeescaped"
-		remove_character_modifier = stalwart_defender
 		add_character_modifier = {
 			name = modifier_hidden
 			duration = 730
+		}
+		hidden_tooltip = {
+			remove_character_modifier = left_at_siege
+			remove_character_modifier = stalwart_defender
 		}
 		add_character_modifier = {
 			name = escaped_siege
 			duration = 365
 		}
-		if = { 
-			any_dynasty_member = {
-				limit = {
-					NOT = { in_command = yes }
-					at_location = ROOT
-					NOT = { has_character_modifier = modifier_hidden }
-				}
-				opinion = {
-					modifier = left_behind
-					who = ROOT
-					months = 12
-				}
+		any_courtier = {
+			limit = {
+				is_close_relative = ROOT
+				in_command = no
+				at_location = ROOT
+				NOT = { has_character_modifier = modifier_hidden }
+			}
+			opinion = {
+				modifier = left_behind
+				who = ROOT
+				months = 12
 			}
 		}
 	}
@@ -920,29 +699,629 @@ character_event = {
 					imprison = ROOT 
 					clr_character_flag = captured
 					hidden_tooltip = {
-						any_dynasty_member = {
-							limit = { 
-								at_location = ROOT 
+						remove_character_modifier = left_at_siege
+						remove_character_modifier = stalwart_defender
+						any_courtier = {
+							limit = {
+								is_close_relative = ROOT
+								in_command = no
+								at_location = ROOT
+								NOT = { has_character_modifier = modifier_hidden }
 							}
 							opinion = {
 								modifier = left_behind
-								who = FROM
+								who = ROOT
 								months = 12
 							}
-						}	 
-						any_spouse = {								
-							limit = { 
-								at_location = ROOT 
-							}
-							opinion = {
-								modifier = left_behind
-								who = FROM
-								months = 12
-							}
-						} 
-					}	
+						}
+					}
 				}
 			}
 		}	
+	}
+}
+
+character_event = {
+	id = 1100099998
+	desc = "EVTDESCWAYsiegepulseflee"
+	title = "EVTNAMEWAYsiegepulseflee"
+	picture = "GFX_evt_Council_Around_Table"
+	border = "GFX_event_normal_frame_war"
+
+	is_triggered_only = yes
+	
+	option = {	
+		name = "EVTOPTWAYsiegepulseflee01" #We remain and defend the castle—with our lives, if need be.
+		trigger = {
+			OR = {
+				AND = {
+					scaled_wealth = 0.75
+					has_character_flag = personally_present_at_siege
+					has_character_flag = family_present_at_siege
+				}
+				scaled_wealth = 0.5
+			}
+		}
+		ai_chance = { 
+			factor = 0.5 
+			modifier = {
+				factor = 0
+				OR = {
+					trait = incapable
+					is_adult = no
+				}
+			}
+			modifier = {
+				factor = 5
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = personally_present_at_siege
+				NOT = { has_character_modifier = stalwart_defender }
+			}
+			add_character_modifier = {
+				name = stalwart_defender
+				duration = 180
+			}
+			hidden_tooltip = {
+				set_character_flag = defending_the_castle
+				remove_character_modifier = modifier_hidden
+				remove_character_modifier = left_at_siege
+				if = {
+					limit = {
+						NOT = {
+							trait = craven
+							trait = brave
+						}
+					}
+					random = {
+						chance = 25
+						add_trait = brave
+						character_event = { id = 38270 }
+					}
+				}
+				if = {
+					limit = { trait = craven }
+					random = {
+						chance = 25
+						remove_trait = craven
+						character_event = { id = 38296 }
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							trait = humble
+							trait = proud
+						}
+					}
+					random = {
+						chance = 25
+						add_trait = proud
+						character_event = { id = 38261 }
+					}
+				}
+				if = {
+					limit = { trait = humble }
+					random = {
+						chance = 25
+						remove_trait = humble
+					}
+				}
+			}
+		}
+		any_courtier = {
+			limit = { 
+				at_location = FROM
+				is_close_relative = ROOT
+				in_command = no
+				NOT = { has_character_modifier = left_at_siege }
+				NOT = {	has_character_modifier = modifier_hidden }
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPsiegeremain
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = left_at_siege
+						duration = 180
+					}
+					remove_character_modifier = modifier_hidden
+					remove_character_modifier = stalwart_defender
+				}
+			}
+		}
+		clr_character_flag = personally_present_at_siege
+		clr_character_flag = family_present_at_siege
+	}
+
+	option = {
+		name = "EVTOPTWAYsiegepulseflee02" #Send my family into hiding, I cannot risk them being captured.
+		trigger = {
+			scaled_wealth = 0.5
+			NOT = { has_character_flag = personally_present_at_siege }
+			has_character_flag = family_present_at_siege
+		}
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 5
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.25
+				trait = cruel
+			}
+			modifier = {
+				factor = 5
+				any_courtier = {
+					is_close_relative = ROOT
+					at_location = FROM
+					in_command = no
+					NOT = { has_character_modifier = left_at_siege }
+					NOT = {	has_character_modifier = modifier_hidden }
+					reverse_opinion = { who = ROOT value = 75 }
+				}
+			}
+		}
+		scaled_wealth = -0.5
+		hidden_tooltip = {
+			if = {
+				limit = {
+					NOT = {
+						trait = cruel
+						trait = kind
+					}
+				}
+				random = {
+					chance = 25
+					add_trait = kind
+					character_event = { id = 38268 }
+				}
+			}
+			if = {
+				limit = { trait = cruel }
+				random = {
+					chance = 25
+					remove_trait = cruel
+				}
+			}
+		}	
+		any_courtier = {
+			limit = { 
+				at_location = FROM
+				is_close_relative = ROOT
+				in_command = no
+				NOT = { has_character_modifier = left_at_siege }
+				NOT = {	has_character_modifier = modifier_hidden }
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPsiegehide
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = modifier_hidden
+						duration = 180
+					}
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
+			}
+		}
+		clr_character_flag = personally_present_at_siege
+		clr_character_flag = family_present_at_siege
+	}
+	
+	option = {
+		name = "EVTOPTWAYsiegepulseflee03" #I will take my family and hide until it is safe.
+		trigger = {
+			scaled_wealth = 0.75
+			has_character_flag = personally_present_at_siege
+			has_character_flag = family_present_at_siege
+		}
+		ai_chance = { 
+			factor = 0.25
+			modifier = {
+				factor = 20
+				trait = craven
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					is_female = yes
+					NOT = { martial = 8 }
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+		}			
+		scaled_wealth = -0.75
+		hidden_tooltip = {
+			remove_character_modifier = stalwart_defender
+			remove_character_modifier = left_at_siege
+			if = {
+				limit = {
+					NOT = {
+						trait = brave
+						trait = craven
+					}
+				}
+				random = {
+					chance = 20
+					add_trait = craven
+					character_event = { id = 38257 }
+				}
+			}
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 20
+					remove_trait = brave
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						trait = diligent
+						trait = slothful
+					}
+				}
+				random = {
+					chance = 20
+					add_trait = diligent
+					character_event = { id = 38256 }
+				}
+			}
+			if = {
+				limit = { trait = slothful }
+				random = {
+					chance = 20
+					remove_trait = slothful
+					character_event = { id = 38298 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_character_modifier = modifier_hidden }
+			}
+			add_character_modifier = {
+				name = modifier_hidden
+				duration = 180
+			}
+		}
+		any_courtier = {
+			limit = { 
+				at_location = FROM
+				is_close_relative = ROOT
+				in_command = no
+				NOT = { has_character_modifier = left_at_siege }
+				NOT = {	has_character_modifier = modifier_hidden }
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPsiegehide
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = modifier_hidden
+						duration = 180
+					}
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
+			}
+		}
+		clr_character_flag = personally_present_at_siege
+		clr_character_flag = family_present_at_siege
+	}
+	
+	option = {
+		name = "EVTOPTWAYsiegepulseflee04" #Send my family into hiding. I will remain here.
+		trigger = {
+			scaled_wealth = 0.5
+			has_character_flag = personally_present_at_siege
+			has_character_flag = family_present_at_siege
+		}
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					trait = incapable
+					is_adult = no
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+				NOT = { trait = craven }
+			}
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 0.25
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				any_courtier = {
+					is_close_relative = ROOT
+					at_location = FROM
+					in_command = no
+					NOT = { has_character_modifier = left_at_siege }
+					NOT = { has_character_modifier = modifier_hidden }
+					reverse_opinion = { who = ROOT value = 75 }
+				}
+			}
+		}
+		scaled_wealth = -0.5
+		if = {
+			limit = {
+				NOT = { has_character_modifier = stalwart_defender }
+			}
+			add_character_modifier = {
+				name = stalwart_defender
+				duration = 180
+			}
+		}
+		hidden_tooltip = {
+			set_character_flag = defending_the_castle
+			remove_character_modifier = modifier_hidden	
+			remove_character_modifier = left_at_siege
+			if = {
+				limit = {
+					NOT = {
+						trait = cruel
+						trait = kind
+					}
+				}
+				random = {
+					chance = 20
+					add_trait = kind
+					character_event = { id = 38268 }
+				}
+			}
+			if = {
+				limit = { trait = cruel }
+				random = {
+					chance = 20
+					remove_trait = cruel
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						trait = craven
+						trait = brave
+					}
+				}
+				random = {
+					chance = 20
+					add_trait = brave
+					character_event = { id = 38270 }
+				}
+			}
+			if = {
+				limit = { trait = craven }
+				random = {
+					chance = 20
+					remove_trait = craven
+					character_event = { id = 38296 }
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						trait = humble
+						trait = proud
+					}
+				}
+				random = {
+					chance = 20
+					add_trait = proud
+					character_event = { id = 38261 }
+				}
+			}
+			if = {
+				limit = { trait = humble }
+				random = {
+					chance = 20
+					remove_trait = humble
+				}
+			}
+		}
+		any_courtier = {
+			limit = { 
+				at_location = FROM
+				is_close_relative = ROOT
+				in_command = no
+				NOT = { has_character_modifier = left_at_siege }
+				NOT = {	has_character_modifier = modifier_hidden }
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPsiegehide
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = modifier_hidden
+						duration = 180
+					}
+					remove_character_modifier = left_at_siege
+					remove_character_modifier = stalwart_defender
+				}
+			}
+		}
+		clr_character_flag = personally_present_at_siege
+		clr_character_flag = family_present_at_siege
+	}
+	
+	option = {
+		name = "EVTOPTWAYsiegepulseflee05" #I will go into hiding at once. Good luck!
+		trigger = {
+			scaled_wealth = 0.5
+			has_character_flag = personally_present_at_siege
+			NOT = { has_character_flag = family_present_at_siege }
+		}
+		ai_chance = { 
+			factor = 0.25
+			modifier = {
+				factor = 20
+				trait = craven
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					is_female = yes
+					NOT = { martial = 8 }
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+		}			
+		scaled_wealth = -0.5
+		hidden_tooltip = {
+			remove_character_modifier = stalwart_defender
+			remove_character_modifier = left_at_siege
+			if = {
+				limit = {
+					NOT = {
+						trait = brave
+						trait = craven
+					}
+				}
+				random = {
+					chance = 20
+					add_trait = craven
+					character_event = { id = 38257 }
+				}
+			}
+			if = {
+				limit = { trait = brave }
+				random = {
+					chance = 20
+					remove_trait = brave
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_character_modifier = modifier_hidden }
+			}
+			add_character_modifier = {
+				name = modifier_hidden
+				duration = 730
+			}
+		}
+		clr_character_flag = personally_present_at_siege
+		clr_character_flag = family_present_at_siege
+	}
+	
+	option = {	
+		name = "EVTOPTWAYsiegepulseflee06" #There is nothing to be done. It is in God's hands now.
+		trigger = {
+			OR = {
+				AND = {
+					NOT = { scaled_wealth = 0.75 }
+					has_character_flag = personally_present_at_siege
+					has_character_flag = family_present_at_siege
+				}
+				NOT = { scaled_wealth = 0.5 }
+			}
+		}
+		ai_chance = { 
+			factor = 0.5
+		}		
+		if = {
+			limit = {
+				has_character_flag = personally_present_at_siege
+				NOT = { has_character_modifier = stalwart_defender }
+			}
+			add_character_modifier = {
+				name = stalwart_defender
+				duration = 180
+			}
+		}
+		if = {
+			limit = { has_character_flag = personally_present_at_siege }
+			hidden_tooltip = {
+				set_character_flag = defending_the_castle
+				remove_character_modifier = modifier_hidden
+				remove_character_modifier = left_at_siege
+				if = {
+					limit = {
+						NOT = {
+							trait = zealous
+							trait = cynical
+						}
+					}
+					random = {
+						chance = 10
+						add_trait = zealous
+						character_event = { id = 38269 }
+					}
+				}
+				if = {
+					limit = { trait = cynical }
+					random = {
+						chance = 10
+						remove_trait = cynical
+					}
+				}
+			}
+		}
+		any_courtier = {
+			limit = { 
+				at_location = FROM
+				is_close_relative = ROOT
+				in_command = no
+				NOT = { has_character_modifier = left_at_siege }
+				NOT = {	has_character_modifier = modifier_hidden }
+			}
+			custom_tooltip = {
+				text = EVTTOOLTIPsiegeremain
+				hidden_tooltip = {
+					add_character_modifier = {
+						name = left_at_siege
+						duration = 180
+					}
+					remove_character_modifier = modifier_hidden
+					remove_character_modifier = stalwart_defender
+				}
+			}
+		}
+		clr_character_flag = personally_present_at_siege
+		clr_character_flag = family_present_at_siege
 	}
 }
