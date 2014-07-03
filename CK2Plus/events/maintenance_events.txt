@@ -304,12 +304,14 @@ character_event = { # Allow AI plotting
 	id = 1000182856
 	is_triggered_only = yes
 	hide_window = yes
+	
+	min_age = 16
+	prisoner = no
+	capable_only = yes
+	ai = yes
 
 	trigger = {
-		is_adult = yes
-		prisoner = no
 		ai = yes
-		NOT = { trait = incapable }
 		NOT = { has_character_flag = allow_plotting }
 		NOT = {
 			has_plot = plot_gain_liege_title
@@ -2030,8 +2032,14 @@ character_event = {
 character_event = {
 	id = 1000182864
 	is_triggered_only = yes
-	only_rulers = yes
+
 	hide_window = yes
+	
+	only_rulers = yes
+	only_men = yes
+	min_age = 16
+	ai = yes
+	
 	trigger = {
 		has_ambition = obj_find_lover
 		is_female = no
@@ -2163,10 +2171,11 @@ character_event = { # Remove Rebel and set opinion modifiers
 character_event = { # Byzantium is reclaimed by an Orthodox ruler
 	id = 1000182868
 	picture = "GFX_evt_council"
+	
+	only_rulers = yes
 
 	trigger = {
 		war = no
-		is_ruler = yes
 		independent = yes
 		culture_group = byzantine
 		OR = {
@@ -2213,10 +2222,11 @@ character_event = { # Byzantium is reclaimed by an Orthodox ruler
 
 character_event = { # Convert Latin Empire to Byzantine Empire if the holder is no longer Catholic
 	id = 1000182869
+	
+	only_rulers = yes
 
 	trigger = {
 		war = no
-		is_ruler = yes
 		has_landed_title = e_latin_empire
 		NOT = {
 			OR = {
@@ -2378,10 +2388,11 @@ character_event = { # Independent Opinion Modifiers
 
 character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the title holder is not Orthodox or Hellenic
 	id = 1000182873
+	
+	only_rulers = yes
 
 	trigger = {
 		war = no
-		is_ruler = yes
 		has_landed_title = e_byzantium
 		NOT = {
 			religion = orthodox
@@ -2603,10 +2614,12 @@ character_event = { # Vassalize the Knights Templar and Knights Hospitaler to th
 character_event = {
 	id = 1000182162 #Add Bloodlust trait
 	
-	hide_window = yes	
+	hide_window = yes
+
+	min_age = 16
+	ai = yes
 
 	trigger = {
-		is_adult = yes
 		OR = {
 			culture = mongol
 			culture = nahuatl
@@ -2709,10 +2722,11 @@ character_event = {
 	hide_from = yes
 	hide_window = yes
 	
+	only_rulers = yes
+	
 	trigger = {
 		year = 1066
 		NOT = { year = 1075 }
-		is_ruler = yes
 		has_landed_title = k_france
 		k_england = { holder_scope = { culture = norman } }
 		k_england = { holder_scope = { war = no } }
@@ -3130,10 +3144,11 @@ character_event = {
 	picture = "GFX_evt_spymaster"
 	hide_window = yes
 	
+	only_rulers = yes
+	
 	trigger = {
 		year = 1066
 		NOT = { year = 1075 }
-		is_ruler = yes
 		independent = yes
 		has_landed_title = d_uppland
 		has_landed_title = k_sweden
@@ -3153,8 +3168,9 @@ character_event = {
 	id = 1000182702
 	hide_window = yes
 	
-	trigger = {
-		is_ruler = yes	
+	only_rulers = yes
+	
+	trigger = {	
 		higher_tier_than = duke		
 		OR = {
 			is_republic = yes

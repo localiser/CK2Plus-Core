@@ -1,13 +1,14 @@
 # A concubine falls in love with her man
 character_event = {
 	id = 1000150000
-	desc = "EVTDESC1000150000"
+	desc = OK
 	picture = GFX_evt_lovers
 
 	only_women = yes
 	max_age = 40
 	capable_only = yes
 	prisoner = no
+	ai = yes
 	
 	trigger = {
 		prisoner = no
@@ -194,14 +195,8 @@ character_event = {
 
 
 	option = {
-		name = "EVTOPTA1000150000" # Consort decides to ask him
-		ai_chance = { factor = 90 }
+		name = OK # Consort decides to ask him
 		consort = { character_event = { id = 1000150001 tooltip = EVTTOOLTIP1000150000 } }
-	}
-
-	option = {
-		name = "EVTOPTB1000150000" # Consort decides not to ask him
-		ai_chance = { factor = 10 }
 	}
 }
 
@@ -231,9 +226,10 @@ character_event = {
 #Concubine wishes to become her man's wife
 character_event = {
 	id = 1000150002
-	desc = "EVTDESC1000150002"
+	desc = OK
 	picture = GFX_evt_lovers
 
+	ai = yes
 	only_women = yes
 	max_age = 40
 	capable_only = yes
@@ -345,14 +341,9 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA1000150002"
+		name = OK
 		ai_chance = { factor = 90 }
 		consort = { character_event = { id = 1000150003  } }
-	}
-
-	option = {
-		name = "EVTOPTB1000150002"
-		ai_chance = { factor = 10 }
 	}
 }
 
@@ -684,13 +675,13 @@ character_event = { # Jealous wife tries to convince husband to set beloved conc
 
 character_event = { # Jealous wife tries to off beloved concubine
 	id = 1000150007
-	desc = "EVTDESC1000150007"
+	desc = OK
 	picture = GFX_evt_shadow
 	
 	is_triggered_only = yes
 	
 	option = { # Murder attempt
-		name = "EVTOPTA1000150007"
+		name = OK
 		random_list = {
 			50 = {
 				death = {
@@ -1051,13 +1042,14 @@ character_event = { # Man falls out of love with concubine, and into love with s
 
 character_event = { # Forced concubine attempts to escape
 	id = 1000150012
-	desc = "EVTDESC1000150012"
+	desc = OK
 	picture = GFX_evt_quarrel
 	
 	only_women = yes
 	max_age = 40
 	capable_only = yes
 	prisoner = no
+	ai = yes
 	
 	trigger = {
 		is_consort = yes
@@ -1076,8 +1068,7 @@ character_event = { # Forced concubine attempts to escape
 	}
 	
 	mean_time_to_happen = {
-	months = 600
-		
+	months = 600	
 		modifier = {
 			factor = 0.75
 			trait = brave
@@ -1091,7 +1082,7 @@ character_event = { # Forced concubine attempts to escape
 	
 	#Character decides to try and escape
 	option = {
-		name = "EVTOPTA1000150012A"
+		name = OK
 		random_list = {
 			50 = {
 				liege = { character_event = { id = 1000150013 } }
@@ -1100,11 +1091,6 @@ character_event = { # Forced concubine attempts to escape
 				liege = { character_event = { id = 1000150014 } }
 			}
 		}
-	}
-		
-	#Character decides not to risk it
-	option = {
-		name = "EVTOPTA1000150012B"
 	}
 }
 
@@ -1201,10 +1187,10 @@ character_event = { # Wife unhappy that primary heir is the child of a concubine
 	capable_only = yes
 	prisoner = no
 	only_women = yes
-	num_of_children = 1
 	min_age = 16
 	
 	trigger = {
+		num_of_children = 1
 		is_married = yes
 		spouse = { demesne_size = 5 }
 		spouse = {
@@ -1280,8 +1266,8 @@ character_event = { # Son informed of mother's attempt to gain him land
 	is_triggered_only = yes
 	
 	option = { # Hope for the best
-		name = "EVTOPTA1000150016"
-		father = { character_event = { id = 1000150017 days = 2 tooltip = "EVTTOOLTIP1000150016" } }
+		name = OK
+		father = { character_event = { id = 1000150017 days = 2 } }
 	}
 }
 	
@@ -1356,9 +1342,10 @@ character_event = {
 # Concubine has had it with mistress
 character_event = {
 	id = 1000150019
-	desc = "EVTDESC1000150018"
+	desc = OK
 	picture = GFX_evt_quarrel
 	
+	ai = yes
 	only_women = yes
 	max_age = 40
 	capable_only = yes
@@ -1476,7 +1463,7 @@ character_event = {
 	}
 	
 	option = { #Looks like my man will be a widower...
-		name = "EVTOPTA1000150019A"
+		name = OK
 		character_event = {
 			id = 1000150021
 			days = 6
@@ -1505,9 +1492,10 @@ character_event = {
  # Concubine joins plot to kill mistress
 character_event = {
 	id = 1000150020
-	desc = "EVTDESC1000150019"
+	desc = OK
 	picture = GFX_evt_quarrel
 	
+	ai = yes
 	only_women = yes
 	max_age = 40
 	capable_only = yes
@@ -1550,7 +1538,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA1000150019A"
+		name = "OK"
 		liege = {
 			any_consort = {
 				if = {
@@ -1586,7 +1574,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = { # Farewell to my sow of a mistress!
-		name = "EVTOPTA1000150020A"
+		name = "OK"
 		if = {
 			limit = {
 				liege = {
@@ -1642,7 +1630,7 @@ character_event = {
 						character_event = {
 							id = 1000150023
 							days = 4
-							tooltip = "EVTTOOLTIP1000150022A"
+							tooltip = "EVTTOOLTIP1000150023A"
 						}
 					}
 				}
@@ -1651,7 +1639,7 @@ character_event = {
 						character_event = {
 							id = 1000150024
 							days = 4
-							tooltip = "EVTTOOLTIP1000150022A"
+							tooltip = "EVTTOOLTIP1000150024A"
 						}
 					}
 				}
@@ -1688,7 +1676,7 @@ character_event = {
 						character_event = {
 							id = 1000150024
 							days = 4
-							tooltip = "EVTTOOLTIP1000150022A"
+							tooltip = "EVTTOOLTIP1000150024A"
 						}
 					}
 				}

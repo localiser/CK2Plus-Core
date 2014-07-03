@@ -1279,6 +1279,7 @@ character_event = {
 	capable_only = yes
 	prisoner = no
 	min_age = 16
+	only_men = yes
 
 	trigger = {
 		liege = { NOT = { has_character_flag = lifetime_appointments } }
@@ -1286,7 +1287,6 @@ character_event = {
 		liege = { religion_group = ROOT }
 		NOT = { has_character_flag = ask_not_council }
 		war = no
-		is_female = no
 		NOT = { liege = { spouse = { character = ROOT } } }
 		martial = 10
 		independent = no
@@ -1572,8 +1572,8 @@ character_event = {
 		OR = {
 			is_female = no
 			is_ruler = yes
-			liege = { dynasty = FROM }
-			liege = { mother = { character = FROM } }
+			liege = { dynasty = ROOT }
+			liege = { mother = { character = ROOT } }
 		}
 		intrigue = 10
 		independent = no
@@ -1862,8 +1862,8 @@ character_event = {
 		OR = {
 			is_female = no
 			is_ruler = yes
-			liege = { dynasty = FROM }
-			liege = { mother = { character = FROM } }
+			liege = { dynasty = ROOT }
+			liege = { mother = { character = ROOT } }
 		}
 		stewardship = 10
 		independent = no
@@ -2131,6 +2131,7 @@ character_event = {
 	capable_only = yes
 	prisoner = no
 	min_age = 16
+	only_men = yes
 
 	trigger = {
 		liege = { NOT = { has_character_flag = lifetime_appointments } }
@@ -2139,7 +2140,6 @@ character_event = {
 		NOT = { has_character_flag = ask_not_council }
 		war = no
 		NOT = { liege = { spouse = { character = ROOT } } }
-		is_female = no
 		learning = 10
 		independent = no
 		is_councillor = no
@@ -2423,6 +2423,7 @@ character_event = {
 	capable_only = yes
 	prisoner = no
 	min_age = 16
+	only_men = yes
 
 	trigger = {
 		liege = { NOT = { has_character_flag = lifetime_appointments } }
@@ -2431,7 +2432,6 @@ character_event = {
 		NOT = { has_character_flag = ask_not_council }
 		war = no
 		NOT = { liege = { spouse = { character = ROOT } } }
-		is_female = no
 		diplomacy = 10
 		independent = no
 		is_councillor = no
