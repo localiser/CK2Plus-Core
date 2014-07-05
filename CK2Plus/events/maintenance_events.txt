@@ -88,7 +88,7 @@ character_event = { # This event copies empires Crown Laws to de Jure Kingdoms
 
 	desc = "EVTDESC1000182853"
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -202,7 +202,7 @@ character_event = { # AI plot check
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -291,7 +291,7 @@ character_event = { # Cancel AI plot if too few helpers and has taken too long
 	}
 
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -330,7 +330,7 @@ character_event = { # Allow AI plotting
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 0.5
@@ -418,7 +418,7 @@ character_event = { # Fix Laws if CA differs from max law level for the CA
 
 	desc = "EVTDESC1000182857"
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -649,7 +649,7 @@ character_event = { # Remove Tyrant Trait on non-rulers
 	}
 
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -729,7 +729,7 @@ character_event = { # Shatter Empire if too small
 		clr_character_flag = empire_is_disbanding
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -785,7 +785,7 @@ character_event = { # Remove Crowned by Pope if not the Kaiser
 		NOT = { has_landed_title = e_hre }
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -1716,7 +1716,7 @@ character_event = { # AI Spouse finder
 		treasury = 10
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -2052,7 +2052,7 @@ character_event = {
 		NOT = { has_character_flag = employed_debutante }
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -2074,6 +2074,9 @@ character_event = {
 #Remove just
 character_event = {
 	id = 1000182865
+	desc = "EVTDESC1000182865"
+	picture = "GFX_evt_emissary"
+	
 	is_triggered_only = yes
 
 	trigger = {
@@ -2083,8 +2086,6 @@ character_event = {
 	immediate = {
 		remove_trait = just
 	}
-
-	desc = "EVTDESC1000182865"
 
 	option = {
 		name = "EVTOPTA1000182865"
@@ -2107,7 +2108,7 @@ character_event = { # Remove Loyalist
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -2222,6 +2223,8 @@ character_event = { # Byzantium is reclaimed by an Orthodox ruler
 
 character_event = { # Convert Latin Empire to Byzantine Empire if the holder is no longer Catholic
 	id = 1000182869
+	desc = "EVTDESC1000182869"
+	picture = "GFX_evt_council"
 	
 	only_rulers = yes
 
@@ -2238,8 +2241,6 @@ character_event = { # Convert Latin Empire to Byzantine Empire if the holder is 
 			}
 		}
 	}
-
-	desc = "EVTDESC1000182869"
 
 	mean_time_to_happen = {
 		days = 1
@@ -2361,7 +2362,9 @@ character_event = { # Independent Opinion Modifiers
 		ai = yes
 	}
 
-	mean_time_to_happen = { days = 1 }
+	weight_multiplier = {
+		days = 1
+	}
 
 	immediate = {
 		primary_title = {
@@ -2388,6 +2391,8 @@ character_event = { # Independent Opinion Modifiers
 
 character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the title holder is not Orthodox or Hellenic
 	id = 1000182873
+	desc = "EVTDESC1000182873"
+	picture = "GFX_evt_council"
 	
 	only_rulers = yes
 
@@ -2405,8 +2410,6 @@ character_event = { # Byzantium Auto-Destroy Mechanic. Destroys Byzantium if the
 			religion = mystery_mithras
 		}
 	}
-
-	desc = "EVTDESC1000182873"
 
 	mean_time_to_happen = {
 		days = 1
@@ -2512,7 +2515,7 @@ character_event = { # Non-Holy Order gain title
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 
@@ -2598,7 +2601,7 @@ character_event = { # Vassalize the Knights Templar and Knights Hospitaler to th
 		}
 	}
 
-	mean_time_to_happen = {
+	weight_multiplier = {
 		days = 1
 	}
 

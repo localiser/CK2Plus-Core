@@ -155,21 +155,33 @@ character_event = {
 	desc = "EVTDESC1000094003"
 	picture = "GFX_evt_child_bully"
 	
-	is_triggered_only = yes
-	
-	min_age = 6
-	max_age = 16
+	min_age = 7
+	max_age = 15
 
 	trigger = {
 		religion_group = zoroastrian_group
 		father = { is_alive = yes }
-		NOT = {
-				has_character_flag = had_sedreh_pushi
-			}
+		NOT = { has_character_flag = had_sedreh_pushi }
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		months = 12
+		modifier = {
+			factor = 0.5
+			age = 11
+		}
+		modifier = {
+			factor = 0.5
+			age = 12
+		}
+		modifier = {
+			factor = 0.5
+			age = 13
+		}
+		modifier = {
+			factor = 0.1
+			age = 14
+		}
 	}
 	
 	option = {
