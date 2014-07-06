@@ -19,8 +19,16 @@ vassal_decisions = {
 		}
 		effect = {
 			any_liege = {
-				limit = { ai = no }
+				limit = { 
+					ai = no
+					NOT = { character = FROM }
+				}
 				character_event = { id = SSI.60 }
+			}
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = SSI.72 }
+				}
 			}
 			death = {
 				death_reason = death_sacrificed

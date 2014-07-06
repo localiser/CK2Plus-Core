@@ -2486,7 +2486,110 @@ decisions = {
 		ai_will_do = {
 			factor = 0
 		}
-	}	
+	}
+	
+	convert_to_hinduism = {
+		potential = {
+			is_playable = yes
+			religion_group = indian_group
+			NOT = { religion = hindu }
+			is_theocracy = no
+		}
+		allow = {
+			is_adult = yes
+			prestige = 500
+			NOT = { trait = zealous }
+			any_realm_province = {
+				religion = hindu
+			}
+			custom_tooltip = {
+				text = indian_has_not_converted
+				NOT = { has_character_flag = india_converted }
+			}
+		}
+		effect = {
+			if = {
+				limit = { higher_tier_than = BARON }
+				religion_authority = {
+					modifier = ruler_converted_from
+				}
+			}
+			religion = hindu
+			if = {
+				limit = { higher_tier_than = BARON }
+				hidden_tooltip = {
+					religion_authority = {
+						modifier = ruler_converted_to
+					}
+				}
+			}
+			set_character_flag = india_converted
+			prestige = -500
+			piety = 100
+			hidden_tooltip = { character_event = { id = RoI.110 } } # Choose branch
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = { # Slow down
+				factor = 0.1
+			}
+			modifier = { # Don't convert away from liege's religion
+				factor = 0
+				liege = { religion = ROOT }
+			}
+			modifier = { # Don't start rocking the boat if all your provinces are under foreign religious influence
+				factor = 0
+				NOT = {
+					any_realm_province = {
+						religion_group = indian_group
+					}
+				}
+			}
+			modifier = { # NEVER consider it unless your liege or, if independent, all your vassals are Hindu and they don't like you
+				factor = 0
+				NOT = {
+					OR = {
+						AND = {
+							independent = yes
+							NOT = {
+								any_vassal = {
+									NOT = { religion = hindu }
+								}
+							}
+							NOT = {
+								any_vassal = {
+									opinion = {
+										who = ROOT
+										value = 25
+									}
+								}
+							}
+						}
+						AND = {
+							liege = { religion = hindu }
+							opinion = {
+								who = liege
+								value = 25
+							}
+						}
+					}
+				}
+			}
+			modifier = { # More likely to do it sooner
+				factor = 3
+				trait = cynical
+			}
+			modifier = { # Sometimes you really need to hurry up
+				factor = 5
+				higher_tier_than = DUKE
+				num_of_vassals = 5
+			}
+		}
+	}
 	
 	convert_to_buddhism = {
 		potential = {

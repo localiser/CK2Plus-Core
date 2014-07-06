@@ -6,8 +6,6 @@
 
 # Written by Tobias Bodlund & Henrik Fåhraeus
 
-
-
 # Choose patron deity 1
 character_event = {
 	id = RoI.100
@@ -2712,20 +2710,30 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_RoI_169
-		random_list = {
-			50 = { hidden_tooltip = { character_event = { id = RoI.170 } } }
-			50 = { hidden_tooltip = { character_event = { id = RoI.171 } } }
+		hidden_tooltip = {
+			random_list = {
+				50 = { character_event = { id = RoI.170 } }
+				50 = { character_event = { id = RoI.171 } }
+			}
 		}
 	}
 	option = {
 		name = EVTOPTB_RoI_169
-			50 = { hidden_tooltip = { character_event = { id = RoI.172 days = 10 } } }
-			50 = { hidden_tooltip = { character_event = { id = RoI.173 days = 10 } } }
+		hidden_tooltip = {
+			random_list = {
+				50 = { character_event = { id = RoI.172 days = 10 } }
+				50 = { character_event = { id = RoI.173 days = 10 } }
+			}
+		}
 	}
 	option = {
 		name = EVTOPTC_RoI_169
-			50 = { hidden_tooltip = { character_event = { id = RoI.174 days = 3 } } }
-			50 = { hidden_tooltip = { character_event = { id = RoI.175 days = 3 } } }
+		hidden_tooltip = {
+			random_list = {
+				50 = { character_event = { id = RoI.174 days = 3 } }
+				50 = { character_event = { id = RoI.175 days = 3 } }
+			}
+		}
 	}
 	option = {
 		name = EVTOPTD_RoI_169
@@ -3107,10 +3115,10 @@ character_event = {
 	ai = no
 	only_capable = yes
 	prisoner = no
-	min_age = 16
 	
 	trigger = {
 		has_dlc = "Rajas of India"
+		is_adult = yes
 		NOT = { has_global_flag = marco_polo_persia }
 		year = 1200
 		capital_scope = {
@@ -3420,7 +3428,7 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA_SoA_400
+		name = EVTOPTA_RoI_400
 		random_realm_character = {
 			limit = {
 				religion_group = indian_group

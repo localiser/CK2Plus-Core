@@ -8361,16 +8361,12 @@ character_event = {
 		war = no
 		in_command = no
 		num_of_friends = 1
+		num_of_children = 2
 		NOT = {
 			religion_group = muslim
-		}
-		NOT = {
 			lifestyle_traits = 1
-		}
-		NOT = {
 			has_character_flag = LE_ST
 		}
-		num_of_children = 2
 		any_friend = {
 			war = no
 			in_command = no
@@ -8379,15 +8375,11 @@ character_event = {
 			OR = {
 				AND = {
 					is_female = no
-					ROOT = {
-						is_female = no
-					}
+					ROOT = { is_female = no }
 				}
 				AND = {
 					is_female = yes
-					ROOT = {
-						is_female = yes
-					}
+					ROOT = { is_female = yes }
 				}
 			}
 		}
@@ -8416,13 +8408,24 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA100240
+		name = EVTOPTA100240 #I'd really like to know more about celibacy
+		set_character_flag = LE_ST
 		random_friend = {
 			limit = {
 				war = no
 				in_command = no
 				prisoner = no
 				trait = celibate
+				OR = {
+					AND = {
+						is_female = no
+						ROOT = { is_female = no }
+					}
+					AND = {
+						is_female = yes
+						ROOT = { is_female = yes }
+					}
+				}
 			}
 			character_event = {
 				id = 100241
@@ -8433,13 +8436,23 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTB100240
+		name = EVTOPTB100240 #On second thought, what were [Root.GetSheHe] thinking!?
 		random_friend = {
 			limit = {
 				war = no
 				in_command = no
 				prisoner = no
 				trait = celibate
+				OR = {
+					AND = {
+						is_female = no
+						ROOT = { is_female = no }
+					}
+					AND = {
+						is_female = yes
+						ROOT = { is_female = yes }
+					}
+				}
 			}
 			tooltip = {
 				opinion = {
@@ -8457,20 +8470,12 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTC100240
-		prestige = 5
-		if = {
-			limit = {
-				trait = lustful
-			}
-			hidden_tooltip = {
-				character_event = {
-					id = 5061 #Hedonism
-					days = 30
-					random = 30
-				}
-			}
+		name = EVTOPTC100240 #No, celibacy certainly isn't for me...
+		trigger = {
+			trait = lustful
 		}
+		prestige = 5
+		add_trait = hedonist
 	}
 }
 
@@ -8483,13 +8488,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA100241
+		name = EVTOPTA100241 #...but I don't think celibacy is for you
 		FROM = {
-			opinion = {
-				modifier = opinion_sad
-				who = ROOT
-				years = 2
-			}
 			character_event = {
 				id = 100243
 				days = 7
@@ -8499,7 +8499,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTB100241
+		name = EVTOPTB100241 #Everyone should try celibacy!
 		FROM = {
 			character_event = {
 				id = 100244
@@ -8539,6 +8539,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA100243
+		clr_character_flag = LE_ST
 		opinion = {
 			modifier = opinion_sad
 			who = FROM
@@ -8556,16 +8557,17 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA100244
-		character_event = {
-			id = 5062
-			days = 7
-			random = 7
-			tooltip = EVTTOOLTIP5062 #Onwards - to celibacy!
+		name = EVTOPTA100244 #I choose God's love
+		clr_character_flag = LE_ST
+		add_trait = celibate
+		if = {
+			limit = { has_character_modifier = sweet_temptation }
+			remove_character_modifier = sweet_temptation
 		}
 	}
 	option = {
 		name = EVTOPTB100243
+		clr_character_flag = LE_ST
 		prestige = 5
 	}
 }
@@ -8586,14 +8588,9 @@ character_event = {
 		num_of_friends = 1
 		NOT = {
 			religion_group = muslim
-		}
-		NOT = {
 			lifestyle_traits = 1
-		}
-		NOT = {
 			has_character_flag = LE_ST
 		}
-		num_of_children = 2
 		any_friend = {
 			war = no
 			in_command = no
@@ -8625,7 +8622,8 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA100250
+		name = EVTOPTA100250 #Do I want encouragement or discouragement?
+		set_character_flag = LE_ST
 		random_friend = {
 			limit = {
 				war = no
@@ -8642,7 +8640,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTB100250
+		name = EVTOPTB100250 #I don't want to become a hedonist like my friend!
 		random_friend = {
 			limit = {
 				war = no
@@ -8665,38 +8663,6 @@ character_event = {
 			}
 		}
 	}
-	option = {
-		name = EVTOPTC100250
-		prestige = 5
-		if = {
-			limit = {
-				trait = chaste
-				NOT = {
-					religion_group = muslim
-				}
-			}
-			hidden_tooltip = {
-				character_event = {
-					id = 5060 #Celibacy/Hedonism
-					days = 30
-					random = 30
-				}
-			}
-		}
-		if = {
-			limit = {
-				trait = chaste
-				religion_group = muslim
-			}
-			hidden_tooltip = {
-				character_event = {
-					id = 5070 #Hedonism/Poetry
-					days = 30
-					random = 30
-				}
-			}
-		}
-	}
 }
 
 #Friend is asked by ROOT about hedonism
@@ -8708,13 +8674,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA100251
+		name = EVTOPTA100251 #He/She would never forgive me...
 		FROM = {
-			opinion = {
-				modifier = opinion_confused
-				who = ROOT
-				years = 2
-			}
 			character_event = {
 				id = 100253
 				days = 7
@@ -8724,7 +8685,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTB100251
+		name = EVTOPTB100251 #Convincing him/her will be a piece of cake...
 		FROM = {
 			character_event = {
 				id = 100254
@@ -8764,6 +8725,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA100253
+		clr_character_flag = LE_ST
 		opinion = {
 			modifier = opinion_confused
 			who = FROM
@@ -8782,16 +8744,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA100254
-		character_event = {
-			id = 5061 #Hedonism
-			days = 7
-			random = 7
-			tooltip = EVTTOOLTIP5061 #Onwards - to hedonism!
+		clr_character_flag = LE_ST
+		add_trait = hedonist
+		if = {
+			limit = { has_character_modifier = sweet_temptation }
+			remove_character_modifier = sweet_temptation
 		}
 	}
 	option = {
 		name = EVTOPTB100253
 		prestige = 5
+		clr_character_flag = LE_ST
 	}
 }
 
@@ -8815,12 +8778,11 @@ character_event = {
 		NOT = {
 			has_character_flag = LE_ST
 		}
-		#num_of_children = 1
 		any_friend = {
 			war = no
 			in_command = no
 			prisoner = no
-			#trait = scholar
+			trait = scholar
 		}
 	}
 	
@@ -8847,7 +8809,8 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA100260
+		name = EVTOPTA100260 #My friend, tell me more about the scholars!
+		set_character_flag = LE_ST
 		random_friend = {
 			limit = {
 				war = no
@@ -8864,7 +8827,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTB100260
+		name = EVTOPTB100260 #It sounds incredibly boring
 		random_friend = {
 			limit = {
 				war = no
@@ -8888,19 +8851,15 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTC100260
+		name = EVTOPTC100260 #I need more time to study so I can impress the group of scholars!
+		trigger = {
+			learning = 15
+		}
 		prestige = 5
+		add_trait = scholar
 		if = {
-			limit = {
-				learning = 15
-			}
-			hidden_tooltip = {
-				character_event = {
-					id = 5000 #Scholar/Mystic
-					days = 30
-					random = 30
-				}
-			}
+			limit = { has_character_modifier = illumination }
+			remove_character_modifier = illumination
 		}
 	}
 }
@@ -8915,13 +8874,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA100261
+		name = EVTOPTA100261 #Being a scholar requires dedication, and you don't have it
 		FROM = {
-			opinion = {
-				modifier = opinion_sad
-				who = ROOT
-				years = 2
-			}
 			character_event = {
 				id = 100263
 				days = 7
@@ -8931,7 +8885,7 @@ character_event = {
 		}
 	}
 	option = {
-		name = EVTOPTB100261
+		name = EVTOPTB100261 #Let me tell you why I became a scholar and then you can decide
 		FROM = {
 			character_event = {
 				id = 100264
@@ -8971,6 +8925,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA100263
+		clr_character_flag = LE_ST
 		opinion = {
 			modifier = opinion_sad
 			who = FROM
@@ -8979,7 +8934,7 @@ character_event = {
 	}
 }
 
-#ROOT is told about about scholar by friend
+#ROOT is told about scholar by friend
 character_event = {
 	id = 100264
 	desc = EVTDESC100264
@@ -8988,16 +8943,16 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = EVTOPTA100264
-		character_event = {
-			id = 5000
-			days = 7
-			random = 7
-			tooltip = EVTTOOLTIP5000 #Scholar/Mystic!
+		name = EVTOPTA100264 #I want this! I want the books, the philosophy - everything!
+		clr_character_flag = LE_ST
+		add_trait = scholar
+		if = {
+			limit = { has_character_modifier = illumination }
+			remove_character_modifier = illumination
 		}
 	}
 	option = {
-		name = EVTOPTB100263
+		name = EVTOPTB100263 #I am not quite ready yet
 		prestige = 5
 	}
 }
@@ -12018,218 +11973,6 @@ letter_event = {
 	option = {
 		name = EVTOPTA100481
 		remove_rival = FROM
-	}
-}
-
-### You have been made aware that your fierce rival is planning rebellious acts ###
-character_event = {
-	id = 100490
-	desc = EVTDESC100490
-	picture = GFX_evt_council
-	
-	min_age = 16
-	capable_only = yes
-	only_rulers = yes
-	prisoner = no
-	
-	trigger = {
-		always = no # v1.07 Does not work with the new faction system
-		
-		war = no
-		in_command = no
-		num_of_rivals = 1
-		independent = no
-		is_plot_active = no
-		any_rival = {
-			war = no
-			is_adult = yes
-			in_command = no
-			prisoner = no
-			is_plot_active = yes
-			is_ruler = yes
-			same_liege = ROOT
-			OR = {
-				leads_faction = faction_succ_seniority
-				leads_faction = faction_succ_primogeniture
-				leads_faction = faction_succ_gavelkind
-				leads_faction = faction_succ_feudal_elective
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 300
-		
-		modifier = {
-			factor = 0.5
-			trait = diligent
-		}
-		
-		modifier = {
-			factor = 2
-			trait = envious
-		}
-	}
-	
-	option = {
-		name = EVTOPTA100490
-		random = {
-			chance = 10
-			if = {
-				limit = {
-					NOT = {
-						num_of_traits = 5
-					}
-					NOT = {
-							trait = ambitious
-						}
-					}
-				add_trait = ambitious
-				hidden_tooltip = {
-					character_event = {
-						id = 38278 #Notify Ambitious
-					}
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						num_of_traits = 5
-					}
-					trait = ambitious
-					NOT = {
-						trait = diligent
-					}
-				}
-				add_trait = diligent
-				hidden_tooltip = {
-					character_event = {
-						id = 38256 #Notify diligent
-					}
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							trait = ambitious
-							trait = diligent
-						}
-						num_of_traits = 4
-					}
-				}
-				change_intrigue = 1				
-			}
-		}
-	}
-	option = {
-		name = EVTOPTB100490
-		random_rival = {
-			limit = {
-				war = no
-				is_adult = yes
-				in_command = no
-				is_ruler = yes
-				same_liege = ROOT
-				prisoner = no
-				
-				OR = {
-					leads_faction = faction_succ_seniority
-					leads_faction = faction_succ_primogeniture
-					leads_faction = faction_succ_gavelkind
-					leads_faction = faction_succ_feudal_elective
-				}
-			}
-			if = {
-				limit = {
-					leads_faction = faction_succ_seniority
-				}
-				ROOT = {
-					back_plot = PREV
-				}
-			}
-			if = {
-				limit = {
-					leads_faction = faction_succ_primogeniture
-				}
-				ROOT = {
-					back_plot = PREV
-				}
-			}
-			if = {
-				limit = {
-					leads_faction = faction_succ_gavelkind
-				}
-				ROOT = {
-					back_plot = PREV
-				}
-			}
-			if = {
-				limit = {
-					leads_faction = faction_succ_feudal_elective
-				}
-				ROOT = {
-					back_plot = PREV
-				}
-			}
-			character_event = {
-				id = 100491
-				days = 7
-				random = 7
-				tooltip = EVTTOOLTIP100491
-			}
-		}
-	}
-}
-
-#Rival is told about ROOT backing the plot
-character_event = {
-	id = 100491
-	desc = EVTDESC100491
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA100491
-		opinion = {
-			modifier = opinion_irritated
-			who = FROM
-			years = 2
-		}
-		FROM = {
-			character_event = {
-				id = 100492
-				tooltip = EVTTOOLTIP100492
-			}
-		}
-	}
-	option = {
-		name = EVTOPTB100491
-		tooltip = {
-			FROM = {
-				back_plot = ROOT
-			}
-		}
-		opinion = {
-			modifier = opinion_gained_respect
-			who = FROM
-			years = 2
-		}
-	}
-}
-
-#ROOT leaves Rival's plot
-character_event = {
-	id = 100492
-	desc = EVTDESC100492
-	picture = GFX_evt_council
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA100492
-		leave_plot = FROM
 	}
 }
 

@@ -13,7 +13,6 @@ province_event = {
 
 	option = {
 		name = "EVTOPTA1000182319" # Make it the greatest temple there ever was!
-		wealth = -1000
 	}
 }
 
@@ -89,15 +88,17 @@ province_event = {
 
 	option = {
 		name = "EVTOPTA1000182321"
-		795 = {
-			build_holding = {
-			   title = b_luxor
-			   type = temple
-			   holder = FROM
+		owner = {
+			795 = {
+				build_holding = {
+				   title = b_luxor
+				   type = temple
+				   holder = PREV
+				}
 			}
 		}
-		prestige = 500
 		owner = {
+			prestige = 500
 			religion_authority = {
 				modifier = luxor_restored
 				years = 30
