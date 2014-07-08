@@ -399,6 +399,7 @@ decisions = {
 		potential = {
 			is_ruler = yes
 			is_adult = yes
+			in_siege = no
 			OR = {
 				ai = no
 				NOT = { has_character_flag = ai_hunt_cooldown }
@@ -407,147 +408,61 @@ decisions = {
 					days = 730
 				}
 			}
+			OR = {
+				religion_group = christian
+				religion_group = pagan_group
+			}
+			any_demesne_title = {
+				is_occupied = no
+			}
 			NOT = {
+				trait = incapable
+				has_landed_title = e_mongol_empire
+				has_landed_title = e_golden_horde
+				has_landed_title = e_il-khanate
 				has_character_flag = planning_grand_hunt
 				has_character_modifier = holding_grand_hunt
+				has_character_flag = do_not_disturb
 			}
-			primary_title = { tier = COUNT }
-			NOT = { trait = incapable }
-			NOT = { has_character_flag = do_not_disturb }			
+			primary_title = { higher_tier_than = baron }
 		}
 		allow = {
 			war = no
 			wealth = 5
 			NOT = {	health_traits = 1 }
 			prisoner = no
+			scaled_wealth = 0.5
 		}
 		effect = {
-			wealth = -5
+			scaled_wealth = -0.5
 			set_character_flag = planning_grand_hunt
+			set_character_flag = ai_hunt_cooldown
 			hidden_tooltip = {
 				character_event = { id = 36080 }
 			}
-			set_character_flag = ai_hunt_cooldown
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	hold_grand_hunt_1 = {
-		potential = {
-			is_ruler = yes
-			is_adult = yes
-			# OR = {
-				# is_female = no
-				# martial = 10
-			# }
-			OR = {
-				ai = no
-				NOT = { has_character_flag = ai_hunt_cooldown }
-				had_character_flag = {
-					flag = ai_hunt_cooldown
-					days = 730
-				}
-			}
-			NOT = {
-				has_character_flag = planning_grand_hunt
-				has_character_modifier = holding_grand_hunt
-			}
-			primary_title = { tier = DUKE }
-			NOT = { trait = incapable }
-		}
-		allow = {
-			war = no
-			wealth = 10
-			NOT = {	health_traits = 1 }
-			prisoner = no
-		}
-		effect = {
-			wealth = -10
-			set_character_flag = planning_grand_hunt
-			hidden_tooltip = {
-				character_event = { id = 36080 }
-			}
-			set_character_flag = ai_hunt_cooldown
 		}
 		revoke_allowed = {
 			always = no
 		}
 		ai_will_do = {
 			factor = 1
-
 			modifier = {
 				factor = 0
-				NOT = {
-					wealth = 150
-				}
+				primary_title = { tier = COUNT }
 			}
 			modifier = {
 				factor = 0
-				NOT = {
-					martial = 10
-				}
-			}
-		}
-	}
-
-	hold_grand_hunt_2 = {
-		potential = {
-			is_ruler = yes
-			is_adult = yes
-			# OR = {
-				# is_female = no
-				# martial = 10
-			# }
-			OR = {
-				ai = no
-				NOT = { has_character_flag = ai_hunt_cooldown }
-				had_character_flag = {
-					flag = ai_hunt_cooldown
-					days = 730
-				}
-			}
-			NOT = {
-				has_character_flag = planning_grand_hunt
-				has_character_modifier = holding_grand_hunt
-			}
-			primary_title = { higher_tier_than = DUKE }
-			NOT = { trait = incapable }
-		}
-		allow = {
-			war = no
-			wealth = 20
-			NOT = {	health_traits = 1 }
-			prisoner = no
-		}
-		effect = {
-			wealth = -20
-			set_character_flag = planning_grand_hunt
-			hidden_tooltip = {
-				character_event = { id = 36080 }
-			}
-			set_character_flag = ai_hunt_cooldown
-		}
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 1
-
-			modifier = {
-				factor = 0
-				NOT = {
-					wealth = 200
-				}
+				NOT = { wealth = 150 }
 			}
 			modifier = {
 				factor = 0
 				NOT = {
-					martial = 10
+					OR = {
+						trait = hunter
+						trait = falconer
+						trait = brave
+						martial = 10
+					}
 				}
 			}
 		}

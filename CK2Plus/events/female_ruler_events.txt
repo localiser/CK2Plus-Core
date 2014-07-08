@@ -2426,3 +2426,410 @@ letter_event = {
 		prestige = -5
 	}
 }
+
+########################################
+# Female hunting events
+########################################
+
+#the hunt begins
+character_event = {
+	id = FemRule.150
+	desc = EVTDESC_FemRule_150
+	picture = GFX_evt_grazia
+	
+	min_age =  16
+	capable_only = yes
+	prisoner = no
+	only_women = yes
+	
+	trigger = {
+		has_character_modifier = holding_grand_hunt
+		NOT = {
+			has_character_flag = female_hunt_begin
+			trait = martial_lady
+			trait = shield_maiden
+			trait = martial_lady_tengri
+		}
+		OR = {
+			NOT = { has_character_flag = hunt_event_happened }
+			had_character_flag = {
+				flag = hunt_event_happened
+				days = 3
+			}
+		}
+		had_character_flag = {
+			flag = hunt_begin
+			days = 3
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_150
+		set_character_flag = female_hunt_begin
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 20
+				remove_trait = stressed
+			}
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 20
+				remove_trait = depressed
+			}
+		}
+	}
+}
+
+#the ruler makes a friend on the hunt
+character_event = {
+	id = FemRule.151
+	desc = EVTDESC_FemRule_151
+	picture = GFX_evt_grazia
+	
+	min_age =  16
+	capable_only = yes
+	prisoner = no
+	only_women = yes
+	
+	trigger = {
+		has_character_modifier = holding_grand_hunt
+		has_character_flag = female_hunt_begin
+		NOT = {
+			has_character_flag = made_hunt_friend
+			num_of_friends = 2
+			trait = martial_lady
+			trait = shield_maiden
+			trait = martial_lady_tengri
+		}
+		any_courtier = {
+			is_female = yes
+			religion = ROOT
+			prisoner = no
+			is_adult = yes
+			is_abroad = no
+			NOT = {
+				num_of_friends = 2
+				trait = incapable
+				health_traits = 1
+				is_friend = ROOT
+				is_rival = ROOT
+				trait = martial_lady
+				trait = shield_maiden
+				trait = martial_lady_tengri
+			}
+		}
+		OR = {
+			NOT = { has_character_flag = hunt_event_happened }
+			had_character_flag = {
+				flag = hunt_event_happened
+				days = 3
+			}
+		}
+		had_character_flag = {
+			flag = hunt_begin
+			days = 3
+		}
+	}
+
+	immediate = {
+		set_character_flag = made_hunt_friend
+	}
+	
+	mean_time_to_happen = {
+		days = 100
+		
+		modifier = {
+			factor = 0.33
+			NOT = { has_character_flag = hunt_event_happened }
+		}		
+		modifier = {
+			factor = 1.5
+			has_character_flag = hunt_event_happened
+		}
+		modifier = {
+			factor = 0.75
+			trait = kind
+		}
+		modifier = {
+			factor = 0.75
+			trait = gregarious
+		}
+		modifier = {
+			factor = 1.25
+			trait = cruel
+		}
+		modifier = {
+			factor = 1.25
+			trait = content
+		}
+		modifier = {
+			factor = 1.5
+			trait = shy
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_151 #I value this new friendship
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+		}
+		random_courtier = {
+			limit = {
+				is_female = yes
+				religion = ROOT
+				prisoner = no
+				is_adult = yes
+				is_abroad = no
+				NOT = {
+					num_of_friends = 2
+					trait = incapable
+					health_traits = 1
+					is_friend = ROOT
+					is_rival = ROOT
+					trait = martial_lady
+					trait = shield_maiden
+					trait = martial_lady_tengri
+				}
+			}
+			add_friend = ROOT
+			ROOT = { add_friend = PREV }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_FemRule_151 #It will not outlast the hunt
+		ai_chance = {
+			factor = 30
+		}
+		random_courtier = {
+			limit = {
+				is_female = yes
+				religion = ROOT
+				prisoner = no
+				is_adult = yes
+				is_abroad = no
+				NOT = {
+					num_of_friends = 2
+					trait = incapable
+					health_traits = 1
+					is_friend = ROOT
+					is_rival = ROOT
+					trait = martial_lady
+					trait = shield_maiden
+					trait = martial_lady_tengri
+				}
+			}
+			opinion = {
+				modifier = opinion_acquaintance
+				who = ROOT
+				years = 2
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = gregarious }
+				NOT = { trait = shy }
+			}
+			random = {
+				chance = 20
+				add_trait = shy
+			}
+		}
+		if = {
+			limit = { trait = gregarious }
+			random = {
+				chance = 20
+				remove_trait = gregarious
+			}
+		}
+	}
+}
+
+#the ruler makes a rival on the hunt
+character_event = {
+	id = FemRule.152
+	desc = EVTDESC_FemRule_152
+	picture = GFX_evt_grazia
+	
+	min_age =  16
+	capable_only = yes
+	prisoner = no
+	only_women = yes
+	
+	trigger = {
+		has_character_modifier = holding_grand_hunt
+		has_character_flag = female_hunt_begin
+		NOT = {
+			has_character_flag = made_hunt_rival
+			num_of_rivals = 2
+			trait = martial_lady
+			trait = shield_maiden
+			trait = martial_lady_tengri
+		}
+		any_courtier = {
+			is_female = yes
+			religion = ROOT
+			prisoner = no
+			is_adult = yes
+			is_abroad = no
+			NOT = {
+				num_of_rivals = 2
+				trait = incapable
+				health_traits = 1
+				is_friend = ROOT
+				is_rival = ROOT
+				trait = martial_lady
+				trait = shield_maiden
+				trait = martial_lady_tengri
+			}
+		}
+		OR = {
+			NOT = { has_character_flag = hunt_event_happened }
+			had_character_flag = {
+				flag = hunt_event_happened
+				days = 3
+			}
+		}
+		had_character_flag = {
+			flag = hunt_begin
+			days = 3
+		}
+	}
+	
+	immediate = {
+		set_character_flag = made_hunt_rival
+	}
+	
+	mean_time_to_happen = {
+		days = 100
+		
+		modifier = {
+			factor = 0.33
+			NOT = { has_character_flag = hunt_event_happened }
+		}		
+		modifier = {
+			factor = 1.5
+			has_character_flag = hunt_event_happened
+		}
+		modifier = {
+			factor = 1.5
+			trait = kind
+		}
+		modifier = {
+			factor = 1.5
+			trait = gregarious
+		}
+		modifier = {
+			factor = 0.75
+			trait = cruel
+		}
+		modifier = {
+			factor = 1.25
+			trait = content
+		}
+		modifier = {
+			factor = 0.5
+			trait = envious
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_FemRule_152 #How dare she ruin my hunt!
+		ai_chance = {
+			factor = 70
+		}
+		random_courtier = {
+			limit = {
+				is_female = yes
+				religion = ROOT
+				prisoner = no
+				is_adult = yes
+				is_abroad = no
+				NOT = {
+					num_of_rivals = 2
+					trait = incapable
+					health_traits = 1
+					is_friend = ROOT
+					is_rival = ROOT
+					trait = martial_lady
+					trait = shield_maiden
+					trait = martial_lady_tengri
+				}
+			}
+			add_rival = ROOT
+			ROOT = { add_rival = PREV }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_FemRule_152 #I will grit my teeth and hold my tongue
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				trait = wroth
+			}
+		}
+		random_courtier = {
+			limit = {
+				is_female = yes
+				religion = ROOT
+				prisoner = no
+				is_adult = yes
+				is_abroad = no
+				NOT = {
+					num_of_friends = 2
+					trait = incapable
+					health_traits = 1
+					is_friend = ROOT
+					is_rival = ROOT
+					trait = martial_lady
+					trait = shield_maiden
+					trait = martial_lady_tengri
+				}
+			}
+			reverse_opinion = {
+				modifier = opinion_irritated
+				who = ROOT
+				years = 2
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = stressed }
+			}
+			random = {
+				chance = 20
+				add_trait = stressed
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+				NOT = { trait = patient }
+			}
+			random = {
+				chance = 20
+				add_trait = patient
+			}
+		}
+		if = {
+			limit = { trait = wroth }
+			random = {
+				chance = 20
+				remove_trait = wroth
+			}
+		}
+	}
+}
