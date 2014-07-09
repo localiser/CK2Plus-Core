@@ -3,6 +3,8 @@ christian = {
 	graphical_culture = westerngfx
 	crusade_cb = crusade
 	playable = yes
+	ai_convert_same_group = 1 # try to convert if ai_zeal is high
+	ai_convert_other_group = 2 # always try to convert
 	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
 	# Names given only to Christian characters (base names)
 	male_names = {
@@ -1207,62 +1209,6 @@ pagan_group = {
 		intermarry = finnish_pagan_reformed
 		
 	}
-	aztec_pagan_reformed = { # Reformed Aztec
-		graphical_culture = mesoamericangfx
-		icon = 17
-		color = { 0.95 0.3 0.3 }
-		ai_convert_other_group = 2 # always try to convert		
-		god_names = {
-			GOD_HUITZILOPOCHTLI GOD_XIPE_TOTEC GOD_TEZCATLIPOCA GOD_QUETZALCOATL GOD_TLALOC
-		}
-		evil_god_names = {
-			TLAZOLTEOTL GOD_MICTLANTECUHTLI XOLOTL
-		}
-		unit_modifier = {
-			levy_size = 0.3
-
-			key = "OFF_RELIGION"
-		}
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
-		priest_title = PRIEST
-		priests_can_marry = yes
-		max_consorts = 3
-		can_call_crusade = yes
-		aggression = 2.0 # AI aggression factor
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-		intermarry = aztec_pagan
-	}
-	aztec_pagan = { # Unreformed Aztec
-		graphical_culture = mesoamericangfx
-		icon = 15
-		color = { 0.8 0.2 0.2 }
-		god_names = {
-			GOD_HUITZILOPOCHTLI GOD_XIPE_TOTEC GOD_TEZCATLIPOCA GOD_QUETZALCOATL GOD_TLALOC
-		}
-		evil_god_names = {
-			TLAZOLTEOTL GOD_MICTLANTECUHTLI XOLOTL
-		}
-		unit_modifier = {
-			levy_size = 0.3
-
-			key = "OFF_RELIGION"
-		}
-		crusade_name = GREAT_HOLY_WAR
-		scripture_name = THE_LEGENDS
-		priest_title = PRIEST
-		priests_can_marry = yes
-		peace_prestige_loss = yes # Lose Prestige while at peace
-		raised_vassal_opinion_loss = no
-		max_consorts = 3
-		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
-		reformed = aztec_pagan_reformed
-		aggression = 2.0 # AI aggression factor
-		religious_clothing_head = 3
-		religious_clothing_priest = 3
-		intermarry = aztec_pagan_reformed
-	}	
 	slavic_pagan_reformed = { # Reformed Slavic
 		graphical_culture = norsegfx
 		icon = 23
@@ -1841,4 +1787,71 @@ indian_group = {
 		intermarry = buddhist
 		intermarry = hindu
 	}
+}
+
+mesoamerican_group = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = yes
+	
+	ai_convert_same_group = 1 # Try to convert if ai_zeal is high
+	ai_convert_other_group = 2	# Try to convert if ai_zeal is high
+	aztec_pagan_reformed = { # Reformed Aztec
+		graphical_culture = mesoamericangfx
+		icon = 17
+		color = { 0.95 0.3 0.3 }
+		ai_convert_other_group = 2 # always try to convert		
+		god_names = {
+			GOD_HUITZILOPOCHTLI GOD_XIPE_TOTEC GOD_TEZCATLIPOCA GOD_QUETZALCOATL GOD_TLALOC
+		}
+		evil_god_names = {
+			TLAZOLTEOTL GOD_MICTLANTECUHTLI XOLOTL
+		}
+		unit_modifier = {
+			levy_size = 0.3
+
+			key = "OFF_RELIGION"
+		}
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		priests_can_marry = yes
+		max_consorts = 3
+		can_call_crusade = yes
+		aggression = 2.0 # AI aggression factor
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		intermarry = aztec_pagan
+	}
+	aztec_pagan = { # Unreformed Aztec
+		graphical_culture = mesoamericangfx
+		icon = 15
+		color = { 0.8 0.2 0.2 }
+		god_names = {
+			GOD_HUITZILOPOCHTLI GOD_XIPE_TOTEC GOD_TEZCATLIPOCA GOD_QUETZALCOATL GOD_TLALOC
+		}
+		evil_god_names = {
+			TLAZOLTEOTL GOD_MICTLANTECUHTLI XOLOTL
+		}
+		unit_modifier = {
+			levy_size = 0.3
+
+			key = "OFF_RELIGION"
+		}
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		priests_can_marry = yes
+		peace_prestige_loss = yes # Lose Prestige while at peace
+		raised_vassal_opinion_loss = no
+		max_consorts = 3
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		reformed = aztec_pagan_reformed
+		aggression = 2.0 # AI aggression factor
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		intermarry = aztec_pagan_reformed
+	}	
 }

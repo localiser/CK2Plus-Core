@@ -17,10 +17,8 @@ obj_become_chancellor = {
 		prisoner = no
 		is_adult = yes
 		is_councillor = no
+		independent = no
 		diplomacy = 8
-		liege = {
-			NOT = { character = ROOT }
-		}
 		OR = {
 			is_female = no
 			liege = {
@@ -28,10 +26,13 @@ obj_become_chancellor = {
 					has_law = true_cognatic_succession
 				}
 			}
+			AND = {
+				religion = cathar
+				liege = { religion = cathar }
+			}
 		}
 		NOT = { trait = incapable }
 		NOT = { has_character_flag = obj_become_councillor }
-		diplomacy = 10
 	}
 	chance = {
 		factor = 100
@@ -116,6 +117,23 @@ obj_become_chancellor = {
 				NOT = { has_job_title = job_chancellor }
 			}
 			liege = { spouse = { character = FROM } }
+			AND = {
+				is_female = yes
+				OR = {
+					NOT = {
+						liege = {
+							OR = {
+								religion = cathar
+								has_law = true_cognatic_succession
+							}
+					}
+					AND = {
+						NOT = { religion = cathar }
+						NOT = { liege = { has_law = true_cognatic_succession } }
+					}
+				}
+			}
+			trait = incapable
 		}
 	}
 	abort_effect = {
@@ -150,6 +168,10 @@ obj_become_marshal = {
 		independent = no
 		OR = {
 			is_female = no
+			AND = {
+				religion = cathar
+				liege = { religion = cathar }
+			}
 			liege = {
 				primary_title = {
 					has_law = true_cognatic_succession
@@ -243,6 +265,23 @@ obj_become_marshal = {
 				NOT = { has_job_title = job_marshal }
 			}
 			liege = { spouse = { character = FROM } }
+AND = {
+				is_female = yes
+				OR = {
+					NOT = {
+						liege = {
+							OR = {
+								religion = cathar
+								has_law = true_cognatic_succession
+							}
+					}
+					AND = {
+						NOT = { religion = cathar }
+						NOT = { liege = { has_law = true_cognatic_succession } }
+					}
+				}
+			}
+			trait = incapable
 		}
 	}
 	abort_effect = {
@@ -278,6 +317,10 @@ obj_become_treasurer = {
 		OR = {
 			is_female = no
 			liege = { has_law = true_cognatic_succession }
+			AND = {
+				religion = cathar
+				liege = { religion = cathar }
+			}
 		}
 		OR = {
 			is_female = no

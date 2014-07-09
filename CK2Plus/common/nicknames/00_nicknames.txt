@@ -810,7 +810,7 @@ nick_priest_hater = {
 		NOT = { piety = -100 }
 		trait = cynical
 		NOT = { religion = buddhist }
-		NOT = { religion = jain }		
+		NOT = { religion = jain }
 	}
 	chance = {
 		factor = 1
@@ -857,6 +857,7 @@ nick_the_pious = {
 	allow = {
 		age = 20
 		piety = 1000
+		NOT = { religion_group = indian_group }
 	}
 	chance = {
 		factor = 1
@@ -883,7 +884,10 @@ nick_the_apostle = {
 	allow = {
 		age = 20
 		piety = 1000
-		NOT = { religion_group = zoroastrian_group }
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+		}
 	}
 	chance = {
 		factor = 1
@@ -910,7 +914,11 @@ nick_the_blessed = {
 	allow = {
 		age = 20
 		piety = 1000
-		NOT = { religion_group = zoroastrian_group }
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+		}
 	}
 	chance = {
 		factor = 1
@@ -3678,6 +3686,10 @@ nick_the_heathen = {
 		modifier = {
 			factor = 0.1
 			liege = { NOT = { religion_group = pagan_group } }
+		}
+		modifier = {
+			factor = 5 #OBJGETNICK
+			has_ambition = obj_get_nick
 		}
 	}
 }

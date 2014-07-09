@@ -257,10 +257,10 @@ title_regent = {
 
 title_ruler_consort = {
 	dignity = 0.88
-	revoke_allowed = no
 	show_as_title = yes
 	realm_in_name = yes
-	spouse_context = yes
+	spouse_context = yes # Title name as if the other gender version of the spouse's ruler title
+	revoke_allowed = no
 
 	monthly_salary = 0.05
 	monthly_prestige = 0.025
@@ -276,10 +276,10 @@ title_ruler_consort = {
 
 title_tanist = {
 	dignity = 0.86
-	revoke_allowed = no
 	show_as_title = yes
 	realm_in_name = yes
-
+	revoke_allowed = no
+	
 	monthly_salary = 0.07
 	monthly_prestige = 0.02
 
@@ -293,9 +293,9 @@ title_tanist = {
 
 title_queen_mother = {
 	dignity = 0.85
-	revoke_allowed = no
 	show_as_title = yes
 	realm_in_name = yes
+	revoke_allowed = no
 
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
@@ -310,9 +310,9 @@ title_queen_mother = {
 
 title_prince = {
 	dignity = 0.8
-	revoke_allowed = no
 	show_as_title = yes
 	realm_in_name = yes
+	revoke_allowed = no
 
 	monthly_salary = 0.025
 	monthly_prestige = 0.01
@@ -328,8 +328,8 @@ title_prince = {
 # Pagan consort
 title_courtesan = {
 	dignity = 0.05
-	revoke_allowed = no
 	realm_in_name = yes
+	revoke_allowed = no
 	
 	monthly_salary = 0.02
 	monthly_prestige = 0.01
@@ -392,7 +392,7 @@ title_court_dwarf = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -456,7 +456,7 @@ title_court_jester = {
 	monthly_prestige = -0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -472,7 +472,8 @@ title_court_jester = {
 			OR = {
 				religion_group = christian
 				religion_group = jewish_group
-				religion = hellenic_pagan
+				religion_group = pagan_group
+				religion_group = indian_group
 			}
 		}
 		NOT = {
@@ -498,12 +499,12 @@ title_court_jester = {
 			has_minor_title = title_flamen_dialis
 			has_minor_title = title_flamen_martialis
 			has_minor_title = title_flamen_quirinalis
-		}
-		NOT = { has_minor_title = title_master_of_the_royal_elephants }
-		NOT = { has_minor_title = title_court_poet_india }
-		NOT = { has_minor_title = title_court_musician }
-		NOT = { has_minor_title = title_royal_builder }
-		NOT = { has_character_flag = guru }		
+			has_minor_title = title_master_of_the_royal_elephants
+			has_minor_title = title_court_poet_india
+			has_minor_title = title_court_musician
+			has_minor_title = title_royal_builder
+			has_character_flag = guru
+		}	
 	}
 
 	gain_effect = {
@@ -525,7 +526,7 @@ title_keeper_of_swans = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -584,7 +585,7 @@ title_master_of_the_horse = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -656,7 +657,7 @@ title_master_of_the_hunt = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -670,6 +671,7 @@ title_master_of_the_hunt = {
 				religion_group = christian
 				religion_group = pagan_group
 				religion_group = jewish_group
+				religion_group = indian_group
 			}
 		}
 		NOT = {
@@ -705,13 +707,13 @@ title_master_of_the_hunt = {
 			has_minor_title = title_ishad
 			has_minor_title = title_kundur
 			has_minor_title = title_venerable_elder
-			has_minor_title = title_yabgu			
+			has_minor_title = title_yabgu
+			has_minor_title = title_master_of_the_royal_elephants
+			has_minor_title = title_court_poet_india
+			has_minor_title = title_court_musician
+			has_minor_title = title_royal_builder
+			has_character_flag = guru		
 		}
-		NOT = { has_minor_title = title_master_of_the_royal_elephants }
-		NOT = { has_minor_title = title_court_poet_india }
-		NOT = { has_minor_title = title_court_musician }
-		NOT = { has_minor_title = title_royal_builder }
-		NOT = { has_character_flag = guru }		
 	}
 
 	gain_effect = {
@@ -732,7 +734,7 @@ title_high_almoner = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -785,7 +787,7 @@ title_cupbearer = {
 	monthly_prestige = 0.02
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -793,6 +795,8 @@ title_cupbearer = {
 		is_female = no
 		FROM = {
 			is_feudal = yes
+			NOT = { has_landed_title = e_byzantium }
+			NOT = { has_landed_title = e_roman_empire }
 			OR = {
 				religion_group = christian
 				religion_group = pagan_group
@@ -838,7 +842,12 @@ title_cupbearer = {
 			has_minor_title = title_ishad
 			has_minor_title = title_kundur
 			has_minor_title = title_venerable_elder
-			has_minor_title = title_yabgu			
+			has_minor_title = title_yabgu
+			has_minor_title = title_master_of_the_royal_elephants
+			has_minor_title = title_court_poet_india
+			has_minor_title = title_court_musician
+			has_minor_title = title_royal_builder
+			has_character_flag = guru			
 		}
 	}
 
@@ -860,7 +869,7 @@ title_seneschal = {
 	monthly_prestige = 0.015
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -880,6 +889,7 @@ title_seneschal = {
 				religion_group = christian
 				religion_group = pagan_group
 				religion_group = jewish_group
+				religion_group = indian_group
 			}
 		}
 		NOT = {
@@ -915,13 +925,13 @@ title_seneschal = {
 			has_minor_title = title_ishad
 			has_minor_title = title_kundur
 			has_minor_title = title_venerable_elder
-			has_minor_title = title_yabgu			
+			has_minor_title = title_yabgu
+			has_minor_title = title_master_of_the_royal_elephants
+			has_minor_title = title_court_poet_india
+			has_minor_title = title_court_musician
+			has_minor_title = title_royal_builder
+			has_character_flag = guru			
 		}
-		NOT = { has_minor_title = title_master_of_the_royal_elephants }
-		NOT = { has_minor_title = title_court_poet_india }
-		NOT = { has_minor_title = title_court_musician }
-		NOT = { has_minor_title = title_royal_builder }
-		NOT = { has_character_flag = guru }		
 	}
 
 	gain_effect = {
@@ -970,9 +980,13 @@ title_despot = {
 			}
 			OR = {
 				religion_group = christian
+				religion_group = jewish_group
 				religion = hellenic_pagan
 			}
 		}
+		NOT = { has_minor_title = title_sebastokrator }
+		NOT = { has_minor_title = title_caesar }
+		NOT = { has_minor_title = title_kouropalates }
 	}
 
 	gain_effect = {
@@ -995,7 +1009,6 @@ title_sebastokrator = {
 	allow = {
 		is_close_relative = FROM
 		FROM = {
-			is_female = no
 			is_feudal = yes
 			OR = {
 				has_landed_title = e_byzantium
@@ -1003,6 +1016,7 @@ title_sebastokrator = {
 			}
 			OR = {
 				religion_group = christian
+				religion_group = jewish_group
 				religion = hellenic_pagan
 			}
 		}
@@ -1052,7 +1066,6 @@ title_caesar = {
 
 	allow = {
 		FROM = {
-			is_female = no
 			is_feudal = yes
 			OR = {
 				has_landed_title = e_byzantium
@@ -1060,6 +1073,7 @@ title_caesar = {
 			}
 			OR = {
 				religion_group = christian
+				religion_group = jewish_group
 				religion = hellenic_pagan
 			}
 		}
@@ -1108,7 +1122,7 @@ title_kouropalates = {
 	monthly_prestige = 0.05
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1122,6 +1136,7 @@ title_kouropalates = {
 			}
 			OR = {
 				religion_group = christian
+				religion_group = jewish_group
 				religion = hellenic_pagan
 			}
 		}
@@ -1170,7 +1185,7 @@ title_anthypatos = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1184,6 +1199,7 @@ title_anthypatos = {
 			}
 			OR = {
 				religion_group = christian
+				religion_group = jewish_group
 				religion = hellenic_pagan
 			}
 		}
@@ -1231,18 +1247,19 @@ title_imperial_eunuch = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		is_female = no
 		trait = eunuch
 		FROM = {
 			is_feudal = yes
 			OR = {
-				has_landed_title = e_byzantium
-				has_landed_title = e_roman_empire
+				religion_group = christian
+				religion_group = jewish_group
+				religion = hellenic_pagan
 			}
 			OR = {
-				religion_group = christian
-				religion = hellenic_pagan
+				has_landed_title = e_byzantium
+				has_landed_title = e_roman_empire
 			}
 		}
 		NOT = {
@@ -1292,7 +1309,7 @@ title_food_taster = {
 	monthly_prestige = -0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1347,7 +1364,7 @@ title_court_calligrapher = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1402,7 +1419,7 @@ title_court_musician = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1456,7 +1473,7 @@ title_court_poet = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1505,7 +1522,7 @@ title_chief_architect = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		OR = {
 			prisoner = no
 			host = { NOT = { is_liege_of = ROOT } }
@@ -1553,7 +1570,7 @@ title_chief_qadi = {
 	monthly_prestige = 0.01
 
 	allow = {
-		is_marriage_adult = yes
+		is_adult = yes
 		is_female = no
 		FROM = {
 			is_feudal = yes
