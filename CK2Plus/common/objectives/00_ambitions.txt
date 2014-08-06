@@ -105,9 +105,11 @@ obj_become_chancellor = {
 			diplomacy = 20
 		}
 	}
+	
 	success = {
 		has_job_title = job_chancellor
 	}
+	
 	abort = {
 		OR = {
 			prisoner = yes
@@ -126,34 +128,36 @@ obj_become_chancellor = {
 								religion = cathar
 								has_law = true_cognatic_succession
 							}
+						}
 					}
 					AND = {
 						NOT = { religion = cathar }
 						NOT = { liege = { has_law = true_cognatic_succession } }
 					}
 				}
-			}
 			trait = incapable
-		}
-		}
-		abort_effect = {
-			set_character_flag = obj_aborted
-			clr_character_flag = obj_check
-		}
-		effect = {
-			if = {
-				limit = {
-					NOT = { has_character_flag = obj_become_councillor }
-				}
-				change_diplomacy = 1
 			}
-			opinion = {
-				who = liege
-				modifier = opinion_ambition_fulfilled
-				months = 120
-			}
-			set_character_flag = obj_become_councillor
 		}
+	}
+	
+	abort_effect = {
+		set_character_flag = obj_aborted
+		clr_character_flag = obj_check
+	}
+	
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = obj_become_councillor }
+			}
+			change_diplomacy = 1
+		}
+		opinion = {
+			who = liege
+			modifier = opinion_ambition_fulfilled
+			months = 120
+		}
+		set_character_flag = obj_become_councillor
 	}
 }
 
